@@ -3,7 +3,7 @@
 Critical fixes from v4:
 
 1. Positions endpoint returns metadata only (no live marks).
-   We now also call /marketdata/by-type to fetch live bid/ask/mark for each
+   We now also call /market-data/by-type to fetch live bid/ask/mark for each
    option leg, then merge those into the position objects.
 
 2. The 'quantity' field is unsigned. The direction lives in
@@ -185,7 +185,7 @@ class TastytradeClient:
     # Market data: fetch quotes for symbols
     # ────────────────────────────────────────────────────────────────
     def fetch_option_quotes(self, symbols: list[str]) -> dict[str, dict]:
-        """Fetch live quotes for option symbols via /marketdata/by-type.
+        """Fetch live quotes for option symbols via /market-data/by-type.
 
         Returns: dict mapping symbol -> {bid, ask, mark, last, updated_at}
         """
@@ -195,7 +195,7 @@ class TastytradeClient:
         try:
             # tastytrade's by-type endpoint accepts comma-separated symbols per asset type
             data = self._get(
-                "/marketdata/by-type",
+                "/market-data/by-type",
                 params={"equity-option": ",".join(symbols)},
             )
             items = data.get("data", {}).get("items", [])
