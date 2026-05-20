@@ -31,19 +31,38 @@
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
-  .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
 
-  /* ─── header ──────────────────────────────────────────────────────── */
-  header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+  header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; }
   .brand { display: flex; align-items: baseline; gap: 0.75rem; }
   .brand h1 { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 1.25rem; margin: 0; letter-spacing: -0.02em; }
   .brand .dot { color: var(--cherry); font-size: 1.5rem; line-height: 0; }
   .brand .sub { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--fg-dim); text-transform: uppercase; letter-spacing: 0.1em; }
-  .meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--fg-dim); text-align: right; }
-  .meta .status-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--green); margin-right: 0.4rem; animation: pulse 2s infinite; }
+  .header-right { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--fg-dim); text-align: right; }
+
+  .staleness {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--green);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-left-color 0.3s;
+  }
+  .staleness.fresh   { border-left-color: var(--green); }
+  .staleness.stale   { border-left-color: var(--amber); }
+  .staleness.veryold { border-left-color: var(--cherry); }
+  .staleness-main { font-family: 'IBM Plex Mono', monospace; font-size: 1rem; font-weight: 500; }
+  .staleness.fresh .staleness-main   { color: var(--green); }
+  .staleness.stale .staleness-main   { color: var(--amber); }
+  .staleness.veryold .staleness-main { color: var(--cherry); }
+  .staleness-sub { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--fg-dim); margin-top: 0.25rem; }
+  .staleness-right { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--fg-faint); text-align: right; line-height: 1.6; }
+  .pulse-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: currentColor; margin-right: 0.5rem; animation: pulse 2s infinite; vertical-align: middle; }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-  /* ─── hero P&L ────────────────────────────────────────────────────── */
   .hero { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 1px; }
   .hero > div { background: var(--bg-card); padding: 1.5rem 1.25rem; }
   .hero .label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-dim); margin-bottom: 0.75rem; }
@@ -52,13 +71,11 @@
   .hero .sub-value { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; color: var(--fg-dim); margin-top: 0.4rem; font-variant-numeric: tabular-nums; }
   .hero .primary .label { color: var(--cherry); }
 
-  /* ─── secondary row ───────────────────────────────────────────────── */
   .secondary { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-top: none; margin-bottom: 2rem; }
   .secondary > div { background: var(--bg-card); padding: 1rem 1.25rem; }
   .secondary .label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-dim); margin-bottom: 0.4rem; }
   .secondary .value { font-family: 'IBM Plex Mono', monospace; font-size: 1.1rem; font-weight: 400; font-variant-numeric: tabular-nums; }
 
-  /* ─── positions table ─────────────────────────────────────────────── */
   .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-dim); margin-bottom: 0.75rem; display: flex; justify-content: space-between; align-items: center; }
   .section-label .hint { font-size: 0.65rem; color: var(--fg-faint); text-transform: none; letter-spacing: 0.02em; }
 
@@ -89,6 +106,8 @@
     .hero .value { font-size: 1.5rem; }
     th, td { padding: 0.6rem 0.5rem; font-size: 0.75rem; }
     .container { padding: 1rem; }
+    .staleness { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .staleness-right { text-align: left; }
   }
 </style>
 </head>
@@ -101,10 +120,19 @@
       <h1>theta-engine</h1>
       <span class="sub">live</span>
     </div>
-    <div class="meta" id="meta">
-      <span class="status-dot"></span><span id="status-text">connecting…</span>
-    </div>
+    <div class="header-right" id="today-date">—</div>
   </header>
+
+  <div class="staleness fresh" id="staleness-banner">
+    <div>
+      <div class="staleness-main"><span class="pulse-dot"></span><span id="staleness-text">Loading…</span></div>
+      <div class="staleness-sub" id="staleness-sub">Bot polls every 15 min during market hours · Dashboard refreshes every 60s</div>
+    </div>
+    <div class="staleness-right">
+      <div>Bot poll: <span id="bot-poll-iso">—</span></div>
+      <div>Browser refresh: <span id="browser-refresh-iso">—</span></div>
+    </div>
+  </div>
 
   <div id="root">
     <div class="loading">Fetching state from gist…</div>
@@ -118,49 +146,53 @@
 </div>
 
 <script>
-// ─── config ──────────────────────────────────────────────────────────
 const GIST_ID = '08e2cb50b3a645e9569617a6298ee987';
 const FILE = 'last_poll.json';
-const REFRESH_MS = 60_000;  // 60s = 60/hr, stays under unauthenticated GH API rate limit
+const REFRESH_MS = 60_000;
+const STALE_THRESHOLD_MIN = 16;
+const VERY_STALE_THRESHOLD_MIN = 60;
 
-// ─── formatters ──────────────────────────────────────────────────────
 const $ = (n, d = 2) => {
   if (n == null || isNaN(n)) return '—';
   const sign = n < 0 ? '-' : '';
   return sign + '$' + Math.abs(n).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
 };
 const $0 = (n) => $(n, 0);
-const pct = (n, d = 1) => {
-  if (n == null || isNaN(n)) return '—';
-  return (n * 100).toFixed(d) + '%';
-};
-const signPct = (n) => {
-  if (n == null || isNaN(n)) return '—';
-  return (n >= 0 ? '+' : '') + (n * 100).toFixed(2) + '%';
-};
-const signMoney = (n, d = 2) => {
-  if (n == null || isNaN(n)) return '—';
-  return (n >= 0 ? '+' : '') + $(n, d).replace('-', '');
-};
+const pct = (n, d = 1) => (n == null || isNaN(n)) ? '—' : (n * 100).toFixed(d) + '%';
+const signPct = (n) => (n == null || isNaN(n)) ? '—' : (n >= 0 ? '+' : '') + (n * 100).toFixed(2) + '%';
+const signMoney = (n, d = 2) => (n == null || isNaN(n)) ? '—' : (n >= 0 ? '+' : '') + $(n, d).replace('-', '');
 const cls = (n) => (n == null || isNaN(n)) ? 'dim' : (n >= 0 ? 'pos' : 'neg');
 
 const fmtRelTime = (iso) => {
   if (!iso) return '—';
-  const now = new Date();
-  const then = new Date(iso);
-  const diffMs = now - then;
-  const min = Math.floor(diffMs / 60_000);
-  if (min < 1) return 'just now';
-  if (min < 60) return `${min}m ago`;
+  const sec = Math.floor((new Date() - new Date(iso)) / 1000);
+  if (sec < 60) return `${sec}s ago`;
+  const min = Math.floor(sec / 60);
+  if (min < 60) return `${min} min ago`;
   const hr = Math.floor(min / 60);
   if (hr < 24) return `${hr}h ${min % 60}m ago`;
-  return then.toLocaleString();
+  return `${Math.floor(hr / 24)}d ${hr % 24}h ago`;
 };
 
-// ─── data fetch ──────────────────────────────────────────────────────
+const fmtAbsTime = (iso) => {
+  if (!iso) return '—';
+  return new Date(iso).toLocaleString('en-US', {
+    weekday: 'short', month: 'short', day: 'numeric',
+    hour: 'numeric', minute: '2-digit', hour12: true
+  });
+};
+
+const fmtToday = () => new Date().toLocaleString('en-US', {
+  weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
+  hour: 'numeric', minute: '2-digit', hour12: true
+});
+
+const minutesAgo = (iso) => iso ? Math.floor((new Date() - new Date(iso)) / 60000) : Infinity;
+
 async function loadGist() {
   const res = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
-    headers: { 'Accept': 'application/vnd.github+json' }
+    headers: { 'Accept': 'application/vnd.github+json' },
+    cache: 'no-store'
   });
   if (!res.ok) throw new Error(`gist API: HTTP ${res.status}`);
   const gist = await res.json();
@@ -169,7 +201,6 @@ async function loadGist() {
   return JSON.parse(file.content);
 }
 
-// ─── schema accessors (handle both v1 and v2) ────────────────────────
 function readMetrics(m) {
   if (!m) return {};
   return {
@@ -186,14 +217,41 @@ function readMetrics(m) {
   };
 }
 
-// ─── render ──────────────────────────────────────────────────────────
+function updateStaleness(lastPollIso) {
+  const banner = document.getElementById('staleness-banner');
+  const text = document.getElementById('staleness-text');
+  const sub = document.getElementById('staleness-sub');
+  const isoEl = document.getElementById('bot-poll-iso');
+  const browserEl = document.getElementById('browser-refresh-iso');
+  const minAgo = minutesAgo(lastPollIso);
+
+  banner.classList.remove('fresh', 'stale', 'veryold');
+  if (minAgo < STALE_THRESHOLD_MIN) {
+    banner.classList.add('fresh');
+    text.textContent = `LIVE · Bot last polled ${fmtRelTime(lastPollIso)}`;
+    sub.textContent = `Data is current · Bot polls every 15 min during market hours`;
+  } else if (minAgo < VERY_STALE_THRESHOLD_MIN) {
+    banner.classList.add('stale');
+    text.textContent = `STALE · Bot last polled ${fmtRelTime(lastPollIso)}`;
+    sub.textContent = `Older than the 15-min cron interval — bot may have missed a cycle`;
+  } else {
+    banner.classList.add('veryold');
+    text.textContent = `⚠ STALE · Bot last polled ${fmtRelTime(lastPollIso)}`;
+    sub.textContent = `Significantly out of date — workflow may be failing. Check Actions tab.`;
+  }
+  isoEl.textContent = fmtAbsTime(lastPollIso);
+  browserEl.textContent = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
+}
+
 function render(d) {
   const a = d.account || {};
   const trades = d.trades || [];
 
+  updateStaleness(d.last_poll_at);
+  document.getElementById('today-date').textContent = fmtToday();
+
   const bprUsed = trades.reduce((s, t) => s + (t.bpr_total || 0), 0);
   const bprPctOfNet = a.net_liquidating_value ? bprUsed / a.net_liquidating_value : 0;
-
   const pnl = a.cumulative_pnl;
   const pnlPct = a.cumulative_pct;
 
@@ -241,15 +299,8 @@ function render(d) {
     <table>
       <thead>
         <tr>
-          <th>Trade</th>
-          <th>DTE</th>
-          <th>Credit</th>
-          <th>Cost mid</th>
-          <th>Cost worst</th>
-          <th>P&L (mid)</th>
-          <th>P&L (worst)</th>
-          <th>% captured</th>
-          <th>Action</th>
+          <th>Trade</th><th>DTE</th><th>Credit</th><th>Cost mid</th><th>Cost worst</th>
+          <th>P&L (mid)</th><th>P&L (worst)</th><th>% captured</th><th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -261,9 +312,7 @@ function render(d) {
                          : 'pill-close';
           return `
             <tr>
-              <td>
-                <span class="ticker">${t.underlying}</span><span class="strikes">${t.short_strike}/${t.long_strike}p · ${t.expiry || ''}</span>
-              </td>
+              <td><span class="ticker">${t.underlying}</span><span class="strikes">${t.short_strike}/${t.long_strike}p · ${t.expiry || ''}</span></td>
               <td>${m.dte ?? '—'}</td>
               <td>${$(t.credit_per_contract, 2)}</td>
               <td>${m.has_quotes ? $(m.cost_mid, 2) : '<span class="dim">—</span>'}</td>
@@ -280,7 +329,6 @@ function render(d) {
   `;
 
   document.getElementById('root').innerHTML = html;
-  document.getElementById('status-text').textContent = `last poll ${fmtRelTime(d.last_poll_at)}`;
   document.getElementById('footer-time').textContent = `client refreshed ${new Date().toLocaleTimeString()}`;
 }
 
@@ -290,12 +338,18 @@ async function tick() {
     render(d);
   } catch (e) {
     document.getElementById('root').innerHTML = `<div class="error">⚠ ${e.message}</div>`;
-    document.getElementById('status-text').textContent = 'error';
+    document.getElementById('staleness-text').textContent = `error fetching gist`;
+    document.getElementById('staleness-banner').classList.remove('fresh', 'stale');
+    document.getElementById('staleness-banner').classList.add('veryold');
   }
 }
 
 tick();
 setInterval(tick, REFRESH_MS);
+setInterval(() => {
+  document.getElementById('browser-refresh-iso').textContent =
+    new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
+}, 10_000);
 </script>
 </body>
 </html>
