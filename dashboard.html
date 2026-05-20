@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>theta-engine — dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0a0a0a;
+    --bg-card:   #131313;
+    --border:    #222;
+    --border-soft: #1a1a1a;
+    --fg:        #e8e8e8;
+    --fg-dim:    #888;
+    --fg-faint:  #555;
+    --cherry:    #e63946;
+    --green:     #4ade80;
+    --red:       #f87171;
+    --amber:     #fbbf24;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+  /* ─── header ──────────────────────────────────────────────────────── */
+  header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+  .brand { display: flex; align-items: baseline; gap: 0.75rem; }
+  .brand h1 { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 1.25rem; margin: 0; letter-spacing: -0.02em; }
+  .brand .dot { color: var(--cherry); font-size: 1.5rem; line-height: 0; }
+  .brand .sub { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--fg-dim); text-transform: uppercase; letter-spacing: 0.1em; }
+  .meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--fg-dim); text-align: right; }
+  .meta .status-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--green); margin-right: 0.4rem; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  /* ─── hero P&L ────────────────────────────────────────────────────── */
+  .hero { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 1px; }
+  .hero > div { background: var(--bg-card); padding: 1.5rem 1.25rem; }
+  .hero .label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-dim); margin-bottom: 0.75rem; }
+  .hero .value { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 2.25rem; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .hero .value.small { font-size: 1.5rem; }
+  .hero .sub-value { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; color: var(--fg-dim); margin-top: 0.4rem; font-variant-numeric: tabular-nums; }
+  .hero .primary .label { color: var(--cherry); }
+
+  /* ─── secondary row ───────────────────────────────────────────────── */
+  .secondary { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-top: none; margin-bottom: 2rem; }
+  .secondary > div { background: var(--bg-card); padding: 1rem 1.25rem; }
+  .secondary .label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-dim); margin-bottom: 0.4rem; }
+  .secondary .value { font-family: 'IBM Plex Mono', monospace; font-size: 1.1rem; font-weight: 400; font-variant-numeric: tabular-nums; }
+
+  /* ─── positions table ─────────────────────────────────────────────── */
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-dim); margin-bottom: 0.75rem; display: flex; justify-content: space-between; align-items: center; }
+  .section-label .hint { font-size: 0.65rem; color: var(--fg-faint); text-transform: none; letter-spacing: 0.02em; }
+
+  table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); font-variant-numeric: tabular-nums; }
+  th, td { padding: 0.85rem 1rem; text-align: right; border-bottom: 1px solid var(--border-soft); font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
+  th { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-dim); font-weight: 500; border-bottom: 1px solid var(--border); }
+  th:first-child, td:first-child { text-align: left; }
+  tr:last-child td { border-bottom: none; }
+  td .ticker { color: var(--fg); font-weight: 600; }
+  td .strikes { color: var(--fg-dim); margin-left: 0.5rem; }
+
+  .pos { color: var(--green); }
+  .neg { color: var(--red); }
+  .dim { color: var(--fg-dim); }
+
+  .pill { display: inline-block; padding: 3px 8px; font-size: 0.65rem; font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; border: 1px solid; }
+  .pill-hold   { color: var(--fg-dim); border-color: var(--border); }
+  .pill-close  { color: var(--green); border-color: var(--green); }
+  .pill-urgent { color: var(--cherry); border-color: var(--cherry); background: rgba(230,57,70,0.08); }
+
+  .error { color: var(--red); padding: 1.5rem; border: 1px solid var(--red); background: rgba(248,113,113,0.05); font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
+  .loading { color: var(--fg-dim); font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; padding: 1rem 0; }
+
+  footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--fg-faint); display: flex; justify-content: space-between; }
+
+  @media (max-width: 720px) {
+    .hero, .secondary { grid-template-columns: 1fr 1fr; }
+    .hero .value { font-size: 1.5rem; }
+    th, td { padding: 0.6rem 0.5rem; font-size: 0.75rem; }
+    .container { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="brand">
+      <span class="dot">●</span>
+      <h1>theta-engine</h1>
+      <span class="sub">live</span>
+    </div>
+    <div class="meta" id="meta">
+      <span class="status-dot"></span><span id="status-text">connecting…</span>
+    </div>
+  </header>
+
+  <div id="root">
+    <div class="loading">Fetching state from gist…</div>
+  </div>
+
+  <footer>
+    <span>refresh: 60s · source: gist last_poll.json</span>
+    <span id="footer-time"></span>
+  </footer>
+
+</div>
+
+<script>
+// ─── config ──────────────────────────────────────────────────────────
+const GIST_ID = '08e2cb50b3a645e9569617a6298ee987';
+const FILE = 'last_poll.json';
+const REFRESH_MS = 60_000;  // 60s = 60/hr, stays under unauthenticated GH API rate limit
+
+// ─── formatters ──────────────────────────────────────────────────────
+const $ = (n, d = 2) => {
+  if (n == null || isNaN(n)) return '—';
+  const sign = n < 0 ? '-' : '';
+  return sign + '$' + Math.abs(n).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+};
+const $0 = (n) => $(n, 0);
+const pct = (n, d = 1) => {
+  if (n == null || isNaN(n)) return '—';
+  return (n * 100).toFixed(d) + '%';
+};
+const signPct = (n) => {
+  if (n == null || isNaN(n)) return '—';
+  return (n >= 0 ? '+' : '') + (n * 100).toFixed(2) + '%';
+};
+const signMoney = (n, d = 2) => {
+  if (n == null || isNaN(n)) return '—';
+  return (n >= 0 ? '+' : '') + $(n, d).replace('-', '');
+};
+const cls = (n) => (n == null || isNaN(n)) ? 'dim' : (n >= 0 ? 'pos' : 'neg');
+
+const fmtRelTime = (iso) => {
+  if (!iso) return '—';
+  const now = new Date();
+  const then = new Date(iso);
+  const diffMs = now - then;
+  const min = Math.floor(diffMs / 60_000);
+  if (min < 1) return 'just now';
+  if (min < 60) return `${min}m ago`;
+  const hr = Math.floor(min / 60);
+  if (hr < 24) return `${hr}h ${min % 60}m ago`;
+  return then.toLocaleString();
+};
+
+// ─── data fetch ──────────────────────────────────────────────────────
+async function loadGist() {
+  const res = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+    headers: { 'Accept': 'application/vnd.github+json' }
+  });
+  if (!res.ok) throw new Error(`gist API: HTTP ${res.status}`);
+  const gist = await res.json();
+  const file = gist.files?.[FILE];
+  if (!file) throw new Error(`${FILE} not found in gist`);
+  return JSON.parse(file.content);
+}
+
+// ─── schema accessors (handle both v1 and v2) ────────────────────────
+function readMetrics(m) {
+  if (!m) return {};
+  return {
+    has_quotes: m.has_live_quotes !== false,
+    dte: m.dte,
+    cost_mid:   m.cost_to_close?.mid          ?? m.cost_to_close_mid          ?? m.cost_to_close_per_contract,
+    cost_worst: m.cost_to_close?.worst_case   ?? m.cost_to_close_worst,
+    profit_mid: m.profit_if_closed?.mid       ?? m.profit_if_closed_mid       ?? m.profit_if_closed_now,
+    profit_worst: m.profit_if_closed?.worst_case ?? m.profit_if_closed_worst,
+    captured:   m.pct_max_profit_captured_mid ?? m.pct_max_profit_captured,
+    underlying_price: m.underlying_price,
+    distance_pct: m.short_strike_distance_pct,
+    breached: m.short_strike_breached,
+  };
+}
+
+// ─── render ──────────────────────────────────────────────────────────
+function render(d) {
+  const a = d.account || {};
+  const trades = d.trades || [];
+
+  const bprUsed = trades.reduce((s, t) => s + (t.bpr_total || 0), 0);
+  const bprPctOfNet = a.net_liquidating_value ? bprUsed / a.net_liquidating_value : 0;
+
+  const pnl = a.cumulative_pnl;
+  const pnlPct = a.cumulative_pct;
+
+  const html = `
+    <div class="hero">
+      <div class="primary">
+        <div class="label">Net P&L (vs start)</div>
+        <div class="value ${cls(pnl)}">${signMoney(pnl, 2)}</div>
+        <div class="sub-value ${cls(pnlPct)}">${signPct(pnlPct)} · started ${$0(a.starting_capital)}</div>
+      </div>
+      <div>
+        <div class="label">Current net liq</div>
+        <div class="value small">${$(a.net_liquidating_value, 2)}</div>
+      </div>
+      <div>
+        <div class="label">Day P&L</div>
+        <div class="value small ${cls(a.day_pnl)}">${signMoney(a.day_pnl, 2)}</div>
+      </div>
+      <div>
+        <div class="label">Cash</div>
+        <div class="value small">${$0(a.cash_balance)}</div>
+      </div>
+    </div>
+
+    <div class="secondary">
+      <div>
+        <div class="label">BPR used</div>
+        <div class="value">${$0(bprUsed)} · ${pct(bprPctOfNet, 0)} of net</div>
+      </div>
+      <div>
+        <div class="label">BP available</div>
+        <div class="value">${$0(a.derivative_buying_power)}</div>
+      </div>
+      <div>
+        <div class="label">Open positions</div>
+        <div class="value">${trades.length}</div>
+      </div>
+    </div>
+
+    <div class="section-label">
+      <span>Per-position P&L (if closed now)</span>
+      <span class="hint">mid = best-case fill · worst = guaranteed fill (ask/bid)</span>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Trade</th>
+          <th>DTE</th>
+          <th>Credit</th>
+          <th>Cost mid</th>
+          <th>Cost worst</th>
+          <th>P&L (mid)</th>
+          <th>P&L (worst)</th>
+          <th>% captured</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${trades.map(t => {
+          const m = readMetrics(t.metrics);
+          const r = t.recommendation || {};
+          const pillCls = r.action === 'HOLD' ? 'pill-hold'
+                         : (r.action || '').includes('URGENT') ? 'pill-urgent'
+                         : 'pill-close';
+          return `
+            <tr>
+              <td>
+                <span class="ticker">${t.underlying}</span><span class="strikes">${t.short_strike}/${t.long_strike}p · ${t.expiry || ''}</span>
+              </td>
+              <td>${m.dte ?? '—'}</td>
+              <td>${$(t.credit_per_contract, 2)}</td>
+              <td>${m.has_quotes ? $(m.cost_mid, 2) : '<span class="dim">—</span>'}</td>
+              <td>${m.has_quotes ? $(m.cost_worst, 2) : '<span class="dim">—</span>'}</td>
+              <td class="${cls(m.profit_mid)}">${m.has_quotes ? signMoney(m.profit_mid, 0) : '—'}</td>
+              <td class="${cls(m.profit_worst)}">${m.has_quotes ? signMoney(m.profit_worst, 0) : '—'}</td>
+              <td class="${cls(m.captured)}">${m.has_quotes ? signPct(m.captured) : '—'}</td>
+              <td><span class="pill ${pillCls}">${r.action || '—'}</span></td>
+            </tr>
+          `;
+        }).join('')}
+      </tbody>
+    </table>
+  `;
+
+  document.getElementById('root').innerHTML = html;
+  document.getElementById('status-text').textContent = `last poll ${fmtRelTime(d.last_poll_at)}`;
+  document.getElementById('footer-time').textContent = `client refreshed ${new Date().toLocaleTimeString()}`;
+}
+
+async function tick() {
+  try {
+    const d = await loadGist();
+    render(d);
+  } catch (e) {
+    document.getElementById('root').innerHTML = `<div class="error">⚠ ${e.message}</div>`;
+    document.getElementById('status-text').textContent = 'error';
+  }
+}
+
+tick();
+setInterval(tick, REFRESH_MS);
+</script>
+</body>
+</html>
