@@ -1,110 +1,127 @@
-"""Daily intel briefing entry point.
-
-Flow:
-  1. Load tracked open trades
-  2. Fetch account snapshot + live option quotes (same as poll)
-  3. Compute per-trade metrics (real P&L if closed)
-  4. Fetch news headlines for each underlying (Yahoo RSS, last 24h)
-  5. Fetch IV rank/percentile from tastytrade /market-metrics
-  6. Send context to Claude (Anthropic API) for synthesis
-  7. Push briefing via Pushover
-
-Runs once per weekday at 8 AM ET premarket.
 """
-import logging
+scripts/briefing.py — Daily intel briefing entry point.
+
+Pulls intel payload, sends to Anthropic API for synthesis,
+saves briefing to repo, pushes to Pushover.
+"""
+
+import json
 import os
 import sys
-from datetime import datetime
+from datetime import date
+from pathlib import Path
 
-from pytz import timezone as tz
+REPO_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO_ROOT))
 
-from monitor import config, intel, notifier
-from monitor.decisions import compute_metrics
-from monitor.market_data import get_quote
-from monitor.tastytrade_client import TastytradeClient
-from monitor.trades import load_trades
+from monitor.intel import build_intel_payload  # noqa: E402
 
-logging.basicConfig(
-    level=getattr(logging, config.LOG_LEVEL.upper(), logging.INFO),
-    format="%(asctime)s %(levelname)-7s %(name)s · %(message)s",
-    stream=sys.stdout,
-)
-log = logging.getLogger("briefing")
+import anthropic  # noqa: E402
+import requests  # noqa: E402
 
-ET = tz("America/New_York")
+ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
+PUSHOVER_USER_KEY = os.environ.get("PUSHOVER_USER_KEY")
+PUSHOVER_APP_TOKEN = os.environ.get("PUSHOVER_APP_TOKEN")
+STARTING_CAPITAL = float(os.environ.get("STARTING_CAPITAL", "3389.91"))
+
+SYSTEM_PROMPT = """You are a Wall-Street-grade options strategist for a small account ($3,400 net liq) running a 30-day short-premium experiment.
+
+Owner's rules (non-negotiable):
+- Defined-risk only (verticals, no naked)
+- 30-60 DTE preferred (45 DTE sweet spot)
+- POP >= 70%, credit >= $1.00 on 5-wide minimum
+- Manage at 50% of max profit mechanically
+- 21 DTE hard exit
+- Max 3 concurrent positions
+- BPR utilization 35-50% of net liq
+- AVOID earnings inside trade window
+- Penalize high IV (>50% = blowup risk territory)
+- Large-cap preferred
+
+Voice: tastytrade native (BPR, POP, P50, manage at 50%, DTE, short put vertical).
+Concise. No fluff. Direct.
+
+Task: Given today's intel payload, produce a daily briefing under 1200 characters total.
+
+Output structure (use these exact headers):
+
+TAKEAWAY: [one sentence — what's the day's big picture?]
+
+POSITIONS: [any news/catalysts hitting open trades? If nothing material: "No material news."]
+
+TOP 3 SETUPS:
+1. TICKER — short put vertical, suggested expiry & delta. Why now (1 sentence).
+2. ...
+3. ...
+
+AVOID TODAY: [tickers with recent bearish catalysts, earnings in window, or blowup risk — comma-separated with 2-word reason each]
+
+KEY DATES: [macro/earnings inside next 30 days that matter]
+
+If you cannot recommend 3 setups (e.g. broad market mess), recommend fewer and say why."""
 
 
-def main() -> int:
-    now_et = datetime.now(ET)
-    log.info("Briefing triggered at %s ET", now_et.strftime("%Y-%m-%d %H:%M:%S"))
+def synthesize_briefing(payload):
+    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+    message = client.messages.create(
+        model="claude-sonnet-4-20250514",
+        max_tokens=2000,
+        system=SYSTEM_PROMPT,
+        messages=[{
+            "role": "user",
+            "content": f"Today's intel payload:\n\n{json.dumps(payload, indent=2, default=str)}\n\nGenerate today's briefing.",
+        }],
+    )
+    return message.content[0].text
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        log.error("ANTHROPIC_API_KEY not set in environment; cannot synthesize")
-        return 1
 
-    try:
-        # 1. Load positions
-        open_trades = [t for t in load_trades() if t.is_open]
-        if not open_trades:
-            log.info("No open trades; skipping briefing")
-            return 0
-        log.info("%d open trade(s)", len(open_trades))
+def push_to_pushover(title, message):
+    if not (PUSHOVER_USER_KEY and PUSHOVER_APP_TOKEN):
+        print("Pushover not configured, skipping push")
+        return
+    response = requests.post(
+        "https://api.pushover.net/1/messages.json",
+        data={
+            "token": PUSHOVER_APP_TOKEN,
+            "user": PUSHOVER_USER_KEY,
+            "title": title,
+            "message": message[:1024],
+            "priority": 0,
+        },
+        timeout=15,
+    )
+    response.raise_for_status()
 
-        # 2. Snapshot + live quotes
-        client = TastytradeClient()
-        snapshot = client.fetch_snapshot()
-        log.info("Snapshot: net_liq=$%.2f", snapshot.net_liquidating_value)
 
-        # 3. Per-trade metrics
-        trade_results = []
-        for trade in open_trades:
-            underlying_price = get_quote(trade.underlying)
-            m = compute_metrics(trade, snapshot, underlying_price=underlying_price)
-            trade_results.append({"trade": trade, "metrics": m})
+def main():
+    if not ANTHROPIC_API_KEY:
+        print("ERROR: ANTHROPIC_API_KEY not set", file=sys.stderr)
+        sys.exit(1)
 
-        tickers = sorted({t.underlying for t in open_trades})
+    print("Building intel payload...")
+    payload = build_intel_payload()
+    print(f"  - {len(payload['ticker_data'])} tickers")
+    print(f"  - {len(payload['upcoming_macro'])} macro events ahead")
+    print(f"  - {len(payload['earnings_in_window'])} earnings inside 45 days")
 
-        # 4. News per underlying
-        news_by_ticker = {t: intel.fetch_news_yahoo(t, max_items=10) for t in tickers}
+    print("\nSynthesizing briefing via Claude...")
+    briefing = synthesize_briefing(payload)
 
-        # 5. IV metrics
-        metrics = intel.fetch_market_metrics(client, tickers)
+    print("\n=== BRIEFING ===\n")
+    print(briefing)
+    print("\n================\n")
 
-        # 6. Build context + synthesize
-        positions_summary = intel.format_positions_for_prompt(snapshot, trade_results)
-        news_blob = intel.format_news_for_prompt(news_by_ticker)
-        metrics_summary = intel.format_metrics_for_prompt(metrics)
+    # Save to repo
+    briefing_dir = REPO_ROOT / "briefings"
+    briefing_dir.mkdir(exist_ok=True)
+    today_str = date.today().isoformat()
+    (briefing_dir / f"{today_str}.txt").write_text(briefing)
+    print(f"Saved to briefings/{today_str}.txt")
 
-        log.info("Calling Claude for synthesis...")
-        briefing = intel.synthesize_briefing(
-            positions_summary=positions_summary,
-            news_blob=news_blob,
-            market_metrics_summary=metrics_summary,
-            api_key=api_key,
-            extra_context=f"Today is {now_et.strftime('%A %B %d, %Y')}.",
-        )
-        log.info("Briefing generated (%d chars)", len(briefing))
-        print("\n" + "=" * 60)
-        print(briefing)
-        print("=" * 60 + "\n")
-
-        # 7. Push
-        date_str = now_et.strftime("%a %b %-d")
-        title = f"📊 Pre-market briefing · {date_str}"
-        notifier.send(
-            title=title,
-            message=briefing,
-            priority=notifier.PRIORITY_NORMAL,
-            sound=notifier.SOUND_SUCCESS,
-        )
-        log.info("Pushed briefing to Pushover")
-        return 0
-
-    except Exception as e:
-        log.exception("Briefing failed: %s", e)
-        return 1
+    # Push to phone
+    push_to_pushover(f"Theta Engine Briefing {today_str}", briefing)
+    print("Pushed to Pushover ✓")
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
