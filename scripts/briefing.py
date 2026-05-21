@@ -64,7 +64,7 @@ If you cannot recommend 3 setups (e.g. broad market mess), recommend fewer and s
 def synthesize_briefing(payload):
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
     message = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-6",
         max_tokens=2000,
         system=SYSTEM_PROMPT,
         messages=[{
