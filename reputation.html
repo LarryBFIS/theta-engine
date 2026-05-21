@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PulsePilot™ — Portfolio Reputation Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<style>
+:root{
+  --bg:#FAFBFC; --s1:#FFFFFF; --s2:#F4F6FA; --s3:#EBEFF5;
+  --border:#E4E8EF; --text:#0A1628; --text-mute:#52617A; --text-faint:#8895AB;
+  --cyan:#06B894; --cyan-bright:#06D9B0; --violet:#6D54E0; --violet-bright:#7B61FF;
+  --green:#059669; --amber:#D97706; --red:#DC2626; --blue:#2563EB;
+  --shadow-sm:0 1px 2px rgba(10,22,40,0.04);
+  --shadow-md:0 4px 12px rgba(10,22,40,0.06);
+  --shadow-lg:0 12px 32px rgba(10,22,40,0.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',sans-serif;font-feature-settings:'ss01','ss02';-webkit-font-smoothing:antialiased}
+body{min-height:100vh;line-height:1.5}
+.mono{font-family:'JetBrains Mono',monospace;font-feature-settings:'zero','ss01'}
+
+/* Brand */
+.pp-brand{
+  font-family:'JetBrains Mono',monospace;font-weight:700;font-style:italic;
+  background:linear-gradient(135deg,var(--cyan),var(--violet));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  letter-spacing:-0.3px;position:relative;padding-right:11px;display:inline-block;
+}
+.pp-brand::after{content:'™';position:absolute;top:0;right:0;font-size:0.55em;color:var(--violet);font-style:normal;-webkit-text-fill-color:var(--violet)}
+
+/* Ticker */
+.ticker-bar{background:#0A1628;color:#FAFBFC;padding:8px 24px;font-size:12px;letter-spacing:0.5px;display:flex;align-items:center;gap:24px;overflow:hidden}
+.ticker-pulse{width:8px;height:8px;border-radius:50%;background:var(--cyan-bright);box-shadow:0 0 8px var(--cyan-bright);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}}
+.ticker-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--cyan-bright);font-weight:700}
+.ticker-content{flex:1;display:flex;gap:48px;animation:slide 60s linear infinite}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{white-space:nowrap;opacity:0.85;font-size:12px}
+
+/* Header */
+header.topbar{padding:18px 32px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50}
+.brand-stack{display:flex;flex-direction:column;line-height:1.1}
+.brand-lockup{font-size:22px;font-weight:700;letter-spacing:-0.5px}
+.brand-tag{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-faint);letter-spacing:2px;text-transform:uppercase;margin-top:2px}
+.topbar-right{display:flex;align-items:center;gap:18px}
+.topbar-stat{display:flex;flex-direction:column;align-items:flex-end;font-family:'JetBrains Mono',monospace}
+.topbar-stat .v{font-size:14px;font-weight:600;color:var(--text)}
+.topbar-stat .l{font-size:9px;color:var(--text-faint);letter-spacing:1.5px;text-transform:uppercase}
+.av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--violet));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:13px;cursor:pointer}
+
+/* --- GATE SCREEN --- */
+.gate-wrap{min-height:calc(100vh - 90px);display:flex;align-items:center;justify-content:center;padding:48px 24px;position:relative;overflow:hidden}
+.gate-wrap::before,.gate-wrap::after{content:'';position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(120px);opacity:0.18;z-index:0}
+.gate-wrap::before{background:var(--cyan);top:-200px;left:-200px}
+.gate-wrap::after{background:var(--violet);bottom:-200px;right:-200px}
+.gate-card{background:var(--s1);border:1px solid var(--border);border-radius:18px;padding:48px 56px;box-shadow:var(--shadow-lg);width:100%;max-width:680px;z-index:1;position:relative}
+.gate-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.gate-eyebrow::before{content:'';width:24px;height:1px;background:var(--cyan)}
+.gate-h1{font-size:34px;font-weight:700;letter-spacing:-0.8px;line-height:1.15;margin-bottom:10px}
+.gate-h1 em{font-style:normal;background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gate-sub{color:var(--text-mute);font-size:15px;line-height:1.6;margin-bottom:36px;max-width:520px}
+
+.gate-fields{display:flex;flex-direction:column;gap:18px}
+.gate-field{display:flex;flex-direction:column;gap:8px}
+.gate-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-mute);letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.gate-input,.gate-select{padding:14px 16px;border:1px solid var(--border);border-radius:10px;font-family:'Space Grotesk',sans-serif;font-size:15px;color:var(--text);background:var(--s1);transition:all 0.18s ease;outline:none}
+.gate-input:focus,.gate-select:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(6,184,148,0.12)}
+.gate-input[type="date"]{font-family:'JetBrains Mono',monospace;font-size:14px}
+.gate-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.gate-cta{margin-top:14px;padding:16px 24px;background:#0A1628;color:#fff;border:none;border-radius:10px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all 0.22s ease}
+.gate-cta:not(:disabled):hover{background:linear-gradient(135deg,var(--cyan),var(--violet))}
+.gate-cta:disabled{opacity:0.4;cursor:not-allowed}
+.gate-cta .arrow{transition:transform 0.22s}
+.gate-cta:not(:disabled):hover .arrow{transform:translateX(4px)}
+.gate-meta{margin-top:28px;padding-top:24px;border-top:1px solid var(--border);display:flex;gap:32px;font-size:12px;color:var(--text-faint)}
+.gate-meta b{color:var(--text-mute);font-weight:600;font-family:'JetBrains Mono',monospace}
+
+/* --- DASHBOARD --- */
+.dash{display:none;padding:24px 32px 80px;max-width:1480px;margin:0 auto}
+.dash.active{display:block;animation:fadein 0.6s ease both}
+@keyframes fadein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* Hero strip */
+.hero-strip{background:linear-gradient(135deg,#0A1628 0%,#16243C 100%);border-radius:18px;padding:32px 36px;color:#fff;position:relative;overflow:hidden;margin-bottom:20px;box-shadow:var(--shadow-lg)}
+.hero-strip::before{content:'';position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(6,217,176,0.18) 0%,transparent 60%);top:-150px;right:-100px}
+.hero-strip::after{content:'';position:absolute;width:300px;height:300px;background:radial-gradient(circle,rgba(123,97,255,0.15) 0%,transparent 60%);bottom:-100px;left:30%}
+.hero-grid{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;position:relative;z-index:1}
+.hero-left{}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan-bright);letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:8px}
+.hero-name{font-size:32px;font-weight:700;letter-spacing:-0.7px;line-height:1.1}
+.hero-meta{margin-top:10px;display:flex;gap:20px;font-size:13px;color:rgba(255,255,255,0.7);font-family:'JetBrains Mono',monospace}
+.hero-meta span{display:flex;align-items:center;gap:6px}
+.hero-meta b{color:#fff;font-weight:500}
+.switch-prop{margin-top:20px;display:inline-flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,0.7);font-family:'JetBrains Mono',monospace;cursor:pointer;padding:6px 12px;border:1px solid rgba(255,255,255,0.15);border-radius:6px;background:rgba(255,255,255,0.04);transition:all 0.18s}
+.switch-prop:hover{color:#fff;border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.08)}
+.hero-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.hero-stat{padding-left:18px;border-left:2px solid rgba(255,255,255,0.12);position:relative}
+.hero-stat .v{font-size:28px;font-weight:700;font-family:'JetBrains Mono',monospace;letter-spacing:-0.5px;display:flex;align-items:baseline;gap:4px}
+.hero-stat .v .scale{font-size:14px;color:rgba(255,255,255,0.5);font-weight:500}
+.hero-stat .l{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,0.55);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
+.hero-stat .sub{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px}
+.hero-stat.good .v{color:var(--cyan-bright)}
+.hero-stat.warn .v{color:#FFB84D}
+.hero-stat.bad .v{color:#FF6B6B}
+
+/* Filter chips */
+.filter-bar{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding:14px 18px;background:var(--s1);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow-sm)}
+.filter-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-faint);letter-spacing:1.5px;text-transform:uppercase}
+.filter-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:var(--s2);border:1px solid var(--border);border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text)}
+.filter-chip b{color:var(--violet);font-weight:600}
+.filter-edit{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-mute);cursor:pointer;padding:6px 10px;border:1px solid var(--border);border-radius:6px;background:none;transition:all 0.18s}
+.filter-edit:hover{color:var(--cyan);border-color:var(--cyan)}
+
+/* Grid layout */
+.grid-2col{display:grid;grid-template-columns:1fr 380px;gap:20px;margin-bottom:20px}
+.grid-3col{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:20px}
+
+/* Cards */
+.card{background:var(--s1);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:var(--shadow-sm)}
+.card-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.card-title{font-size:14px;font-weight:600;letter-spacing:-0.2px}
+.card-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-faint);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+.card-sub{font-size:12px;color:var(--text-mute)}
+
+/* Platform card */
+.platforms-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.pf-card{background:var(--s2);border:1px solid var(--border);border-radius:12px;padding:16px;transition:all 0.22s;cursor:pointer;position:relative;overflow:hidden}
+.pf-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:transparent}
+.pf-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--pf-color,var(--cyan));opacity:0;transition:opacity 0.22s}
+.pf-card:hover::before{opacity:1}
+.pf-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.pf-logo{width:34px;height:34px;border-radius:8px;background:var(--pf-color,var(--cyan));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:'JetBrains Mono',monospace;font-size:13px}
+.pf-trend{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:6px;background:rgba(5,150,105,0.1);color:var(--green);font-weight:600}
+.pf-trend.down{background:rgba(220,38,38,0.1);color:var(--red)}
+.pf-trend.flat{background:rgba(83,97,122,0.1);color:var(--text-mute)}
+.pf-name{font-size:13px;color:var(--text-mute);margin-bottom:4px;font-weight:500}
+.pf-score{font-size:24px;font-weight:700;font-family:'JetBrains Mono',monospace;letter-spacing:-0.5px;display:flex;align-items:baseline;gap:4px;line-height:1}
+.pf-score .scale{font-size:13px;color:var(--text-faint);font-weight:500}
+.pf-count{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-faint);margin-top:8px}
+
+/* Theme bars */
+.theme-list{display:flex;flex-direction:column;gap:10px}
+.theme-row{display:grid;grid-template-columns:90px 1fr 40px;align-items:center;gap:12px;cursor:pointer;padding:4px 0}
+.theme-row:hover .theme-name{color:var(--cyan)}
+.theme-name{font-size:12px;color:var(--text);font-weight:500;text-transform:capitalize;transition:color 0.18s}
+.theme-bar{height:6px;background:var(--s3);border-radius:3px;overflow:hidden;position:relative}
+.theme-bar-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--violet));border-radius:3px;transition:width 1.2s cubic-bezier(0.22,1,0.36,1)}
+.theme-count{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-mute);text-align:right;font-weight:500}
+
+/* Tier alert bar */
+.tier-alert{background:linear-gradient(90deg,rgba(220,38,38,0.08),rgba(217,119,6,0.05));border:1px solid rgba(220,38,38,0.18);border-radius:12px;padding:14px 20px;display:flex;align-items:center;gap:14px;margin-bottom:20px;cursor:pointer}
+.tier-alert .dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(220,38,38,0.15);animation:pulse 2s ease-in-out infinite}
+.tier-alert .msg{flex:1;font-size:13px;color:var(--text);font-weight:500}
+.tier-alert .msg b{color:var(--red);font-family:'JetBrains Mono',monospace}
+.tier-alert .cta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--red);letter-spacing:1px;font-weight:600;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+
+/* Feed */
+.feed{display:flex;flex-direction:column;max-height:560px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--s3) transparent}
+.feed::-webkit-scrollbar{width:6px}
+.feed::-webkit-scrollbar-thumb{background:var(--s3);border-radius:3px}
+.feed-item{padding:14px 0;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:6px}
+.feed-item:last-child{border:0}
+.feed-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.feed-meta{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-faint);font-family:'JetBrains Mono',monospace}
+.feed-plat{padding:2px 6px;border-radius:4px;font-size:10px;letter-spacing:0.5px;text-transform:uppercase;font-weight:600}
+.feed-score{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;padding:3px 8px;border-radius:6px;background:var(--s2);color:var(--text)}
+.feed-score.good{background:rgba(5,150,105,0.1);color:var(--green)}
+.feed-score.warn{background:rgba(217,119,6,0.1);color:var(--amber)}
+.feed-score.bad{background:rgba(220,38,38,0.1);color:var(--red)}
+.feed-text{font-size:13px;color:var(--text-mute);line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.feed-name{font-size:12px;font-weight:600;color:var(--text)}
+.feed-themes{display:flex;gap:4px;flex-wrap:wrap;margin-top:2px}
+.feed-theme{padding:1px 6px;background:var(--s2);border-radius:4px;font-size:9px;color:var(--text-mute);text-transform:uppercase;letter-spacing:0.5px;font-weight:600;font-family:'JetBrains Mono',monospace}
+
+/* Chart container */
+.chart-wrap{position:relative;height:260px}
+
+/* Findings */
+.finding-card{background:var(--s1);border:1px solid var(--border);border-radius:14px;padding:20px;position:relative;overflow:hidden;cursor:pointer;transition:all 0.22s}
+.finding-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.finding-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent,var(--red))}
+.finding-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent,var(--red));font-weight:600;margin-bottom:6px}
+.finding-title{font-size:14px;font-weight:600;margin-bottom:8px;letter-spacing:-0.2px}
+.finding-body{font-size:12px;color:var(--text-mute);line-height:1.6}
+.finding-stat{display:flex;align-items:baseline;gap:6px;margin-top:10px;font-family:'JetBrains Mono',monospace}
+.finding-stat .n{font-size:20px;font-weight:700;color:var(--accent,var(--red))}
+.finding-stat .l{font-size:11px;color:var(--text-faint);letter-spacing:1px;text-transform:uppercase}
+
+/* Empty state */
+.empty-card{padding:48px 24px;text-align:center;color:var(--text-faint);font-size:13px}
+
+/* Loading */
+.loading{display:none;align-items:center;justify-content:center;padding:48px;color:var(--text-faint);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.loading.show{display:flex}
+.loading::before{content:'';width:14px;height:14px;border:2px solid var(--s3);border-top-color:var(--cyan);border-radius:50%;animation:spin 0.7s linear infinite;margin-right:10px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+footer.footbar{margin-top:60px;padding:32px;text-align:center;border-top:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-faint);letter-spacing:1.5px}
+.footbar a{color:var(--text-mute);text-decoration:none;margin:0 14px;letter-spacing:1px}
+.footbar a.active{color:var(--violet);font-weight:600}
+
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .grid-2col,.grid-3col{grid-template-columns:1fr}
+  header.topbar{padding:14px 18px}
+  .dash{padding:18px}
+  .gate-card{padding:32px 24px}
+  .gate-h1{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<!-- LIVE TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-pulse"></div>
+  <div class="ticker-label">LIVE</div>
+  <div class="ticker-content" id="ticker">
+    <span class="ticker-item">⚡ 5,063 reviews ingested · 6 properties · 7 platforms</span>
+    <span class="ticker-item">📊 Real-time reputation × revenue intelligence</span>
+    <span class="ticker-item">🎯 AI-drafted replies · human-approved · Tier-routed</span>
+    <span class="ticker-item">🏨 BUILDD Reputation Suite — Stage 1 deployed</span>
+    <span class="ticker-item">⚡ 5,063 reviews ingested · 6 properties · 7 platforms</span>
+    <span class="ticker-item">📊 Real-time reputation × revenue intelligence</span>
+    <span class="ticker-item">🎯 AI-drafted replies · human-approved · Tier-routed</span>
+    <span class="ticker-item">🏨 BUILDD Reputation Suite — Stage 1 deployed</span>
+  </div>
+</div>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="brand-stack">
+    <div class="brand-lockup"><span class="pp-brand">PulsePilot</span></div>
+    <div class="brand-tag">Portfolio Reputation Suite</div>
+  </div>
+  <div class="topbar-right">
+    <div class="topbar-stat"><div class="v" id="topbarReviewCount">—</div><div class="l">Reviews Loaded</div></div>
+    <div class="topbar-stat"><div class="v" id="topbarPropCount">—</div><div class="l">Properties</div></div>
+    <div class="av" title="Larry — Buildd Team">L</div>
+  </div>
+</header>
+
+<!-- LOADING -->
+<div class="loading show" id="loader">Loading data…</div>
+
+<!-- GATE SCREEN -->
+<div class="gate-wrap" id="gateScreen" style="display:none">
+  <div class="gate-card">
+    <div class="gate-eyebrow">Step 01 · Select Scope</div>
+    <h1 class="gate-h1">Portfolio reputation, <em>scoped to one property and time window</em>.</h1>
+    <p class="gate-sub">Pick a property and a date range to see every review, every theme, every reply gap — across Booking, Expedia, Hotels.com, Agoda, Google, TripAdvisor and Priceline, unified.</p>
+    
+    <div class="gate-fields">
+      <div class="gate-field">
+        <label class="gate-label">Property</label>
+        <select class="gate-select" id="gatePropSelect">
+          <option value="">— Select a property —</option>
+        </select>
+      </div>
+      <div class="gate-row">
+        <div class="gate-field">
+          <label class="gate-label">Start Date</label>
+          <input type="date" class="gate-input" id="gateStart">
+        </div>
+        <div class="gate-field">
+          <label class="gate-label">End Date</label>
+          <input type="date" class="gate-input" id="gateEnd">
+        </div>
+      </div>
+      <button class="gate-cta" id="gateCta" disabled>
+        Open Dashboard <span class="arrow">→</span>
+      </button>
+    </div>
+    
+    <div class="gate-meta">
+      <div><b id="metaTotalReviews">—</b> reviews available</div>
+      <div><b id="metaTotalProps">—</b> properties in portfolio</div>
+      <div><b id="metaTotalPlatforms">—</b> platforms unified</div>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dash" id="dashboard">
+
+  <!-- HERO STRIP -->
+  <div class="hero-strip">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-eyebrow" id="heroEyebrow">Property · ID</div>
+        <div class="hero-name" id="heroName">—</div>
+        <div class="hero-meta" id="heroMeta"></div>
+        <button class="switch-prop" onclick="resetGate()">← Switch property / date range</button>
+      </div>
+      <div class="hero-stats" id="heroStats"></div>
+    </div>
+  </div>
+
+  <!-- TIER ALERT -->
+  <div class="tier-alert" id="tierAlert" style="display:none">
+    <div class="dot"></div>
+    <div class="msg" id="tierAlertMsg"></div>
+    <div class="cta">Open Reply Queue →</div>
+  </div>
+
+  <!-- ROW: Platform Performance + Theme bars -->
+  <div class="grid-2col">
+    <div class="card">
+      <div class="card-h">
+        <div>
+          <div class="card-eyebrow">Performance by platform</div>
+          <div class="card-title">Where guests are reviewing you</div>
+        </div>
+        <div class="card-sub" id="platformPeriod">—</div>
+      </div>
+      <div class="platforms-row" id="platformsRow"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-h">
+        <div>
+          <div class="card-eyebrow">Top discussion themes</div>
+          <div class="card-title">What guests are talking about</div>
+        </div>
+      </div>
+      <div class="theme-list" id="themeList"></div>
+    </div>
+  </div>
+
+  <!-- ROW: Rating trend + Recent feed -->
+  <div class="grid-2col">
+    <div class="card">
+      <div class="card-h">
+        <div>
+          <div class="card-eyebrow">Composite rating</div>
+          <div class="card-title">Monthly trend · 10-point scale</div>
+        </div>
+        <div class="card-sub" id="trendSub">—</div>
+      </div>
+      <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+    </div>
+
+    <div class="card">
+      <div class="card-h">
+        <div>
+          <div class="card-eyebrow">Recent activity</div>
+          <div class="card-title">Latest reviews in window</div>
+        </div>
+      </div>
+      <div class="feed" id="feed"></div>
+    </div>
+  </div>
+
+  <!-- ROW: Findings -->
+  <div class="card">
+    <div class="card-h">
+      <div>
+        <div class="card-eyebrow">Causal findings</div>
+        <div class="card-title">Patterns the engine surfaced from this window</div>
+      </div>
+    </div>
+    <div class="grid-3col" id="findingsGrid" style="margin-bottom:0"></div>
+  </div>
+
+</div>
+
+<footer class="footbar">
+  <a>PRICECORTEX</a>·<a>FOLIOLENS</a>·<a class="active">PULSEPILOT™</a>
+  <div style="margin-top:14px;opacity:0.6">© 2026 BUILDD · Stage 1 · 4 OTAs unified · 6 properties</div>
+</footer>
+
+<script>
+const PLATFORM_META = {
+  booking:      {label:'Booking.com',     color:'#003580', short:'BK'},
+  expedia:      {label:'Expedia',          color:'#FFC72C', short:'EX'},
+  hotels:       {label:'Hotels.com',       color:'#D32F2F', short:'HT'},
+  agoda:        {label:'Agoda',            color:'#FF5A1F', short:'AG'},
+  google:       {label:'Google',           color:'#4285F4', short:'GO'},
+  tripadvisor:  {label:'TripAdvisor',      color:'#34E0A1', short:'TA'},
+  priceline:    {label:'Priceline',        color:'#00457C', short:'PL'},
+  orbitz:       {label:'Orbitz',           color:'#84BD00', short:'OR'},
+  travelocity:  {label:'Travelocity',      color:'#FAA21B', short:'TV'},
+  cheaptickets: {label:'CheapTickets',     color:'#F89D26', short:'CT'},
+  vrbo:         {label:'Vrbo',             color:'#3D67FF', short:'VR'},
+};
+
+let REVIEWS = [];
+let PROPERTIES = [];
+let SELECTED = {propId:null, start:null, end:null};
+let CHART = null;
+
+// === BOOT ===
+(async function init(){
+  try {
+    const [revRes, propRes] = await Promise.all([
+      fetch('./data/reviews.json'),
+      fetch('./data/properties.json'),
+    ]);
+    REVIEWS = await revRes.json();
+    const propData = await propRes.json();
+    PROPERTIES = propData.properties || propData;
+  } catch(e){
+    console.error(e);
+    document.getElementById('loader').textContent = 'Failed to load data. Ensure data/reviews.json and data/properties.json are alongside this file.';
+    return;
+  }
+  
+  // Populate dropdown
+  const sel = document.getElementById('gatePropSelect');
+  PROPERTIES.forEach(p => {
+    const opt = document.createElement('option');
+    opt.value = p.id;
+    opt.textContent = `${p.name} (${p.city}, ${p.state}) — id ${p.id}`;
+    sel.appendChild(opt);
+  });
+  
+  // Get global date range
+  const dates = REVIEWS.map(r=>r.date).filter(Boolean).sort();
+  const minDate = dates[0], maxDate = dates[dates.length-1];
+  const startEl = document.getElementById('gateStart');
+  const endEl = document.getElementById('gateEnd');
+  startEl.min = minDate; startEl.max = maxDate;
+  endEl.min = minDate; endEl.max = maxDate;
+  
+  // Default: last 90 days
+  const today = new Date(maxDate);
+  const ninetyDaysAgo = new Date(today);
+  ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90);
+  startEl.value = ninetyDaysAgo.toISOString().slice(0,10);
+  endEl.value = maxDate;
+  
+  // Stats
+  document.getElementById('topbarReviewCount').textContent = REVIEWS.length.toLocaleString();
+  document.getElementById('topbarPropCount').textContent = PROPERTIES.length;
+  document.getElementById('metaTotalReviews').textContent = REVIEWS.length.toLocaleString();
+  document.getElementById('metaTotalProps').textContent = PROPERTIES.length;
+  const platforms = new Set(REVIEWS.map(r=>r.platform));
+  document.getElementById('metaTotalPlatforms').textContent = platforms.size;
+  
+  document.getElementById('loader').classList.remove('show');
+  document.getElementById('gateScreen').style.display = 'flex';
+  
+  // Event handlers
+  [sel, startEl, endEl].forEach(el => el.addEventListener('change', updateCta));
+  document.getElementById('gateCta').addEventListener('click', loadDashboard);
+  updateCta();
+})();
+
+function updateCta(){
+  const p = document.getElementById('gatePropSelect').value;
+  const s = document.getElementById('gateStart').value;
+  const e = document.getElementById('gateEnd').value;
+  document.getElementById('gateCta').disabled = !(p && s && e && s <= e);
+}
+
+function resetGate(){
+  document.getElementById('dashboard').classList.remove('active');
+  document.getElementById('gateScreen').style.display = 'flex';
+  if (CHART) { CHART.destroy(); CHART = null; }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function loadDashboard(){
+  SELECTED.propId = document.getElementById('gatePropSelect').value;
+  SELECTED.start = document.getElementById('gateStart').value;
+  SELECTED.end = document.getElementById('gateEnd').value;
+  document.getElementById('gateScreen').style.display = 'none';
+  document.getElementById('dashboard').classList.add('active');
+  renderDashboard();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function renderDashboard(){
+  const prop = PROPERTIES.find(p => p.id === SELECTED.propId);
+  const inWindow = REVIEWS.filter(r =>
+    r.property_id === SELECTED.propId &&
+    r.date && r.date >= SELECTED.start && r.date <= SELECTED.end
+  );
+  
+  renderHero(prop, inWindow);
+  renderTierAlert(inWindow);
+  renderPlatforms(inWindow);
+  renderThemes(inWindow);
+  renderTrend(inWindow);
+  renderFeed(inWindow);
+  renderFindings(inWindow);
+}
+
+function renderHero(prop, rs){
+  document.getElementById('heroEyebrow').textContent = `${prop.brand} · ID ${prop.id} · ${SELECTED.start} → ${SELECTED.end}`;
+  document.getElementById('heroName').textContent = prop.name;
+  document.getElementById('heroMeta').innerHTML = `
+    <span>📍 <b>${prop.city}, ${prop.state}</b></span>
+    ${prop.rooms ? `<span>🛏 <b>${prop.rooms}</b> rooms</span>` : ''}
+    <span>🌐 <b>${prop.platforms_active?.length||0}</b> platforms</span>
+  `;
+  
+  const scores = rs.map(r=>r.score_10).filter(s=>s!=null);
+  const composite = scores.length ? scores.reduce((a,b)=>a+b,0)/scores.length : null;
+  const replies = rs.filter(r=>r.has_reply).length;
+  const replyRate = rs.length ? (replies / rs.length) * 100 : 0;
+  const negs = rs.filter(r=>r.score_10!=null && r.score_10 < 6).length;
+  const tier3 = rs.filter(r=>r.tier === 'T3').length;
+  
+  const cls = (composite) => composite >= 8 ? 'good' : composite >= 6 ? 'warn' : 'bad';
+  
+  document.getElementById('heroStats').innerHTML = `
+    <div class="hero-stat ${cls(composite)}">
+      <div class="v">${composite ? composite.toFixed(2) : '—'}<span class="scale">/10</span></div>
+      <div class="l">Composite Rating</div>
+      <div class="sub">${scores.length} scored reviews</div>
+    </div>
+    <div class="hero-stat">
+      <div class="v">${rs.length.toLocaleString()}</div>
+      <div class="l">Reviews in Window</div>
+      <div class="sub">${SELECTED.start} → ${SELECTED.end}</div>
+    </div>
+    <div class="hero-stat ${replyRate >= 60 ? 'good' : replyRate >= 30 ? 'warn' : 'bad'}">
+      <div class="v">${replyRate.toFixed(0)}<span class="scale">%</span></div>
+      <div class="l">Reply Rate</div>
+      <div class="sub">${replies} of ${rs.length}</div>
+    </div>
+    <div class="hero-stat ${negs > rs.length * 0.4 ? 'bad' : 'warn'}">
+      <div class="v">${negs}</div>
+      <div class="l">Negative Reviews</div>
+      <div class="sub">below 6/10</div>
+    </div>
+    <div class="hero-stat ${tier3 > 0 ? 'bad' : 'good'}">
+      <div class="v">${tier3}</div>
+      <div class="l">Tier 3 Critical</div>
+      <div class="sub">need GM escalation</div>
+    </div>
+  `;
+}
+
+function renderTierAlert(rs){
+  const t3 = rs.filter(r=>r.tier === 'T3' && !r.has_reply).length;
+  const alert = document.getElementById('tierAlert');
+  if (t3 === 0){ alert.style.display = 'none'; return; }
+  alert.style.display = 'flex';
+  document.getElementById('tierAlertMsg').innerHTML = `<b>${t3}</b> tier-3 critical reviews in this window are unanswered · estimated revenue at risk: <b>$${(t3 * 1850).toLocaleString()}</b>`;
+}
+
+function renderPlatforms(rs){
+  document.getElementById('platformPeriod').textContent = `${rs.length} reviews · ${SELECTED.start} → ${SELECTED.end}`;
+  const byPlat = {};
+  rs.forEach(r => {
+    if (!byPlat[r.platform]) byPlat[r.platform] = {count:0, scores:[], replies:0, scale:r.score_scale};
+    byPlat[r.platform].count++;
+    if (r.score != null) byPlat[r.platform].scores.push(r.score);
+    if (r.has_reply) byPlat[r.platform].replies++;
+  });
+  
+  // Sort by count desc
+  const sorted = Object.entries(byPlat).sort((a,b)=>b[1].count - a[1].count);
+  
+  const html = sorted.map(([plat, data]) => {
+    const meta = PLATFORM_META[plat] || {label:plat, color:'#666', short:plat.slice(0,2).toUpperCase()};
+    const avg = data.scores.length ? (data.scores.reduce((a,b)=>a+b,0)/data.scores.length) : null;
+    const replyRate = (data.replies / data.count) * 100;
+    // Compute trend by comparing first half vs second half of period
+    const half = Math.floor(data.scores.length / 2);
+    let trend = 'flat', trendLabel = 'STABLE';
+    if (half >= 3) {
+      const firstHalf = data.scores.slice(0, half).reduce((a,b)=>a+b,0)/half;
+      const secondHalf = data.scores.slice(half).reduce((a,b)=>a+b,0)/(data.scores.length-half);
+      if (secondHalf > firstHalf + 0.3) { trend='up'; trendLabel='IMPROVING'; }
+      else if (secondHalf < firstHalf - 0.3) { trend='down'; trendLabel='DECLINING'; }
+    }
+    return `
+      <div class="pf-card" style="--pf-color:${meta.color}">
+        <div class="pf-head">
+          <div class="pf-logo">${meta.short}</div>
+          <div class="pf-trend ${trend === 'up' ? '' : trend}">${trendLabel}</div>
+        </div>
+        <div class="pf-name">${meta.label}</div>
+        <div class="pf-score">${avg != null ? avg.toFixed(2) : '—'}<span class="scale">/${data.scale}</span></div>
+        <div class="pf-count">${data.count} reviews · ${replyRate.toFixed(0)}% replied</div>
+      </div>
+    `;
+  }).join('');
+  
+  document.getElementById('platformsRow').innerHTML = html || '<div class="empty-card">No platforms in this window</div>';
+}
+
+function renderThemes(rs){
+  const themes = {};
+  rs.forEach(r => (r.themes || []).forEach(t => { themes[t] = (themes[t] || 0) + 1; }));
+  const sorted = Object.entries(themes).sort((a,b)=>b[1]-a[1]).slice(0, 12);
+  const max = sorted[0]?.[1] || 1;
+  if (!sorted.length){
+    document.getElementById('themeList').innerHTML = '<div class="empty-card">No themes detected yet</div>';
+    return;
+  }
+  document.getElementById('themeList').innerHTML = sorted.map(([theme, count]) => `
+    <div class="theme-row">
+      <div class="theme-name">${theme.replace('_', ' ')}</div>
+      <div class="theme-bar"><div class="theme-bar-fill" style="width:${(count/max)*100}%"></div></div>
+      <div class="theme-count">${count}</div>
+    </div>
+  `).join('');
+}
+
+function renderTrend(rs){
+  const byMonth = {};
+  rs.forEach(r => {
+    if (!r.date || r.score_10 == null) return;
+    const ym = r.date.slice(0, 7);
+    if (!byMonth[ym]) byMonth[ym] = [];
+    byMonth[ym].push(r.score_10);
+  });
+  const months = Object.keys(byMonth).sort();
+  const avgs = months.map(m => {
+    const arr = byMonth[m];
+    return arr.reduce((a,b)=>a+b,0)/arr.length;
+  });
+  const counts = months.map(m => byMonth[m].length);
+  
+  document.getElementById('trendSub').textContent = months.length + ' months';
+  
+  if (CHART) CHART.destroy();
+  const ctx = document.getElementById('trendChart').getContext('2d');
+  const grad = ctx.createLinearGradient(0,0,0,260);
+  grad.addColorStop(0,'rgba(6,184,148,0.28)');
+  grad.addColorStop(1,'rgba(6,184,148,0)');
+  
+  CHART = new Chart(ctx, {
+    type:'line',
+    data:{
+      labels: months,
+      datasets:[{
+        label:'Avg score (10pt)',
+        data: avgs,
+        borderColor:'#06B894',
+        backgroundColor: grad,
+        borderWidth: 2.5,
+        fill: true,
+        tension: 0.35,
+        pointRadius: 3,
+        pointHoverRadius: 6,
+        pointBackgroundColor:'#06B894',
+        pointBorderColor:'#fff',
+        pointBorderWidth: 2,
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          backgroundColor:'#0A1628', titleColor:'#06D9B0', bodyColor:'#fff',
+          padding:10, cornerRadius:8, displayColors:false,
+          callbacks:{
+            title:(items)=>items[0].label,
+            label:(item)=>`Avg: ${item.parsed.y.toFixed(2)}/10 · ${counts[item.dataIndex]} reviews`,
+          }
+        }
+      },
+      scales:{
+        x:{grid:{display:false}, ticks:{color:'#8895AB', font:{family:'JetBrains Mono', size:10}}},
+        y:{
+          grid:{color:'#EBEFF5'}, ticks:{color:'#8895AB', font:{family:'JetBrains Mono', size:10}},
+          min: 0, max: 10
+        }
+      },
+      animation:{duration:1200, easing:'easeOutCubic'}
+    }
+  });
+}
+
+function renderFeed(rs){
+  const recent = rs.slice().sort((a,b)=>(b.date||'').localeCompare(a.date||'')).slice(0, 20);
+  if (!recent.length){
+    document.getElementById('feed').innerHTML = '<div class="empty-card">No reviews in window</div>';
+    return;
+  }
+  document.getElementById('feed').innerHTML = recent.map(r => {
+    const meta = PLATFORM_META[r.platform] || {label:r.platform, color:'#666'};
+    const score = r.score != null ? `${r.score}/${r.score_scale}` : '—';
+    const cls = r.score_10 >= 8 ? 'good' : r.score_10 >= 6 ? 'warn' : 'bad';
+    const text = (r.text || r.title || '(no text)').slice(0, 220);
+    return `
+      <div class="feed-item">
+        <div class="feed-head">
+          <div class="feed-name">${escapeHtml(r.guest || 'Anonymous')}</div>
+          <div class="feed-score ${cls}">${score}</div>
+        </div>
+        <div class="feed-meta">
+          <span class="feed-plat" style="background:${meta.color}1A;color:${meta.color}">${meta.label}</span>
+          <span>${r.date || '—'}</span>
+          ${r.has_reply ? '<span style="color:var(--green)">● replied</span>' : '<span style="color:var(--red)">○ no reply</span>'}
+        </div>
+        <div class="feed-text">${escapeHtml(text)}</div>
+        ${r.themes?.length ? `<div class="feed-themes">${r.themes.slice(0,4).map(t=>`<span class="feed-theme">${t.replace('_',' ')}</span>`).join('')}</div>` : ''}
+      </div>
+    `;
+  }).join('');
+}
+
+function renderFindings(rs){
+  if (!rs.length){ document.getElementById('findingsGrid').innerHTML = '<div class="empty-card">No reviews in window</div>'; return; }
+  
+  // Real findings, computed from the data
+  const findings = [];
+  
+  // Finding 1: Cleanliness
+  const cleanReviews = rs.filter(r => (r.themes || []).includes('cleanliness'));
+  const cleanNeg = cleanReviews.filter(r => r.score_10 != null && r.score_10 < 6);
+  if (cleanNeg.length >= 3) {
+    findings.push({
+      eyebrow: 'PRIORITY · P1', color: 'var(--red)',
+      title: 'Cleanliness Crisis',
+      body: `${cleanNeg.length} negative reviews in window mention cleanliness — bathrooms, smells, bedding stains. ${(cleanNeg.length / cleanReviews.length * 100).toFixed(0)}% of cleanliness-tagged reviews score below 6/10.`,
+      statN: cleanNeg.length, statL: 'Negative · Cleanliness',
+    });
+  }
+  
+  // Finding 2: Reply gap
+  const noReply = rs.filter(r => !r.has_reply);
+  const replyGap = rs.length ? (noReply.length / rs.length * 100) : 0;
+  if (replyGap > 50) {
+    findings.push({
+      eyebrow: 'PRIORITY · P2', color: 'var(--amber)',
+      title: 'Reply Gap',
+      body: `${noReply.length} reviews unreplied (${replyGap.toFixed(0)}%). Industry benchmark is 40% reply rate — this property is below that.`,
+      statN: noReply.length, statL: 'Unanswered',
+    });
+  }
+  
+  // Finding 3: Staff issues
+  const staffReviews = rs.filter(r => (r.themes || []).includes('staff'));
+  const staffNeg = staffReviews.filter(r => r.score_10 != null && r.score_10 < 6);
+  if (staffNeg.length >= 3) {
+    findings.push({
+      eyebrow: 'PRIORITY · P2', color: 'var(--violet)',
+      title: 'Staff Friction',
+      body: `${staffNeg.length} negative mentions of staff in window — front desk, rudeness, language barriers. ${(staffNeg.length / staffReviews.length * 100).toFixed(0)}% of staff-tagged reviews are negative.`,
+      statN: staffNeg.length, statL: 'Negative · Staff',
+    });
+  }
+  
+  // Finding 4: Recent trend
+  const sortedDates = [...rs].filter(r=>r.score_10!=null).sort((a,b)=>(a.date||'').localeCompare(b.date||''));
+  if (sortedDates.length >= 10) {
+    const half = Math.floor(sortedDates.length / 2);
+    const firstHalfAvg = sortedDates.slice(0, half).reduce((a,r)=>a+r.score_10, 0) / half;
+    const secondHalfAvg = sortedDates.slice(half).reduce((a,r)=>a+r.score_10, 0) / (sortedDates.length - half);
+    const diff = secondHalfAvg - firstHalfAvg;
+    if (Math.abs(diff) >= 0.4) {
+      const trending = diff > 0;
+      findings.push({
+        eyebrow: trending ? 'SIGNAL · UP' : 'PRIORITY · P1', color: trending ? 'var(--green)' : 'var(--red)',
+        title: trending ? 'Rating Recovery' : 'Rating Decline',
+        body: trending
+          ? `Average rating moved from ${firstHalfAvg.toFixed(2)} to ${secondHalfAvg.toFixed(2)} in this window (+${diff.toFixed(2)}). Whatever changed mid-period is working.`
+          : `Average rating fell from ${firstHalfAvg.toFixed(2)} to ${secondHalfAvg.toFixed(2)} in this window (${diff.toFixed(2)}). Investigate what changed.`,
+        statN: (trending ? '+' : '') + diff.toFixed(2), statL: 'Rating Δ',
+      });
+    }
+  }
+  
+  if (!findings.length){
+    findings.push({
+      eyebrow:'STATUS · CLEAN', color:'var(--green)',
+      title:'Steady-State Performance',
+      body:'No major causal findings in this window. Property is operating within expected parameters.',
+      statN:'OK', statL:'No flags',
+    });
+  }
+  
+  document.getElementById('findingsGrid').innerHTML = findings.slice(0, 3).map(f => `
+    <div class="finding-card" style="--accent:${f.color}">
+      <div class="finding-eyebrow">${f.eyebrow}</div>
+      <div class="finding-title">${f.title}</div>
+      <div class="finding-body">${f.body}</div>
+      <div class="finding-stat"><div class="n">${f.statN}</div><div class="l">${f.statL}</div></div>
+    </div>
+  `).join('');
+}
+
+function escapeHtml(s){
+  return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+}
+</script>
+</body>
+</html>
