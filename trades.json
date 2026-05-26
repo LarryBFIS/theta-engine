@@ -17,23 +17,43 @@
       "contracts": 1,
       "opened_at": "2026-05-13",
       "open_order_id": "466603976",
-      "credit_per_contract": 1.00,
+      "credit_per_contract": 1.0,
       "max_profit_total": 100,
       "max_loss_total": 400,
       "bpr_total": 400,
       "open_legs": [
-        { "side": "short", "type": "P", "strike": 721, "fill": 7.63 },
-        { "side": "long",  "type": "P", "strike": 716, "fill": 6.63 }
+        {
+          "side": "short",
+          "type": "P",
+          "strike": 721,
+          "fill": 7.63
+        },
+        {
+          "side": "long",
+          "type": "P",
+          "strike": 716,
+          "fill": 6.63
+        }
       ],
       "status": "closed",
       "closed_at": "2026-05-26",
       "close_order_id": "470430708",
       "close_debit_per_contract": 0.58,
       "close_legs": [
-        { "side": "buy_to_close",  "type": "P", "strike": 721, "fill": 3.42 },
-        { "side": "sell_to_close", "type": "P", "strike": 716, "fill": 2.84 }
+        {
+          "side": "buy_to_close",
+          "type": "P",
+          "strike": 721,
+          "fill": 3.42
+        },
+        {
+          "side": "sell_to_close",
+          "type": "P",
+          "strike": 716,
+          "fill": 2.84
+        }
       ],
-      "realized_pnl": 42.00,
+      "realized_pnl": 42.0,
       "pct_max_captured_at_close": 0.42,
       "days_held": 13,
       "outcome": "win",
@@ -54,8 +74,18 @@
       "max_loss_total": 427,
       "bpr_total": 427,
       "open_legs": [
-        { "side": "short", "type": "P", "strike": 395, "fill": 3.34 },
-        { "side": "long",  "type": "P", "strike": 390, "fill": 2.61 }
+        {
+          "side": "short",
+          "type": "P",
+          "strike": 395,
+          "fill": 3.34
+        },
+        {
+          "side": "long",
+          "type": "P",
+          "strike": 390,
+          "fill": 2.61
+        }
       ],
       "status": "open",
       "gtc_close_target": 0.36
@@ -75,11 +105,41 @@
       "max_loss_total": 371,
       "bpr_total": 371,
       "open_legs": [
-        { "side": "short", "type": "P", "strike": 250, "fill": 5.74 },
-        { "side": "long",  "type": "P", "strike": 245, "fill": 4.45 }
+        {
+          "side": "short",
+          "type": "P",
+          "strike": 250,
+          "fill": 5.74
+        },
+        {
+          "side": "long",
+          "type": "P",
+          "strike": 245,
+          "fill": 4.45
+        }
       ],
       "status": "open",
       "gtc_close_target": 0.65
+    },
+    {
+      "id": "trade_004_spy_721_716",
+      "underlying": "SPY",
+      "structure": "short_put_vertical",
+      "short_strike": 721,
+      "long_strike": 716,
+      "expiry": "2026-06-18",
+      "contracts": 1,
+      "opened_at": "2026-05-26",
+      "credit_per_contract": 1.0,
+      "max_profit_total": 100,
+      "max_loss_total": 400,
+      "bpr_total": 400.0,
+      "pop_at_open": null,
+      "p50_at_open": null,
+      "manage_at_pct": 0.5,
+      "exit_dte": 21,
+      "status": "open",
+      "notes": "Auto-synced from broker on 2026-05-26"
     }
   ]
 }
