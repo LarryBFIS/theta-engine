@@ -1,0 +1,50 @@
+name: AI Decide (Phase 5)
+
+on:
+  schedule:
+    # Every 15 min during US market hours (Mon-Fri 13:00-21:00 UTC)
+    # Runs 5 min after main poll (which is at :00, :15, :30, :45)
+    # so gist has fresh data
+    - cron: '5,20,35,50 13-20 * * 1-5'
+  workflow_dispatch:  # manual trigger button
+
+jobs:
+  decide:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install anthropic  # in case not already in requirements
+
+      - name: Run AI decide
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          GIST_ID: ${{ secrets.GIST_ID }}
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          STARTING_CAPITAL: ${{ secrets.STARTING_CAPITAL }}
+        run: python -m scripts.ai_decide
+
+      - name: Commit state if changed
+        run: |
+          git config user.email "ai-decide@theta-engine"
+          git config user.name "theta-engine ai"
+          git add state/last_recommendation.json || true
+          if git diff --cached --quiet; then
+            echo "No state changes to commit"
+          else
+            git pull --rebase origin main
+            git commit -m "ai: update last_recommendation state"
+            git push
+          fi
