@@ -1,5 +1,11 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "experiment": {
+    "starts_at": "2026-05-13",
+    "ends_at": "2026-06-12",
+    "starting_capital": 3389.91,
+    "goal_pnl": 100
+  },
   "trades": [
     {
       "id": "trade_001_spy_721_716",
@@ -10,16 +16,28 @@
       "expiry": "2026-06-18",
       "contracts": 1,
       "opened_at": "2026-05-13",
+      "open_order_id": "466603976",
       "credit_per_contract": 1.00,
-      "max_profit_total": 101,
-      "max_loss_total": 399,
+      "max_profit_total": 100,
+      "max_loss_total": 400,
       "bpr_total": 400,
-      "pop_at_open": 0.69,
-      "p50_at_open": 0.86,
-      "manage_at_pct": 0.50,
-      "exit_dte": 21,
-      "status": "open",
-      "notes": "NVDA earnings May 20 falls inside this trade"
+      "open_legs": [
+        { "side": "short", "type": "P", "strike": 721, "fill": 7.63 },
+        { "side": "long",  "type": "P", "strike": 716, "fill": 6.63 }
+      ],
+      "status": "closed",
+      "closed_at": "2026-05-26",
+      "close_order_id": "470430708",
+      "close_debit_per_contract": 0.58,
+      "close_legs": [
+        { "side": "buy_to_close",  "type": "P", "strike": 721, "fill": 3.42 },
+        { "side": "sell_to_close", "type": "P", "strike": 716, "fill": 2.84 }
+      ],
+      "realized_pnl": 42.00,
+      "pct_max_captured_at_close": 0.42,
+      "days_held": 13,
+      "outcome": "win",
+      "close_reason": "manage_at_50_pct_with_buffer"
     },
     {
       "id": "trade_002_gld_395_390",
@@ -30,16 +48,17 @@
       "expiry": "2026-06-18",
       "contracts": 1,
       "opened_at": "2026-05-18",
+      "open_order_id": "468508848",
       "credit_per_contract": 0.73,
       "max_profit_total": 73,
       "max_loss_total": 427,
       "bpr_total": 427,
-      "pop_at_open": 0.78,
-      "p50_at_open": 0.88,
-      "manage_at_pct": 0.50,
-      "exit_dte": 21,
+      "open_legs": [
+        { "side": "short", "type": "P", "strike": 395, "fill": 3.34 },
+        { "side": "long",  "type": "P", "strike": 390, "fill": 2.61 }
+      ],
       "status": "open",
-      "notes": "Diversifier vs SPY"
+      "gtc_close_target": 0.36
     },
     {
       "id": "trade_003_amzn_250_245",
@@ -50,16 +69,17 @@
       "expiry": "2026-07-17",
       "contracts": 1,
       "opened_at": "2026-05-26",
+      "open_order_id": "470366596",
       "credit_per_contract": 1.29,
       "max_profit_total": 129,
       "max_loss_total": 371,
-      "bpr_total": 372,
-      "pop_at_open": 0.68,
-      "p50_at_open": 0.79,
-      "manage_at_pct": 0.50,
-      "exit_dte": 21,
+      "bpr_total": 371,
+      "open_legs": [
+        { "side": "short", "type": "P", "strike": 250, "fill": 5.74 },
+        { "side": "long",  "type": "P", "strike": 245, "fill": 4.45 }
+      ],
       "status": "open",
-      "notes": "Aggressive playbook trade #1. AMZN earnings Jul 29 outside Jul 17 expiry."
+      "gtc_close_target": 0.65
     }
   ]
 }

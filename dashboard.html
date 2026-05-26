@@ -67,25 +67,28 @@
   .hero > div { background: var(--bg-card); padding: 1.5rem 1.25rem; }
   .hero .label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-dim); margin-bottom: 0.75rem; }
   .hero .value { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 2.25rem; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
-  .hero .value.small { font-size: 1.5rem; }
-  .hero .sub-value { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; color: var(--fg-dim); margin-top: 0.4rem; font-variant-numeric: tabular-nums; }
+  .hero .value.small { font-size: 1.4rem; }
+  .hero .sub-value { font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; color: var(--fg-dim); margin-top: 0.4rem; font-variant-numeric: tabular-nums; }
   .hero .primary .label { color: var(--cherry); }
 
-  .secondary { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-top: none; margin-bottom: 2rem; }
+  .secondary { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-top: none; margin-bottom: 2rem; }
   .secondary > div { background: var(--bg-card); padding: 1rem 1.25rem; }
   .secondary .label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-dim); margin-bottom: 0.4rem; }
-  .secondary .value { font-family: 'IBM Plex Mono', monospace; font-size: 1.1rem; font-weight: 400; font-variant-numeric: tabular-nums; }
+  .secondary .value { font-family: 'IBM Plex Mono', monospace; font-size: 1rem; font-weight: 400; font-variant-numeric: tabular-nums; }
+  .secondary .sub { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--fg-faint); margin-top: 0.2rem; }
 
-  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-dim); margin-bottom: 0.75rem; display: flex; justify-content: space-between; align-items: center; }
+  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-dim); margin-top: 2rem; margin-bottom: 0.75rem; display: flex; justify-content: space-between; align-items: center; }
   .section-label .hint { font-size: 0.65rem; color: var(--fg-faint); text-transform: none; letter-spacing: 0.02em; }
+  .section-label .badge { display: inline-block; padding: 1px 6px; font-size: 0.6rem; color: var(--fg-dim); border: 1px solid var(--border); margin-left: 0.5rem; letter-spacing: 0.05em; }
 
   table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); font-variant-numeric: tabular-nums; }
-  th, td { padding: 0.85rem 1rem; text-align: right; border-bottom: 1px solid var(--border-soft); font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
-  th { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-dim); font-weight: 500; border-bottom: 1px solid var(--border); }
+  th, td { padding: 0.75rem 0.9rem; text-align: right; border-bottom: 1px solid var(--border-soft); font-family: 'IBM Plex Mono', monospace; font-size: 0.82rem; }
+  th { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-dim); font-weight: 500; border-bottom: 1px solid var(--border); }
   th:first-child, td:first-child { text-align: left; }
   tr:last-child td { border-bottom: none; }
   td .ticker { color: var(--fg); font-weight: 600; }
   td .strikes { color: var(--fg-dim); margin-left: 0.5rem; }
+  td .date { color: var(--fg-faint); margin-left: 0.5rem; font-size: 0.75rem; }
 
   .pos { color: var(--green); }
   .neg { color: var(--red); }
@@ -95,16 +98,31 @@
   .pill-hold   { color: var(--fg-dim); border-color: var(--border); }
   .pill-close  { color: var(--green); border-color: var(--green); }
   .pill-urgent { color: var(--cherry); border-color: var(--cherry); background: rgba(230,57,70,0.08); }
+  .pill-realized { color: var(--green); border-color: var(--border); background: rgba(74,222,128,0.05); }
+  .pill-loss     { color: var(--red); border-color: var(--border); background: rgba(248,113,113,0.05); }
+
+  .empty-row td { text-align: center; color: var(--fg-faint); padding: 1.5rem; font-style: italic; }
 
   .error { color: var(--red); padding: 1.5rem; border: 1px solid var(--red); background: rgba(248,113,113,0.05); font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
   .loading { color: var(--fg-dim); font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; padding: 1rem 0; }
 
-  footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--fg-faint); display: flex; justify-content: space-between; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 2rem; }
+  .stats-grid > div { background: var(--bg-card); padding: 1rem 1.25rem; }
+  .stats-grid .label { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-dim); margin-bottom: 0.5rem; }
+  .stats-grid .value { font-family: 'IBM Plex Mono', monospace; font-size: 1.5rem; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; line-height: 1; }
+  .stats-grid .sub { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; color: var(--fg-faint); margin-top: 0.3rem; font-variant-numeric: tabular-nums; }
+
+  .goal-track { margin-top: 0.5rem; height: 4px; background: var(--border); position: relative; overflow: hidden; }
+  .goal-fill { position: absolute; top: 0; left: 0; bottom: 0; background: var(--green); transition: width 0.6s ease; }
+  .goal-fill.neg { background: var(--red); }
+
+  footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--fg-faint); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
 
   @media (max-width: 720px) {
-    .hero, .secondary { grid-template-columns: 1fr 1fr; }
+    .hero, .secondary, .stats-grid { grid-template-columns: 1fr 1fr; }
     .hero .value { font-size: 1.5rem; }
-    th, td { padding: 0.6rem 0.5rem; font-size: 0.75rem; }
+    .hero .value.small { font-size: 1.1rem; }
+    th, td { padding: 0.55rem 0.45rem; font-size: 0.7rem; }
     .container { padding: 1rem; }
     .staleness { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
     .staleness-right { text-align: left; }
@@ -135,19 +153,20 @@
   </div>
 
   <div id="root">
-    <div class="loading">Fetching state from gist…</div>
+    <div class="loading">Fetching trades ledger and live state…</div>
   </div>
 
   <footer>
-    <span>refresh: 60s · source: gist last_poll.json</span>
+    <span>source: trades.json (ledger) + gist last_poll.json (live)</span>
     <span id="footer-time"></span>
   </footer>
 
 </div>
 
 <script>
+const TRADES_LEDGER_URL = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/trades.json';
 const GIST_ID = '08e2cb50b3a645e9569617a6298ee987';
-const FILE = 'last_poll.json';
+const GIST_FILE = 'last_poll.json';
 const REFRESH_MS = 60_000;
 const STALE_THRESHOLD_MIN = 16;
 const VERY_STALE_THRESHOLD_MIN = 60;
@@ -188,6 +207,7 @@ const fmtToday = () => new Date().toLocaleString('en-US', {
 });
 
 const minutesAgo = (iso) => iso ? Math.floor((new Date() - new Date(iso)) / 60000) : Infinity;
+const daysBetween = (a, b) => Math.round((new Date(b) - new Date(a)) / 86400000);
 
 async function loadGist() {
   const res = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
@@ -196,25 +216,44 @@ async function loadGist() {
   });
   if (!res.ok) throw new Error(`gist API: HTTP ${res.status}`);
   const gist = await res.json();
-  const file = gist.files?.[FILE];
-  if (!file) throw new Error(`${FILE} not found in gist`);
+  const file = gist.files?.[GIST_FILE];
+  if (!file) throw new Error(`${GIST_FILE} not found in gist`);
   return JSON.parse(file.content);
 }
 
-function readMetrics(m) {
-  if (!m) return {};
+async function loadLedger() {
+  const res = await fetch(`${TRADES_LEDGER_URL}?_=${Date.now()}`, { cache: 'no-store' });
+  if (!res.ok) throw new Error(`trades.json: HTTP ${res.status}`);
+  return res.json();
+}
+
+function readLiveMetrics(m) {
+  if (!m) return { has_quotes: false };
   return {
     has_quotes: m.has_live_quotes !== false,
     dte: m.dte,
-    cost_mid:   m.cost_to_close?.mid          ?? m.cost_to_close_mid          ?? m.cost_to_close_per_contract,
-    cost_worst: m.cost_to_close?.worst_case   ?? m.cost_to_close_worst,
-    profit_mid: m.profit_if_closed?.mid       ?? m.profit_if_closed_mid       ?? m.profit_if_closed_now,
+    cost_mid:    m.cost_to_close?.mid          ?? m.cost_to_close_mid          ?? m.cost_to_close_per_contract,
+    cost_worst:  m.cost_to_close?.worst_case   ?? m.cost_to_close_worst,
+    profit_mid:  m.profit_if_closed?.mid       ?? m.profit_if_closed_mid       ?? m.profit_if_closed_now,
     profit_worst: m.profit_if_closed?.worst_case ?? m.profit_if_closed_worst,
-    captured:   m.pct_max_profit_captured_mid ?? m.pct_max_profit_captured,
+    captured:    m.pct_max_profit_captured_mid ?? m.pct_max_profit_captured,
     underlying_price: m.underlying_price,
     distance_pct: m.short_strike_distance_pct,
     breached: m.short_strike_breached,
   };
+}
+
+function realizedPnL(t) {
+  if (t.status !== 'closed') return null;
+  const credit = t.credit_per_contract || 0;
+  const debit = t.close_debit_per_contract || 0;
+  const contracts = t.contracts || 1;
+  return (credit - debit) * 100 * contracts;
+}
+
+function dteFromExpiry(expiry) {
+  if (!expiry) return null;
+  return Math.max(0, Math.ceil((new Date(expiry) - new Date()) / 86400000));
 }
 
 function updateStaleness(lastPollIso) {
@@ -226,7 +265,11 @@ function updateStaleness(lastPollIso) {
   const minAgo = minutesAgo(lastPollIso);
 
   banner.classList.remove('fresh', 'stale', 'veryold');
-  if (minAgo < STALE_THRESHOLD_MIN) {
+  if (!lastPollIso) {
+    banner.classList.add('veryold');
+    text.textContent = `⚠ No bot data — ledger only`;
+    sub.textContent = `Gist unavailable. Closed-trade P&L still accurate; open positions show no live marks.`;
+  } else if (minAgo < STALE_THRESHOLD_MIN) {
     banner.classList.add('fresh');
     text.textContent = `LIVE · Bot last polled ${fmtRelTime(lastPollIso)}`;
     sub.textContent = `Data is current · Bot polls every 15 min during market hours`;
@@ -243,59 +286,174 @@ function updateStaleness(lastPollIso) {
   browserEl.textContent = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
 }
 
-function render(d) {
-  const a = d.account || {};
-  const trades = d.trades || [];
+function joinTrades(ledger, gist) {
+  const liveById = new Map((gist?.trades || []).map(t => [t.id, t]));
+  return (ledger.trades || []).map(t => ({
+    ...t,
+    live: liveById.get(t.id) || null,
+  }));
+}
 
-  updateStaleness(d.last_poll_at);
+function renderOpenRow(t) {
+  const m = readLiveMetrics(t.live?.metrics);
+  const r = t.live?.recommendation || {};
+  const dte = m.dte ?? dteFromExpiry(t.expiry);
+  const pillCls = r.action === 'HOLD' ? 'pill-hold'
+                : (r.action || '').includes('URGENT') ? 'pill-urgent'
+                : r.action ? 'pill-close'
+                : 'pill-hold';
+  const actionLabel = r.action || (m.has_quotes ? '—' : 'NO QUOTE');
+  return `
+    <tr>
+      <td>
+        <span class="ticker">${t.underlying}</span><span class="strikes">${t.short_strike}/${t.long_strike}p</span>
+        <span class="date">${t.expiry || ''}</span>
+      </td>
+      <td>${dte ?? '—'}</td>
+      <td>${$(t.credit_per_contract, 2)}</td>
+      <td>${m.has_quotes ? $(m.cost_mid, 2) : '<span class="dim">—</span>'}</td>
+      <td>${m.has_quotes ? $(m.cost_worst, 2) : '<span class="dim">—</span>'}</td>
+      <td class="${cls(m.profit_mid)}">${m.has_quotes ? signMoney(m.profit_mid, 0) : '—'}</td>
+      <td class="${cls(m.profit_worst)}">${m.has_quotes ? signMoney(m.profit_worst, 0) : '—'}</td>
+      <td class="${cls(m.captured)}">${m.has_quotes ? signPct(m.captured) : '—'}</td>
+      <td><span class="pill ${pillCls}">${actionLabel}</span></td>
+    </tr>
+  `;
+}
+
+function renderClosedRow(t) {
+  const pnl = realizedPnL(t);
+  const held = (t.opened_at && t.closed_at) ? daysBetween(t.opened_at, t.closed_at) : '—';
+  const pctOfMax = (pnl != null && t.max_profit_total) ? pnl / t.max_profit_total : null;
+  const pillCls = pnl >= 0 ? 'pill-realized' : 'pill-loss';
+  const pillLabel = pnl >= 0 ? 'WIN' : 'LOSS';
+  return `
+    <tr>
+      <td>
+        <span class="ticker">${t.underlying}</span><span class="strikes">${t.short_strike}/${t.long_strike}p</span>
+        <span class="date">${t.opened_at} → ${t.closed_at}</span>
+      </td>
+      <td>${held}d</td>
+      <td>${$(t.credit_per_contract, 2)}</td>
+      <td>${$(t.close_debit_per_contract, 2)}</td>
+      <td>${$0(t.max_profit_total)}</td>
+      <td class="${cls(pnl)}">${signMoney(pnl, 0)}</td>
+      <td class="${cls(pctOfMax)}">${signPct(pctOfMax)}</td>
+      <td><span class="pill ${pillCls}">${pillLabel}</span></td>
+    </tr>
+  `;
+}
+
+function render(ledger, gist) {
+  const account = gist?.account || {};
+  const trades = joinTrades(ledger, gist);
+  const openTrades = trades.filter(t => t.status === 'open');
+  const closedTrades = trades.filter(t => t.status === 'closed')
+                              .sort((a, b) => (b.closed_at || '').localeCompare(a.closed_at || ''));
+
+  // Realized P&L (gross, before fees) — sum of all closed
+  const realized = closedTrades.reduce((s, t) => s + (realizedPnL(t) || 0), 0);
+
+  // Unrealized — sum profit_if_closed (mid + worst) from live quotes
+  let unrealizedMid = 0;
+  let unrealizedWorst = 0;
+  let openHaveQuotes = 0;
+  for (const t of openTrades) {
+    const m = readLiveMetrics(t.live?.metrics);
+    if (m.has_quotes) {
+      openHaveQuotes++;
+      if (m.profit_mid != null) unrealizedMid += m.profit_mid;
+      if (m.profit_worst != null) unrealizedWorst += m.profit_worst;
+    }
+  }
+  const hasLiveQuotes = openHaveQuotes > 0;
+  const total = realized + (hasLiveQuotes ? unrealizedMid : 0);
+
+  // BPR from open trades only
+  const bprUsed = openTrades.reduce((s, t) => s + (t.bpr_total || 0), 0);
+  const bprPctOfNet = account.net_liquidating_value ? bprUsed / account.net_liquidating_value : null;
+  const startingCap = account.starting_capital || ledger.starting_capital || ledger.experiment?.starting_capital;
+  const totalPct = startingCap ? total / startingCap : null;
+
+  // Goal progress
+  const goalPnL = ledger.experiment?.goal_pnl ?? 100;
+  const goalEnd = ledger.experiment?.ends_at ? new Date(ledger.experiment.ends_at) : new Date('2026-06-12');
+  const daysLeft = Math.max(0, Math.ceil((goalEnd - new Date()) / 86400000));
+  const goalPct = Math.max(0, Math.min(100, (total / goalPnL) * 100));
+  const goalPctLabel = `${goalPct.toFixed(0)}% of $${goalPnL}`;
+
+  // Strategy stats (closed trades)
+  const wins = closedTrades.filter(t => (realizedPnL(t) || 0) > 0).length;
+  const losses = closedTrades.filter(t => (realizedPnL(t) || 0) < 0).length;
+  const winRate = closedTrades.length ? wins / closedTrades.length : null;
+  const avgPnL = closedTrades.length ? realized / closedTrades.length : null;
+  const avgDays = closedTrades.length
+    ? closedTrades.reduce((s, t) => s + (t.opened_at && t.closed_at ? daysBetween(t.opened_at, t.closed_at) : 0), 0) / closedTrades.length
+    : null;
+  const totalBprDeployed = closedTrades.reduce((s, t) => s + (t.bpr_total || 0), 0);
+  const roiOnBpr = totalBprDeployed > 0 ? realized / totalBprDeployed : null;
+
+  updateStaleness(gist?.last_poll_at);
   document.getElementById('today-date').textContent = fmtToday();
 
-  const bprUsed = trades.reduce((s, t) => s + (t.bpr_total || 0), 0);
-  const bprPctOfNet = a.net_liquidating_value ? bprUsed / a.net_liquidating_value : 0;
-  const pnl = a.cumulative_pnl;
-  const pnlPct = a.cumulative_pct;
+  const openTableBody = openTrades.length
+    ? openTrades.map(renderOpenRow).join('')
+    : `<tr class="empty-row"><td colspan="9">No open positions</td></tr>`;
+
+  const closedTableBody = closedTrades.length
+    ? closedTrades.map(renderClosedRow).join('')
+    : `<tr class="empty-row"><td colspan="8">No closed trades yet</td></tr>`;
 
   const html = `
     <div class="hero">
       <div class="primary">
-        <div class="label">Net P&L (vs start)</div>
-        <div class="value ${cls(pnl)}">${signMoney(pnl, 2)}</div>
-        <div class="sub-value ${cls(pnlPct)}">${signPct(pnlPct)} · started ${$0(a.starting_capital)}</div>
+        <div class="label">Total P&L (realized + unrealized)</div>
+        <div class="value ${cls(total)}">${signMoney(total, 2)}</div>
+        <div class="sub-value ${cls(totalPct)}">${signPct(totalPct)} · started ${$0(startingCap)}</div>
+        <div class="goal-track"><div class="goal-fill ${total < 0 ? 'neg' : ''}" style="width:${goalPct}%"></div></div>
+        <div class="sub-value" style="margin-top:0.3rem;font-size:0.7rem;">$${goalPnL} goal by Jun 12 · ${goalPctLabel} · ${daysLeft}d left</div>
+      </div>
+      <div>
+        <div class="label">Realized</div>
+        <div class="value small ${cls(realized)}">${signMoney(realized, 0)}</div>
+        <div class="sub-value">${closedTrades.length} closed</div>
+      </div>
+      <div>
+        <div class="label">Unrealized (mid)</div>
+        <div class="value small ${cls(unrealizedMid)}">${hasLiveQuotes ? signMoney(unrealizedMid, 0) : '—'}</div>
+        <div class="sub-value">${hasLiveQuotes ? `worst ${signMoney(unrealizedWorst, 0)}` : 'no live quotes'}</div>
       </div>
       <div>
         <div class="label">Current net liq</div>
-        <div class="value small">${$(a.net_liquidating_value, 2)}</div>
-      </div>
-      <div>
-        <div class="label">Day P&L</div>
-        <div class="value small ${cls(a.day_pnl)}">${signMoney(a.day_pnl, 2)}</div>
-      </div>
-      <div>
-        <div class="label">Cash</div>
-        <div class="value small">${$0(a.cash_balance)}</div>
+        <div class="value small">${$(account.net_liquidating_value, 2)}</div>
+        <div class="sub-value">cash ${$0(account.cash_balance)}</div>
       </div>
     </div>
 
     <div class="secondary">
       <div>
+        <div class="label">Day P&L</div>
+        <div class="value ${cls(account.day_pnl)}">${signMoney(account.day_pnl, 2)}</div>
+      </div>
+      <div>
         <div class="label">BPR used</div>
-        <div class="value">${$0(bprUsed)} · ${pct(bprPctOfNet, 0)} of net</div>
+        <div class="value">${$0(bprUsed)}</div>
+        <div class="sub">${pct(bprPctOfNet, 0)} of net</div>
       </div>
       <div>
         <div class="label">BP available</div>
-        <div class="value">${$0(a.derivative_buying_power)}</div>
+        <div class="value">${$0(account.derivative_buying_power)}</div>
       </div>
       <div>
-        <div class="label">Open positions</div>
-        <div class="value">${trades.length}</div>
+        <div class="label">Positions</div>
+        <div class="value">${openTrades.length} open · ${closedTrades.length} closed</div>
       </div>
     </div>
 
     <div class="section-label">
-      <span>Per-position P&L (if closed now)</span>
+      <span>Open positions <span class="badge">live</span></span>
       <span class="hint">mid = best-case fill · worst = guaranteed fill (ask/bid)</span>
     </div>
-
     <table>
       <thead>
         <tr>
@@ -303,29 +461,49 @@ function render(d) {
           <th>P&L (mid)</th><th>P&L (worst)</th><th>% captured</th><th>Action</th>
         </tr>
       </thead>
-      <tbody>
-        ${trades.map(t => {
-          const m = readMetrics(t.metrics);
-          const r = t.recommendation || {};
-          const pillCls = r.action === 'HOLD' ? 'pill-hold'
-                         : (r.action || '').includes('URGENT') ? 'pill-urgent'
-                         : 'pill-close';
-          return `
-            <tr>
-              <td><span class="ticker">${t.underlying}</span><span class="strikes">${t.short_strike}/${t.long_strike}p · ${t.expiry || ''}</span></td>
-              <td>${m.dte ?? '—'}</td>
-              <td>${$(t.credit_per_contract, 2)}</td>
-              <td>${m.has_quotes ? $(m.cost_mid, 2) : '<span class="dim">—</span>'}</td>
-              <td>${m.has_quotes ? $(m.cost_worst, 2) : '<span class="dim">—</span>'}</td>
-              <td class="${cls(m.profit_mid)}">${m.has_quotes ? signMoney(m.profit_mid, 0) : '—'}</td>
-              <td class="${cls(m.profit_worst)}">${m.has_quotes ? signMoney(m.profit_worst, 0) : '—'}</td>
-              <td class="${cls(m.captured)}">${m.has_quotes ? signPct(m.captured) : '—'}</td>
-              <td><span class="pill ${pillCls}">${r.action || '—'}</span></td>
-            </tr>
-          `;
-        }).join('')}
-      </tbody>
+      <tbody>${openTableBody}</tbody>
     </table>
+
+    <div class="section-label">
+      <span>Closed positions <span class="badge">realized</span></span>
+      <span class="hint">P&L gross of commissions</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Trade</th><th>Held</th><th>Credit</th><th>Close debit</th>
+          <th>Max profit</th><th>Realized P&L</th><th>% of max</th><th>Result</th>
+        </tr>
+      </thead>
+      <tbody>${closedTableBody}</tbody>
+    </table>
+
+    <div class="section-label">
+      <span>Strategy stats <span class="badge">cycle to date</span></span>
+      <span class="hint">closed trades only</span>
+    </div>
+    <div class="stats-grid">
+      <div>
+        <div class="label">Win rate</div>
+        <div class="value ${winRate == null ? 'dim' : winRate >= 0.6 ? 'pos' : winRate >= 0.4 ? '' : 'neg'}">${winRate == null ? '—' : (winRate * 100).toFixed(0) + '%'}</div>
+        <div class="sub">${wins}W / ${losses}L${closedTrades.length ? ` · ${closedTrades.length} trades` : ''}</div>
+      </div>
+      <div>
+        <div class="label">Avg P&L / trade</div>
+        <div class="value ${cls(avgPnL)}">${avgPnL == null ? '—' : signMoney(avgPnL, 0)}</div>
+        <div class="sub">${closedTrades.length ? `$${realized.toFixed(0)} total realized` : 'no closed trades'}</div>
+      </div>
+      <div>
+        <div class="label">Avg days held</div>
+        <div class="value ${avgDays == null ? 'dim' : ''}">${avgDays == null ? '—' : avgDays.toFixed(1) + 'd'}</div>
+        <div class="sub">${closedTrades.length ? `target: manage at 50% or 21 DTE` : '—'}</div>
+      </div>
+      <div>
+        <div class="label">ROI on BPR</div>
+        <div class="value ${cls(roiOnBpr)}">${roiOnBpr == null ? '—' : (roiOnBpr * 100).toFixed(1) + '%'}</div>
+        <div class="sub">${totalBprDeployed > 0 ? `$${realized.toFixed(0)} / $${totalBprDeployed.toFixed(0)} deployed` : '—'}</div>
+      </div>
+    </div>
   `;
 
   document.getElementById('root').innerHTML = html;
@@ -334,11 +512,16 @@ function render(d) {
 
 async function tick() {
   try {
-    const d = await loadGist();
-    render(d);
+    const ledgerPromise = loadLedger();
+    const gistPromise = loadGist().catch(e => {
+      console.warn('gist load failed:', e);
+      return null;
+    });
+    const [ledger, gist] = await Promise.all([ledgerPromise, gistPromise]);
+    render(ledger, gist);
   } catch (e) {
     document.getElementById('root').innerHTML = `<div class="error">⚠ ${e.message}</div>`;
-    document.getElementById('staleness-text').textContent = `error fetching gist`;
+    document.getElementById('staleness-text').textContent = `error fetching ledger`;
     document.getElementById('staleness-banner').classList.remove('fresh', 'stale');
     document.getElementById('staleness-banner').classList.add('veryold');
   }
