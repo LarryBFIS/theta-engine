@@ -18,7 +18,7 @@ from datetime import datetime, timezone
 
 from monitor.market_state import fetch_market_state
 from monitor.ai_trader import decide, should_alert, update_state, load_state
-from monitor.notifier import send_pushover  # existing module
+from monitor.notifier import send  # existing module
 
 
 def fetch_gist_state(gist_id: str, github_token: str) -> dict:
@@ -160,7 +160,7 @@ def main():
         print(f"[ai_decide] PUSHING {len(alerts)} alert(s)")
         title, body, priority = format_pushover_message(alerts, decision)
         try:
-            send_pushover(title=title, message=body, priority=priority)
+            send(title=title, message=body, priority=priority)
             print(f"[ai_decide] pushover sent: {title}")
         except Exception as e:
             print(f"[ai_decide] pushover FAIL: {e}", file=sys.stderr)
