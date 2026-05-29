@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>theta-engine · Roadmap</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    background: #06080f;
+    color: #e8eaf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+    font-feature-settings: "tnum" 1;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  body {
+    background: radial-gradient(ellipse at top, #0d1428 0%, #06080f 70%);
+    padding: 32px 24px 80px;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  /* --- HERO --- */
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 48px;
+    animation: fadeUp 0.6s ease-out;
+  }
+  .hero-left h1 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff 0%, #8b95a8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-left .subtitle {
+    color: #8b95a8;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  .live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 255, 136, 0.08);
+    border: 1px solid rgba(0, 255, 136, 0.25);
+    color: #00ff88;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 12px;
+  }
+  .live-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00ff88;
+    box-shadow: 0 0 10px #00ff88;
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  .hero-right { text-align: right; }
+  .dashboard-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+    color: #06080f;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 4px 24px rgba(0, 212, 255, 0.3);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .dashboard-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 32px rgba(0, 212, 255, 0.45);
+  }
+  .timestamp {
+    color: #5a6478;
+    font-size: 12px;
+    margin-top: 12px;
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  /* --- LIVE STATS --- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+    animation: fadeUp 0.7s ease-out 0.1s both;
+  }
+  .stat-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 20px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
+  }
+  .stat-label {
+    font-size: 11px;
+    color: #5a6478;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .stat-value {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-value.positive { color: #00ff88; }
+  .stat-sub {
+    font-size: 12px;
+    color: #8b95a8;
+    margin-top: 4px;
+  }
+  .progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00d4ff, #00ff88);
+    border-radius: 2px;
+    box-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  /* --- GOAL TRACKER --- */
+  .goal-tracker {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 24px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.04) 0%, rgba(0, 255, 136, 0.04) 100%);
+    border: 1px solid rgba(0, 212, 255, 0.15);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.85s ease-out 0.15s both;
+  }
+  .goal-tracker::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00d4ff 40%, #00ff88 60%, transparent);
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  .goal-mission-tag {
+    display: inline-block;
+    background: rgba(0, 212, 255, 0.12);
+    color: #00d4ff;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .goal-target-value {
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, #ffffff 0%, #00d4ff 60%, #00ff88 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .goal-target-sub {
+    color: #8b95a8;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .goal-progress-wrap {
+    margin-top: 32px;
+  }
+  .goal-progress-bar {
+    position: relative;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .goal-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00d4ff 0%, #00ff88 100%);
+    border-radius: 6px;
+    box-shadow: 0 0 16px rgba(0, 212, 255, 0.5);
+    position: relative;
+    transition: width 1.6s ease-out;
+  }
+  .goal-progress-fill::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    background: #ffffff;
+    box-shadow: 0 0 16px #ffffff;
+    border-radius: 4px;
+  }
+  .goal-milestones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 10px;
+    color: #5a6478;
+    font-variant-numeric: tabular-nums;
+  }
+  .goal-progress-numbers {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    align-items: baseline;
+  }
+  .goal-current {
+    font-size: 20px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .goal-current .pct {
+    color: #00ff88;
+    margin-left: 8px;
+    font-size: 14px;
+  }
+  .goal-narrative {
+    color: #8b95a8;
+    font-size: 12px;
+    font-style: italic;
+  }
+  .trajectory-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-content: start;
+  }
+  .trajectory-card {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .trajectory-card.highlight {
+    background: rgba(0, 212, 255, 0.08);
+    border-color: rgba(0, 212, 255, 0.3);
+  }
+  .trajectory-label {
+    font-size: 10px;
+    color: #5a6478;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  .trajectory-value {
+    font-size: 22px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+  .trajectory-value.cyan { color: #00d4ff; font-size: 14px; line-height: 1.4; }
+  .trajectory-sub {
+    font-size: 10px;
+    color: #5a6478;
+    margin-top: 2px;
+  }
+
+  /* --- SECTION HEADERS --- */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .section-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .section-header .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent);
+  }
+
+  /* --- FLOWCHART --- */
+  .flowchart {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 40px 32px;
+    margin-bottom: 48px;
+    overflow-x: auto;
+    animation: fadeUp 0.8s ease-out 0.2s both;
+  }
+  .flow-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    min-width: max-content;
+  }
+  .flow-node {
+    position: relative;
+    min-width: 150px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid;
+    text-align: center;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+  .flow-node:hover { transform: translateY(-2px); }
+  .flow-node.done {
+    background: rgba(0, 255, 136, 0.05);
+    border-color: rgba(0, 255, 136, 0.25);
+  }
+  .flow-node.current {
+    background: rgba(0, 212, 255, 0.08);
+    border-color: rgba(0, 212, 255, 0.5);
+    box-shadow: 0 0 32px rgba(0, 212, 255, 0.3);
+    animation: glow 2s ease-in-out infinite;
+  }
+  .flow-node.next {
+    background: rgba(255, 170, 0, 0.05);
+    border-color: rgba(255, 170, 0, 0.25);
+  }
+  .flow-node.future {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.08);
+    opacity: 0.7;
+  }
+  .flow-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .done .flow-icon { background: #00ff88; color: #06080f; }
+  .current .flow-icon {
+    background: #00d4ff;
+    color: #06080f;
+    position: relative;
+  }
+  .current .flow-icon::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid #00d4ff;
+    animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  .next .flow-icon { background: #ffaa00; color: #06080f; }
+  .future .flow-icon { background: rgba(255,255,255,0.1); color: #8b95a8; }
+  .flow-phase {
+    font-size: 11px;
+    color: #5a6478;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+  .flow-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .flow-sub {
+    font-size: 11px;
+    color: #8b95a8;
+  }
+  .flow-arrow {
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.25));
+    position: relative;
+    flex-shrink: 0;
+  }
+  .flow-arrow.active {
+    background: linear-gradient(90deg, rgba(0,255,136,0.3), rgba(0,212,255,0.6));
+    animation: flow 2s linear infinite;
+  }
+  .flow-arrow::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid rgba(255,255,255,0.25);
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+  }
+  .flow-arrow.active::after {
+    border-left-color: #00d4ff;
+  }
+
+  /* --- TWO COL: detail + trades --- */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 24px;
+    margin-bottom: 48px;
+    animation: fadeUp 0.9s ease-out 0.3s both;
+  }
+  .panel {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .panel h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .panel h3 .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00d4ff;
+  }
+
+  /* current focus card */
+  .focus-card {
+    background: rgba(0, 212, 255, 0.04);
+    border-left: 3px solid #00d4ff;
+    padding: 16px 18px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 12px;
+  }
+  .focus-card .title {
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .focus-card .desc {
+    font-size: 13px;
+    color: #8b95a8;
+  }
+  .subtask-list {
+    list-style: none;
+    margin-top: 14px;
+  }
+  .subtask-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    font-size: 13px;
+    color: #c0c8d8;
+  }
+  .subtask-list .check {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #00ff88;
+    color: #06080f;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  .subtask-list .pending {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #00d4ff;
+    background: transparent;
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  .subtask-list li.done span { color: #8b95a8; }
+
+  /* trades table */
+  .trade-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    font-size: 13px;
+  }
+  .trade-row:last-child { border-bottom: none; }
+  .trade-sym {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 500;
+  }
+  .trade-meta {
+    color: #5a6478;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .trade-pnl {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+  .trade-pnl.positive { color: #00ff88; }
+  .trade-pnl.neutral { color: #8b95a8; }
+  .trade-status {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-left: 12px;
+  }
+  .trade-status.closed {
+    background: rgba(0,255,136,0.1);
+    color: #00ff88;
+  }
+  .trade-status.open {
+    background: rgba(0,212,255,0.1);
+    color: #00d4ff;
+  }
+
+  /* --- FUTURE GRID --- */
+  .future-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    animation: fadeUp 1s ease-out 0.4s both;
+  }
+  .future-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+  }
+  .future-card .phase-tag {
+    display: inline-block;
+    background: rgba(255, 170, 0, 0.1);
+    color: #ffaa00;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .future-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .future-card p {
+    font-size: 12px;
+    color: #8b95a8;
+    line-height: 1.5;
+  }
+
+  /* --- FOOTER --- */
+  .footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #5a6478;
+  }
+  .footer a { color: #00d4ff; text-decoration: none; }
+
+  /* --- ANIMATIONS --- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.9); }
+  }
+  @keyframes ping {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+  }
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 32px rgba(0, 212, 255, 0.3); }
+    50% { box-shadow: 0 0 48px rgba(0, 212, 255, 0.5); }
+  }
+  @keyframes flow {
+    0% { background-position: -100px 0; }
+    100% { background-position: 100px 0; }
+  }
+  @keyframes shimmer {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  /* responsive */
+  @media (max-width: 900px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+    .hero { flex-direction: column; gap: 16px; }
+    .hero-right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <h1>theta-engine</h1>
+      <div class="subtitle">Wall-Street-grade options trading platform · AI-managed short premium</div>
+      <div class="live-badge">
+        <span class="live-dot"></span>
+        <span>Live · Phase 5 deployed</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <a href="https://larrybfis.github.io/theta-engine/dashboard.html" target="_blank" class="dashboard-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="9"/>
+          <rect x="14" y="3" width="7" height="5"/>
+          <rect x="14" y="12" width="7" height="9"/>
+          <rect x="3" y="16" width="7" height="5"/>
+        </svg>
+        Live Dashboard
+      </a>
+      <div class="timestamp" id="timestamp"></div>
+    </div>
+  </div>
+
+  <!-- LIVE STATS -->
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-label">Strategy P&L</div>
+      <div class="stat-value positive">+$<span id="stat-pnl">47.50</span></div>
+      <div class="stat-sub">Realized + unrealized</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Mission Progress</div>
+      <div class="stat-value"><span id="stat-progress">1.40</span>%</div>
+      <div class="stat-sub">Target +$3,390 by Nov 13</div>
+      <div class="progress-bar"><div class="progress-fill" style="width: 1.4%"></div></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Net Liq</div>
+      <div class="stat-value">$<span id="stat-netliq">3,505</span></div>
+      <div class="stat-sub">+3.4% since May 13</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Phases Shipped</div>
+      <div class="stat-value"><span id="stat-phases">5</span>/9</div>
+      <div class="stat-sub">AI brain live</div>
+    </div>
+  </div>
+
+  <!-- 6-MONTH GOAL TRACKER -->
+  <div class="goal-tracker">
+    <div>
+      <span class="goal-mission-tag">6-month mission</span>
+      <div class="goal-target-value">+$<span id="goal-total">3,389.91</span></div>
+      <div class="goal-target-sub">100% return on starting capital · May 13 → Nov 13, 2026</div>
+
+      <div class="goal-progress-wrap">
+        <div class="goal-progress-bar">
+          <div class="goal-progress-fill" id="goal-fill" style="width: 1.4%"></div>
+        </div>
+        <div class="goal-milestones">
+          <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
+        </div>
+        <div class="goal-progress-numbers">
+          <div>
+            <span class="goal-current">$<span id="goal-current">47.50</span> captured<span class="pct"><span id="goal-pct">1.40</span>%</span></span>
+          </div>
+          <div class="goal-narrative">Engine just shipped — execution begins now</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trajectory-grid">
+      <div class="trajectory-card">
+        <div class="trajectory-label">Days remaining</div>
+        <div class="trajectory-value"><span id="days-remaining">168</span></div>
+        <div class="trajectory-sub">of 184 total</div>
+      </div>
+      <div class="trajectory-card">
+        <div class="trajectory-label">Required daily</div>
+        <div class="trajectory-value">$<span id="required-daily">19.88</span></div>
+        <div class="trajectory-sub">to hit target</div>
+      </div>
+      <div class="trajectory-card">
+        <div class="trajectory-label">Current pace</div>
+        <div class="trajectory-value">$<span id="current-daily">2.97</span></div>
+        <div class="trajectory-sub">avg per day</div>
+      </div>
+      <div class="trajectory-card highlight">
+        <div class="trajectory-label">Inflection point</div>
+        <div class="trajectory-value cyan">AI brain<br>online today</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOWCHART -->
+  <div class="section-header">
+    <h2>Build progression</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="flowchart">
+    <div class="flow-row">
+      <div class="flow-node done">
+        <div class="flow-icon">✓</div>
+        <div class="flow-phase">Phase 1</div>
+        <div class="flow-title">Monitor</div>
+        <div class="flow-sub">Pushover alerts</div>
+      </div>
+      <div class="flow-arrow active"></div>
+      <div class="flow-node done">
+        <div class="flow-icon">✓</div>
+        <div class="flow-phase">Phase 2</div>
+        <div class="flow-title">Decisions</div>
+        <div class="flow-sub">Risk rules</div>
+      </div>
+      <div class="flow-arrow active"></div>
+      <div class="flow-node done">
+        <div class="flow-icon">✓</div>
+        <div class="flow-phase">Phase 3</div>
+        <div class="flow-title">Live Quotes</div>
+        <div class="flow-sub">Mid + worst</div>
+      </div>
+      <div class="flow-arrow active"></div>
+      <div class="flow-node done">
+        <div class="flow-icon">✓</div>
+        <div class="flow-phase">Phase 4</div>
+        <div class="flow-title">AM Briefing</div>
+        <div class="flow-sub">Claude synth</div>
+      </div>
+      <div class="flow-arrow active"></div>
+      <div class="flow-node current">
+        <div class="flow-icon">●</div>
+        <div class="flow-phase">Phase 5</div>
+        <div class="flow-title">AI Trader</div>
+        <div class="flow-sub">Decides every 15m</div>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node next">
+        <div class="flow-icon">○</div>
+        <div class="flow-phase">Phase 6</div>
+        <div class="flow-title">Dashboard v2</div>
+        <div class="flow-sub">Live P&L view</div>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node future">
+        <div class="flow-icon">→</div>
+        <div class="flow-phase">Phase B</div>
+        <div class="flow-title">One-tap exec</div>
+        <div class="flow-sub">Auto orders</div>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node future">
+        <div class="flow-icon">→</div>
+        <div class="flow-phase">Phase C/D</div>
+        <div class="flow-title">Autonomous</div>
+        <div class="flow-sub">Self-driving</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAIL + TRADES -->
+  <div class="two-col">
+
+    <!-- Current focus + subtasks -->
+    <div class="panel">
+      <h3><span class="dot"></span> Current focus · Phase 5: AI Active Trader</h3>
+      <div class="focus-card">
+        <div class="title">Claude reviews positions every 15 min during market hours</div>
+        <div class="desc">Pulls account state, market regime (VIX, SPY, sectors), and news. Decides HOLD / ACTION / CRITICAL per position. Pushes Pushover alerts with reasoning. Cost: ~$15/month.</div>
+      </div>
+      <ul class="subtask-list">
+        <li class="done"><span class="check">✓</span><span>market_state.py · VIX, indices, sector ETFs</span></li>
+        <li class="done"><span class="check">✓</span><span>ai_trader.py · Claude Sonnet 4.6 decision engine</span></li>
+        <li class="done"><span class="check">✓</span><span>ai_decide.py · workflow entry point</span></li>
+        <li class="done"><span class="check">✓</span><span>GitHub Actions cron · every 15 min market hours</span></li>
+        <li class="done"><span class="check">✓</span><span>Pushover integration · alert routing</span></li>
+        <li><span class="pending"></span><span>End-to-end verification with live positions</span></li>
+      </ul>
+    </div>
+
+    <!-- Trade ledger -->
+    <div class="panel">
+      <h3><span class="dot" style="background:#00ff88"></span> Trade ledger</h3>
+      <div class="trade-row">
+        <div>
+          <div class="trade-sym">SPY 721/716p</div>
+          <div class="trade-meta">May 13 → May 26 · 13 days</div>
+        </div>
+        <div class="trade-pnl positive">+$39.50</div>
+        <div><span class="trade-status closed">Closed</span></div>
+      </div>
+      <div class="trade-row">
+        <div>
+          <div class="trade-sym">GLD 395/390p</div>
+          <div class="trade-meta">Opened May 18 · 23 DTE</div>
+        </div>
+        <div class="trade-pnl neutral">+$7</div>
+        <div><span class="trade-status open">Open</span></div>
+      </div>
+      <div class="trade-row">
+        <div>
+          <div class="trade-sym">AMZN 250/245p</div>
+          <div class="trade-meta">Opened May 26 · 52 DTE</div>
+        </div>
+        <div class="trade-pnl neutral">+$1</div>
+        <div><span class="trade-status open">Open</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FUTURE -->
+  <div class="section-header">
+    <h2>What's coming next</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="future-grid">
+    <div class="future-card">
+      <span class="phase-tag">Phase 6 · Next chat</span>
+      <h4>Dashboard v2</h4>
+      <p>Realized vs unrealized P&L. Closed trades with entry/exit dates. Strategy stats. Running totals.</p>
+    </div>
+    <div class="future-card">
+      <span class="phase-tag">Phase 5b</span>
+      <h4>Conversational AI</h4>
+      <p>Reply to any Pushover alert with a question. SMS via Twilio. Claude responds with full context.</p>
+    </div>
+    <div class="future-card">
+      <span class="phase-tag">Phase B</span>
+      <h4>One-tap execution</h4>
+      <p>Alert says "close GLD at $0.37" → tap button → order routes to tastytrade. Reduces decision-to-action latency to seconds.</p>
+    </div>
+    <div class="future-card">
+      <span class="phase-tag">Phase C</span>
+      <h4>Auto-close</h4>
+      <p>Mechanical triggers (50% profit, 21 DTE) close positions automatically. Paper-traded first, then live.</p>
+    </div>
+    <div class="future-card">
+      <span class="phase-tag">Phase D</span>
+      <h4>Auto-open</h4>
+      <p>Claude identifies setups from daily briefing and opens trades autonomously. Defined-risk only. Strict position limits.</p>
+    </div>
+    <div class="future-card">
+      <span class="phase-tag">Phase 4 layer</span>
+      <h4>Social sentiment</h4>
+      <p>WSB / SwaggyStocks signals overlaid on watchlist. Flag sentiment-flow mismatches.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>Built with Python · GitHub Actions · Claude Sonnet 4.6 · tastytrade API · Pushover</div>
+    <div>
+      <a href="https://github.com/LarryBFIS/theta-engine" target="_blank">View source ↗</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ============================================================
+  //  Update this block any time progress changes.
+  //  The whole page renders from these values.
+  // ============================================================
+  const PROJECT_STATE = {
+    lastUpdated: new Date(),  // auto: now. Replace with new Date('2026-05-30T...') to set explicitly.
+    mission: {
+      startDate: new Date('2026-05-13'),
+      endDate: new Date('2026-11-13'),
+      startingCapital: 3389.91,
+      targetReturnPct: 1.00,  // 100% return
+    },
+    account: {
+      netLiq: 3505,
+      strategyPnl: 47.50,
+      phasesShipped: 5,
+      phasesTotal: 9,
+    },
+  };
+
+  // --- Compute mission tracker values ---
+  function computeMission() {
+    const m = PROJECT_STATE.mission;
+    const now = PROJECT_STATE.lastUpdated;
+    const dayMs = 1000 * 60 * 60 * 24;
+    const totalDays = Math.round((m.endDate - m.startDate) / dayMs);
+    const daysElapsed = Math.max(0, Math.round((now - m.startDate) / dayMs));
+    const daysRemaining = Math.max(0, totalDays - daysElapsed);
+    const targetTotal = m.startingCapital * m.targetReturnPct;
+    const pnl = PROJECT_STATE.account.strategyPnl;
+    const pct = (pnl / targetTotal) * 100;
+    const requiredDaily = daysRemaining > 0 ? (targetTotal - pnl) / daysRemaining : 0;
+    const currentDaily = daysElapsed > 0 ? pnl / daysElapsed : 0;
+    return { totalDays, daysElapsed, daysRemaining, targetTotal, pnl, pct, requiredDaily, currentDaily };
+  }
+  const mission = computeMission();
+
+  // --- Live timestamp ---
+  function updateTimestamp() {
+    const d = PROJECT_STATE.lastUpdated;
+    const opts = { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true };
+    document.getElementById('timestamp').textContent = 'Updated · ' + d.toLocaleString('en-US', opts);
+  }
+  updateTimestamp();
+
+  // --- Populate mission tracker values ---
+  document.getElementById('goal-total').textContent = mission.targetTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  document.getElementById('days-remaining').textContent = mission.daysRemaining;
+  document.getElementById('required-daily').textContent = mission.requiredDaily.toFixed(2);
+  document.getElementById('current-daily').textContent = mission.currentDaily.toFixed(2);
+  document.getElementById('goal-fill').style.width = Math.max(mission.pct, 0.3) + '%';  // min 0.3% so bar shows
+
+  // --- Counter animation on stats ---
+  function animateCounter(id, target, duration = 1200, decimals = 0, isCurrency = false) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const start = 0;
+    const startTime = performance.now();
+    function step(now) {
+      const elapsed = now - startTime;
+      const t = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const value = start + (target - start) * eased;
+      if (isCurrency) {
+        el.textContent = value.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+      } else {
+        el.textContent = value.toFixed(decimals);
+      }
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Animate stat values on load
+  animateCounter('stat-pnl', PROJECT_STATE.account.strategyPnl, 1400, 2);
+  animateCounter('stat-progress', mission.pct, 1400, 2);
+  animateCounter('stat-netliq', PROJECT_STATE.account.netLiq, 1400, 0, true);
+  animateCounter('stat-phases', PROJECT_STATE.account.phasesShipped, 800, 0);
+  animateCounter('goal-current', mission.pnl, 1600, 2);
+  animateCounter('goal-pct', mission.pct, 1600, 2);
+</script>
+
+</body>
+</html>
