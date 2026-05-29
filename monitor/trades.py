@@ -89,7 +89,8 @@ def load_trades() -> list[Trade]:
         return []
     with TRADES_FILE.open() as f:
         data = json.load(f)
-    return [Trade(**t) for t in data.get("trades", [])]
+    valid_fields = set(Trade.__annotations__.keys())
+    return [Trade(**{k: v for k, v in t.items() if k in valid_fields}) for t in data.get("trades", [])]
 
 
 def save_trades(trades: list[Trade]) -> None:
