@@ -46,6 +46,11 @@ class Trade:
     notes: str = ""
     closed_at: Optional[str] = None
     realized_pnl: Optional[float] = None
+    open_order_id: Optional[str] = None
+    close_order_id: Optional[str] = None
+    close_debit_per_contract: Optional[float] = None
+    open_legs: Optional[list] = None
+    close_legs: Optional[list] = None
 
     @property
     def is_open(self) -> bool:
