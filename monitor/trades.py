@@ -38,11 +38,11 @@ class Trade:
     max_profit_total: float
     max_loss_total: float
     bpr_total: float
-    pop_at_open: float
-    p50_at_open: float
-    manage_at_pct: float
-    exit_dte: int
-    status: str  # "open", "closed", "expired", "rolled"
+    pop_at_open: float = 0.0
+    p50_at_open: float = 0.0
+    manage_at_pct: float = 0.5
+    exit_dte: int = 21
+    status: str = "open"  # "open", "closed", "expired", "rolled"
     notes: str = ""
     closed_at: Optional[str] = None
     realized_pnl: Optional[float] = None
