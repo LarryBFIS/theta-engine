@@ -1,4 +1,32 @@
 {
   "schema_version": 1,
-  "suggestions": []
+  "suggestions": [
+    {
+      "id": "sug_20260529T134438_trade_002_gld_395_390",
+      "trade_id": "trade_002_gld_395_390",
+      "timestamp": "2026-05-29T13:44:38.193769-04:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 19 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently 37% captured ($27 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.4600000000000002,
+        "cost_to_close_worst": 0.5700000000000001,
+        "profit_if_closed_mid": 26.99999999999998,
+        "profit_if_closed_worst": 15.999999999999993,
+        "pct_max_profit_captured_mid": 0.36986301369862984,
+        "dte": 19,
+        "underlying_price": 417.9801025390625,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 3656.781,
+        "day_pnl": 0.0
+      },
+      "alternative": "ROLL: short strike is 5.5% OTM \u2014 candidate to roll to next monthly expiry for additional credit.",
+      "status": "pending",
+      "decided_at": null
+    }
+  ]
 }
