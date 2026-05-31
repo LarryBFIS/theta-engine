@@ -93,6 +93,12 @@
   .pos { color: var(--green); }
   .neg { color: var(--red); }
   .dim { color: var(--fg-dim); }
+  .amber { color: var(--amber); }
+
+  .recon-grid > div.gap-card { border: 1px solid var(--border); }
+  .recon-grid > div.gap-ok  { border-left: 3px solid var(--green); }
+  .recon-grid > div.gap-bad { border-left: 3px solid var(--amber); }
+  .recon-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--fg-faint); margin: 0.5rem 0 0; }
 
   .pill { display: inline-block; padding: 3px 8px; font-size: 0.65rem; font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; border: 1px solid; }
   .pill-hold   { color: var(--fg-dim); border-color: var(--border); }
@@ -144,7 +150,7 @@
   <div class="staleness fresh" id="staleness-banner">
     <div>
       <div class="staleness-main"><span class="pulse-dot"></span><span id="staleness-text">Loading…</span></div>
-      <div class="staleness-sub" id="staleness-sub">Bot polls every 15 min during market hours · Dashboard refreshes every 60s</div>
+      <div class="staleness-sub" id="staleness-sub">Bot polls every 10 min during market hours · Dashboard refreshes every 60s</div>
     </div>
     <div class="staleness-right">
       <div>Bot poll: <span id="bot-poll-iso">—</span></div>
@@ -157,7 +163,7 @@
   </div>
 
   <footer>
-    <span>source: trades.json (ledger) + gist last_poll.json (live)</span>
+    <span>source: trades.json + ledger/reconciliation.json + gist last_poll.json (live)</span>
     <span id="footer-time"></span>
   </footer>
 
@@ -165,6 +171,7 @@
 
 <script>
 const TRADES_LEDGER_URL = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/trades.json';
+const RECON_URL = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/ledger/reconciliation.json';
 const GIST_ID = '08e2cb50b3a645e9569617a6298ee987';
 const GIST_FILE = 'last_poll.json';
 const REFRESH_MS = 60_000;
@@ -227,6 +234,15 @@ async function loadLedger() {
   return res.json();
 }
 
+// Authoritative reconciliation from the derived ledger. Returns null until the
+// first tick writes ledger/reconciliation.json (404 before then).
+async function loadRecon() {
+  const res = await fetch(`${RECON_URL}?_=${Date.now()}`, { cache: 'no-store' });
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error(`reconciliation.json: HTTP ${res.status}`);
+  return res.json();
+}
+
 function readLiveMetrics(m) {
   if (!m) return { has_quotes: false };
   return {
@@ -272,11 +288,11 @@ function updateStaleness(lastPollIso) {
   } else if (minAgo < STALE_THRESHOLD_MIN) {
     banner.classList.add('fresh');
     text.textContent = `LIVE · Bot last polled ${fmtRelTime(lastPollIso)}`;
-    sub.textContent = `Data is current · Bot polls every 15 min during market hours`;
+    sub.textContent = `Data is current · Bot polls every 10 min during market hours`;
   } else if (minAgo < VERY_STALE_THRESHOLD_MIN) {
     banner.classList.add('stale');
     text.textContent = `STALE · Bot last polled ${fmtRelTime(lastPollIso)}`;
-    sub.textContent = `Older than the 15-min cron interval — bot may have missed a cycle`;
+    sub.textContent = `Older than the 10-min cron interval — bot may have missed a cycle`;
   } else {
     banner.classList.add('veryold');
     text.textContent = `⚠ STALE · Bot last polled ${fmtRelTime(lastPollIso)}`;
@@ -344,7 +360,54 @@ function renderClosedRow(t) {
   `;
 }
 
-function render(ledger, gist) {
+function reconPanel(recon) {
+  if (!recon) {
+    return `
+      <div class="section-label">
+        <span>Reconciliation <span class="badge">ledger</span></span>
+        <span class="hint">authoritative — every dollar vs broker</span>
+      </div>
+      <div class="loading">Ledger not built yet — runs on the next market-hours tick (writes ledger/reconciliation.json).</div>
+    `;
+  }
+  const c = recon.components || {};
+  const gap = recon.unexplained_gap;
+  const ok = recon.reconciled;
+  const gapCls = ok ? 'gap-ok' : 'gap-bad';
+  const gapValCls = ok ? 'pos' : 'amber';
+  const counts = recon.counts || {};
+  return `
+    <div class="section-label">
+      <span>Reconciliation <span class="badge">ledger</span></span>
+      <span class="hint">authoritative — derived from every broker transaction since ${recon.starting_capital != null ? 'experiment start' : ''}</span>
+    </div>
+    <div class="stats-grid recon-grid">
+      <div>
+        <div class="label">Account P&L</div>
+        <div class="value ${cls(recon.account_pnl)}">${signMoney(recon.account_pnl, 2)}</div>
+        <div class="sub">net liq ${$0(recon.net_liquidating_value)} · start ${$0(recon.starting_capital)}</div>
+      </div>
+      <div>
+        <div class="label">Explained</div>
+        <div class="value ${cls(recon.explained_pnl)}">${signMoney(recon.explained_pnl, 2)}</div>
+        <div class="sub">realized ${signMoney(c.realized_pnl_closed, 0)} · unreal ${signMoney(c.unrealized_pnl_open, 0)}</div>
+      </div>
+      <div class="gap-card ${gapCls}">
+        <div class="label">Unexplained gap</div>
+        <div class="value ${gapValCls}">${signMoney(gap, 2)}</div>
+        <div class="sub">${ok ? 'reconciled ✅' : '⚠ investigate'}</div>
+      </div>
+      <div>
+        <div class="label">Money movement</div>
+        <div class="value ${cls(c.money_movement_net)}">${signMoney(c.money_movement_net, 2)}</div>
+        <div class="sub">fees ${$(recon.total_fees_paid, 2)} · ${counts.transactions ?? '—'} txns · ${counts.closed_trades ?? '—'} closed</div>
+      </div>
+    </div>
+    <p class="recon-note">Identity: account P&L = realized + unrealized + money movement. A non-zero gap means an untracked fill, fee, or transfer — chase it down.</p>
+  `;
+}
+
+function render(ledger, gist, recon) {
   const account = gist?.account || {};
   const trades = joinTrades(ledger, gist);
   const openTrades = trades.filter(t => t.status === 'open');
@@ -450,6 +513,8 @@ function render(ledger, gist) {
       </div>
     </div>
 
+    ${reconPanel(recon)}
+
     <div class="section-label">
       <span>Open positions <span class="badge">live</span></span>
       <span class="hint">mid = best-case fill · worst = guaranteed fill (ask/bid)</span>
@@ -517,8 +582,12 @@ async function tick() {
       console.warn('gist load failed:', e);
       return null;
     });
-    const [ledger, gist] = await Promise.all([ledgerPromise, gistPromise]);
-    render(ledger, gist);
+    const reconPromise = loadRecon().catch(e => {
+      console.warn('reconciliation load failed:', e);
+      return null;
+    });
+    const [ledger, gist, recon] = await Promise.all([ledgerPromise, gistPromise, reconPromise]);
+    render(ledger, gist, recon);
   } catch (e) {
     document.getElementById('root').innerHTML = `<div class="error">⚠ ${e.message}</div>`;
     document.getElementById('staleness-text').textContent = `error fetching ledger`;

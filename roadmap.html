@@ -903,20 +903,27 @@
 
 <script>
   // ============================================================
-  //  Update this block any time progress changes.
-  //  The whole page renders from these values.
+  //  Mission config + phase counts are static (edit here).
+  //  Account figures (net liq, P&L) are fetched LIVE from the bot's
+  //  ledger reconciliation.json, with the gist as a fallback.
   // ============================================================
+  const RECON_URL = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/ledger/reconciliation.json';
+  const GIST_ID = '08e2cb50b3a645e9569617a6298ee987';
+  const GIST_FILE = 'last_poll.json';
+  const REFRESH_MS = 60_000;
+
   const PROJECT_STATE = {
-    lastUpdated: new Date(),  // auto: now. Replace with new Date('2026-05-30T...') to set explicitly.
+    lastUpdated: new Date(),
+    source: 'static',                  // 'ledger' | 'gist' | 'static'
     mission: {
       startDate: new Date('2026-05-13'),
       endDate: new Date('2026-11-13'),
       startingCapital: 3389.91,
-      targetReturnPct: 1.00,  // 100% return
+      targetReturnPct: 1.00,           // 100% return
     },
     account: {
-      netLiq: 3505,
-      strategyPnl: 47.50,
+      netLiq: 3389.91,                 // fallback until live data loads
+      strategyPnl: 0,                  // account P&L = net liq − starting capital
       phasesShipped: 5,
       phasesTotal: 9,
     },
@@ -937,22 +944,16 @@
     const currentDaily = daysElapsed > 0 ? pnl / daysElapsed : 0;
     return { totalDays, daysElapsed, daysRemaining, targetTotal, pnl, pct, requiredDaily, currentDaily };
   }
-  const mission = computeMission();
 
   // --- Live timestamp ---
   function updateTimestamp() {
     const d = PROJECT_STATE.lastUpdated;
     const opts = { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true };
-    document.getElementById('timestamp').textContent = 'Updated · ' + d.toLocaleString('en-US', opts);
+    const tag = PROJECT_STATE.source === 'static' ? ' · awaiting live data'
+              : PROJECT_STATE.source === 'gist'   ? ' · live (gist)'
+              : ' · live (ledger)';
+    document.getElementById('timestamp').textContent = 'Updated · ' + d.toLocaleString('en-US', opts) + tag;
   }
-  updateTimestamp();
-
-  // --- Populate mission tracker values ---
-  document.getElementById('goal-total').textContent = mission.targetTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  document.getElementById('days-remaining').textContent = mission.daysRemaining;
-  document.getElementById('required-daily').textContent = mission.requiredDaily.toFixed(2);
-  document.getElementById('current-daily').textContent = mission.currentDaily.toFixed(2);
-  document.getElementById('goal-fill').style.width = Math.max(mission.pct, 0.3) + '%';  // min 0.3% so bar shows
 
   // --- Counter animation on stats ---
   function animateCounter(id, target, duration = 1200, decimals = 0, isCurrency = false) {
@@ -975,13 +976,64 @@
     requestAnimationFrame(step);
   }
 
-  // Animate stat values on load
-  animateCounter('stat-pnl', PROJECT_STATE.account.strategyPnl, 1400, 2);
-  animateCounter('stat-progress', mission.pct, 1400, 2);
-  animateCounter('stat-netliq', PROJECT_STATE.account.netLiq, 1400, 0, true);
-  animateCounter('stat-phases', PROJECT_STATE.account.phasesShipped, 800, 0);
-  animateCounter('goal-current', mission.pnl, 1600, 2);
-  animateCounter('goal-pct', mission.pct, 1600, 2);
+  // --- Render everything from current PROJECT_STATE ---
+  function applyState() {
+    const mission = computeMission();
+    updateTimestamp();
+    document.getElementById('goal-total').textContent = mission.targetTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    document.getElementById('days-remaining').textContent = mission.daysRemaining;
+    document.getElementById('required-daily').textContent = mission.requiredDaily.toFixed(2);
+    document.getElementById('current-daily').textContent = mission.currentDaily.toFixed(2);
+    document.getElementById('goal-fill').style.width = Math.max(mission.pct, 0.3) + '%';  // min 0.3% so bar shows
+    animateCounter('stat-pnl', PROJECT_STATE.account.strategyPnl, 1400, 2);
+    animateCounter('stat-progress', mission.pct, 1400, 2);
+    animateCounter('stat-netliq', PROJECT_STATE.account.netLiq, 1400, 0, true);
+    animateCounter('stat-phases', PROJECT_STATE.account.phasesShipped, 800, 0);
+    animateCounter('goal-current', mission.pnl, 1600, 2);
+    animateCounter('goal-pct', mission.pct, 1600, 2);
+  }
+
+  // --- Pull live account figures: prefer authoritative ledger, fall back to gist ---
+  async function fetchLive() {
+    try {
+      const r = await fetch(RECON_URL + '?_=' + Date.now(), { cache: 'no-store' });
+      if (r.ok) {
+        const recon = await r.json();
+        if (recon.net_liquidating_value != null) PROJECT_STATE.account.netLiq = recon.net_liquidating_value;
+        if (recon.account_pnl != null) PROJECT_STATE.account.strategyPnl = recon.account_pnl;
+        PROJECT_STATE.lastUpdated = recon.generated_at ? new Date(recon.generated_at) : new Date();
+        PROJECT_STATE.source = 'ledger';
+        return;
+      }
+    } catch (e) { console.warn('reconciliation fetch failed:', e); }
+
+    try {
+      const g = await fetch('https://api.github.com/gists/' + GIST_ID, {
+        headers: { 'Accept': 'application/vnd.github+json' }, cache: 'no-store'
+      });
+      if (g.ok) {
+        const gist = await g.json();
+        const file = gist.files && gist.files[GIST_FILE];
+        if (file) {
+          const state = JSON.parse(file.content);
+          const acct = state.account || {};
+          if (acct.net_liquidating_value != null) PROJECT_STATE.account.netLiq = acct.net_liquidating_value;
+          if (acct.cumulative_pnl != null) PROJECT_STATE.account.strategyPnl = acct.cumulative_pnl;
+          if (state.last_poll_at) PROJECT_STATE.lastUpdated = new Date(state.last_poll_at);
+          PROJECT_STATE.source = 'gist';
+        }
+      }
+    } catch (e) { console.warn('gist fetch failed:', e); }
+  }
+
+  async function refresh() {
+    await fetchLive();
+    applyState();
+  }
+
+  applyState();   // paint immediately with fallback values
+  refresh();      // then pull live figures and repaint
+  setInterval(refresh, REFRESH_MS);
 </script>
 
 </body>
