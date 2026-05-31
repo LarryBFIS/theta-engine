@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "trades": [
+    {
+      "id": "ledger_001_spy",
+      "underlying": "SPY",
+      "opened_at": "2026-05-13",
+      "open_order_id": "466603976",
+      "open_net_cash": 97.74,
+      "open_legs": [
+        {
+          "symbol": "SPY   260618P00716000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 6.63,
+          "net_cash": -664.12,
+          "fees": 1.12,
+          "executed_at": "2026-05-13T16:22:09.251Z"
+        },
+        {
+          "symbol": "SPY   260618P00721000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 7.63,
+          "net_cash": 761.86,
+          "fees": 1.14,
+          "executed_at": "2026-05-13T16:22:09.251Z"
+        }
+      ],
+      "close_orders": [
+        "470430708"
+      ],
+      "close_net_cash": -58.25,
+      "close_legs": [
+        {
+          "symbol": "SPY   260618P00721000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 3.42,
+          "net_cash": -342.12,
+          "fees": 0.12,
+          "executed_at": "2026-05-26T16:19:30.919Z"
+        },
+        {
+          "symbol": "SPY   260618P00716000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 2.84,
+          "net_cash": 283.87,
+          "fees": 0.13,
+          "executed_at": "2026-05-26T16:19:30.919Z"
+        }
+      ],
+      "closed_at": "2026-05-26",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": 39.49
+    },
+    {
+      "id": "ledger_002_gld",
+      "underlying": "GLD",
+      "opened_at": "2026-05-18",
+      "open_order_id": "468508848",
+      "open_net_cash": 70.75,
+      "open_legs": [
+        {
+          "symbol": "GLD   260618P00395000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 3.34,
+          "net_cash": 332.87,
+          "fees": 1.13,
+          "executed_at": "2026-05-18T19:36:12.057Z"
+        },
+        {
+          "symbol": "GLD   260618P00390000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 2.61,
+          "net_cash": -262.12,
+          "fees": 1.12,
+          "executed_at": "2026-05-18T19:36:12.058Z"
+        }
+      ],
+      "close_orders": [
+        "471594051"
+      ],
+      "close_net_cash": -49.25,
+      "close_legs": [
+        {
+          "symbol": "GLD   260618P00390000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 1.26,
+          "net_cash": 125.87,
+          "fees": 0.13,
+          "executed_at": "2026-05-29T17:49:14.633Z"
+        },
+        {
+          "symbol": "GLD   260618P00395000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 1.75,
+          "net_cash": -175.12,
+          "fees": 0.12,
+          "executed_at": "2026-05-29T17:49:14.634Z"
+        }
+      ],
+      "closed_at": "2026-05-29",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": 21.5
+    },
+    {
+      "id": "ledger_003_amzn",
+      "underlying": "AMZN",
+      "opened_at": "2026-05-26",
+      "open_order_id": "470366596",
+      "open_net_cash": 126.74,
+      "open_legs": [
+        {
+          "symbol": "AMZN  260717P00245000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 4.45,
+          "net_cash": -446.12,
+          "fees": 1.12,
+          "executed_at": "2026-05-26T14:57:07.464Z"
+        },
+        {
+          "symbol": "AMZN  260717P00250000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 5.74,
+          "net_cash": 572.86,
+          "fees": 1.14,
+          "executed_at": "2026-05-26T14:57:07.464Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": 126.74,
+      "cost_to_close_mid": -0.0
+    },
+    {
+      "id": "ledger_004_jpm",
+      "underlying": "JPM",
+      "opened_at": "2026-05-29",
+      "open_order_id": "471570454",
+      "open_net_cash": 203.74,
+      "open_legs": [
+        {
+          "symbol": "JPM   260717P00280000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 4.98,
+          "net_cash": 496.86,
+          "fees": 1.14,
+          "executed_at": "2026-05-29T17:08:38.956Z"
+        },
+        {
+          "symbol": "JPM   260717P00270000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 2.92,
+          "net_cash": -293.12,
+          "fees": 1.12,
+          "executed_at": "2026-05-29T17:08:38.956Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": 203.74,
+      "cost_to_close_mid": -0.0
+    }
+  ]
+}
