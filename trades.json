@@ -87,8 +87,29 @@
           "fill": 2.61
         }
       ],
-      "status": "open",
-      "gtc_close_target": 0.36
+      "status": "closed",
+      "closed_at": "2026-05-29",
+      "close_order_id": "471594051",
+      "close_debit_per_contract": 0.49,
+      "close_legs": [
+        {
+          "side": "buy_to_close",
+          "type": "P",
+          "strike": 395,
+          "fill": 1.75
+        },
+        {
+          "side": "sell_to_close",
+          "type": "P",
+          "strike": 390,
+          "fill": 1.26
+        }
+      ],
+      "realized_pnl": 24.0,
+      "pct_max_captured_at_close": 0.329,
+      "days_held": 11,
+      "outcome": "win",
+      "close_reason": "21_dte_hard_exit_late"
     },
     {
       "id": "trade_003_amzn_250_245",
@@ -122,24 +143,35 @@
       "gtc_close_target": 0.65
     },
     {
-      "id": "trade_004_spy_721_716",
-      "underlying": "SPY",
+      "id": "trade_005_jpm_280_270",
+      "underlying": "JPM",
       "structure": "short_put_vertical",
-      "short_strike": 721,
-      "long_strike": 716,
-      "expiry": "2026-06-18",
+      "short_strike": 280,
+      "long_strike": 270,
+      "expiry": "2026-07-17",
       "contracts": 1,
-      "opened_at": "2026-05-26",
-      "credit_per_contract": 1.0,
-      "max_profit_total": 100,
-      "max_loss_total": 400,
-      "bpr_total": 400.0,
-      "pop_at_open": null,
-      "p50_at_open": null,
-      "manage_at_pct": 0.5,
-      "exit_dte": 21,
+      "opened_at": "2026-05-29",
+      "open_order_id": "471570454",
+      "credit_per_contract": 2.06,
+      "max_profit_total": 206,
+      "max_loss_total": 794,
+      "bpr_total": 795,
+      "open_legs": [
+        {
+          "side": "short",
+          "type": "P",
+          "strike": 280,
+          "fill": 4.98
+        },
+        {
+          "side": "long",
+          "type": "P",
+          "strike": 270,
+          "fill": 2.92
+        }
+      ],
       "status": "open",
-      "notes": "Auto-synced from broker on 2026-05-26"
+      "gtc_close_target": 1.03
     }
   ]
 }
