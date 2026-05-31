@@ -1,0 +1,42 @@
+name: deadman
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  deadman:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check gist freshness
+        run: |
+          set -e
+          GIST_RAW="https://gist.githubusercontent.com/LarryBFIS/08e2cb50b3a645e9569617a6298ee987/raw/last_poll.json"
+          DATA=$(curl -s "$GIST_RAW")
+          if [ -z "$DATA" ]; then
+            echo "ERROR: gist fetch empty"
+            exit 1
+          fi
+          LAST_POLL=$(echo "$DATA" | python3 -c "import sys, json; print(json.load(sys.stdin)['last_poll_at'])")
+          echo "Last poll: $LAST_POLL"
+          LAST_TS=$(date -d "$LAST_POLL" +%s)
+          NOW=$(date -u +%s)
+          DIFF_MIN=$(( ($NOW - $LAST_TS) / 60 ))
+          echo "Minutes since last poll: $DIFF_MIN"
+          HOUR=$(date -u +%H)
+          DOW=$(date -u +%u)
+          if [ "$DOW" -le 5 ] && [ "$HOUR" -ge 13 ] && [ "$HOUR" -lt 21 ] && [ "$DIFF_MIN" -gt 45 ]; then
+            echo "ALERT: stale during market hours"
+            curl -s --form-string "token=${{ secrets.PUSHOVER_APP_TOKEN }}" \
+              --form-string "user=${{ secrets.PUSHOVER_USER_KEY }}" \
+              --form-string "title=theta-engine DEAD" \
+              --form-string "message=Last poll: $DIFF_MIN min ago at $LAST_POLL UTC. Bot likely down." \
+              --form-string "priority=2" \
+              --form-string "retry=300" \
+              --form-string "expire=3600" \
+              https://api.pushover.net/1/messages.json
+          else
+            echo "OK: dow=$DOW hour=$HOUR diff=$DIFF_MIN"
+          fi

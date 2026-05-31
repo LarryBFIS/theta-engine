@@ -1,0 +1,88 @@
+name: tick
+
+on:
+  schedule:
+    - cron: '*/10 13-20 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Poll positions
+        env:
+          TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
+          TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          STARTING_CAPITAL: ${{ secrets.STARTING_CAPITAL }}
+          GIST_ID: ${{ secrets.GIST_ID }}
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+        run: python -m scripts.poll
+
+      - name: AI decide
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          GIST_ID: ${{ secrets.GIST_ID }}
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
+          TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
+        run: python -m scripts.ai_decide
+
+      - name: Summary (conditional)
+        env:
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          GIST_ID: ${{ secrets.GIST_ID }}
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          STARTING_CAPITAL: ${{ secrets.STARTING_CAPITAL }}
+          TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
+          TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
+        run: |
+          HOUR=$(date -u +%H)
+          MIN=$(date -u +%M)
+          if [[ "$HOUR" =~ ^(14|16|18|20)$ ]] && [ "$((10#$MIN))" -lt 8 ]; then
+            echo "Firing scheduled summary (hour=$HOUR min=$MIN UTC)"
+            python -m scripts.summary
+          else
+            echo "Skipping summary (hour=$HOUR min=$MIN UTC, not in window)"
+          fi
+
+      - name: Commit ledger changes
+        run: |
+          git config user.name "theta-bot"
+          git config user.email "bot@theta-engine"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git pull --rebase origin main || true
+            git commit -m "auto: bot tick $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          curl -s --form-string "token=${{ secrets.PUSHOVER_APP_TOKEN }}" \
+            --form-string "user=${{ secrets.PUSHOVER_USER_KEY }}" \
+            --form-string "title=theta-engine tick FAILED" \
+            --form-string "message=Tick at $(date -u +%H:%MZ) failed. Check actions log." \
+            --form-string "priority=1" \
+            https://api.pushover.net/1/messages.json
