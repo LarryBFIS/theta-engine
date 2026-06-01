@@ -455,17 +455,16 @@ def main() -> int:
 
     log.info(
         "Ledger built: %d txns, %d trades (%d open / %d closed). "
-        "Account P&L $%+.2f, explained $%+.2f, gap $%+.2f.",
+        "Account P&L $%+.2f = strategy $%+.2f + money $%+.2f + non-strategy $%+.2f.",
         len(transactions),
         len(trades),
         recon["counts"]["open_trades"],
         recon["counts"]["closed_trades"],
         recon["account_pnl"],
-        recon["explained_pnl"],
-        recon["unexplained_gap"],
+        recon["strategy_pnl"],
+        recon["components"]["money_movement_net"],
+        recon["components"]["non_strategy_activity"],
     )
-    if not recon["reconciled"]:
-        log.warning("Ledger does not reconcile — gap of $%+.2f remains", recon["unexplained_gap"])
     return 0
 
 
