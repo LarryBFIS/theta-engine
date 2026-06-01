@@ -1,0 +1,54 @@
+name: scan
+
+on:
+  schedule:
+    # Premarket on weekdays — 12:45 UTC (~8:45am ET). Best-effort (GitHub cron).
+    - cron: '45 12 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Scan for opportunities
+        env:
+          TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
+          TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+        run: python -m scripts.scan_opportunities
+
+      - name: Commit scan results
+        run: |
+          git config user.name "theta-bot"
+          git config user.email "bot@theta-engine"
+          git add scan/
+          if git diff --cached --quiet; then
+            echo "No scan changes"
+          else
+            git pull --rebase origin main || true
+            git commit -m "scan: opportunities $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          curl -s --form-string "token=${{ secrets.PUSHOVER_APP_TOKEN }}" \
+            --form-string "user=${{ secrets.PUSHOVER_USER_KEY }}" \
+            --form-string "title=theta-engine SCAN failed" \
+            --form-string "message=Scan at $(date -u +%H:%MZ) failed. Check Actions." \
+            --form-string "priority=0" \
+            https://api.pushover.net/1/messages.json
