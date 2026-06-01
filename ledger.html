@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>theta-engine — ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#0a0a0a; --card:#131313; --border:#222; --border-soft:#1a1a1a;
+    --fg:#e8e8e8; --dim:#888; --faint:#555; --cherry:#e63946;
+    --green:#4ade80; --red:#f87171; --amber:#fbbf24;
+  }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:var(--bg); color:var(--fg);
+    font-family:'IBM Plex Sans',system-ui,sans-serif; font-size:14px; line-height:1.5; -webkit-font-smoothing:antialiased; }
+  .container { max-width:1100px; margin:0 auto; padding:1.5rem 1.5rem 4rem; }
+  header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:1.25rem; }
+  .brand { display:flex; align-items:baseline; gap:0.75rem; }
+  .brand h1 { font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:1.25rem; margin:0; letter-spacing:-0.02em; }
+  .brand .dot { color:var(--cherry); font-size:1.5rem; line-height:0; }
+  .nav a { font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--dim); text-decoration:none; margin-left:1rem; text-transform:uppercase; letter-spacing:0.1em; }
+  .nav a:hover { color:var(--fg); }
+  .updated { font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--dim); margin-bottom:1.5rem; }
+  .pulse-dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--green); margin-right:0.4rem; animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+  .cards { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-bottom:2rem; }
+  .cards > div { background:var(--card); padding:1rem 1.1rem; }
+  .cards .label { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.13em; color:var(--dim); margin-bottom:0.4rem; }
+  .cards .value { font-family:'IBM Plex Mono',monospace; font-size:1.3rem; font-weight:500; font-variant-numeric:tabular-nums; line-height:1; }
+  .cards .sub { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:var(--faint); margin-top:0.3rem; }
+
+  .section-label { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--dim); margin:2rem 0 0.75rem; }
+  table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--border); font-variant-numeric:tabular-nums; }
+  th, td { padding:0.6rem 0.8rem; text-align:right; border-bottom:1px solid var(--border-soft); font-family:'IBM Plex Mono',monospace; font-size:0.78rem; }
+  th { font-size:0.6rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--dim); font-weight:500; border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--card); }
+  th:first-child, td:first-child, th.l, td.l { text-align:left; }
+  tr:last-child td { border-bottom:none; }
+  .pos { color:var(--green); } .neg { color:var(--red); } .dim { color:var(--dim); }
+  .tag { display:inline-block; padding:1px 6px; font-size:0.6rem; border:1px solid var(--border); color:var(--dim); letter-spacing:0.05em; }
+  .tag.open { color:var(--amber); border-color:var(--amber); }
+  .tag.closed { color:var(--green); border-color:var(--green); }
+  .tag.buy { color:var(--red); border-color:#3a2a2a; }
+  .tag.sell { color:var(--green); border-color:#2a3a2a; }
+  .tag.move { color:var(--amber); border-color:#3a3320; }
+  .desc { color:var(--dim); font-size:0.72rem; }
+  .loading, .error { font-family:'IBM Plex Mono',monospace; font-size:0.85rem; padding:1rem 0; }
+  .error { color:var(--red); }
+  footer { margin-top:2rem; padding-top:1rem; border-top:1px solid var(--border); font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--faint); }
+  @media (max-width:720px) {
+    .cards { grid-template-columns:1fr 1fr; }
+    th, td { padding:0.45rem 0.4rem; font-size:0.68rem; }
+    .container { padding:1rem; }
+    .hide-sm { display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="brand"><span class="dot">●</span><h1>theta-engine</h1></div>
+    <div class="nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="roadmap.html">Roadmap</a>
+    </div>
+  </header>
+  <div class="updated"><span class="pulse-dot"></span><span id="updated">Loading ledger…</span></div>
+
+  <div id="root"><div class="loading">Fetching ledger…</div></div>
+
+  <footer><span>source: ledger/transactions.json + ledger/trades.json (rebuilt every bot tick)</span></footer>
+</div>
+
+<script>
+const TX_URL = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/ledger/transactions.json';
+const TRADES_URL = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/ledger/trades.json';
+const REFRESH_MS = 60_000;
+
+const money = (n, d = 2) => {
+  if (n == null || isNaN(n)) return '—';
+  const s = n < 0 ? '-' : '';
+  return s + '$' + Math.abs(n).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+};
+const signMoney = (n, d = 2) => (n == null || isNaN(n)) ? '—' : (n >= 0 ? '+' : '') + money(n, d).replace('-', '');
+const cls = (n) => (n == null || isNaN(n)) ? 'dim' : (n >= 0 ? 'pos' : 'neg');
+const num = (v) => { const f = parseFloat(v); return isNaN(f) ? 0 : f; };
+
+// Signed cash: Credit positive, Debit negative.
+function netCash(tx) {
+  const v = num(tx['net-value']);
+  if (!v) return 0;
+  const eff = (tx['net-value-effect'] || '').toLowerCase();
+  return eff === 'debit' ? -v : v;
+}
+function fees(tx) {
+  return num(tx.commission) + num(tx['regulatory-fees']) + num(tx['clearing-fees']) + num(tx['proprietary-index-option-fees']);
+}
+function actionTag(tx) {
+  const sub = (tx['transaction-sub-type'] || tx['transaction-type'] || '').toLowerCase();
+  if (sub.includes('buy')) return 'buy';
+  if (sub.includes('sell')) return 'sell';
+  return 'move';
+}
+function fmtDate(iso) {
+  if (!iso) return '—';
+  return new Date(iso).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true });
+}
+
+async function loadJson(url) {
+  const r = await fetch(url + '?_=' + Date.now(), { cache: 'no-store' });
+  if (r.status === 404) return null;
+  if (!r.ok) throw new Error('HTTP ' + r.status + ' for ' + url.split('/').pop());
+  return r.json();
+}
+
+function render(txData, tradesData) {
+  const txs = (txData && txData.transactions) ? txData.transactions.slice() : [];
+  const trades = (tradesData && tradesData.trades) ? tradesData.trades : [];
+
+  // Newest first for the transactions table.
+  txs.sort((a, b) => (b['executed-at'] || '').localeCompare(a['executed-at'] || ''));
+
+  const netFlow = txs.reduce((s, t) => s + netCash(t), 0);
+  const totalFees = txs.reduce((s, t) => s + fees(t), 0);
+  const realized = trades.filter(t => t.status === 'closed').reduce((s, t) => s + (t.realized_pnl || 0), 0);
+  const unrealized = trades.filter(t => t.status === 'open').reduce((s, t) => s + (t.unrealized_pnl || 0), 0);
+  const openN = trades.filter(t => t.status === 'open').length;
+  const closedN = trades.filter(t => t.status === 'closed').length;
+
+  const tradeRows = trades.length ? trades.map(t => `
+    <tr>
+      <td class="l"><b>${t.underlying || '—'}</b> <span class="dim">${t.id || ''}</span></td>
+      <td>${t.opened_at || '—'}</td>
+      <td>${t.closed_at || '—'}</td>
+      <td><span class="tag ${t.status}">${t.status || ''}</span></td>
+      <td class="${cls(t.realized_pnl)}">${t.realized_pnl != null ? signMoney(t.realized_pnl, 2) : '—'}</td>
+      <td class="${cls(t.unrealized_pnl)}">${t.unrealized_pnl != null ? signMoney(t.unrealized_pnl, 2) : '—'}</td>
+    </tr>`).join('') : `<tr><td colspan="6" class="dim" style="text-align:center;padding:1.5rem;">No trades yet</td></tr>`;
+
+  const txRows = txs.length ? txs.map(t => {
+    const c = netCash(t);
+    return `
+    <tr>
+      <td class="l">${fmtDate(t['executed-at'])}</td>
+      <td class="l"><span class="tag ${actionTag(t)}">${t['transaction-sub-type'] || t['transaction-type'] || '—'}</span></td>
+      <td class="l">${t.symbol || t['underlying-symbol'] || '<span class="dim">—</span>'}<div class="desc hide-sm">${t.description || ''}</div></td>
+      <td>${t.quantity != null ? num(t.quantity) : '—'}</td>
+      <td>${t.price != null && t.price !== '' ? money(num(t.price), 2) : '—'}</td>
+      <td class="${cls(c)}">${signMoney(c, 2)}</td>
+      <td class="dim hide-sm">${money(fees(t), 2)}</td>
+    </tr>`;
+  }).join('') : `<tr><td colspan="7" class="dim" style="text-align:center;padding:1.5rem;">No transactions</td></tr>`;
+
+  document.getElementById('root').innerHTML = `
+    <div class="cards">
+      <div><div class="label">Transactions</div><div class="value">${txs.length}</div><div class="sub">all fills + fees</div></div>
+      <div><div class="label">Trades</div><div class="value">${openN + closedN}</div><div class="sub">${openN} open · ${closedN} closed</div></div>
+      <div><div class="label">Realized P&L</div><div class="value ${cls(realized)}">${signMoney(realized, 2)}</div><div class="sub">closed trades</div></div>
+      <div><div class="label">Open (unrealized)</div><div class="value ${cls(unrealized)}">${signMoney(unrealized, 2)}</div><div class="sub">at live marks</div></div>
+      <div><div class="label">Total fees</div><div class="value">${money(totalFees, 2)}</div><div class="sub">net cash ${signMoney(netFlow, 0)}</div></div>
+    </div>
+
+    <div class="section-label">Trades</div>
+    <table>
+      <thead><tr><th class="l">Trade</th><th>Opened</th><th>Closed</th><th>Status</th><th>Realized</th><th>Unrealized</th></tr></thead>
+      <tbody>${tradeRows}</tbody>
+    </table>
+
+    <div class="section-label">All transactions</div>
+    <table>
+      <thead><tr><th class="l">When</th><th class="l">Type</th><th class="l">Symbol</th><th>Qty</th><th>Price</th><th>Net cash</th><th class="hide-sm">Fees</th></tr></thead>
+      <tbody>${txRows}</tbody>
+    </table>
+  `;
+
+  const stamp = (txData && txData.generated_at) || (tradesData && tradesData.generated_at);
+  document.getElementById('updated').textContent =
+    'Live · refreshes every 60s · last rebuilt ' + (txData && txData.start_date ? 'since ' + txData.start_date : 'by bot tick');
+}
+
+async function tick() {
+  try {
+    const [tx, trades] = await Promise.all([loadJson(TX_URL), loadJson(TRADES_URL)]);
+    if (!tx && !trades) {
+      document.getElementById('root').innerHTML = '<div class="loading">Ledger not built yet — it appears after the next bot tick.</div>';
+      document.getElementById('updated').textContent = 'Awaiting first ledger build';
+      return;
+    }
+    render(tx, trades);
+  } catch (e) {
+    document.getElementById('root').innerHTML = '<div class="error">⚠ ' + e.message + '</div>';
+    document.getElementById('updated').textContent = 'Error loading ledger';
+  }
+}
+
+tick();
+setInterval(tick, REFRESH_MS);
+</script>
+</body>
+</html>
