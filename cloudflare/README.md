@@ -117,3 +117,24 @@ Worker → **Settings → Triggers → Cron Triggers → Add Cron Trigger**:
 After the next cron minute, check the repo's **Actions** tab: you should see a
 `tick` run with the trigger **`repository_dispatch`**. That confirms reliable
 scheduling is live. GitHub's native cron stays enabled as a secondary backstop.
+
+## Step 5 — deadman watchdog (Pushover creds)
+
+The Worker's `scheduled()` handler also acts as the **deadman**: on each cron run
+it checks the gist's `last_poll_at` and, if the bot hasn't polled in >45 min,
+fires a **Pushover priority-2 emergency**. Because this rides Cloudflare's cron,
+it keeps watching even if GitHub's scheduler (and `deadman.yml`) stalls entirely.
+
+Add these to the Worker → **Settings → Variables and Secrets**, then **Deploy**:
+
+| Name | Type | Value |
+|---|---|---|
+| `PUSHOVER_APP_TOKEN` | Secret | your Pushover app's API token (from pushover.net → your app) |
+| `PUSHOVER_USER_KEY` | Secret | your Pushover user key (top of pushover.net dashboard) |
+
+Optional `DEADMAN_STALE_MIN` (Text) to change the 45-minute threshold. Without
+these creds the Worker just skips the deadman check (scheduling still works).
+
+> `deadman.yml` (the GitHub watchdog) stays as a secondary net. Once you've
+> confirmed the Worker deadman works, you can delete `deadman.yml` to avoid
+> occasional duplicate alerts — but it's harmless to keep.

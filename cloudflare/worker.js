@@ -70,29 +70,77 @@ export default {
   // GitHub's unreliable native cron. Requires a GITHUB_DISPATCH_TOKEN secret
   // (classic PAT with `repo` scope) and a Cron Trigger configured on the Worker.
   async scheduled(event, env, ctx) {
-    const token = env.GITHUB_DISPATCH_TOKEN;
-    if (!token) {
-      console.log("scheduled: no GITHUB_DISPATCH_TOKEN set; skipping");
-      return;
-    }
-    const repo = env.DISPATCH_REPO || "LarryBFIS/theta-engine";
-    try {
-      const res = await fetch(`https://api.github.com/repos/${repo}/dispatches`, {
-        method: "POST",
-        headers: {
-          "Authorization": "Bearer " + token,
-          "Accept": "application/vnd.github+json",
-          "User-Agent": "theta-decide-cron",
-          "X-GitHub-Api-Version": "2022-11-28",
-        },
-        body: JSON.stringify({ event_type: "tick" }),
-      });
-      console.log("scheduled: tick dispatch ->", res.status);
-    } catch (e) {
-      console.log("scheduled: dispatch failed:", e.message);
-    }
+    // On Cloudflare's reliable cron: (1) fire the GitHub tick, and (2) act as the
+    // deadman watchdog — independent of GitHub's own (flaky) scheduler.
+    await dispatchTick(env);
+    await deadmanCheck(env);
   },
 };
+
+async function dispatchTick(env) {
+  const token = env.GITHUB_DISPATCH_TOKEN;
+  if (!token) {
+    console.log("dispatchTick: no GITHUB_DISPATCH_TOKEN set; skipping");
+    return;
+  }
+  const repo = env.DISPATCH_REPO || "LarryBFIS/theta-engine";
+  try {
+    const res = await fetch(`https://api.github.com/repos/${repo}/dispatches`, {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Accept": "application/vnd.github+json",
+        "User-Agent": "theta-decide-cron",
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+      body: JSON.stringify({ event_type: "tick" }),
+    });
+    console.log("dispatchTick: tick dispatch ->", res.status);
+  } catch (e) {
+    console.log("dispatchTick: failed:", e.message);
+  }
+}
+
+// Deadman watchdog: if the bot's last gist poll is stale, fire a Pushover
+// emergency. Runs on Cloudflare's reliable cron (already restricted to market
+// hours), so it backstops the bot even if GitHub scheduling stalls entirely.
+async function deadmanCheck(env) {
+  if (!env.PUSHOVER_APP_TOKEN || !env.PUSHOVER_USER_KEY) {
+    console.log("deadmanCheck: no Pushover creds; skipping");
+    return;
+  }
+  const url = `https://gist.githubusercontent.com/LarryBFIS/${env.GIST_ID}/raw/last_poll.json?_=${Date.now()}`;
+  let lastPoll;
+  try {
+    const r = await fetch(url, { cf: { cacheTtl: 0 } });
+    if (!r.ok) { console.log("deadmanCheck: gist fetch", r.status); return; }
+    lastPoll = (await r.json()).last_poll_at;
+  } catch (e) {
+    console.log("deadmanCheck: gist fetch failed:", e.message);
+    return;
+  }
+  if (!lastPoll) return;
+  const ageMin = (Date.now() - new Date(lastPoll).getTime()) / 60000;
+  const staleMin = parseFloat(env.DEADMAN_STALE_MIN || "45");
+  if (ageMin <= staleMin) {
+    console.log("deadmanCheck: OK, last poll", Math.round(ageMin), "min ago");
+    return;
+  }
+  console.log("deadmanCheck: STALE", Math.round(ageMin), "min — alerting");
+  await fetch("https://api.pushover.net/1/messages.json", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      token: env.PUSHOVER_APP_TOKEN,
+      user: env.PUSHOVER_USER_KEY,
+      title: "theta-engine DEAD",
+      message: `Last poll ${Math.round(ageMin)} min ago (${lastPoll}). Bot likely down.`,
+      priority: "2",
+      retry: "300",
+      expire: "3600",
+    }),
+  });
+}
 
 async function signToken(secret, sugId) {
   const enc = new TextEncoder();
