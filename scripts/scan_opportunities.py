@@ -310,9 +310,45 @@ def main() -> int:
 
     ranked = rank_opportunities(candidates)
     _write(ranked, candidates, skipped)
+    _alert_live([c for c in ranked if c.get("tag") == "live"])
     log.info("Scan done: %d candidates, top %d ranked, %d skipped",
              len(candidates), len(ranked), len(skipped))
     return 0
+
+
+def _open_sigs():
+    """Signatures of positions already being tracked (so we don't re-alert them)."""
+    try:
+        book = json.loads((REPO_ROOT / "paper" / "book.json").read_text())
+        return {"{}_{:g}_{:g}_{}".format(t.get("underlying"), t.get("short_strike"),
+                                         t.get("long_strike"), t.get("expiry"))
+                for t in book.get("trades", []) if t.get("status") == "open"}
+    except Exception:  # noqa: BLE001
+        return set()
+
+
+def _alert_live(live):
+    """Pushover digest of high-conviction picks for you to open (+ set GTC 50%)."""
+    if not live:
+        return
+    open_sigs = _open_sigs()
+    fresh = [c for c in live
+             if "{}_{:g}_{:g}_{}".format(c["underlying"], c["short_strike"],
+                                         c["long_strike"], c["expiry"]) not in open_sigs]
+    if not fresh:
+        return
+    lines = ["{} {:g}/{:g}p · ${:.2f} cr · POP {:.0%} · IVR {:.0%} · BPR ${:.0f}".format(
+        c["underlying"], c["short_strike"], c["long_strike"], c["credit"],
+        c["pop"], c["iv_rank"], c["bpr"]) for c in fresh]
+    try:
+        from monitor import notifier
+        notifier.send(
+            title="📈 {} setup{} to open".format(len(fresh), "s" if len(fresh) > 1 else ""),
+            message="Open these + set GTC close at 50%:\n" + "\n".join(lines),
+            priority=notifier.PRIORITY_NORMAL,
+        )
+    except Exception as e:  # noqa: BLE001 — never fail the scan on a notify error
+        log.warning("scan alert failed: %s", e)
 
 
 def _mid(q):
