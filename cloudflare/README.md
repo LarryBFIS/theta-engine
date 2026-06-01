@@ -77,3 +77,43 @@ The bot (`monitor/approvals.py`) builds the link; the Worker recomputes and
 compares. Known-answer test (secret `hunter2`, id `sug_abc`) →
 `bfe87ed0b6d67b51` in both Python and the Worker. If you ever change the scheme,
 update both and the test in `scripts/test_approvals.py`.
+
+---
+
+# Reliable scheduling (recommended) — make ticks fire on time
+
+GitHub's own cron throttles/drops high-frequency schedules, so `tick.yml` runs
+late or not at all. The fix: let this **Cloudflare Worker** fire the tick on a
+**Cloudflare Cron Trigger** (which is reliable). The Worker's `scheduled()`
+handler calls GitHub `repository_dispatch`, and `tick.yml` already listens for
+`repository_dispatch: types: [tick]`.
+
+## Step 1 — token for dispatching the workflow
+1. https://github.com/settings/tokens/new?scopes=repo&description=theta-tick-dispatch
+   — make sure you're logged in as **LarryBFIS**, confirm the **`repo`** scope is
+   checked, **Generate token**, copy it. ⚠️ Don't share it.
+   (`repository_dispatch` requires the `repo` scope.)
+
+## Step 2 — add it to the Worker
+Worker → **Settings → Variables and Secrets → Add**:
+
+| Name | Type | Value |
+|---|---|---|
+| `GITHUB_DISPATCH_TOKEN` | Secret | the token from Step 1 |
+
+(Optional `DISPATCH_REPO` Text var if the repo ever moves; defaults to `LarryBFIS/theta-engine`.) Click **Deploy**.
+
+## Step 3 — add the Cron Trigger
+Worker → **Settings → Triggers → Cron Triggers → Add Cron Trigger**:
+
+```
+3,13,23,33,43,53 13-20 * * 1-5
+```
+
+(Every ~10 min, market hours 13:00–20:00 UTC = 9:30am–4pm ET window, Mon–Fri.)
+**Deploy.**
+
+## Step 4 — verify
+After the next cron minute, check the repo's **Actions** tab: you should see a
+`tick` run with the trigger **`repository_dispatch`**. That confirms reliable
+scheduling is live. GitHub's native cron stays enabled as a secondary backstop.

@@ -1,127 +1,102 @@
 # theta-engine
 
-A notification service that monitors your tastytrade options positions and pushes alerts to your phone via [Pushover](https://pushover.net) when something needs your attention. Runs on **GitHub Actions** — completely free.
+An autonomous, self-monitoring options-trading engine for a tastytrade account,
+running entirely on **GitHub Actions** (free) with a **Cloudflare Worker** for
+the approve/reject webhook and reliable scheduling.
 
-Built for the "I don't have time to watch markets, but I want to know when to act" workflow.
+It runs a disciplined short-premium strategy (short put verticals), polls the
+broker on a timer, applies mechanical management rules + an AI decision layer,
+alerts to your phone via **Pushover**, keeps an **authoritative ledger** derived
+from broker transactions, and publishes live status pages.
 
-## What it does
+> **Mission:** 6-month experiment (2026-05-13 → 2026-11-13), grow $3,389.91 by
+> 100%. Mechanical rules: max 3–4 positions, 35–50% BPR utilization, manage at
+> 50%, 21 DTE hard exit, cut at 1.5× credit, never hold through earnings.
 
-GitHub Actions runs two scheduled workflows:
+> **Safety:** the engine is **read-only against the broker — it never places
+> orders.** It tells you what to do; you execute (or tap Approve/Reject, which
+> is *recorded only* — see Phase 5b).
 
-- **Poll workflow** — every 15 min during US market hours (Mon-Fri 9:30 AM – 4 PM ET). Pulls account state, evaluates rules, fires Pushover notifications on any trigger.
-- **Summary workflow** — 4x per market day (10 AM, 12 PM, 2 PM, 4 PM ET). Sends a "where you stand" snapshot regardless of triggers.
+## How it works
 
-You will *not* be notified about routine price moves, normal theta progress, or anything else that isn't actionable.
+`/.github/workflows/tick.yml` runs the core loop (cron during market hours, plus
+`repository_dispatch` from the Cloudflare cron, plus manual `workflow_dispatch`):
 
-### Rules that fire alerts
+1. **apply_decisions** — read Approve/Reject decisions from the gist, mark suggestions.
+2. **poll** — pull account + positions + live option quotes; push a full snapshot to the gist.
+3. **ai_decide** — Claude reviews positions vs. rules; pushes high-confidence alerts (with a "Review" deep link).
+4. **build_ledger** — rebuild the authoritative ledger from every broker transaction.
+5. **summary** — conditional "where you stand" Pushover (a few times/day).
+6. commit any changed state back to the repo.
 
-| Rule | When |
-|------|------|
-| Short strike touched | Underlying near/below short put strike (or near/above short call strike) |
-| Profit target hit | ≥50% of credit captured on a short option |
-| Max loss approaching | Unrealized loss exceeds ~1.5× credit |
-| 21 DTE reached | Any open option hits 21 days to expiry |
-| VIX spike | VIX > 22 or up ≥20% on the day |
-| Daily account loss | Account down ≥2% on the day |
+Other workflows: `deadman.yml` (stale-watchdog alert), `briefing.yml` (daily AM
+briefing), `position_news.yml` (hourly RSS news scan).
 
-## Setup
-
-After pushing the code to your GitHub repo, set these **5 repository secrets**:
-
-Go to **your repo → Settings → Secrets and variables → Actions → New repository secret**
-
-| Secret name | Value |
-|---|---|
-| `TASTYTRADE_USERNAME` | Your tastytrade login |
-| `TASTYTRADE_PASSWORD` | Your tastytrade password |
-| `PUSHOVER_USER_KEY` | 30-char user key from pushover.net |
-| `PUSHOVER_APP_TOKEN` | API token of your Pushover application |
-| `STARTING_CAPITAL` | Account net liq at experiment start (e.g. `3389.91`) |
-
-That's it. The workflows are already in `.github/workflows/` and start running on the next scheduled time.
-
-### Verify it works
-
-Go to **your repo → Actions tab**. You should see two workflows. Click one → **Run workflow** (manual trigger) → wait ~30 sec → check your phone for a Pushover notification.
-
-## Project layout
+## Layout
 
 ```
 theta-engine/
 ├── scripts/
-│   ├── poll.py                   # One polling cycle (GitHub Actions entry)
-│   └── summary.py                # One summary push (GitHub Actions entry)
+│   ├── poll.py              # one poll cycle (entry)
+│   ├── ai_decide.py         # Claude decision layer (entry)
+│   ├── build_ledger.py      # derive ledger/ from broker transactions (entry)
+│   ├── apply_decisions.py   # apply Approve/Reject decisions (entry)
+│   ├── summary.py, briefing.py, position_news.py
+│   └── test_build_ledger.py, test_approvals.py   # credential-free unit tests
 ├── monitor/
-│   ├── config.py                 # Env vars + thresholds (tune here)
-│   ├── tastytrade_client.py      # API wrapper
-│   ├── market_data.py            # VIX/quotes via yfinance
-│   ├── notifier.py               # Pushover sender
-│   ├── rules.py                  # All trigger logic
-│   └── state.py                  # In-memory cooldown state
-├── .github/workflows/
-│   ├── poll.yml                  # Cron: */15 13-21 * * 1-5 (UTC)
-│   └── summary.yml               # Cron: 0 14,16,18,20 * * 1-5 (UTC)
-├── main.py                       # Optional: local always-on scheduler
-├── requirements.txt
-├── .env.example                  # For local testing only
-└── .gitignore
+│   ├── config.py            # env vars + thresholds
+│   ├── tastytrade_client.py # OAuth2 REST client + live quotes
+│   ├── decisions.py, rules.py, ai_trader.py      # rule + AI logic
+│   ├── approvals.py         # signed decision links + apply logic (Phase 5b)
+│   ├── gist.py, notifier.py, trades.py, market_state.py, ...
+├── ledger/                  # GENERATED each tick (do not hand-edit)
+│   ├── transactions.json    # every fill/fee/movement since experiment start
+│   ├── trades.json          # orders grouped into trades w/ realized+unrealized
+│   ├── reconciliation.json  # strategy P&L vs account P&L breakdown
+│   └── summary.md
+├── trades.json              # hand/auto-tracked trades w/ POP/BPR metadata
+├── dashboard.html, roadmap.html, ledger.html, decide.html   # GitHub Pages
+├── cloudflare/worker.js     # approve/reject webhook + scheduling cron
+└── .github/workflows/
 ```
 
-## Tuning rules
+## Live pages (GitHub Pages)
 
-All thresholds live in `monitor/config.py`:
+- Dashboard: https://larrybfis.github.io/theta-engine/dashboard.html
+- Roadmap:   https://larrybfis.github.io/theta-engine/roadmap.html
+- Ledger:    https://larrybfis.github.io/theta-engine/ledger.html
+- Decide:    https://larrybfis.github.io/theta-engine/decide.html (opened from Pushover)
 
-| Setting | Default | What it does |
-|---------|---------|--------------|
-| `PROFIT_TARGET_PCT` | 0.50 | Fire profit-target alert at this fraction of max profit |
-| `SHORT_STRIKE_BUFFER_PCT` | 0.005 | Fire short-strike alert when within 0.5% of strike |
-| `VIX_SPIKE_LEVEL` | 22.0 | Absolute VIX for spike alert |
-| `VIX_SPIKE_PCT` | 0.20 | Day-over-day VIX move for spike alert |
-| `DAILY_LOSS_PCT` | 0.02 | Trigger daily-loss alert at this drawdown |
+## Secrets (GitHub repo → Settings → Secrets → Actions)
 
-Edit, commit, push — GitHub Actions picks up the new values on the next run.
-
-## Cost
-
-| Component | Cost |
+| Secret | Purpose |
 |---|---|
-| GitHub Actions | **Free** (~440 min/month used, 2,000 included free) |
-| Pushover | $5 one-time per platform (already paid) |
-| tastytrade API | Free |
-| yfinance | Free |
+| `TASTYTRADE_CLIENT_SECRET`, `TASTYTRADE_REFRESH_TOKEN` | OAuth2 broker access |
+| `PUSHOVER_USER_KEY`, `PUSHOVER_APP_TOKEN` | phone alerts |
+| `ANTHROPIC_API_KEY` | AI decision layer |
+| `GIST_ID`, `GIST_TOKEN` | live-state gist |
+| `STARTING_CAPITAL` | experiment baseline (3389.91) |
+| `DECISION_SECRET` | signs Approve/Reject links (matches the Worker) |
 
-**Running cost: $0/month** after Pushover one-time fee.
+## Phase 5b — Approve/Reject (record-only)
 
-## Local testing (optional)
+Actionable alerts include a **Review →** button → `decide.html` → the Cloudflare
+Worker (`cloudflare/worker.js`) verifies a signed token and writes the decision
+to the gist → the next tick records it and confirms via Pushover. **No order is
+placed** — you execute in tastytrade. Setup + reliable-scheduling cron: see
+[`cloudflare/README.md`](cloudflare/README.md).
+
+## Local testing
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env   # fill in credentials
-python -m scripts.poll      # single poll
-python -m scripts.summary   # single summary
-python main.py              # continuous scheduler
+python -m scripts.poll
+python -m scripts.build_ledger
+python -m scripts.test_build_ledger   # no credentials needed
+python -m scripts.test_approvals      # no credentials needed
 ```
-
-## Known limitations (v1)
-
-- **No persistent cooldown state** — duplicates possible across runs. Easy to add later via committed `state.json` or a Gist.
-- **DST drift** — GitHub Actions cron is UTC. During EST (Nov–March), summary times shift 1 hour earlier ET. Adjust `.github/workflows/summary.yml` to fix.
-- **Rough max-loss heuristic** — uses a P&L proxy. Good enough for alerts.
-- **Single account** — uses first account from tastytrade login.
-
-## Security notes
-
-- All credentials live as GitHub Actions secrets — never in code or git
-- The service is read-only — it never places orders
-- If you leak a credential, rotate it immediately
-
-## Roadmap
-
-- **Phase 2:** Claude API enrichment of notification bodies
-- **Phase 3:** Web dashboard (close-now P&L, max profit/loss potential, grouped by expiry)
-- **Phase 4:** WSB/SwaggyStocks sentiment screening layer
 
 ## License
 

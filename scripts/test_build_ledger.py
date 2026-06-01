@@ -162,8 +162,11 @@ def main() -> int:
     net_liq = starting + realized + unrealized + money
 
     recon = build_reconciliation(txns, trades, net_liq, starting)
-    if not recon["reconciled"]:
-        failures.append("reconciliation gap {} should be ~0".format(recon["unexplained_gap"]))
+    # No pre-ledger positions in the fixture, so non-strategy activity must be ~0.
+    if not approx(recon["components"]["non_strategy_activity"], 0.0):
+        failures.append("non_strategy_activity {} should be ~0".format(recon["components"]["non_strategy_activity"]))
+    if not approx(recon["strategy_pnl"], realized + unrealized):
+        failures.append("strategy_pnl {} != {}".format(recon["strategy_pnl"], realized + unrealized))
     if not approx(recon["components"]["money_movement_net"], 3.40):
         failures.append("money movement {} != 3.40".format(recon["components"]["money_movement_net"]))
 
@@ -172,12 +175,12 @@ def main() -> int:
         print("  {:>16}  {:>6}  {:<7} realized={} unrealized={}".format(
             t["id"], t["underlying"], t["status"], t["realized_pnl"], t["unrealized_pnl"]))
     print("")
-    print("Account P&L  : ${:+.2f}".format(recon["account_pnl"]))
-    print("  realized   : ${:+.2f}".format(recon["components"]["realized_pnl_closed"]))
-    print("  unrealized : ${:+.2f}".format(recon["components"]["unrealized_pnl_open"]))
-    print("  money mvmt : ${:+.2f}".format(recon["components"]["money_movement_net"]))
-    print("  explained  : ${:+.2f}".format(recon["explained_pnl"]))
-    print("  gap        : ${:+.2f}".format(recon["unexplained_gap"]))
+    print("Account P&L     : ${:+.2f}".format(recon["account_pnl"]))
+    print("  strategy P&L  : ${:+.2f}".format(recon["strategy_pnl"]))
+    print("    realized    : ${:+.2f}".format(recon["components"]["realized_pnl_closed"]))
+    print("    unrealized  : ${:+.2f}".format(recon["components"]["unrealized_pnl_open"]))
+    print("  money mvmt    : ${:+.2f}".format(recon["components"]["money_movement_net"]))
+    print("  non-strategy  : ${:+.2f}".format(recon["components"]["non_strategy_activity"]))
     print("")
 
     if failures:

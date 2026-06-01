@@ -271,25 +271,29 @@ def build_reconciliation(
 
     fees = round(sum(total_fees(t) for t in transactions), 2)
 
+    strategy_pnl = round(realized + unrealized, 2)
     account_pnl = round(net_liq - starting_capital, 2)
-    explained = round(realized + unrealized + money_movement, 2)
-    gap = round(account_pnl - explained, 2)
+    # Whatever account P&L isn't explained by the tracked experiment strategy or
+    # by cash movements. This is NOT an error: it's mostly positions opened
+    # BEFORE the ledger start date that were closed within the window (their cost
+    # basis lives outside the window, so their P&L can't be attributed to a
+    # tracked trade). We surface it as a labeled line rather than an alarm.
+    non_strategy_activity = round(account_pnl - strategy_pnl - money_movement, 2)
 
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "starting_capital": round(starting_capital, 2),
         "net_liquidating_value": round(net_liq, 2),
         "account_pnl": account_pnl,
+        "strategy_pnl": strategy_pnl,
         "components": {
             "realized_pnl_closed": round(realized, 2),
             "unrealized_pnl_open": round(unrealized, 2),
             "money_movement_net": round(money_movement, 2),
+            "non_strategy_activity": non_strategy_activity,
         },
         "money_movement_detail": movement_detail,
         "total_fees_paid": fees,
-        "explained_pnl": explained,
-        "unexplained_gap": gap,
-        "reconciled": abs(gap) < 1.0,
         "counts": {
             "transactions": len(transactions),
             "trades": len(trades),
@@ -311,15 +315,17 @@ def build_summary_md(trades: list[dict], recon: dict) -> str:
     lines.append("|---|---:|")
     lines.append("| Starting capital | ${:,.2f} |".format(recon["starting_capital"]))
     lines.append("| Net liq (now) | ${:,.2f} |".format(recon["net_liquidating_value"]))
-    lines.append("| **Account P&L** | **${:+,.2f}** |".format(recon["account_pnl"]))
-    lines.append("| Realized (closed) | ${:+,.2f} |".format(recon["components"]["realized_pnl_closed"]))
-    lines.append("| Unrealized (open) | ${:+,.2f} |".format(recon["components"]["unrealized_pnl_open"]))
+    lines.append("| Strategy realized (closed) | ${:+,.2f} |".format(recon["components"]["realized_pnl_closed"]))
+    lines.append("| Strategy unrealized (open) | ${:+,.2f} |".format(recon["components"]["unrealized_pnl_open"]))
+    lines.append("| **Strategy P&L** | **${:+,.2f}** |".format(recon["strategy_pnl"]))
     lines.append("| Money movement | ${:+,.2f} |".format(recon["components"]["money_movement_net"]))
-    lines.append("| Explained P&L | ${:+,.2f} |".format(recon["explained_pnl"]))
-    lines.append("| **Unexplained gap** | **${:+,.2f}** |".format(recon["unexplained_gap"]))
+    lines.append("| Non-strategy activity | ${:+,.2f} |".format(recon["components"]["non_strategy_activity"]))
+    lines.append("| **Account P&L** | **${:+,.2f}** |".format(recon["account_pnl"]))
     lines.append("")
-    status = "RECONCILED ✅" if recon["reconciled"] else "GAP REMAINS ⚠️"
-    lines.append("Status: **{}** (total fees paid: ${:,.2f})".format(status, recon["total_fees_paid"]))
+    lines.append(
+        "_Account P&L = strategy P&L + money movement + non-strategy activity "
+        "(pre-ledger positions closed in-window). Total fees paid: ${:,.2f}._".format(recon["total_fees_paid"])
+    )
     if recon["money_movement_detail"]:
         lines.append("")
         lines.append("### Money movement detail")

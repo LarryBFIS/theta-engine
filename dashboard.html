@@ -374,31 +374,33 @@ function reconPanel(recon) {
     `;
   }
   const c = recon.components || {};
-  const gap = recon.unexplained_gap;
-  const ok = recon.reconciled;
-  const gapCls = ok ? 'gap-ok' : 'gap-bad';
-  const gapValCls = ok ? 'pos' : 'amber';
+  const strategyPnl = recon.strategy_pnl != null
+    ? recon.strategy_pnl
+    : (c.realized_pnl_closed || 0) + (c.unrealized_pnl_open || 0);
+  const nonStrategy = c.non_strategy_activity != null
+    ? c.non_strategy_activity
+    : (recon.unexplained_gap != null ? recon.unexplained_gap : 0);
   const counts = recon.counts || {};
   return `
     <div class="section-label">
-      <span>Reconciliation <span class="badge">ledger</span></span>
-      <span class="hint">authoritative — derived from every broker transaction since ${recon.starting_capital != null ? 'experiment start' : ''}</span>
+      <span>P&L reconciliation <span class="badge">ledger</span></span>
+      <span class="hint">strategy vs. total account · from every broker transaction</span>
     </div>
     <div class="stats-grid recon-grid">
+      <div>
+        <div class="label">Strategy P&L</div>
+        <div class="value ${cls(strategyPnl)}">${signMoney(strategyPnl, 2)}</div>
+        <div class="sub">realized ${signMoney(c.realized_pnl_closed, 0)} · open ${signMoney(c.unrealized_pnl_open, 0)}</div>
+      </div>
       <div>
         <div class="label">Account P&L</div>
         <div class="value ${cls(recon.account_pnl)}">${signMoney(recon.account_pnl, 2)}</div>
         <div class="sub">net liq ${$0(recon.net_liquidating_value)} · start ${$0(recon.starting_capital)}</div>
       </div>
       <div>
-        <div class="label">Explained</div>
-        <div class="value ${cls(recon.explained_pnl)}">${signMoney(recon.explained_pnl, 2)}</div>
-        <div class="sub">realized ${signMoney(c.realized_pnl_closed, 0)} · unreal ${signMoney(c.unrealized_pnl_open, 0)}</div>
-      </div>
-      <div class="gap-card ${gapCls}">
-        <div class="label">Unexplained gap</div>
-        <div class="value ${gapValCls}">${signMoney(gap, 2)}</div>
-        <div class="sub">${ok ? 'reconciled ✅' : '⚠ investigate'}</div>
+        <div class="label">Non-strategy activity</div>
+        <div class="value ${cls(nonStrategy)}">${signMoney(nonStrategy, 2)}</div>
+        <div class="sub">pre-ledger positions closed in-window</div>
       </div>
       <div>
         <div class="label">Money movement</div>
@@ -406,7 +408,7 @@ function reconPanel(recon) {
         <div class="sub">fees ${$(recon.total_fees_paid, 2)} · ${counts.transactions ?? '—'} txns · ${counts.closed_trades ?? '—'} closed</div>
       </div>
     </div>
-    <p class="recon-note">Identity: account P&L = realized + unrealized + money movement. A non-zero gap means an untracked fill, fee, or transfer — chase it down.</p>
+    <p class="recon-note">Account P&L = strategy P&L + money movement + non-strategy activity (positions opened before the ledger window — e.g. a pre-experiment trade closed on day one).</p>
   `;
 }
 

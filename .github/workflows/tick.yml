@@ -2,8 +2,12 @@ name: tick
 
 on:
   schedule:
-    - cron: '*/10 13-20 * * 1-5'
+    # Off the top-of-hour — GitHub throttles :00 crons hardest. Still ~10-min.
+    - cron: '3,13,23,33,43,53 13-20 * * 1-5'
   workflow_dispatch:
+  # Fired by the Cloudflare Worker cron (reliable scheduling backstop).
+  repository_dispatch:
+    types: [tick]
 
 permissions:
   contents: write

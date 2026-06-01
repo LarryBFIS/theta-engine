@@ -64,6 +64,34 @@ export default {
 
     return json({ ok: true, id, action }, 200, cors);
   },
+
+  // Reliable scheduling: a Cloudflare Cron Trigger invokes this on a timer and
+  // we fire the GitHub `tick` workflow via repository_dispatch. This sidesteps
+  // GitHub's unreliable native cron. Requires a GITHUB_DISPATCH_TOKEN secret
+  // (classic PAT with `repo` scope) and a Cron Trigger configured on the Worker.
+  async scheduled(event, env, ctx) {
+    const token = env.GITHUB_DISPATCH_TOKEN;
+    if (!token) {
+      console.log("scheduled: no GITHUB_DISPATCH_TOKEN set; skipping");
+      return;
+    }
+    const repo = env.DISPATCH_REPO || "LarryBFIS/theta-engine";
+    try {
+      const res = await fetch(`https://api.github.com/repos/${repo}/dispatches`, {
+        method: "POST",
+        headers: {
+          "Authorization": "Bearer " + token,
+          "Accept": "application/vnd.github+json",
+          "User-Agent": "theta-decide-cron",
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+        body: JSON.stringify({ event_type: "tick" }),
+      });
+      console.log("scheduled: tick dispatch ->", res.status);
+    } catch (e) {
+      console.log("scheduled: dispatch failed:", e.message);
+    }
+  },
 };
 
 async function signToken(secret, sugId) {

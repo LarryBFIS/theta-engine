@@ -172,6 +172,37 @@
       ],
       "status": "open",
       "gtc_close_target": 1.03
+    },
+    {
+      "id": "trade_006_gld_390_385",
+      "underlying": "GLD",
+      "structure": "short_put_vertical",
+      "short_strike": 390,
+      "long_strike": 385,
+      "expiry": "2026-07-17",
+      "contracts": 1,
+      "opened_at": "2026-06-01",
+      "open_order_id": "472016142",
+      "credit_per_contract": 0.93,
+      "max_profit_total": 93,
+      "max_loss_total": 407,
+      "bpr_total": 407,
+      "open_legs": [
+        {
+          "side": "short",
+          "type": "P",
+          "strike": 390,
+          "fill": 4.76
+        },
+        {
+          "side": "long",
+          "type": "P",
+          "strike": 385,
+          "fill": 3.83
+        }
+      ],
+      "status": "open",
+      "gtc_close_target": 0.47
     }
   ]
 }
