@@ -201,6 +201,7 @@ def build_trades(transactions: list[dict], positions: list[dict]) -> list[dict]:
             trade["realized_pnl"] = round(
                 trade["open_net_cash"] + trade["close_net_cash"], 2
             )
+        _enrich_trade(trade)
     return trades
 
 
@@ -244,6 +245,64 @@ def _leg_view(leg: dict) -> dict:
 def _trade_id(idx: int, order: dict) -> str:
     underlying = (order["underlying"] or "UNK").lower()
     return "ledger_{:03d}_{}".format(idx, underlying)
+
+
+def parse_occ(symbol: str):
+    """Parse a fixed-width OCC option symbol, e.g. 'GLD   260618P00395000'.
+
+    Layout: 6-char root (space-padded) + YYMMDD + C/P + strike×1000 (8 digits).
+    Returns {underlying, expiry 'YYYY-MM-DD', type 'C'/'P', strike} or None.
+    """
+    if not symbol or len(symbol) < 21:
+        return None
+    root = symbol[0:6].strip()
+    date = symbol[6:12]
+    cp = symbol[12]
+    strike_s = symbol[13:21]
+    if not (date.isdigit() and strike_s.isdigit() and cp in ("C", "P") and root):
+        return None
+    return {
+        "underlying": root,
+        "expiry": "20{}-{}-{}".format(date[0:2], date[2:4], date[4:6]),
+        "type": cp,
+        "strike": int(strike_s) / 1000.0,
+    }
+
+
+def _enrich_trade(trade: dict) -> None:
+    """Add human display fields (strikes, expiry, credit, BPR, close debit) derived
+    from the option symbols/prices, so downstream views and the hand-maintained
+    trades.json can be auto-synced without parsing OCC symbols themselves."""
+    legs = trade.get("open_legs") or []
+    short_leg = next((l for l in legs if "sell" in (l.get("action") or "").lower()), None)
+    long_leg = next((l for l in legs if "buy" in (l.get("action") or "").lower()), None)
+    if not short_leg or not long_leg:
+        return
+    ps, pl = parse_occ(short_leg.get("symbol")), parse_occ(long_leg.get("symbol"))
+    if not ps or not pl:
+        return
+    contracts = int(abs(_to_float(short_leg.get("quantity"))) or 1)
+    credit = round(_to_float(short_leg.get("price")) - _to_float(long_leg.get("price")), 2)
+    width = round(abs(ps["strike"] - pl["strike"]), 2)
+    trade["underlying"] = trade.get("underlying") or ps["underlying"]
+    trade["structure"] = "short_{}_vertical".format("put" if ps["type"] == "P" else "call")
+    trade["short_strike"] = ps["strike"]
+    trade["long_strike"] = pl["strike"]
+    trade["expiry"] = ps["expiry"]
+    trade["contracts"] = contracts
+    trade["credit_per_contract"] = credit
+    trade["width"] = width
+    trade["max_profit_total"] = round(credit * 100 * contracts, 2)
+    trade["max_loss_total"] = round((width - credit) * 100 * contracts, 2)
+    trade["bpr_total"] = trade["max_loss_total"]
+    if trade.get("status") == "closed":
+        clegs = trade.get("close_legs") or []
+        cbuy = next((l for l in clegs if "buy" in (l.get("action") or "").lower()), None)
+        csell = next((l for l in clegs if "sell" in (l.get("action") or "").lower()), None)
+        if cbuy and csell:
+            trade["close_debit_per_contract"] = round(
+                _to_float(cbuy.get("price")) - _to_float(csell.get("price")), 2
+            )
 
 
 def build_reconciliation(

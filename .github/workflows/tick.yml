@@ -69,6 +69,9 @@ jobs:
           STARTING_CAPITAL: ${{ secrets.STARTING_CAPITAL }}
         run: python -m scripts.build_ledger
 
+      - name: Sync trades from ledger
+        run: python -m scripts.sync_trades
+
       - name: Summary (conditional)
         env:
           PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
