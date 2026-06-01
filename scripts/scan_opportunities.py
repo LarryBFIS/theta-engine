@@ -47,6 +47,10 @@ MIN_CREDIT_RATIO = float(os.getenv("SCAN_MIN_CREDIT_RATIO", "0.15"))  # credit/w
 MANAGE_FRAC = float(os.getenv("SCAN_MANAGE_FRAC", "0.5"))    # take profit at 50%
 STOP_MULT = float(os.getenv("SCAN_STOP_MULT", "1.5"))        # cut losers at 1.5x credit (matches rule)
 TOP_N = int(os.getenv("SCAN_TOP_N", "10"))
+# A pick is "live-worthy" (route to Approve/Reject for real execution) only if it
+# clears these higher bars; everything else is paper-traded to keep proving edge.
+LIVE_MIN_EV_ON_BPR = float(os.getenv("SCAN_LIVE_MIN_EV_ON_BPR", "0.018"))
+LIVE_MIN_IV_RANK = float(os.getenv("SCAN_LIVE_MIN_IV_RANK", "0.50"))
 
 
 def universe():
@@ -109,8 +113,17 @@ def expectancy(credit, bpr, pop, manage_frac=MANAGE_FRAC, stop_mult=STOP_MULT):
     return round(pop * win - (1 - pop) * loss, 2)
 
 
+def conviction_tag(ev_on_bpr, iv_rank, liquidity):
+    """'live' = clears the higher bar for real execution; else 'paper'."""
+    liquid_ok = liquidity is None or liquidity >= 2
+    if ev_on_bpr >= LIVE_MIN_EV_ON_BPR and iv_rank >= LIVE_MIN_IV_RANK and liquid_ok:
+        return "live"
+    return "paper"
+
+
 def build_candidate(underlying, expiry, dte, short, long_, short_mark, long_mark,
-                    price, iv, iv_rank, liquidity=None, earnings_date=None):
+                    price, iv, iv_rank, liquidity=None, earnings_date=None,
+                    short_symbol=None, long_symbol=None):
     """Assemble + score one short-put-vertical candidate, or None if it fails filters."""
     credit = round(short_mark - long_mark, 2)
     width = round(short - long_, 2)
@@ -127,6 +140,7 @@ def build_candidate(underlying, expiry, dte, short, long_, short_mark, long_mark
     ev = expectancy(credit, bpr, pop)
     if ev <= 0:
         return None
+    ev_on_bpr = round(ev / bpr, 4)
     return {
         "underlying": underlying,
         "structure": "short_put_vertical",
@@ -134,6 +148,8 @@ def build_candidate(underlying, expiry, dte, short, long_, short_mark, long_mark
         "dte": dte,
         "short_strike": short,
         "long_strike": long_,
+        "short_symbol": short_symbol,
+        "long_symbol": long_symbol,
         "width": width,
         "credit": credit,
         "bpr": bpr,
@@ -141,12 +157,13 @@ def build_candidate(underlying, expiry, dte, short, long_, short_mark, long_mark
         "short_delta": round(put_delta_abs(price, short, iv, dte) or 0.0, 3),
         "credit_to_bpr": round(credit * 100.0 / bpr, 3),
         "ev_per_contract": ev,
-        "ev_on_bpr": round(ev / bpr, 4),
+        "ev_on_bpr": ev_on_bpr,
         "iv": round(iv, 4),
         "iv_rank": round(iv_rank, 3),
         "underlying_price": round(price, 2),
         "liquidity": liquidity,
         "earnings_date": earnings_date,
+        "tag": conviction_tag(ev_on_bpr, iv_rank, liquidity),
     }
 
 
@@ -284,7 +301,8 @@ def main() -> int:
             skipped[sym] = "no option marks"
             continue
         cand = build_candidate(sym, expiry, dte, short, long_, short_mark, long_mark,
-                               price, m["iv"], m["iv_rank"], m.get("liquidity"), m.get("earnings_date"))
+                               price, m["iv"], m["iv_rank"], m.get("liquidity"), m.get("earnings_date"),
+                               short_symbol=puts[short], long_symbol=puts[long_])
         if cand:
             candidates.append(cand)
         else:
@@ -316,14 +334,15 @@ def _write(ranked, candidates, skipped):
 
     lines = ["# Opportunity scan", "",
              "_Generated {} · short put verticals ranked by expected return on BPR._".format(payload["generated_at"]),
-             "", "| # | Trade | DTE | Credit | BPR | POP | Cr/BPR | EV/ctr | EV/BPR | IVR |",
-             "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|"]
+             "", "| # | Trade | Tag | DTE | Credit | BPR | POP | Cr/BPR | EV/ctr | EV/BPR | IVR |",
+             "|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|"]
     for i, c in enumerate(ranked, 1):
-        lines.append("| {} | {} {:g}/{:g}p | {} | ${:.2f} | ${:.0f} | {:.0%} | {:.0%} | ${:+.0f} | {:.1%} | {:.0%} |".format(
-            i, c["underlying"], c["short_strike"], c["long_strike"], c["dte"], c["credit"],
-            c["bpr"], c["pop"], c["credit_to_bpr"], c["ev_per_contract"], c["ev_on_bpr"], c["iv_rank"]))
+        lines.append("| {} | {} {:g}/{:g}p | {} | {} | ${:.2f} | ${:.0f} | {:.0%} | {:.0%} | ${:+.0f} | {:.1%} | {:.0%} |".format(
+            i, c["underlying"], c["short_strike"], c["long_strike"], c.get("tag", "paper").upper(),
+            c["dte"], c["credit"], c["bpr"], c["pop"], c["credit_to_bpr"], c["ev_per_contract"],
+            c["ev_on_bpr"], c["iv_rank"]))
     if not ranked:
-        lines.append("| — | _no setups passed filters_ | | | | | | | | |")
+        lines.append("| — | _no setups passed filters_ | | | | | | | | | |")
     (SCAN_DIR / "summary.md").write_text("\n".join(lines) + "\n")
 
 
