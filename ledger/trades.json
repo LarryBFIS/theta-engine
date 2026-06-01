@@ -143,8 +143,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -20.76,
-      "cost_to_close_mid": 147.5
+      "unrealized_pnl": -10.76,
+      "cost_to_close_mid": 137.5
     },
     {
       "id": "ledger_004_jpm",
@@ -178,8 +178,43 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -21.26,
-      "cost_to_close_mid": 225.0
+      "unrealized_pnl": -4.26,
+      "cost_to_close_mid": 208.0
+    },
+    {
+      "id": "ledger_005_gld",
+      "underlying": "GLD",
+      "opened_at": "2026-06-01",
+      "open_order_id": "472016142",
+      "open_net_cash": 90.75,
+      "open_legs": [
+        {
+          "symbol": "GLD   260717P00390000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 4.76,
+          "net_cash": 474.87,
+          "fees": 1.13,
+          "executed_at": "2026-06-01T18:00:09.979Z"
+        },
+        {
+          "symbol": "GLD   260717P00385000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 3.83,
+          "net_cash": -384.12,
+          "fees": 1.12,
+          "executed_at": "2026-06-01T18:00:09.979Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -6.75,
+      "cost_to_close_mid": 97.5
     }
   ]
 }
