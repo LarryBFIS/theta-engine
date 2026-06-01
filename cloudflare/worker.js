@@ -70,8 +70,17 @@ export default {
   // GitHub's unreliable native cron. Requires a GITHUB_DISPATCH_TOKEN secret
   // (classic PAT with `repo` scope) and a Cron Trigger configured on the Worker.
   async scheduled(event, env, ctx) {
-    // On Cloudflare's reliable cron: (1) fire the GitHub tick, and (2) act as the
-    // deadman watchdog — independent of GitHub's own (flaky) scheduler.
+    // The cron fires every day in the hour window; the *worker* decides whether
+    // to act, so we never depend on Cloudflare's day-of-week interpretation.
+    // Only act on weekdays during US market hours (13:00-20:59 UTC).
+    const now = new Date();
+    const dow = now.getUTCDay();   // 0=Sun .. 6=Sat
+    const hour = now.getUTCHours();
+    if (dow < 1 || dow > 5 || hour < 13 || hour > 20) {
+      console.log("scheduled: outside market window (dow=" + dow + " hour=" + hour + "); skipping");
+      return;
+    }
+    // On a real market tick: (1) fire the GitHub tick, (2) run the deadman watchdog.
     await dispatchTick(env);
     await deadmanCheck(env);
   },
