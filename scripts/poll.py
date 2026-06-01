@@ -15,6 +15,7 @@ from datetime import datetime
 from pytz import timezone as tz
 
 from monitor import config, gist, notifier
+from monitor.approvals import decide_url
 from monitor.decisions import (
     ACTION_HOLD,
     ACTION_URGENT_CLOSE,
@@ -91,9 +92,14 @@ def main() -> int:
             message = format_recommendation(rec)
             sound = notifier.SOUND_ALERT if rec.urgency == URGENCY_HIGH else notifier.SOUND_SUCCESS
             priority = notifier.PRIORITY_HIGH if rec.urgency == URGENCY_HIGH else notifier.PRIORITY_NORMAL
-            notifier.send(title=title, message=message, priority=priority, sound=sound)
 
+            # Phase 5b: attach a signed Approve/Reject deep link to this alert.
             sug_id = make_suggestion_id(trade.id, datetime.now(tz=ET))
+            notifier.send(
+                title=title, message=message, priority=priority, sound=sound,
+                url=decide_url(sug_id), url_title="Review → Approve/Reject",
+            )
+
             suggestion = Suggestion(
                 id=sug_id,
                 trade_id=trade.id,

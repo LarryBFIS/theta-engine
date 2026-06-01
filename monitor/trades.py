@@ -108,6 +108,12 @@ def load_suggestions() -> list[Suggestion]:
     return [Suggestion(**s) for s in data.get("suggestions", [])]
 
 
+def save_suggestions(suggestions: list[Suggestion]) -> None:
+    """Persist the full suggestion ledger back to suggestions.json."""
+    payload = {"schema_version": 1, "suggestions": [asdict(s) for s in suggestions]}
+    SUGGESTIONS_FILE.write_text(json.dumps(payload, indent=2, default=str) + "\n")
+
+
 def append_suggestion(suggestion: Suggestion) -> None:
     """Append a new suggestion to the ledger and write back."""
     existing = load_suggestions()

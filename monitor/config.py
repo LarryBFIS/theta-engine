@@ -52,6 +52,21 @@ GIST_ID = os.getenv("GIST_ID", "")
 GIST_TOKEN = os.getenv("GIST_TOKEN", "")
 
 # ────────────────────────────────────────────────────────────────────
+# Phase 5b: Approve/Reject UX
+# ────────────────────────────────────────────────────────────────────
+# Shared secret used to sign per-suggestion decision links so a random actor
+# can't forge an Approve/Reject. Must match the DECISION_SECRET set on the
+# Cloudflare Worker. Empty = feature effectively off (links still render but
+# the worker rejects them).
+DECISION_SECRET = os.getenv("DECISION_SECRET", "")
+# Public GitHub Pages decision page the Pushover "Review" button opens.
+DECIDE_BASE_URL = os.getenv(
+    "DECIDE_BASE_URL", "https://larrybfis.github.io/theta-engine/decide.html"
+)
+# Filename the Worker writes decisions into, inside the existing gist.
+DECISIONS_GIST_FILE = os.getenv("DECISIONS_GIST_FILE", "decisions.json")
+
+# ────────────────────────────────────────────────────────────────────
 # Rule thresholds — tune these without touching the code
 # ────────────────────────────────────────────────────────────────────
 PROFIT_TARGET_PCT = float(os.getenv("PROFIT_TARGET_PCT", "0.50"))

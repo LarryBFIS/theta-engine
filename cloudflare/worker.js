@@ -1,0 +1,128 @@
+/**
+ * theta-engine — Approve/Reject webhook (Cloudflare Worker).
+ *
+ * Receives a decision from decide.html, verifies its signature, and records it
+ * into the gist (decisions.json). The next bot tick reads that file and marks
+ * the matching suggestion accepted/rejected. RECORD-ONLY: no orders are placed.
+ *
+ * Required Worker secrets / vars (set in the Cloudflare dashboard):
+ *   DECISION_SECRET  — same shared secret as the bot's DECISION_SECRET
+ *   GIST_TOKEN       — GitHub token with `gist` scope (write access to the gist)
+ *   GIST_ID          — the gist id (08e2cb50b3a645e9569617a6298ee987)
+ * Optional vars:
+ *   DECISIONS_FILE   — filename in the gist (default "decisions.json")
+ *   ALLOW_ORIGIN     — CORS origin (default "https://larrybfis.github.io")
+ *
+ * Signature scheme MUST match monitor/approvals.py:
+ *   token = HMAC_SHA256(DECISION_SECRET, suggestion_id) -> hex -> first 16 chars
+ */
+
+const TOKEN_LEN = 16;
+
+export default {
+  async fetch(request, env) {
+    const origin = env.ALLOW_ORIGIN || "https://larrybfis.github.io";
+    const cors = {
+      "Access-Control-Allow-Origin": origin,
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+    };
+
+    if (request.method === "OPTIONS") {
+      return new Response(null, { status: 204, headers: cors });
+    }
+    if (request.method !== "POST") {
+      return json({ ok: false, error: "POST only" }, 405, cors);
+    }
+
+    let body;
+    try {
+      body = await request.json();
+    } catch {
+      return json({ ok: false, error: "invalid JSON" }, 400, cors);
+    }
+
+    const id = (body.id || "").toString();
+    const token = (body.t || "").toString();
+    const action = (body.action || "").toString().toLowerCase();
+
+    if (!id || !token) return json({ ok: false, error: "missing id/token" }, 400, cors);
+    if (action !== "accept" && action !== "reject") {
+      return json({ ok: false, error: "action must be accept|reject" }, 400, cors);
+    }
+
+    const expected = await signToken(env.DECISION_SECRET || "", id);
+    if (!constantTimeEqual(token, expected)) {
+      return json({ ok: false, error: "bad signature" }, 403, cors);
+    }
+
+    try {
+      await recordDecision(env, id, action);
+    } catch (e) {
+      return json({ ok: false, error: "gist write failed: " + e.message }, 502, cors);
+    }
+
+    return json({ ok: true, id, action }, 200, cors);
+  },
+};
+
+async function signToken(secret, sugId) {
+  const enc = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    "raw", enc.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]
+  );
+  const sig = await crypto.subtle.sign("HMAC", key, enc.encode(sugId));
+  const hex = [...new Uint8Array(sig)].map((b) => b.toString(16).padStart(2, "0")).join("");
+  return hex.slice(0, TOKEN_LEN);
+}
+
+function constantTimeEqual(a, b) {
+  if (a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
+
+async function recordDecision(env, id, action) {
+  const file = env.DECISIONS_FILE || "decisions.json";
+  const gistUrl = "https://api.github.com/gists/" + env.GIST_ID;
+  const headers = {
+    "Authorization": "Bearer " + env.GIST_TOKEN,
+    "Accept": "application/vnd.github+json",
+    "User-Agent": "theta-engine-worker",
+    "X-GitHub-Api-Version": "2022-11-28",
+  };
+
+  // Read existing decisions (if the file exists yet).
+  let decisions = {};
+  const getRes = await fetch(gistUrl, { headers });
+  if (getRes.ok) {
+    const gist = await getRes.json();
+    const existing = gist.files && gist.files[file];
+    if (existing && existing.content) {
+      try {
+        const parsed = JSON.parse(existing.content);
+        decisions = parsed.decisions || {};
+      } catch { /* start fresh on parse error */ }
+    }
+  }
+
+  decisions[id] = { action, at: new Date().toISOString(), source: "pushover-web" };
+  const content = JSON.stringify({ schema_version: 1, decisions }, null, 2) + "\n";
+
+  const patchRes = await fetch(gistUrl, {
+    method: "PATCH",
+    headers,
+    body: JSON.stringify({ files: { [file]: { content } } }),
+  });
+  if (!patchRes.ok) {
+    throw new Error("HTTP " + patchRes.status);
+  }
+}
+
+function json(obj, status, cors) {
+  return new Response(JSON.stringify(obj), {
+    status,
+    headers: { "Content-Type": "application/json", ...cors },
+  });
+}

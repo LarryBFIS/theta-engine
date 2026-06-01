@@ -23,6 +23,15 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Apply approve/reject decisions
+        env:
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          GIST_ID: ${{ secrets.GIST_ID }}
+          TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
+          TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
+        run: python -m scripts.apply_decisions
+
       - name: Poll positions
         env:
           TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
@@ -32,6 +41,8 @@ jobs:
           STARTING_CAPITAL: ${{ secrets.STARTING_CAPITAL }}
           GIST_ID: ${{ secrets.GIST_ID }}
           GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          DECISION_SECRET: ${{ secrets.DECISION_SECRET }}
+          DECIDE_BASE_URL: ${{ secrets.DECIDE_BASE_URL }}
         run: python -m scripts.poll
 
       - name: AI decide
