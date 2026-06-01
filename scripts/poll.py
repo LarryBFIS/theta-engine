@@ -16,6 +16,7 @@ from pytz import timezone as tz
 
 from monitor import config, gist, notifier
 from monitor.approvals import decide_url
+from monitor.profit_guard import profit_protection_signal
 from monitor.decisions import (
     ACTION_HOLD,
     ACTION_URGENT_CLOSE,
@@ -29,6 +30,7 @@ from monitor.tastytrade_client import TastytradeClient
 from monitor.trades import (
     Suggestion,
     append_suggestion,
+    load_suggestions,
     load_trades,
     make_suggestion_id,
 )
@@ -43,6 +45,22 @@ log = logging.getLogger("poll")
 ET = tz("America/New_York")
 
 
+def _days_held(trade) -> int:
+    try:
+        opened = datetime.strptime(trade.opened_at[:10], "%Y-%m-%d").date()
+        return (datetime.now(tz=ET).date() - opened).days
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def _alerted_today(suggestions, trade_id, action) -> bool:
+    today = datetime.now(tz=ET).date().isoformat()
+    return any(
+        s.trade_id == trade_id and s.action == action and (s.timestamp or "")[:10] == today
+        for s in suggestions
+    )
+
+
 def main() -> int:
     now_et = datetime.now(ET)
     log.info("Poll triggered at %s ET", now_et.strftime("%Y-%m-%d %H:%M:%S"))
@@ -51,6 +69,7 @@ def main() -> int:
         trades = load_trades()
         open_trades = [t for t in trades if t.is_open]
         log.info("Loaded %d tracked trades (%d open)", len(trades), len(open_trades))
+        existing_suggestions = load_suggestions()
 
         client = TastytradeClient()
         snapshot = client.fetch_snapshot()
@@ -82,6 +101,38 @@ def main() -> int:
             )
 
             if rec.action == ACTION_HOLD:
+                # Early take-profit: banked decent profit (<50%) but holding risks giving it back.
+                fired, reasons = profit_protection_signal(
+                    m.pct_max_profit_captured_mid, m.dte,
+                    m.short_strike_distance_pct, m.short_strike_breached,
+                    days_held=_days_held(trade),
+                )
+                if (fired and m.has_live_quotes
+                        and not _alerted_today(existing_suggestions, trade.id, "PROTECT_PROFITS")):
+                    captured = m.pct_max_profit_captured_mid or 0.0
+                    message = "Captured {:.0%} (below the 50% target) — consider closing now:\n- {}".format(
+                        captured, "\n- ".join(reasons))
+                    notifier.send(
+                        title="💰 {}: take profits early".format(trade.underlying),
+                        message=message,
+                        priority=notifier.PRIORITY_NORMAL,
+                        sound=notifier.SOUND_SUCCESS,
+                    )
+                    sug = Suggestion(
+                        id=make_suggestion_id(trade.id, datetime.now(tz=ET)),
+                        trade_id=trade.id,
+                        timestamp=datetime.now(tz=ET).isoformat(),
+                        action="PROTECT_PROFITS",
+                        urgency="normal",
+                        reasoning=reasons,
+                        metrics_snapshot={
+                            "pct_captured": captured,
+                            "dte": m.dte,
+                            "short_strike_breached": m.short_strike_breached,
+                        },
+                    )
+                    append_suggestion(sug)
+                    existing_suggestions.append(sug)  # avoid duplicate alert within this run
                 continue
 
             title = (
