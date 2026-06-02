@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-06-02T13:24:13.187083+00:00",
-  "market_view": "Neutral regime with VIX ticking up 1.5% to 16.29 but still low overall; tech ripping (+2.48% XLK) while consumer discretionary (-2.22% XLY) and small caps (-0.50% IWM) remain under pressure \u2014 rotation dynamic unchanged from last cycle.",
+  "last_run": "2026-06-02T13:34:20.730934+00:00",
+  "market_view": "Neutral regime holding steady \u2014 VIX at 16.22 slightly off from last cycle, broad indices essentially flat with mixed sector rotation; XLY continuing to lag (-1.13%) which keeps discrete pressure on AMZN but no systemic risk signal.",
   "AMZN 250/245p": {
-    "action": "WATCH",
-    "confidence": 0.8,
-    "timestamp": "2026-06-02T13:24:02Z",
-    "reasoning": "Mid $1.50 vs $1.29 credit, sitting at ~16% unrealized loss \u2014 cut trigger is $1.935 mid; XLY still -2.22% on the day keeps discrete pressure on AMZN but underlying at $261.26 is 4.31% above short strike, no breach imminent."
+    "action": "CRITICAL",
+    "confidence": 0.92,
+    "timestamp": "2026-06-02T13:34:07Z",
+    "reasoning": "Mid cost now $1.925 \u2014 cut trigger is 1.5x credit of $1.29 = $1.935; we are 99.5% of the way to the hard stop with underlying sliding to $255.01 (only 1.96% above short strike at $250). One more tick of adverse movement breaches the stop."
   },
   "JPM 280/270p": {
-    "action": "HOLD",
-    "confidence": 0.87,
-    "timestamp": "2026-06-02T13:24:02Z",
-    "reasoning": "Mid $1.95 is already below entry $2.06 credit and drifting toward 50% target of $1.03; XLF slightly soft but JPM is 5.59% OTM with plenty of cushion at 44 DTE."
+    "action": "WATCH",
+    "confidence": 0.82,
+    "timestamp": "2026-06-02T13:34:07Z",
+    "reasoning": "Mid $2.36 has moved against us from $2.06 entry \u2014 now 14.5% unrealized loss but still well within parameters; JPM at $297.49 is 6.25% above short strike with XLF only -0.04% on the day, no escalation needed yet."
   },
   "GLD 390/385p": {
     "action": "HOLD",
-    "confidence": 0.86,
-    "timestamp": "2026-06-02T13:24:02Z",
-    "reasoning": "Day-2 position, mid $0.975 essentially flat to $0.93 credit \u2014 GLD at $411.26 is 5.17% OTM and uncorrelated to the equity rotation driving the book's primary risk; theta accrual is the play here."
+    "confidence": 0.88,
+    "timestamp": "2026-06-02T13:34:07Z",
+    "reasoning": "Mid $0.775 is already at 83% of max profit ($0.93 credit \u00d7 50% target = $0.465 \u2014 wait, mid below credit means profitable); GLD at $413.81 is 5.85% OTM and theta accrual is working cleanly."
   }
 }
