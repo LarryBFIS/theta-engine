@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-06-02T14:34:26.559525+00:00",
-  "market_view": "VIX at 16.01 in neutral regime, markets broadly flat to slightly up. AMZN stop trigger has been breached for multiple cycles \u2014 this is an unacceptable risk management failure that must be resolved immediately.",
+  "last_run": "2026-06-02T14:44:18.494325+00:00",
+  "market_view": "VIX 16.11 in neutral regime, markets flat to slightly bid with tech leading. No fresh catalysts this cycle \u2014 theta decay environment favors holding premium short positions that are behaving.",
   "AMZN 250/245p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-06-02T14:34:14Z",
-    "reasoning": "Worst fill $1.95 still exceeds the 1.5x stop trigger of $1.935 (1.5x $1.29 entry). This stop has been triggered for at least two consecutive cycles and remains open \u2014 rules demand immediate close regardless of current mid improvement."
+    "timestamp": "2026-06-02T14:44:06Z",
+    "reasoning": "Worst fill $1.90 still approaches/exceeds the 1.5x stop trigger of $1.935 and mid $1.675 is now 29.8% above entry $1.29 \u2014 this stop was triggered last cycle and remains open, which is a rules violation. Mid improvement is irrelevant; the rule is based on worst fill and the position is a loser."
   },
   "JPM 280/270p": {
     "action": "WATCH",
-    "confidence": 0.8,
-    "timestamp": "2026-06-02T14:34:14Z",
-    "reasoning": "Mid $2.07 is essentially flat to entry $2.06, but XLF is down 0.57% today and -1.17% on 5d \u2014 financials sector softness bears watching. JPM at $296.96 remains 5.7% above the $280 short strike, stop trigger at $3.09 not approached."
+    "confidence": 0.78,
+    "timestamp": "2026-06-02T14:44:06Z",
+    "reasoning": "Mid $2.035 is essentially flat to entry $2.06 with JPM at $297.62, still 6.3% above short strike \u2014 XLF down 0.51% today and -1.1% on 5d but no strike threat. Stop trigger at $3.09 mid is not approached."
   },
   "GLD 390/385p": {
     "action": "HOLD",
-    "confidence": 0.92,
-    "timestamp": "2026-06-02T14:34:14Z",
-    "reasoning": "Mid $0.85 is already 8.6% below entry $0.93 with GLD at $412.99, 5.6% OTM \u2014 theta working cleanly, no directional threat. 50% profit target at $0.465 mid is the next actionable event."
+    "confidence": 0.93,
+    "timestamp": "2026-06-02T14:44:06Z",
+    "reasoning": "Mid $0.875 is 5.9% below entry $0.93 with GLD at $413.31, comfortably 5.6% OTM \u2014 theta working, no directional threat. Next actionable event is 50% profit target at $0.465 mid."
   }
 }
