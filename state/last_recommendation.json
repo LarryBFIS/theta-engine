@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-06-02T14:14:27.859869+00:00",
-  "market_view": "VIX flat at 16.07, neutral regime intact. AMZN has recovered to $256.98 (+0.7% off prior lows), XLY still weak on 5d but intraday pressure easing slightly \u2014 however AMZN stop was triggered last cycle and that call stands.",
+  "last_run": "2026-06-02T14:24:21.494684+00:00",
+  "market_view": "VIX flat at 16.05, neutral regime unchanged. AMZN has recovered to $257.29 but still only 2.8% above the $250 short strike \u2014 the CRITICAL close call from last cycle remains unactioned and must be executed now.",
   "AMZN 250/245p": {
     "action": "CRITICAL",
     "confidence": 0.95,
-    "timestamp": "2026-06-02T14:14:12Z",
-    "reasoning": "Mid cost $1.80 still above the 1.5x stop trigger of $1.935 \u2014 wait, $1.29 \u00d7 1.5 = $1.935, mid is $1.80 which is below $1.935 but the stop was triggered last cycle at $1.95 mid. Current mid $1.80 is now below the stop threshold, but worst fill $2.05 is still above entry and loss is unrealized at 39.5% of max loss \u2014 critically, last cycle's CRITICAL recommendation to close has not been acted on per last recs; close immediately to avoid further deterioration with AMZN only 2.7% above short strike."
+    "timestamp": "2026-06-02T14:24:09Z",
+    "reasoning": "Mid cost $1.80 is 39.5% above entry ($1.29), worst fill $2.05 exceeds 1.5x stop trigger ($1.935) \u2014 this stop was triggered last cycle and the position is still open. AMZN is only 2.8% above the $250 short strike with 44 DTE, leaving significant directional risk."
   },
   "JPM 280/270p": {
-    "action": "HOLD",
-    "confidence": 0.88,
-    "timestamp": "2026-06-02T14:14:12Z",
-    "reasoning": "Mid $2.18 vs $2.06 entry \u2014 spread has moved against us slightly but JPM at $296.18 is 5.7% above the $280 short strike and XLF weakness is contained; no stop trigger ($2.06 \u00d7 1.5 = $3.09, far away)."
+    "action": "WATCH",
+    "confidence": 0.82,
+    "timestamp": "2026-06-02T14:24:09Z",
+    "reasoning": "Mid $2.225 vs $2.06 entry, a small move against us but stop trigger is $3.09 \u2014 however XLF is down 0.69% today and -1.29% on 5d, financials sector weakness warrants monitoring. JPM at $295.77 is 5.4% above the $280 short strike, no immediate threat."
   },
   "GLD 390/385p": {
     "action": "HOLD",
-    "confidence": 0.92,
-    "timestamp": "2026-06-02T14:14:12Z",
-    "reasoning": "Mid $0.825 vs $0.93 entry, GLD at $413.48 is 5.7% OTM \u2014 theta grinding in our favor, 50% profit target at $0.465 mid, no threats."
+    "confidence": 0.93,
+    "timestamp": "2026-06-02T14:24:09Z",
+    "reasoning": "Mid $0.90 is essentially at entry ($0.93), GLD at $412.27 is 5.4% OTM \u2014 theta working in our favor with no directional threats. 50% profit target at $0.465 mid still ahead."
   }
 }
