@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-06-02T16:44:23.328534+00:00",
-  "market_view": "VIX 16.03 essentially unchanged, market continuing its slow grind higher with tech and energy leading \u2014 theta decay environment intact but AMZN position remains an open rule violation that must be closed immediately.",
+  "last_run": "2026-06-02T16:54:22.825186+00:00",
+  "market_view": "VIX at 15.99 continues its grind lower (-6% on the week), market regime neutral with tech/energy leading \u2014 ideal theta decay environment, but AMZN position remains an active rule violation that must be closed.",
   "AMZN 250/245p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-06-02T16:44:09.306398+00:00",
-    "reasoning": "Mid cost $1.675 is 29.8% above entry $1.29 and worst-case $1.85 is already past the 1.5x stop trigger of $1.935 on a fill-adjusted basis \u2014 this position has been flagged CRITICAL for two consecutive cycles and remains open, which is an active rule violation. Every minute this stays open the loss compounds."
+    "timestamp": "2026-06-02T16:54:12.743374+00:00",
+    "reasoning": "Mid cost $1.70 is 31.8% above entry $1.29 and worst-case fill $1.90 exceeds the 1.5x stop trigger ($1.935 threshold) \u2014 this has been flagged CRITICAL for multiple consecutive cycles and remains open, which is an active rule violation compounding losses in real time."
   },
   "JPM 280/270p": {
     "action": "HOLD",
     "confidence": 0.92,
-    "timestamp": "2026-06-02T16:44:09.306398+00:00",
-    "reasoning": "Mid $1.835 is 11% below entry $2.06, JPM at $300.79 sits 6.9% above short strike with XLF flat on the day \u2014 theta grinding in cleanly at 44 DTE, no action needed."
+    "timestamp": "2026-06-02T16:54:12.743374+00:00",
+    "reasoning": "Mid $1.745 is 15.3% below entry $2.06, JPM at $300.86 sits 6.9% above short strike with XLF flat on the day \u2014 theta grinding cleanly, 50% profit target at $1.03 mid is the only exit trigger."
   },
   "GLD 390/385p": {
     "action": "HOLD",
     "confidence": 0.93,
-    "timestamp": "2026-06-02T16:44:09.306398+00:00",
-    "reasoning": "Mid $0.90 is 3.2% below entry $0.93, GLD at $412.07 keeps short strike 5.4% OTM \u2014 position is working, 50% profit target at $0.465 remains the only exit trigger."
+    "timestamp": "2026-06-02T16:54:12.743374+00:00",
+    "reasoning": "Mid $0.85 is 8.6% below entry $0.93, GLD at $412.16 keeps short strike 5.4% OTM \u2014 position working as expected, 50% profit target at $0.465 remains the sole exit trigger."
   }
 }
