@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-06-02T15:34:20.024450+00:00",
-  "market_view": "VIX at 15.99 grinding lower, market neutral with tech leading \u2014 pure theta decay environment with no fresh catalysts. AMZN position remains the only live concern; all else theta-collecting cleanly.",
+  "last_run": "2026-06-02T15:44:15.148400+00:00",
+  "market_view": "VIX 16.02 flat, market grinding higher with tech leading \u2014 pure theta decay environment. No fresh catalysts; all short premium positions benefiting from low realized vol.",
   "AMZN 250/245p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-06-02T15:34:08.997028+00:00",
-    "reasoning": "Mid at $1.625 is 25.9% above entry $1.29 \u2014 this is a live loser that breached actionable threshold and has been flagged CRITICAL for multiple cycles without being closed. Stop trigger is $1.935 mid; current mid improved slightly from last cycle but position remains a rules violation still open."
+    "timestamp": "2026-06-02T15:44:04.827155+00:00",
+    "reasoning": "Mid at $1.625 is 25.9% above entry $1.29 \u2014 position is a live loser, stop trigger is $1.935 mid ($1.29 \u00d7 1.5), and this has been flagged CRITICAL for multiple consecutive cycles with no close executed. Rules require action now."
   },
   "JPM 280/270p": {
     "action": "HOLD",
-    "confidence": 0.9,
-    "timestamp": "2026-06-02T15:34:08.997028+00:00",
-    "reasoning": "Mid $1.895 is below entry $2.06, position profitable ~8% of max with JPM at $299.46 sitting 6.9% above short strike \u2014 XLF sector flat but no threat to position."
+    "confidence": 0.91,
+    "timestamp": "2026-06-02T15:44:04.827155+00:00",
+    "reasoning": "Mid $1.995 is nearly at entry $2.06, position essentially flat with JPM at $299.42 sitting 6.9% above short strike \u2014 XLF down 0.1% today but no structural threat."
   },
   "GLD 390/385p": {
     "action": "HOLD",
     "confidence": 0.93,
-    "timestamp": "2026-06-02T15:34:08.997028+00:00",
-    "reasoning": "Mid $0.825 down from $0.93 entry with GLD at $413.66 \u2014 theta grinding nicely, short strike 5.7% OTM, 50% target at $0.465 mid on track."
+    "timestamp": "2026-06-02T15:44:04.827155+00:00",
+    "reasoning": "Mid $0.875 slightly below entry $0.93 with GLD at $413.32 \u2014 short strike 5.6% OTM, theta grinding favorably, 50% target at $0.465 mid on track with 44 DTE remaining."
   }
 }
