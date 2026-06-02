@@ -1,6 +1,6 @@
 # Ledger Summary
 
-_Generated 2026-06-02T17:44:19.532577+00:00 from tastytrade transaction history._
+_Generated 2026-06-02T17:54:22.788082+00:00 from tastytrade transaction history._
 
 ## Reconciliation
 
@@ -27,6 +27,6 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 |---|---|---|---|---|---:|---:|
 | ledger_001_spy | SPY | 2026-05-13 | 2026-05-26 | closed | $+39.49 | — |
 | ledger_002_gld | GLD | 2026-05-18 | 2026-05-29 | closed | $+21.50 | — |
-| ledger_003_amzn | AMZN | 2026-05-26 | — | open | — | $-48.26 |
+| ledger_003_amzn | AMZN | 2026-05-26 | — | open | — | $-45.76 |
 | ledger_004_jpm | JPM | 2026-05-29 | — | open | — | $+27.74 |
-| ledger_005_gld | GLD | 2026-06-01 | — | open | — | $+0.75 |
+| ledger_005_gld | GLD | 2026-06-01 | — | open | — | $-1.75 |
