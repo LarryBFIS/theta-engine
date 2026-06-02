@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-06-02T19:44:38.058583+00:00",
-  "market_view": "VIX at 15.84 continuing compression with broad market green and tech leading \u2014 theta-favorable regime, but AMZN stop breach remains unresolved from prior cycle and requires immediate action.",
+  "last_run": "2026-06-02T19:54:26.872435+00:00",
+  "market_view": "VIX at 15.85 continues compressing (-6.82% 5d), broad market grinding higher with tech leading \u2014 theta-favorable regime. AMZN stop-loss violation remains the only unresolved issue requiring immediate action.",
   "AMZN 250/245p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-06-02T19:44:25Z",
-    "reasoning": "Mid at $1.775 is 1.376x entry credit ($1.935 threshold) and worst-case $2.05 is 1.59x \u2014 both exceed the 1.5x stop rule, this violation has now persisted across multiple 15-minute cycles with no improvement."
+    "timestamp": "2026-06-02T19:54:16Z",
+    "reasoning": "Mid at $1.725 is 1.337x entry credit and worst-case $1.90 is 1.473x \u2014 the position has been at or above the 1.5x stop threshold across multiple cycles with no mean reversion; rule says cut it."
   },
   "JPM 280/270p": {
     "action": "HOLD",
     "confidence": 0.93,
-    "timestamp": "2026-06-02T19:44:25Z",
-    "reasoning": "Mid at $1.80 vs $2.06 entry is 12.6% profit with JPM $21.45 above short strike at 44 DTE \u2014 XLF +0.32% today, theta grinding cleanly, stop at $3.09 not remotely threatened."
+    "timestamp": "2026-06-02T19:54:16Z",
+    "reasoning": "Mid at $1.73 is 16% profit on entry credit with JPM $21.54 above short strike at 44 DTE \u2014 XLF +0.20% today, no stress, stop at $3.09 untouched."
   },
   "GLD 390/385p": {
     "action": "HOLD",
-    "confidence": 0.87,
-    "timestamp": "2026-06-02T19:44:25Z",
-    "reasoning": "Mid at $0.90 is flat-to-slightly-profitable on day 2, GLD at $411.83 keeps short strike 5.3% OTM \u2014 worst-case $1.05 is well inside the $1.395 stop threshold, let theta work."
+    "confidence": 0.88,
+    "timestamp": "2026-06-02T19:54:16Z",
+    "reasoning": "Mid at $0.90 is 3.2% profit on day 2, GLD at $411.80 keeps short strike 5.3% OTM \u2014 worst-case $1.05 is well inside the $1.395 stop, theta grinding cleanly."
   }
 }

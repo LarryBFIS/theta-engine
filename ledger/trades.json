@@ -165,8 +165,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -50.76,
-      "cost_to_close_mid": 177.5,
+      "unrealized_pnl": -48.26,
+      "cost_to_close_mid": 175.0,
       "structure": "short_put_vertical",
       "short_strike": 250.0,
       "long_strike": 245.0,
@@ -210,8 +210,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 23.74,
-      "cost_to_close_mid": 180.0,
+      "unrealized_pnl": 30.74,
+      "cost_to_close_mid": 173.0,
       "structure": "short_put_vertical",
       "short_strike": 280.0,
       "long_strike": 270.0,
@@ -267,6 +267,51 @@
       "max_profit_total": 93.0,
       "max_loss_total": 407.0,
       "bpr_total": 407.0
+    },
+    {
+      "id": "ledger_006_iwm",
+      "underlying": "IWM",
+      "opened_at": "2026-06-02",
+      "open_order_id": "472460866",
+      "open_net_cash": 95.75,
+      "open_legs": [
+        {
+          "symbol": "IWM   260717C00313000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 1.9,
+          "net_cash": -191.12,
+          "fees": 1.12,
+          "executed_at": "2026-06-02T19:52:44.523Z"
+        },
+        {
+          "symbol": "IWM   260717C00308000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 2.88,
+          "net_cash": 286.87,
+          "fees": 1.13,
+          "executed_at": "2026-06-02T19:52:44.523Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -2.75,
+      "cost_to_close_mid": 98.5,
+      "structure": "short_call_vertical",
+      "short_strike": 308.0,
+      "long_strike": 313.0,
+      "expiry": "2026-07-17",
+      "contracts": 1,
+      "credit_per_contract": 0.98,
+      "width": 5.0,
+      "max_profit_total": 98.0,
+      "max_loss_total": 402.0,
+      "bpr_total": 402.0
     }
   ]
 }
