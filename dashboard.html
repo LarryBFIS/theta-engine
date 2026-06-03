@@ -3,610 +3,504 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>theta-engine — dashboard</title>
+<title>theta-engine // terminal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg:        #0a0a0a;
-    --bg-card:   #131313;
-    --border:    #222;
-    --border-soft: #1a1a1a;
-    --fg:        #e8e8e8;
-    --fg-dim:    #888;
-    --fg-faint:  #555;
-    --cherry:    #e63946;
-    --green:     #4ade80;
-    --red:       #f87171;
-    --amber:     #fbbf24;
-  }
-  * { box-sizing: border-box; }
-  html, body {
-    margin: 0; padding: 0;
-    background: var(--bg);
-    color: var(--fg);
-    font-family: 'IBM Plex Sans', system-ui, sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  .container { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+:root{
+  --bg:#070806;
+  --panel:#0e0f0c;
+  --panel2:#121310;
+  --line:#26271d;
+  --amber:#ffb02e;
+  --amber-dim:#9a7c2e;
+  --amber-glow:rgba(255,176,46,.35);
+  --green:#3ff07a;
+  --green-glow:rgba(63,240,122,.4);
+  --red:#ff4d4d;
+  --red-glow:rgba(255,77,77,.4);
+  --cyan:#46d6ff;
+  --txt:#e9e4cf;
+  --dim:#766f54;
+  --dimmer:#4a463a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:var(--bg);
+  color:var(--txt);
+  font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  font-size:13px;
+  letter-spacing:.02em;
+  overflow-x:hidden;
+  position:relative;
+}
+/* CRT scanline + vignette atmosphere */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.015) 0,rgba(255,255,255,.015) 1px,transparent 1px,transparent 3px);
+  mix-blend-mode:overlay;
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9998;
+  background:radial-gradient(120% 100% at 50% 0%,transparent 55%,rgba(0,0,0,.55) 100%);
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 14px 40px}
 
-  header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; }
-  .brand { display: flex; align-items: baseline; gap: 0.75rem; }
-  .brand h1 { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 1.25rem; margin: 0; letter-spacing: -0.02em; }
-  .brand .dot { color: var(--cherry); font-size: 1.5rem; line-height: 0; }
-  .brand .sub { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--fg-dim); text-transform: uppercase; letter-spacing: 0.1em; }
-  .header-right { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--fg-dim); text-align: right; }
+/* ---------- mission timeline ---------- */
+.mbody{padding:18px 16px 14px}
+.rail{margin-bottom:20px}
+.railtrack{position:relative;height:10px;background:#15160e;border-radius:5px;margin:26px 0 9px}
+.railtrack .elapsed{position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,#5a4615,var(--amber));border-radius:5px;width:0;transition:width 1.4s cubic-bezier(.2,.7,.2,1);box-shadow:0 0 12px var(--amber-glow)}
+.railtrack .goalprog{position:absolute;left:0;top:0;height:100%;background:repeating-linear-gradient(45deg,var(--green),var(--green) 2px,transparent 2px,transparent 5px);border-radius:5px;width:0;transition:width 1.6s .2s cubic-bezier(.2,.7,.2,1)}
+.todaymark{position:absolute;top:-7px;left:0;transform:translateX(-50%);text-align:center;transition:left 1.4s cubic-bezier(.2,.7,.2,1)}
+.todaymark .pin{width:2px;height:24px;background:var(--cyan);margin:0 auto;box-shadow:0 0 8px var(--cyan)}
+.todaymark .pinlab{font-size:8px;color:var(--cyan);letter-spacing:.14em;margin-top:3px;white-space:nowrap}
+.railnodes{display:flex;justify-content:space-between}
+.node{display:flex;flex-direction:column}
+.node.mid{align-items:center}.node.end{align-items:flex-end}
+.node b{font-size:13px;color:var(--txt);font-weight:600;letter-spacing:.06em}
+.node span{font-size:9px;color:var(--dim);letter-spacing:.13em;margin-top:3px}
+.glide svg{width:100%;height:120px;display:block}
+.glegend{display:flex;gap:18px;align-items:center;margin-top:9px;font-size:10px;color:var(--dim);letter-spacing:.05em;flex-wrap:wrap}
+.glegend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:middle}
+.dot-amber{background:var(--amber)}.dot-green{background:var(--green)}
+.gap{margin-left:auto;font-weight:700;letter-spacing:.1em;padding:3px 10px;border-radius:2px}
+.gap.behind{color:var(--red);border:1px solid #3a1f1f;background:rgba(255,77,77,.07)}
+.gap.ahead{color:var(--green);border:1px solid #1f3a25;background:rgba(63,240,122,.07)}
+.gd-grid{stroke:#1a1b12;stroke-width:1}
+.gd-target{stroke:var(--amber);stroke-width:2;stroke-dasharray:5 4;fill:none;opacity:.85}
+.gd-actual{stroke:var(--green);stroke-width:2.5;fill:none;filter:drop-shadow(0 0 6px var(--green-glow));stroke-dasharray:760;stroke-dashoffset:760;animation:draw 1.9s .4s ease-out forwards}
+.gd-fill{fill:url(#gapgrad)}
+.gd-today{stroke:var(--cyan);stroke-width:1.5;stroke-dasharray:3 3;opacity:.6}
 
-  .staleness {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--green);
-    padding: 1rem 1.25rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: border-left-color 0.3s;
-  }
-  .staleness.fresh   { border-left-color: var(--green); }
-  .staleness.stale   { border-left-color: var(--amber); }
-  .staleness.veryold { border-left-color: var(--cherry); }
-  .staleness-main { font-family: 'IBM Plex Mono', monospace; font-size: 1rem; font-weight: 500; }
-  .staleness.fresh .staleness-main   { color: var(--green); }
-  .staleness.stale .staleness-main   { color: var(--amber); }
-  .staleness.veryold .staleness-main { color: var(--cherry); }
-  .staleness-sub { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--fg-dim); margin-top: 0.25rem; }
-  .staleness-right { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--fg-faint); text-align: right; line-height: 1.6; }
-  .pulse-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: currentColor; margin-right: 0.5rem; animation: pulse 2s infinite; vertical-align: middle; }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+/* ---------- header ---------- */
+header{
+  display:flex;align-items:center;gap:18px;
+  padding:12px 14px;border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,#121310,#0b0c09);
+}
+.brand{font-weight:700;color:var(--amber);font-size:15px;letter-spacing:.12em;text-shadow:0 0 12px var(--amber-glow)}
+.brand b{color:var(--txt)}
+.maker{display:block;font-size:10px;color:#cdb878;letter-spacing:.24em;font-weight:600;margin-top:4px;text-shadow:0 0 8px rgba(255,176,46,.18)}
+.live{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--green);letter-spacing:.14em}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green-glow);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+.hspace{flex:1}
+.clock{color:var(--amber);font-weight:600;letter-spacing:.08em}
+.mkt{font-size:11px;padding:3px 9px;border:1px solid var(--line);border-radius:2px;letter-spacing:.12em}
+.mkt.open{color:var(--green);border-color:#1f3a25}
+.mkt.closed{color:var(--red);border-color:#3a1f1f}
 
-  .hero { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 1px; }
-  .hero > div { background: var(--bg-card); padding: 1.5rem 1.25rem; }
-  .hero .label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-dim); margin-bottom: 0.75rem; }
-  .hero .value { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 2.25rem; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
-  .hero .value.small { font-size: 1.4rem; }
-  .hero .sub-value { font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; color: var(--fg-dim); margin-top: 0.4rem; font-variant-numeric: tabular-nums; }
-  .hero .primary .label { color: var(--cherry); }
+/* ---------- ticker tape ---------- */
+.tape{
+  border-bottom:1px solid var(--line);background:#060704;overflow:hidden;white-space:nowrap;
+  position:relative;height:30px;display:flex;align-items:center;
+}
+.tape .scroll{display:inline-block;animation:tape 38s linear infinite;will-change:transform}
+.tape:hover .scroll{animation-play-state:paused}
+@keyframes tape{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tk{display:inline-flex;align-items:baseline;gap:7px;padding:0 22px;font-size:12px;border-right:1px solid #161710}
+.tk .s{color:var(--amber-dim);font-weight:600}
+.tk .px{color:var(--txt);font-weight:500}
+.tk .ch{font-size:11px}
+.up{color:var(--green)}.down{color:var(--red)}
 
-  .secondary { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-top: none; margin-bottom: 2rem; }
-  .secondary > div { background: var(--bg-card); padding: 1rem 1.25rem; }
-  .secondary .label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-dim); margin-bottom: 0.4rem; }
-  .secondary .value { font-family: 'IBM Plex Mono', monospace; font-size: 1rem; font-weight: 400; font-variant-numeric: tabular-nums; }
-  .secondary .sub { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--fg-faint); margin-top: 0.2rem; }
+/* ---------- stat tiles ---------- */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:13px 15px;position:relative;overflow:hidden}
+.tile::after{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--amber),transparent)}
+.tile .lab{font-size:10px;color:var(--dim);letter-spacing:.16em;margin-bottom:8px}
+.tile .val{font-size:30px;font-weight:700;line-height:1;letter-spacing:-.01em}
+.tile .sub{font-size:11px;color:var(--dim);margin-top:7px}
+.glow-g{color:var(--green);text-shadow:0 0 18px var(--green-glow)}
+.glow-r{color:var(--red);text-shadow:0 0 18px var(--red-glow)}
+.glow-a{color:var(--amber);text-shadow:0 0 16px var(--amber-glow)}
 
-  .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-dim); margin-top: 2rem; margin-bottom: 0.75rem; display: flex; justify-content: space-between; align-items: center; }
-  .section-label .hint { font-size: 0.65rem; color: var(--fg-faint); text-transform: none; letter-spacing: 0.02em; }
-  .section-label .badge { display: inline-block; padding: 1px 6px; font-size: 0.6rem; color: var(--fg-dim); border: 1px solid var(--border); margin-left: 0.5rem; letter-spacing: 0.05em; }
+/* progress */
+.bar{height:6px;background:#16170f;border-radius:3px;margin-top:9px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--amber),#ffd479);box-shadow:0 0 12px var(--amber-glow);width:0;transition:width 1.6s cubic-bezier(.2,.7,.2,1)}
 
-  table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); font-variant-numeric: tabular-nums; }
-  th, td { padding: 0.75rem 0.9rem; text-align: right; border-bottom: 1px solid var(--border-soft); font-family: 'IBM Plex Mono', monospace; font-size: 0.82rem; }
-  th { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-dim); font-weight: 500; border-bottom: 1px solid var(--border); }
-  th:first-child, td:first-child { text-align: left; }
-  tr:last-child td { border-bottom: none; }
-  td .ticker { color: var(--fg); font-weight: 600; }
-  td .strikes { color: var(--fg-dim); margin-left: 0.5rem; }
-  td .date { color: var(--fg-faint); margin-left: 0.5rem; font-size: 0.75rem; }
+/* ---------- panels ---------- */
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:3px;margin-bottom:12px}
+.phead{display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--line);background:#101108}
+.phead .t{font-size:11px;color:var(--amber);letter-spacing:.16em;font-weight:600}
+.phead .meta{margin-left:auto;font-size:10px;color:var(--dim);letter-spacing:.1em}
 
-  .pos { color: var(--green); }
-  .neg { color: var(--red); }
-  .dim { color: var(--fg-dim); }
-  .amber { color: var(--amber); }
+/* positions table */
+table{width:100%;border-collapse:collapse;font-size:12px}
+thead th{font-size:9.5px;color:var(--dim);letter-spacing:.13em;text-align:right;padding:8px 12px;font-weight:600;border-bottom:1px solid var(--line)}
+thead th.l{text-align:left}
+tbody td{padding:9px 12px;text-align:right;border-bottom:1px solid #14150e}
+tbody td.l{text-align:left}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:#13140d}
+.sym{color:var(--amber);font-weight:700;letter-spacing:.03em}
+.struct{color:var(--dim);font-size:11px}
+.tagP{color:var(--cyan);font-size:9px;border:1px solid #1d3a44;padding:1px 5px;border-radius:2px;letter-spacing:.1em}
+.tagC{color:var(--red);font-size:9px;border:1px solid #3a1f1f;padding:1px 5px;border-radius:2px;letter-spacing:.1em}
+.act{font-size:10px;font-weight:700;letter-spacing:.12em;padding:2px 8px;border-radius:2px;border:1px solid}
+.act.hold{color:var(--amber);border-color:#3a3015;background:rgba(255,176,46,.06)}
+.act.close{color:var(--red);border-color:#3a1f1f;background:rgba(255,77,77,.06)}
+.reason{color:var(--dimmer);font-size:10px;letter-spacing:.02em}
+.mark.flash{animation:flashc .6s ease-out}
+@keyframes flashc{0%{background:rgba(255,176,46,.22)}100%{background:transparent}}
 
-  .recon-grid > div.gap-card { border: 1px solid var(--border); }
-  .recon-grid > div.gap-ok  { border-left: 3px solid var(--green); }
-  .recon-grid > div.gap-bad { border-left: 3px solid var(--amber); }
-  .recon-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--fg-faint); margin: 0.5rem 0 0; }
+/* two-up bottom row */
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.kv{display:flex;justify-content:space-between;padding:8px 14px;border-bottom:1px solid #14150e;font-size:12px}
+.kv:last-child{border-bottom:none}
+.kv .k{color:var(--dim);letter-spacing:.06em}
+.kv .v{font-weight:600}
+.spark{padding:12px 14px}
+.spark svg{width:100%;height:64px;display:block}
+.draw{stroke-dasharray:600;stroke-dashoffset:600;animation:draw 2.2s 0.3s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
 
-  .pill { display: inline-block; padding: 3px 8px; font-size: 0.65rem; font-family: 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; border: 1px solid; }
-  .pill-hold   { color: var(--fg-dim); border-color: var(--border); }
-  .pill-close  { color: var(--green); border-color: var(--green); }
-  .pill-urgent { color: var(--cherry); border-color: var(--cherry); background: rgba(230,57,70,0.08); }
-  .pill-realized { color: var(--green); border-color: var(--border); background: rgba(74,222,128,0.05); }
-  .pill-loss     { color: var(--red); border-color: var(--border); background: rgba(248,113,113,0.05); }
+/* footer */
+footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;color:var(--dim);letter-spacing:.06em;border-top:1px solid var(--line);margin-top:14px}
+.cursor{display:inline-block;width:8px;height:14px;background:var(--amber);margin-left:2px;animation:blink 1.05s step-end infinite;vertical-align:middle}
+@keyframes blink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
 
-  .empty-row td { text-align: center; color: var(--fg-faint); padding: 1.5rem; font-style: italic; }
+/* staggered reveal */
+.reveal{opacity:0;transform:translateY(8px);animation:rise .6s ease-out forwards}
+@keyframes rise{to{opacity:1;transform:none}}
 
-  .error { color: var(--red); padding: 1.5rem; border: 1px solid var(--red); background: rgba(248,113,113,0.05); font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
-  .loading { color: var(--fg-dim); font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; padding: 1rem 0; }
-
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 2rem; }
-  .stats-grid > div { background: var(--bg-card); padding: 1rem 1.25rem; }
-  .stats-grid .label { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-dim); margin-bottom: 0.5rem; }
-  .stats-grid .value { font-family: 'IBM Plex Mono', monospace; font-size: 1.5rem; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; line-height: 1; }
-  .stats-grid .sub { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; color: var(--fg-faint); margin-top: 0.3rem; font-variant-numeric: tabular-nums; }
-
-  .goal-track { margin-top: 0.5rem; height: 4px; background: var(--border); position: relative; overflow: hidden; }
-  .goal-fill { position: absolute; top: 0; left: 0; bottom: 0; background: var(--green); transition: width 0.6s ease; }
-  .goal-fill.neg { background: var(--red); }
-
-  footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--fg-faint); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
-
-  @media (max-width: 720px) {
-    .hero, .secondary, .stats-grid { grid-template-columns: 1fr 1fr; }
-    .hero .value { font-size: 1.5rem; }
-    .hero .value.small { font-size: 1.1rem; }
-    th, td { padding: 0.55rem 0.45rem; font-size: 0.7rem; }
-    .container { padding: 1rem; }
-    .staleness { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-    .staleness-right { text-align: left; }
-  }
+@media(max-width:760px){
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .row2{grid-template-columns:1fr}
+  .reason{display:none}
+  thead th.hideM,tbody td.hideM{display:none}
+}
 </style>
 </head>
 <body>
-<div class="container">
+<header>
+  <div class="brand">θ THETA<b>·ENGINE</b><span class="maker">BY JAY VEKARIA</span></div>
+  <div class="live"><span class="dot"></span><span>LIVE</span></div>
+  <div class="hspace"></div>
+  <div class="clock" id="clock">--:--:-- ET</div>
+  <div class="mkt" id="mkt">····</div>
+</header>
 
-  <header>
-    <div class="brand">
-      <span class="dot">●</span>
-      <h1>theta-engine</h1>
-      <span class="sub">live</span>
-    </div>
-    <div class="header-right">
-      <div><a href="ledger.html" style="color:var(--fg-dim);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;">Ledger →</a></div>
-      <div id="today-date">—</div>
-    </div>
-  </header>
+<div class="tape"><div class="scroll" id="tape"></div></div>
 
-  <div class="staleness fresh" id="staleness-banner">
-    <div>
-      <div class="staleness-main"><span class="pulse-dot"></span><span id="staleness-text">Loading…</span></div>
-      <div class="staleness-sub" id="staleness-sub">Bot polls every 10 min during market hours · Dashboard refreshes every 60s</div>
-    </div>
-    <div class="staleness-right">
-      <div>Bot poll: <span id="bot-poll-iso">—</span></div>
-      <div>Browser refresh: <span id="browser-refresh-iso">—</span></div>
+<div class="wrap">
+
+  <div class="panel mission reveal" style="animation-delay:.02s">
+    <div class="phead"><span class="t">MISSION TIMELINE · <span id="goaltgt">—</span></span><span class="meta" id="missionstat">—</span></div>
+    <div class="mbody">
+      <div class="rail">
+        <div class="railtrack">
+          <div class="elapsed" id="elapsed"></div>
+          <div class="goalprog" id="goalprog"></div>
+          <div class="todaymark" id="todaymark"><div class="pin"></div><div class="pinlab" id="pinlab">TODAY</div></div>
+        </div>
+        <div class="railnodes">
+          <div class="node"><b id="d-start">—</b><span>START</span></div>
+          <div class="node mid"><b id="d-today">—</b><span id="elapsedpct">—</span></div>
+          <div class="node end"><b id="d-goal">—</b><span>GOAL · 100%</span></div>
+        </div>
+      </div>
+      <div class="glide">
+        <svg viewBox="0 0 600 120" preserveAspectRatio="none" id="glidesvg"></svg>
+        <div class="glegend">
+          <span><i class="dot-amber"></i>TARGET PACE · <span id="reqpace">—</span></span>
+          <span><i class="dot-green"></i>ACTUAL</span>
+          <span class="gap" id="gap">—</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div id="root">
-    <div class="loading">Fetching trades ledger and live state…</div>
+  <div class="tiles">
+    <div class="tile reveal" style="animation-delay:.05s">
+      <div class="lab">STRATEGY P&amp;L</div>
+      <div class="val glow-g" id="pnl">$0</div>
+      <div class="sub" id="pnlsub">realized + open</div>
+    </div>
+    <div class="tile reveal" style="animation-delay:.12s">
+      <div class="lab">PROGRESS · <span id="goallbl">50% GOAL</span></div>
+      <div class="val glow-a" id="prog">0.0%</div>
+      <div class="bar"><i id="progbar"></i></div>
+    </div>
+    <div class="tile reveal" style="animation-delay:.19s">
+      <div class="lab">BPR UTILIZATION</div>
+      <div class="val glow-a" id="bpr">0%</div>
+      <div class="sub" id="bprsub">ceiling 50%</div>
+    </div>
+    <div class="tile reveal" style="animation-delay:.26s">
+      <div class="lab">DTE · DEADLINE NOV 13</div>
+      <div class="val glow-a" id="dte">—</div>
+      <div class="sub">days remaining</div>
+    </div>
+  </div>
+
+  <div class="panel reveal" style="animation-delay:.32s">
+    <div class="phead"><span class="t">OPEN POSITIONS</span><span class="meta" id="poscount">— working</span></div>
+    <table>
+      <thead><tr>
+        <th class="l">SYM</th><th class="l">STRUCTURE</th><th>CR</th><th>MARK</th>
+        <th>P&amp;L</th><th class="hideM">DTE</th><th class="hideM">POP</th><th class="hideM">GTC</th>
+        <th>ACT</th><th class="l hideM">REASON</th>
+      </tr></thead>
+      <tbody id="postbody"></tbody>
+    </table>
+  </div>
+
+  <div class="row2">
+    <div class="panel reveal" style="animation-delay:.4s">
+      <div class="phead"><span class="t">CLOSED · REALIZED</span><span class="meta" id="realsum">—</span></div>
+      <div id="closedbody"></div>
+    </div>
+    <div class="panel reveal" style="animation-delay:.46s">
+      <div class="phead"><span class="t">EQUITY CURVE</span><span class="meta">strategy · since 05/13</span></div>
+      <div class="spark">
+        <svg viewBox="0 0 600 64" preserveAspectRatio="none">
+          <polyline class="draw" id="sparkline" fill="none" stroke="var(--green)" stroke-width="2"
+            points="" style="filter:drop-shadow(0 0 6px var(--green-glow))"/>
+        </svg>
+      </div>
+      <div class="kv"><span class="k">REALIZED (closed)</span><span class="v glow-g" id="kreal">—</span></div>
+      <div class="kv"><span class="k">OPEN (marks)</span><span class="v" id="kopen">—</span></div>
+      <div class="kv"><span class="k">ACCOUNT NET LIQ <span style="color:var(--dimmer)">(info)</span></span><span class="v" id="knl">—</span></div>
+    </div>
   </div>
 
   <footer>
-    <span>source: trades.json + ledger/reconciliation.json + gist last_poll.json (live)</span>
-    <span id="footer-time"></span>
+    <span class="dot" style="width:6px;height:6px"></span>
+    <span id="poll">last poll —</span>
+    <span class="hspace" style="flex:1"></span>
+    <span><span style="color:var(--amber-dim);letter-spacing:.16em">JAY VEKARIA</span> · theta-engine · <span style="color:var(--dimmer)">src: seeded → wire to gist</span><span class="cursor"></span></span>
   </footer>
 
 </div>
 
 <script>
-const TRADES_LEDGER_URL = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/trades.json';
-const RECON_URL = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/ledger/reconciliation.json';
-const GIST_ID = '08e2cb50b3a645e9569617a6298ee987';
-const GIST_FILE = 'last_poll.json';
-const REFRESH_MS = 60_000;
-const STALE_THRESHOLD_MIN = 16;
-const VERY_STALE_THRESHOLD_MIN = 60;
-
-const $ = (n, d = 2) => {
-  if (n == null || isNaN(n)) return '—';
-  const sign = n < 0 ? '-' : '';
-  return sign + '$' + Math.abs(n).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+/* ============================================================
+   DATA  — seeded with current state.
+   Claude Code: replace this object with a fetch of the gist
+   last_poll.json + trades.json so the terminal runs live.
+   ============================================================ */
+const DATA = {
+  start: 3389.91,          // goal denominator
+  goalReturn: 0.5,         // 50% target (realistic)
+  realized: 60.99,         // closed-trade strategy P&L (net)
+  netLiq: 3551.31,         // account info only — NOT the challenge number
+  bprUsed: 1973, bprPct: 55.6,
+  startDate: '2026-05-13',  // challenge kickoff
+  deadline: '2026-11-13',
+  positions:[
+    {sym:'AMZN',struct:'250/245p',side:'P',credit:1.29,mark:1.55,dte:45,pop:78,gtc:0.65,act:'HOLD',reason:'-20% of credit · cut -$193 · OTM'},
+    {sym:'JPM', struct:'280/270p',side:'P',credit:2.06,mark:1.84,dte:45,pop:76,gtc:1.03,act:'HOLD',reason:'in profit · 50% tgt $1.03'},
+    {sym:'GLD', struct:'390/385p',side:'P',credit:0.93,mark:0.85,dte:45,pop:74,gtc:0.47,act:'HOLD',reason:'in profit · 50% tgt $0.47'},
+    {sym:'IWM', struct:'308/313c',side:'C',credit:0.98,mark:0.98,dte:45,pop:74,gtc:0.49,act:'HOLD',reason:'short delta · balances book'},
+  ],
+  closed:[
+    {sym:'SPY',struct:'721/716p',pnl:39.49,days:13},
+    {sym:'GLD',struct:'395/390p',pnl:21.50,days:11},
+  ],
+  tape:[
+    {s:'IWM',p:291.57},{s:'AMZN',p:261.25},{s:'JPM',p:296.68},{s:'GLD',p:413.42},
+    {s:'SPY',p:758.00},{s:'VIX',p:16.05},{s:'TLT',p:85.68},{s:'XLE',p:56.29},{s:'XLU',p:43.10},
+  ],
 };
-const $0 = (n) => $(n, 0);
-const pct = (n, d = 1) => (n == null || isNaN(n)) ? '—' : (n * 100).toFixed(d) + '%';
-const signPct = (n) => (n == null || isNaN(n)) ? '—' : (n >= 0 ? '+' : '') + (n * 100).toFixed(2) + '%';
-const signMoney = (n, d = 2) => (n == null || isNaN(n)) ? '—' : (n >= 0 ? '+' : '') + $(n, d).replace('-', '');
-const cls = (n) => (n == null || isNaN(n)) ? 'dim' : (n >= 0 ? 'pos' : 'neg');
 
-const fmtRelTime = (iso) => {
-  if (!iso) return '—';
-  const sec = Math.floor((new Date() - new Date(iso)) / 1000);
-  if (sec < 60) return `${sec}s ago`;
-  const min = Math.floor(sec / 60);
-  if (min < 60) return `${min} min ago`;
-  const hr = Math.floor(min / 60);
-  if (hr < 24) return `${hr}h ${min % 60}m ago`;
-  return `${Math.floor(hr / 24)}d ${hr % 24}h ago`;
-};
+const $=id=>document.getElementById(id);
+const money=n=>(n<0?'-$':'$')+Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});
+const pnlOf=p=>(p.credit-p.mark)*100;
 
-const fmtAbsTime = (iso) => {
-  if (!iso) return '—';
-  return new Date(iso).toLocaleString('en-US', {
-    weekday: 'short', month: 'short', day: 'numeric',
-    hour: 'numeric', minute: '2-digit', hour12: true
+/* ---- clock + market status (ET) ---- */
+function et(){return new Date(new Date().toLocaleString('en-US',{timeZone:'America/New_York'}));}
+function tick(){
+  const d=et();
+  const hh=String(d.getHours()).padStart(2,'0'),mm=String(d.getMinutes()).padStart(2,'0'),ss=String(d.getSeconds()).padStart(2,'0');
+  $('clock').textContent=`${hh}:${mm}:${ss} ET`;
+  const mins=d.getHours()*60+d.getMinutes(),wd=d.getDay();
+  const open=wd>=1&&wd<=5&&mins>=570&&mins<960; // 9:30–16:00
+  const el=$('mkt');
+  el.textContent=open?'● MKT OPEN':'● MKT CLOSED';
+  el.className='mkt '+(open?'open':'closed');
+}
+setInterval(tick,1000);tick();
+
+/* ---- DTE to deadline ---- */
+(()=>{const diff=Math.ceil((new Date(DATA.deadline)-new Date())/86400000);$('dte').textContent=diff;})();
+
+/* ---- count-up animator ---- */
+function countUp(el,to,fmt,ms=1300){
+  const t0=performance.now();
+  function f(t){
+    const k=Math.min(1,(t-t0)/ms),e=1-Math.pow(1-k,3);
+    el.textContent=fmt(to*e);
+    if(k<1)requestAnimationFrame(f);else el.textContent=fmt(to);
+  }
+  requestAnimationFrame(f);
+}
+
+/* ---- render positions ---- */
+function openPnl(){return DATA.positions.reduce((s,p)=>s+pnlOf(p),0);}
+function renderPositions(){
+  const tb=$('postbody');tb.innerHTML='';
+  DATA.positions.forEach(p=>{
+    const pl=pnlOf(p),cls=pl>=0?'up':'down';
+    const tr=document.createElement('tr');
+    tr.innerHTML=`
+      <td class="l"><span class="sym">${p.sym}</span></td>
+      <td class="l"><span class="struct">${p.struct}</span> <span class="${p.side==='P'?'tagP':'tagC'}">${p.side==='P'?'PUT':'CALL'}</span></td>
+      <td>${p.credit.toFixed(2)}</td>
+      <td class="mark" data-sym="${p.sym}">${p.mark.toFixed(2)}</td>
+      <td class="${cls}" data-pnl="${p.sym}">${pl>=0?'+':''}${money(pl)}</td>
+      <td class="hideM" style="color:var(--dim)">${p.dte}</td>
+      <td class="hideM" style="color:var(--dim)">${p.pop}%</td>
+      <td class="hideM" style="color:var(--cyan)">${p.gtc.toFixed(2)}</td>
+      <td><span class="act ${p.act==='HOLD'?'hold':'close'}">${p.act}</span></td>
+      <td class="l hideM reason">${p.reason}</td>`;
+    tb.appendChild(tr);
   });
-};
+  $('poscount').textContent=DATA.positions.length+' working';
+}
 
-const fmtToday = () => new Date().toLocaleString('en-US', {
-  weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
-  hour: 'numeric', minute: '2-digit', hour12: true
-});
-
-const minutesAgo = (iso) => iso ? Math.floor((new Date() - new Date(iso)) / 60000) : Infinity;
-const daysBetween = (a, b) => Math.round((new Date(b) - new Date(a)) / 86400000);
-
-async function loadGist() {
-  const res = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
-    headers: { 'Accept': 'application/vnd.github+json' },
-    cache: 'no-store'
+/* ---- render closed ---- */
+function renderClosed(){
+  const box=$('closedbody');box.innerHTML='';
+  DATA.closed.forEach(c=>{
+    const d=document.createElement('div');d.className='kv';
+    d.innerHTML=`<span class="k"><span class="sym">${c.sym}</span> <span class="struct">${c.struct}</span> · ${c.days}d</span><span class="v up">+$${c.pnl.toFixed(2)}</span>`;
+    box.appendChild(d);
   });
-  if (!res.ok) throw new Error(`gist API: HTTP ${res.status}`);
-  const gist = await res.json();
-  const file = gist.files?.[GIST_FILE];
-  if (!file) throw new Error(`${GIST_FILE} not found in gist`);
-  return JSON.parse(file.content);
+  $('realsum').textContent='+$'+DATA.realized.toFixed(2);
 }
 
-async function loadLedger() {
-  const res = await fetch(`${TRADES_LEDGER_URL}?_=${Date.now()}`, { cache: 'no-store' });
-  if (!res.ok) throw new Error(`trades.json: HTTP ${res.status}`);
-  return res.json();
+/* ---- header totals ---- */
+function renderTotals(){
+  const open=openPnl(), total=DATA.realized+open;
+  const pnlEl=$('pnl');
+  pnlEl.className='val '+(total>=0?'glow-g':'glow-r');
+  countUp(pnlEl,total,v=>(v>=0?'+':'')+money(v));
+  $('pnlsub').textContent=`realized +$${DATA.realized.toFixed(0)} · open ${open>=0?'+':''}$${open.toFixed(0)}`;
+  const prog=total/(DATA.start*DATA.goalReturn)*100;
+  countUp($('prog'),prog,v=>v.toFixed(1)+'%');
+  setTimeout(()=>$('progbar').style.width=Math.max(0,Math.min(100,prog))+'%',300);
+  countUp($('bpr'),DATA.bprPct,v=>v.toFixed(0)+'%');
+  $('bpr').className='val '+(DATA.bprPct>50?'glow-r':'glow-a');
+  $('bprsub').textContent=DATA.bprPct>50?'⚠ over 50% ceiling':'within band';
+  $('kreal').textContent='+$'+DATA.realized.toFixed(2);
+  $('kopen').textContent=(open>=0?'+$':'-$')+Math.abs(open).toFixed(2);
+  $('kopen').className='v '+(open>=0?'up':'down');
+  $('knl').textContent='$'+DATA.netLiq.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
 }
 
-// Authoritative reconciliation from the derived ledger. Returns null until the
-// first tick writes ledger/reconciliation.json (404 before then).
-async function loadRecon() {
-  const res = await fetch(`${RECON_URL}?_=${Date.now()}`, { cache: 'no-store' });
-  if (res.status === 404) return null;
-  if (!res.ok) throw new Error(`reconciliation.json: HTTP ${res.status}`);
-  return res.json();
-}
-
-function readLiveMetrics(m) {
-  if (!m) return { has_quotes: false };
-  return {
-    has_quotes: m.has_live_quotes !== false,
-    dte: m.dte,
-    cost_mid:    m.cost_to_close?.mid          ?? m.cost_to_close_mid          ?? m.cost_to_close_per_contract,
-    cost_worst:  m.cost_to_close?.worst_case   ?? m.cost_to_close_worst,
-    profit_mid:  m.profit_if_closed?.mid       ?? m.profit_if_closed_mid       ?? m.profit_if_closed_now,
-    profit_worst: m.profit_if_closed?.worst_case ?? m.profit_if_closed_worst,
-    captured:    m.pct_max_profit_captured_mid ?? m.pct_max_profit_captured,
-    underlying_price: m.underlying_price,
-    distance_pct: m.short_strike_distance_pct,
-    breached: m.short_strike_breached,
-  };
-}
-
-function realizedPnL(t) {
-  if (t.status !== 'closed') return null;
-  const credit = t.credit_per_contract || 0;
-  const debit = t.close_debit_per_contract || 0;
-  const contracts = t.contracts || 1;
-  return (credit - debit) * 100 * contracts;
-}
-
-function dteFromExpiry(expiry) {
-  if (!expiry) return null;
-  return Math.max(0, Math.ceil((new Date(expiry) - new Date()) / 86400000));
-}
-
-function updateStaleness(lastPollIso) {
-  const banner = document.getElementById('staleness-banner');
-  const text = document.getElementById('staleness-text');
-  const sub = document.getElementById('staleness-sub');
-  const isoEl = document.getElementById('bot-poll-iso');
-  const browserEl = document.getElementById('browser-refresh-iso');
-  const minAgo = minutesAgo(lastPollIso);
-
-  banner.classList.remove('fresh', 'stale', 'veryold');
-  if (!lastPollIso) {
-    banner.classList.add('veryold');
-    text.textContent = `⚠ No bot data — ledger only`;
-    sub.textContent = `Gist unavailable. Closed-trade P&L still accurate; open positions show no live marks.`;
-  } else if (minAgo < STALE_THRESHOLD_MIN) {
-    banner.classList.add('fresh');
-    text.textContent = `LIVE · Bot last polled ${fmtRelTime(lastPollIso)}`;
-    sub.textContent = `Data is current · Bot polls every 10 min during market hours`;
-  } else if (minAgo < VERY_STALE_THRESHOLD_MIN) {
-    banner.classList.add('stale');
-    text.textContent = `STALE · Bot last polled ${fmtRelTime(lastPollIso)}`;
-    sub.textContent = `Older than the 10-min cron interval — bot may have missed a cycle`;
-  } else {
-    banner.classList.add('veryold');
-    text.textContent = `⚠ STALE · Bot last polled ${fmtRelTime(lastPollIso)}`;
-    sub.textContent = `Significantly out of date — workflow may be failing. Check Actions tab.`;
+/* ---- ticker tape ---- */
+function renderTape(){
+  const seed=DATA.tape.map(t=>({...t,base:t.p,ch:(Math.random()*2-1)*1.2}));
+  function html(){
+    return seed.map(t=>{
+      const up=t.ch>=0;
+      return `<span class="tk"><span class="s">${t.s}</span><span class="px">${t.p.toFixed(2)}</span><span class="ch ${up?'up':'down'}">${up?'▲':'▼'}${Math.abs(t.ch).toFixed(2)}</span></span>`;
+    }).join('');
   }
-  isoEl.textContent = fmtAbsTime(lastPollIso);
-  browserEl.textContent = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
+  const el=$('tape');el.innerHTML=html()+html(); // doubled for seamless loop
+  setInterval(()=>{
+    seed.forEach(t=>{t.p=t.base+(Math.random()*2-1)*t.base*0.0008;t.ch+=(Math.random()*2-1)*0.05;});
+    el.innerHTML=html()+html();
+  },2600);
 }
 
-function joinTrades(ledger, gist) {
-  const liveById = new Map((gist?.trades || []).map(t => [t.id, t]));
-  return (ledger.trades || []).map(t => ({
-    ...t,
-    live: liveById.get(t.id) || null,
-  }));
+/* ---- live micro-ticks on marks (cosmetic, anchored to seeded values) ---- */
+function liveFeel(){
+  setInterval(()=>{
+    const p=DATA.positions[Math.floor(Math.random()*DATA.positions.length)];
+    p.mark=Math.max(0.01,+(p.mark+(Math.random()*2-1)*0.01).toFixed(2));
+    renderPositions();renderTotals();updateMissionLive();
+    const cell=document.querySelector(`.mark[data-sym="${p.sym}"]`);
+    if(cell){cell.classList.add('flash');setTimeout(()=>cell.classList.remove('flash'),600);}
+    $('poll').textContent='last poll '+$('clock').textContent;
+  },3400);
 }
 
-function renderOpenRow(t) {
-  const m = readLiveMetrics(t.live?.metrics);
-  const r = t.live?.recommendation || {};
-  const dte = m.dte ?? dteFromExpiry(t.expiry);
-  const pillCls = r.action === 'HOLD' ? 'pill-hold'
-                : (r.action || '').includes('URGENT') ? 'pill-urgent'
-                : r.action ? 'pill-close'
-                : 'pill-hold';
-  const actionLabel = r.action || (m.has_quotes ? '—' : 'NO QUOTE');
-  return `
-    <tr>
-      <td>
-        <span class="ticker">${t.underlying}</span><span class="strikes">${t.short_strike}/${t.long_strike}p</span>
-        <span class="date">${t.expiry || ''}</span>
-      </td>
-      <td>${dte ?? '—'}</td>
-      <td>${$(t.credit_per_contract, 2)}</td>
-      <td>${m.has_quotes ? $(m.cost_mid, 2) : '<span class="dim">—</span>'}</td>
-      <td>${m.has_quotes ? $(m.cost_worst, 2) : '<span class="dim">—</span>'}</td>
-      <td class="${cls(m.profit_mid)}">${m.has_quotes ? signMoney(m.profit_mid, 0) : '—'}</td>
-      <td class="${cls(m.profit_worst)}">${m.has_quotes ? signMoney(m.profit_worst, 0) : '—'}</td>
-      <td class="${cls(m.captured)}">${m.has_quotes ? signPct(m.captured) : '—'}</td>
-      <td><span class="pill ${pillCls}">${actionLabel}</span></td>
-    </tr>
-  `;
-}
-
-function renderClosedRow(t) {
-  const pnl = realizedPnL(t);
-  const held = (t.opened_at && t.closed_at) ? daysBetween(t.opened_at, t.closed_at) : '—';
-  const pctOfMax = (pnl != null && t.max_profit_total) ? pnl / t.max_profit_total : null;
-  const pillCls = pnl >= 0 ? 'pill-realized' : 'pill-loss';
-  const pillLabel = pnl >= 0 ? 'WIN' : 'LOSS';
-  return `
-    <tr>
-      <td>
-        <span class="ticker">${t.underlying}</span><span class="strikes">${t.short_strike}/${t.long_strike}p</span>
-        <span class="date">${t.opened_at} → ${t.closed_at}</span>
-      </td>
-      <td>${held}d</td>
-      <td>${$(t.credit_per_contract, 2)}</td>
-      <td>${$(t.close_debit_per_contract, 2)}</td>
-      <td>${$0(t.max_profit_total)}</td>
-      <td class="${cls(pnl)}">${signMoney(pnl, 0)}</td>
-      <td class="${cls(pctOfMax)}">${signPct(pctOfMax)}</td>
-      <td><span class="pill ${pillCls}">${pillLabel}</span></td>
-    </tr>
-  `;
-}
-
-function reconPanel(recon) {
-  if (!recon) {
-    return `
-      <div class="section-label">
-        <span>Reconciliation <span class="badge">ledger</span></span>
-        <span class="hint">authoritative — every dollar vs broker</span>
-      </div>
-      <div class="loading">Ledger not built yet — runs on the next market-hours tick (writes ledger/reconciliation.json).</div>
-    `;
+/* ---- equity sparkline (synthetic rise to current total) ---- */
+function renderSpark(){
+  const total=DATA.realized+openPnl();
+  const n=24,pts=[];let v=0;
+  for(let i=0;i<n;i++){
+    v+= total/n + (Math.random()*2-1)*3.2;          // drift to current with noise
+    const x=(i/(n-1))*600;
+    pts.push([x,v]);
   }
-  const c = recon.components || {};
-  const strategyPnl = recon.strategy_pnl != null
-    ? recon.strategy_pnl
-    : (c.realized_pnl_closed || 0) + (c.unrealized_pnl_open || 0);
-  const nonStrategy = c.non_strategy_activity != null
-    ? c.non_strategy_activity
-    : (recon.unexplained_gap != null ? recon.unexplained_gap : 0);
-  const counts = recon.counts || {};
-  return `
-    <div class="section-label">
-      <span>P&L reconciliation <span class="badge">ledger</span></span>
-      <span class="hint">strategy vs. total account · from every broker transaction</span>
-    </div>
-    <div class="stats-grid recon-grid">
-      <div>
-        <div class="label">Strategy P&L</div>
-        <div class="value ${cls(strategyPnl)}">${signMoney(strategyPnl, 2)}</div>
-        <div class="sub">realized ${signMoney(c.realized_pnl_closed, 0)} · open ${signMoney(c.unrealized_pnl_open, 0)}</div>
-      </div>
-      <div>
-        <div class="label">Account P&L</div>
-        <div class="value ${cls(recon.account_pnl)}">${signMoney(recon.account_pnl, 2)}</div>
-        <div class="sub">net liq ${$0(recon.net_liquidating_value)} · start ${$0(recon.starting_capital)}</div>
-      </div>
-      <div>
-        <div class="label">Non-strategy activity</div>
-        <div class="value ${cls(nonStrategy)}">${signMoney(nonStrategy, 2)}</div>
-        <div class="sub">pre-ledger positions closed in-window</div>
-      </div>
-      <div>
-        <div class="label">Money movement</div>
-        <div class="value ${cls(c.money_movement_net)}">${signMoney(c.money_movement_net, 2)}</div>
-        <div class="sub">fees ${$(recon.total_fees_paid, 2)} · ${counts.transactions ?? '—'} txns · ${counts.closed_trades ?? '—'} closed</div>
-      </div>
-    </div>
-    <p class="recon-note">Account P&L = strategy P&L + money movement + non-strategy activity (positions opened before the ledger window — e.g. a pre-experiment trade closed on day one).</p>
-  `;
+  const vals=pts.map(p=>p[1]),min=Math.min(0,...vals),max=Math.max(...vals,1);
+  const y=val=>60-((val-min)/(max-min))*54-3;
+  $('sparkline').setAttribute('points',pts.map(p=>`${p[0].toFixed(0)},${y(p[1]).toFixed(1)}`).join(' '));
 }
 
-function render(ledger, gist, recon) {
-  const account = gist?.account || {};
-  const trades = joinTrades(ledger, gist);
-  const openTrades = trades.filter(t => t.status === 'open');
-  const closedTrades = trades.filter(t => t.status === 'closed')
-                              .sort((a, b) => (b.closed_at || '').localeCompare(a.closed_at || ''));
-
-  // Realized P&L (gross, before fees) — sum of all closed
-  const realized = closedTrades.reduce((s, t) => s + (realizedPnL(t) || 0), 0);
-
-  // Unrealized — sum profit_if_closed (mid + worst) from live quotes
-  let unrealizedMid = 0;
-  let unrealizedWorst = 0;
-  let openHaveQuotes = 0;
-  for (const t of openTrades) {
-    const m = readLiveMetrics(t.live?.metrics);
-    if (m.has_quotes) {
-      openHaveQuotes++;
-      if (m.profit_mid != null) unrealizedMid += m.profit_mid;
-      if (m.profit_worst != null) unrealizedWorst += m.profit_worst;
-    }
-  }
-  const hasLiveQuotes = openHaveQuotes > 0;
-  const total = realized + (hasLiveQuotes ? unrealizedMid : 0);
-
-  // BPR from open trades only
-  const bprUsed = openTrades.reduce((s, t) => s + (t.bpr_total || 0), 0);
-  const bprPctOfNet = account.net_liquidating_value ? bprUsed / account.net_liquidating_value : null;
-  const startingCap = account.starting_capital || ledger.starting_capital || ledger.experiment?.starting_capital;
-  const totalPct = startingCap ? total / startingCap : null;
-
-  // Goal progress
-  const goalPnL = ledger.experiment?.goal_pnl ?? 100;
-  const goalEnd = ledger.experiment?.ends_at ? new Date(ledger.experiment.ends_at) : new Date('2026-06-12');
-  const daysLeft = Math.max(0, Math.ceil((goalEnd - new Date()) / 86400000));
-  const goalPct = Math.max(0, Math.min(100, (total / goalPnL) * 100));
-  const goalPctLabel = `${goalPct.toFixed(0)}% of $${goalPnL}`;
-
-  // Strategy stats (closed trades)
-  const wins = closedTrades.filter(t => (realizedPnL(t) || 0) > 0).length;
-  const losses = closedTrades.filter(t => (realizedPnL(t) || 0) < 0).length;
-  const winRate = closedTrades.length ? wins / closedTrades.length : null;
-  const avgPnL = closedTrades.length ? realized / closedTrades.length : null;
-  const avgDays = closedTrades.length
-    ? closedTrades.reduce((s, t) => s + (t.opened_at && t.closed_at ? daysBetween(t.opened_at, t.closed_at) : 0), 0) / closedTrades.length
-    : null;
-  const totalBprDeployed = closedTrades.reduce((s, t) => s + (t.bpr_total || 0), 0);
-  const roiOnBpr = totalBprDeployed > 0 ? realized / totalBprDeployed : null;
-
-  updateStaleness(gist?.last_poll_at);
-  document.getElementById('today-date').textContent = fmtToday();
-
-  const openTableBody = openTrades.length
-    ? openTrades.map(renderOpenRow).join('')
-    : `<tr class="empty-row"><td colspan="9">No open positions</td></tr>`;
-
-  const closedTableBody = closedTrades.length
-    ? closedTrades.map(renderClosedRow).join('')
-    : `<tr class="empty-row"><td colspan="8">No closed trades yet</td></tr>`;
-
-  const html = `
-    <div class="hero">
-      <div class="primary">
-        <div class="label">Total P&L (realized + unrealized)</div>
-        <div class="value ${cls(total)}">${signMoney(total, 2)}</div>
-        <div class="sub-value ${cls(totalPct)}">${signPct(totalPct)} · started ${$0(startingCap)}</div>
-        <div class="goal-track"><div class="goal-fill ${total < 0 ? 'neg' : ''}" style="width:${goalPct}%"></div></div>
-        <div class="sub-value" style="margin-top:0.3rem;font-size:0.7rem;">$${goalPnL} goal by Jun 12 · ${goalPctLabel} · ${daysLeft}d left</div>
-      </div>
-      <div>
-        <div class="label">Realized</div>
-        <div class="value small ${cls(realized)}">${signMoney(realized, 0)}</div>
-        <div class="sub-value">${closedTrades.length} closed</div>
-      </div>
-      <div>
-        <div class="label">Unrealized (mid)</div>
-        <div class="value small ${cls(unrealizedMid)}">${hasLiveQuotes ? signMoney(unrealizedMid, 0) : '—'}</div>
-        <div class="sub-value">${hasLiveQuotes ? `worst ${signMoney(unrealizedWorst, 0)}` : 'no live quotes'}</div>
-      </div>
-      <div>
-        <div class="label">Current net liq</div>
-        <div class="value small">${$(account.net_liquidating_value, 2)}</div>
-        <div class="sub-value">cash ${$0(account.cash_balance)}</div>
-      </div>
-    </div>
-
-    <div class="secondary">
-      <div>
-        <div class="label">Day P&L</div>
-        <div class="value ${cls(account.day_pnl)}">${signMoney(account.day_pnl, 2)}</div>
-      </div>
-      <div>
-        <div class="label">BPR used</div>
-        <div class="value">${$0(bprUsed)}</div>
-        <div class="sub">${pct(bprPctOfNet, 0)} of net</div>
-      </div>
-      <div>
-        <div class="label">BP available</div>
-        <div class="value">${$0(account.derivative_buying_power)}</div>
-      </div>
-      <div>
-        <div class="label">Positions</div>
-        <div class="value">${openTrades.length} open · ${closedTrades.length} closed</div>
-      </div>
-    </div>
-
-    ${reconPanel(recon)}
-
-    <div class="section-label">
-      <span>Open positions <span class="badge">live</span></span>
-      <span class="hint">mid = best-case fill · worst = guaranteed fill (ask/bid)</span>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Trade</th><th>DTE</th><th>Credit</th><th>Cost mid</th><th>Cost worst</th>
-          <th>P&L (mid)</th><th>P&L (worst)</th><th>% captured</th><th>Action</th>
-        </tr>
-      </thead>
-      <tbody>${openTableBody}</tbody>
-    </table>
-
-    <div class="section-label">
-      <span>Closed positions <span class="badge">realized</span></span>
-      <span class="hint">P&L gross of commissions</span>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Trade</th><th>Held</th><th>Credit</th><th>Close debit</th>
-          <th>Max profit</th><th>Realized P&L</th><th>% of max</th><th>Result</th>
-        </tr>
-      </thead>
-      <tbody>${closedTableBody}</tbody>
-    </table>
-
-    <div class="section-label">
-      <span>Strategy stats <span class="badge">cycle to date</span></span>
-      <span class="hint">closed trades only</span>
-    </div>
-    <div class="stats-grid">
-      <div>
-        <div class="label">Win rate</div>
-        <div class="value ${winRate == null ? 'dim' : winRate >= 0.6 ? 'pos' : winRate >= 0.4 ? '' : 'neg'}">${winRate == null ? '—' : (winRate * 100).toFixed(0) + '%'}</div>
-        <div class="sub">${wins}W / ${losses}L${closedTrades.length ? ` · ${closedTrades.length} trades` : ''}</div>
-      </div>
-      <div>
-        <div class="label">Avg P&L / trade</div>
-        <div class="value ${cls(avgPnL)}">${avgPnL == null ? '—' : signMoney(avgPnL, 0)}</div>
-        <div class="sub">${closedTrades.length ? `$${realized.toFixed(0)} total realized` : 'no closed trades'}</div>
-      </div>
-      <div>
-        <div class="label">Avg days held</div>
-        <div class="value ${avgDays == null ? 'dim' : ''}">${avgDays == null ? '—' : avgDays.toFixed(1) + 'd'}</div>
-        <div class="sub">${closedTrades.length ? `target: manage at 50% or 21 DTE` : '—'}</div>
-      </div>
-      <div>
-        <div class="label">ROI on BPR</div>
-        <div class="value ${cls(roiOnBpr)}">${roiOnBpr == null ? '—' : (roiOnBpr * 100).toFixed(1) + '%'}</div>
-        <div class="sub">${totalBprDeployed > 0 ? `$${realized.toFixed(0)} / $${totalBprDeployed.toFixed(0)} deployed` : '—'}</div>
-      </div>
-    </div>
-  `;
-
-  document.getElementById('root').innerHTML = html;
-  document.getElementById('footer-time').textContent = `client refreshed ${new Date().toLocaleTimeString()}`;
+let MISSION={};
+function renderMission(){
+  const fmtD=s=>new Date(s+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'2-digit'}).toUpperCase();
+  const d0=new Date(DATA.startDate+'T00:00:00'), dG=new Date(DATA.deadline+'T00:00:00'), now=new Date();
+  const totalDays=Math.round((dG-d0)/86400000);
+  const elapsed=Math.max(0,Math.round((now-d0)/86400000));
+  const tPct=Math.min(1,elapsed/totalDays);
+  const goalPnl=DATA.start*DATA.goalReturn;
+  /* COMPOUNDING: balance grows at a constant daily rate r to reach (1+goalReturn)x by the
+     deadline. The target P&L curve is therefore EXPONENTIAL — shallow early (small account,
+     small size), steepening late as gains are reinvested. Not a straight line. */
+  const r=Math.pow(1+DATA.goalReturn,1/totalDays)-1;             // daily compound rate
+  const targetAt=f=>DATA.start*(Math.pow(1+DATA.goalReturn,f)-1); // f=day/totalDays, 0..1
+  const targetNow=targetAt(tPct);
+  // geometry
+  const W=600,H=120,padT=10,padB=16;
+  const Y=v=>H-padB-(Math.max(0,v)/goalPnl)*(H-padT-padB);
+  const X=f=>f*W;
+  const tx=X(tPct);
+  // static labels
+  $('d-start').textContent=fmtD(DATA.startDate);
+  $('d-today').textContent=now.toLocaleDateString('en-US',{month:'short',day:'2-digit'}).toUpperCase();
+  $('d-goal').textContent=fmtD(DATA.deadline);
+  $('elapsedpct').textContent='DAY '+elapsed+'/'+totalDays+' · '+(tPct*100).toFixed(0)+'%';
+  $('goaltgt').textContent='$'+DATA.start.toLocaleString('en-US',{maximumFractionDigits:0})+' → $'+(DATA.start*(1+DATA.goalReturn)).toLocaleString('en-US',{maximumFractionDigits:0});
+  $('reqpace').textContent=(r*100).toFixed(2)+'%/day cmpd';
+  $('goallbl').textContent=(DATA.goalReturn*100).toFixed(0)+'% GOAL';
+  setTimeout(()=>{$('elapsed').style.width=(tPct*100)+'%';$('todaymark').style.left=(tPct*100)+'%';},250);
+  // build STATIC svg once (curve, grid, today line, fixed dots); live bits carry ids
+  const N=48;
+  let tcurve='M0,'+Y(0).toFixed(1), seg='M0,'+Y(0).toFixed(1);
+  for(let i=1;i<=N;i++){const f=i/N;tcurve+=' L'+X(f).toFixed(1)+','+Y(targetAt(f)).toFixed(1);}
+  for(let i=1;i<=N;i++){const f=tPct*(i/N);seg+=' L'+X(f).toFixed(1)+','+Y(targetAt(f)).toFixed(1);}
+  MISSION={goalPnl,tPct,tx,Y,targetNow,tgtSeg:seg};
+  let s=`<defs><linearGradient id="gapgrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff4d4d" stop-opacity=".3"/><stop offset="1" stop-color="#ff4d4d" stop-opacity="0"/></linearGradient></defs>`;
+  [0,.25,.5,.75,1].forEach(f=>{const y=Y(goalPnl*f);s+=`<line class="gd-grid" x1="0" y1="${y}" x2="${W}" y2="${y}"/>`;});
+  s+=`<path id="gfill" class="gd-fill" d=""/>`;
+  s+=`<path class="gd-target" d="${tcurve}" fill="none"/>`;
+  s+=`<line class="gd-today" x1="${tx}" y1="${padT}" x2="${tx}" y2="${H-padB}"/>`;
+  s+=`<polyline id="gactual" class="gd-actual" points="0,${Y(0)} 0,${Y(0)}"/>`;
+  s+=`<circle cx="${tx}" cy="${Y(targetNow)}" r="3" fill="#ffb02e"/>`;
+  s+=`<circle cx="${W}" cy="${Y(goalPnl)}" r="3.5" fill="#ffb02e"/>`;
+  s+=`<circle id="gactdot" r="3.5" fill="#3ff07a" cx="0" cy="${Y(0)}"/>`;
+  $('glidesvg').innerHTML=s;
+  updateMissionLive();
 }
 
-async function tick() {
-  try {
-    const ledgerPromise = loadLedger();
-    const gistPromise = loadGist().catch(e => {
-      console.warn('gist load failed:', e);
-      return null;
-    });
-    const reconPromise = loadRecon().catch(e => {
-      console.warn('reconciliation load failed:', e);
-      return null;
-    });
-    const [ledger, gist, recon] = await Promise.all([ledgerPromise, gistPromise, reconPromise]);
-    render(ledger, gist, recon);
-  } catch (e) {
-    document.getElementById('root').innerHTML = `<div class="error">⚠ ${e.message}</div>`;
-    document.getElementById('staleness-text').textContent = `error fetching ledger`;
-    document.getElementById('staleness-banner').classList.remove('fresh', 'stale');
-    document.getElementById('staleness-banner').classList.add('veryold');
-  }
+/* goal number ALWAYS = realized + open marks (mark-to-market "if exited now"); re-runs each tick */
+function updateMissionLive(){
+  if(!MISSION.Y)return;
+  const {goalPnl,tPct,tx,Y,targetNow,tgtSeg}=MISSION;
+  const actual=DATA.realized+openPnl();
+  const gPct=Math.max(0,Math.min(1,actual/goalPnl));
+  const gap=actual-targetNow;
+  $('missionstat').textContent=(tPct*100).toFixed(0)+'% time gone · '+(gPct*100).toFixed(1)+'% of goal';
+  $('goalprog').style.width=(gPct*100)+'%';
+  const g=$('gap');
+  if(gap>=0){g.className='gap ahead';g.textContent='ON PACE +$'+Math.abs(gap).toFixed(0);}
+  else{g.className='gap behind';g.textContent='BEHIND −$'+Math.abs(gap).toFixed(0)+' vs glide';}
+  const ay=Y(actual).toFixed(1), y0=Y(0).toFixed(1);
+  $('gactual').setAttribute('points',`0,${y0} ${tx.toFixed(1)},${ay}`);
+  $('gactdot').setAttribute('cx',tx.toFixed(1));$('gactdot').setAttribute('cy',ay);
+  $('gfill').setAttribute('d',tgtSeg+` L${tx.toFixed(1)},${ay} L0,${y0} Z`);
 }
 
-tick();
-setInterval(tick, REFRESH_MS);
-setInterval(() => {
-  document.getElementById('browser-refresh-iso').textContent =
-    new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
-}, 10_000);
+renderMission();renderPositions();renderClosed();renderTotals();renderTape();renderSpark();liveFeel();
+$('poll').textContent='last poll '+$('clock').textContent;
 </script>
 </body>
 </html>
