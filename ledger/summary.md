@@ -1,19 +1,19 @@
 # Ledger Summary
 
-_Generated 2026-06-03T20:14:27.745381+00:00 from tastytrade transaction history._
+_Generated 2026-06-03T20:24:39.888974+00:00 from tastytrade transaction history._
 
 ## Reconciliation
 
 | Item | Amount |
 |---|---:|
 | Starting capital | $3,389.91 |
-| Net liq (now) | $3,442.37 |
+| Net liq (now) | $3,439.32 |
 | Strategy realized (closed) | $+60.99 |
 | Strategy unrealized (open) | $-69.02 |
 | **Strategy P&L** | **$-8.03** |
 | Money movement | $-0.06 |
-| Non-strategy activity | $+60.55 |
-| **Account P&L** | **$+52.46** |
+| Non-strategy activity | $+57.50 |
+| **Account P&L** | **$+49.41** |
 
 _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger positions closed in-window). Total fees paid: $14.60._
 

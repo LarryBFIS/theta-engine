@@ -1,13 +1,13 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-03T20:14:28.290389+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-03T20:24:40.442874+00:00._
 
-**113 trades · 8 open / 105 closed · win rate 100% · realized $+10982.00 · open $-40.00 · total $+10942.00**
+**114 trades · 8 open / 106 closed · win rate 100% · realized $+11110.00 · open $-30.00 · total $+11080.00**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
 | paper_0001_cat | CAT 775/770p | LIVE | closed | $0.81 | $+76 | — | manage_50pct |
-| paper_0002_iwm | IWM 271/266p | PAPER | open | $0.75 | — | $+4 |  |
+| paper_0002_iwm | IWM 271/266p | PAPER | open | $0.75 | — | $+14 |  |
 | paper_0003_amd | AMD 410/405p | LIVE | closed | $0.85 | $+43 | — | manage_50pct |
 | paper_0004_ba | BA 205/200p | PAPER | open | $0.82 | — | $-83 |  |
 | paper_0005_cat | CAT 775/770p | LIVE | closed | $0.81 | $+111 | — | manage_50pct |
@@ -19,7 +19,7 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0011_meta | META 550/545p | PAPER | closed | $0.77 | $+42 | — | manage_50pct |
 | paper_0012_amd | AMD 420/415p | LIVE | closed | $0.85 | $+47 | — | manage_50pct |
 | paper_0013_v | V 300/295p | PAPER | open | $0.83 | — | $-13 |  |
-| paper_0014_xom | XOM 140/135p | PAPER | open | $0.77 | — | $+14 |  |
+| paper_0014_xom | XOM 140/135p | PAPER | open | $0.77 | — | $+13 |  |
 | paper_0015_cat | CAT 810/805p | LIVE | closed | $1.10 | $+70 | — | manage_50pct |
 | paper_0016_meta | META 550/545p | PAPER | closed | $0.77 | $+39 | — | manage_50pct |
 | paper_0017_cat | CAT 810/805p | LIVE | closed | $1.10 | $+72 | — | manage_50pct |
@@ -115,7 +115,8 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0107_cat | CAT 820/815p | LIVE | closed | $0.85 | $+173 | — | manage_50pct |
 | paper_0108_ma | MA 440/435p | PAPER | closed | $1.20 | $+118 | — | manage_50pct |
 | paper_0109_cat | CAT 820/815p | LIVE | closed | $0.85 | $+147 | — | manage_50pct |
-| paper_0110_ma | MA 440/435p | PAPER | open | $1.20 | — | $+40 |  |
+| paper_0110_ma | MA 440/435p | PAPER | open | $1.20 | — | $+41 |  |
 | paper_0111_cat | CAT 820/815p | LIVE | closed | $0.85 | $+120 | — | manage_50pct |
 | paper_0112_cat | CAT 820/815p | LIVE | closed | $0.85 | $+128 | — | manage_50pct |
 | paper_0113_cat | CAT 820/815p | LIVE | closed | $0.85 | $+128 | — | manage_50pct |
+| paper_0114_cat | CAT 820/815p | LIVE | closed | $0.85 | $+128 | — | manage_50pct |
