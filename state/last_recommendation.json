@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-06-03T16:04:30.598787+00:00",
-  "market_view": "Broad risk-off with IWM -1.28% and XLF -1.54% still leading declines; VIX up 3.3% on the day but at 16.29 still not panic territory. AMZN has recovered to $250.14 \u2014 short strike technically unbreached now, but cost has ballooned and position remains deeply outside stop rules.",
+  "last_run": "2026-06-03T16:14:32.827159+00:00",
+  "market_view": "Broad risk-off persists with IWM -1.24% and XLF -1.46% leading declines; VIX at 16.24 up 2.98% on the day but not panic territory. AMZN sitting at $250.05 is essentially pinned to the short strike with zero cushion.",
   "AMZN 250/245p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-06-03T16:04:14Z",
-    "reasoning": "AMZN is back to $250.14 (short strike $250.00 \u2014 essentially at-the-money, 0.056% clearance is noise), mid cost $2.325 is 1.80x entry credit of $1.29, well through the $1.935 hard stop for multiple cycles. This is not a recovery \u2014 it's a dead-cat bounce at the strike with 43 DTE and no cushion."
+    "timestamp": "2026-06-03T16:14:19Z",
+    "reasoning": "AMZN at $250.05 means the short strike is breached in all practical terms \u2014 0.02% clearance is execution slippage, not a buffer. Mid cost $2.35 is 1.82x the $1.29 entry credit, hard stop triggered at 1.5x ($1.935) multiple cycles ago. 43 DTE means theta is not saving this \u2014 close immediately."
   },
   "JPM 280/270p": {
     "action": "WATCH",
     "confidence": 0.75,
-    "timestamp": "2026-06-03T16:04:14Z",
-    "reasoning": "JPM $298.33 is 6.5% above the 280 short strike; mid $2.035 is essentially flat to entry credit of $2.06, worst-case $2.22 is 1.08x \u2014 comfortably inside the $3.09 hard stop despite XLF -1.54% today."
+    "timestamp": "2026-06-03T16:14:19Z",
+    "reasoning": "JPM at $298.63 is 6.3% above the 280 short strike; mid $1.905 is below entry credit of $2.06, worst-case $2.13 is 1.03x \u2014 well inside the $3.09 hard stop despite XLF weakness today."
   },
   "GLD 390/385p": {
     "action": "WATCH",
     "confidence": 0.7,
-    "timestamp": "2026-06-03T16:04:14Z",
-    "reasoning": "GLD $407.71 is 4.5% above the 390 short strike; worst-case $1.25 is 1.34x entry \u2014 inside the $1.395 hard stop, and risk-off / VIX-up environment continues to be a tailwind for gold."
+    "timestamp": "2026-06-03T16:14:19Z",
+    "reasoning": "GLD at $407.45 is 4.5% above the 390 short strike; worst-case $1.25 is 1.34x entry \u2014 inside the $1.395 hard stop, and risk-off environment with VIX ticking up continues to support gold as a tailwind."
   }
 }
