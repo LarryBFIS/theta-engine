@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-06-03T13:24:32.057517+00:00",
-  "market_view": "Market continues grinding higher, tech and small-caps leading, VIX at 16.25 ticking up intraday but structurally benign \u2014 theta environment is clean. AMZN position remains in hard stop violation from last cycle with no change in worst-case cost.",
+  "last_run": "2026-06-03T13:34:31.768359+00:00",
+  "market_view": "Market regime neutral with VIX ticking up 3.1% intraday to 16.26 \u2014 not alarming but worth noting. Financials (XLF -0.74%) and small-caps (IWM -0.79%) are the weak spots today while tech holds.",
   "AMZN 250/245p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-06-03T13:24:21.699470+00:00",
-    "reasoning": "Worst-case fill $2.10 is 1.63x the $1.29 entry credit \u2014 hard stop rule is 1.5x ($1.935) and this has been breached for multiple consecutive cycles. This is an active rule violation requiring immediate closure."
+    "timestamp": "2026-06-03T13:34:19Z",
+    "reasoning": "Worst-case fill $2.15 is 1.67x the $1.29 entry credit \u2014 hard stop rule is 1.5x ($1.935) and this breach has persisted across multiple consecutive cycles with no improvement. Rule violation is active and escalating."
   },
   "JPM 280/270p": {
-    "action": "HOLD",
-    "confidence": 0.92,
-    "timestamp": "2026-06-03T13:24:21.699470+00:00",
-    "reasoning": "Mid at $1.76 is 14.6% profit with JPM $20.96 above short strike, XLF flat on the day \u2014 theta working cleanly, hard stop at $3.09 untouched, 43 DTE gives room."
+    "action": "WATCH",
+    "confidence": 0.82,
+    "timestamp": "2026-06-03T13:34:19Z",
+    "reasoning": "XLF down 0.74% today and JPM mid cost has risen from $1.76 last cycle to $1.905 \u2014 still 7.5% profit at mid but the drift higher in cost with financials weakness deserves monitoring. Hard stop at $3.09 is untouched with JPM $19.36 above short strike."
   },
   "GLD 390/385p": {
     "action": "HOLD",
-    "confidence": 0.88,
-    "timestamp": "2026-06-03T13:24:21.699470+00:00",
-    "reasoning": "Mid at $0.875 is 5.9% profit, GLD $21.95 above short strike, worst-case $1.05 well inside $1.395 hard stop \u2014 structurally clean, no pressure."
+    "confidence": 0.87,
+    "timestamp": "2026-06-03T13:34:19Z",
+    "reasoning": "Mid at $1.00 is 7.5% loss on credit \u2014 not yet at profit target but worst-case $1.25 is well inside $1.395 hard stop and GLD is $18.15 above short strike. Theta working, no pressure."
   }
 }
