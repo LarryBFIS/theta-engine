@@ -44,8 +44,8 @@
       "opened_credit": 0.75,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 6.0,
-      "current_debit": 0.69,
+      "unrealized_pnl": 2.0,
+      "current_debit": 0.73,
       "close_reason": null
     },
     {
@@ -91,8 +91,8 @@
       "opened_credit": 0.82,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -52.0,
-      "current_debit": 1.34,
+      "unrealized_pnl": -56.0,
+      "current_debit": 1.38,
       "close_reason": null
     },
     {
@@ -282,8 +282,8 @@
       "opened_credit": 0.85,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 27.0,
-      "current_debit": 0.58,
+      "unrealized_pnl": 28.0,
+      "current_debit": 0.57,
       "close_reason": null
     },
     {
@@ -305,8 +305,8 @@
       "opened_credit": 0.83,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -32.0,
-      "current_debit": 1.15,
+      "unrealized_pnl": -29.0,
+      "current_debit": 1.12,
       "close_reason": null
     },
     {
@@ -328,8 +328,8 @@
       "opened_credit": 0.77,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 30.0,
-      "current_debit": 0.47,
+      "unrealized_pnl": 32.0,
+      "current_debit": 0.45,
       "close_reason": null
     },
     {
@@ -1455,8 +1455,8 @@
       "opened_credit": 0.77,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 26.0,
-      "current_debit": 0.51,
+      "unrealized_pnl": 24.0,
+      "current_debit": 0.53,
       "close_reason": null
     },
     {
@@ -1961,18 +1961,66 @@
       "current_debit": 0.38,
       "close_reason": "manage_50pct",
       "closed_at": "2026-06-03"
+    },
+    {
+      "id": "paper_0083_gs",
+      "sig": "GS_980_975_2026-07-02",
+      "underlying": "GS",
+      "structure": "short_put_vertical",
+      "short_strike": 980.0,
+      "long_strike": 975.0,
+      "short_symbol": "GS    260702P00980000",
+      "long_symbol": "GS    260702P00975000",
+      "expiry": "2026-07-02",
+      "credit": 2.0,
+      "bpr": 300.0,
+      "pop": 0.802,
+      "iv_rank": 0.414,
+      "tag": "paper",
+      "opened_at": "2026-06-03",
+      "opened_credit": 2.0,
+      "status": "closed",
+      "realized_pnl": 138.0,
+      "unrealized_pnl": null,
+      "current_debit": 0.62,
+      "close_reason": "manage_50pct",
+      "closed_at": "2026-06-03"
+    },
+    {
+      "id": "paper_0084_cost",
+      "sig": "COST_890_885_2026-07-02",
+      "underlying": "COST",
+      "structure": "short_put_vertical",
+      "short_strike": 890.0,
+      "long_strike": 885.0,
+      "short_symbol": "COST  260702P00890000",
+      "long_symbol": "COST  260702P00885000",
+      "expiry": "2026-07-02",
+      "credit": 1.3,
+      "bpr": 370.0,
+      "pop": 0.81,
+      "iv_rank": 0.518,
+      "tag": "live",
+      "opened_at": "2026-06-03",
+      "opened_credit": 1.3,
+      "status": "closed",
+      "realized_pnl": 93.0,
+      "unrealized_pnl": null,
+      "current_debit": 0.37,
+      "close_reason": "manage_50pct",
+      "closed_at": "2026-06-03"
     }
   ],
-  "updated_at": "2026-06-03T16:14:35.634363+00:00",
+  "updated_at": "2026-06-03T16:24:39.317668+00:00",
   "summary": {
-    "trades": 82,
+    "trades": 84,
     "open": 7,
-    "closed": 75,
-    "wins": 75,
+    "closed": 77,
+    "wins": 77,
     "losses": 0,
     "win_rate": 1.0,
-    "realized_pnl": 7295.0,
-    "open_unrealized_pnl": 35.0,
-    "total_pnl": 7330.0
+    "realized_pnl": 7526.0,
+    "open_unrealized_pnl": 31.0,
+    "total_pnl": 7557.0
   }
 }
