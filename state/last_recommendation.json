@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-06-03T20:54:25.907131+00:00",
-  "market_view": "Market closed with broad weakness \u2014 SPY -0.70%, IWM -1.37%, financials -1.15%. VIX ticking up +1.84% intraday; AMZN remains pinned at short strike with position in hard stop violation territory overnight.",
+  "last_run": "2026-06-03T21:24:07.012429+00:00",
+  "market_view": "Market is closed \u2014 broad weakness persisted into the close with IWM -1.37%, XLF -1.15%, VIX +1.84%. AMZN pinned at short strike remains the primary overnight risk with no resolution since last cycle.",
   "AMZN 250/245p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-06-03T20:54:13Z",
-    "reasoning": "Mid at $2.325 is 1.80x credit and worst at $2.60 is 2.01x credit \u2014 both clear 1.5x hard stop violations ($1.935 threshold). AMZN is sitting at $250.02, essentially pinned to the short strike overnight with weak tape (IWM -1.37%, XLY -0.73%), making a gap-down open that blows through max loss the primary risk."
+    "timestamp": "2026-06-03T21:23:50.733237+00:00",
+    "reasoning": "Mid at $2.325 is 1.80x credit and worst at $2.60 is 2.01x credit \u2014 hard stop threshold is $1.935 (1.5x credit). AMZN is sitting at $250.02 essentially on the short strike with XLY -0.73% and broad weakness; any gap-down open converts this into a max-loss scenario."
   },
   "JPM 280/270p": {
     "action": "HOLD",
     "confidence": 0.85,
-    "timestamp": "2026-06-03T20:54:13Z",
-    "reasoning": "JPM at $300.85 holds 6.93% buffer above 280 short strike; mid $1.765 = 0.86x credit with no rules triggered and 43 DTE remaining \u2014 financials weakness (-1.15%) is noted but buffer is sufficient."
+    "timestamp": "2026-06-03T21:23:50.733237+00:00",
+    "reasoning": "JPM at $300.85 holds a 6.93% buffer above the 280 short strike; mid $1.765 = 0.86x credit, no rules triggered and 43 DTE remaining with healthy distance."
   },
   "GLD 390/385p": {
     "action": "WATCH",
     "confidence": 0.78,
-    "timestamp": "2026-06-03T20:54:13Z",
-    "reasoning": "Worst cost $1.30 = 1.40x credit, just $0.095 below the 1.5x hard stop at $1.395 \u2014 safe-haven bid remains firm with broad equity weakness and VIX rising, so GLD could gap up at open pushing this into stop territory."
+    "timestamp": "2026-06-03T21:23:50.733237+00:00",
+    "reasoning": "Worst cost $1.30 = 1.40x credit, only $0.095 below the $1.395 hard stop \u2014 safe-haven bid remains firm with equity weakness and VIX elevated, a gap-up in GLD at open could push worst cost into stop territory immediately."
   }
 }
