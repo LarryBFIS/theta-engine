@@ -1,15 +1,15 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-03T15:34:36.039348+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-03T15:54:25.917330+00:00._
 
-**78 trades · 8 open / 70 closed · win rate 100% · realized $+6701.00 · open $+100.00 · total $+6801.00**
+**79 trades · 8 open / 71 closed · win rate 100% · realized $+6792.00 · open $+111.00 · total $+6903.00**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
 | paper_0001_cat | CAT 775/770p | LIVE | closed | $0.81 | $+76 | — | manage_50pct |
-| paper_0002_iwm | IWM 271/266p | PAPER | open | $0.75 | — | $+7 |  |
+| paper_0002_iwm | IWM 271/266p | PAPER | open | $0.75 | — | $+6 |  |
 | paper_0003_amd | AMD 410/405p | LIVE | closed | $0.85 | $+43 | — | manage_50pct |
-| paper_0004_ba | BA 205/200p | PAPER | open | $0.82 | — | $-50 |  |
+| paper_0004_ba | BA 205/200p | PAPER | open | $0.82 | — | $-48 |  |
 | paper_0005_cat | CAT 775/770p | LIVE | closed | $0.81 | $+111 | — | manage_50pct |
 | paper_0006_cat | CAT 775/770p | LIVE | closed | $0.81 | $+46 | — | manage_50pct |
 | paper_0007_amd | AMD 410/405p | LIVE | closed | $0.85 | $+77 | — | manage_50pct |
@@ -17,9 +17,9 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0009_cost | COST 890/885p | LIVE | closed | $1.30 | $+91 | — | manage_50pct |
 | paper_0010_cat | CAT 810/805p | LIVE | closed | $1.10 | $+68 | — | manage_50pct |
 | paper_0011_meta | META 550/545p | PAPER | closed | $0.77 | $+42 | — | manage_50pct |
-| paper_0012_amd | AMD 420/415p | LIVE | open | $0.85 | — | $+30 |  |
-| paper_0013_v | V 300/295p | PAPER | open | $0.83 | — | $-31 |  |
-| paper_0014_xom | XOM 140/135p | PAPER | open | $0.77 | — | $+25 |  |
+| paper_0012_amd | AMD 420/415p | LIVE | open | $0.85 | — | $+27 |  |
+| paper_0013_v | V 300/295p | PAPER | open | $0.83 | — | $-37 |  |
+| paper_0014_xom | XOM 140/135p | PAPER | open | $0.77 | — | $+28 |  |
 | paper_0015_cat | CAT 810/805p | LIVE | closed | $1.10 | $+70 | — | manage_50pct |
 | paper_0016_meta | META 550/545p | PAPER | closed | $0.77 | $+39 | — | manage_50pct |
 | paper_0017_cat | CAT 810/805p | LIVE | closed | $1.10 | $+72 | — | manage_50pct |
@@ -66,7 +66,7 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0058_cost | COST 890/885p | LIVE | closed | $1.30 | $+77 | — | manage_50pct |
 | paper_0059_cost | COST 890/885p | LIVE | closed | $1.30 | $+88 | — | manage_50pct |
 | paper_0060_cat | CAT 810/805p | LIVE | closed | $1.10 | $+222 | — | manage_50pct |
-| paper_0061_meta | META 550/545p | PAPER | open | $0.77 | — | $+20 |  |
+| paper_0061_meta | META 550/545p | PAPER | open | $0.77 | — | $+13 |  |
 | paper_0062_cost | COST 890/885p | LIVE | closed | $1.30 | $+79 | — | manage_50pct |
 | paper_0063_cat | CAT 810/805p | LIVE | closed | $1.10 | $+155 | — | manage_50pct |
 | paper_0064_gs | GS 980/975p | PAPER | closed | $2.00 | $+197 | — | manage_50pct |
@@ -77,10 +77,11 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0069_cost | COST 890/885p | LIVE | closed | $1.30 | $+67 | — | manage_50pct |
 | paper_0070_cat | CAT 810/805p | LIVE | closed | $1.10 | $+100 | — | manage_50pct |
 | paper_0071_gs | GS 980/975p | PAPER | closed | $2.00 | $+217 | — | manage_50pct |
-| paper_0072_cost | COST 890/885p | LIVE | open | $1.30 | — | $+31 |  |
+| paper_0072_cost | COST 890/885p | LIVE | closed | $1.30 | $+91 | — | manage_50pct |
 | paper_0073_cat | CAT 810/805p | LIVE | closed | $1.10 | $+90 | — | manage_50pct |
 | paper_0074_gs | GS 980/975p | PAPER | closed | $2.00 | $+150 | — | manage_50pct |
 | paper_0075_cat | CAT 810/805p | LIVE | closed | $1.10 | $+68 | — | manage_50pct |
 | paper_0076_gs | GS 980/975p | PAPER | closed | $2.00 | $+170 | — | manage_50pct |
 | paper_0077_cat | CAT 810/805p | LIVE | closed | $1.10 | $+63 | — | manage_50pct |
-| paper_0078_gs | GS 980/975p | PAPER | open | $2.00 | — | $+68 |  |
+| paper_0078_gs | GS 980/975p | PAPER | open | $2.00 | — | $+92 |  |
+| paper_0079_cat | CAT 810/805p | LIVE | open | $1.10 | — | $+30 |  |
