@@ -1,8 +1,8 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-03T20:44:35.311776+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-03T20:54:27.701011+00:00._
 
-**116 trades · 8 open / 108 closed · win rate 100% · realized $+11366.00 · open $-31.00 · total $+11335.00**
+**117 trades · 8 open / 109 closed · win rate 100% · realized $+11494.00 · open $-29.00 · total $+11465.00**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
@@ -19,7 +19,7 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0011_meta | META 550/545p | PAPER | closed | $0.77 | $+42 | — | manage_50pct |
 | paper_0012_amd | AMD 420/415p | LIVE | closed | $0.85 | $+47 | — | manage_50pct |
 | paper_0013_v | V 300/295p | PAPER | open | $0.83 | — | $-13 |  |
-| paper_0014_xom | XOM 140/135p | PAPER | open | $0.77 | — | $+12 |  |
+| paper_0014_xom | XOM 140/135p | PAPER | open | $0.77 | — | $+14 |  |
 | paper_0015_cat | CAT 810/805p | LIVE | closed | $1.10 | $+70 | — | manage_50pct |
 | paper_0016_meta | META 550/545p | PAPER | closed | $0.77 | $+39 | — | manage_50pct |
 | paper_0017_cat | CAT 810/805p | LIVE | closed | $1.10 | $+72 | — | manage_50pct |
@@ -122,3 +122,4 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0114_cat | CAT 820/815p | LIVE | closed | $0.85 | $+128 | — | manage_50pct |
 | paper_0115_cat | CAT 820/815p | LIVE | closed | $0.85 | $+128 | — | manage_50pct |
 | paper_0116_cat | CAT 820/815p | LIVE | closed | $0.85 | $+128 | — | manage_50pct |
+| paper_0117_cat | CAT 820/815p | LIVE | closed | $0.85 | $+128 | — | manage_50pct |
