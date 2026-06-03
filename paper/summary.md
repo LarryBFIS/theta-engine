@@ -1,8 +1,8 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-03T20:24:40.442874+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-03T20:34:28.056895+00:00._
 
-**114 trades · 8 open / 106 closed · win rate 100% · realized $+11110.00 · open $-30.00 · total $+11080.00**
+**115 trades · 8 open / 107 closed · win rate 100% · realized $+11238.00 · open $-30.00 · total $+11208.00**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
@@ -120,3 +120,4 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0112_cat | CAT 820/815p | LIVE | closed | $0.85 | $+128 | — | manage_50pct |
 | paper_0113_cat | CAT 820/815p | LIVE | closed | $0.85 | $+128 | — | manage_50pct |
 | paper_0114_cat | CAT 820/815p | LIVE | closed | $0.85 | $+128 | — | manage_50pct |
+| paper_0115_cat | CAT 820/815p | LIVE | closed | $0.85 | $+128 | — | manage_50pct |
