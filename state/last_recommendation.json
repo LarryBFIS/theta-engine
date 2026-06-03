@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-06-03T13:14:27.643590+00:00",
-  "market_view": "Market grinding higher with tech +1.25% and IWM +0.93%, VIX at 16.24 up 2.98% intraday but 5d trend still down \u2014 clean theta environment except AMZN continues to bleed through hard stop thresholds. No fresh news this cycle.",
+  "last_run": "2026-06-03T13:24:32.057517+00:00",
+  "market_view": "Market continues grinding higher, tech and small-caps leading, VIX at 16.25 ticking up intraday but structurally benign \u2014 theta environment is clean. AMZN position remains in hard stop violation from last cycle with no change in worst-case cost.",
   "AMZN 250/245p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-06-03T13:14:16.818732+00:00",
-    "reasoning": "Worst-case fill $2.10 is 1.63x the $1.29 entry credit \u2014 hard stop is 1.5x credit ($1.935) and worst-case has been above that threshold for multiple consecutive cycles with zero action taken. This is a rule violation in progress."
+    "timestamp": "2026-06-03T13:24:21.699470+00:00",
+    "reasoning": "Worst-case fill $2.10 is 1.63x the $1.29 entry credit \u2014 hard stop rule is 1.5x ($1.935) and this has been breached for multiple consecutive cycles. This is an active rule violation requiring immediate closure."
   },
   "JPM 280/270p": {
     "action": "HOLD",
     "confidence": 0.92,
-    "timestamp": "2026-06-03T13:14:16.818732+00:00",
-    "reasoning": "Mid at $1.76 is 14.6% profit, JPM sitting $20.96 above short strike at $300.96, XLF essentially flat on the day \u2014 theta working, hard stop at $3.09 untouched."
+    "timestamp": "2026-06-03T13:24:21.699470+00:00",
+    "reasoning": "Mid at $1.76 is 14.6% profit with JPM $20.96 above short strike, XLF flat on the day \u2014 theta working cleanly, hard stop at $3.09 untouched, 43 DTE gives room."
   },
   "GLD 390/385p": {
     "action": "HOLD",
     "confidence": 0.88,
-    "timestamp": "2026-06-03T13:14:16.818732+00:00",
-    "reasoning": "Mid at $0.875 is 5.9% profit, GLD $21.95 above short strike, worst-case $1.05 well inside $1.395 hard stop \u2014 structurally clean with 43 DTE, no action needed."
+    "timestamp": "2026-06-03T13:24:21.699470+00:00",
+    "reasoning": "Mid at $0.875 is 5.9% profit, GLD $21.95 above short strike, worst-case $1.05 well inside $1.395 hard stop \u2014 structurally clean, no pressure."
   }
 }
