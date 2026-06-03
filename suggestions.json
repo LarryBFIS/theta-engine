@@ -503,6 +503,34 @@
       "alternative": "Hold and hope. Risk: up to $371 max loss (currently $121 unrealized).",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20260603T151414_trade_003_amzn_250_245",
+      "trade_id": "trade_003_amzn_250_245",
+      "timestamp": "2026-06-03T15:14:15.142026-04:00",
+      "action": "URGENT_CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\u26a0\ufe0f AMZN @ $248.37 is BELOW short strike $250 (ITM).",
+        "Max loss exposure increasing. Current close: $2.47 mid / $2.70 worst.",
+        "43 DTE remaining; negative delta hurts daily."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 2.4749999999999996,
+        "cost_to_close_worst": 2.6999999999999993,
+        "profit_if_closed_mid": -118.49999999999996,
+        "profit_if_closed_worst": -140.99999999999991,
+        "pct_max_profit_captured_mid": -0.9186046511627903,
+        "dte": 43,
+        "underlying_price": 248.3699951171875,
+        "short_strike_breached": true,
+        "has_live_quotes": true,
+        "net_liq": 3423.416,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold and hope. Risk: up to $371 max loss (currently $118 unrealized).",
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
