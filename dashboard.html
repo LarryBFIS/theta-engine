@@ -182,6 +182,8 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
   <div class="hspace"></div>
   <div class="clock" id="clock">--:--:-- ET</div>
   <div class="mkt" id="mkt">····</div>
+  <button id="pollnow" class="mkt" style="cursor:pointer;background:none;font-family:inherit;color:var(--amber);border-color:#3a3015">↻ POLL NOW</button>
+  <span class="mkt" id="refreshed" style="color:var(--cyan);border-color:#1d3a44;letter-spacing:.1em">DATA ··:··:··</span>
 </header>
 
 <div class="tape"><div class="scroll" id="tape"></div></div>
@@ -322,6 +324,18 @@ function tick(){
   const el=$('mkt');
   el.textContent=open?'● MKT OPEN':'● MKT CLOSED';
   el.className='mkt '+(open?'open':'closed');
+  updatePollAge();
+}
+/* footer: bot's last poll time + live age, colored when stale */
+function updatePollAge(){
+  const pe=$('poll'); if(!pe) return;
+  if(window.LAST_POLL_AT){
+    const ageMin=Math.floor((Date.now()-new Date(window.LAST_POLL_AT))/60000);
+    pe.textContent='bot poll '+(window.LAST_POLL||'—')+' · '+ageMin+'m ago';
+    pe.style.color = ageMin>20 ? 'var(--red)' : (ageMin>12 ? 'var(--amber)' : 'var(--dim)');
+  } else {
+    pe.textContent='awaiting first poll…';
+  }
 }
 setInterval(tick,1000);tick();
 
@@ -353,7 +367,7 @@ function renderPositions(){
       <td class="mark" data-sym="${p.sym}">${p.mark.toFixed(2)}</td>
       <td class="${cls}" data-pnl="${p.sym}">${pl>=0?'+':''}${money(pl)}</td>
       <td class="hideM" style="color:var(--dim)">${p.dte}</td>
-      <td class="hideM" style="color:var(--dim)">${p.pop}%</td>
+      <td class="hideM" style="color:var(--dim)">${p.pop!=null?p.pop+'%':'—'}</td>
       <td class="hideM" style="color:var(--cyan)">${p.gtc.toFixed(2)}</td>
       <td><span class="act ${p.act==='HOLD'?'hold':'close'}">${p.act}</span></td>
       <td class="l hideM reason">${p.reason}</td>`;
@@ -416,7 +430,6 @@ function liveFeel(){
     renderPositions();renderTotals();updateMissionLive();
     const cell=document.querySelector(`.mark[data-sym="${p.sym}"]`);
     if(cell){cell.classList.add('flash');setTimeout(()=>cell.classList.remove('flash'),600);}
-    $('poll').textContent='last poll '+$('clock').textContent;
   },3400);
 }
 
@@ -499,8 +512,100 @@ function updateMissionLive(){
   $('gfill').setAttribute('d',tgtSeg+` L${tx.toFixed(1)},${ay} L0,${y0} Z`);
 }
 
-renderMission();renderPositions();renderClosed();renderTotals();renderTape();renderSpark();liveFeel();
-$('poll').textContent='last poll '+$('clock').textContent;
+/* ============================================================
+   LIVE WIRING — feeds the DATA object above from the bot's
+   real sources. Strategy P&L is bottom-up (realized closed +
+   open marks); net liq is account-info only (no USO). Styling
+   and animations are untouched; only the data is now live.
+   ============================================================ */
+const GIST_URL   = 'https://gist.githubusercontent.com/LarryBFIS/08e2cb50b3a645e9569617a6298ee987/raw/last_poll.json';
+const TRADES_URL = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/trades.json';
+const REFRESH_MS = 60000;
+window.LAST_POLL = '';
+window.LAST_POLL_AT = null;
+
+/* exact wall-clock time (ET) the front-end last pulled fresh data */
+function markRefreshed(){
+  const d = et();
+  const t = [d.getHours(),d.getMinutes(),d.getSeconds()].map(x=>String(x).padStart(2,'0')).join(':');
+  const el = $('refreshed'); if(el) el.textContent = 'DATA ' + t + ' ET';
+}
+
+async function fetchJSON(u){
+  const r = await fetch(u + (u.includes('?')?'&':'?') + 't=' + Date.now(), {cache:'no-store'});
+  if(!r.ok) throw new Error('HTTP ' + r.status);
+  return r.json();
+}
+function structOf(t){
+  const isCall = (t.structure||'').includes('call');
+  return { str: `${t.short_strike}/${t.long_strike}${isCall?'c':'p'}`, side: isCall?'C':'P' };
+}
+
+async function loadLive(){
+  let gist=null, tj=null;
+  try{ gist = await fetchJSON(GIST_URL); }catch(e){ console.warn('gist load failed', e); }
+  try{ tj   = await fetchJSON(TRADES_URL); }catch(e){ console.warn('trades load failed', e); }
+  if(!gist && !tj) return;                         // keep last good / seed
+
+  if(tj && Array.isArray(tj.trades)){
+    if(tj.experiment && tj.experiment.starting_capital) DATA.start = tj.experiment.starting_capital;
+    const gById = new Map((gist && gist.trades || []).map(g => [g.id, g]));
+    const open   = tj.trades.filter(t => t.status === 'open');
+    const closed = tj.trades.filter(t => t.status === 'closed');
+
+    DATA.closed = closed.map(t => {
+      const s = structOf(t);
+      return { sym:t.underlying, struct:s.str, pnl:+(t.realized_pnl||0), days:t.days_held||0 };
+    });
+    DATA.realized = DATA.closed.reduce((a,c)=>a+c.pnl, 0);   // bottom-up, no USO
+
+    DATA.positions = open.map(t => {
+      const s = structOf(t), g = gById.get(t.id), m = (g&&g.metrics)||{}, rec = (g&&g.recommendation)||{};
+      const cc = m.cost_to_close || {};
+      const credit = +t.credit_per_contract || 0;
+      const mark = (cc.mid != null) ? +(+cc.mid).toFixed(2) : credit;   // current debit to close
+      const dte  = (m.dte != null) ? m.dte : Math.max(0, Math.ceil((new Date(t.expiry)-new Date())/86400000));
+      const act  = (rec.action && rec.action !== 'HOLD') ? 'CLOSE' : 'HOLD';
+      const reason = (rec.reasoning && rec.reasoning[0])
+                  || (m.pct_max_profit_captured_mid != null ? Math.round(m.pct_max_profit_captured_mid*100)+'% captured · 50% tgt' : 'working');
+      return {
+        sym:t.underlying, struct:s.str, side:s.side, credit, mark, dte,
+        pop: (t.pop_at_open ? Math.round(t.pop_at_open*100) : null),
+        gtc: (t.gtc_close_target != null ? +t.gtc_close_target : +(credit*0.5).toFixed(2)),
+        act, reason, uprice: m.underlying_price,
+      };
+    });
+    DATA.bprUsed = open.reduce((a,t)=>a+(+t.bpr_total||0), 0);
+  }
+
+  if(gist && gist.account){
+    if(gist.account.net_liquidating_value != null) DATA.netLiq = gist.account.net_liquidating_value;
+    if(gist.last_poll_at){
+      window.LAST_POLL_AT = gist.last_poll_at;
+      window.LAST_POLL = new Date(gist.last_poll_at).toLocaleString('en-US',
+        {month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
+    }
+    const tp = (DATA.positions||[]).filter(p=>p.uprice).map(p=>({s:p.sym, p:+p.uprice}));
+    if(tp.length) DATA.tape = tp;
+  }
+  if(DATA.netLiq) DATA.bprPct = +((DATA.bprUsed/DATA.netLiq)*100).toFixed(1);
+
+  // re-render (functions read the global DATA; intervals for tape/liveFeel set once at init)
+  renderPositions(); renderClosed(); renderTotals(); renderSpark(); updateMissionLive();
+  markRefreshed();          // exact time the dashboard data was just refreshed
+  updatePollAge();          // bot last-poll + live staleness
+}
+
+/* ---- init: paint seed instantly, then go live ---- */
+renderMission(); renderPositions(); renderClosed(); renderTotals(); renderSpark();
+loadLive().finally(()=>{ renderTape(); liveFeel(); });
+setInterval(loadLive, REFRESH_MS);
+
+/* ---- POLL NOW: instant re-fetch ---- */
+(()=>{ const b=$('pollnow'); if(!b) return;
+  b.addEventListener('click', ()=>{ const o=b.textContent; b.textContent='↻ POLLING…';
+    loadLive().finally(()=>setTimeout(()=>b.textContent=o, 700)); });
+})();
 </script>
 </body>
 </html>
