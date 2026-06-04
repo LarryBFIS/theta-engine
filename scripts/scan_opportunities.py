@@ -42,8 +42,11 @@ DTE_MAX = int(os.getenv("SCAN_DTE_MAX", "50"))
 TARGET_POP = float(os.getenv("SCAN_TARGET_POP", "0.80"))     # ~0.20Δ short put
 MIN_POP = float(os.getenv("SCAN_MIN_POP", "0.70"))
 MAX_POP = float(os.getenv("SCAN_MAX_POP", "0.90"))
-WIDTH = float(os.getenv("SCAN_WIDTH", "5"))                  # spread width ($)
-MIN_CREDIT_RATIO = float(os.getenv("SCAN_MIN_CREDIT_RATIO", "0.15"))  # credit/width
+WIDTH_PCT = float(os.getenv("SCAN_WIDTH_PCT", "0.012"))      # spread width ≈ 1.2% of price
+MIN_WIDTH = float(os.getenv("SCAN_MIN_WIDTH", "5"))          # floor width ($)
+MIN_CREDIT_RATIO = float(os.getenv("SCAN_MIN_CREDIT_RATIO", "0.15"))  # exec credit / width
+FEES_PER_SPREAD = float(os.getenv("SCAN_FEES_PER_SPREAD", "3.0"))     # est. open+close commissions/fees
+MAX_REL_SPREAD = float(os.getenv("SCAN_MAX_REL_SPREAD", "0.20"))      # leg bid/ask tightness (liquidity gate)
 MANAGE_FRAC = float(os.getenv("SCAN_MANAGE_FRAC", "0.5"))    # take profit at 50%
 STOP_MULT = float(os.getenv("SCAN_STOP_MULT", "1.5"))        # cut losers at 1.5x credit (matches rule)
 TOP_N = int(os.getenv("SCAN_TOP_N", "10"))
@@ -89,7 +92,23 @@ def put_delta_abs(price, strike, iv, dte):
     return norm_cdf(-d1)
 
 
-def choose_strikes(put_strikes, price, iv, dte, target_pop=TARGET_POP, width=WIDTH):
+def target_width(price):
+    """Spread width scaled to price (so $5 isn't noise on an $800 name)."""
+    return max(MIN_WIDTH, round(price * WIDTH_PCT))
+
+
+def _leg_quote(q):
+    """Validate a leg's quote and return {bid,ask,mid,rel} or None (illiquid/no quote)."""
+    if not q:
+        return None
+    bid, ask = q.get("bid"), q.get("ask")
+    if bid is None or ask is None or bid <= 0 or ask < bid:
+        return None
+    mid = (bid + ask) / 2.0
+    return {"bid": bid, "ask": ask, "mid": mid, "rel": (ask - bid) / mid if mid > 0 else 1.0}
+
+
+def choose_strikes(put_strikes, price, iv, dte, target_pop=TARGET_POP, width=MIN_WIDTH):
     """Pick (short, long) put strikes: short ≈ target POP, long ≈ short − width."""
     strikes = sorted(set(float(k) for k in put_strikes))
     below = [k for k in strikes if k < price]
@@ -121,23 +140,37 @@ def conviction_tag(ev_on_bpr, iv_rank, liquidity):
     return "paper"
 
 
-def build_candidate(underlying, expiry, dte, short, long_, short_mark, long_mark,
+def build_candidate(underlying, expiry, dte, short, long_, short_q, long_q,
                     price, iv, iv_rank, liquidity=None, earnings_date=None,
                     short_symbol=None, long_symbol=None):
-    """Assemble + score one short-put-vertical candidate, or None if it fails filters."""
-    credit = round(short_mark - long_mark, 2)
-    width = round(short - long_, 2)
-    if credit <= 0 or width <= 0:
+    """Assemble + score a short-put-vertical candidate using EXECUTABLE prices,
+    or None if it fails the liquidity/credit/POP/EV filters.
+
+    short_q / long_q are quote dicts {bid, ask, mark}. Credit is what you'd
+    actually collect opening the spread: SELL the short put at the BID, BUY the
+    long put at the ASK — not the mid. EV is net of estimated round-trip fees.
+    """
+    s, l = _leg_quote(short_q), _leg_quote(long_q)
+    if not s or not l:
         return None
-    if credit / width < MIN_CREDIT_RATIO:
+    # Liquidity gate on the SHORT leg (the premium driver); the long leg's wider
+    # relative spread is normal and is already fully paid for in exec_credit below.
+    if s["rel"] > MAX_REL_SPREAD:
+        return None
+    width = round(short - long_, 2)
+    exec_credit = round(s["bid"] - l["ask"], 2)   # realistic fill
+    mid_credit = round(s["mid"] - l["mid"], 2)    # for reference
+    if exec_credit <= 0 or width <= 0:
+        return None
+    if exec_credit / width < MIN_CREDIT_RATIO:
         return None
     pop = put_pop(price, short, iv, dte)
     if pop is None or not (MIN_POP <= pop <= MAX_POP):
         return None
-    bpr = round((width - credit) * 100.0, 2)
+    bpr = round((width - exec_credit) * 100.0, 2)
     if bpr <= 0:
         return None
-    ev = expectancy(credit, bpr, pop)
+    ev = round(expectancy(exec_credit, bpr, pop) - FEES_PER_SPREAD, 2)
     if ev <= 0:
         return None
     ev_on_bpr = round(ev / bpr, 4)
@@ -151,11 +184,14 @@ def build_candidate(underlying, expiry, dte, short, long_, short_mark, long_mark
         "short_symbol": short_symbol,
         "long_symbol": long_symbol,
         "width": width,
-        "credit": credit,
+        "credit": exec_credit,
+        "mid_credit": mid_credit,
+        "fees_est": FEES_PER_SPREAD,
         "bpr": bpr,
         "pop": round(pop, 3),
         "short_delta": round(put_delta_abs(price, short, iv, dte) or 0.0, 3),
-        "credit_to_bpr": round(credit * 100.0 / bpr, 3),
+        "short_spread_pct": round(s["rel"], 3),
+        "credit_to_bpr": round(exec_credit * 100.0 / bpr, 3),
         "ev_per_contract": ev,
         "ev_on_bpr": ev_on_bpr,
         "iv": round(iv, 4),
@@ -287,20 +323,18 @@ def main() -> int:
         if m["earnings_date"] and today <= m["earnings_date"] <= (expiry or "9999"):
             skipped[sym] = "earnings {} before expiry".format(m["earnings_date"])
             continue
-        sel = choose_strikes(list(puts.keys()), price, m["iv"], dte)
+        sel = choose_strikes(list(puts.keys()), price, m["iv"], dte, width=target_width(price))
         if not sel:
             skipped[sym] = "no strikes"
             continue
         short, long_ = sel
         quotes = client.fetch_option_quotes([puts[short], puts[long_]])
-        sm = quotes.get(puts[short], {})
-        lm = quotes.get(puts[long_], {})
-        short_mark = sm.get("mark") or _mid(sm)
-        long_mark = lm.get("mark") or _mid(lm)
-        if short_mark is None or long_mark is None:
-            skipped[sym] = "no option marks"
+        sm = quotes.get(puts[short])
+        lm = quotes.get(puts[long_])
+        if not sm or not lm:
+            skipped[sym] = "no option quotes"
             continue
-        cand = build_candidate(sym, expiry, dte, short, long_, short_mark, long_mark,
+        cand = build_candidate(sym, expiry, dte, short, long_, sm, lm,
                                price, m["iv"], m["iv_rank"], m.get("liquidity"), m.get("earnings_date"),
                                short_symbol=puts[short], long_symbol=puts[long_])
         if cand:

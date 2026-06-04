@@ -61,18 +61,44 @@ def main() -> int:
     if not (expectancy(1.0, 400, 0.40) < 0):
         f.append("expectancy -")
 
-    # build_candidate: well-formed credit spread (short ~0.80 POP) passes; junk fails
+    # build_candidate: EXECUTABLE credit = short_bid - long_ask (not mid)
+    # short {bid1.25,ask1.35,mid1.30}, long {bid0.40,ask0.50,mid0.45}
     good = build_candidate("SPY", "2026-07-17", 35, 92.0, 87.0,
-                           short_mark=1.30, long_mark=0.45, price=100.0,
-                           iv=0.30, iv_rank=0.55)
-    if not good or good["credit"] != 0.85 or good["bpr"] != 415.0:
-        f.append("build_candidate good: {}".format(good))
-    elif not (good["ev_per_contract"] > 0 and 0.70 <= good["pop"] <= 0.90):
-        f.append("build_candidate metrics off: {}".format(good))
-    # credit too thin relative to width -> rejected
-    thin = build_candidate("X", "2026-07-17", 35, 92.0, 87.0, 0.40, 0.30, 100.0, 0.30, 0.55)
+                           {"bid": 1.25, "ask": 1.35, "mark": 1.30},
+                           {"bid": 0.40, "ask": 0.50, "mark": 0.45},
+                           price=100.0, iv=0.30, iv_rank=0.55)
+    if not good:
+        f.append("build_candidate good returned None")
+    else:
+        if good["credit"] != 0.75:   # 1.25 - 0.50 executable, NOT the 0.85 mid
+            f.append("exec credit wrong: {} (mid was {})".format(good["credit"], good.get("mid_credit")))
+        if good["mid_credit"] != 0.85:
+            f.append("mid_credit wrong: {}".format(good["mid_credit"]))
+        if good["bpr"] != 425.0:     # (5 - 0.75)*100
+            f.append("bpr wrong: {}".format(good["bpr"]))
+        if not (good["ev_per_contract"] > 0 and 0.70 <= good["pop"] <= 0.90):
+            f.append("metrics off: {}".format(good))
+    # thin executable credit -> rejected (bid 0.40 - ask 0.35 = 0.05)
+    thin = build_candidate("X", "2026-07-17", 35, 92.0, 87.0,
+                           {"bid": 0.40, "ask": 0.45, "mark": 0.42},
+                           {"bid": 0.30, "ask": 0.35, "mark": 0.32}, 100.0, 0.30, 0.55)
     if thin is not None:
-        f.append("thin credit should be rejected")
+        f.append("thin exec credit should be rejected")
+    # liquidity gate: wide bid/ask on short leg -> rejected
+    wide = build_candidate("X", "2026-07-17", 35, 92.0, 87.0,
+                           {"bid": 1.00, "ask": 2.00, "mark": 1.50},   # rel spread 0.67
+                           {"bid": 0.40, "ask": 0.50, "mark": 0.45}, 100.0, 0.30, 0.55)
+    if wide is not None:
+        f.append("wide bid/ask should be rejected (liquidity)")
+    # missing quote -> rejected
+    if build_candidate("X", "2026-07-17", 35, 92.0, 87.0, None,
+                       {"bid": 0.4, "ask": 0.5, "mark": 0.45}, 100.0, 0.30, 0.55) is not None:
+        f.append("missing quote should be rejected")
+
+    # width-by-price scaling
+    from scripts.scan_opportunities import target_width
+    if target_width(865) != 10 or target_width(100) != 5:
+        f.append("target_width: {} / {}".format(target_width(865), target_width(100)))
 
     # ranking: higher ev_on_bpr first
     cands = [
