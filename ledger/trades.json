@@ -159,14 +159,34 @@
           "executed_at": "2026-05-26T14:57:07.464Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": -73.26,
-      "cost_to_close_mid": 200.0,
+      "close_orders": [
+        "473148355"
+      ],
+      "close_net_cash": -201.26,
+      "close_legs": [
+        {
+          "symbol": "AMZN  260717P00250000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 8.48,
+          "net_cash": -848.12,
+          "fees": 0.12,
+          "executed_at": "2026-06-04T18:06:03.495Z"
+        },
+        {
+          "symbol": "AMZN  260717P00245000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 6.47,
+          "net_cash": 646.86,
+          "fees": 0.14,
+          "executed_at": "2026-06-04T18:06:03.495Z"
+        }
+      ],
+      "closed_at": "2026-06-04",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": -74.52,
       "structure": "short_put_vertical",
       "short_strike": 250.0,
       "long_strike": 245.0,
@@ -176,7 +196,8 @@
       "width": 5.0,
       "max_profit_total": 129.0,
       "max_loss_total": 371.0,
-      "bpr_total": 371.0
+      "bpr_total": 371.0,
+      "close_debit_per_contract": 2.01
     },
     {
       "id": "ledger_004_jpm",
@@ -321,8 +342,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -1.75,
-      "cost_to_close_mid": 97.5,
+      "unrealized_pnl": -7.25,
+      "cost_to_close_mid": 103.0,
       "structure": "short_call_vertical",
       "short_strike": 308.0,
       "long_strike": 313.0,
