@@ -8,6 +8,7 @@ For each position symbol:
 4. Pushes new material news to Pushover
 """
 
+import calendar
 import hashlib
 import json
 import os
@@ -21,6 +22,7 @@ import requests
 REPO_ROOT = Path(__file__).resolve().parent.parent
 STATE_FILE = REPO_ROOT / "state" / "position_news_seen.json"
 TRADES_FILE = REPO_ROOT / "trades.json"
+NEWS_FEED_FILE = REPO_ROOT / "news" / "feed.json"
 
 PUSHOVER_USER = os.environ.get("PUSHOVER_USER_KEY")
 PUSHOVER_TOKEN = os.environ.get("PUSHOVER_APP_TOKEN")
@@ -78,12 +80,32 @@ def hash_headline(title, link):
 
 
 def load_position_symbols():
+    """Underlyings of currently OPEN tracked trades (trades use 'underlying')."""
     if not TRADES_FILE.exists():
         return []
     with open(TRADES_FILE) as f:
         data = json.load(f)
     trades = data.get("trades", data) if isinstance(data, dict) else data
-    return sorted({t.get("symbol", "").upper() for t in trades if t.get("symbol")})
+    syms = set()
+    for t in trades:
+        if not isinstance(t, dict):
+            continue
+        if t.get("status") and t.get("status") != "open":
+            continue
+        sym = (t.get("underlying") or t.get("symbol") or "").upper()
+        if sym:
+            syms.add(sym)
+    return sorted(syms)
+
+
+def write_feed(all_items):
+    """Write a recent-headlines feed (newest first) for the dashboard right rail."""
+    items = sorted(all_items, key=lambda x: x.get("ts", 0), reverse=True)[:40]
+    NEWS_FEED_FILE.parent.mkdir(parents=True, exist_ok=True)
+    NEWS_FEED_FILE.write_text(json.dumps(
+        {"generated_at": datetime.now(timezone.utc).isoformat(), "items": items},
+        indent=2,
+    ) + "\n")
 
 
 def fetch_news(symbol, max_items=10):
@@ -97,6 +119,7 @@ def fetch_news(symbol, max_items=10):
                 "link": entry.get("link", ""),
                 "summary": entry.get("summary", "")[:400],
                 "published": entry.get("published", ""),
+                "ts": calendar.timegm(entry.published_parsed) if entry.get("published_parsed") else 0,
             })
         return items
     except Exception as e:
@@ -150,6 +173,7 @@ def main():
     state = load_seen()
     state = prune_old(state)
     alerts_pushed = 0
+    feed_items = []   # everything fetched, for the dashboard right-rail feed
 
     for symbol in symbols:
         items = fetch_news(symbol)
@@ -161,10 +185,18 @@ def main():
         triggering = None
 
         for item in items:
+            keyword = is_material(item)
+            feed_items.append({
+                "symbol": symbol,
+                "title": item["title"][:200],
+                "link": item["link"],
+                "published": item["published"],
+                "ts": item.get("ts", 0),
+                "material": bool(keyword),
+            })
             h = hash_headline(item["title"], item["link"])
             if h in state["items"]:
                 continue
-            keyword = is_material(item)
             if keyword:
                 new_material.append(item)
                 if not triggering:
@@ -183,7 +215,9 @@ def main():
             print(f"  [{symbol}] no new material news")
 
     save_seen(state)
-    print(f"\nDone. {alerts_pushed} alert(s) pushed. State has {len(state['items'])} headlines tracked.")
+    write_feed(feed_items)
+    print(f"\nDone. {alerts_pushed} alert(s) pushed. {len(feed_items)} headlines in feed. "
+          f"State has {len(state['items'])} tracked.")
 
 
 if __name__ == "__main__":

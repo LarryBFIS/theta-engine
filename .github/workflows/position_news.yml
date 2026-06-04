@@ -34,7 +34,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add state/ || true
-          git diff --staged --quiet || git commit -m "Position news state $(date +%Y-%m-%d_%H%M)"
+          git add state/ news/ || true
+          git diff --staged --quiet || git commit -m "Position news $(date +%Y-%m-%d_%H%M)"
           git pull --rebase origin main || true
           git push || true

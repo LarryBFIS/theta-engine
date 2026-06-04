@@ -108,7 +108,24 @@ header{
 .up{color:var(--green)}.down{color:var(--red)}
 
 /* ---------- stat tiles ---------- */
-.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:16px 0}
+
+/* ---------- layout shell + opportunities feed ---------- */
+.shell{display:flex;gap:14px;max-width:1520px;margin:0 auto;align-items:flex-start}
+.shell>.wrap{margin:0;max-width:none;flex:1 1 auto;min-width:0}
+.feed{flex:0 0 320px;width:320px;border:1px solid var(--line);border-radius:3px;background:var(--panel);align-self:flex-start;position:sticky;top:12px;margin-top:16px;max-height:calc(100vh - 28px);overflow:auto}
+.feed .phead{position:sticky;top:0;z-index:2}
+.feed .fitem{padding:10px 13px;border-bottom:1px solid #14150e;border-left:2px solid transparent}
+.feed .fitem:last-child{border-bottom:none}
+.feed .fitem.live{border-left-color:var(--green)}
+.feed .fitem.paper{border-left-color:var(--cyan)}
+.feed .fhead{display:flex;align-items:center;gap:7px;margin-bottom:4px}
+.ftag{margin-left:auto;font-size:8.5px;padding:1px 6px;border-radius:2px;letter-spacing:.1em;border:1px solid}
+.ftag.live{color:var(--green);border-color:#1f3a25;background:rgba(63,240,122,.07)}
+.ftag.paper{color:var(--cyan);border-color:#1d3a44}
+.fmeta{font-size:10.5px;color:var(--dim);letter-spacing:.02em}
+.fmeta b{color:var(--txt);font-weight:600}
+@media(max-width:980px){.shell{flex-direction:column}.feed{flex:none;width:auto;position:static;max-height:none;margin-top:0}.tiles{grid-template-columns:repeat(2,1fr)}}
 .tile{background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:13px 15px;position:relative;overflow:hidden}
 .tile::after{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--amber),transparent)}
 .tile .lab{font-size:10px;color:var(--dim);letter-spacing:.16em;margin-bottom:8px}
@@ -188,6 +205,7 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
 
 <div class="tape"><div class="scroll" id="tape"></div></div>
 
+<div class="shell">
 <div class="wrap">
 
   <div class="panel mission reveal" style="animation-delay:.02s">
@@ -218,21 +236,26 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
 
   <div class="tiles">
     <div class="tile reveal" style="animation-delay:.05s">
-      <div class="lab">STRATEGY P&amp;L</div>
-      <div class="val glow-g" id="pnl">$0</div>
-      <div class="sub" id="pnlsub">realized + open</div>
+      <div class="lab">REALIZED P&amp;L</div>
+      <div class="val glow-g" id="realized">$0</div>
+      <div class="sub" id="realsub">closed</div>
     </div>
-    <div class="tile reveal" style="animation-delay:.12s">
+    <div class="tile reveal" style="animation-delay:.10s">
+      <div class="lab">UNREALIZED · OPEN</div>
+      <div class="val glow-g" id="unreal">$0</div>
+      <div class="sub" id="unrealsub">at marks</div>
+    </div>
+    <div class="tile reveal" style="animation-delay:.15s">
       <div class="lab">PROGRESS · <span id="goallbl">50% GOAL</span></div>
       <div class="val glow-a" id="prog">0.0%</div>
       <div class="bar"><i id="progbar"></i></div>
     </div>
-    <div class="tile reveal" style="animation-delay:.19s">
+    <div class="tile reveal" style="animation-delay:.20s">
       <div class="lab">BPR UTILIZATION</div>
       <div class="val glow-a" id="bpr">0%</div>
       <div class="sub" id="bprsub">ceiling 50%</div>
     </div>
-    <div class="tile reveal" style="animation-delay:.26s">
+    <div class="tile reveal" style="animation-delay:.25s">
       <div class="lab">DTE · DEADLINE NOV 13</div>
       <div class="val glow-a" id="dte">—</div>
       <div class="sub">days remaining</div>
@@ -276,6 +299,15 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
     <span class="hspace" style="flex:1"></span>
     <span><span style="color:var(--amber-dim);letter-spacing:.16em">JAY VEKARIA</span> · theta-engine · <span style="color:var(--dimmer)">src: seeded → wire to gist</span><span class="cursor"></span></span>
   </footer>
+
+</div>
+
+<aside class="feed">
+  <div class="phead"><span class="t">⚡ OPPORTUNITIES</span><span class="meta"><span class="dot" style="width:6px;height:6px;display:inline-block;vertical-align:middle"></span> <span id="feedtime">—</span></span></div>
+  <div id="feedbody"><div class="fitem" style="color:var(--dim)">loading scanner…</div></div>
+  <div class="phead"><span class="t">📰 POSITION NEWS</span><span class="meta"><span id="newstime">—</span></span></div>
+  <div id="newsbody"><div class="fitem" style="color:var(--dim)">loading news…</div></div>
+</aside>
 
 </div>
 
@@ -390,10 +422,14 @@ function renderClosed(){
 /* ---- header totals ---- */
 function renderTotals(){
   const open=openPnl(), total=DATA.realized+open;
-  const pnlEl=$('pnl');
-  pnlEl.className='val '+(total>=0?'glow-g':'glow-r');
-  countUp(pnlEl,total,v=>(v>=0?'+':'')+money(v));
-  $('pnlsub').textContent=`realized +$${DATA.realized.toFixed(0)} · open ${open>=0?'+':''}$${open.toFixed(0)}`;
+  const rEl=$('realized');
+  rEl.className='val '+(DATA.realized>=0?'glow-g':'glow-r');
+  countUp(rEl,DATA.realized,v=>(v>=0?'+':'')+money(v));
+  $('realsub').textContent=`${DATA.closed.length} closed`;
+  const uEl=$('unreal');
+  uEl.className='val '+(open>=0?'glow-g':'glow-r');
+  countUp(uEl,open,v=>(v>=0?'+':'')+money(v));
+  $('unrealsub').textContent=`${DATA.positions.length} open · at marks`;
   const prog=total/(DATA.start*DATA.goalReturn)*100;
   countUp($('prog'),prog,v=>v.toFixed(1)+'%');
   setTimeout(()=>$('progbar').style.width=Math.max(0,Math.min(100,prog))+'%',300);
@@ -520,7 +556,43 @@ function updateMissionLive(){
    ============================================================ */
 const GIST_URL   = 'https://gist.githubusercontent.com/LarryBFIS/08e2cb50b3a645e9569617a6298ee987/raw/last_poll.json';
 const TRADES_URL = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/trades.json';
+const SCAN_URL   = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/scan/opportunities.json';
+const NEWS_URL   = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/news/feed.json';
 const REFRESH_MS = 60000;
+
+/* ---- right rail: live opportunities feed (from the AI scanner) ---- */
+async function loadFeed(){
+  const box=$('feedbody'); if(!box) return;
+  let scan=null; try{ scan=await fetchJSON(SCAN_URL); }catch(e){ console.warn('feed', e); }
+  const top=(scan&&scan.top)||[];
+  if(!top.length){ box.innerHTML='<div class="fitem" style="color:var(--dim)">no setups pass filters right now</div>'; }
+  else box.innerHTML=top.map((o,i)=>{
+    const isCall=(o.structure||'').includes('call'), tag=(o.tag==='live')?'live':'paper';
+    const ev=Math.round(o.ev_per_contract||0);
+    return `<div class="fitem ${tag} reveal" style="animation-delay:${(0.04*i).toFixed(2)}s">
+      <div class="fhead"><span class="sym">${o.underlying}</span> <span class="struct">${o.short_strike}/${o.long_strike}${isCall?'c':'p'}</span>
+        <span class="ftag ${tag}">${tag.toUpperCase()}</span></div>
+      <div class="fmeta"><b>$${(+o.credit).toFixed(2)}</b>cr · POP ${Math.round((o.pop||0)*100)}% · IVR ${Math.round((o.iv_rank||0)*100)}% · EV ${ev>=0?'+':''}$${ev}</div>
+    </div>`;
+  }).join('');
+  const t=$('feedtime'); if(t) t.textContent=(scan&&scan.generated_at)?new Date(scan.generated_at).toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}):'—';
+}
+
+/* ---- right rail: news on open positions ---- */
+async function loadNews(){
+  const box=$('newsbody'); if(!box) return;
+  let news=null; try{ news=await fetchJSON(NEWS_URL); }catch(e){ console.warn('news', e); }
+  const items=(news&&news.items)||[];
+  if(!items.length){ box.innerHTML='<div class="fitem" style="color:var(--dim)">no position news yet</div>'; }
+  else box.innerHTML=items.slice(0,18).map((n,i)=>{
+    const t=n.title||''; const url=n.link||'#';
+    return `<div class="fitem ${n.material?'live':'paper'} reveal" style="animation-delay:${(0.03*i).toFixed(2)}s">
+      <div class="fhead"><span class="sym">${n.symbol||''}</span>${n.material?'<span class="ftag live">MATERIAL</span>':''}</div>
+      <a class="fmeta" href="${url}" target="_blank" rel="noopener" style="color:var(--dim);text-decoration:none;display:block">${t}</a>
+    </div>`;
+  }).join('');
+  const el=$('newstime'); if(el) el.textContent=(news&&news.generated_at)?new Date(news.generated_at).toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}):'—';
+}
 window.LAST_POLL = '';
 window.LAST_POLL_AT = null;
 
@@ -594,11 +666,14 @@ async function loadLive(){
   renderPositions(); renderClosed(); renderTotals(); renderSpark(); updateMissionLive();
   markRefreshed();          // exact time the dashboard data was just refreshed
   updatePollAge();          // bot last-poll + live staleness
+  loadFeed();               // right rail: opportunities
+  loadNews();               // right rail: position news
 }
 
 /* ---- init: paint seed instantly, then go live ---- */
 renderMission(); renderPositions(); renderClosed(); renderTotals(); renderSpark();
 loadLive().finally(()=>{ renderTape(); liveFeel(); });
+loadFeed(); loadNews();
 setInterval(loadLive, REFRESH_MS);
 
 /* ---- POLL NOW: instant re-fetch ---- */
