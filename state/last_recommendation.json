@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-06-04T13:04:24.938682+00:00",
-  "market_view": "Broad equity weakness continues with IWM -1.37% leading the selloff and financials -1.15%, while VIX ticks up 2.24% to 16.42 \u2014 risk-off tone with small caps and cyclicals under pressure. GLD and energy (XLE +1.29%) are catching safe-haven/commodity bids, which puts further pressure on the AMZN short strike situation.",
+  "last_run": "2026-06-04T13:34:17.663061+00:00",
+  "market_view": "Broad indices mildly negative but tech (XLK -2.45%) is the standout drag while financials (+1.52%) and healthcare (+2.10%) are rotating higher \u2014 risk-off in growth but not systemic. VIX at 16.32 is benign and AMZN has bounced materially from the $250 pin, now at $253.44.",
   "AMZN 250/245p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-06-04T13:04:07.268163+00:00",
-    "reasoning": "AMZN is at $250.02 \u2014 essentially pinned on the short strike. Mid is $2.325 (1.80x credit) and worst is $2.60 (2.01x credit), both already breaching the 1.5x hard stop at $1.935. This position has been in stop-loss territory since last cycle and XLY consumer discretionary -0.73% provides no tailwind \u2014 this is a max-loss-in-progress situation."
+    "confidence": 0.95,
+    "timestamp": "2026-06-04T13:34:04Z",
+    "reasoning": "Mid at $2.075 is 1.61x credit and worst at $2.50 is 1.94x credit \u2014 both remain above the 1.5x hard stop ($1.935), despite AMZN recovering to $253.44. The 1.5x stop was breached last cycle and has not recovered below threshold; rule says close, not wait for further improvement."
   },
   "JPM 280/270p": {
     "action": "HOLD",
-    "confidence": 0.88,
-    "timestamp": "2026-06-04T13:04:07.268163+00:00",
-    "reasoning": "JPM at $300.85 maintains a 6.93% buffer above the 280 short strike despite XLF -1.15% today; mid at $1.765 is still 0.86x credit with no rules triggered and 42 DTE remaining."
+    "confidence": 0.92,
+    "timestamp": "2026-06-04T13:34:04Z",
+    "reasoning": "JPM at $305.52 is 8.75% above the 280 short strike, XLF +1.52% is a direct tailwind, and mid at $1.455 is 0.71x credit \u2014 tracking toward 50% profit target with no rules threatened."
   },
   "GLD 390/385p": {
-    "action": "WATCH",
-    "confidence": 0.82,
-    "timestamp": "2026-06-04T13:04:07.268163+00:00",
-    "reasoning": "GLD at $407.87 is 4.38% above the short strike and safe-haven bid is strong with XLE/gold catching flows \u2014 but worst cost $1.30 is 1.40x credit, still within $0.095 of the $1.395 hard stop (1.5x credit). Risk-off environment pushing gold higher is actually helping this position improve, but monitor closely."
+    "action": "HOLD",
+    "confidence": 0.85,
+    "timestamp": "2026-06-04T13:34:04Z",
+    "reasoning": "GLD at $413.51 is now 5.77% above the short strike and mid at $0.775 is 0.83x credit \u2014 worst at $1.00 is 1.08x credit, well clear of the 1.5x stop; safe-haven bid continues to work in our favor."
   }
 }
