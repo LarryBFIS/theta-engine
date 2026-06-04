@@ -343,6 +343,7 @@ def main() -> int:
             skipped[sym] = "failed filters"
 
     ranked = rank_opportunities(candidates)
+    _apply_news_gate(ranked)   # shield: veto LIVE picks with a pending catalyst
     _write(ranked, candidates, skipped)
     _alert_live([c for c in ranked if c.get("tag") == "live"])
     log.info("Scan done: %d candidates, top %d ranked, %d skipped",
@@ -359,6 +360,27 @@ def _open_sigs():
                 for t in book.get("trades", []) if t.get("status") == "open"}
     except Exception:  # noqa: BLE001
         return set()
+
+
+def _apply_news_gate(ranked):
+    """Check recent news on each ranked pick; flag risk and demote LIVE->PAPER on a veto."""
+    try:
+        from monitor.news_risk import assess_symbol
+    except Exception as e:  # noqa: BLE001
+        log.warning("news gate unavailable: %s", e)
+        return
+    for c in ranked:
+        try:
+            v = assess_symbol(c["underlying"])
+        except Exception as e:  # noqa: BLE001
+            log.warning("news gate failed for %s: %s", c.get("underlying"), e)
+            continue
+        c["news_risk"] = {"level": v["level"], "hits": v.get("hits", [])}
+        if v["level"] == "veto" and c.get("tag") == "live":
+            c["tag"] = "paper"
+            c["demoted"] = "news veto"
+            log.info("news veto: %s demoted LIVE->PAPER (%s)", c["underlying"],
+                     v["hits"][0]["keyword"] if v.get("hits") else "catalyst")
 
 
 def _alert_live(live):
