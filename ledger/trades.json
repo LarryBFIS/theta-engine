@@ -165,8 +165,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -73.26,
-      "cost_to_close_mid": 200.0,
+      "unrealized_pnl": -78.26,
+      "cost_to_close_mid": 205.0,
       "structure": "short_put_vertical",
       "short_strike": 250.0,
       "long_strike": 245.0,
@@ -204,14 +204,34 @@
           "executed_at": "2026-05-29T17:08:38.956Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": 98.24,
-      "cost_to_close_mid": 105.5,
+      "close_orders": [
+        "471577147"
+      ],
+      "close_net_cash": -103.25,
+      "close_legs": [
+        {
+          "symbol": "JPM   260717P00270000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 1.46,
+          "net_cash": 145.87,
+          "fees": 0.13,
+          "executed_at": "2026-06-04T16:44:02.546Z"
+        },
+        {
+          "symbol": "JPM   260717P00280000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 2.49,
+          "net_cash": -249.12,
+          "fees": 0.12,
+          "executed_at": "2026-06-04T16:44:02.546Z"
+        }
+      ],
+      "closed_at": "2026-06-04",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": 100.49,
       "structure": "short_put_vertical",
       "short_strike": 280.0,
       "long_strike": 270.0,
@@ -221,7 +241,8 @@
       "width": 10.0,
       "max_profit_total": 206.0,
       "max_loss_total": 794.0,
-      "bpr_total": 794.0
+      "bpr_total": 794.0,
+      "close_debit_per_contract": 1.03
     },
     {
       "id": "ledger_005_gld",
@@ -300,8 +321,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 4.75,
-      "cost_to_close_mid": 91.0,
+      "unrealized_pnl": 1.75,
+      "cost_to_close_mid": 94.0,
       "structure": "short_call_vertical",
       "short_strike": 308.0,
       "long_strike": 313.0,

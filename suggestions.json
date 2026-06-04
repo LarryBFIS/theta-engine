@@ -661,6 +661,35 @@
       "alternative": null,
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20260604T124356_trade_005_jpm_280_270",
+      "trade_id": "trade_005_jpm_280_270",
+      "timestamp": "2026-06-04T12:43:56.735444-04:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u2705 Captured 50% of max profit at mid (target 50%).",
+        "Close cost: $1.03 mid / $1.13 worst-case fill.",
+        "Profit if closed: $103 (mid) to $93 (worst).",
+        "Closes free $795 BPR for the next setup."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 1.03,
+        "cost_to_close_worst": 1.13,
+        "profit_if_closed_mid": 103.0,
+        "profit_if_closed_worst": 93.00000000000001,
+        "pct_max_profit_captured_mid": 0.5,
+        "dte": 42,
+        "underlying_price": 312.2950134277344,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 3566.229,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold for $103 more potential profit but risk $794 if breached before expiry.",
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
