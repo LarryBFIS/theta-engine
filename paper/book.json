@@ -44,8 +44,8 @@
       "opened_credit": 0.75,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 28.0,
-      "current_debit": 0.47,
+      "unrealized_pnl": 26.0,
+      "current_debit": 0.49,
       "close_reason": null
     },
     {
@@ -91,8 +91,8 @@
       "opened_credit": 0.82,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -57.0,
-      "current_debit": 1.39,
+      "unrealized_pnl": -52.0,
+      "current_debit": 1.34,
       "close_reason": null
     },
     {
@@ -329,8 +329,8 @@
       "opened_credit": 0.77,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 23.0,
-      "current_debit": 0.54,
+      "unrealized_pnl": 21.0,
+      "current_debit": 0.56,
       "close_reason": null
     },
     {
@@ -2296,8 +2296,8 @@
       "opened_credit": 0.82,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 9.0,
-      "current_debit": 0.73,
+      "unrealized_pnl": 7.0,
+      "current_debit": 0.75,
       "close_reason": null
     },
     {
@@ -2319,8 +2319,8 @@
       "opened_credit": 0.82,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -26.0,
-      "current_debit": 1.08,
+      "unrealized_pnl": -38.0,
+      "current_debit": 1.2,
       "close_reason": null
     },
     {
@@ -2870,8 +2870,8 @@
       "opened_credit": 0.85,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 5.0,
-      "current_debit": 0.8,
+      "unrealized_pnl": 38.0,
+      "current_debit": 0.47,
       "close_reason": null
     },
     {
@@ -2917,8 +2917,8 @@
       "opened_credit": 0.83,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 37.0,
-      "current_debit": 0.46,
+      "unrealized_pnl": 38.0,
+      "current_debit": 0.45,
       "close_reason": null
     },
     {
@@ -3082,11 +3082,12 @@
       "tag": "paper",
       "opened_at": "2026-06-04",
       "opened_credit": 1.1,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": 45.0,
-      "current_debit": 0.65,
-      "close_reason": null
+      "status": "closed",
+      "realized_pnl": 128.0,
+      "unrealized_pnl": null,
+      "current_debit": -0.18,
+      "close_reason": "manage_50pct",
+      "closed_at": "2026-06-04"
     },
     {
       "id": "paper_0130_cat",
@@ -3131,8 +3132,8 @@
       "opened_credit": 0.85,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 13.0,
-      "current_debit": 0.72,
+      "unrealized_pnl": 23.0,
+      "current_debit": 0.62,
       "close_reason": null
     },
     {
@@ -3253,18 +3254,41 @@
       "current_debit": 0.3,
       "close_reason": "manage_50pct",
       "closed_at": "2026-06-04"
+    },
+    {
+      "id": "paper_0137_cat",
+      "sig": "CAT_830_825_2026-07-10",
+      "underlying": "CAT",
+      "structure": "short_put_vertical",
+      "short_strike": 830.0,
+      "long_strike": 825.0,
+      "short_symbol": "CAT   260710P00830000",
+      "long_symbol": "CAT   260710P00825000",
+      "expiry": "2026-07-10",
+      "credit": 0.88,
+      "bpr": 412.0,
+      "pop": 0.804,
+      "iv_rank": 0.64,
+      "tag": "live",
+      "opened_at": "2026-06-04",
+      "opened_credit": 0.88,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -107.0,
+      "current_debit": 1.95,
+      "close_reason": null
     }
   ],
-  "updated_at": "2026-06-04T19:44:00.218357+00:00",
+  "updated_at": "2026-06-04T20:14:06.674210+00:00",
   "summary": {
-    "trades": 136,
+    "trades": 137,
     "open": 11,
-    "closed": 125,
-    "wins": 125,
+    "closed": 126,
+    "wins": 126,
     "losses": 0,
     "win_rate": 1.0,
-    "realized_pnl": 12669.0,
-    "open_unrealized_pnl": 104.0,
-    "total_pnl": 12773.0
+    "realized_pnl": 12797.0,
+    "open_unrealized_pnl": -17.0,
+    "total_pnl": 12780.0
   }
 }
