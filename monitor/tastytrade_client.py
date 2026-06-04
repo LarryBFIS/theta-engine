@@ -15,6 +15,7 @@ Critical fixes from v4:
    not the mid).
 """
 import logging
+import time
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from typing import Any, Optional
@@ -26,7 +27,12 @@ from monitor import config
 log = logging.getLogger(__name__)
 
 API_BASE = "https://api.tastyworks.com"
-DEFAULT_TIMEOUT = 15
+# (connect, read) timeouts. Connect a touch more generous since the GitHub
+# runner -> api.tastyworks.com hop occasionally stalls.
+DEFAULT_TIMEOUT = (10, 30)
+# Retry transient network errors so a single slow connect doesn't fail a tick.
+MAX_RETRIES = 3
+RETRY_BACKOFF = (1, 3, 6)
 ACCESS_TOKEN_LIFETIME_MIN = 15
 REFRESH_BEFORE_MIN = 2
 
@@ -105,16 +111,36 @@ class TastytradeClient:
     # ────────────────────────────────────────────────────────────────
     # Auth
     # ────────────────────────────────────────────────────────────────
+    @staticmethod
+    def _request_with_retries(method: str, url: str, **kwargs):
+        """requests wrapper that retries transient network errors (timeouts /
+        connection resets) with backoff, so a single slow hop to tastytrade
+        doesn't fail the whole tick. HTTP error statuses are NOT retried here."""
+        kwargs.setdefault("timeout", DEFAULT_TIMEOUT)
+        last_exc = None
+        for attempt in range(MAX_RETRIES):
+            try:
+                return requests.request(method, url, **kwargs)
+            except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
+                last_exc = e
+                wait = RETRY_BACKOFF[min(attempt, len(RETRY_BACKOFF) - 1)]
+                log.warning(
+                    "tastytrade %s %s network error (attempt %d/%d): %s — retrying in %ds",
+                    method, url, attempt + 1, MAX_RETRIES, e.__class__.__name__, wait,
+                )
+                time.sleep(wait)
+        raise last_exc
+
     def _refresh_access_token(self) -> str:
         log.info("Refreshing tastytrade OAuth2 access token")
-        r = requests.post(
+        r = self._request_with_retries(
+            "POST",
             f"{API_BASE}/oauth/token",
             data={
                 "grant_type": "refresh_token",
                 "refresh_token": config.TASTYTRADE_REFRESH_TOKEN,
                 "client_secret": config.TASTYTRADE_CLIENT_SECRET,
             },
-            timeout=DEFAULT_TIMEOUT,
         )
         if not r.ok:
             log.error("OAuth2 refresh failed: %s %s — %s", r.status_code, r.reason, r.text[:500])
@@ -147,7 +173,7 @@ class TastytradeClient:
     # ────────────────────────────────────────────────────────────────
     def _get(self, path: str, params: Optional[dict] = None) -> dict:
         url = f"{API_BASE}{path}"
-        r = requests.get(url, headers=self._headers(), params=params, timeout=DEFAULT_TIMEOUT)
+        r = self._request_with_retries("GET", url, headers=self._headers(), params=params)
         if not r.ok:
             log.error("GET %s failed: %s %s — %s", path, r.status_code, r.reason, r.text[:500])
         r.raise_for_status()
