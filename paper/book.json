@@ -44,8 +44,8 @@
       "opened_credit": 0.75,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 11.0,
-      "current_debit": 0.64,
+      "unrealized_pnl": 20.0,
+      "current_debit": 0.55,
       "close_reason": null
     },
     {
@@ -91,8 +91,8 @@
       "opened_credit": 0.82,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -34.0,
-      "current_debit": 1.16,
+      "unrealized_pnl": -39.0,
+      "current_debit": 1.21,
       "close_reason": null
     },
     {
@@ -306,8 +306,8 @@
       "opened_credit": 0.83,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 3.0,
-      "current_debit": 0.8,
+      "unrealized_pnl": 17.0,
+      "current_debit": 0.66,
       "close_reason": null
     },
     {
@@ -329,8 +329,8 @@
       "opened_credit": 0.77,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 14.0,
-      "current_debit": 0.63,
+      "unrealized_pnl": 22.0,
+      "current_debit": 0.55,
       "close_reason": null
     },
     {
@@ -2296,8 +2296,8 @@
       "opened_credit": 0.82,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 14.0,
-      "current_debit": 0.68,
+      "unrealized_pnl": 18.0,
+      "current_debit": 0.64,
       "close_reason": null
     },
     {
@@ -2319,8 +2319,8 @@
       "opened_credit": 0.82,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 20.0,
-      "current_debit": 0.62,
+      "unrealized_pnl": 13.0,
+      "current_debit": 0.69,
       "close_reason": null
     },
     {
@@ -2870,21 +2870,68 @@
       "opened_credit": 0.85,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -75.0,
-      "current_debit": 1.6,
+      "unrealized_pnl": -20.0,
+      "current_debit": 1.05,
+      "close_reason": null
+    },
+    {
+      "id": "paper_0121_ma",
+      "sig": "MA_440_435_2026-07-10",
+      "underlying": "MA",
+      "structure": "short_put_vertical",
+      "short_strike": 440.0,
+      "long_strike": 435.0,
+      "short_symbol": "MA    260710P00440000",
+      "long_symbol": "MA    260710P00435000",
+      "expiry": "2026-07-10",
+      "credit": 1.2,
+      "bpr": 380.0,
+      "pop": 0.79,
+      "iv_rank": 0.449,
+      "tag": "paper",
+      "opened_at": "2026-06-04",
+      "opened_credit": 1.2,
+      "status": "closed",
+      "realized_pnl": 66.0,
+      "unrealized_pnl": null,
+      "current_debit": 0.54,
+      "close_reason": "manage_50pct",
+      "closed_at": "2026-06-04"
+    },
+    {
+      "id": "paper_0122_v",
+      "sig": "V_295_290_2026-07-10",
+      "underlying": "V",
+      "structure": "short_put_vertical",
+      "short_strike": 295.0,
+      "long_strike": 290.0,
+      "short_symbol": "V     260710P00295000",
+      "long_symbol": "V     260710P00290000",
+      "expiry": "2026-07-10",
+      "credit": 0.83,
+      "bpr": 417.0,
+      "pop": 0.77,
+      "iv_rank": 0.441,
+      "tag": "paper",
+      "opened_at": "2026-06-04",
+      "opened_credit": 0.83,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": 36.0,
+      "current_debit": 0.47,
       "close_reason": null
     }
   ],
-  "updated_at": "2026-06-04T14:04:23.879322+00:00",
+  "updated_at": "2026-06-04T14:34:16.705780+00:00",
   "summary": {
-    "trades": 120,
-    "open": 7,
-    "closed": 113,
-    "wins": 113,
+    "trades": 122,
+    "open": 8,
+    "closed": 114,
+    "wins": 114,
     "losses": 0,
     "win_rate": 1.0,
-    "realized_pnl": 11860.0,
-    "open_unrealized_pnl": -47.0,
-    "total_pnl": 11813.0
+    "realized_pnl": 11926.0,
+    "open_unrealized_pnl": 67.0,
+    "total_pnl": 11993.0
   }
 }
