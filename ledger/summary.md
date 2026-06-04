@@ -1,19 +1,19 @@
 # Ledger Summary
 
-_Generated 2026-06-04T14:54:20.080188+00:00 from tastytrade transaction history._
+_Generated 2026-06-04T15:14:12.799007+00:00 from tastytrade transaction history._
 
 ## Reconciliation
 
 | Item | Amount |
 |---|---:|
 | Starting capital | $3,389.91 |
-| Net liq (now) | $3,573.31 |
+| Net liq (now) | $3,544.32 |
 | Strategy realized (closed) | $+60.99 |
-| Strategy unrealized (open) | $+0.48 |
-| **Strategy P&L** | **$+61.47** |
+| Strategy unrealized (open) | $+16.98 |
+| **Strategy P&L** | **$+77.97** |
 | Money movement | $-0.06 |
-| Non-strategy activity | $+121.99 |
-| **Account P&L** | **$+183.40** |
+| Non-strategy activity | $+76.50 |
+| **Account P&L** | **$+154.41** |
 
 _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger positions closed in-window). Total fees paid: $14.60._
 
@@ -27,7 +27,7 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 |---|---|---|---|---|---:|---:|
 | ledger_001_spy | SPY | 2026-05-13 | 2026-05-26 | closed | $+39.49 | — |
 | ledger_002_gld | GLD | 2026-05-18 | 2026-05-29 | closed | $+21.50 | — |
-| ledger_003_amzn | AMZN | 2026-05-26 | — | open | — | $-78.26 |
-| ledger_004_jpm | JPM | 2026-05-29 | — | open | — | $+77.74 |
-| ledger_005_gld | GLD | 2026-06-01 | — | open | — | $-6.75 |
-| ledger_006_iwm | IWM | 2026-06-02 | — | open | — | $+7.75 |
+| ledger_003_amzn | AMZN | 2026-05-26 | — | open | — | $-68.26 |
+| ledger_004_jpm | JPM | 2026-05-29 | — | open | — | $+85.24 |
+| ledger_005_gld | GLD | 2026-06-01 | — | open | — | $+0.75 |
+| ledger_006_iwm | IWM | 2026-06-02 | — | open | — | $-0.75 |
