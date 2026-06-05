@@ -110,6 +110,37 @@ def main() -> int:
     if order != ["B", "C", "A"]:
         f.append("rank order {}".format(order))
 
+    # VIX regime overlay
+    from scripts.scan_opportunities import market_regime, _apply_regime, _write
+    if market_regime(12, 0.0)["level"] != "calm" or market_regime(12, 0.0)["stand_down"]:
+        f.append("calm VIX")
+    if market_regime(24, 0.02)["level"] != "elevated" or market_regime(24, 0.02)["stand_down"]:
+        f.append("elevated-stable should NOT stand down (rich premium)")
+    if not market_regime(34, 0.0)["stand_down"]:
+        f.append("VIX>=stress should stand down")
+    if not market_regime(23, 0.25)["stand_down"]:
+        f.append("VIX spike (+25% day) should stand down")
+    if market_regime(None, None)["stand_down"]:
+        f.append("unknown VIX must not stand down")
+    # stand-down demotes LIVE -> PAPER
+    picks = [{"tag": "live", "underlying": "X"}, {"tag": "paper", "underlying": "Y"}]
+    _apply_regime(picks, market_regime(34, 0.0))
+    if picks[0]["tag"] != "paper" or picks[0].get("demoted") != "vol stress":
+        f.append("stand-down should demote LIVE->PAPER: {}".format(picks))
+
+    # _write smoke test (catches NameErrors like the WIDTH bug)
+    import tempfile, json as _json
+    from pathlib import Path
+    import scripts.scan_opportunities as S
+    S.SCAN_DIR = Path(tempfile.mkdtemp())
+    try:
+        S._write([good], [good], {"KO": "iv_rank 12%"}, market_regime(18, 0.01))
+        op = _json.loads((S.SCAN_DIR / "opportunities.json").read_text())
+        if "regime" not in op or "width_pct" not in op["params"]:
+            f.append("_write payload missing regime/width_pct")
+    except Exception as e:  # noqa: BLE001
+        f.append("_write raised: {}".format(e))
+
     if f:
         print("FAILED:")
         for x in f:

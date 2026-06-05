@@ -54,6 +54,44 @@ TOP_N = int(os.getenv("SCAN_TOP_N", "10"))
 # clears these higher bars; everything else is paper-traded to keep proving edge.
 LIVE_MIN_EV_ON_BPR = float(os.getenv("SCAN_LIVE_MIN_EV_ON_BPR", "0.018"))
 LIVE_MIN_IV_RANK = float(os.getenv("SCAN_LIVE_MIN_IV_RANK", "0.50"))
+# VIX/regime overlay — stand down on NEW live risk during a vol spike / market
+# stress. High *stable* IV is rich premium (good to sell); a spiking VIX means
+# the market is falling — don't sell into the knife.
+VIX_CALM = float(os.getenv("SCAN_VIX_CALM", "15"))
+VIX_ELEVATED = float(os.getenv("SCAN_VIX_ELEVATED", "20"))
+VIX_STRESS = float(os.getenv("SCAN_VIX_STRESS", "30"))
+VIX_SPIKE_DAY = float(os.getenv("SCAN_VIX_SPIKE_DAY", "0.15"))
+
+
+def market_regime(vix, vix_day_change_pct=None):
+    """Classify the vol regime and whether to stand down on new short-premium risk.
+
+    Returns {vix, vix_day_change_pct, level, stand_down, note}. stand_down=True
+    (vol stress / spike) demotes LIVE picks to PAPER so we never open real risk
+    into a crash; paper tracking continues.
+    """
+    if vix is None:
+        return {"vix": None, "vix_day_change_pct": None, "level": "unknown",
+                "stand_down": False, "note": "VIX unavailable — proceeding normally"}
+    spiking = (vix_day_change_pct is not None and vix_day_change_pct >= VIX_SPIKE_DAY
+               and vix >= VIX_ELEVATED)
+    if vix >= VIX_STRESS or spiking:
+        level, stand_down = "stress", True
+    elif vix >= VIX_ELEVATED:
+        level, stand_down = "elevated", False
+    elif vix >= VIX_CALM:
+        level, stand_down = "normal", False
+    else:
+        level, stand_down = "calm", False
+    chg = "" if vix_day_change_pct is None else " ({:+.0%} day)".format(vix_day_change_pct)
+    note = ("vol stress — standing down on new LIVE risk" if stand_down
+            else "elevated vol — premium rich, proceed" if level == "elevated"
+            else "{} regime".format(level))
+    return {
+        "vix": round(vix, 2),
+        "vix_day_change_pct": round(vix_day_change_pct, 4) if vix_day_change_pct is not None else None,
+        "level": level, "stand_down": stand_down, "note": note + chg,
+    }
 
 
 def universe():
@@ -343,9 +381,14 @@ def main() -> int:
             skipped[sym] = "failed filters"
 
     ranked = rank_opportunities(candidates)
-    _apply_news_gate(ranked)   # shield: veto LIVE picks with a pending catalyst
-    _write(ranked, candidates, skipped)
+    _apply_news_gate(ranked)        # single-name shield: veto picks with a pending catalyst
+    regime = _market_regime_now()   # market-wide shield: stand down in a vol spike
+    _apply_regime(ranked, regime)
+    log.info("market regime: %s", regime["note"])
+    _write(ranked, candidates, skipped, regime)
     _alert_live([c for c in ranked if c.get("tag") == "live"])
+    if regime.get("stand_down"):
+        _alert_regime(regime)
     log.info("Scan done: %d candidates, top %d ranked, %d skipped",
              len(candidates), len(ranked), len(skipped))
     return 0
@@ -360,6 +403,44 @@ def _open_sigs():
                 for t in book.get("trades", []) if t.get("status") == "open"}
     except Exception:  # noqa: BLE001
         return set()
+
+
+def _market_regime_now():
+    """Fetch VIX and classify the regime (graceful if VIX is unavailable)."""
+    try:
+        from monitor.market_data import get_vix
+        v = get_vix()
+        if not v:
+            return market_regime(None, None)
+        return market_regime(v.current, v.day_change_pct)
+    except Exception as e:  # noqa: BLE001
+        log.warning("regime fetch failed: %s", e)
+        return market_regime(None, None)
+
+
+def _apply_regime(ranked, regime):
+    """In a vol-stress regime, demote every LIVE pick to PAPER (no new real risk)."""
+    if not regime.get("stand_down"):
+        return
+    for c in ranked:
+        if c.get("tag") == "live":
+            c["tag"] = "paper"
+            c["demoted"] = "vol stress"
+    log.info("regime stand-down (%s): all LIVE picks demoted to PAPER", regime.get("level"))
+
+
+def _alert_regime(regime):
+    try:
+        from monitor import notifier
+        notifier.send(
+            title="⚠️ Vol stress — standing down",
+            message="VIX {} {} · no new LIVE setups until vol settles (paper tracking continues).".format(
+                regime.get("vix"),
+                "({:+.0%} day)".format(regime["vix_day_change_pct"]) if regime.get("vix_day_change_pct") is not None else ""),
+            priority=notifier.PRIORITY_NORMAL,
+        )
+    except Exception as e:  # noqa: BLE001
+        log.warning("regime alert failed: %s", e)
 
 
 def _apply_news_gate(ranked):
@@ -412,20 +493,22 @@ def _mid(q):
     return (b + a) / 2 if (b is not None and a is not None) else None
 
 
-def _write(ranked, candidates, skipped):
+def _write(ranked, candidates, skipped, regime=None):
     SCAN_DIR.mkdir(parents=True, exist_ok=True)
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
+        "regime": regime or {},
         "params": {"min_iv_rank": MIN_IV_RANK, "dte_min": DTE_MIN, "dte_max": DTE_MAX,
-                   "target_pop": TARGET_POP, "width": WIDTH},
+                   "target_pop": TARGET_POP, "width_pct": WIDTH_PCT, "min_width": MIN_WIDTH},
         "top": ranked,
         "all_candidates": candidates,
         "skipped": skipped,
     }
     (SCAN_DIR / "opportunities.json").write_text(json.dumps(payload, indent=2, default=str) + "\n")
 
+    reg = " · regime: {}".format(regime["note"]) if regime and regime.get("note") else ""
     lines = ["# Opportunity scan", "",
-             "_Generated {} · short put verticals ranked by expected return on BPR._".format(payload["generated_at"]),
+             "_Generated {} · short put verticals ranked by expected return on BPR{}._".format(payload["generated_at"], reg),
              "", "| # | Trade | Tag | DTE | Credit | BPR | POP | Cr/BPR | EV/ctr | EV/BPR | IVR |",
              "|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|"]
     for i, c in enumerate(ranked, 1):
