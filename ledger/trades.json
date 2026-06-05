@@ -291,14 +291,34 @@
           "executed_at": "2026-06-01T18:00:09.979Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": -69.25,
-      "cost_to_close_mid": 160.0,
+      "close_orders": [
+        "473559920"
+      ],
+      "close_net_cash": -162.26,
+      "close_legs": [
+        {
+          "symbol": "GLD   260717P00390000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 7.97,
+          "net_cash": -797.12,
+          "fees": 0.12,
+          "executed_at": "2026-06-05T17:30:29.071Z"
+        },
+        {
+          "symbol": "GLD   260717P00385000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 6.35,
+          "net_cash": 634.86,
+          "fees": 0.14,
+          "executed_at": "2026-06-05T17:30:29.071Z"
+        }
+      ],
+      "closed_at": "2026-06-05",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": -71.51,
       "structure": "short_put_vertical",
       "short_strike": 390.0,
       "long_strike": 385.0,
@@ -308,7 +328,8 @@
       "width": 5.0,
       "max_profit_total": 93.0,
       "max_loss_total": 407.0,
-      "bpr_total": 407.0
+      "bpr_total": 407.0,
+      "close_debit_per_contract": 1.62
     },
     {
       "id": "ledger_006_iwm",
@@ -336,14 +357,34 @@
           "executed_at": "2026-06-02T19:52:44.523Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": 42.75,
-      "cost_to_close_mid": 53.0,
+      "close_orders": [
+        "473552765"
+      ],
+      "close_net_cash": -51.25,
+      "close_legs": [
+        {
+          "symbol": "IWM   260717C00313000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 0.72,
+          "net_cash": 71.87,
+          "fees": 0.13,
+          "executed_at": "2026-06-05T17:21:08.997Z"
+        },
+        {
+          "symbol": "IWM   260717C00308000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 1.23,
+          "net_cash": -123.12,
+          "fees": 0.12,
+          "executed_at": "2026-06-05T17:21:08.997Z"
+        }
+      ],
+      "closed_at": "2026-06-05",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": 44.5,
       "structure": "short_call_vertical",
       "short_strike": 308.0,
       "long_strike": 313.0,
@@ -353,7 +394,8 @@
       "width": 5.0,
       "max_profit_total": 98.0,
       "max_loss_total": 402.0,
-      "bpr_total": 402.0
+      "bpr_total": 402.0,
+      "close_debit_per_contract": 0.51
     }
   ]
 }
