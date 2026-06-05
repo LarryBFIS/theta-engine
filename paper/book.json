@@ -91,8 +91,8 @@
       "opened_credit": 0.82,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -36.0,
-      "current_debit": 1.18,
+      "unrealized_pnl": -22.0,
+      "current_debit": 1.04,
       "close_reason": null
     },
     {
@@ -306,8 +306,8 @@
       "opened_credit": 0.83,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 21.0,
-      "current_debit": 0.62,
+      "unrealized_pnl": 27.0,
+      "current_debit": 0.56,
       "close_reason": null
     },
     {
@@ -329,8 +329,8 @@
       "opened_credit": 0.77,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 20.0,
-      "current_debit": 0.57,
+      "unrealized_pnl": 18.0,
+      "current_debit": 0.59,
       "close_reason": null
     },
     {
@@ -3301,18 +3301,42 @@
       "current_debit": -0.18,
       "close_reason": "manage_50pct",
       "closed_at": "2026-06-04"
+    },
+    {
+      "id": "paper_0139_gs",
+      "sig": "GS_985_980_2026-07-10",
+      "underlying": "GS",
+      "structure": "short_put_vertical",
+      "short_strike": 985.0,
+      "long_strike": 980.0,
+      "short_symbol": "GS    260710P00985000",
+      "long_symbol": "GS    260710P00980000",
+      "expiry": "2026-07-10",
+      "credit": 1.1,
+      "bpr": 390.0,
+      "pop": 0.806,
+      "iv_rank": 0.449,
+      "tag": "paper",
+      "opened_at": "2026-06-05",
+      "opened_credit": 1.1,
+      "status": "closed",
+      "realized_pnl": 128.0,
+      "unrealized_pnl": null,
+      "current_debit": -0.18,
+      "close_reason": "manage_50pct",
+      "closed_at": "2026-06-05"
     }
   ],
-  "updated_at": "2026-06-04T20:44:04.057821+00:00",
+  "updated_at": "2026-06-05T13:14:14.428419+00:00",
   "summary": {
-    "trades": 138,
+    "trades": 139,
     "open": 11,
-    "closed": 127,
-    "wins": 127,
+    "closed": 128,
+    "wins": 128,
     "losses": 0,
     "win_rate": 1.0,
-    "realized_pnl": 12925.0,
-    "open_unrealized_pnl": 1.0,
-    "total_pnl": 12926.0
+    "realized_pnl": 13053.0,
+    "open_unrealized_pnl": 19.0,
+    "total_pnl": 13072.0
   }
 }
