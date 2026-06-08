@@ -287,9 +287,11 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
             points="" style="filter:drop-shadow(0 0 6px var(--green-glow))"/>
         </svg>
       </div>
-      <div class="kv"><span class="k">REALIZED (closed)</span><span class="v glow-g" id="kreal">—</span></div>
+      <div class="kv"><span class="k">REALIZED (closed)</span><span class="v" id="kreal">—</span></div>
       <div class="kv"><span class="k">OPEN (marks)</span><span class="v" id="kopen">—</span></div>
-      <div class="kv"><span class="k">ACCOUNT NET LIQ <span style="color:var(--dimmer)">(info)</span></span><span class="v" id="knl">—</span></div>
+      <div class="kv"><span class="k">OPENING LIQUIDITY</span><span class="v" id="kopenliq">—</span></div>
+      <div class="kv"><span class="k">CURRENT LIQUIDITY</span><span class="v" id="knl">—</span></div>
+      <div class="kv"><span class="k">ACTUAL P&amp;L <span style="color:var(--dimmer)">(net liq Δ)</span></span><span class="v" id="kactual">—</span></div>
     </div>
   </div>
 
@@ -413,10 +415,13 @@ function renderClosed(){
   const box=$('closedbody');box.innerHTML='';
   DATA.closed.forEach(c=>{
     const d=document.createElement('div');d.className='kv';
-    d.innerHTML=`<span class="k"><span class="sym">${c.sym}</span> <span class="struct">${c.struct}</span> · ${c.days}d</span><span class="v up">+$${c.pnl.toFixed(2)}</span>`;
+    const cls=c.pnl>=0?'up':'down', amt=(c.pnl>=0?'+$':'-$')+Math.abs(c.pnl).toFixed(2);
+    d.innerHTML=`<span class="k"><span class="sym">${c.sym}</span> <span class="struct">${c.struct}</span> · ${c.days}d</span><span class="v ${cls}">${amt}</span>`;
     box.appendChild(d);
   });
-  $('realsum').textContent='+$'+DATA.realized.toFixed(2);
+  const rs=$('realsum');
+  rs.textContent=(DATA.realized>=0?'+$':'-$')+Math.abs(DATA.realized).toFixed(2);
+  rs.classList.remove('up','down');rs.classList.add(DATA.realized>=0?'up':'down');
 }
 
 /* ---- header totals ---- */
@@ -436,10 +441,20 @@ function renderTotals(){
   countUp($('bpr'),DATA.bprPct,v=>v.toFixed(0)+'%');
   $('bpr').className='val '+(DATA.bprPct>50?'glow-r':'glow-a');
   $('bprsub').textContent=DATA.bprPct>50?'⚠ over 50% ceiling':'within band';
-  $('kreal').textContent='+$'+DATA.realized.toFixed(2);
+  const krEl=$('kreal');
+  krEl.textContent=(DATA.realized>=0?'+$':'-$')+Math.abs(DATA.realized).toFixed(2);
+  krEl.className='v '+(DATA.realized>=0?'up':'down');
   $('kopen').textContent=(open>=0?'+$':'-$')+Math.abs(open).toFixed(2);
   $('kopen').className='v '+(open>=0?'up':'down');
-  $('knl').textContent='$'+DATA.netLiq.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  // Account-level liquidity view: opening → current; Δ is the actual real-dollar
+  // P&L. While trades are open this includes unrealized marks; once everything is
+  // closed it converges to realized strategy P&L (± fees / money movement).
+  const fmtUsd=n=>'$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  $('kopenliq').textContent=fmtUsd(DATA.start);
+  $('knl').textContent=fmtUsd(DATA.netLiq);
+  const actual=DATA.netLiq-DATA.start, aEl=$('kactual');
+  aEl.textContent=(actual>=0?'+':'-')+fmtUsd(Math.abs(actual));
+  aEl.className='v '+(actual>=0?'up':'down');
 }
 
 /* ---- ticker tape ---- */
