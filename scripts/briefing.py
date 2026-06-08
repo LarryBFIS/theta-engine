@@ -22,7 +22,7 @@ import requests  # noqa: E402
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 PUSHOVER_USER_KEY = os.environ.get("PUSHOVER_USER_KEY")
 PUSHOVER_APP_TOKEN = os.environ.get("PUSHOVER_APP_TOKEN")
-STARTING_CAPITAL = float(os.environ.get("STARTING_CAPITAL", "3389.91"))
+STARTING_CAPITAL = float(os.environ.get("STARTING_CAPITAL", "3438.16"))
 
 SYSTEM_PROMPT = """You are a Wall-Street-grade options strategist for a small account ($3,400 net liq) running a 30-day short-premium experiment.
 

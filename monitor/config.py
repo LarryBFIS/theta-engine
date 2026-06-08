@@ -36,7 +36,7 @@ PUSHOVER_APP_TOKEN = _required("PUSHOVER_APP_TOKEN")
 # ────────────────────────────────────────────────────────────────────
 # Experiment baseline
 # ────────────────────────────────────────────────────────────────────
-STARTING_CAPITAL = float(os.getenv("STARTING_CAPITAL", "3389.91"))
+STARTING_CAPITAL = float(os.getenv("STARTING_CAPITAL", "3438.16"))
 
 # ────────────────────────────────────────────────────────────────────
 # Misc
