@@ -396,6 +396,51 @@
       "max_loss_total": 402.0,
       "bpr_total": 402.0,
       "close_debit_per_contract": 0.51
+    },
+    {
+      "id": "ledger_007_slv",
+      "underlying": "SLV",
+      "opened_at": "2026-06-08",
+      "open_order_id": "473738879",
+      "open_net_cash": 47.75,
+      "open_legs": [
+        {
+          "symbol": "SLV   260821P00061000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 4.45,
+          "net_cash": 443.87,
+          "fees": 1.13,
+          "executed_at": "2026-06-08T14:04:07.082Z"
+        },
+        {
+          "symbol": "SLV   260821P00060000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 3.95,
+          "net_cash": -396.12,
+          "fees": 1.12,
+          "executed_at": "2026-06-08T14:04:07.082Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -7.25,
+      "cost_to_close_mid": 55.0,
+      "structure": "short_put_vertical",
+      "short_strike": 61.0,
+      "long_strike": 60.0,
+      "expiry": "2026-08-21",
+      "contracts": 1,
+      "credit_per_contract": 0.5,
+      "width": 1.0,
+      "max_profit_total": 50.0,
+      "max_loss_total": 50.0,
+      "bpr_total": 50.0
     }
   ]
 }
