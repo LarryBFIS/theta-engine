@@ -1,10 +1,10 @@
 {
-  "last_run": "2026-06-09T20:43:56.391613+00:00",
-  "market_view": "Risk-off regime continues with VIX up 24% on the week and tech down 8.87% 5d; SLV remains pinned below $61 short strike with no recovery catalyst in sight.",
+  "last_run": "2026-06-09T20:53:47.041541+00:00",
+  "market_view": "Risk-off regime persists with VIX up 24% on the week and tech leading lower; SLV is stuck below $61 with no recovery catalyst and the 1.5x stop rule has been triggered for over 20 minutes.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-06-09T20:43:48Z",
-    "reasoning": "Short strike breached at $59.01 vs $61 short strike, worst-case fill $0.75 = 1.5x the $0.50 credit \u2014 hard stop rule triggered. CRITICAL was flagged last cycle 20 minutes ago and position has not been closed; this is now an overdue execution."
+    "timestamp": "2026-06-09T20:53:40Z",
+    "reasoning": "Short strike breached at $59.01 vs $61 short, worst-case fill $0.75 equals exactly 1.5x the $0.50 credit \u2014 hard stop rule triggered last cycle and position is still open; every minute of delay risks a worse fill as SLV sits 3.4% below short strike in a risk-off tape."
   }
 }
