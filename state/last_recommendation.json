@@ -1,10 +1,10 @@
 {
-  "last_run": "2026-06-09T18:04:03.642575+00:00",
-  "market_view": "Risk-off regime accelerating \u2014 VIX +9.4% today, +29.6% on the week, tech hemorrhaging -3.6% (XLK -10.4% 5d). No capitulation signal yet with SLV continuing to slide under the short strike.",
+  "last_run": "2026-06-09T18:06:28.724576+00:00",
+  "market_view": "Risk-off regime deepening \u2014 VIX +8.3% today, +28.3% on the week with tech cratering -10.4% 5d; SLV is a commodity proxy and has no bid support in this tape.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-06-09T18:03:54Z",
-    "reasoning": "Short strike breached at 3.6% OTM, current mid $0.625 is already 1.25x credit and worst-case $0.80 is 1.6x \u2014 hard stop at 1.5x is TRIGGERED. This CRITICAL has been live for 10+ minutes with no close executed; at 72 DTE there is zero theta working in your favor and SLV has no floor in this risk-off tape."
+    "timestamp": "2026-06-09T18:06:21Z",
+    "reasoning": "Short strike breached, worst-case cost $0.70 is already 1.4x credit and closing in on the 1.5x hard stop \u2014 at 72 DTE there is zero theta to bail you out and this CRITICAL has been flagged for 2+ minutes with no close. Every tick lower doubles down on a defined-risk position at max loss."
   }
 }
