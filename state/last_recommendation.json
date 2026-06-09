@@ -1,10 +1,10 @@
 {
-  "last_run": "2026-06-09T14:53:56.812969+00:00",
-  "market_view": "Risk-off regime persists with VIX +15.5% on 5d and tech down hard; defensive rotation in financials/healthcare/staples is not helping SLV which is under pressure with underlying now below both strikes.",
+  "last_run": "2026-06-09T15:04:18.760856+00:00",
+  "market_view": "Risk-off regime persists with VIX +23.7% on 5d and tech continuing to bleed; SLV is deep ITM with underlying at $59.79, well below both the 61 short and 60 long strikes.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-06-09T14:53:49Z",
-    "reasoning": "SLV at $59.51 \u2014 underlying has blown through BOTH strikes, worst-case cost $0.75 equals exactly the 1.5x hard stop on $0.50 credit, and the spread is now deep ITM approaching max loss of $50. This was CRITICAL last cycle and has deteriorated further with no bounce."
+    "timestamp": "2026-06-09T15:04:08Z",
+    "reasoning": "SLV at $59.79 \u2014 both strikes breached, spread is deep ITM, current mid at $0.55 already exceeds original $0.50 credit and worst-case $0.70 is approaching max loss of $1.00; this CRITICAL alert was issued last cycle and no closing action was taken. Every tick lower is free loss with zero recovery path."
   }
 }
