@@ -1,10 +1,10 @@
 {
-  "last_run": "2026-06-09T18:53:52.455005+00:00",
-  "market_view": "Risk-off regime intact with VIX +22% on the week and tech down nearly 10% 5d; safe-haven rotation is not benefiting SLV which remains pinned below the short strike with no reversal catalyst visible.",
+  "last_run": "2026-06-09T19:13:52.791664+00:00",
+  "market_view": "Risk-off regime persists with VIX up 21% on the week and tech bleeding -9.5% 5d; SLV remains trapped below the 61 short strike with no recovery catalyst and 72 DTE leaving full theta exposure.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-06-09T18:53:44Z",
-    "reasoning": "Short strike still breached at SLV 59.29 vs 61 strike, worst-case cost $0.75 is 1.5x the $0.50 credit \u2014 hard stop triggered, this is max pain territory with 72 DTE and zero theta relief in sight. This alert has persisted for 10+ minutes with zero recovery; further delay risks full max loss."
+    "timestamp": "2026-06-09T19:13:41Z",
+    "reasoning": "Short strike breached, current worst-case cost $0.70 is 1.4x the $0.50 credit and at the 1.5x hard stop threshold \u2014 SLV at 59.14 is 3.1% through the short strike with 72 DTE and zero mean-reversion signal. CRITICAL alert issued 20 minutes ago with no recovery; continued holding risks full $50 max loss."
   }
 }
