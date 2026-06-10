@@ -1,15 +1,15 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-10T16:54:00.849299+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-10T17:14:00.644271+00:00._
 
-**143 trades · 3 open / 140 closed · win rate 98% · realized $+13263.00 · open $-111.00 · total $+13152.00**
+**143 trades · 3 open / 140 closed · win rate 98% · realized $+13263.00 · open $-89.00 · total $+13174.00**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
 | paper_0001_cat | CAT 775/770p | LIVE | closed | $0.81 | $+76 | — | manage_50pct |
-| paper_0002_iwm | IWM 271/266p | PAPER | open | $0.75 | — | $-18 |  |
+| paper_0002_iwm | IWM 271/266p | PAPER | open | $0.75 | — | $-19 |  |
 | paper_0003_amd | AMD 410/405p | LIVE | closed | $0.85 | $+43 | — | manage_50pct |
-| paper_0004_ba | BA 205/200p | PAPER | open | $0.82 | — | $-98 |  |
+| paper_0004_ba | BA 205/200p | PAPER | open | $0.82 | — | $-88 |  |
 | paper_0005_cat | CAT 775/770p | LIVE | closed | $0.81 | $+111 | — | manage_50pct |
 | paper_0006_cat | CAT 775/770p | LIVE | closed | $0.81 | $+46 | — | manage_50pct |
 | paper_0007_amd | AMD 410/405p | LIVE | closed | $0.85 | $+77 | — | manage_50pct |
@@ -19,7 +19,7 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0011_meta | META 550/545p | PAPER | closed | $0.77 | $+42 | — | manage_50pct |
 | paper_0012_amd | AMD 420/415p | LIVE | closed | $0.85 | $+47 | — | manage_50pct |
 | paper_0013_v | V 300/295p | PAPER | closed | $0.83 | $+45 | — | manage_50pct |
-| paper_0014_xom | XOM 140/135p | PAPER | open | $0.77 | — | $+5 |  |
+| paper_0014_xom | XOM 140/135p | PAPER | open | $0.77 | — | $+18 |  |
 | paper_0015_cat | CAT 810/805p | LIVE | closed | $1.10 | $+70 | — | manage_50pct |
 | paper_0016_meta | META 550/545p | PAPER | closed | $0.77 | $+39 | — | manage_50pct |
 | paper_0017_cat | CAT 810/805p | LIVE | closed | $1.10 | $+72 | — | manage_50pct |
