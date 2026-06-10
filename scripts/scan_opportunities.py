@@ -54,6 +54,12 @@ TOP_N = int(os.getenv("SCAN_TOP_N", "10"))
 # clears these higher bars; everything else is paper-traded to keep proving edge.
 LIVE_MIN_EV_ON_BPR = float(os.getenv("SCAN_LIVE_MIN_EV_ON_BPR", "0.018"))
 LIVE_MIN_IV_RANK = float(os.getenv("SCAN_LIVE_MIN_IV_RANK", "0.50"))
+# Long-vol mode — the MIRROR of the premium-sell scan. Instead of selling rich
+# premium, flag names where IV rank is unusually LOW (vol is cheap) into a known
+# catalyst (earnings) within ~2 weeks — i.e. a coming move the market may be
+# UNDER-pricing. These are paper-tagged only: buying premium is not our core edge.
+LONGVOL_MAX_IV_RANK = float(os.getenv("SCAN_LONGVOL_MAX_IV_RANK", "0.30"))
+LONGVOL_CATALYST_DAYS = int(os.getenv("SCAN_LONGVOL_CATALYST_DAYS", "14"))
 # VIX/regime overlay — stand down on NEW live risk during a vol spike / market
 # stress. High *stable* IV is rich premium (good to sell); a spiking VIX means
 # the market is falling — don't sell into the knife.
@@ -250,6 +256,57 @@ def rank_opportunities(candidates, top_n=TOP_N):
     )[:top_n]
 
 
+# ── Long-vol mode (mirror of the premium-sell scan) ─────────────────────
+def _days_until(date_iso, today_iso):
+    """Whole days from today to a YYYY-MM-DD date, or None if unparseable."""
+    try:
+        return (date.fromisoformat(date_iso[:10]) - date.fromisoformat(today_iso[:10])).days
+    except (ValueError, TypeError):
+        return None
+
+
+def long_vol_candidate(underlying, iv_rank, earnings_date, price, today,
+                       iv=None, max_iv_rank=LONGVOL_MAX_IV_RANK,
+                       catalyst_days=LONGVOL_CATALYST_DAYS):
+    """Flag a LONG-volatility setup: cheap IV (low IV rank) into a near catalyst.
+
+    The disciplined "price will move, direction unknown" play — buy a defined-risk
+    strangle when vol is cheap AND a known event (earnings within ~catalyst_days)
+    is likely to produce a move the market may be under-pricing. Returns a
+    candidate dict or None. Paper-tagged: long premium is not our core edge.
+    """
+    if iv_rank is None or iv_rank > max_iv_rank:
+        return None
+    days = _days_until(earnings_date, today) if earnings_date else None
+    if days is None or days < 0 or days > catalyst_days:
+        return None
+    exp_move = exp_move_pct = None
+    if iv and price:
+        em = expected_move(price, iv, max(days, 1))   # ~1σ move by the catalyst
+        if em is not None:
+            exp_move = round(em, 2)
+            exp_move_pct = round(em / price, 4)
+    return {
+        "underlying": underlying,
+        "structure": "long_strangle",   # buy OTM call + put; debit, defined risk
+        "iv_rank": round(iv_rank, 3),
+        "iv": round(iv, 4) if iv else None,
+        "price": price,
+        "earnings_date": earnings_date,
+        "days_to_catalyst": days,
+        "expected_move": exp_move,
+        "expected_move_pct": exp_move_pct,
+        "tag": "paper",                  # long premium is NOT our edge — track only
+        "rationale": "IV rank {:.0%} (cheap) into earnings in {}d — market may be "
+                     "under-pricing the move".format(iv_rank, days),
+    }
+
+
+def rank_long_vol(cands):
+    """Cheapest vol into the soonest catalyst first."""
+    return sorted(cands, key=lambda c: (c["iv_rank"], c["days_to_catalyst"]))
+
+
 # ── Live data fetch (defensive; uses the client's OAuth2 + _get) ────────
 def _f(v):
     try:
@@ -380,17 +437,29 @@ def main() -> int:
         else:
             skipped[sym] = "failed filters"
 
+    # Long-vol pass — reuses the metrics/prices already fetched (no extra calls).
+    long_vol = []
+    for sym in syms:
+        m = metrics.get(sym)
+        if not m:
+            continue
+        lv = long_vol_candidate(sym, m.get("iv_rank"), m.get("earnings_date"),
+                                prices.get(sym), today, iv=m.get("iv"))
+        if lv:
+            long_vol.append(lv)
+    long_vol = rank_long_vol(long_vol)
+
     ranked = rank_opportunities(candidates)
     _apply_news_gate(ranked)        # single-name shield: veto picks with a pending catalyst
     regime = _market_regime_now()   # market-wide shield: stand down in a vol spike
     _apply_regime(ranked, regime)
     log.info("market regime: %s", regime["note"])
-    _write(ranked, candidates, skipped, regime)
+    _write(ranked, candidates, skipped, regime, long_vol)
     _alert_live([c for c in ranked if c.get("tag") == "live"])
     if regime.get("stand_down"):
         _alert_regime(regime)
-    log.info("Scan done: %d candidates, top %d ranked, %d skipped",
-             len(candidates), len(ranked), len(skipped))
+    log.info("Scan done: %d candidates, top %d ranked, %d skipped, %d long-vol",
+             len(candidates), len(ranked), len(skipped), len(long_vol))
     return 0
 
 
@@ -493,14 +562,17 @@ def _mid(q):
     return (b + a) / 2 if (b is not None and a is not None) else None
 
 
-def _write(ranked, candidates, skipped, regime=None):
+def _write(ranked, candidates, skipped, regime=None, long_vol=None):
     SCAN_DIR.mkdir(parents=True, exist_ok=True)
+    long_vol = long_vol or []
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "regime": regime or {},
         "params": {"min_iv_rank": MIN_IV_RANK, "dte_min": DTE_MIN, "dte_max": DTE_MAX,
-                   "target_pop": TARGET_POP, "width_pct": WIDTH_PCT, "min_width": MIN_WIDTH},
+                   "target_pop": TARGET_POP, "width_pct": WIDTH_PCT, "min_width": MIN_WIDTH,
+                   "longvol_max_iv_rank": LONGVOL_MAX_IV_RANK, "longvol_catalyst_days": LONGVOL_CATALYST_DAYS},
         "top": ranked,
+        "long_vol": long_vol,
         "all_candidates": candidates,
         "skipped": skipped,
     }
@@ -518,6 +590,18 @@ def _write(ranked, candidates, skipped, regime=None):
             c["ev_on_bpr"], c["iv_rank"]))
     if not ranked:
         lines.append("| — | _no setups passed filters_ | | | | | | | | | |")
+
+    # Long-vol watch — cheap IV into a near catalyst (paper / awareness only).
+    lines += ["", "## Long-vol watch · cheap IV into a catalyst (paper only)",
+              "", "| Underlying | IVR | Earnings | In | ~1σ move | Note |",
+              "|---|---:|---|---:|---:|---|"]
+    for c in long_vol:
+        em = "{:.1%}".format(c["expected_move_pct"]) if c.get("expected_move_pct") is not None else "—"
+        lines.append("| {} | {:.0%} | {} | {}d | {} | {} |".format(
+            c["underlying"], c["iv_rank"], c.get("earnings_date") or "—",
+            c["days_to_catalyst"], em, c["rationale"]))
+    if not long_vol:
+        lines.append("| — | _no cheap-IV catalysts in window_ | | | | |")
     (SCAN_DIR / "summary.md").write_text("\n".join(lines) + "\n")
 
 

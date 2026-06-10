@@ -485,15 +485,23 @@ def main() -> int:
     )
     # Imported here so the pure functions above stay importable without config
     # (which requires env vars) being loaded.
+    import requests
+
     from monitor import config
     from monitor.tastytrade_client import TastytradeClient
 
-    client = TastytradeClient()
-    account_number = fetch_account_number(client)
-    log.info("Building ledger for account %s since %s", account_number, START_DATE)
+    try:
+        client = TastytradeClient()
+        account_number = fetch_account_number(client)
+        log.info("Building ledger for account %s since %s", account_number, START_DATE)
 
-    transactions = fetch_transactions(client, account_number, START_DATE)
-    snapshot = client.fetch_snapshot()
+        transactions = fetch_transactions(client, account_number, START_DATE)
+        snapshot = client.fetch_snapshot()
+    except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as e:
+        # Broker transiently unreachable — don't fail the job or overwrite a good
+        # ledger with nothing. Skip; the next run rebuilds.
+        log.warning("Broker unreachable — skipping ledger rebuild this run: %s", e)
+        return 0
     positions = [
         {
             "symbol": p.symbol,

@@ -7,6 +7,7 @@ import sys
 from scripts.scan_opportunities import (
     norm_cdf, expected_move, put_pop, put_delta_abs,
     choose_strikes, expectancy, build_candidate, rank_opportunities,
+    long_vol_candidate, rank_long_vol,
 )
 
 
@@ -127,6 +128,36 @@ def main() -> int:
     _apply_regime(picks, market_regime(34, 0.0))
     if picks[0]["tag"] != "paper" or picks[0].get("demoted") != "vol stress":
         f.append("stand-down should demote LIVE->PAPER: {}".format(picks))
+
+    # ── long-vol mode (mirror of premium-sell) ──
+    today = "2026-06-10"
+    # cheap IV (20%) + earnings in 5 days -> candidate, paper-tagged, strangle
+    lv = long_vol_candidate("ABC", 0.20, "2026-06-15", 100.0, today, iv=0.40)
+    if not lv:
+        f.append("long_vol: cheap IV + near catalyst should flag")
+    else:
+        if lv["tag"] != "paper" or lv["structure"] != "long_strangle":
+            f.append("long_vol tag/structure wrong: {}".format(lv))
+        if lv["days_to_catalyst"] != 5 or lv["expected_move_pct"] is None:
+            f.append("long_vol fields wrong: {}".format(lv))
+    # rich IV (60%) -> not a long-vol setup (vol not cheap)
+    if long_vol_candidate("ABC", 0.60, "2026-06-15", 100.0, today, iv=0.40) is not None:
+        f.append("long_vol: rich IV must be rejected")
+    # catalyst too far (30 days) -> rejected
+    if long_vol_candidate("ABC", 0.20, "2026-07-10", 100.0, today, iv=0.40) is not None:
+        f.append("long_vol: far catalyst must be rejected")
+    # no earnings -> rejected
+    if long_vol_candidate("ABC", 0.20, None, 100.0, today, iv=0.40) is not None:
+        f.append("long_vol: no catalyst must be rejected")
+    # earnings already passed -> rejected
+    if long_vol_candidate("ABC", 0.20, "2026-06-05", 100.0, today, iv=0.40) is not None:
+        f.append("long_vol: past catalyst must be rejected")
+    # ranking: cheaper vol first
+    lvs = [long_vol_candidate("HI", 0.28, "2026-06-14", 50, today, iv=0.5),
+           long_vol_candidate("LO", 0.10, "2026-06-14", 50, today, iv=0.5)]
+    order = [c["underlying"] for c in rank_long_vol(lvs)]
+    if order != ["LO", "HI"]:
+        f.append("long_vol rank order: {}".format(order))
 
     # _write smoke test (catches NameErrors like the WIDTH bug)
     import tempfile, json as _json

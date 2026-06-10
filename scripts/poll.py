@@ -12,10 +12,12 @@ import logging
 import sys
 from datetime import datetime
 
+import requests
 from pytz import timezone as tz
 
 from monitor import config, gist, notifier
 from monitor.approvals import decide_url
+from monitor import fomc
 from monitor.profit_guard import profit_protection_signal
 from monitor.decisions import (
     ACTION_HOLD,
@@ -61,6 +63,57 @@ def _alerted_today(suggestions, trade_id, action) -> bool:
     )
 
 
+def _fomc_check(now_et, existing_suggestions) -> None:
+    """Fire the one-shot FOMC iron-condor nudge during the meeting window.
+
+    Fully wrapped so a data/network miss never breaks the poll: the alert still
+    goes out (just without live enrichment) and is recorded once per phase so the
+    10-min poll won't repeat it.
+    """
+    try:
+        ph = fomc.phase(now_et)
+        if not ph:
+            return
+        action = fomc.action_for(ph)
+        if fomc.already_fired(existing_suggestions, action):
+            return
+
+        # Best-effort live enrichment — never let a data miss suppress the alert.
+        live = {}
+        for sym in ("IWM", "QQQ"):
+            try:
+                px = get_quote(sym)
+            except Exception:  # noqa: BLE001
+                px = None
+            if px is not None:
+                live.setdefault(sym, {})["price"] = px
+        try:
+            from scripts.scan_opportunities import fetch_metrics
+            for sym, d in fetch_metrics(TastytradeClient(), ["IWM", "QQQ"]).items():
+                if d.get("iv_rank") is not None:
+                    live.setdefault(sym, {})["iv_rank"] = d["iv_rank"]
+        except Exception as e:  # noqa: BLE001
+            log.warning("FOMC IV-rank fetch failed: %s", e)
+
+        title, message = fomc.build_message(ph, live)
+        notifier.send(title=title, message=message,
+                      priority=notifier.PRIORITY_NORMAL, sound=notifier.SOUND_REMINDER)
+        sug = Suggestion(
+            id=make_suggestion_id(fomc.TRADE_ID, now_et),
+            trade_id=fomc.TRADE_ID,
+            timestamp=now_et.isoformat(),
+            action=action,
+            urgency="normal",
+            reasoning=["FOMC {} window".format(ph)],
+            metrics_snapshot={"phase": ph, "live": live},
+        )
+        append_suggestion(sug)
+        existing_suggestions.append(sug)
+        log.info("FOMC alert fired: %s [%s]", title, action)
+    except Exception as e:  # noqa: BLE001
+        log.warning("FOMC check skipped (non-fatal): %s", e)
+
+
 def main() -> int:
     now_et = datetime.now(ET)
     log.info("Poll triggered at %s ET", now_et.strftime("%Y-%m-%d %H:%M:%S"))
@@ -70,6 +123,10 @@ def main() -> int:
         open_trades = [t for t in trades if t.is_open]
         log.info("Loaded %d tracked trades (%d open)", len(trades), len(open_trades))
         existing_suggestions = load_suggestions()
+
+        # FOMC trade-trigger — runs before the broker snapshot so a transient
+        # outage can't suppress it (its own data fetches are best-effort).
+        _fomc_check(now_et, existing_suggestions)
 
         client = TastytradeClient()
         snapshot = client.fetch_snapshot()
@@ -181,6 +238,13 @@ def main() -> int:
             snapshot=snapshot,
             trade_results=trade_results,
         )
+        return 0
+    except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as e:
+        # Broker transiently unreachable from the runner (connect to
+        # api.tastyworks.com timed out even after retries). Not a real failure —
+        # skip this tick quietly instead of firing a priority-1 page. The deadman
+        # watchdog remains the real alarm if ticks stop landing entirely.
+        log.warning("Broker unreachable this tick (transient) — skipping: %s", e)
         return 0
     except Exception as e:
         log.exception("Poll failed: %s", e)

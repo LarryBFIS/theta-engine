@@ -107,9 +107,16 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git pull --rebase origin main || true
             git commit -m "auto: bot tick $(date -u +%Y-%m-%dT%H:%MZ)"
-            git push
+            # Commit FIRST (rebase needs a clean index), then rebase onto the
+            # latest main and push — retrying if a concurrent workflow moved the
+            # ref. This is what was failing the tick and blocking the paper reset.
+            pushed=0
+            for i in 1 2 3 4 5; do
+              if git pull --rebase --autostash origin main && git push; then pushed=1; break; fi
+              echo "push attempt $i rejected (remote moved) — retrying"; sleep $((RANDOM % 4 + 3))
+            done
+            [ "$pushed" = "1" ] || { echo "push failed after retries"; exit 1; }
           fi
 
       - name: Notify on failure

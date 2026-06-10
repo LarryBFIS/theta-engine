@@ -31,8 +31,10 @@ API_BASE = "https://api.tastyworks.com"
 # runner -> api.tastyworks.com hop occasionally stalls.
 DEFAULT_TIMEOUT = (10, 30)
 # Retry transient network errors so a single slow connect doesn't fail a tick.
-MAX_RETRIES = 3
-RETRY_BACKOFF = (1, 3, 6)
+# The GitHub runner -> api.tastyworks.com hop is flaky (~1/3 of ticks saw a
+# ConnectTimeout with 3 tries); 5 attempts with a longer tail recovers most.
+MAX_RETRIES = 5
+RETRY_BACKOFF = (1, 3, 6, 10, 15)
 ACCESS_TOKEN_LIFETIME_MIN = 15
 REFRESH_BEFORE_MIN = 2
 
