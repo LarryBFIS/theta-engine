@@ -8,6 +8,9 @@ from scripts.scan_opportunities import (
     norm_cdf, expected_move, put_pop, put_delta_abs,
     choose_strikes, expectancy, build_candidate, rank_opportunities,
     long_vol_candidate, rank_long_vol,
+    call_pop, ic_range_pop, max_loss_vertical, max_loss_ic, expectancy_capped,
+    size_for_caps, trend_from_mas, choose_structure, book_directional_bias,
+    build_call_vertical, build_iron_condor,
 )
 
 
@@ -62,20 +65,21 @@ def main() -> int:
     if not (expectancy(1.0, 400, 0.40) < 0):
         f.append("expectancy -")
 
-    # build_candidate: EXECUTABLE credit = short_bid - long_ask (not mid)
-    # short {bid1.25,ask1.35,mid1.30}, long {bid0.40,ask0.50,mid0.45}
+    # build_candidate: EXECUTABLE credit = short_bid - long_ask (not mid).
+    # short {bid1.50,ask1.60,mid1.55}, long {bid0.46,ask0.50,mid0.48}: exec credit
+    # 1.00 → credit/width 0.20 clears the P4 floor; both legs tight (rel ≤0.20).
     good = build_candidate("SPY", "2026-07-17", 35, 92.0, 87.0,
-                           {"bid": 1.25, "ask": 1.35, "mark": 1.30},
-                           {"bid": 0.40, "ask": 0.50, "mark": 0.45},
+                           {"bid": 1.50, "ask": 1.60, "mark": 1.55},
+                           {"bid": 0.46, "ask": 0.50, "mark": 0.48},
                            price=100.0, iv=0.30, iv_rank=0.55)
     if not good:
         f.append("build_candidate good returned None")
     else:
-        if good["credit"] != 0.75:   # 1.25 - 0.50 executable, NOT the 0.85 mid
+        if good["credit"] != 1.00:   # 1.50 - 0.50 executable, NOT the 1.07 mid
             f.append("exec credit wrong: {} (mid was {})".format(good["credit"], good.get("mid_credit")))
-        if good["mid_credit"] != 0.85:
+        if good["mid_credit"] != 1.07:   # 1.55 - 0.48
             f.append("mid_credit wrong: {}".format(good["mid_credit"]))
-        if good["bpr"] != 425.0:     # (5 - 0.75)*100
+        if good["bpr"] != 400.0:     # (5 - 1.00)*100
             f.append("bpr wrong: {}".format(good["bpr"]))
         if not (good["ev_per_contract"] > 0 and 0.70 <= good["pop"] <= 0.90):
             f.append("metrics off: {}".format(good))
@@ -158,6 +162,95 @@ def main() -> int:
     order = [c["underlying"] for c in rank_long_vol(lvs)]
     if order != ["LO", "HI"]:
         f.append("long_vol rank order: {}".format(order))
+
+    # ── P2: call POP mirrors put POP; IC range POP ──
+    # short call ABOVE spot wins if price stays below -> high POP far OTM
+    if not (call_pop(100, 120, 0.3, 30) > call_pop(100, 103, 0.3, 30) > 0.5):
+        f.append("call_pop monotonic")
+    # put + call POP at same distance ~ symmetric-ish; IC range pop = pp+cp-1
+    pp, cp = put_pop(100, 92, 0.3, 35), call_pop(100, 108, 0.3, 35)
+    if not approx(ic_range_pop(100, 92, 108, 0.3, 35), max(0.0, pp + cp - 1.0), 1e-6):
+        f.append("ic_range_pop != pp+cp-1")
+    if not (0.55 < ic_range_pop(100, 92, 108, 0.3, 35) < 0.85):
+        f.append("ic range pop band: {}".format(ic_range_pop(100, 92, 108, 0.3, 35)))
+
+    # ── P2: max-loss + capped expectancy ──
+    if max_loss_vertical(5, 0.75) != 425.0:
+        f.append("max_loss_vertical")
+    if max_loss_ic(5, 1.60) != 340.0:                 # (5 - 1.60)*100
+        f.append("max_loss_ic")
+    # loss capped at structural max: 1.5×0.75×100=112.5 < 425 -> uses 112.5
+    ev1 = expectancy_capped(0.75, 0.80, 425.0)
+    if not approx(ev1, 0.80 * 37.5 - 0.20 * 112.5, 1e-6):
+        f.append("expectancy_capped uncapped-by-maxloss: {}".format(ev1))
+    # narrow IC where 1.5×credit > max loss -> loss capped at max loss
+    ev2 = expectancy_capped(1.60, 0.75, 340.0)        # 1.5×160=240 < 340 -> 240
+    if not approx(ev2, 0.75 * 80.0 - 0.25 * 240.0, 1e-6):
+        f.append("expectancy_capped (cap path): {}".format(ev2))
+
+    # ── P1: sizing against caps (hard rejects) ──
+    # net liq 3438, 10% cap = $343.8, BPR ceiling 50% = $1719, used 0
+    # vertical max loss $425 > $343.8 -> SKIP (return 0)
+    if size_for_caps(425.0, 425.0, 3438.16, 0.0) != 0:
+        f.append("size: 425 max-loss should breach 10% cap -> 0")
+    # small trade: max loss $200, bpr $200 -> fits; sized by min(343//200, 1719//200)=1
+    if size_for_caps(200.0, 200.0, 3438.16, 0.0) != 1:
+        f.append("size: small trade should allow 1")
+    # tiny trade $50/$50 -> loss cap allows 6 (343//50), bpr allows many -> 6
+    if size_for_caps(50.0, 50.0, 3438.16, 0.0) != 6:
+        f.append("size: $50 risk should allow 6: {}".format(size_for_caps(50.0, 50.0, 3438.16, 0.0)))
+    # BPR already near ceiling: used 1700 of 1719 -> only $19 room, bpr 200 -> 0
+    if size_for_caps(100.0, 200.0, 3438.16, 1700.0) != 0:
+        f.append("size: BPR ceiling breach -> 0")
+    # unknown net liq -> 1 (caps unenforced, stays paper downstream)
+    if size_for_caps(425.0, 425.0, None, 0.0) != 1:
+        f.append("size: unknown net liq -> 1")
+
+    # ── P2: trend + structure selection ──
+    if trend_from_mas(110, 105, 100) != "bullish": f.append("trend bullish")
+    if trend_from_mas(90, 95, 100) != "bearish":   f.append("trend bearish")
+    if trend_from_mas(100, 100, 100) != "mixed":   f.append("trend mixed")
+    if choose_structure("bullish", 0.0) != "short_put_vertical": f.append("struct bull->put")
+    if choose_structure("bearish", 0.0) != "short_call_vertical": f.append("struct bear->call")
+    if choose_structure("mixed", 0.0) != "iron_condor": f.append("struct mixed->IC")
+    # book already long-delta (+3) + bullish would add more long delta -> neutralize to IC
+    if choose_structure("bullish", 3.0) != "iron_condor": f.append("struct book-balance->IC")
+    # book delta proxy: 2 open put-verts (+) and 1 call-vert (-) => +1
+    bias = book_directional_bias([
+        {"status": "open", "structure": "short_put_vertical", "contracts": 1},
+        {"status": "open", "structure": "short_put_vertical", "contracts": 1},
+        {"status": "open", "structure": "short_call_vertical", "contracts": 1},
+        {"status": "closed", "structure": "short_put_vertical", "contracts": 9},
+    ])
+    if bias != 1.0:
+        f.append("book_directional_bias: {}".format(bias))
+
+    # ── P2: build a short CALL vertical + an IRON CONDOR end-to-end ──
+    cv = build_call_vertical("SPY", "2026-07-17", 35, 108.0, 113.0,
+                             {"bid": 1.50, "ask": 1.60, "mark": 1.55},
+                             {"bid": 0.46, "ask": 0.50, "mark": 0.48},
+                             price=100.0, iv=0.30, iv_rank=0.55)
+    if not cv or cv["structure"] != "short_call_vertical":
+        f.append("call vertical build failed: {}".format(cv))
+    elif not (cv["credit"] == 1.00 and cv["bpr"] == 400.0 and 0.70 <= cv["pop"] <= 0.90):
+        f.append("call vertical metrics: {}".format(cv))
+    # IC with ~12Δ shorts (88/112) -> range POP 0.805 (EV>0 needs >~0.75); 5-wide
+    ic = build_iron_condor("SPY", "2026-07-17", 35, 88.0, 83.0, 112.0, 117.0,
+                           {"bid": 0.70, "ask": 0.78, "mark": 0.74},   # put short
+                           {"bid": 0.12, "ask": 0.18, "mark": 0.15},   # put long
+                           {"bid": 0.70, "ask": 0.78, "mark": 0.74},   # call short
+                           {"bid": 0.12, "ask": 0.18, "mark": 0.15},   # call long
+                           price=100.0, iv=0.30, iv_rank=0.55)
+    if not ic or ic["structure"] != "iron_condor":
+        f.append("iron condor build failed: {}".format(ic))
+    else:
+        # total = (0.70-0.18)×2 = 1.04; maxloss=(5-1.04)*100=396; range POP ~0.805
+        if not approx(ic["credit"], 1.04, 1e-9):
+            f.append("IC total credit: {}".format(ic["credit"]))
+        if ic["max_loss"] != 396.0:
+            f.append("IC max loss: {}".format(ic["max_loss"]))
+        if not (0.75 <= ic["pop"] <= 0.85):
+            f.append("IC range pop band: {}".format(ic["pop"]))
 
     # _write smoke test (catches NameErrors like the WIDTH bug)
     import tempfile, json as _json

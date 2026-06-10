@@ -36,24 +36,55 @@ DEFAULT_UNIVERSE = [
     "JPM", "BAC", "WFC", "GS", "V", "MA", "DIS", "KO", "PEP", "WMT", "COST",
     "XOM", "CVX", "PFE", "MRK", "INTC", "CSCO", "ORCL", "CRM", "BA", "CAT",
 ]
-MIN_IV_RANK = float(os.getenv("SCAN_MIN_IV_RANK", "0.30"))   # only rich premium
+MIN_IV_RANK = float(os.getenv("SCAN_MIN_IV_RANK", "0.40"))   # only rich premium (P4: 0.30->0.40)
 DTE_MIN = int(os.getenv("SCAN_DTE_MIN", "30"))
-DTE_MAX = int(os.getenv("SCAN_DTE_MAX", "50"))
+DTE_MAX = int(os.getenv("SCAN_DTE_MAX", "60"))               # P4: 50->60
 TARGET_POP = float(os.getenv("SCAN_TARGET_POP", "0.80"))     # ~0.20Δ short put
 MIN_POP = float(os.getenv("SCAN_MIN_POP", "0.70"))
 MAX_POP = float(os.getenv("SCAN_MAX_POP", "0.90"))
 WIDTH_PCT = float(os.getenv("SCAN_WIDTH_PCT", "0.012"))      # spread width ≈ 1.2% of price
 MIN_WIDTH = float(os.getenv("SCAN_MIN_WIDTH", "5"))          # floor width ($)
-MIN_CREDIT_RATIO = float(os.getenv("SCAN_MIN_CREDIT_RATIO", "0.15"))  # exec credit / width
+MIN_CREDIT_RATIO = float(os.getenv("SCAN_MIN_CREDIT_RATIO", "0.20"))  # exec credit / width (P4: 0.15->0.20)
 FEES_PER_SPREAD = float(os.getenv("SCAN_FEES_PER_SPREAD", "3.0"))     # est. open+close commissions/fees
-MAX_REL_SPREAD = float(os.getenv("SCAN_MAX_REL_SPREAD", "0.20"))      # leg bid/ask tightness (liquidity gate)
+MAX_REL_SPREAD = float(os.getenv("SCAN_MAX_REL_SPREAD", "0.20"))      # leg bid/ask tightness — BOTH legs (P4)
+MIN_OPEN_INTEREST = int(os.getenv("SCAN_MIN_OI", "100"))     # P4: reject thin chains (short leg OI)
 MANAGE_FRAC = float(os.getenv("SCAN_MANAGE_FRAC", "0.5"))    # take profit at 50%
 STOP_MULT = float(os.getenv("SCAN_STOP_MULT", "1.5"))        # cut losers at 1.5x credit (matches rule)
 TOP_N = int(os.getenv("SCAN_TOP_N", "10"))
+# ── P1 safety caps (hard rejects, sized against the live account) ────────
+MAX_LOSS_FRAC = float(os.getenv("SCAN_MAX_LOSS_FRAC", "0.10"))   # max loss <= 10% of net liq
+BPR_CAP_FRAC = float(os.getenv("SCAN_BPR_CAP_FRAC", "0.50"))     # total BPR utilization ceiling
+BPR_TARGET_LOW = float(os.getenv("SCAN_BPR_TARGET_LOW", "0.35")) # target band 35-50% (display only)
+# ── P2 structure-selection knobs ────────────────────────────────────────
+# Book directional-bias proxy (NOT true greeks — streaming delta is a LATER TODO):
+# each open put-vert counts +1 bull unit, call-vert -1, IC ~0, x contracts x beta.
+BOOK_BIAS_BAND = float(os.getenv("SCAN_BOOK_BIAS_BAND", "1.0"))  # |bias| beyond this nudges toward neutral
+# IC skew: when defensive (VIX>=elevated), push the short PUT further OTM than the call.
+IC_PUT_POP = float(os.getenv("SCAN_IC_PUT_POP", "0.80"))
+IC_CALL_POP = float(os.getenv("SCAN_IC_CALL_POP", "0.80"))
+IC_PUT_POP_DEFENSIVE = float(os.getenv("SCAN_IC_PUT_POP_DEF", "0.85"))  # further OTM put in skew
+
+# ── TODO / LATER (logged, not built) ────────────────────────────────────
+#  - cross-expiry EV comparison (currently takes the shortest expiry in window)
+#  - Greeks/skew-aware strike selection (needs the streaming/greeks API)
+#  - correlation / sector exposure caps across the book
+#  - r, q (rates/dividends) in the POP model (currently r=q=0)
+#  - remove dead _mid() helper
+#  - P3 (next patch): macro-event calendar (CPI/FOMC/jobs), event-crush IC,
+#    fold monitor/fomc.py's trigger into the opportunities "events" feed,
+#    and the no-new-short-vol-within-2-days-of-an-event gate.
+#  - book bias is a directional PROXY (signed vertical count × beta), not true
+#    option delta — upgrade with streaming greeks when available.
+#  - OI gate is a no-op until the quote payload carries open-interest (confirm
+#    field name on the first live Actions run).
 # A pick is "live-worthy" (route to Approve/Reject for real execution) only if it
 # clears these higher bars; everything else is paper-traded to keep proving edge.
 LIVE_MIN_EV_ON_BPR = float(os.getenv("SCAN_LIVE_MIN_EV_ON_BPR", "0.018"))
 LIVE_MIN_IV_RANK = float(os.getenv("SCAN_LIVE_MIN_IV_RANK", "0.50"))
+# New structures (call verticals, iron condors) stay PAPER until they've proven
+# out in the paper book for several sessions. Flip SCAN_NEW_STRUCTURES_LIVE=1 to
+# allow them to earn a LIVE tag. Put verticals (the proven core) are unaffected.
+NEW_STRUCTURES_LIVE = os.getenv("SCAN_NEW_STRUCTURES_LIVE", "0") == "1"
 # Long-vol mode — the MIRROR of the premium-sell scan. Instead of selling rich
 # premium, flag names where IV rank is unusually LOW (vol is cheap) into a known
 # catalyst (earnings) within ~2 weeks — i.e. a coming move the market may be
@@ -197,9 +228,10 @@ def build_candidate(underlying, expiry, dte, short, long_, short_q, long_q,
     s, l = _leg_quote(short_q), _leg_quote(long_q)
     if not s or not l:
         return None
-    # Liquidity gate on the SHORT leg (the premium driver); the long leg's wider
-    # relative spread is normal and is already fully paid for in exec_credit below.
-    if s["rel"] > MAX_REL_SPREAD:
+    # P4 liquidity: gate BOTH legs on relative bid/ask, plus an open-interest floor.
+    if s["rel"] > MAX_REL_SPREAD or l["rel"] > MAX_REL_SPREAD:
+        return None
+    if not _oi_ok(short_q):
         return None
     width = round(short - long_, 2)
     exec_credit = round(s["bid"] - l["ask"], 2)   # realistic fill
@@ -214,7 +246,8 @@ def build_candidate(underlying, expiry, dte, short, long_, short_q, long_q,
     bpr = round((width - exec_credit) * 100.0, 2)
     if bpr <= 0:
         return None
-    ev = round(expectancy(exec_credit, bpr, pop) - FEES_PER_SPREAD, 2)
+    max_loss = bpr   # a vertical's max loss == its BPR
+    ev = round(expectancy_capped(exec_credit, pop, max_loss) - FEES_PER_SPREAD, 2)
     if ev <= 0:
         return None
     ev_on_bpr = round(ev / bpr, 4)
@@ -232,6 +265,7 @@ def build_candidate(underlying, expiry, dte, short, long_, short_q, long_q,
         "mid_credit": mid_credit,
         "fees_est": FEES_PER_SPREAD,
         "bpr": bpr,
+        "max_loss": max_loss,
         "pop": round(pop, 3),
         "short_delta": round(put_delta_abs(price, short, iv, dte) or 0.0, 3),
         "short_spread_pct": round(s["rel"], 3),
@@ -247,6 +281,164 @@ def build_candidate(underlying, expiry, dte, short, long_, short_q, long_q,
     }
 
 
+def _oi_ok(q):
+    """P4 liquidity floor on open interest. Pass if OI unknown (field not yet in
+    the quote payload — confirm on first live run); reject only if known and thin."""
+    if not q:
+        return False
+    oi = q.get("open_interest", q.get("oi"))
+    if oi is None:
+        return True
+    try:
+        return float(oi) >= MIN_OPEN_INTEREST
+    except (TypeError, ValueError):
+        return True
+
+
+def choose_call_strikes(call_strikes, price, iv, dte, target_pop=TARGET_POP, width=MIN_WIDTH):
+    """Pick (short, long) CALL strikes: short ≈ target POP above spot, long ≈ short + width."""
+    strikes = sorted(set(float(k) for k in call_strikes))
+    above = [k for k in strikes if k > price]
+    if not above:
+        return None
+    short = min(above, key=lambda k: abs((call_pop(price, k, iv, dte) or 0.0) - target_pop))
+    longs = [k for k in strikes if k > short]
+    if not longs:
+        return None
+    long_ = min(longs, key=lambda k: abs(k - (short + width)))
+    if long_ <= short:
+        return None
+    return short, long_
+
+
+def build_call_vertical(underlying, expiry, dte, short, long_, short_q, long_q,
+                        price, iv, iv_rank, liquidity=None, earnings_date=None,
+                        short_symbol=None, long_symbol=None):
+    """Short CALL vertical (mirror of the put builder). SELL short call at BID, BUY
+    long call at ASK. Wins if price stays BELOW the short call. EV net of fees."""
+    s, l = _leg_quote(short_q), _leg_quote(long_q)
+    if not s or not l:
+        return None
+    if s["rel"] > MAX_REL_SPREAD or l["rel"] > MAX_REL_SPREAD or not _oi_ok(short_q):
+        return None
+    width = round(long_ - short, 2)
+    exec_credit = round(s["bid"] - l["ask"], 2)
+    mid_credit = round(s["mid"] - l["mid"], 2)
+    if exec_credit <= 0 or width <= 0 or exec_credit / width < MIN_CREDIT_RATIO:
+        return None
+    pop = call_pop(price, short, iv, dte)
+    if pop is None or not (MIN_POP <= pop <= MAX_POP):
+        return None
+    max_loss = max_loss_vertical(width, exec_credit)
+    bpr = max_loss
+    if bpr <= 0:
+        return None
+    ev = round(expectancy_capped(exec_credit, pop, max_loss) - FEES_PER_SPREAD, 2)
+    if ev <= 0:
+        return None
+    ev_on_bpr = round(ev / bpr, 4)
+    return {
+        "underlying": underlying, "structure": "short_call_vertical",
+        "expiry": expiry, "dte": dte, "short_strike": short, "long_strike": long_,
+        "short_symbol": short_symbol, "long_symbol": long_symbol, "width": width,
+        "credit": exec_credit, "mid_credit": mid_credit, "fees_est": FEES_PER_SPREAD,
+        "bpr": bpr, "max_loss": max_loss, "pop": round(pop, 3),
+        "short_delta": round(call_delta_abs(price, short, iv, dte) or 0.0, 3),
+        "short_spread_pct": round(s["rel"], 3),
+        "credit_to_bpr": round(exec_credit * 100.0 / bpr, 3),
+        "ev_per_contract": ev, "ev_on_bpr": ev_on_bpr,
+        "iv": round(iv, 4), "iv_rank": round(iv_rank, 3), "underlying_price": round(price, 2),
+        "liquidity": liquidity, "earnings_date": earnings_date,
+        "tag": conviction_tag(ev_on_bpr, iv_rank, liquidity),
+    }
+
+
+def build_iron_condor(underlying, expiry, dte, put_short, put_long, call_short, call_long,
+                      pq_s, pq_l, cq_s, cq_l, price, iv, iv_rank,
+                      liquidity=None, earnings_date=None, symbols=None):
+    """Iron condor = short put vertical + short call vertical, same expiry.
+    total credit = both executable credits; range-bound POP via the lognormal model;
+    max loss = (single-side width − total credit) × 100 (only one side can breach)."""
+    ps, pl, cs, cl = (_leg_quote(pq_s), _leg_quote(pq_l), _leg_quote(cq_s), _leg_quote(cq_l))
+    if not all((ps, pl, cs, cl)):
+        return None
+    # gate the two SHORT legs (premium drivers) on spread + OI
+    if ps["rel"] > MAX_REL_SPREAD or cs["rel"] > MAX_REL_SPREAD:
+        return None
+    if not (_oi_ok(pq_s) and _oi_ok(cq_s)):
+        return None
+    put_width = round(put_short - put_long, 2)
+    call_width = round(call_long - call_short, 2)
+    width = max(put_width, call_width)            # equal wings assumed; use the larger
+    put_credit = round(ps["bid"] - pl["ask"], 2)
+    call_credit = round(cs["bid"] - cl["ask"], 2)
+    total_credit = round(put_credit + call_credit, 2)
+    if put_credit <= 0 or call_credit <= 0 or width <= 0:
+        return None
+    if total_credit / width < MIN_CREDIT_RATIO:
+        return None
+    pop = ic_range_pop(price, put_short, call_short, iv, dte)
+    if pop is None or not (MIN_POP <= pop <= MAX_POP):
+        return None
+    max_loss = max_loss_ic(width, total_credit)
+    bpr = max_loss
+    if bpr <= 0:
+        return None
+    ev = round(expectancy_capped(total_credit, pop, max_loss) - FEES_PER_SPREAD, 2)
+    if ev <= 0:
+        return None
+    ev_on_bpr = round(ev / bpr, 4)
+    symbols = symbols or {}
+    return {
+        "underlying": underlying, "structure": "iron_condor",
+        "expiry": expiry, "dte": dte,
+        "put_short_strike": put_short, "put_long_strike": put_long,
+        "call_short_strike": call_short, "call_long_strike": call_long,
+        # legacy fields so the dashboard/paper book (built for verticals) still render
+        "short_strike": put_short, "long_strike": call_short,
+        "symbols": symbols, "width": width,
+        "credit": total_credit, "put_credit": put_credit, "call_credit": call_credit,
+        "fees_est": FEES_PER_SPREAD, "bpr": bpr, "max_loss": max_loss, "pop": round(pop, 3),
+        "put_short_delta": round(put_delta_abs(price, put_short, iv, dte) or 0.0, 3),
+        "call_short_delta": round(call_delta_abs(price, call_short, iv, dte) or 0.0, 3),
+        "credit_to_bpr": round(total_credit * 100.0 / bpr, 3),
+        "ev_per_contract": ev, "ev_on_bpr": ev_on_bpr,
+        "iv": round(iv, 4), "iv_rank": round(iv_rank, 3), "underlying_price": round(price, 2),
+        "liquidity": liquidity, "earnings_date": earnings_date,
+        "tag": conviction_tag(ev_on_bpr, iv_rank, liquidity),
+    }
+
+
+def reasoning_for(c, trend=None, book_bias=None):
+    """Plain-English why-string for an opportunity (P5)."""
+    st = c.get("structure")
+    name = {"short_put_vertical": "short put vertical",
+            "short_call_vertical": "short call vertical",
+            "iron_condor": "iron condor"}.get(st, st)
+    if st == "iron_condor":
+        why = "neutral — defined-risk both sides"
+        if book_bias:
+            why = "neutral (book bias {:+.0f} → balance)".format(book_bias)
+        strikes = "{:g}/{:g}p + {:g}/{:g}c".format(
+            c.get("put_short_strike", 0), c.get("put_long_strike", 0),
+            c.get("call_short_strike", 0), c.get("call_long_strike", 0))
+    elif st == "short_call_vertical":
+        why = "bearish lean" if trend == "bearish" else "book balance (reduce long delta)"
+        strikes = "{:g}/{:g}c".format(c.get("short_strike", 0), c.get("long_strike", 0))
+    else:
+        why = "bullish lean" if trend == "bullish" else "rich premium"
+        strikes = "{:g}/{:g}p".format(c.get("short_strike", 0), c.get("long_strike", 0))
+    n = c.get("contracts", 1)
+    return (
+        "{name} {strikes} ×{n} — {why}. Edge: IV rank {ivr:.0%}, EV ${ev:+.0f}/ctr "
+        "({evb:+.1%} on BPR). POP {pop:.0%} · credit ${cr:.2f} · max loss ${ml:.0f} · "
+        "BPR ${bpr:.0f} · {dte} DTE. Manage: take 50% / cut 1.5× / exit 21 DTE / no earnings."
+    ).format(name=name, strikes=strikes, n=n, why=why, ivr=c.get("iv_rank", 0),
+             ev=c.get("ev_per_contract", 0), evb=c.get("ev_on_bpr", 0), pop=c.get("pop", 0),
+             cr=c.get("credit", 0), ml=c.get("max_loss", c.get("bpr", 0)),
+             bpr=c.get("bpr", 0) * n, dte=c.get("dte", 0))
+
+
 def rank_opportunities(candidates, top_n=TOP_N):
     """Best expected return on capital first; tie-break on IV rank then POP."""
     return sorted(
@@ -254,6 +446,121 @@ def rank_opportunities(candidates, top_n=TOP_N):
         key=lambda c: (c["ev_on_bpr"], c["iv_rank"], c["pop"]),
         reverse=True,
     )[:top_n]
+
+
+# ── P2: multi-structure math (call verticals, iron condors) ─────────────
+def call_pop(price, strike, iv, dte):
+    """P a short CALL expires OTM (price stays BELOW the short strike) = a win."""
+    if not (price > 0 and strike > 0 and iv > 0 and dte > 0):
+        return None
+    return norm_cdf(-_d2(price, strike, iv, dte))
+
+
+def call_delta_abs(price, strike, iv, dte):
+    """|delta| of the call (for reference/strike picking)."""
+    if not (price > 0 and strike > 0 and iv > 0 and dte > 0):
+        return None
+    t = dte / 365.0
+    d1 = (math.log(price / strike) + 0.5 * iv * iv * t) / (iv * math.sqrt(t))
+    return norm_cdf(d1)
+
+
+def ic_range_pop(price, put_short, call_short, iv, dte):
+    """P(price finishes BETWEEN the short strikes) — the iron-condor win prob.
+
+    = P(above short put) + P(below short call) − 1  (overlap of the two wins).
+    """
+    pp = put_pop(price, put_short, iv, dte)
+    cp = call_pop(price, call_short, iv, dte)
+    if pp is None or cp is None:
+        return None
+    return max(0.0, pp + cp - 1.0)
+
+
+def max_loss_vertical(width, credit, contracts=1):
+    """$ max loss of a vertical = (width − credit) × 100 × contracts."""
+    return round((width - credit) * 100.0 * contracts, 2)
+
+
+def max_loss_ic(width, total_credit, contracts=1):
+    """$ max loss of an iron condor — only ONE side can be breached, so it's
+    (single-side width − TOTAL credit) × 100 × contracts (assumes equal wings)."""
+    return round((width - total_credit) * 100.0 * contracts, 2)
+
+
+def expectancy_capped(credit, pop, max_loss_per_ct):
+    """EV $/contract under management. win = 50% of credit; loss = the smaller of
+    1.5× credit or the structural max loss (so narrow spreads aren't over-penalized)."""
+    win = MANAGE_FRAC * credit * 100.0
+    loss = min(STOP_MULT * credit * 100.0, max_loss_per_ct)
+    return round(pop * win - (1 - pop) * loss, 2)
+
+
+# ── P1: position sizing against the live account (hard caps) ────────────
+def size_for_caps(max_loss_1ct, bpr_1ct, net_liq, used_bpr,
+                  max_loss_frac=MAX_LOSS_FRAC, bpr_cap_frac=BPR_CAP_FRAC):
+    """Contracts that keep max loss ≤ max_loss_frac×net_liq AND total BPR ≤
+    bpr_cap_frac×net_liq. Returns 0 if even ONE contract breaches either cap
+    (caller must SKIP). Returns 1 with caps un-enforced only if net_liq is unknown.
+    """
+    if not net_liq or net_liq <= 0:
+        return 1            # no account context; downstream keeps it PAPER (caps unvalidated)
+    loss_cap = max_loss_frac * net_liq
+    bpr_room = bpr_cap_frac * net_liq - (used_bpr or 0.0)
+    if max_loss_1ct > loss_cap or bpr_1ct > bpr_room:
+        return 0            # 1 contract already breaches a hard cap -> skip the trade
+    n_loss = int(loss_cap // max_loss_1ct) if max_loss_1ct > 0 else 999
+    n_bpr = int(bpr_room // bpr_1ct) if bpr_1ct > 0 else 999
+    return max(1, min(n_loss, n_bpr))
+
+
+# ── P2: structure selection (trend + book balance + skew) ───────────────
+def trend_from_mas(price, ma20, ma50):
+    """Simple trend filter from price vs 20/50-day moving averages."""
+    if price is None or ma20 is None or ma50 is None:
+        return "mixed"
+    if price > ma20 and ma20 >= ma50:
+        return "bullish"
+    if price < ma20 and ma20 <= ma50:
+        return "bearish"
+    return "mixed"
+
+
+def book_directional_bias(open_trades, betas=None):
+    """Beta-weighted directional bias of the open book (proxy, not true greeks).
+
+    +1 unit per open short-put-vertical (long delta), −1 per short-call-vertical,
+    0 for iron condors, scaled by contracts and beta-to-SPY (default 1.0).
+    Positive = book is net long-delta. (True option delta is a LATER/streaming TODO.)
+    """
+    betas = betas or {}
+    bias = 0.0
+    for t in open_trades or []:
+        if t.get("status") != "open":
+            continue
+        struct = (t.get("structure") or "")
+        sign = 1.0 if "put" in struct else (-1.0 if "call" in struct else 0.0)
+        ctr = float(t.get("contracts") or 1)
+        beta = float(betas.get(t.get("underlying"), 1.0))
+        bias += sign * ctr * beta
+    return round(bias, 2)
+
+
+def choose_structure(trend, book_bias=0.0, band=BOOK_BIAS_BAND):
+    """Pick a structure: trend lean, then nudge toward neutral if the book is
+    already skewed one way. bullish→put vert, bearish→call vert, mixed→IC.
+    If adding the trend structure would worsen an already-large book bias, default
+    to the neutral IC instead."""
+    base = {"bullish": "short_put_vertical",
+            "bearish": "short_call_vertical"}.get(trend, "iron_condor")
+    if book_bias is not None:
+        # book already long-delta and we'd add MORE long delta (put vert) -> neutralize
+        if book_bias > band and base == "short_put_vertical":
+            return "iron_condor"
+        # book already short-delta and we'd add MORE short delta (call vert) -> neutralize
+        if book_bias < -band and base == "short_call_vertical":
+            return "iron_condor"
+    return base
 
 
 # ── Long-vol mode (mirror of the premium-sell scan) ─────────────────────
@@ -363,7 +670,7 @@ def fetch_equity_prices(client, symbols):
 
 
 def fetch_chain_expiration(client, symbol, dte_min=DTE_MIN, dte_max=DTE_MAX):
-    """Return (expiration_date, dte, {strike_price: put_option_symbol}) in the DTE window."""
+    """Return (expiration_date, dte, puts{strike:sym}, calls{strike:sym}) in the DTE window."""
     try:
         data = client._get("/option-chains/{}/nested".format(symbol))
         items = data.get("data", {}).get("items", [])
@@ -376,14 +683,112 @@ def fetch_chain_expiration(client, symbol, dte_min=DTE_MIN, dte_max=DTE_MAX):
         dte = int(_f(exp.get("days-to-expiration")) or -1)
         if dte_min <= dte <= dte_max:
             if best is None or dte < best[1]:
-                puts = {}
+                puts, calls = {}, {}
                 for s in exp.get("strikes", []):
                     k = _f(s.get("strike-price"))
-                    put_sym = s.get("put")
-                    if k and put_sym:
-                        puts[k] = put_sym
-                best = (exp.get("expiration-date"), dte, puts)
+                    if not k:
+                        continue
+                    if s.get("put"):
+                        puts[k] = s["put"]
+                    if s.get("call"):
+                        calls[k] = s["call"]
+                best = (exp.get("expiration-date"), dte, puts, calls)
     return best
+
+
+def fetch_trend(symbol):
+    """(ma20, ma50) from daily closes via yfinance, or (None, None) on failure.
+    Defensive: a miss just yields a 'mixed' trend (-> neutral IC default)."""
+    try:
+        import yfinance as yf
+        hist = yf.Ticker(symbol).history(period="3mo", interval="1d")
+        closes = hist["Close"].dropna()
+        if len(closes) < 50:
+            return None, None
+        return float(closes.tail(20).mean()), float(closes.tail(50).mean())
+    except Exception as e:  # noqa: BLE001
+        log.warning("trend fetch failed for %s: %s", symbol, e)
+        return None, None
+
+
+def account_context(client):
+    """(net_liq, used_bpr, book_bias) for sizing + structure balance.
+
+    net_liq from the live snapshot; used_bpr + directional bias from the tracked
+    open book (trades.json). All defensive — a miss yields (None, 0, 0) so the
+    scan still runs (sizing then can't validate caps and everything stays PAPER).
+    """
+    net_liq = None
+    try:
+        net_liq = client.fetch_snapshot().net_liquidating_value
+    except Exception as e:  # noqa: BLE001
+        log.warning("account snapshot failed (sizing will stay paper): %s", e)
+    open_trades = []
+    try:
+        book = json.loads((REPO_ROOT / "trades.json").read_text())
+        open_trades = [t for t in book.get("trades", []) if t.get("status") == "open"]
+    except Exception:  # noqa: BLE001
+        pass
+    used_bpr = round(sum(float(t.get("bpr_total") or 0) for t in open_trades), 2)
+    bias = book_directional_bias(open_trades)
+    return net_liq, used_bpr, bias
+
+
+def _build_for_structure(client, structure, sym, expiry, dte, price, iv, m,
+                         puts, calls, width, defensive=False):
+    """Pick strikes + fetch quotes + build the chosen structure. Falls back to a
+    put vertical (the proven core) if the chosen structure can't be built."""
+    ivr, liq, earn = m["iv_rank"], m.get("liquidity"), m.get("earnings_date")
+
+    def _pv():
+        sel = choose_strikes(list(puts.keys()), price, iv, dte, width=width)
+        if not sel:
+            return None
+        s, l = sel
+        q = client.fetch_option_quotes([puts[s], puts[l]])
+        if not (q.get(puts[s]) and q.get(puts[l])):
+            return None
+        return build_candidate(sym, expiry, dte, s, l, q[puts[s]], q[puts[l]],
+                               price, iv, ivr, liq, earn, short_symbol=puts[s], long_symbol=puts[l])
+
+    def _cv():
+        if not calls:
+            return None
+        sel = choose_call_strikes(list(calls.keys()), price, iv, dte, width=width)
+        if not sel:
+            return None
+        s, l = sel
+        q = client.fetch_option_quotes([calls[s], calls[l]])
+        if not (q.get(calls[s]) and q.get(calls[l])):
+            return None
+        return build_call_vertical(sym, expiry, dte, s, l, q[calls[s]], q[calls[l]],
+                                   price, iv, ivr, liq, earn, short_symbol=calls[s], long_symbol=calls[l])
+
+    def _ic():
+        if not (puts and calls):
+            return None
+        # IC skew: push the short PUT further OTM (higher POP / lower delta) in defensive regimes.
+        put_pop_t = IC_PUT_POP_DEFENSIVE if defensive else IC_PUT_POP
+        psel = choose_strikes(list(puts.keys()), price, iv, dte, target_pop=put_pop_t, width=width)
+        csel = choose_call_strikes(list(calls.keys()), price, iv, dte, target_pop=IC_CALL_POP, width=width)
+        if not (psel and csel):
+            return None
+        ps_, pl_ = psel
+        cs_, cl_ = csel
+        legs = [puts[ps_], puts[pl_], calls[cs_], calls[cl_]]
+        q = client.fetch_option_quotes(legs)
+        if not all(q.get(x) for x in legs):
+            return None
+        return build_iron_condor(sym, expiry, dte, ps_, pl_, cs_, cl_,
+                                 q[puts[ps_]], q[puts[pl_]], q[calls[cs_]], q[calls[cl_]],
+                                 price, iv, ivr, liq, earn,
+                                 symbols={"put_short": puts[ps_], "put_long": puts[pl_],
+                                          "call_short": calls[cs_], "call_long": calls[cl_]})
+
+    cand = {"short_put_vertical": _pv, "short_call_vertical": _cv, "iron_condor": _ic}.get(structure, _pv)()
+    if cand is None and structure != "short_put_vertical":
+        cand = _pv()   # fall back to the proven core
+    return cand
 
 
 def main() -> int:
@@ -400,6 +805,13 @@ def main() -> int:
     prices = fetch_equity_prices(client, syms)
     today = date.today().isoformat()
 
+    # P1: account context for sizing/caps + P2 book-balance; regime up front for IC skew.
+    net_liq, used_bpr, book_bias = account_context(client)
+    regime = _market_regime_now()
+    defensive = bool(regime.get("stand_down")) or regime.get("level") in ("elevated", "stress")
+    log.info("account: net_liq=%s used_bpr=%.0f book_bias=%s · regime: %s",
+             net_liq, used_bpr or 0.0, book_bias, regime.get("note"))
+
     candidates, skipped = [], {}
     for sym in syms:
         m = metrics.get(sym)
@@ -414,28 +826,40 @@ def main() -> int:
         if not exp:
             skipped[sym] = "no expiry in window"
             continue
-        expiry, dte, puts = exp
+        expiry, dte, puts, calls = exp
         if m["earnings_date"] and today <= m["earnings_date"] <= (expiry or "9999"):
             skipped[sym] = "earnings {} before expiry".format(m["earnings_date"])
             continue
-        sel = choose_strikes(list(puts.keys()), price, m["iv"], dte, width=target_width(price))
-        if not sel:
-            skipped[sym] = "no strikes"
-            continue
-        short, long_ = sel
-        quotes = client.fetch_option_quotes([puts[short], puts[long_]])
-        sm = quotes.get(puts[short])
-        lm = quotes.get(puts[long_])
-        if not sm or not lm:
-            skipped[sym] = "no option quotes"
-            continue
-        cand = build_candidate(sym, expiry, dte, short, long_, sm, lm,
-                               price, m["iv"], m["iv_rank"], m.get("liquidity"), m.get("earnings_date"),
-                               short_symbol=puts[short], long_symbol=puts[long_])
-        if cand:
-            candidates.append(cand)
-        else:
+        # P2: structure selection — trend lean, nudged toward neutral by book balance.
+        ma20, ma50 = fetch_trend(sym)
+        trend = trend_from_mas(price, ma20, ma50)
+        structure = choose_structure(trend, book_bias)
+        cand = _build_for_structure(client, structure, sym, expiry, dte, price, m["iv"], m,
+                                    puts, calls, target_width(price), defensive)
+        if not cand:
             skipped[sym] = "failed filters"
+            continue
+        # P1: size against the live account; reserve BPR sequentially so we don't over-allocate.
+        n = size_for_caps(cand["max_loss"], cand["bpr"], net_liq, used_bpr)
+        if n == 0:
+            skipped[sym] = "exceeds risk caps (1ct breaches max-loss/BPR)"
+            continue
+        cand["contracts"] = n
+        cand["max_loss_total"] = round(cand["max_loss"] * n, 2)
+        cand["bpr_total"] = round(cand["bpr"] * n, 2)
+        cand["trend"] = trend
+        cand["sized_capped"] = net_liq is not None
+        # Safety: can't validate caps without the account, OR a not-yet-proven new
+        # structure -> keep it PAPER regardless of conviction (paper-validate first).
+        if cand["tag"] == "live":
+            if not cand["sized_capped"]:
+                cand["tag"], cand["demoted"] = "paper", "caps unvalidated (no account)"
+            elif cand["structure"] != "short_put_vertical" and not NEW_STRUCTURES_LIVE:
+                cand["tag"], cand["demoted"] = "paper", "new structure — paper-validating"
+        cand["reasoning"] = reasoning_for(cand, trend, book_bias)
+        candidates.append(cand)
+        if net_liq:
+            used_bpr += cand["bpr_total"]
 
     # Long-vol pass — reuses the metrics/prices already fetched (no extra calls).
     long_vol = []
@@ -451,9 +875,7 @@ def main() -> int:
 
     ranked = rank_opportunities(candidates)
     _apply_news_gate(ranked)        # single-name shield: veto picks with a pending catalyst
-    regime = _market_regime_now()   # market-wide shield: stand down in a vol spike
-    _apply_regime(ranked, regime)
-    log.info("market regime: %s", regime["note"])
+    _apply_regime(ranked, regime)   # market-wide shield (regime computed up front)
     _write(ranked, candidates, skipped, regime, long_vol)
     _alert_live([c for c in ranked if c.get("tag") == "live"])
     if regime.get("stand_down"):
@@ -562,7 +984,7 @@ def _mid(q):
     return (b + a) / 2 if (b is not None and a is not None) else None
 
 
-def _write(ranked, candidates, skipped, regime=None, long_vol=None):
+def _write(ranked, candidates, skipped, regime=None, long_vol=None, events=None):
     SCAN_DIR.mkdir(parents=True, exist_ok=True)
     long_vol = long_vol or []
     payload = {
@@ -573,6 +995,7 @@ def _write(ranked, candidates, skipped, regime=None, long_vol=None):
                    "longvol_max_iv_rank": LONGVOL_MAX_IV_RANK, "longvol_catalyst_days": LONGVOL_CATALYST_DAYS},
         "top": ranked,
         "long_vol": long_vol,
+        "events": events or [],   # P3 macro-event / FOMC crush setups (next patch)
         "all_candidates": candidates,
         "skipped": skipped,
     }
