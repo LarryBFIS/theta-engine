@@ -22,6 +22,7 @@ PAPER_DIR = REPO_ROOT / "paper"
 BOOK_FILE = PAPER_DIR / "book.json"
 SCAN_FILE = REPO_ROOT / "scan" / "opportunities.json"
 
+BOOK_SCHEMA = 2        # bump to wipe a book written by buggy older logic
 MANAGE_FRAC = 0.5      # take profit at 50% of credit
 EXIT_DTE = 21         # hard exit
 STOP_DEBIT_MULT = 1.5  # cut at 1.5x credit (debit to close >= 2.5x credit)
@@ -35,13 +36,18 @@ def _sig(t):
 
 
 def record_picks(book, picks, today):
-    """Add new picks as open paper trades (deduped by signature). Returns changes[]."""
+    """Add new picks as open paper trades (deduped by signature). Returns changes[].
+
+    Dedup against EVERY trade ever recorded — not just open ones. A pick that
+    already closed must not reappear and re-open on the next scan; that churn was
+    inflating the book with phantom repeat-wins.
+    """
     trades = book.setdefault("trades", [])
-    open_sigs = {_sig(t) for t in trades if t.get("status") == "open"}
+    known_sigs = {_sig(t) for t in trades}
     changes = []
     for p in picks:
         sig = _sig(p)
-        if sig in open_sigs:
+        if sig in known_sigs:
             continue
         n = len(trades) + 1
         trades.append({
@@ -60,14 +66,16 @@ def record_picks(book, picks, today):
             "iv_rank": p.get("iv_rank"),
             "tag": p.get("tag", "paper"),
             "opened_at": today,
-            "opened_credit": p.get("credit"),
+            # Open at the realistic mid (mid_credit); fall back to executable
+            # credit only if the scan didn't carry a mid.
+            "opened_credit": p.get("mid_credit") or p.get("credit"),
             "status": "open",
             "realized_pnl": None,
             "unrealized_pnl": None,
             "current_debit": None,
             "close_reason": None,
         })
-        open_sigs.add(sig)
+        known_sigs.add(sig)
         changes.append("opened {} {:g}/{:g}p [{}]".format(
             p.get("underlying"), p.get("short_strike"), p.get("long_strike"), p.get("tag", "paper")))
     return changes
@@ -164,7 +172,13 @@ def main() -> int:
                         format="%(asctime)s %(levelname)-7s %(name)s · %(message)s",
                         stream=sys.stdout)
     today = date.today().isoformat()
-    book = _load(BOOK_FILE, {"schema_version": 1, "trades": []})
+    book = _load(BOOK_FILE, {"schema_version": BOOK_SCHEMA, "trades": []})
+    if book.get("schema_version") != BOOK_SCHEMA:
+        # Old book came from the churn-prone v1 logic (phantom repeat wins).
+        # Start clean rather than carry forward poisoned numbers.
+        log.warning("Paper book schema %s != %s — resetting to a clean book.",
+                    book.get("schema_version"), BOOK_SCHEMA)
+        book = {"schema_version": BOOK_SCHEMA, "trades": []}
 
     scan = _load(SCAN_FILE, {})
     picks = scan.get("top", [])
