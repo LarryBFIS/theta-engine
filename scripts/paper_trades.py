@@ -23,6 +23,10 @@ BOOK_FILE = PAPER_DIR / "book.json"
 SCAN_FILE = REPO_ROOT / "scan" / "opportunities.json"
 
 BOOK_SCHEMA = 2        # bump to wipe a book written by buggy older logic
+import os
+# Real-money fidelity: tastytrade ~$1/contract/leg to open + regulatory both
+# ways; ~$1.25 per leg per contract round-trip. Deducted from every realized.
+FEE_PER_LEG = float(os.getenv("PAPER_FEE_PER_LEG", "1.25"))
 MANAGE_FRAC = 0.5      # take profit at 50% of credit
 EXIT_DTE = 21         # hard exit
 STOP_DEBIT_MULT = 1.5  # cut at 1.5x credit (debit to close >= 2.5x credit)
@@ -69,10 +73,12 @@ def record_picks(book, picks, today):
             "contracts": int(p.get("contracts") or 1),
             "event": p.get("event"),
             "close_date": p.get("close_date"),   # event-crush: force close on this date
+            "day_trade": p.get("day_trade"),
+            "close_after_et": p.get("close_after_et"),
             "opened_at": today,
-            # Open at the realistic mid (mid_credit); fall back to executable
-            # credit only if the scan didn't carry a mid.
-            "opened_credit": p.get("mid_credit") or p.get("credit"),
+            # Real-money fidelity: open at the EXECUTABLE credit (cross the
+            # spread), never the flattering mid — real fills can only match or beat this.
+            "opened_credit": p.get("credit") or p.get("mid_credit"),
             "status": "open",
             "realized_pnl": None,
             "unrealized_pnl": None,
@@ -136,28 +142,46 @@ def _mark_of(q):
     return q.get("mark") if q.get("mark") is not None else _mid(q)
 
 
-def mark_trade(trade, marks, today):
+def _exec_buy(q):
+    """Cost to BUY a leg back: the ASK (fallback mark/mid) — conservative."""
+    q = q or {}
+    return q.get("ask") if q.get("ask") is not None else _mark_of(q)
+
+
+def _exec_sell(q):
+    """Proceeds SELLING a leg: the BID (fallback mark/mid) — conservative."""
+    q = q or {}
+    return q.get("bid") if q.get("bid") is not None else _mark_of(q)
+
+
+def mark_trade(trade, marks, today, now_hhmm=None):
     """Update one open paper trade with current marks + management. Mutates trade."""
     current_debit = None
     ctr = int(trade.get("contracts") or 1)   # scale per-contract P&L by position size
     syms = trade.get("symbols")
+    # Real-money fidelity: cost-to-close at EXECUTABLE prices (buy back shorts at
+    # the ask, sell longs at the bid) — real exits match or beat this.
     if syms:   # iron condor: debit = (put spread) + (call spread)
-        ps = _mark_of(marks.get(syms.get("put_short")))
-        pl = _mark_of(marks.get(syms.get("put_long")))
-        cs = _mark_of(marks.get(syms.get("call_short")))
-        cl = _mark_of(marks.get(syms.get("call_long")))
+        ps = _exec_buy(marks.get(syms.get("put_short")))
+        pl = _exec_sell(marks.get(syms.get("put_long")))
+        cs = _exec_buy(marks.get(syms.get("call_short")))
+        cl = _exec_sell(marks.get(syms.get("call_long")))
         if None not in (ps, pl, cs, cl):
             current_debit = round((ps - pl) + (cs - cl), 2)
     else:      # two-leg vertical
-        short_mark = _mark_of(marks.get(trade.get("short_symbol")))
-        long_mark = _mark_of(marks.get(trade.get("long_symbol")))
+        short_mark = _exec_buy(marks.get(trade.get("short_symbol")))
+        long_mark = _exec_sell(marks.get(trade.get("long_symbol")))
         if short_mark is not None and long_mark is not None:
             current_debit = round(short_mark - long_mark, 2)
     if current_debit is not None:
         trade["current_debit"] = current_debit
         trade["unrealized_pnl"] = round((trade["opened_credit"] - current_debit) * 100 * ctr, 2)
     dte = _dte(trade.get("expiry"), today)
-    if trade.get("close_date"):
+    if (trade.get("day_trade") and now_hhmm and current_debit is not None
+            and now_hhmm >= (trade.get("close_after_et") or "15:30")):
+        # Day trade: force close same day at executable prices.
+        action, realized, reason = "close", round((trade["opened_credit"] - current_debit) * 100, 2), "day_close"
+    elif trade.get("close_date"):
         action, realized, reason = manage_decision_event(
             trade["opened_credit"], current_debit, dte, today, trade["close_date"])
     else:
@@ -165,7 +189,10 @@ def mark_trade(trade, marks, today):
     if action == "close":
         trade["status"] = "closed"
         trade["closed_at"] = today
-        trade["realized_pnl"] = round(realized * ctr, 2) if realized is not None else realized
+        legs = 4 if syms else 2
+        fees = round(FEE_PER_LEG * legs * ctr, 2)
+        trade["fees"] = fees
+        trade["realized_pnl"] = round(realized * ctr - fees, 2) if realized is not None else realized
         trade["unrealized_pnl"] = None
         trade["close_reason"] = reason
         return reason
@@ -272,9 +299,14 @@ def main() -> int:
             marks = TastytradeClient().fetch_option_quotes(sorted(set(symbols)))
         except Exception as e:  # noqa: BLE001
             log.warning("paper marks fetch failed: %s", e)
+    try:
+        from zoneinfo import ZoneInfo
+        now_hhmm = datetime.now(ZoneInfo("America/New_York")).strftime("%H:%M")
+    except Exception:  # noqa: BLE001
+        now_hhmm = None
     closed_now = []
     for t in open_trades:
-        reason = mark_trade(t, marks, today)
+        reason = mark_trade(t, marks, today, now_hhmm)
         if reason:
             closed_now.append("{} -> {}".format(t["id"], reason))
 

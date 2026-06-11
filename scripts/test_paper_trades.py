@@ -61,7 +61,7 @@ def main() -> int:
     reason = mark_trade(t, marks, "2026-06-15")
     if t["status"] != "closed" or reason != "manage_50pct":
         f.append("mark_trade close: {} {}".format(t["status"], reason))
-    if t["realized_pnl"] != 43.0:
+    if t["realized_pnl"] != 40.5:   # 43 gross - 2 legs x $1.25 fees
         f.append("mark realized {}".format(t["realized_pnl"]))
 
     # open trade that should hold
@@ -74,7 +74,7 @@ def main() -> int:
 
     # --- summarize ---
     s = summarize(book2)  # 1 closed win
-    if not (s["closed"] == 1 and s["wins"] == 1 and s["realized_pnl"] == 43.0 and s["win_rate"] == 1.0):
+    if not (s["closed"] == 1 and s["wins"] == 1 and s["realized_pnl"] == 40.5 and s["win_rate"] == 1.0):
         f.append("summarize: {}".format(s))
 
     # --- contracts scaling: 3-lot scales unrealized AND realized 3x ---
@@ -84,7 +84,7 @@ def main() -> int:
     if t4.get("contracts") != 3:
         f.append("contracts not recorded: {}".format(t4.get("contracts")))
     reason4 = mark_trade(t4, {"CAT 775P": {"mark": 0.60}, "CAT 770P": {"mark": 0.20}}, "2026-06-15")
-    if reason4 != "manage_50pct" or t4["realized_pnl"] != 129.0:   # 43 x 3
+    if reason4 != "manage_50pct" or t4["realized_pnl"] != 121.5:   # 43x3 - 2x3x1.25 fees
         f.append("contracts scaling: {} {}".format(reason4, t4.get("realized_pnl")))
 
     # --- event-crush management: hold pre-close-date, force close on it ---
@@ -114,7 +114,7 @@ def main() -> int:
     icmarks = {"IWM 272P": {"mark": 0.30}, "IWM 268P": {"mark": 0.10},
                "IWM 312C": {"mark": 0.25}, "IWM 316C": {"mark": 0.05}}
     r = mark_trade(ic, icmarks, "2026-06-12")   # debit (0.2+0.2)=0.40, captured 0.60 >=50% -> manage_50pct
-    if r != "manage_50pct" or ic["realized_pnl"] != 120.0:   # 60 x 2 contracts
+    if r != "manage_50pct" or ic["realized_pnl"] != 110.0:   # 60x2 - 4x2x1.25 fees
         f.append("IC mark/close wrong: {} {}".format(r, ic.get("realized_pnl")))
 
     if f:

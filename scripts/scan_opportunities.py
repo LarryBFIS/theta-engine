@@ -80,6 +80,12 @@ PAPER_CAPITAL = float(os.getenv("SCAN_PAPER_CAPITAL", "20000"))
 # moves more often than not). PAPER-ONLY while it proves itself.
 EC_MOVE_MULT = float(os.getenv("SCAN_EC_MOVE_MULT", "1.1"))   # shorts beyond 1.1x the implied move
 EC_DTE_MAX = int(os.getenv("SCAN_EC_DTE_MAX", "12"))          # nearest expiry after the event
+# Day-trade paper book: 0-1 DTE defined-risk IC on daily-expiry index ETFs,
+# opened before noon ET, force-closed by 15:30 same day. PAPER-ONLY.
+DAY_UNDERLYINGS = [x.strip().upper() for x in os.getenv("SCAN_DAY_UNDERLYINGS", "SPY,QQQ").split(",") if x.strip()]
+DAY_POP = float(os.getenv("SCAN_DAY_POP", "0.86"))     # per-side short target (~14Δ)
+DAY_LAST_ENTRY_ET = os.getenv("SCAN_DAY_LAST_ENTRY_ET", "12:00")
+DAY_CLOSE_ET = os.getenv("SCAN_DAY_CLOSE_ET", "15:30")
 # ── P2 structure-selection knobs ────────────────────────────────────────
 # Book directional-bias proxy (NOT true greeks — streaming delta is a LATER TODO):
 # each open put-vert counts +1 bull unit, call-vert -1, IC ~0, x contracts x beta.
@@ -919,6 +925,66 @@ def earnings_crush_pass(client, metrics, prices, today):
     return out
 
 
+def day_trade_pass(client, prices, metrics, today):
+    """0-1 DTE iron condors on SPY/QQQ for the day-trade paper book.
+
+    Only before DAY_LAST_ENTRY_ET; shorts at ~DAY_POP per side; force-closed by
+    DAY_CLOSE_ET via the paper book's day_trade rule. PAPER tag always.
+    """
+    try:
+        from zoneinfo import ZoneInfo
+        now = datetime.now(ZoneInfo("America/New_York")).strftime("%H:%M")
+    except Exception:  # noqa: BLE001
+        return []
+    if now >= DAY_LAST_ENTRY_ET:
+        return []
+    out = []
+    for sym in DAY_UNDERLYINGS:
+        price = prices.get(sym)
+        iv = (metrics.get(sym) or {}).get("iv")
+        if not price or not iv:
+            continue
+        exp = fetch_chain_expiration(client, sym, dte_min=0, dte_max=1)
+        if not exp:
+            continue
+        expiry, dte, puts, calls = exp
+        d = max(dte, 1)
+        psel = choose_strikes(list(puts.keys()), price, iv, d, target_pop=DAY_POP, width=2)
+        csel = choose_call_strikes(list(calls.keys()), price, iv, d, target_pop=DAY_POP, width=2)
+        if not (psel and csel):
+            continue
+        ps_, pl_ = psel
+        cs_, cl_ = csel
+        legs = [puts[ps_], puts[pl_], calls[cs_], calls[cl_]]
+        q = client.fetch_option_quotes(legs)
+        if not all(q.get(x) for x in legs):
+            continue
+        cand = build_iron_condor(sym, expiry, dte, ps_, pl_, cs_, cl_,
+                                 q[puts[ps_]], q[puts[pl_]], q[calls[cs_]], q[calls[cl_]],
+                                 price, iv, (metrics.get(sym) or {}).get("iv_rank") or 0.0,
+                                 None, None,
+                                 symbols={"put_short": puts[ps_], "put_long": puts[pl_],
+                                          "call_short": calls[cs_], "call_long": calls[cl_]})
+        if not cand:
+            log.info("day-trade %s rejected: %s", sym, LAST_REJECT)
+            continue
+        n = size_for_caps(cand["max_loss"], cand["bpr"], PAPER_CAPITAL, 0.0)
+        if n == 0:
+            continue
+        cand.update({"tag": "paper", "sized_for": "paper", "day_trade": True,
+                     "close_after_et": DAY_CLOSE_ET, "contracts": n,
+                     "max_loss_total": round(cand["max_loss"] * n, 2),
+                     "bpr_total": round(cand["bpr"] * n, 2),
+                     "reasoning": ("DAY TRADE (paper): {} 0-1DTE iron condor, shorts ~{:.0f}Δ "
+                                   "({:g}p/{:g}c), credit ${:.2f} x{}, max loss ${:.0f}. Opened before "
+                                   "{} ET, force-closed by {} ET — intraday theta harvest. NOTE: marked "
+                                   "every 10 min; intraday spikes between marks aren't seen.").format(
+                         sym, (1 - DAY_POP) * 100, ps_, cs_, cand["credit"], n,
+                         cand["max_loss"], DAY_LAST_ENTRY_ET, DAY_CLOSE_ET)})
+        out.append(cand)
+    return out
+
+
 def main() -> int:
     logging.basicConfig(level=logging.INFO,
                         format="%(asctime)s %(levelname)-7s %(name)s · %(message)s",
@@ -1035,6 +1101,12 @@ def main() -> int:
         log.warning("earnings-crush pass failed: %s", e)
         crush = []
     candidates.extend(crush)
+    try:
+        day = day_trade_pass(client, prices, metrics, today)
+    except Exception as e:  # noqa: BLE001
+        log.warning("day-trade pass failed: %s", e)
+        day = []
+    candidates.extend(day)
     for c in crush:
         events.append({"type": "event", "event": "earnings", "label": "Earnings IV-crush IC",
                        "underlyings": [c["underlying"]], "structure": "iron_condor",

@@ -425,7 +425,7 @@ function countUp(el,to,fmt,ms=1300){
 function openPnl(){return DATA.positions.reduce((s,p)=>s+pnlOf(p),0);}
 function renderPositions(){
   const tb=$('postbody');tb.innerHTML='';
-  DATA.positions.forEach(p=>{
+  DATA.positions.forEach((p,i)=>{
     const pl=pnlOf(p),cls=pl>=0?'up':'down';
     const tr=document.createElement('tr');
     tr.innerHTML=`
@@ -439,7 +439,13 @@ function renderPositions(){
       <td class="hideM" style="color:var(--cyan)">${p.gtc.toFixed(2)}</td>
       <td><span class="act ${p.act==='HOLD'?'hold':'close'}">${p.act}</span></td>
       <td class="l hideM reason">${p.reason}</td>`;
+    tr.style.cursor='pointer';
+    tr.title='click to show legs';
+    tr.onclick=()=>{const lr=document.getElementById('leg'+i);if(lr)lr.style.display=lr.style.display==='none'?'':'none';};
     tb.appendChild(tr);
+    const lr=document.createElement('tr');lr.id='leg'+i;lr.style.display='none';
+    lr.innerHTML=`<td class="l" colspan="10" style="color:var(--dim);font-size:11px;padding:4px 12px 10px">↳ ${p.legs||'legs unavailable'}</td>`;
+    tb.appendChild(lr);
   });
   $('poscount').textContent=DATA.positions.length+' working';
 }
@@ -731,6 +737,7 @@ async function loadLive(){
                   || (m.pct_max_profit_captured_mid != null ? Math.round(m.pct_max_profit_captured_mid*100)+'% captured · 50% tgt' : 'working');
       return {
         sym:t.underlying, struct:s.str, side:s.side, code:s.code, credit, mark, dte,
+      legs:((t.open_legs&&t.open_legs.length)?t.open_legs.map(l=>`${(l.side||'').includes('short')?'SELL':'BUY'} ${l.strike}${l.type||''}`).join(' · '):`${t.short_strike}/${t.long_strike}`),
         pop: (t.pop_at_open ? Math.round(t.pop_at_open*100) : null),
         gtc: (t.gtc_close_target != null ? +t.gtc_close_target : +(credit*0.5).toFixed(2)),
         act, reason, uprice: m.underlying_price,

@@ -425,7 +425,7 @@ function countUp(el,to,fmt,ms=1300){
 function openPnl(){return DATA.positions.reduce((s,p)=>s+pnlOf(p),0);}
 function renderPositions(){
   const tb=$('postbody');tb.innerHTML='';
-  DATA.positions.forEach(p=>{
+  DATA.positions.forEach((p,i)=>{
     const pl=pnlOf(p),cls=pl>=0?'up':'down';
     const tr=document.createElement('tr');
     tr.innerHTML=`
@@ -439,7 +439,13 @@ function renderPositions(){
       <td class="hideM" style="color:var(--cyan)">${p.gtc.toFixed(2)}</td>
       <td><span class="act ${p.act==='HOLD'?'hold':'close'}">${p.act}</span></td>
       <td class="l hideM reason">${p.reason}</td>`;
+    tr.style.cursor='pointer';
+    tr.title='click to show legs';
+    tr.onclick=()=>{const lr=document.getElementById('leg'+i);if(lr)lr.style.display=lr.style.display==='none'?'':'none';};
     tb.appendChild(tr);
+    const lr=document.createElement('tr');lr.id='leg'+i;lr.style.display='none';
+    lr.innerHTML=`<td class="l" colspan="10" style="color:var(--dim);font-size:11px;padding:4px 12px 10px">↳ ${p.legs||'legs unavailable'}</td>`;
+    tb.appendChild(lr);
   });
   $('poscount').textContent=DATA.positions.length+' working';
 }
@@ -737,6 +743,7 @@ async function loadLive(){
     const dte  = Math.max(0, Math.ceil((new Date(t.expiry) - new Date())/86400000));
     return {
       sym:t.underlying, struct:s.str, side:s.side, code:s.code, credit, mark, dte, ctr:(+t.contracts||1),
+      legs:(t.symbols?`SELL ${t.symbols.put_short} · BUY ${t.symbols.put_long} · SELL ${t.symbols.call_short} · BUY ${t.symbols.call_long}`:`SELL ${t.short_symbol||t.short_strike+'P'} · BUY ${t.long_symbol||t.long_strike+'P'}`),
       pop: (t.pop != null ? Math.round(t.pop*100) : null),
       gtc: +(credit*0.5).toFixed(2),
       act: 'HOLD',
