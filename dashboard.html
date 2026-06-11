@@ -168,6 +168,7 @@ tbody tr:hover{background:#13140d}
 .struct{color:var(--dim);font-size:11px}
 .tagP{color:var(--cyan);font-size:9px;border:1px solid #1d3a44;padding:1px 5px;border-radius:2px;letter-spacing:.1em}
 .tagC{color:var(--red);font-size:9px;border:1px solid #3a1f1f;padding:1px 5px;border-radius:2px;letter-spacing:.1em}
+.tagIC{color:var(--amber);font-size:9px;border:1px solid #3a3015;padding:1px 5px;border-radius:2px;letter-spacing:.1em}
 .act{font-size:10px;font-weight:700;letter-spacing:.12em;padding:2px 8px;border-radius:2px;border:1px solid}
 .act.hold{color:var(--amber);border-color:#3a3015;background:rgba(255,176,46,.06)}
 .act.close{color:var(--red);border-color:#3a1f1f;background:rgba(255,77,77,.06)}
@@ -429,7 +430,7 @@ function renderPositions(){
     const tr=document.createElement('tr');
     tr.innerHTML=`
       <td class="l"><span class="sym">${p.sym}</span></td>
-      <td class="l"><span class="struct">${p.struct}</span> <span class="${p.side==='P'?'tagP':'tagC'}">${p.side==='P'?'PUT':'CALL'}</span></td>
+      <td class="l"><span class="struct">${p.struct}</span> <span class="${p.code==='VC'?'tagC':(p.code==='VP'?'tagP':'tagIC')}">${p.code||(p.side==='P'?'VP':'VC')}</span></td>
       <td>${p.credit.toFixed(2)}</td>
       <td class="mark" data-sym="${p.sym}">${p.mark.toFixed(2)}</td>
       <td class="${cls}" data-pnl="${p.sym}">${pl>=0?'+':''}${money(pl)}</td>
@@ -449,7 +450,7 @@ function renderClosed(){
   DATA.closed.forEach(c=>{
     const d=document.createElement('div');d.className='kv';
     const cls=c.pnl>=0?'up':'down', amt=(c.pnl>=0?'+$':'-$')+Math.abs(c.pnl).toFixed(2);
-    d.innerHTML=`<span class="k"><span class="sym">${c.sym}</span> <span class="struct">${c.struct}</span> · ${c.days}d</span><span class="v ${cls}">${amt}</span>`;
+    d.innerHTML=`<span class="k"><span class="sym">${c.sym}</span> <span class="struct">${c.code?c.code+' · ':''}${c.struct}</span> · ${c.days}d</span><span class="v ${cls}">${amt}</span>`;
     box.appendChild(d);
   });
   const rs=$('realsum');
@@ -627,10 +628,11 @@ async function loadFeed(){
   const top=(scan&&scan.top)||[];
   if(!top.length){ box.innerHTML='<div class="fitem" style="color:var(--dim)">no setups pass filters right now</div>'; }
   else box.innerHTML=top.map((o,i)=>{
-    const isCall=(o.structure||'').includes('call'), tag=(o.tag==='live')?'live':'paper';
+    const code=structCode(o.structure), tag=(o.tag==='live')?'live':'paper';
+    const strikes=(code==='IC'||code==='RIC')?`${o.short_strike}p/${o.long_strike}c`:`${o.short_strike}/${o.long_strike}${code==='VC'?'c':'p'}`;
     const ev=Math.round(o.ev_per_contract||0);
     return `<div class="fitem ${tag} reveal" style="animation-delay:${(0.04*i).toFixed(2)}s">
-      <div class="fhead"><span class="sym">${o.underlying}</span> <span class="struct">${o.short_strike}/${o.long_strike}${isCall?'c':'p'}</span>
+      <div class="fhead"><span class="sym">${o.underlying}</span> <span class="${code==='VC'?'tagC':(code==='VP'?'tagP':'tagIC')}">${code}</span> <span class="struct">${strikes}</span>
         <span class="ftag ${tag}">${tag.toUpperCase()}</span></div>
       <div class="fmeta"><b>$${(+o.credit).toFixed(2)}</b>cr · POP ${Math.round((o.pop||0)*100)}% · IVR ${Math.round((o.iv_rank||0)*100)}% · EV ${ev>=0?'+':''}$${ev}</div>
     </div>`;
@@ -683,11 +685,21 @@ async function fetchJSON(u){
   if(!r.ok) throw new Error('HTTP ' + r.status);
   return r.json();
 }
+function structCode(st){
+  st=(st||'').toLowerCase();
+  if(st.includes('reverse')&&st.includes('condor')) return 'RIC';
+  if(st.includes('condor')) return 'IC';
+  if(st.includes('strangle')) return st.includes('long')?'LS':'SS';
+  if(st.includes('call')) return 'VC';
+  if(st.includes('put')) return 'VP';
+  return (st.toUpperCase().slice(0,3)||'—');
+}
 function structOf(t){
-  if((t.structure||'').includes('condor'))
-    return { str: `${t.short_strike}p/${t.long_strike}c IC`, side: 'IC' };
-  const isCall = (t.structure||'').includes('call');
-  return { str: `${t.short_strike}/${t.long_strike}${isCall?'c':'p'}`, side: isCall?'C':'P' };
+  const code = structCode(t.structure);
+  if(code==='IC'||code==='RIC')
+    return { str: `${t.short_strike}p/${t.long_strike}c`, side: 'IC', code };
+  const isCall = code==='VC';
+  return { str: `${t.short_strike}/${t.long_strike}${isCall?'c':'p'}`, side: isCall?'C':'P', code };
 }
 
 async function loadLive(){
@@ -704,7 +716,7 @@ async function loadLive(){
 
     DATA.closed = closed.map(t => {
       const s = structOf(t);
-      return { sym:t.underlying, struct:s.str, pnl:+(t.realized_pnl||0), days:t.days_held||0 };
+      return { sym:t.underlying, struct:s.str, code:s.code, pnl:+(t.realized_pnl||0), days:t.days_held||0 };
     });
     DATA.realized = DATA.closed.reduce((a,c)=>a+c.pnl, 0);   // bottom-up, no USO
 
@@ -718,7 +730,7 @@ async function loadLive(){
       const reason = (rec.reasoning && rec.reasoning[0])
                   || (m.pct_max_profit_captured_mid != null ? Math.round(m.pct_max_profit_captured_mid*100)+'% captured · 50% tgt' : 'working');
       return {
-        sym:t.underlying, struct:s.str, side:s.side, credit, mark, dte,
+        sym:t.underlying, struct:s.str, side:s.side, code:s.code, credit, mark, dte,
         pop: (t.pop_at_open ? Math.round(t.pop_at_open*100) : null),
         gtc: (t.gtc_close_target != null ? +t.gtc_close_target : +(credit*0.5).toFixed(2)),
         act, reason, uprice: m.underlying_price,
