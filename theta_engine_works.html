@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How THETA·ENGINE Works</title>
+<style>
+:root{--bg:#070806;--panel:#0e0f0c;--line:#26271d;--amber:#ffb02e;--green:#3ff07a;--cyan:#46d6ff;--red:#ff4d4d;--txt:#e9e4cf;--dim:#766f54}
+*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:var(--txt);font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:14px;line-height:1.65;padding-bottom:60px}
+header{padding:18px;border-bottom:1px solid var(--line)}h1{color:var(--amber);font-size:20px;letter-spacing:.1em}
+.sub{color:var(--dim);font-size:12px;margin-top:4px}
+.wrap{max-width:880px;margin:0 auto;padding:0 18px}
+.step{background:var(--panel);border:1px solid var(--line);border-radius:4px;margin:18px 0;padding:18px}
+.step h2{color:var(--cyan);font-size:15px;letter-spacing:.08em;margin-bottom:8px}
+.step .lay{color:var(--txt)}.step .tech{color:var(--dim);font-size:12px;margin-top:8px}
+b{color:var(--green)}.k{color:var(--amber)}
+.live{background:var(--panel);border:1px solid #1f3a25;border-radius:4px;margin:18px 0;padding:14px;font-size:12px;color:var(--dim)}
+.live span{color:var(--green)}
+a{color:var(--cyan)}
+</style></head><body>
+<header><div class="wrap"><h1>θ THETA·ENGINE — HOW IT WORKS</h1>
+<div class="sub">An autonomous options-income system by Jay Vekaria · this page reads LIVE engine state and updates itself</div></div></header>
+<div class="wrap">
+<div class="live" id="live">loading live engine telemetry…</div>
+
+<div class="step"><h2>STEP 1 · IDENTIFY — the opportunity radar</h2>
+<div class="lay">Every hour, the engine scans <b>40 of the most liquid stocks & ETFs</b> and asks one question: <i>where is the market overpaying for insurance?</i> When option premium is statistically rich, selling that insurance is a positive-expectancy business.</div>
+<div class="tech">Tech: real-time <span class="k">implied-volatility rank</span> screening, <span class="k">lognormal probability-of-profit modeling</span>, executable-price expectancy (bid/ask-crossed), liquidity microstructure gates, macro-event calendar awareness (FOMC/earnings), and a VIX regime classifier with automatic risk stand-down.</div></div>
+
+<div class="step"><h2>STEP 2 · STRUCTURE & SIZE — engineering the trade</h2>
+<div class="lay">It then designs a <b>defined-risk trade</b> — put spread (VP), call spread (VC) or iron condor (IC) — where the maximum possible loss is known and capped <i>before</i> entry, and sizes it so no single trade can meaningfully damage the account.</div>
+<div class="tech">Tech: trend-filtered structure selection (20/50-day MA), portfolio delta-balancing, <span class="k">capital-at-risk caps</span> (≤10% max loss, ≤50% buying-power utilization), volatility-skewed condor wings, contract sizing against a $20k institutional-style paper sandbox.</div></div>
+
+<div class="step"><h2>STEP 3 · EXECUTE & MONITOR — the 10-minute heartbeat</h2>
+<div class="lay">Trades are opened in a <b>real-price paper book</b> (and flagged for live replication). Every 10 minutes the engine re-prices every position at live market quotes and decides: hold, take profit, or cut.</div>
+<div class="tech">Tech: <span class="k">executable-fill simulation</span> (entries at the crossed spread, exits at ask/bid, exchange fees deducted), automated management — 50% profit harvest, 1.5× credit stop-loss, 21-DTE time exit, same-day close for 0DTE intraday structures, event-driven exits for IV-crush trades.</div></div>
+
+<div class="step"><h2>STEP 4 · P&L TRUTH — radical accounting honesty</h2>
+<div class="lay">Every dollar is reconciled: opening capital → current value → profit, split into realized, unrealized and fees. The paper book is engineered to <b>never flatter</b> — real money would do as well or better.</div>
+<div class="tech">Tech: broker-ledger reconciliation from raw transaction history, conservative mark-to-market, expectancy & win-rate telemetry feeding a <span class="k">probability-calibration loop</span>.</div></div>
+
+<div class="step"><h2>STEP 5 · LEARN — the investor model</h2>
+<div class="lay">The system maintains a living profile of its operator — risk tolerance, decisions, preferences — so every recommendation fits <b>Jay Vekaria's</b> strategy, and the edge is proven on paper before capital scales into it.</div>
+<div class="tech">Tech: human-in-the-loop LIVE approval workflow, push-notification trade tickets, staged autonomy roadmap → fully automated execution once the measured edge clears statistical significance.</div></div>
+</div>
+<script>
+async function j(u){const r=await fetch(u,{cache:'no-store'});return r.json()}
+(async()=>{try{
+const s=await j('https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/scan/opportunities.json');
+const b=await j('https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/paper/book.json');
+const p=s.params||{},m=(b.summary)||{};
+document.getElementById('live').innerHTML=
+`LIVE TELEMETRY · last scan <span>${new Date(s.generated_at).toLocaleString()}</span> · regime: <span>${(s.regime||{}).note||'—'}</span><br>`+
+`filters: IV-rank ≥ <span>${(p.min_iv_rank*100||0).toFixed(0)}%</span> · DTE <span>${p.dte_min}–${p.dte_max}</span> · target POP <span>${(p.target_pop*100||0).toFixed(0)}%</span><br>`+
+`paper book: <span>${m.trades||0}</span> trades (<span>${m.open||0}</span> open) · win rate <span>${m.win_rate!=null?Math.round(m.win_rate*100)+'%':'—'}</span> · total P&L <span>${(m.total_pnl||0)>=0?'+':''}$${(m.total_pnl||0).toFixed(2)}</span>`;
+}catch(e){document.getElementById('live').textContent='telemetry offline'}})();
+setInterval(()=>location.reload(),300000);
+</script></body></html>
