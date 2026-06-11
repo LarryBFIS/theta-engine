@@ -2,8 +2,9 @@ name: scan
 
 on:
   schedule:
-    # Premarket on weekdays — 12:45 UTC (~8:45am ET). Best-effort (GitHub cron).
-    - cron: '45 12 * * 1-5'
+    # Hourly during market hours (13:45-19:45 UTC = 9:45am-3:45pm ET) plus a
+    # premarket pass at 12:45 UTC. Off the :00 mark — GitHub throttles those.
+    - cron: '45 12-19 * * 1-5'
   workflow_dispatch:
 
 permissions:
@@ -47,11 +48,15 @@ jobs:
             echo "No scan changes"
           else
             git commit -m "scan: opportunities $(date -u +%Y-%m-%dT%H:%MZ)"
-            # Commit first, then rebase+push with retry to survive concurrent pushes.
+            # Push, surviving moved-ref AND data-file conflicts: replay on latest
+            # main, auto-resolve conflicts to THIS run's files (-X theirs), and
+            # always abort a failed rebase so the next retry starts clean.
             pushed=0
             for i in 1 2 3 4 5; do
-              if git pull --rebase --autostash origin main && git push; then pushed=1; break; fi
-              echo "push attempt $i rejected (remote moved) — retrying"; sleep $((RANDOM % 4 + 3))
+              git fetch -q origin main || true
+              if git rebase -X theirs origin/main && git push origin HEAD:main; then pushed=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              echo "push attempt $i failed — retrying"; sleep $((RANDOM % 4 + 3))
             done
             [ "$pushed" = "1" ] || { echo "push failed after retries"; exit 1; }
           fi

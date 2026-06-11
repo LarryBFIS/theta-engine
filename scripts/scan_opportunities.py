@@ -43,10 +43,12 @@ TARGET_POP = float(os.getenv("SCAN_TARGET_POP", "0.80"))     # ~0.20Δ short put
 MIN_POP = float(os.getenv("SCAN_MIN_POP", "0.70"))
 MAX_POP = float(os.getenv("SCAN_MAX_POP", "0.90"))
 WIDTH_PCT = float(os.getenv("SCAN_WIDTH_PCT", "0.012"))      # spread width ≈ 1.2% of price
-MIN_WIDTH = float(os.getenv("SCAN_MIN_WIDTH", "5"))          # floor width ($)
+MIN_WIDTH = float(os.getenv("SCAN_MIN_WIDTH", "5"))          # preferred floor width ($)
+MIN_WIDTH_FLOOR = float(os.getenv("SCAN_MIN_WIDTH_FLOOR", "1"))  # hard floor when account forces narrow
 MIN_CREDIT_RATIO = float(os.getenv("SCAN_MIN_CREDIT_RATIO", "0.20"))  # exec credit / width (P4: 0.15->0.20)
 FEES_PER_SPREAD = float(os.getenv("SCAN_FEES_PER_SPREAD", "3.0"))     # est. open+close commissions/fees
-MAX_REL_SPREAD = float(os.getenv("SCAN_MAX_REL_SPREAD", "0.20"))      # leg bid/ask tightness — BOTH legs (P4)
+MAX_REL_SPREAD = float(os.getenv("SCAN_MAX_REL_SPREAD", "0.20"))      # SHORT-leg bid/ask tightness
+MAX_REL_SPREAD_LONG = float(os.getenv("SCAN_MAX_REL_SPREAD_LONG", "0.40"))  # long leg eased (naturally wider OTM)
 MIN_OPEN_INTEREST = int(os.getenv("SCAN_MIN_OI", "100"))     # P4: reject thin chains (short leg OI)
 MANAGE_FRAC = float(os.getenv("SCAN_MANAGE_FRAC", "0.5"))    # take profit at 50%
 STOP_MULT = float(os.getenv("SCAN_STOP_MULT", "1.5"))        # cut losers at 1.5x credit (matches rule)
@@ -167,9 +169,20 @@ def put_delta_abs(price, strike, iv, dte):
     return norm_cdf(-d1)
 
 
-def target_width(price):
-    """Spread width scaled to price (so $5 isn't noise on an $800 name)."""
-    return max(MIN_WIDTH, round(price * WIDTH_PCT))
+def target_width(price, max_loss_cap=None):
+    """Spread width scaled to price, then NARROWED to fit the account's max-loss cap.
+
+    Base width ≈ 1.2% of price (floor MIN_WIDTH). When `max_loss_cap` ($) is given
+    (10% of net liq), cap the width so a credit-floor-meeting spread can't exceed
+    it: max loss ≤ width×100×(1−MIN_CREDIT_RATIO), so width ≤ cap/(100×(1−ratio)).
+    Floored at MIN_WIDTH_FLOOR so small accounts get tradeable narrow spreads
+    instead of nothing. (choose_strikes snaps to the nearest real strike.)
+    """
+    w = max(MIN_WIDTH, round(price * WIDTH_PCT))
+    if max_loss_cap and max_loss_cap > 0:
+        affordable = max_loss_cap / (100.0 * (1.0 - MIN_CREDIT_RATIO))
+        w = min(w, affordable)
+    return max(MIN_WIDTH_FLOOR, int(round(w)))
 
 
 def _leg_quote(q):
@@ -228,8 +241,9 @@ def build_candidate(underlying, expiry, dte, short, long_, short_q, long_q,
     s, l = _leg_quote(short_q), _leg_quote(long_q)
     if not s or not l:
         return None
-    # P4 liquidity: gate BOTH legs on relative bid/ask, plus an open-interest floor.
-    if s["rel"] > MAX_REL_SPREAD or l["rel"] > MAX_REL_SPREAD:
+    # Liquidity: short leg tight (MAX_REL_SPREAD); long leg eased (wider OTM is
+    # normal and is fully paid for in exec_credit) + an open-interest floor.
+    if s["rel"] > MAX_REL_SPREAD or l["rel"] > MAX_REL_SPREAD_LONG:
         return None
     if not _oi_ok(short_q):
         return None
@@ -319,7 +333,7 @@ def build_call_vertical(underlying, expiry, dte, short, long_, short_q, long_q,
     s, l = _leg_quote(short_q), _leg_quote(long_q)
     if not s or not l:
         return None
-    if s["rel"] > MAX_REL_SPREAD or l["rel"] > MAX_REL_SPREAD or not _oi_ok(short_q):
+    if s["rel"] > MAX_REL_SPREAD or l["rel"] > MAX_REL_SPREAD_LONG or not _oi_ok(short_q):
         return None
     width = round(long_ - short, 2)
     exec_credit = round(s["bid"] - l["ask"], 2)
@@ -812,6 +826,17 @@ def main() -> int:
     log.info("account: net_liq=%s used_bpr=%.0f book_bias=%s · regime: %s",
              net_liq, used_bpr or 0.0, book_bias, regime.get("note"))
 
+    # P3: macro events — the queued FOMC IV-crush IC + the pre-event blackout gate.
+    from monitor import macro_calendar
+    iv_ranks = {s: (metrics.get(s) or {}).get("iv_rank") for s in ("IWM", "QQQ")}
+    events = []
+    ev = macro_calendar.event_crush_opportunity(today, vix=regime.get("vix"), iv_ranks=iv_ranks)
+    if ev:
+        events.append(ev)
+    blackout = macro_calendar.in_blackout(today, days_before=2)
+    if blackout:
+        log.info("macro blackout: scheduled event within 2 days — no NEW non-event LIVE short-vol")
+
     candidates, skipped = [], {}
     for sym in syms:
         m = metrics.get(sym)
@@ -834,8 +859,10 @@ def main() -> int:
         ma20, ma50 = fetch_trend(sym)
         trend = trend_from_mas(price, ma20, ma50)
         structure = choose_structure(trend, book_bias)
+        # Adaptive width: narrow the spread to fit this account's 10% max-loss cap.
+        loss_cap = (MAX_LOSS_FRAC * net_liq) if net_liq else None
         cand = _build_for_structure(client, structure, sym, expiry, dte, price, m["iv"], m,
-                                    puts, calls, target_width(price), defensive)
+                                    puts, calls, target_width(price, max_loss_cap=loss_cap), defensive)
         if not cand:
             skipped[sym] = "failed filters"
             continue
@@ -876,12 +903,16 @@ def main() -> int:
     ranked = rank_opportunities(candidates)
     _apply_news_gate(ranked)        # single-name shield: veto picks with a pending catalyst
     _apply_regime(ranked, regime)   # market-wide shield (regime computed up front)
-    _write(ranked, candidates, skipped, regime, long_vol)
+    if blackout:                    # P3 pre-event gate: no NEW non-event LIVE within 2d of an event
+        for c in ranked:
+            if c.get("tag") == "live":
+                c["tag"], c["demoted"] = "paper", "pre-event blackout (<=2d to macro event)"
+    _write(ranked, candidates, skipped, regime, long_vol, events)
     _alert_live([c for c in ranked if c.get("tag") == "live"])
     if regime.get("stand_down"):
         _alert_regime(regime)
-    log.info("Scan done: %d candidates, top %d ranked, %d skipped, %d long-vol",
-             len(candidates), len(ranked), len(skipped), len(long_vol))
+    log.info("Scan done: %d candidates, top %d ranked, %d skipped, %d long-vol, %d events",
+             len(candidates), len(ranked), len(skipped), len(long_vol), len(events))
     return 0
 
 
@@ -1013,6 +1044,17 @@ def _write(ranked, candidates, skipped, regime=None, long_vol=None, events=None)
             c["ev_on_bpr"], c["iv_rank"]))
     if not ranked:
         lines.append("| — | _no setups passed filters_ | | | | | | | | | |")
+
+    # Macro events — scheduled-event crush setups (e.g. the queued FOMC IC).
+    if events:
+        lines += ["", "## Macro events · scheduled-event crush setups",
+                  "", "| Event | Setup | Status | Tag | Enter | Close | Notes |",
+                  "|---|---|---|---|---|---|---|"]
+        for e in events:
+            lines.append("| {} | {} {} {} | {} | {} | {} | {} | {} |".format(
+                e.get("event", ""), "/".join(e.get("underlyings", [])), e.get("structure", ""),
+                e.get("expiry", ""), e.get("status", ""), e.get("tag", "").upper(),
+                e.get("enter_date", ""), e.get("close_date", ""), e.get("reasoning", "")))
 
     # Long-vol watch — cheap IV into a near catalyst (paper / awareness only).
     lines += ["", "## Long-vol watch · cheap IV into a catalyst (paper only)",

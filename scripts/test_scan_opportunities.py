@@ -100,10 +100,25 @@ def main() -> int:
                        {"bid": 0.4, "ask": 0.5, "mark": 0.45}, 100.0, 0.30, 0.55) is not None:
         f.append("missing quote should be rejected")
 
-    # width-by-price scaling
+    # width-by-price scaling (no cap)
     from scripts.scan_opportunities import target_width
     if target_width(865) != 10 or target_width(100) != 5:
         f.append("target_width: {} / {}".format(target_width(865), target_width(100)))
+    # adaptive width: narrow to fit a max-loss cap. $344 cap, ratio 0.20 ->
+    # affordable = 344/(100*0.8) = 4.3 -> 4-wide (vs the 5-wide base).
+    if target_width(100, max_loss_cap=344) != 4:
+        f.append("adaptive width @344 cap: {}".format(target_width(100, max_loss_cap=344)))
+    # tiny cap forces down to the hard floor (1)
+    if target_width(50, max_loss_cap=100) != 1:
+        f.append("adaptive width @100 cap floor: {}".format(target_width(50, max_loss_cap=100)))
+
+    # eased long-leg gate: long-leg rel 0.22 (>0.20, <0.40) now PASSES the build
+    long022 = build_candidate("SPY", "2026-07-17", 35, 92.0, 87.0,
+                              {"bid": 1.50, "ask": 1.60, "mark": 1.55},
+                              {"bid": 0.40, "ask": 0.50, "mark": 0.45},  # rel 0.222
+                              price=100.0, iv=0.30, iv_rank=0.55)
+    if long022 is None:
+        f.append("eased long-leg gate: long rel 0.22 should now build")
 
     # ranking: higher ev_on_bpr first
     cands = [

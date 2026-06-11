@@ -131,6 +131,17 @@ header{
 .tile .lab{font-size:10px;color:var(--dim);letter-spacing:.16em;margin-bottom:8px}
 .tile .val{font-size:30px;font-weight:700;line-height:1;letter-spacing:-.01em}
 .tile .sub{font-size:11px;color:var(--dim);margin-top:7px}
+/* top liquidity hero: opening → current = difference (realized + unrealized) */
+.liqhero{display:grid;grid-template-columns:1fr auto 1fr auto 1.25fr;align-items:stretch;gap:10px;margin:16px 0}
+.lh-cell{background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:16px 20px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.lh-cell::after{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--amber),transparent)}
+.lh-cell.lh-diff::after{background:linear-gradient(90deg,var(--green),transparent)}
+.lh-lab{font-size:10px;color:var(--dim);letter-spacing:.16em;margin-bottom:9px}
+.lh-val{font-size:34px;font-weight:700;line-height:1;letter-spacing:-.01em}
+.lh-cell.lh-diff .lh-val{font-size:40px}
+.lh-sub{font-size:12px;color:var(--dim);margin-top:9px;letter-spacing:.02em}
+.lh-op{display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--dimmer);font-weight:700}
+@media(max-width:760px){.liqhero{grid-template-columns:1fr 1fr;gap:8px}.lh-op{display:none}.lh-cell.lh-diff{grid-column:1/-1}.lh-cell.lh-diff .lh-val{font-size:34px}}
 .glow-g{color:var(--green);text-shadow:0 0 18px var(--green-glow)}
 .glow-r{color:var(--red);text-shadow:0 0 18px var(--red-glow)}
 .glow-a{color:var(--amber);text-shadow:0 0 16px var(--amber-glow)}
@@ -207,6 +218,26 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
 
 <div class="shell">
 <div class="wrap">
+
+  <div class="liqhero reveal" style="animation-delay:.01s">
+    <div class="lh-cell">
+      <div class="lh-lab">OPENING LIQUIDITY</div>
+      <div class="lh-val" id="lh-open">—</div>
+      <div class="lh-sub">baseline · May 13</div>
+    </div>
+    <div class="lh-op">→</div>
+    <div class="lh-cell">
+      <div class="lh-lab">CURRENT LIQUIDITY</div>
+      <div class="lh-val" id="lh-cur">—</div>
+      <div class="lh-sub" id="lh-cursub">live net liq</div>
+    </div>
+    <div class="lh-op">=</div>
+    <div class="lh-cell lh-diff">
+      <div class="lh-lab">DIFFERENCE · TOTAL P&amp;L</div>
+      <div class="lh-val" id="lh-diff">—</div>
+      <div class="lh-sub" id="lh-diffsub">—</div>
+    </div>
+  </div>
 
   <div class="panel mission reveal" style="animation-delay:.02s">
     <div class="phead"><span class="t">MISSION TIMELINE · <span id="goaltgt">—</span></span><span class="meta" id="missionstat">—</span></div>
@@ -307,6 +338,8 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
 <aside class="feed">
   <div class="phead"><span class="t">⚡ OPPORTUNITIES</span><span class="meta"><span class="dot" style="width:6px;height:6px;display:inline-block;vertical-align:middle"></span> <span id="feedtime">—</span></span></div>
   <div id="feedbody"><div class="fitem" style="color:var(--dim)">loading scanner…</div></div>
+  <div class="phead"><span class="t">🌊 LONG-VOL WATCH</span><span class="meta"><span id="lvtime">—</span></span></div>
+  <div id="lvbody"><div class="fitem" style="color:var(--dim)">loading…</div></div>
   <div class="phead"><span class="t">📰 POSITION NEWS</span><span class="meta"><span id="newstime">—</span></span></div>
   <div id="newsbody"><div class="fitem" style="color:var(--dim)">loading news…</div></div>
 </aside>
@@ -455,6 +488,18 @@ function renderTotals(){
   const actual=DATA.netLiq-DATA.start, aEl=$('kactual');
   aEl.textContent=(actual>=0?'+':'-')+fmtUsd(Math.abs(actual));
   aEl.className='v '+(actual>=0?'up':'down');
+
+  // ── top liquidity hero: opening → current = difference (realized + unrealized) ──
+  $('lh-open').textContent=fmtUsd(DATA.start);
+  $('lh-cur').textContent=fmtUsd(DATA.netLiq);
+  const dEl=$('lh-diff');
+  dEl.textContent=(actual>=0?'+':'-')+fmtUsd(Math.abs(actual));
+  dEl.className='lh-val '+(actual>=0?'up':'down');
+  const part=(lab,v)=>`<span class="${v>=0?'up':'down'}">${lab} ${(v>=0?'+$':'-$')+Math.abs(v).toFixed(2)}</span>`;
+  const resid=actual-DATA.realized-open;
+  let parts=part('realized',DATA.realized)+'&nbsp;&nbsp;·&nbsp;&nbsp;'+part('unrealized',open);
+  if(Math.abs(resid)>=0.5) parts+='&nbsp;&nbsp;·&nbsp;&nbsp;'+part('fees/adj',resid);
+  $('lh-diffsub').innerHTML=parts;
 }
 
 /* ---- ticker tape ---- */
@@ -591,6 +636,21 @@ async function loadFeed(){
     </div>`;
   }).join('');
   const t=$('feedtime'); if(t) t.textContent=(scan&&scan.generated_at)?new Date(scan.generated_at).toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}):'—';
+
+  // long-vol watch — cheap IV into a near catalyst (same scan payload, paper-only)
+  const lv=(scan&&scan.long_vol)||[]; const lb=$('lvbody');
+  if(lb){
+    if(!lv.length){ lb.innerHTML='<div class="fitem" style="color:var(--dim)">no cheap-IV catalysts in window</div>'; }
+    else lb.innerHTML=lv.slice(0,12).map((o,i)=>{
+      const em=(o.expected_move_pct!=null)?('±'+(o.expected_move_pct*100).toFixed(1)+'%'):'—';
+      return `<div class="fitem paper reveal" style="animation-delay:${(0.04*i).toFixed(2)}s">
+        <div class="fhead"><span class="sym">${o.underlying}</span> <span class="struct">strangle</span>
+          <span class="ftag paper">PAPER</span></div>
+        <div class="fmeta">IVR <b>${Math.round((o.iv_rank||0)*100)}%</b> · earnings ${o.days_to_catalyst}d · ~${em} move</div>
+      </div>`;
+    }).join('');
+    const lt=$('lvtime'); if(lt) lt.textContent=(scan&&scan.generated_at)?new Date(scan.generated_at).toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}):'—';
+  }
 }
 
 /* ---- right rail: news on open positions ---- */

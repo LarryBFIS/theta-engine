@@ -108,13 +108,17 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "auto: bot tick $(date -u +%Y-%m-%dT%H:%MZ)"
-            # Commit FIRST (rebase needs a clean index), then rebase onto the
-            # latest main and push — retrying if a concurrent workflow moved the
-            # ref. This is what was failing the tick and blocking the paper reset.
+            # Push, surviving BOTH a moved ref and genuine conflicts in regenerated
+            # data files (paper/book.json etc. when scan & tick race): replay our
+            # commit on the latest main, auto-resolving any conflict in favor of
+            # THIS run's fresh files (-X theirs), and ALWAYS abort a failed rebase
+            # so the next retry starts clean (the old loop got stuck on conflicts).
             pushed=0
             for i in 1 2 3 4 5; do
-              if git pull --rebase --autostash origin main && git push; then pushed=1; break; fi
-              echo "push attempt $i rejected (remote moved) — retrying"; sleep $((RANDOM % 4 + 3))
+              git fetch -q origin main || true
+              if git rebase -X theirs origin/main && git push origin HEAD:main; then pushed=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              echo "push attempt $i failed — retrying"; sleep $((RANDOM % 4 + 3))
             done
             [ "$pushed" = "1" ] || { echo "push failed after retries"; exit 1; }
           fi
