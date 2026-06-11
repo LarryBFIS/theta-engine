@@ -167,6 +167,31 @@ def _load(path, default):
         return default
 
 
+def _notify_opens(new_trades):
+    """Pushover ping for every paper trade the engine just opened, with the same
+    ticket numbers you'd see on tastytrade — so you can replicate it live if you
+    want. Defensive: a notify failure never fails the paper run."""
+    try:
+        from monitor import notifier
+        lines = []
+        for t in new_trades:
+            isCall = "call" in (t.get("structure") or "")
+            lines.append("{} {:g}/{:g}{} · ${:.2f} cr · POP {} · [{}]".format(
+                t.get("underlying"), t.get("short_strike") or 0, t.get("long_strike") or 0,
+                "c" if isCall else "p", t.get("opened_credit") or 0,
+                "{:.0%}".format(t["pop"]) if t.get("pop") is not None else "—",
+                (t.get("tag") or "paper").upper()))
+        notifier.send(
+            title="📋 Paper: {} trade{} opened".format(len(new_trades), "s" if len(new_trades) > 1 else ""),
+            message="Engine opened (paper, at live quotes):\n" + "\n".join(lines)
+                    + "\n\nWant to replicate one live? Bring it to chat and we'll size it together.",
+            priority=notifier.PRIORITY_NORMAL,
+            sound=notifier.SOUND_INFO,
+        )
+    except Exception as e:  # noqa: BLE001
+        log.warning("paper open notify failed: %s", e)
+
+
 def main() -> int:
     logging.basicConfig(level=logging.INFO,
                         format="%(asctime)s %(levelname)-7s %(name)s · %(message)s",
@@ -182,7 +207,11 @@ def main() -> int:
 
     scan = _load(SCAN_FILE, {})
     picks = scan.get("top", [])
+    n_before = len(book.get("trades", []))
     changes = record_picks(book, picks, today) if picks else []
+    new_trades = book["trades"][n_before:]
+    if new_trades:
+        _notify_opens(new_trades)
 
     # Mark + manage open paper trades at live option marks.
     open_trades = [t for t in book["trades"] if t.get("status") == "open"]
