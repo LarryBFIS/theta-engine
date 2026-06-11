@@ -80,21 +80,28 @@ def hash_headline(title, link):
 
 
 def load_position_symbols():
-    """Underlyings of currently OPEN tracked trades (trades use 'underlying')."""
-    if not TRADES_FILE.exists():
-        return []
-    with open(TRADES_FILE) as f:
-        data = json.load(f)
-    trades = data.get("trades", data) if isinstance(data, dict) else data
+    """Underlyings of currently OPEN positions — BOTH books: the real tracked
+    trades (trades.json) AND the engine's open paper trades (paper/book.json),
+    so news coverage follows everything the engine is actively holding."""
     syms = set()
-    for t in trades:
-        if not isinstance(t, dict):
+    sources = [TRADES_FILE, REPO_ROOT / "paper" / "book.json"]
+    for path in sources:
+        if not path.exists():
             continue
-        if t.get("status") and t.get("status") != "open":
+        try:
+            with open(path) as f:
+                data = json.load(f)
+        except (json.JSONDecodeError, OSError):
             continue
-        sym = (t.get("underlying") or t.get("symbol") or "").upper()
-        if sym:
-            syms.add(sym)
+        trades = data.get("trades", data) if isinstance(data, dict) else data
+        for t in trades:
+            if not isinstance(t, dict):
+                continue
+            if t.get("status") and t.get("status") != "open":
+                continue
+            sym = (t.get("underlying") or t.get("symbol") or "").upper()
+            if sym:
+                syms.add(sym)
     return sorted(syms)
 
 

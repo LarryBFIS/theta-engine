@@ -378,7 +378,7 @@ const DATA = {
 
 const $=id=>document.getElementById(id);
 const money=n=>(n<0?'-$':'$')+Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});
-const pnlOf=p=>(p.credit-p.mark)*100;
+const pnlOf=p=>(p.credit-p.mark)*100*(p.ctr||1);
 
 /* ---- clock + market status (ET) ---- */
 function et(){return new Date(new Date().toLocaleString('en-US',{timeZone:'America/New_York'}));}
@@ -684,6 +684,8 @@ async function fetchJSON(u){
   return r.json();
 }
 function structOf(t){
+  if((t.structure||'').includes('condor'))
+    return { str: `${t.short_strike}p/${t.long_strike}c IC`, side: 'IC' };
   const isCall = (t.structure||'').includes('call');
   return { str: `${t.short_strike}/${t.long_strike}${isCall?'c':'p'}`, side: isCall?'C':'P' };
 }
