@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-11T18:42:17.358916+00:00",
+  "generated_at": "2026-06-11T21:13:39.620524+00:00",
   "regime": {
-    "vix": 19.93,
-    "vix_day_change_pct": -0.1031,
+    "vix": 19.44,
+    "vix_day_change_pct": -0.1251,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (-10% day)"
+    "note": "normal regime (-13% day)"
   },
   "params": {
     "min_iv_rank": 0.4,
@@ -44,7 +44,7 @@
         "iv_rank_min": 0.4,
         "vix_min": 18
       },
-      "vix": 19.93,
+      "vix": 19.44,
       "live_ok": false,
       "tag": "paper",
       "reasoning": "FOMC IV/vega crush \u2014 sell a put-skewed iron condor on IWM/QQQ (2026-07-17, ~12\u0394 shorts, 3-wide, max loss \u2264$300). Enter 2026-06-16, close 2026-06-18. Harvest the vol collapse after the 2026-06-17 2:00pm ET decision. LIVE only if IV Rank \u226540% AND VIX \u226518 (currently queued)."
