@@ -77,6 +77,16 @@ def main() -> int:
     if not (s["closed"] == 1 and s["wins"] == 1 and s["realized_pnl"] == 43.0 and s["win_rate"] == 1.0):
         f.append("summarize: {}".format(s))
 
+    # --- contracts scaling: 3-lot scales unrealized AND realized 3x ---
+    book4 = {"trades": []}
+    record_picks(book4, [dict(picks[0], contracts=3)], "2026-06-01")
+    t4 = book4["trades"][0]
+    if t4.get("contracts") != 3:
+        f.append("contracts not recorded: {}".format(t4.get("contracts")))
+    reason4 = mark_trade(t4, {"CAT 775P": {"mark": 0.60}, "CAT 770P": {"mark": 0.20}}, "2026-06-15")
+    if reason4 != "manage_50pct" or t4["realized_pnl"] != 129.0:   # 43 x 3
+        f.append("contracts scaling: {} {}".format(reason4, t4.get("realized_pnl")))
+
     if f:
         print("FAILED:")
         for x in f:

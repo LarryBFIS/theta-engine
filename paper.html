@@ -618,7 +618,7 @@ const PAPER_URL  = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/mai
 const SCAN_URL   = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/scan/opportunities.json';
 const NEWS_URL   = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/news/feed.json';
 const REFRESH_MS = 60000;
-const PAPER_START = 3438.16;   // same capital base as the live book, for apples-to-apples
+const PAPER_START = 20000;   // paper sandbox capital — $20k, allows high-value trades (live acct ~$3.4k)
 
 /* ---- right rail: live opportunities feed (from the AI scanner) ---- */
 async function loadFeed(){

@@ -65,6 +65,7 @@ def record_picks(book, picks, today):
             "pop": p.get("pop"),
             "iv_rank": p.get("iv_rank"),
             "tag": p.get("tag", "paper"),
+            "contracts": int(p.get("contracts") or 1),
             "opened_at": today,
             # Open at the realistic mid (mid_credit); fall back to executable
             # credit only if the scan didn't carry a mid.
@@ -109,16 +110,17 @@ def mark_trade(trade, marks, today):
     short_mark = sm.get("mark") if sm.get("mark") is not None else _mid(sm)
     long_mark = lm.get("mark") if lm.get("mark") is not None else _mid(lm)
     current_debit = None
+    ctr = int(trade.get("contracts") or 1)   # scale per-contract P&L by position size
     if short_mark is not None and long_mark is not None:
         current_debit = round(short_mark - long_mark, 2)
         trade["current_debit"] = current_debit
-        trade["unrealized_pnl"] = round((trade["opened_credit"] - current_debit) * 100, 2)
+        trade["unrealized_pnl"] = round((trade["opened_credit"] - current_debit) * 100 * ctr, 2)
     dte = _dte(trade.get("expiry"), today)
     action, realized, reason = manage_decision(trade["opened_credit"], current_debit, dte)
     if action == "close":
         trade["status"] = "closed"
         trade["closed_at"] = today
-        trade["realized_pnl"] = realized
+        trade["realized_pnl"] = round(realized * ctr, 2) if realized is not None else realized
         trade["unrealized_pnl"] = None
         trade["close_reason"] = reason
         return reason
@@ -176,9 +178,9 @@ def _notify_opens(new_trades):
         lines = []
         for t in new_trades:
             isCall = "call" in (t.get("structure") or "")
-            lines.append("{} {:g}/{:g}{} · ${:.2f} cr · POP {} · [{}]".format(
+            lines.append("{} {:g}/{:g}{} ×{} · ${:.2f} cr · POP {} · [{}]".format(
                 t.get("underlying"), t.get("short_strike") or 0, t.get("long_strike") or 0,
-                "c" if isCall else "p", t.get("opened_credit") or 0,
+                "c" if isCall else "p", int(t.get("contracts") or 1), t.get("opened_credit") or 0,
                 "{:.0%}".format(t["pop"]) if t.get("pop") is not None else "—",
                 (t.get("tag") or "paper").upper()))
         notifier.send(
