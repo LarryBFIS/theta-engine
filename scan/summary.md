@@ -1,10 +1,16 @@
 # Opportunity scan
 
-_Generated 2026-06-11T14:35:04.278979+00:00 · short put verticals ranked by expected return on BPR · regime: elevated vol — premium rich, proceed (-3% day)._
+_Generated 2026-06-11T15:00:40.837658+00:00 · short put verticals ranked by expected return on BPR · regime: elevated vol — premium rich, proceed (-4% day)._
 
 | # | Trade | Tag | DTE | Credit | BPR | POP | Cr/BPR | EV/ctr | EV/BPR | IVR |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
 | — | _no setups passed filters_ | | | | | | | | | |
+
+## Macro events · scheduled-event crush setups
+
+| Event | Setup | Status | Tag | Enter | Close | Notes |
+|---|---|---|---|---|---|---|
+| FOMC | IWM/QQQ iron_condor 2026-07-17 | queued | PAPER | 2026-06-16 | 2026-06-18 | FOMC IV/vega crush — sell a put-skewed iron condor on IWM/QQQ (2026-07-17, ~12Δ shorts, 3-wide, max loss ≤$300). Enter 2026-06-16, close 2026-06-18. Harvest the vol collapse after the 2026-06-17 2:00pm ET decision. LIVE only if IV Rank ≥40% AND VIX ≥18 (currently queued). |
 
 ## Long-vol watch · cheap IV into a catalyst (paper only)
 

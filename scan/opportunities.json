@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-11T14:35:04.278979+00:00",
+  "generated_at": "2026-06-11T15:00:40.837658+00:00",
   "regime": {
-    "vix": 21.59,
-    "vix_day_change_pct": -0.0284,
+    "vix": 21.33,
+    "vix_day_change_pct": -0.0401,
     "level": "elevated",
     "stand_down": false,
-    "note": "elevated vol \u2014 premium rich, proceed (-3% day)"
+    "note": "elevated vol \u2014 premium rich, proceed (-4% day)"
   },
   "params": {
     "min_iv_rank": 0.4,
@@ -19,7 +19,37 @@
   },
   "top": [],
   "long_vol": [],
-  "events": [],
+  "events": [
+    {
+      "type": "event",
+      "event": "FOMC",
+      "label": "FOMC IV-crush iron condor",
+      "underlyings": [
+        "IWM",
+        "QQQ"
+      ],
+      "structure": "iron_condor",
+      "expiry": "2026-07-17",
+      "short_delta": 0.12,
+      "put_skew": true,
+      "wing_width": 3,
+      "max_loss_cap": 300,
+      "enter_date": "2026-06-16",
+      "close_date": "2026-06-18",
+      "decision_date": "2026-06-17",
+      "decision_time_et": "14:00",
+      "days_to_decision": 6,
+      "status": "queued",
+      "live_conditions": {
+        "iv_rank_min": 0.4,
+        "vix_min": 18
+      },
+      "vix": 21.33,
+      "live_ok": false,
+      "tag": "paper",
+      "reasoning": "FOMC IV/vega crush \u2014 sell a put-skewed iron condor on IWM/QQQ (2026-07-17, ~12\u0394 shorts, 3-wide, max loss \u2264$300). Enter 2026-06-16, close 2026-06-18. Harvest the vol collapse after the 2026-06-17 2:00pm ET decision. LIVE only if IV Rank \u226540% AND VIX \u226518 (currently queued)."
+    }
+  ],
   "all_candidates": [],
   "skipped": {
     "SPY": "failed filters",
@@ -47,15 +77,15 @@
     "GS": "earnings 2026-07-14 before expiry",
     "V": "failed filters",
     "MA": "failed filters",
-    "DIS": "iv_rank 33%",
+    "DIS": "iv_rank 31%",
     "KO": "failed filters",
     "PEP": "earnings 2026-07-09 before expiry",
     "WMT": "failed filters",
     "COST": "failed filters",
     "XOM": "failed filters",
     "CVX": "failed filters",
-    "PFE": "iv_rank 16%",
-    "MRK": "iv_rank 40%",
+    "PFE": "iv_rank 15%",
+    "MRK": "iv_rank 36%",
     "INTC": "failed filters",
     "CSCO": "failed filters",
     "ORCL": "failed filters",
