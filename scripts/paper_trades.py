@@ -59,6 +59,7 @@ def record_picks(book, picks, today):
             "long_strike": p.get("long_strike"),
             "short_symbol": p.get("short_symbol"),
             "long_symbol": p.get("long_symbol"),
+            "symbols": p.get("symbols"),         # 4-leg map for iron condors
             "expiry": p.get("expiry"),
             "credit": p.get("credit"),
             "bpr": p.get("bpr"),
@@ -66,6 +67,8 @@ def record_picks(book, picks, today):
             "iv_rank": p.get("iv_rank"),
             "tag": p.get("tag", "paper"),
             "contracts": int(p.get("contracts") or 1),
+            "event": p.get("event"),
+            "close_date": p.get("close_date"),   # event-crush: force close on this date
             "opened_at": today,
             # Open at the realistic mid (mid_credit); fall back to executable
             # credit only if the scan didn't carry a mid.
@@ -103,20 +106,62 @@ def manage_decision(opened_credit, current_debit, dte):
     return "hold", None, None
 
 
+def manage_decision_event(opened_credit, current_debit, dte, today, close_date):
+    """Management for event-crush holds: NO 21-DTE rule (these are short-dated by
+    design). Take 50% early, stop at 1.5x, force close at marks on/after the
+    close date, expire if somehow held to expiry."""
+    if current_debit is not None:
+        captured = opened_credit - current_debit
+        if captured >= MANAGE_FRAC * opened_credit:
+            return "close", round(captured * 100, 2), "manage_50pct"
+        if (current_debit - opened_credit) >= STOP_DEBIT_MULT * opened_credit:
+            return "close", round(captured * 100, 2), "stop_1.5x"
+        if close_date and today >= close_date:
+            return "close", round(captured * 100, 2), "event_close"
+    if dte is not None and dte <= 0:
+        realized = round((opened_credit - (current_debit if current_debit is not None else 0)) * 100, 2)
+        return "close", realized, "expired"
+    return "hold", None, None
+
+
+def trade_symbols(t):
+    """All option symbols a paper trade needs marks for (2-leg vertical or 4-leg IC)."""
+    if t.get("symbols"):
+        return [v for v in t["symbols"].values() if v]
+    return [x for x in (t.get("short_symbol"), t.get("long_symbol")) if x]
+
+
+def _mark_of(q):
+    q = q or {}
+    return q.get("mark") if q.get("mark") is not None else _mid(q)
+
+
 def mark_trade(trade, marks, today):
     """Update one open paper trade with current marks + management. Mutates trade."""
-    sm = marks.get(trade.get("short_symbol")) or {}
-    lm = marks.get(trade.get("long_symbol")) or {}
-    short_mark = sm.get("mark") if sm.get("mark") is not None else _mid(sm)
-    long_mark = lm.get("mark") if lm.get("mark") is not None else _mid(lm)
     current_debit = None
     ctr = int(trade.get("contracts") or 1)   # scale per-contract P&L by position size
-    if short_mark is not None and long_mark is not None:
-        current_debit = round(short_mark - long_mark, 2)
+    syms = trade.get("symbols")
+    if syms:   # iron condor: debit = (put spread) + (call spread)
+        ps = _mark_of(marks.get(syms.get("put_short")))
+        pl = _mark_of(marks.get(syms.get("put_long")))
+        cs = _mark_of(marks.get(syms.get("call_short")))
+        cl = _mark_of(marks.get(syms.get("call_long")))
+        if None not in (ps, pl, cs, cl):
+            current_debit = round((ps - pl) + (cs - cl), 2)
+    else:      # two-leg vertical
+        short_mark = _mark_of(marks.get(trade.get("short_symbol")))
+        long_mark = _mark_of(marks.get(trade.get("long_symbol")))
+        if short_mark is not None and long_mark is not None:
+            current_debit = round(short_mark - long_mark, 2)
+    if current_debit is not None:
         trade["current_debit"] = current_debit
         trade["unrealized_pnl"] = round((trade["opened_credit"] - current_debit) * 100 * ctr, 2)
     dte = _dte(trade.get("expiry"), today)
-    action, realized, reason = manage_decision(trade["opened_credit"], current_debit, dte)
+    if trade.get("close_date"):
+        action, realized, reason = manage_decision_event(
+            trade["opened_credit"], current_debit, dte, today, trade["close_date"])
+    else:
+        action, realized, reason = manage_decision(trade["opened_credit"], current_debit, dte)
     if action == "close":
         trade["status"] = "closed"
         trade["closed_at"] = today
@@ -217,7 +262,7 @@ def main() -> int:
 
     # Mark + manage open paper trades at live option marks.
     open_trades = [t for t in book["trades"] if t.get("status") == "open"]
-    symbols = [s for t in open_trades for s in (t.get("short_symbol"), t.get("long_symbol")) if s]
+    symbols = [s for t in open_trades for s in trade_symbols(t)]
     marks = {}
     if symbols:
         try:

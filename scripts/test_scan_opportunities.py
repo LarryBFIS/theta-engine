@@ -267,6 +267,16 @@ def main() -> int:
         if not (0.75 <= ic["pop"] <= 0.85):
             f.append("IC range pop band: {}".format(ic["pop"]))
 
+    # --- earnings-crush strike picker ---
+    from scripts.scan_opportunities import crush_strikes
+    cs = crush_strikes([90, 92, 94, 96, 98], [102, 104, 106, 108, 110], 100.0, 5.0, mult=1.1)
+    if cs != (94, 106):   # 1.1x5 = 5.5 -> put <= 94.5 -> 94; call >= 105.5 -> 106
+        f.append("crush_strikes: {}".format(cs))
+    if crush_strikes([99], [101], 100.0, 5.0) is not None:
+        f.append("crush_strikes: unreachable chain must be None")
+    if crush_strikes([90], [110], 100.0, 0) is not None:
+        f.append("crush_strikes: zero move must be None")
+
     # _write smoke test (catches NameErrors like the WIDTH bug)
     import tempfile, json as _json
     from pathlib import Path

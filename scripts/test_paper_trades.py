@@ -87,6 +87,36 @@ def main() -> int:
     if reason4 != "manage_50pct" or t4["realized_pnl"] != 129.0:   # 43 x 3
         f.append("contracts scaling: {} {}".format(reason4, t4.get("realized_pnl")))
 
+    # --- event-crush management: hold pre-close-date, force close on it ---
+    from scripts.paper_trades import manage_decision_event, trade_symbols
+    a1 = manage_decision_event(1.00, 0.80, 5, "2026-06-11", "2026-06-12")
+    if a1[0] != "hold":
+        f.append("event: should hold before close_date: {}".format(a1))
+    a2 = manage_decision_event(1.00, 0.80, 4, "2026-06-12", "2026-06-12")
+    if not (a2[0] == "close" and a2[2] == "event_close" and a2[1] == 20.0):
+        f.append("event: should event_close on date: {}".format(a2))
+    a3 = manage_decision_event(1.00, 0.45, 5, "2026-06-11", "2026-06-12")
+    if not (a3[0] == "close" and a3[2] == "manage_50pct"):
+        f.append("event: 50% capture still closes early: {}".format(a3))
+    # NO 21-dte rule for event trades (dte 5 + small profit -> hold)
+    a4 = manage_decision_event(1.00, 0.80, 5, "2026-06-11", "2026-06-20")
+    if a4[0] != "hold":
+        f.append("event: 21-dte rule must NOT apply: {}".format(a4))
+
+    # --- 4-leg IC marking ---
+    ic = {"underlying": "IWM", "structure": "iron_condor", "short_strike": 272, "long_strike": 312,
+          "expiry": "2026-07-17", "opened_credit": 1.00, "contracts": 2, "status": "open",
+          "close_date": "2026-06-12",
+          "symbols": {"put_short": "IWM 272P", "put_long": "IWM 268P",
+                      "call_short": "IWM 312C", "call_long": "IWM 316C"}}
+    if sorted(trade_symbols(ic)) != sorted(["IWM 272P", "IWM 268P", "IWM 312C", "IWM 316C"]):
+        f.append("trade_symbols IC wrong")
+    icmarks = {"IWM 272P": {"mark": 0.30}, "IWM 268P": {"mark": 0.10},
+               "IWM 312C": {"mark": 0.25}, "IWM 316C": {"mark": 0.05}}
+    r = mark_trade(ic, icmarks, "2026-06-12")   # debit (0.2+0.2)=0.40, captured 0.60 >=50% -> manage_50pct
+    if r != "manage_50pct" or ic["realized_pnl"] != 120.0:   # 60 x 2 contracts
+        f.append("IC mark/close wrong: {} {}".format(r, ic.get("realized_pnl")))
+
     if f:
         print("FAILED:")
         for x in f:

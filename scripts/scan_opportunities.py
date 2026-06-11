@@ -20,7 +20,7 @@ import logging
 import math
 import os
 import sys
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -56,7 +56,9 @@ MAX_POP = float(os.getenv("SCAN_MAX_POP", "0.90"))
 WIDTH_PCT = float(os.getenv("SCAN_WIDTH_PCT", "0.012"))      # spread width ≈ 1.2% of price
 MIN_WIDTH = float(os.getenv("SCAN_MIN_WIDTH", "5"))          # preferred floor width ($)
 MIN_WIDTH_FLOOR = float(os.getenv("SCAN_MIN_WIDTH_FLOOR", "1"))  # hard floor when account forces narrow
-MIN_CREDIT_RATIO = float(os.getenv("SCAN_MIN_CREDIT_RATIO", "0.20"))  # exec credit / width (P4: 0.15->0.20)
+MIN_CREDIT_RATIO = float(os.getenv("SCAN_MIN_CREDIT_RATIO", "0.10"))  # exec credit / width — EXECUTABLE
+# pricing runs 5-13% of width at ~20Δ (measured live 6/11); the EV-after-fees
+# gate is the true edge filter, this floor just blocks the absurd.
 FEES_PER_SPREAD = float(os.getenv("SCAN_FEES_PER_SPREAD", "3.0"))     # est. open+close commissions/fees
 MAX_REL_SPREAD = float(os.getenv("SCAN_MAX_REL_SPREAD", "0.20"))      # SHORT-leg bid/ask tightness
 MAX_REL_SPREAD_LONG = float(os.getenv("SCAN_MAX_REL_SPREAD_LONG", "0.40"))  # long leg eased (naturally wider OTM)
@@ -72,6 +74,12 @@ BPR_TARGET_LOW = float(os.getenv("SCAN_BPR_TARGET_LOW", "0.35")) # target band 3
 # routed to paper and sized against this (same 10% / 50% rules), so high-value
 # trades still get proven before real capital ever touches them.
 PAPER_CAPITAL = float(os.getenv("SCAN_PAPER_CAPITAL", "20000"))
+# ── Earnings IV-crush (P3b) — the frequency engine ──────────────────────
+# Defined-risk iron condor entered the day before earnings, closed the morning
+# after: harvests the post-print vol collapse (implied moves overstate realized
+# moves more often than not). PAPER-ONLY while it proves itself.
+EC_MOVE_MULT = float(os.getenv("SCAN_EC_MOVE_MULT", "1.1"))   # shorts beyond 1.1x the implied move
+EC_DTE_MAX = int(os.getenv("SCAN_EC_DTE_MAX", "12"))          # nearest expiry after the event
 # ── P2 structure-selection knobs ────────────────────────────────────────
 # Book directional-bias proxy (NOT true greeks — streaming delta is a LATER TODO):
 # each open put-vert counts +1 bull unit, call-vert -1, IC ~0, x contracts x beta.
@@ -215,6 +223,12 @@ def _leg_quote(q):
     return {"bid": bid, "ask": ask, "mid": mid, "rel": (ask - bid) / mid if mid > 0 else 1.0}
 
 
+def _leg_liquid_long(l):
+    """Long (wing) leg liquidity: relative spread OK, OR absolutely tiny spread —
+    a $0.05 wing quoted $0.04/$0.10 is 86% relative but trivially fillable."""
+    return l["rel"] <= MAX_REL_SPREAD_LONG or (l["ask"] - l["bid"]) <= 0.10
+
+
 def choose_strikes(put_strikes, price, iv, dte, target_pop=TARGET_POP, width=MIN_WIDTH):
     """Pick (short, long) put strikes: short ≈ target POP, long ≈ short − width."""
     strikes = sorted(set(float(k) for k in put_strikes))
@@ -262,7 +276,7 @@ def build_candidate(underlying, expiry, dte, short, long_, short_q, long_q,
         return _no("pv: no/invalid leg quote")
     # Liquidity: short leg tight (MAX_REL_SPREAD); long leg eased (wider OTM is
     # normal and is fully paid for in exec_credit) + an open-interest floor.
-    if s["rel"] > MAX_REL_SPREAD or l["rel"] > MAX_REL_SPREAD_LONG:
+    if s["rel"] > MAX_REL_SPREAD or not _leg_liquid_long(l):
         return _no("pv: spread short {:.0%}/long {:.0%}".format(s["rel"], l["rel"]))
     if not _oi_ok(short_q):
         return _no("pv: open interest below floor")
@@ -353,7 +367,7 @@ def build_call_vertical(underlying, expiry, dte, short, long_, short_q, long_q,
     s, l = _leg_quote(short_q), _leg_quote(long_q)
     if not s or not l:
         return _no("cv: no/invalid leg quote")
-    if s["rel"] > MAX_REL_SPREAD or l["rel"] > MAX_REL_SPREAD_LONG or not _oi_ok(short_q):
+    if s["rel"] > MAX_REL_SPREAD or not _leg_liquid_long(l) or not _oi_ok(short_q):
         return _no("cv: liquidity (spread/OI)")
     width = round(long_ - short, 2)
     exec_credit = round(s["bid"] - l["ask"], 2)
@@ -597,6 +611,20 @@ def choose_structure(trend, book_bias=0.0, band=BOOK_BIAS_BAND):
     return base
 
 
+# ── Earnings IV-crush helpers ────────────────────────────────────────────
+def crush_strikes(put_strikes, call_strikes, price, implied_move, mult=EC_MOVE_MULT):
+    """Short strikes just beyond mult x the implied move (puts below, calls above).
+    Returns (put_short, call_short) or None if the chain can't reach."""
+    if not implied_move or implied_move <= 0:
+        return None
+    lo, hi = price - mult * implied_move, price + mult * implied_move
+    puts = sorted(float(k) for k in put_strikes if float(k) <= lo)
+    calls = sorted(float(k) for k in call_strikes if float(k) >= hi)
+    if not puts or not calls:
+        return None
+    return puts[-1], calls[0]
+
+
 # ── Long-vol mode (mirror of the premium-sell scan) ─────────────────────
 def _days_until(date_iso, today_iso):
     """Whole days from today to a YYYY-MM-DD date, or None if unparseable."""
@@ -825,6 +853,72 @@ def _build_for_structure(client, structure, sym, expiry, dte, price, iv, m,
     return cand
 
 
+def earnings_crush_pass(client, metrics, prices, today):
+    """Build earnings IV-crush iron condors for names reporting within ~1 day.
+
+    Enter today (day before / day of the print), close the next day; shorts just
+    beyond 1.1x the implied move; sized against the $20k paper book; PAPER tag
+    forced. Returns candidate dicts ready for the paper book.
+    """
+    out = []
+    for sym, m in metrics.items():
+        ed = m.get("earnings_date")
+        days = _days_until(ed, today) if ed else None
+        if days is None or not (0 <= days <= 1):
+            continue
+        price, iv = prices.get(sym), m.get("iv")
+        if not price or not iv:
+            continue
+        exp = fetch_chain_expiration(client, sym, dte_min=1, dte_max=EC_DTE_MAX)
+        if not exp:
+            continue
+        expiry, dte, puts, calls = exp
+        if expiry and ed and str(expiry) < str(ed):
+            continue   # must expire AFTER the event
+        em = expected_move(price, iv, dte)
+        sel = crush_strikes(puts.keys(), calls.keys(), price, em)
+        if not sel:
+            continue
+        ps_, cs_ = sel
+        w = target_width(price, max_loss_cap=MAX_LOSS_FRAC * PAPER_CAPITAL)
+        pl_c = [k for k in puts if k < ps_]
+        cl_c = [k for k in calls if k > cs_]
+        if not pl_c or not cl_c:
+            continue
+        pl_ = min(pl_c, key=lambda k: abs(k - (ps_ - w)))
+        cl_ = min(cl_c, key=lambda k: abs(k - (cs_ + w)))
+        legs = [puts[ps_], puts[pl_], calls[cs_], calls[cl_]]
+        q = client.fetch_option_quotes(legs)
+        if not all(q.get(x) for x in legs):
+            continue
+        cand = build_iron_condor(sym, expiry, dte, ps_, pl_, cs_, cl_,
+                                 q[puts[ps_]], q[puts[pl_]], q[calls[cs_]], q[calls[cl_]],
+                                 price, iv, m.get("iv_rank") or 0.0, m.get("liquidity"), ed,
+                                 symbols={"put_short": puts[ps_], "put_long": puts[pl_],
+                                          "call_short": calls[cs_], "call_long": calls[cl_]})
+        if not cand:
+            log.info("crush %s rejected: %s", sym, LAST_REJECT)
+            continue
+        n = size_for_caps(cand["max_loss"], cand["bpr"], PAPER_CAPITAL, 0.0)
+        if n == 0:
+            continue
+        close_date = (date.fromisoformat(ed[:10]) + timedelta(days=1)).isoformat()
+        cand.update({
+            "tag": "paper", "event": "earnings", "sized_for": "paper",
+            "contracts": n,
+            "max_loss_total": round(cand["max_loss"] * n, 2),
+            "bpr_total": round(cand["bpr"] * n, 2),
+            "enter_date": today, "close_date": close_date,
+            "reasoning": ("Earnings IV-crush: {} reports {}. Implied move ±${:.2f} ({:.1%}); "
+                          "IC shorts beyond 1.1x the move ({:g}p/{:g}c), {:g}-wide, credit ${:.2f}, "
+                          "max loss ${:.0f} x{}. Enter today, close {} — harvest the post-print vol "
+                          "collapse. PAPER (proving the crush edge).").format(
+                sym, ed, em, em / price, ps_, cs_, w, cand["credit"], cand["max_loss"], n, close_date),
+        })
+        out.append(cand)
+    return out
+
+
 def main() -> int:
     logging.basicConfig(level=logging.INFO,
                         format="%(asctime)s %(levelname)-7s %(name)s · %(message)s",
@@ -933,6 +1027,20 @@ def main() -> int:
         if lv:
             long_vol.append(lv)
     long_vol = rank_long_vol(long_vol)
+
+    # P3b: earnings IV-crush pass — paper-only 1-day holds (the frequency engine).
+    try:
+        crush = earnings_crush_pass(client, metrics, prices, today)
+    except Exception as e:  # noqa: BLE001 — never fail the scan on the crush pass
+        log.warning("earnings-crush pass failed: %s", e)
+        crush = []
+    candidates.extend(crush)
+    for c in crush:
+        events.append({"type": "event", "event": "earnings", "label": "Earnings IV-crush IC",
+                       "underlyings": [c["underlying"]], "structure": "iron_condor",
+                       "expiry": c["expiry"], "enter_date": c["enter_date"],
+                       "close_date": c["close_date"], "status": "enter", "tag": "paper",
+                       "reasoning": c["reasoning"]})
 
     ranked = rank_opportunities(candidates)
     _apply_news_gate(ranked)        # single-name shield: veto picks with a pending catalyst
