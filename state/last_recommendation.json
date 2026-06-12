@@ -1,10 +1,10 @@
 {
-  "last_run": "2026-06-12T16:04:12.740543+00:00",
-  "market_view": "VIX at 19.42, neutral regime with IWM and financials/energy leading but SLV still not participating in the risk-on move. Metals divergence persists and is compounding the short strike breach.",
+  "last_run": "2026-06-12T16:14:18.289847+00:00",
+  "market_view": "VIX at 19.31, mild risk-on with equities green and IWM leading \u2014 but SLV at $61.22 has recovered above the short strike of $61, giving temporary relief from the breach. Position is now marginally OTM but still at breakeven P&L with 69 DTE and zero theta decay captured.",
   "SLV 61/60p": {
-    "action": "CRITICAL",
-    "confidence": 0.99,
-    "timestamp": "2026-06-12T16:04:03Z",
-    "reasoning": "Short strike at $61 is breached with SLV at $60.985 \u2014 worst-case cost $0.65 vs $0.50 credit is 1.3x and closing in on 1.5x hard stop; this is now the seventh consecutive CRITICAL flag with no action, and we are 8 minutes from the close with assignment risk live. There is no edge left in this trade."
+    "action": "ACTION",
+    "confidence": 0.92,
+    "timestamp": "2026-06-12T16:14:04.288911+00:00",
+    "reasoning": "SLV has recovered to $61.22, pushing the short strike back OTM \u2014 current mid $0.50 equals full credit received, so we are at exactly 0% profit with 69 DTE remaining. This is a structurally poor risk/reward: short strike only 0.36% OTM, max profit $50 equals max loss $50, and we have repeatedly been at or through the short strike. Close now while the market gives us a clean exit at scratch."
   }
 }
