@@ -1,15 +1,15 @@
 # Opportunity scan
 
-_Generated 2026-06-12T15:57:57.649442+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (-2% day)._
+_Generated 2026-06-12T18:31:29.056939+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (-6% day)._
 
 | # | Trade | Tag | DTE | Credit | BPR | POP | Cr/BPR | EV/ctr | EV/BPR | IVR |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | AMD 400/390p | PAPER | 35 | $1.10 | $890 | 81% | 12% | $+10 | 1.1% | 92% |
-| 2 | SPY 703/694p | PAPER | 35 | $1.01 | $799 | 80% | 13% | $+7 | 0.9% | 49% |
-| 3 | IWM 273/268p | PAPER | 35 | $0.63 | $437 | 80% | 14% | $+4 | 0.8% | 49% |
-| 4 | TSLA 330/325p | PAPER | 35 | $0.55 | $445 | 81% | 12% | $+3 | 0.8% | 50% |
-| 5 | QQQ 640/800p | PAPER | 35 | $1.31 | $869 | 77% | 15% | $+3 | 0.3% | 82% |
-| 6 | MSFT 355/350p | PAPER | 35 | $0.55 | $445 | 78% | 12% | $+1 | 0.2% | 61% |
+| 1 | AMD 410/400p | PAPER | 35 | $1.40 | $860 | 79% | 16% | $+8 | 0.9% | 94% |
+| 2 | QQQ 670/660p | PAPER | 35 | $1.33 | $867 | 79% | 15% | $+8 | 0.9% | 75% |
+| 3 | SPY 706/697p | PAPER | 35 | $1.01 | $799 | 80% | 13% | $+7 | 0.8% | 45% |
+| 4 | IWM 274/269p | PAPER | 35 | $0.67 | $433 | 80% | 16% | $+3 | 0.8% | 45% |
+| 5 | TSLA 340/335p | PAPER | 35 | $0.50 | $450 | 81% | 11% | $+3 | 0.7% | 45% |
+| 6 | MSFT 355/350p | PAPER | 35 | $0.59 | $441 | 79% | 13% | $+2 | 0.4% | 60% |
 
 ## Macro events · scheduled-event crush setups
 
