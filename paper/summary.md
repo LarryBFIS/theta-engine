@@ -1,18 +1,18 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-12T15:34:13.432067+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-12T15:44:34.733939+00:00._
 
-**10 trades · 7 open / 3 closed · win rate 0% · realized $-968.00 · open $+12.00 · total $-956.00**
+**10 trades · 7 open / 3 closed · win rate 0% · realized $-968.00 · open $-82.00 · total $-1050.00**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
-| paper_0001_qqq | QQQ 606/785p | PAPER | open | $1.01 | — | $-106 |  |
-| paper_0002_spy | SPY 686/677p | PAPER | open | $1.08 | — | $+100 |  |
-| paper_0003_iwm | IWM 264/259p | PAPER | open | $0.68 | — | $+116 |  |
+| paper_0001_qqq | QQQ 606/785p | PAPER | open | $1.01 | — | $-92 |  |
+| paper_0002_spy | SPY 686/677p | PAPER | open | $1.08 | — | $+90 |  |
+| paper_0003_iwm | IWM 264/259p | PAPER | open | $0.68 | — | $+104 |  |
 | paper_0004_gld | GLD 405/410p | PAPER | closed | $0.68 | $-418 | — | stop_1.5x |
-| paper_0005_msft | MSFT 355/350p | PAPER | open | $0.75 | — | $-24 |  |
-| paper_0006_aapl | AAPL 260/320p | PAPER | open | $0.56 | — | $-64 |  |
-| paper_0007_spy | SPY 687/678p | PAPER | open | $1.06 | — | $+92 |  |
-| paper_0008_qqq | QQQ 608/785p | PAPER | open | $1.04 | — | $-102 |  |
+| paper_0005_msft | MSFT 355/350p | PAPER | open | $0.75 | — | $-50 |  |
+| paper_0006_aapl | AAPL 260/320p | PAPER | open | $0.56 | — | $-124 |  |
+| paper_0007_spy | SPY 687/678p | PAPER | open | $1.06 | — | $+80 |  |
+| paper_0008_qqq | QQQ 608/785p | PAPER | open | $1.04 | — | $-90 |  |
 | paper_0009_msft | MSFT 330/435p | PAPER | closed | $0.54 | $-380 | — | stop_1.5x |
 | paper_0010_googl | GOOGL 295/395p | PAPER | closed | $0.51 | $-170 | — | stop_1.5x |
