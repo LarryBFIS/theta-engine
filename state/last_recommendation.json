@@ -1,10 +1,10 @@
 {
-  "last_run": "2026-06-12T17:34:04.909315+00:00",
-  "market_view": "VIX at 18.4 (-5.35% today, -9.3% 5d) with broad risk-on equities rally, but SLV is not participating \u2014 metals lagging means short 61p remains dangerously close to being ITM with zero edge in this spread.",
+  "last_run": "2026-06-12T17:45:33.016592+00:00",
+  "market_view": "VIX crushed -5.5% today to 18.37 with broad risk-on across equities, but metals continue to lag \u2014 SLV is not participating in this rally and the short 61p remains dangerously close to breach with zero profit buffer.",
   "SLV 61/60p": {
     "action": "CRITICAL",
-    "confidence": 0.98,
-    "timestamp": "2026-06-12T17:33:56Z",
-    "reasoning": "SLV at $61.37 with short 61p only $0.37 (0.59%) OTM \u2014 mid is still $0.50 (zero P&L) and worst fill $0.65 already breaches the 1.5x loss rule; this alert was issued 9 minutes ago and position has not been closed, strike breach risk is real with metals underperforming risk-on rally."
+    "confidence": 0.99,
+    "timestamp": "2026-06-12T17:45:20Z",
+    "reasoning": "SLV at $61.37 puts short 61p only $0.37 (0.59%) OTM \u2014 worst fill at $0.65 already violates the 1.5x loss rule ($0.75 threshold), this position has been flagged CRITICAL for 11+ minutes with no close executed, and metals underperforming a strong risk-on day means downside skew is real. Close now."
   }
 }
