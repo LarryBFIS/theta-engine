@@ -1,10 +1,15 @@
 # Opportunity scan
 
-_Generated 2026-06-11T21:13:39.620524+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (-13% day)._
+_Generated 2026-06-12T15:57:57.649442+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (-2% day)._
 
 | # | Trade | Tag | DTE | Credit | BPR | POP | Cr/BPR | EV/ctr | EV/BPR | IVR |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| — | _no setups passed filters_ | | | | | | | | | |
+| 1 | AMD 400/390p | PAPER | 35 | $1.10 | $890 | 81% | 12% | $+10 | 1.1% | 92% |
+| 2 | SPY 703/694p | PAPER | 35 | $1.01 | $799 | 80% | 13% | $+7 | 0.9% | 49% |
+| 3 | IWM 273/268p | PAPER | 35 | $0.63 | $437 | 80% | 14% | $+4 | 0.8% | 49% |
+| 4 | TSLA 330/325p | PAPER | 35 | $0.55 | $445 | 81% | 12% | $+3 | 0.8% | 50% |
+| 5 | QQQ 640/800p | PAPER | 35 | $1.31 | $869 | 77% | 15% | $+3 | 0.3% | 82% |
+| 6 | MSFT 355/350p | PAPER | 35 | $0.55 | $445 | 78% | 12% | $+1 | 0.2% | 61% |
 
 ## Macro events · scheduled-event crush setups
 
