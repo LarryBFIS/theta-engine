@@ -1,16 +1,12 @@
 # Opportunity scan
 
-_Generated 2026-06-15T17:35:36.912075+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (-9% day)._
+_Generated 2026-06-15T20:40:50.798169+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (-8% day)._
 
 | # | Trade | Tag | DTE | Credit | BPR | POP | Cr/BPR | EV/ctr | EV/BPR | IVR |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | QQQ 695/686p | PAPER | 32 | $1.11 | $789 | 80% | 14% | $+8 | 1.0% | 65% |
-| 2 | AMD 440/430p | PAPER | 32 | $1.20 | $880 | 80% | 14% | $+9 | 1.0% | 94% |
-| 3 | MSFT 365/360p | PAPER | 32 | $0.56 | $444 | 81% | 13% | $+4 | 0.9% | 57% |
-| 4 | ORCL 165/160p | PAPER | 32 | $0.59 | $441 | 80% | 13% | $+3 | 0.7% | 46% |
-| 5 | INTC 97.5/92.5p | PAPER | 32 | $0.53 | $447 | 80% | 12% | $+3 | 0.6% | 86% |
-| 6 | MA 520/525p | PAPER | 32 | $0.50 | $450 | 79% | 11% | $+1 | 0.3% | 45% |
-| 7 | CSCO 110/105p | PAPER | 32 | $0.59 | $441 | 78% | 13% | $+1 | 0.2% | 65% |
+| 1 | CRM 145/140p | PAPER | 32 | $0.57 | $443 | 81% | 13% | $+4 | 0.9% | 55% |
+| 2 | QQQ 695/686p | PAPER | 32 | $1.01 | $799 | 80% | 13% | $+7 | 0.8% | 64% |
+| 3 | AMD 440/430p | PAPER | 32 | $1.00 | $900 | 80% | 11% | $+6 | 0.7% | 92% |
 
 ## Macro events · scheduled-event crush setups
 
