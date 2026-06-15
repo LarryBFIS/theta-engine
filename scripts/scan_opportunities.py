@@ -498,10 +498,13 @@ def reasoning_for(c, trend=None, book_bias=None):
 
 
 def rank_opportunities(candidates, top_n=TOP_N):
-    """Best expected return on capital first; tie-break on IV rank then POP."""
+    """Best expected return on capital first; tie-break on IV rank then POP.
+
+    Uses `rank_score` (ev_on_bpr × learned bucket multiplier) when present, so the
+    learning loop can favor/downweight buckets; falls back to raw ev_on_bpr."""
     return sorted(
         candidates,
-        key=lambda c: (c["ev_on_bpr"], c["iv_rank"], c["pop"]),
+        key=lambda c: (c.get("rank_score", c["ev_on_bpr"]), c["iv_rank"], c["pop"]),
         reverse=True,
     )[:top_n]
 
@@ -1121,6 +1124,24 @@ def main() -> int:
                        "close_date": c["close_date"], "status": "enter", "tag": "paper",
                        "reasoning": c["reasoning"]})
 
+    # Phase 2: fold in learned realized edge. Refresh learnings from the outcomes
+    # ledger and tilt each candidate's rank by its bucket multiplier (asset_class ×
+    # structure × cluster). Inert until a bucket clears the sample bar (×1.00), so
+    # this never acts on noise. Never fail the scan on a learn error.
+    learnings = None
+    try:
+        from scripts import learn
+        learnings = learn.refresh()
+        for c in candidates:
+            mult, notes = learn.candidate_multiplier(
+                learnings, underlying=c.get("underlying"), structure=c.get("structure"))
+            c["learn_multiplier"] = mult
+            if notes:
+                c["learn_notes"] = notes
+            c["rank_score"] = round(c["ev_on_bpr"] * mult, 6)
+    except Exception as e:  # noqa: BLE001
+        log.warning("learning pass failed (ranking falls back to raw EV): %s", e)
+
     ranked = rank_opportunities(candidates)
     _apply_news_gate(ranked)        # single-name shield: veto picks with a pending catalyst
     _apply_regime(ranked, regime)   # market-wide shield (regime computed up front)
@@ -1128,7 +1149,7 @@ def main() -> int:
         for c in ranked:
             if c.get("tag") == "live":
                 c["tag"], c["demoted"] = "paper", "pre-event blackout (<=2d to macro event)"
-    _write(ranked, candidates, skipped, regime, long_vol, events)
+    _write(ranked, candidates, skipped, regime, long_vol, events, learnings)
     _alert_live([c for c in ranked if c.get("tag") == "live"])
     if regime.get("stand_down"):
         _alert_regime(regime)
@@ -1236,9 +1257,19 @@ def _mid(q):
     return (b + a) / 2 if (b is not None and a is not None) else None
 
 
-def _write(ranked, candidates, skipped, regime=None, long_vol=None, events=None):
+def _write(ranked, candidates, skipped, regime=None, long_vol=None, events=None, learnings=None):
     SCAN_DIR.mkdir(parents=True, exist_ok=True)
     long_vol = long_vol or []
+    # Compact learnings summary for the dashboards (full detail in memory/learnings.*).
+    learn_summary = None
+    if learnings:
+        learn_summary = {"global": learnings.get("global", {}),
+                         "min_sample": learnings.get("params", {}).get("min_sample"),
+                         "actionable": [
+                             {"dim": dim, "value": v, "multiplier": b.get("multiplier"),
+                              "recommendation": b.get("recommendation"), "n": b.get("n")}
+                             for dim, bs in learnings.get("buckets", {}).items()
+                             for v, b in bs.items() if b.get("actionable")]}
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "regime": regime or {},
@@ -1247,7 +1278,8 @@ def _write(ranked, candidates, skipped, regime=None, long_vol=None, events=None)
                    "longvol_max_iv_rank": LONGVOL_MAX_IV_RANK, "longvol_catalyst_days": LONGVOL_CATALYST_DAYS},
         "top": ranked,
         "long_vol": long_vol,
-        "events": events or [],   # P3 macro-event / FOMC crush setups (next patch)
+        "events": events or [],   # P3 macro-event / FOMC crush setups
+        "learnings": learn_summary,   # Phase 2: realized edge by bucket (null until data)
         "all_candidates": candidates,
         "skipped": skipped,
     }

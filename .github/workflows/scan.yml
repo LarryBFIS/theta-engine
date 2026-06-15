@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name "theta-bot"
           git config user.email "bot@theta-engine"
-          git add scan/ paper/
+          git add scan/ paper/ memory/
           if git diff --cached --quiet; then
             echo "No scan changes"
           else

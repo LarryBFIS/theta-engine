@@ -90,12 +90,32 @@ inferred from the last few up-weeks.
   were nearly the entire realized loss.
 - Unit-tested (cluster/asset classification, all three caps, ledger shape).
 
+## 2026-06-15 — Phase 2 shipped (patch 0053): the loop is closed
+- **`scripts/learn.py`** reads the ledger → realized win-rate & expectancy per
+  bucket (asset_class / structure / cluster / size) → `memory/learnings.json`
+  + a human-readable `memory/learnings.md`. The scanner calls it every run.
+- **Scanner consumes it:** each candidate's rank is tilted by its bucket
+  multiplier (asset_class × structure × cluster), clamped to [0.4, 1.6].
+- **Overfitting discipline (the whole point):** a bucket is inert (×1.00) until
+  **n ≥ 20** closes; win-rates are **shrunk** toward the global prior (Beta-
+  Binomial, k=10). Verified on the real 9-close ledger: it *sees* index_etf at
+  5/5 (+$120 avg) but correctly does **nothing** ("watch n=5 < 20"). It only
+  bites once the evidence is real — so the L4 direction-confound can't get
+  hardcoded from a few up-weeks.
+- Unit-tested (shrinkage, min-sample gate, favor/AVOID, candidate multiplier).
+- `scan.yml` now also commits `memory/` so the ledger/learnings persist.
+
+**Status: the autonomous learning loop is live but dormant by design.** It needs
+~20+ clean closes under the new caps before any bucket acts. Until then it's
+accumulating evidence and showing it, without trading on noise.
+
 ## Backlog (build order)
 1. ✅ `memory/trades_ledger.json` — done (0052).
 2. ✅ Static guards: per-name + cluster + total-open caps, size cap — done (0052).
-   _Still TODO: feed the PAPER book's directional bias into structure selection
-   (today only the live book's bias is used) for a true delta-balance guard._
-3. `scripts/learn.py` (nightly) — realized win-rate & EV per bucket from the
-   ledger → `memory/learnings.json`, with min-sample (N≥20) + shrinkage guards.
-4. Scanner reads `memory/learnings.json` and adjusts selection/sizing; writes a
-   human-readable changelog of what it learned and why.
+3. ✅ `scripts/learn.py` + scanner consumption — done (0053).
+4. _Next:_ feed the PAPER book's directional bias into structure selection
+   (today only the live book's bias is used) for a true delta-balance guard.
+5. _Next:_ surface `memory/learnings.md` on the dashboards / works page so the
+   "what the engine learned" story is visible.
+6. _Later:_ once a bucket is actionable, let a strongly-negative bucket hard-demote
+   LIVE→PAPER (today learnings only soft-tilt the ranking, never hard-block).
