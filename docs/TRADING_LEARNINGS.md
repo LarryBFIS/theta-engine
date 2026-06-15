@@ -109,6 +109,20 @@ inferred from the last few up-weeks.
 ~20+ clean closes under the new caps before any bucket acts. Until then it's
 accumulating evidence and showing it, without trading on noise.
 
+## 2026-06-16 — Phase 3 (patch 0054): reconcile the legacy book to caps
+- The caps stop NEW concentration but the 25 pre-cap open positions still carried
+  the risk (QQQ ×6) and −$1,745 in marks. `scripts/reconcile_paper.py` +
+  `reconcile_to_caps()` paper-close the over-cap excess at last mark, keeping the
+  best-fitting positions (index first, then better unrealized, then smaller size).
+- Honest accounting: reconcile **locks in ~$1.9k of unrealized marks** — it does
+  NOT recover money. The value is risk removal (no correlated stack into the Fed),
+  a clean within-caps forward test, and ~18 more ledger closes (28 total; brings
+  short_put_vertical to 19 — one shy of the n≥20 learner-activation bar).
+- Offline/pure (uses stored marks; no API) and idempotent. Unit-tested.
+- **Lesson reinforced:** holding a pile of correlated, underwater, rule-breaking
+  positions hoping for recovery is the exact gambler behavior we engineer against.
+  Cut concentration; don't pray for the mark to come back.
+
 ## Backlog (build order)
 1. ✅ `memory/trades_ledger.json` — done (0052).
 2. ✅ Static guards: per-name + cluster + total-open caps, size cap — done (0052).

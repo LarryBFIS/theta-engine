@@ -160,6 +160,36 @@ def main() -> int:
             and lr["won"] is True and lr["realized_pnl"] == 97.0):
         f.append("ledger_record: {}".format(lr))
 
+    # --- reconcile_to_caps: trims over-cap opens at their marks, keeps best ---
+    from scripts.paper_trades import reconcile_to_caps
+    book8 = {"trades": []}
+    # 5 QQQ tech opens (cluster cap 3 / name cap 1) with marks; index SPY kept first
+    mk = lambda u, s, l, cr, dbt, unp, idx: {
+        "underlying": u, "structure": "short_put_vertical", "short_strike": s, "long_strike": l,
+        "expiry": "2026-07-17", "opened_credit": cr, "current_debit": dbt, "unrealized_pnl": unp,
+        "contracts": 1, "status": "open", "id": "p_{}".format(idx)}
+    book8["trades"] = [
+        mk("QQQ", 100, 95, 1.0, 1.5, -50, 1),
+        mk("AMD", 100, 95, 1.0, 1.2, -20, 2),
+        mk("MSFT", 100, 95, 1.0, 1.1, -10, 3),
+        mk("INTC", 100, 95, 1.0, 2.0, -100, 4),   # us_tech 4th -> must close (worst)
+        mk("SPY", 100, 95, 1.0, 0.6, 40, 5),       # index -> always kept
+    ]
+    closed8 = reconcile_to_caps(book8, "2026-06-16", caps={"max_per_name": 1, "max_per_cluster": 3, "max_open": 8})
+    open_left = [t for t in book8["trades"] if t["status"] == "open"]
+    if len(open_left) != 4 or len(closed8) != 1:
+        f.append("reconcile counts: open {} closed {}".format(len(open_left), len(closed8)))
+    if closed8 and closed8[0]["underlying"] != "INTC":
+        f.append("reconcile should drop worst tech (INTC): {}".format(closed8[0]["underlying"]))
+    if closed8 and closed8[0]["close_reason"] != "reconcile_caps":
+        f.append("reconcile reason: {}".format(closed8[0].get("close_reason")))
+    # realized = (1.0 - 2.0)*100*1 - 2 legs*1.25 = -100 - 2.50
+    if closed8 and closed8[0]["realized_pnl"] != -102.5:
+        f.append("reconcile realized: {}".format(closed8[0]["realized_pnl"]))
+    # idempotent: second pass closes nothing
+    if reconcile_to_caps(book8, "2026-06-16", caps={"max_per_name": 1, "max_per_cluster": 3, "max_open": 8}):
+        f.append("reconcile not idempotent")
+
     if f:
         print("FAILED:")
         for x in f:

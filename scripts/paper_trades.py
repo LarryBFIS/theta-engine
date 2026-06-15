@@ -300,6 +300,60 @@ def summarize(book):
     }
 
 
+def _close_at_mark(trade, today, reason):
+    """Paper-close one trade at its last stored mark (current_debit). Pure — no
+    network. Mirrors mark_trade's close accounting (fees per leg per contract)."""
+    ctr = int(trade.get("contracts") or 1)
+    cd = trade.get("current_debit")
+    if cd is None:
+        return False   # never marked — can't value it fairly, leave it open
+    legs = 4 if trade.get("symbols") else 2
+    fees = round(FEE_PER_LEG * legs * ctr, 2)
+    realized = round((trade["opened_credit"] - cd) * 100, 2)   # per contract
+    trade["status"] = "closed"
+    trade["closed_at"] = today
+    trade["fees"] = fees
+    trade["realized_pnl"] = round(realized * ctr - fees, 2)
+    trade["unrealized_pnl"] = None
+    trade["close_reason"] = reason
+    return True
+
+
+def reconcile_to_caps(book, today, caps=None):
+    """One-time cleanup: paper-close open positions that breach the concentration
+    caps, keeping the BEST-fitting ones (index ETFs first, then better current
+    unrealized, then smaller size). Closes the rest at their last mark. Pure /
+    idempotent — re-running once the book is within caps closes nothing. Returns
+    the list of closed trades."""
+    caps = caps or {}
+    max_name = caps.get("max_per_name", MAX_PER_NAME)
+    max_cluster = caps.get("max_per_cluster", MAX_PER_CLUSTER)
+    max_open = caps.get("max_open", MAX_OPEN)
+    opens = [t for t in book.get("trades", []) if t.get("status") == "open"]
+
+    def keep_score(t):
+        is_idx = 1 if asset_class(t.get("underlying")) == "index_etf" else 0
+        u = t.get("unrealized_pnl")
+        u = float(u) if u is not None else -1e9   # unmarked sink to the bottom (closed first)
+        return (is_idx, u, -int(t.get("contracts") or 1))
+
+    kept_total, name_ct, cluster_ct, closed = 0, {}, {}, []
+    for t in sorted(opens, key=keep_score, reverse=True):
+        u = (t.get("underlying") or "").upper()
+        cl = cluster_of(u)
+        within = (kept_total < max_open and name_ct.get(u, 0) < max_name
+                  and cluster_ct.get(cl, 0) < max_cluster)
+        if within:
+            kept_total += 1
+            name_ct[u] = name_ct.get(u, 0) + 1
+            cluster_ct[cl] = cluster_ct.get(cl, 0) + 1
+            continue
+        # over a cap -> close at last mark (no-op + stays open if never marked)
+        if _close_at_mark(t, today, "reconcile_caps"):
+            closed.append(t)
+    return closed
+
+
 # ── Outcomes ledger — the persistent memory the learning loop will consume ──
 def ledger_record(t):
     """A closed trade reduced to the features the nightly learn pass buckets on:
