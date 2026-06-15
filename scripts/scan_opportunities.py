@@ -66,6 +66,10 @@ MIN_OPEN_INTEREST = int(os.getenv("SCAN_MIN_OI", "100"))     # P4: reject thin c
 MANAGE_FRAC = float(os.getenv("SCAN_MANAGE_FRAC", "0.5"))    # take profit at 50%
 STOP_MULT = float(os.getenv("SCAN_STOP_MULT", "1.5"))        # cut losers at 1.5x credit (matches rule)
 TOP_N = int(os.getenv("SCAN_TOP_N", "10"))
+# Hard size cap. Learning 2026-06-15: the 4-lot positions were nearly the ENTIRE
+# realized loss (−$1,182 of −$999 net). Keep size small until edge is proven,
+# regardless of how much room the max-loss/BPR caps leave.
+MAX_CONTRACTS = int(os.getenv("SCAN_MAX_CONTRACTS", "3"))
 # ── P1 safety caps (hard rejects, sized against the live account) ────────
 MAX_LOSS_FRAC = float(os.getenv("SCAN_MAX_LOSS_FRAC", "0.10"))   # max loss <= 10% of net liq
 BPR_CAP_FRAC = float(os.getenv("SCAN_BPR_CAP_FRAC", "0.50"))     # total BPR utilization ceiling
@@ -908,6 +912,7 @@ def earnings_crush_pass(client, metrics, prices, today):
         n = size_for_caps(cand["max_loss"], cand["bpr"], PAPER_CAPITAL, 0.0)
         if n == 0:
             continue
+        n = min(n, MAX_CONTRACTS)   # hard size cap (Learning 2026-06-15)
         close_date = (date.fromisoformat(ed[:10]) + timedelta(days=1)).isoformat()
         cand.update({
             "tag": "paper", "event": "earnings", "sized_for": "paper",
@@ -971,6 +976,7 @@ def day_trade_pass(client, prices, metrics, today):
         n = size_for_caps(cand["max_loss"], cand["bpr"], PAPER_CAPITAL, 0.0)
         if n == 0:
             continue
+        n = min(n, MAX_CONTRACTS)   # hard size cap (Learning 2026-06-15)
         cand.update({"tag": "paper", "sized_for": "paper", "day_trade": True,
                      "close_after_et": DAY_CLOSE_ET, "contracts": n,
                      "max_loss_total": round(cand["max_loss"] * n, 2),
@@ -1063,6 +1069,7 @@ def main() -> int:
             cand["sized_for"] = "paper"
             if cand["tag"] == "live":
                 cand["tag"], cand["demoted"] = "paper", "exceeds live caps — sized for $20k paper book"
+        n = min(n, MAX_CONTRACTS)   # hard size cap (Learning 2026-06-15)
         cand["contracts"] = n
         cand["max_loss_total"] = round(cand["max_loss"] * n, 2)
         cand["bpr_total"] = round(cand["bpr"] * n, 2)

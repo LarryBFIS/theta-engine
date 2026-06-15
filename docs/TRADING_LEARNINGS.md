@@ -77,13 +77,25 @@ inferred from the last few up-weeks.
 
 ---
 
-## Backlog the learnings imply (build order)
-1. `memory/trades_ledger.json` — every close tagged with features
-   (structure, underlying, index/single, contracts, IVR & delta @entry, VIX
-   regime, close_reason, P&L, days held).
-2. Static guards now (no data needed): per-name + total-open caps, size cap,
-   delta-balance guard.
-3. `scripts/learn.py` (nightly) — realized win-rate & EV per bucket →
-   `memory/learnings.json`, with min-sample + shrinkage guards.
+## 2026-06-15 — Phase 1 shipped (patch 0052)
+- **Outcomes ledger** (`memory/trades_ledger.json`): every close recorded with
+  features (asset_class index/sector/single, correlation cluster, structure,
+  size, IVR/POP at entry, close_reason, realized P&L, won). Backfills on first
+  run. First read already confirms L3: index_etf **5/5 wins**, sector+single
+  **0/4** — now captured automatically, not by hand.
+- **Concentration caps** in `record_picks` (the position chokepoint): max 1 per
+  name, max 3 per correlation cluster, max 8 total open. Directly prevents the
+  QQQ ×5 / all-tech stacking that caused the hole.
+- **Size cap** in the scanner: `MAX_CONTRACTS=3` — kills the 4-lot blowups that
+  were nearly the entire realized loss.
+- Unit-tested (cluster/asset classification, all three caps, ledger shape).
+
+## Backlog (build order)
+1. ✅ `memory/trades_ledger.json` — done (0052).
+2. ✅ Static guards: per-name + cluster + total-open caps, size cap — done (0052).
+   _Still TODO: feed the PAPER book's directional bias into structure selection
+   (today only the live book's bias is used) for a true delta-balance guard._
+3. `scripts/learn.py` (nightly) — realized win-rate & EV per bucket from the
+   ledger → `memory/learnings.json`, with min-sample (N≥20) + shrinkage guards.
 4. Scanner reads `memory/learnings.json` and adjusts selection/sizing; writes a
    human-readable changelog of what it learned and why.

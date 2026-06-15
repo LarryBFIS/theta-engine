@@ -4,7 +4,8 @@ Run without pytest:  python -m scripts.test_paper_trades
 """
 import sys
 
-from scripts.paper_trades import record_picks, manage_decision, mark_trade, summarize
+from scripts.paper_trades import (record_picks, manage_decision, mark_trade, summarize,
+                                  cluster_of, asset_class, ledger_record)
 
 
 def main() -> int:
@@ -116,6 +117,48 @@ def main() -> int:
     r = mark_trade(ic, icmarks, "2026-06-12")   # debit (0.2+0.2)=0.40, captured 0.60 >=50% -> manage_50pct
     if r != "manage_50pct" or ic["realized_pnl"] != 110.0:   # 60x2 - 4x2x1.25 fees
         f.append("IC mark/close wrong: {} {}".format(r, ic.get("realized_pnl")))
+
+    # --- concentration caps (Phase 1) ---
+    # us_tech cluster cap = 3: a 4th tech name in one batch is blocked.
+    book5 = {"trades": []}
+    tech = [{"underlying": u, "short_strike": 100, "long_strike": 95, "expiry": "2026-07-17",
+             "credit": 0.5, "structure": "short_put_vertical"} for u in ("AAPL", "MSFT", "NVDA", "AMD")]
+    record_picks(book5, tech, "2026-06-01")
+    if len([t for t in book5["trades"] if t["status"] == "open"]) != 3:
+        f.append("cluster cap: expected 3 us_tech, got {}".format(len(book5["trades"])))
+
+    # max per name = 1: same underlying twice (distinct strikes) -> only one opens.
+    book6 = {"trades": []}
+    dup = [dict(picks[0], short_strike=775, long_strike=770),
+           dict(picks[0], short_strike=780, long_strike=775)]   # both CAT, distinct sigs
+    record_picks(book6, dup, "2026-06-01")
+    if len([t for t in book6["trades"] if t["status"] == "open"]) != 1:
+        f.append("per-name cap: expected 1, got {}".format(len(book6["trades"])))
+
+    # total-open cap honored via override.
+    book7 = {"trades": []}
+    many = [{"underlying": u, "short_strike": 50, "long_strike": 45, "expiry": "2026-07-17",
+             "credit": 0.4, "structure": "short_put_vertical"}
+            for u in ("XOM", "GLD", "TLT", "JPM", "PFE", "DIS")]   # all different clusters
+    record_picks(book7, many, "2026-06-01", caps={"max_open": 4, "max_per_cluster": 9})
+    if len([t for t in book7["trades"] if t["status"] == "open"]) != 4:
+        f.append("max_open cap: expected 4, got {}".format(len(book7["trades"])))
+
+    # --- classification helpers ---
+    if cluster_of("QQQ") != "us_tech" or asset_class("QQQ") != "index_etf":
+        f.append("classify QQQ: {} / {}".format(cluster_of("QQQ"), asset_class("QQQ")))
+    if cluster_of("XOM") != "energy" or asset_class("XOM") != "single_name":
+        f.append("classify XOM: {} / {}".format(cluster_of("XOM"), asset_class("XOM")))
+    if asset_class("GLD") != "sector_etf":
+        f.append("classify GLD: {}".format(asset_class("GLD")))
+
+    # --- ledger record shape ---
+    lr = ledger_record({"id": "x", "underlying": "SPY", "structure": "short_put_vertical",
+                        "contracts": 2, "opened_credit": 1.0, "iv_rank": 0.6, "pop": 0.8,
+                        "realized_pnl": 97.0, "close_reason": "manage_50pct", "closed_at": "2026-06-10"})
+    if not (lr["asset_class"] == "index_etf" and lr["cluster"] == "us_index"
+            and lr["won"] is True and lr["realized_pnl"] == 97.0):
+        f.append("ledger_record: {}".format(lr))
 
     if f:
         print("FAILED:")

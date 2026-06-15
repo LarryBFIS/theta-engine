@@ -21,6 +21,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 PAPER_DIR = REPO_ROOT / "paper"
 BOOK_FILE = PAPER_DIR / "book.json"
 SCAN_FILE = REPO_ROOT / "scan" / "opportunities.json"
+MEMORY_DIR = REPO_ROOT / "memory"
+LEDGER_FILE = MEMORY_DIR / "trades_ledger.json"   # persistent outcomes memory (learn.py input)
 
 BOOK_SCHEMA = 2        # bump to wipe a book written by buggy older logic
 import os
@@ -31,7 +33,63 @@ MANAGE_FRAC = 0.5      # take profit at 50% of credit
 EXIT_DTE = 21         # hard exit
 STOP_DEBIT_MULT = 1.5  # cut at 1.5x credit (debit to close >= 2.5x credit)
 
+# ── Concentration caps (Phase 1 — stop stacking correlated risk) ──────────
+# Learnings 2026-06-15: the book held 22 open positions (QQQ ×5, AMD ×3, all
+# tech) that fell together = the −$1,814 hole. Cap per name, per correlation
+# cluster, and total open. The gate lives in record_picks (the position chokepoint).
+MAX_PER_NAME = int(os.getenv("PAPER_MAX_PER_NAME", "1"))      # no duplicate underlyings
+MAX_PER_CLUSTER = int(os.getenv("PAPER_MAX_PER_CLUSTER", "3"))  # correlated names share one ceiling
+MAX_OPEN = int(os.getenv("PAPER_MAX_OPEN", "8"))             # total open positions
+
+# Correlation clusters — names that move together count against one ceiling.
+_CLUSTER_MEMBERS = {
+    "us_tech": ("AAPL", "MSFT", "AMZN", "GOOGL", "META", "NVDA", "AMD", "TSLA",
+                "NFLX", "ORCL", "CRM", "INTC", "CSCO", "QQQ", "XLK"),
+    "us_index": ("SPY", "IWM", "DIA"),
+    "financials": ("JPM", "BAC", "WFC", "GS", "V", "MA", "XLF"),
+    "energy": ("XOM", "CVX", "XLE"),
+    "metals": ("GLD", "SLV"),
+    "bonds": ("TLT",),
+    "healthcare": ("PFE", "MRK"),
+    "consumer": ("DIS", "KO", "PEP", "WMT", "COST"),
+    "industrials": ("BA", "CAT"),
+}
+CLUSTERS = {sym: cl for cl, syms in _CLUSTER_MEMBERS.items() for sym in syms}
+INDEX_ETFS = {"SPY", "QQQ", "IWM", "DIA"}
+SECTOR_ETFS = {"GLD", "SLV", "TLT", "XLF", "XLE", "XLK"}
+
 log = logging.getLogger("paper")
+
+
+def cluster_of(sym):
+    """Correlation cluster for an underlying (defaults to the symbol itself, so
+    unknown names only ever collide with themselves)."""
+    return CLUSTERS.get((sym or "").upper(), (sym or "").upper())
+
+
+def asset_class(sym):
+    """index_etf / sector_etf / single_name — the bucket the learning loop cares about.
+    (QQQ counts as an index ETF here even though its correlation cluster is us_tech.)"""
+    u = (sym or "").upper()
+    if u in INDEX_ETFS:
+        return "index_etf"
+    if u in SECTOR_ETFS:
+        return "sector_etf"
+    return "single_name"
+
+
+def _open_counts(trades):
+    """(total_open, {name: n}, {cluster: n}) over the currently-open trades."""
+    total, name_ct, cluster_ct = 0, {}, {}
+    for t in trades:
+        if t.get("status") != "open":
+            continue
+        total += 1
+        u = (t.get("underlying") or "").upper()
+        name_ct[u] = name_ct.get(u, 0) + 1
+        c = cluster_of(u)
+        cluster_ct[c] = cluster_ct.get(c, 0) + 1
+    return total, name_ct, cluster_ct
 
 
 def _sig(t):
@@ -39,19 +97,40 @@ def _sig(t):
                                     t.get("long_strike"), t.get("expiry"))
 
 
-def record_picks(book, picks, today):
-    """Add new picks as open paper trades (deduped by signature). Returns changes[].
+def record_picks(book, picks, today, caps=None):
+    """Add new picks as open paper trades (deduped by signature AND gated by
+    concentration caps). Returns changes[].
 
     Dedup against EVERY trade ever recorded — not just open ones. A pick that
     already closed must not reappear and re-open on the next scan; that churn was
     inflating the book with phantom repeat-wins.
+
+    Concentration gate (Phase 1): skip a pick if the book already holds the max
+    per underlying, per correlation cluster, or in total — counting positions
+    added earlier in THIS batch too. Skips are logged with a reason, never opened.
     """
+    caps = caps or {}
+    max_name = caps.get("max_per_name", MAX_PER_NAME)
+    max_cluster = caps.get("max_per_cluster", MAX_PER_CLUSTER)
+    max_open = caps.get("max_open", MAX_OPEN)
     trades = book.setdefault("trades", [])
     known_sigs = {_sig(t) for t in trades}
-    changes = []
+    total, name_ct, cluster_ct = _open_counts(trades)
+    changes, capped = [], []
     for p in picks:
         sig = _sig(p)
         if sig in known_sigs:
+            continue
+        u = (p.get("underlying") or "").upper()
+        cl = cluster_of(u)
+        if total >= max_open:
+            capped.append("{} (book full: {} open)".format(u, total))
+            continue
+        if name_ct.get(u, 0) >= max_name:
+            capped.append("{} (already hold, max/name {})".format(u, max_name))
+            continue
+        if cluster_ct.get(cl, 0) >= max_cluster:
+            capped.append("{} ({} cluster full, max {})".format(u, cl, max_cluster))
             continue
         n = len(trades) + 1
         trades.append({
@@ -86,8 +165,14 @@ def record_picks(book, picks, today):
             "close_reason": None,
         })
         known_sigs.add(sig)
+        total += 1
+        name_ct[u] = name_ct.get(u, 0) + 1
+        cluster_ct[cl] = cluster_ct.get(cl, 0) + 1
         changes.append("opened {} {:g}/{:g}p [{}]".format(
             p.get("underlying"), p.get("short_strike"), p.get("long_strike"), p.get("tag", "paper")))
+    if capped:
+        log.info("record_picks: %d pick(s) blocked by concentration caps: %s",
+                 len(capped), "; ".join(capped))
     return changes
 
 
@@ -215,6 +300,54 @@ def summarize(book):
     }
 
 
+# ── Outcomes ledger — the persistent memory the learning loop will consume ──
+def ledger_record(t):
+    """A closed trade reduced to the features the nightly learn pass buckets on:
+    structure, asset class (index/sector/single), correlation cluster, size,
+    entry IV rank / POP, regime tags, close reason, and realized P&L."""
+    u = (t.get("underlying") or "").upper()
+    return {
+        "id": t.get("id"),
+        "underlying": u,
+        "cluster": cluster_of(u),
+        "asset_class": asset_class(u),
+        "structure": t.get("structure"),
+        "contracts": int(t.get("contracts") or 1),
+        "credit": t.get("opened_credit"),
+        "iv_rank": t.get("iv_rank"),
+        "pop": t.get("pop"),
+        "tag": t.get("tag"),
+        "event": t.get("event"),
+        "opened_at": t.get("opened_at"),
+        "closed_at": t.get("closed_at"),
+        "close_reason": t.get("close_reason"),
+        "fees": t.get("fees"),
+        "realized_pnl": t.get("realized_pnl"),
+        "won": (t.get("realized_pnl") or 0) > 0,
+    }
+
+
+def append_ledger(closed_trades):
+    """Idempotently append closed trades (by id) to memory/trades_ledger.json —
+    the raw outcomes memory. Backfills any existing closes on first run, then
+    only adds new ones. Returns count added."""
+    led = _load(LEDGER_FILE, {"schema_version": 1, "trades": []})
+    have = {r.get("id") for r in led.get("trades", [])}
+    added = 0
+    for t in closed_trades:
+        if not t.get("id") or t["id"] in have:
+            continue
+        led["trades"].append(ledger_record(t))
+        have.add(t["id"])
+        added += 1
+    if added:
+        led["updated_at"] = datetime.now(timezone.utc).isoformat()
+        MEMORY_DIR.mkdir(parents=True, exist_ok=True)
+        LEDGER_FILE.write_text(json.dumps(led, indent=2, default=str) + "\n")
+        log.info("ledger: +%d closed trade(s) (%d total in memory)", added, len(led["trades"]))
+    return added
+
+
 # ── helpers ──────────────────────────────────────────────────────────────
 def _mid(q):
     b, a = q.get("bid"), q.get("ask")
@@ -309,6 +442,10 @@ def main() -> int:
         reason = mark_trade(t, marks, today, now_hhmm)
         if reason:
             closed_now.append("{} -> {}".format(t["id"], reason))
+
+    # Persist every closed trade to the outcomes ledger (backfills existing closes
+    # on first run) — this is the memory the learning loop will consume.
+    append_ledger([t for t in book["trades"] if t.get("status") == "closed"])
 
     summary = summarize(book)
     book["updated_at"] = datetime.now(timezone.utc).isoformat()
