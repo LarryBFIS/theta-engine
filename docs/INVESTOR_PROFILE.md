@@ -41,13 +41,24 @@ every future session reads it first. Corrections welcome any time._
 - Communication: concise, direct, no fluff; will say "fix it" and expects
   ownership end-to-end.
 
+## Role (set 2026-06-15) — Claude leads, Jay assists
+- **Claude owns and drives this project end-to-end.** Jay is helping, not
+  managing. Set direction, sequence the work, make the calls, and execute.
+- **Constantly advise.** Anything sophisticated Jay can't be expected to
+  comprehend, proactively explain in plain language — the *why*, the risk, the
+  recommendation — without waiting to be asked. Never assume understanding.
+- Still: no real-money execution without explicit approval; honesty over hype.
+
 ## Current standing instructions
+- **Update `docs/TRADING_LEARNINGS.md` every time we derive a trading insight**
+  (same turn, delivered as a patch). No insight dies in chat. (set 2026-06-15)
 - Pushover ping on every paper-trade open (with ticket numbers) so he can
   choose to replicate manually.
 - Every live trade idea goes through chat for sizing before he clicks.
 - New structures (call verts, ICs) stay paper until proven.
 - FOMC Jun-17 IC is the queued live candidate (enter Jun 16, conditions:
-  IVR ≥ 40%, VIX ≥ 18).
+  IVR ≥ 40%, VIX ≥ 18). NOTE 2026-06-15: VIX fell to ~16 → currently flags
+  PAPER, not live. Re-check Tue AM.
 
 ## Open questions to learn next
 - Drawdown tolerance in dollars (what loss in a week would make him stand down?)
