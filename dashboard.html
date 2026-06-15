@@ -502,10 +502,15 @@ function renderTotals(){
   const dEl=$('lh-diff');
   dEl.textContent=(actual>=0?'+':'-')+fmtUsd(Math.abs(actual));
   dEl.className='lh-val '+(actual>=0?'up':'down');
-  const part=(lab,v)=>`<span class="${v>=0?'up':'down'}">${lab} ${(v>=0?'+$':'-$')+Math.abs(v).toFixed(2)}</span>`;
+  const part=(lab,v,tip)=>`<span class="${v>=0?'up':'down'}"${tip?` title="${tip}"`:''}>${lab} ${(v>=0?'+$':'-$')+Math.abs(v).toFixed(2)}</span>`;
+  // Whatever the live ACCOUNT moved that the engine's strategy P&L doesn't explain:
+  // non-strategy holdings (e.g. USO), interest/baseline drift, and net commissions.
+  // This is NOT trading profit and the sign can be either way — hence "non-strategy",
+  // never "fees" (real fees can only be negative).
   const resid=actual-DATA.realized-open;
-  let parts=part('realized',DATA.realized)+'&nbsp;&nbsp;·&nbsp;&nbsp;'+part('unrealized',open);
-  if(Math.abs(resid)>=0.5) parts+='&nbsp;&nbsp;·&nbsp;&nbsp;'+part('fees/adj',resid);
+  let parts=part('realized',DATA.realized,'closed strategy trades (net of commissions)')
+          +'&nbsp;&nbsp;·&nbsp;&nbsp;'+part('unrealized',open,'open strategy positions at current marks');
+  if(Math.abs(resid)>=0.5) parts+='&nbsp;&nbsp;·&nbsp;&nbsp;'+part('non-strategy',resid,"account value the engine's strategy doesn't explain — non-strategy holdings (e.g. USO), interest/baseline drift, net fees. NOT trading profit.");
   $('lh-diffsub').innerHTML=parts;
 }
 
