@@ -1,8 +1,8 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-15T16:11:33.517035+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-15T16:13:46.965390+00:00._
 
-**35 trades · 26 open / 9 closed · win rate 56% · realized $-902.00 · open $-1175.00 · total $-2077.00**
+**35 trades · 26 open / 9 closed · win rate 56% · realized $-902.00 · open $-1210.00 · total $-2112.00**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
@@ -16,28 +16,28 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0008_qqq | QQQ 608/785p | PAPER | open | $1.04 | — | $-198 |  |
 | paper_0009_msft | MSFT 330/435p | PAPER | closed | $0.54 | $-380 | — | stop_1.5x |
 | paper_0010_googl | GOOGL 295/395p | PAPER | closed | $0.51 | $-170 | — | stop_1.5x |
-| paper_0011_amd | AMD 400/390p | PAPER | open | $1.10 | — | $+40 |  |
+| paper_0011_amd | AMD 400/390p | PAPER | open | $1.10 | — | $+30 |  |
 | paper_0012_spy | SPY 703/694p | PAPER | closed | $1.01 | $+97 | — | manage_50pct |
 | paper_0013_iwm | IWM 273/268p | PAPER | open | $0.63 | — | $+68 |  |
-| paper_0014_tsla | TSLA 330/325p | PAPER | open | $0.55 | — | $+72 |  |
+| paper_0014_tsla | TSLA 330/325p | PAPER | open | $0.55 | — | $+81 |  |
 | paper_0015_qqq | QQQ 640/800p | PAPER | open | $1.31 | — | $-28 |  |
-| paper_0016_amd | AMD 410/400p | PAPER | open | $1.40 | — | $+60 |  |
+| paper_0016_amd | AMD 410/400p | PAPER | open | $1.40 | — | $+50 |  |
 | paper_0017_qqq | QQQ 670/660p | PAPER | open | $1.33 | — | $+126 |  |
 | paper_0018_spy | SPY 706/697p | PAPER | closed | $1.01 | $+97 | — | manage_50pct |
 | paper_0019_iwm | IWM 274/269p | PAPER | open | $0.67 | — | $+76 |  |
-| paper_0020_tsla | TSLA 340/335p | PAPER | open | $0.50 | — | $+15 |  |
+| paper_0020_tsla | TSLA 340/335p | PAPER | open | $0.50 | — | $+30 |  |
 | paper_0021_spy | SPY 707/698p | PAPER | open | $0.97 | — | $+88 |  |
-| paper_0022_csco | CSCO 110/105p | PAPER | open | $0.57 | — | $-50 |  |
+| paper_0022_csco | CSCO 110/105p | PAPER | open | $0.57 | — | $-66 |  |
 | paper_0023_xom | XOM 135/130p | PAPER | closed | $0.50 | $-538 | — | stop_1.5x |
-| paper_0024_intc | INTC 95/90p | PAPER | open | $0.53 | — | $-32 |  |
-| paper_0025_amd | AMD 440/430p | PAPER | open | $1.25 | — | $-130 |  |
-| paper_0026_qqq | QQQ 694/685p | PAPER | open | $1.10 | — | $-12 |  |
-| paper_0027_meta | META 650/655p | PAPER | open | $0.60 | — | $-180 |  |
+| paper_0024_intc | INTC 95/90p | PAPER | open | $0.53 | — | $-28 |  |
+| paper_0025_amd | AMD 440/430p | PAPER | open | $1.25 | — | $-140 |  |
+| paper_0026_qqq | QQQ 694/685p | PAPER | open | $1.10 | — | $-10 |  |
+| paper_0027_meta | META 650/655p | PAPER | open | $0.60 | — | $-200 |  |
 | paper_0028_msft | MSFT 365/360p | PAPER | open | $0.52 | — | $-76 |  |
 | paper_0029_ma | MA 520/525p | PAPER | open | $0.70 | — | $-320 |  |
-| paper_0030_intc | INTC 100/95p | PAPER | open | $0.61 | — | $-72 |  |
+| paper_0030_intc | INTC 100/95p | PAPER | open | $0.61 | — | $-57 |  |
 | paper_0031_qqq | QQQ 695/686p | PAPER | open | $1.10 | — | $-18 |  |
-| paper_0032_meta | META 655/660p | PAPER | open | $0.60 | — | $-140 |  |
-| paper_0033_intc | INTC 97.5/92.5p | PAPER | open | $0.52 | — | $-84 |  |
+| paper_0032_meta | META 655/660p | PAPER | open | $0.60 | — | $-160 |  |
+| paper_0033_intc | INTC 97.5/92.5p | PAPER | open | $0.52 | — | $-78 |  |
 | paper_0034_msft | MSFT 370/365p | PAPER | open | $0.58 | — | $-116 |  |
 | paper_0035_xom | XOM 130/125p | PAPER | open | $0.52 | — | $-72 |  |
