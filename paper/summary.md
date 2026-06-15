@@ -1,38 +1,38 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-15T15:38:12.559242+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-15T15:43:56.185788+00:00._
 
-**30 trades · 22 open / 8 closed · win rate 50% · realized $-999.00 · open $-638.00 · total $-1637.00**
+**30 trades · 22 open / 8 closed · win rate 50% · realized $-999.00 · open $-596.00 · total $-1595.00**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
-| paper_0001_qqq | QQQ 606/785p | PAPER | open | $1.01 | — | $-180 |  |
+| paper_0001_qqq | QQQ 606/785p | PAPER | open | $1.01 | — | $-188 |  |
 | paper_0002_spy | SPY 686/677p | PAPER | closed | $1.08 | $+107 | — | manage_50pct |
 | paper_0003_iwm | IWM 264/259p | PAPER | closed | $0.68 | $+154 | — | manage_50pct |
 | paper_0004_gld | GLD 405/410p | PAPER | closed | $0.68 | $-418 | — | stop_1.5x |
 | paper_0005_msft | MSFT 355/350p | PAPER | open | $0.75 | — | $+56 |  |
-| paper_0006_aapl | AAPL 260/320p | PAPER | open | $0.56 | — | $-36 |  |
+| paper_0006_aapl | AAPL 260/320p | PAPER | open | $0.56 | — | $-56 |  |
 | paper_0007_spy | SPY 687/678p | PAPER | closed | $1.06 | $+149 | — | manage_50pct |
-| paper_0008_qqq | QQQ 608/785p | PAPER | open | $1.04 | — | $-174 |  |
+| paper_0008_qqq | QQQ 608/785p | PAPER | open | $1.04 | — | $-182 |  |
 | paper_0009_msft | MSFT 330/435p | PAPER | closed | $0.54 | $-380 | — | stop_1.5x |
 | paper_0010_googl | GOOGL 295/395p | PAPER | closed | $0.51 | $-170 | — | stop_1.5x |
-| paper_0011_amd | AMD 400/390p | PAPER | open | $1.10 | — | $+10 |  |
+| paper_0011_amd | AMD 400/390p | PAPER | open | $1.10 | — | $+30 |  |
 | paper_0012_spy | SPY 703/694p | PAPER | closed | $1.01 | $+97 | — | manage_50pct |
-| paper_0013_iwm | IWM 273/268p | PAPER | open | $0.63 | — | $+56 |  |
-| paper_0014_tsla | TSLA 330/325p | PAPER | open | $0.55 | — | $+66 |  |
-| paper_0015_qqq | QQQ 640/800p | PAPER | open | $1.31 | — | $-8 |  |
-| paper_0016_amd | AMD 410/400p | PAPER | open | $1.40 | — | $+40 |  |
+| paper_0013_iwm | IWM 273/268p | PAPER | open | $0.63 | — | $+72 |  |
+| paper_0014_tsla | TSLA 330/325p | PAPER | open | $0.55 | — | $+81 |  |
+| paper_0015_qqq | QQQ 640/800p | PAPER | open | $1.31 | — | $-12 |  |
+| paper_0016_amd | AMD 410/400p | PAPER | open | $1.40 | — | $+50 |  |
 | paper_0017_qqq | QQQ 670/660p | PAPER | open | $1.33 | — | $+124 |  |
-| paper_0018_spy | SPY 706/697p | PAPER | open | $1.01 | — | $+98 |  |
-| paper_0019_iwm | IWM 274/269p | PAPER | open | $0.67 | — | $+56 |  |
-| paper_0020_tsla | TSLA 340/335p | PAPER | open | $0.50 | — | $+15 |  |
+| paper_0018_spy | SPY 706/697p | PAPER | open | $1.01 | — | $+96 |  |
+| paper_0019_iwm | IWM 274/269p | PAPER | open | $0.67 | — | $+72 |  |
+| paper_0020_tsla | TSLA 340/335p | PAPER | open | $0.50 | — | $+21 |  |
 | paper_0021_spy | SPY 707/698p | PAPER | open | $0.97 | — | $+86 |  |
-| paper_0022_csco | CSCO 110/105p | PAPER | open | $0.57 | — | $-84 |  |
+| paper_0022_csco | CSCO 110/105p | PAPER | open | $0.57 | — | $-46 |  |
 | paper_0023_xom | XOM 135/130p | PAPER | closed | $0.50 | $-538 | — | stop_1.5x |
-| paper_0024_intc | INTC 95/90p | PAPER | open | $0.53 | — | $-28 |  |
+| paper_0024_intc | INTC 95/90p | PAPER | open | $0.53 | — | $-36 |  |
 | paper_0025_amd | AMD 440/430p | PAPER | open | $1.25 | — | $-120 |  |
-| paper_0026_qqq | QQQ 694/685p | PAPER | open | $1.10 | — | $-14 |  |
-| paper_0027_meta | META 650/655p | PAPER | open | $0.60 | — | $-160 |  |
+| paper_0026_qqq | QQQ 694/685p | PAPER | open | $1.10 | — | $-16 |  |
+| paper_0027_meta | META 650/655p | PAPER | open | $0.60 | — | $-240 |  |
 | paper_0028_msft | MSFT 365/360p | PAPER | open | $0.52 | — | $-104 |  |
-| paper_0029_ma | MA 520/525p | PAPER | open | $0.70 | — | $-280 |  |
-| paper_0030_intc | INTC 100/95p | PAPER | open | $0.61 | — | $-57 |  |
+| paper_0029_ma | MA 520/525p | PAPER | open | $0.70 | — | $-200 |  |
+| paper_0030_intc | INTC 100/95p | PAPER | open | $0.61 | — | $-84 |  |
