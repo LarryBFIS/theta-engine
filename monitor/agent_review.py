@@ -37,12 +37,14 @@ log = logging.getLogger("agent")
 # Default to the cheapest capable model for a frequent job; override with AGENT_MODEL.
 # Cost (per 1M tok): Haiku $1/$5 · Sonnet $3/$15 · Opus $5/$25. Haiku is plenty for
 # a bounded approve/veto/resize judgment and keeps the bill to pennies/month.
-DEFAULT_MODEL = os.getenv("AGENT_MODEL", "claude-haiku-4-5")
-MAX_TOKENS = int(os.getenv("AGENT_MAX_TOKENS", "1800"))
+# NOTE: use `or` (not getenv default) — GitHub passes an unset ${{ vars.X }} as an
+# EMPTY string, which would otherwise override the default and 400 ("model: empty").
+DEFAULT_MODEL = os.getenv("AGENT_MODEL") or "claude-haiku-4-5"
+MAX_TOKENS = int(os.getenv("AGENT_MAX_TOKENS") or "1800")
 # When to spend tokens on a review. "live_or_event" (default) only calls the LLM
 # when a live trade is on the table OR a macro event is near — routine paper-only
 # scans cost $0. "always" reviews whenever there are candidates; "off" disables.
-REVIEW_MODE = os.getenv("AGENT_REVIEW_MODE", "live_or_event")
+REVIEW_MODE = os.getenv("AGENT_REVIEW_MODE") or "live_or_event"
 
 
 def should_review(candidates, ctx, mode=None):
