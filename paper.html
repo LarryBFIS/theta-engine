@@ -636,21 +636,34 @@ async function loadFeed(){
   let scan=null; try{ scan=await fetchJSON(SCAN_URL); }catch(e){ console.warn('feed', e); }
   const top=(scan&&scan.top)||[];
   if(!top.length){ box.innerHTML='<div class="fitem" style="color:var(--dim)">no setups pass filters right now</div>'; }
-  else box.innerHTML=top.map((o,i)=>{
-    const code=structCode(o.structure), tag=(o.tag==='live')?'live':'paper';
-    const strikes=(code==='IC'||code==='RIC')?`${o.short_strike}p/${o.long_strike}c`:`${o.short_strike}/${o.long_strike}${code==='VC'?'c':'p'}`;
-    const ev=Math.round(o.ev_per_contract||0);
-    const aiReason=(o.agent_reason||'').replace(/"/g,'&quot;');
-    const ai=o.agent_reviewed
-      ? `<span class="up" title="${aiReason}">🧠 AI ${o.agent_action==='downsize'?'trimmed':'approved'}</span>`
-      : `<span class="down" title="awaiting AI risk review">🧠 not AI-reviewed</span>`;
-    return `<div class="fitem ${tag} reveal" style="animation-delay:${(0.04*i).toFixed(2)}s">
-      <div class="fhead"><span class="sym">${o.underlying}</span> <span class="${code==='VC'?'tagC':(code==='VP'?'tagP':'tagIC')}">${code}</span> <span class="struct">${strikes}</span>
-        <span class="ftag ${tag}">${tag.toUpperCase()}</span></div>
-      <div class="fmeta"><b>$${(+o.credit).toFixed(2)}</b>cr · POP ${Math.round((o.pop||0)*100)}% · IVR ${Math.round((o.iv_rank||0)*100)}% · EV ${ev>=0?'+':''}$${ev}</div>
-      <div class="fmeta">${ai}</div>
-    </div>`;
-  }).join('');
+  else {
+    const item=(o,i)=>{
+      const code=structCode(o.structure), tag=(o.tag==='live')?'live':'paper';
+      const strikes=(code==='IC'||code==='RIC')?`${o.short_strike}p/${o.long_strike}c`:`${o.short_strike}/${o.long_strike}${code==='VC'?'c':'p'}`;
+      const ev=Math.round(o.ev_per_contract||0);
+      const aiReason=(o.agent_reason||'').replace(/"/g,'&quot;');
+      const ai=o.agent_reviewed
+        ? `<span class="up" title="${aiReason}">🧠 AI ${o.agent_action==='downsize'?'trimmed':'approved'}</span>`
+        : `<span class="down" title="awaiting AI risk review">🧠 not AI-reviewed</span>`;
+      return `<div class="fitem ${tag} reveal" style="animation-delay:${(0.04*i).toFixed(2)}s">
+        <div class="fhead"><span class="sym">${o.underlying}</span> <span class="${code==='VC'?'tagC':(code==='VP'?'tagP':'tagIC')}">${code}</span> <span class="struct">${strikes}</span>
+          <span class="ftag ${tag}">${tag.toUpperCase()}</span></div>
+        <div class="fmeta"><b>$${(+o.credit).toFixed(2)}</b>cr · POP ${Math.round((o.pop||0)*100)}% · IVR ${Math.round((o.iv_rank||0)*100)}% · EV ${ev>=0?'+':''}$${ev}</div>
+        <div class="fmeta">${ai}</div>
+      </div>`;
+    };
+    // Separate by the trade's directional bias: short puts = bullish, short calls
+    // = bearish, iron condors = neutral.
+    const dir=(o)=>{const c=structCode(o.structure);return c==='VP'?'bull':c==='VC'?'bear':(c==='IC'||c==='RIC')?'neutral':'other';};
+    const hdr=(t,cls)=>`<div class="${cls}" style="margin:12px 0 4px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.07);padding-top:8px">${t}</div>`;
+    const groups=[['bull','▲ Bullish · short put spreads','up'],['bear','▼ Bearish · short call spreads','down'],['neutral','● Neutral · iron condors',''],['other','◆ Other','']];
+    let html='', idx=0;
+    groups.forEach(([k,label,cls])=>{
+      const arr=top.filter(o=>dir(o)===k);
+      if(arr.length) html+=hdr(`${label} (${arr.length})`,cls)+arr.map(o=>item(o,idx++)).join('');
+    });
+    box.innerHTML=html;
+  }
   const t=$('feedtime'); if(t) t.textContent=(scan&&scan.generated_at)?new Date(scan.generated_at).toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}):'—';
 
   // long-vol watch — cheap IV into a near catalyst (same scan payload, paper-only)
