@@ -41,10 +41,11 @@ log = logging.getLogger("agent")
 # EMPTY string, which would otherwise override the default and 400 ("model: empty").
 DEFAULT_MODEL = os.getenv("AGENT_MODEL") or "claude-haiku-4-5"
 MAX_TOKENS = int(os.getenv("AGENT_MAX_TOKENS") or "1800")
-# When to spend tokens on a review. "live_or_event" (default) only calls the LLM
-# when a live trade is on the table OR a macro event is near — routine paper-only
-# scans cost $0. "always" reviews whenever there are candidates; "off" disables.
-REVIEW_MODE = os.getenv("AGENT_REVIEW_MODE") or "live_or_event"
+# When to spend tokens on a review. Default "always" — EVERY scan with candidates
+# is reviewed, so no opportunity ever reaches the feed without the agent's
+# reasoning (Jay's rule). "live_or_event" only reviews when a live trade or macro
+# event is near (cheaper); "off" disables. Cost at "always" w/ Haiku ≈ $1-2.50/mo.
+REVIEW_MODE = os.getenv("AGENT_REVIEW_MODE") or "always"
 
 
 def should_review(candidates, ctx, mode=None):

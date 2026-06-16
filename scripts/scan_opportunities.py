@@ -1158,6 +1158,18 @@ def main() -> int:
     except Exception as e:  # noqa: BLE001
         log.warning("agent review skipped: %s", e)
 
+    # Jay's rule: every surfaced opportunity must pass the full agentic reasoning,
+    # and a LIVE recommendation requires the agent's explicit sign-off. Tag each
+    # pick with whether the agent reviewed it; demote any LIVE pick the agent did
+    # not approve (or couldn't review) to PAPER — never recommend live without AI.
+    reviewed = agent_summary is not None
+    for c in ranked:
+        approved = c.get("agent_action") in ("approve", "downsize")
+        c["agent_reviewed"] = bool(reviewed and "agent_action" in c)
+        if c.get("tag") == "live" and not approved:
+            c["tag"] = "paper"
+            c["demoted"] = "awaiting AI approval" if not reviewed else "AI did not approve"
+
     _apply_news_gate(ranked)        # single-name shield: veto picks with a pending catalyst
     _apply_regime(ranked, regime)   # market-wide shield (regime computed up front)
     if blackout:                    # P3 pre-event gate: no NEW non-event LIVE within 2d of an event

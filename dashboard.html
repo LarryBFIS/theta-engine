@@ -642,10 +642,15 @@ async function loadFeed(){
     const code=structCode(o.structure), tag=(o.tag==='live')?'live':'paper';
     const strikes=(code==='IC'||code==='RIC')?`${o.short_strike}p/${o.long_strike}c`:`${o.short_strike}/${o.long_strike}${code==='VC'?'c':'p'}`;
     const ev=Math.round(o.ev_per_contract||0);
+    const aiReason=(o.agent_reason||'').replace(/"/g,'&quot;');
+    const ai=o.agent_reviewed
+      ? `<span class="up" title="${aiReason}">🧠 AI ${o.agent_action==='downsize'?'trimmed':'approved'}</span>`
+      : `<span class="down" title="awaiting AI risk review">🧠 not AI-reviewed</span>`;
     return `<div class="fitem ${tag} reveal" style="animation-delay:${(0.04*i).toFixed(2)}s">
       <div class="fhead"><span class="sym">${o.underlying}</span> <span class="${code==='VC'?'tagC':(code==='VP'?'tagP':'tagIC')}">${code}</span> <span class="struct">${strikes}</span>
         <span class="ftag ${tag}">${tag.toUpperCase()}</span></div>
       <div class="fmeta"><b>$${(+o.credit).toFixed(2)}</b>cr · POP ${Math.round((o.pop||0)*100)}% · IVR ${Math.round((o.iv_rank||0)*100)}% · EV ${ev>=0?'+':''}$${ev}</div>
+      <div class="fmeta">${ai}</div>
     </div>`;
   }).join('');
   const t=$('feedtime'); if(t) t.textContent=(scan&&scan.generated_at)?new Date(scan.generated_at).toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}):'—';

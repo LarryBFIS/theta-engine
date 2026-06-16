@@ -140,6 +140,19 @@ accumulating evidence and showing it, without trading on noise.
 - Honest: judgment ≠ profit. It catches the dumb/unwise trade; it is not an
   oracle — which is exactly why the hard rails stay.
 
+## 2026-06-16 — Phase 4 verified live + every opportunity now AI-gated (0059)
+- Smoke test (agent-smoke workflow) ran the REAL Haiku call on a synthetic
+  into-the-Fed concentrated book: vetoed QQQ (event + already-held) and AMD
+  (single-name + over cluster/size cap), approved the diversified SPY condor —
+  with written reasons, journaled. Key valid, guardrail held. Brain is online.
+- **Standing rule (Jay, 2026-06-16):** every surfaced opportunity must pass the
+  full agentic reasoning before it appears. Implemented: agent REVIEW_MODE now
+  defaults to "always" (every scan with candidates is reviewed), and a LIVE
+  recommendation requires the agent's explicit approval — un-approved/unreviewed
+  picks are demoted to PAPER ("never recommend live without AI sign-off").
+- Dashboards show each opportunity's AI verdict (🧠 AI approved/trimmed/not-
+  reviewed + reason on hover). Cost at always-on Haiku ≈ $1-2.50/mo.
+
 ## Backlog (build order)
 1. ✅ `memory/trades_ledger.json` — done (0052).
 2. ✅ Static guards: per-name + cluster + total-open caps, size cap — done (0052).
