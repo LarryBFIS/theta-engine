@@ -1,12 +1,10 @@
 # Opportunity scan
 
-_Generated 2026-06-15T20:40:50.798169+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (-8% day)._
+_Generated 2026-06-16T17:26:32.975875+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (-2% day)._
 
 | # | Trade | Tag | DTE | Credit | BPR | POP | Cr/BPR | EV/ctr | EV/BPR | IVR |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | CRM 145/140p | PAPER | 32 | $0.57 | $443 | 81% | 13% | $+4 | 0.9% | 55% |
-| 2 | QQQ 695/686p | PAPER | 32 | $1.01 | $799 | 80% | 13% | $+7 | 0.8% | 64% |
-| 3 | AMD 440/430p | PAPER | 32 | $1.00 | $900 | 80% | 11% | $+6 | 0.7% | 92% |
+| 1 | QQQ 686/677p | PAPER | 31 | $1.11 | $789 | 80% | 14% | $+8 | 1.0% | 66% |
 
 ## Macro events · scheduled-event crush setups
 
