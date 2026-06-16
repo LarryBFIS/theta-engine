@@ -123,6 +123,23 @@ accumulating evidence and showing it, without trading on noise.
   positions hoping for recovery is the exact gambler behavior we engineer against.
   Cut concentration; don't pray for the mark to come back.
 
+## 2026-06-16 — Phase 4 (patch 0055): the engine now REASONS (agentic LLM)
+- Root cause of the −$2,775: between chats the engine was a brain-dead rules
+  executor — nothing looked at "6th QQQ into a Fed" and said stop. Fixed by
+  wiring an LLM portfolio-risk agent INTO the scan pipeline (`monitor/agent_review.py`).
+- Each scan, after the deterministic scanner proposes candidates, Claude reasons
+  over the whole picture (candidates + open book + regime + macro calendar +
+  these learnings) and returns approve / downsize / veto **with written reasons**,
+  journaled to `memory/agent_journal.jsonl`.
+- **Bounded authority (defense in depth):** the agent can ONLY make a trade more
+  conservative — veto or cut size. It cannot increase size, add trades, change
+  live/paper, or override a hard cap; enforced in code (unit-tested). The
+  deterministic caps + news/regime/blackout gates remain underneath it.
+- **Fail-safe:** no API key / API error / bad reply ⇒ candidates pass unchanged.
+  The agent can only help; it can never break the scan.
+- Honest: judgment ≠ profit. It catches the dumb/unwise trade; it is not an
+  oracle — which is exactly why the hard rails stay.
+
 ## Backlog (build order)
 1. ✅ `memory/trades_ledger.json` — done (0052).
 2. ✅ Static guards: per-name + cluster + total-open caps, size cap — done (0052).

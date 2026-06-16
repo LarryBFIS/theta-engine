@@ -1143,19 +1143,43 @@ def main() -> int:
         log.warning("learning pass failed (ranking falls back to raw EV): %s", e)
 
     ranked = rank_opportunities(candidates)
+
+    # Agentic review (Phase 4): an LLM portfolio-risk pass that reasons over the
+    # whole picture and can ONLY make trades more conservative (veto / downsize),
+    # never riskier. No-op without ANTHROPIC_API_KEY; never fails the scan. The
+    # deterministic safety gates below still apply on top (defense in depth).
+    agent_summary = None
+    try:
+        from monitor import agent_review
+        ranked, agent_summary = agent_review.run(ranked, {
+            "today": today, "regime": regime, "events": events, "learnings": learnings,
+            "open_positions": _paper_open_positions(),
+        })
+    except Exception as e:  # noqa: BLE001
+        log.warning("agent review skipped: %s", e)
+
     _apply_news_gate(ranked)        # single-name shield: veto picks with a pending catalyst
     _apply_regime(ranked, regime)   # market-wide shield (regime computed up front)
     if blackout:                    # P3 pre-event gate: no NEW non-event LIVE within 2d of an event
         for c in ranked:
             if c.get("tag") == "live":
                 c["tag"], c["demoted"] = "paper", "pre-event blackout (<=2d to macro event)"
-    _write(ranked, candidates, skipped, regime, long_vol, events, learnings)
+    _write(ranked, candidates, skipped, regime, long_vol, events, learnings, agent_summary)
     _alert_live([c for c in ranked if c.get("tag") == "live"])
     if regime.get("stand_down"):
         _alert_regime(regime)
     log.info("Scan done: %d candidates, top %d ranked, %d skipped, %d long-vol, %d events",
              len(candidates), len(ranked), len(skipped), len(long_vol), len(events))
     return 0
+
+
+def _paper_open_positions():
+    """Open positions in the paper book — context for the agentic review."""
+    try:
+        book = json.loads((REPO_ROOT / "paper" / "book.json").read_text())
+        return [t for t in book.get("trades", []) if t.get("status") == "open"]
+    except Exception:  # noqa: BLE001
+        return []
 
 
 def _open_sigs():
@@ -1257,7 +1281,8 @@ def _mid(q):
     return (b + a) / 2 if (b is not None and a is not None) else None
 
 
-def _write(ranked, candidates, skipped, regime=None, long_vol=None, events=None, learnings=None):
+def _write(ranked, candidates, skipped, regime=None, long_vol=None, events=None,
+           learnings=None, agent=None):
     SCAN_DIR.mkdir(parents=True, exist_ok=True)
     long_vol = long_vol or []
     # Compact learnings summary for the dashboards (full detail in memory/learnings.*).
@@ -1280,6 +1305,7 @@ def _write(ranked, candidates, skipped, regime=None, long_vol=None, events=None,
         "long_vol": long_vol,
         "events": events or [],   # P3 macro-event / FOMC crush setups
         "learnings": learn_summary,   # Phase 2: realized edge by bucket (null until data)
+        "agent": agent,           # Phase 4: LLM portfolio-risk review (null if disabled)
         "all_candidates": candidates,
         "skipped": skipped,
     }

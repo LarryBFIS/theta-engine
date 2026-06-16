@@ -49,6 +49,14 @@ every future session reads it first. Corrections welcome any time._
   recommendation — without waiting to be asked. Never assume understanding.
 - Still: no real-money execution without explicit approval; honesty over hype.
 
+## Architecture note (2026-06-16) — the engine now reasons
+- Three layers, defense in depth: (1) deterministic safety rails (concentration/
+  size caps, max-loss, news/regime/blackout gates) — non-negotiable floor; (2) an
+  agentic LLM portfolio-risk review in the scan that can only make trades MORE
+  conservative (veto/downsize) with journaled reasoning; (3) Claude-in-chat as
+  strategic partner. Wants intelligence in the loop, not a blind executor.
+- Needs `ANTHROPIC_API_KEY` repo secret for the agent layer to run on the server.
+
 ## Current standing instructions
 - **Update `docs/TRADING_LEARNINGS.md` every time we derive a trading insight**
   (same turn, delivered as a patch). No insight dies in chat. (set 2026-06-15)

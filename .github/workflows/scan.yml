@@ -29,6 +29,10 @@ jobs:
           TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
           PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
           PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          # Phase 4: enables the LLM portfolio-risk review. If unset, the scan
+          # runs exactly as before (agent disabled, candidates pass unchanged).
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AGENT_MODEL: ${{ vars.AGENT_MODEL }}
         run: python -m scripts.scan_opportunities
 
       - name: Track paper trades
