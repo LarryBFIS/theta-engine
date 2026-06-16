@@ -1,0 +1,31 @@
+name: agent-smoke
+
+# Manual end-to-end check of the agentic review layer using the real
+# ANTHROPIC_API_KEY secret. Run from the Actions tab → "agent-smoke" → Run workflow.
+# Green = key authenticates and the agent reasons correctly; red = stale key / failure.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run agent smoke test (real LLM call)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AGENT_MODEL: ${{ vars.AGENT_MODEL }}
+        run: python -m scripts.agent_smoke
+      - name: Show reasoning journal
+        if: always()
+        run: cat memory/agent_journal.jsonl 2>/dev/null || echo "(no journal written)"
