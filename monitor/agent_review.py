@@ -34,9 +34,34 @@ JOURNAL_FILE = MEMORY_DIR / "agent_journal.jsonl"
 
 log = logging.getLogger("agent")
 
-# Default to a strong, cost-effective model for an hourly job; override with AGENT_MODEL.
-DEFAULT_MODEL = os.getenv("AGENT_MODEL", "claude-sonnet-4-6")
+# Default to the cheapest capable model for a frequent job; override with AGENT_MODEL.
+# Cost (per 1M tok): Haiku $1/$5 · Sonnet $3/$15 · Opus $5/$25. Haiku is plenty for
+# a bounded approve/veto/resize judgment and keeps the bill to pennies/month.
+DEFAULT_MODEL = os.getenv("AGENT_MODEL", "claude-haiku-4-5")
 MAX_TOKENS = int(os.getenv("AGENT_MAX_TOKENS", "1800"))
+# When to spend tokens on a review. "live_or_event" (default) only calls the LLM
+# when a live trade is on the table OR a macro event is near — routine paper-only
+# scans cost $0. "always" reviews whenever there are candidates; "off" disables.
+REVIEW_MODE = os.getenv("AGENT_REVIEW_MODE", "live_or_event")
+
+
+def should_review(candidates, ctx, mode=None):
+    """Cost gate: decide whether this scan is worth an LLM call. In 'live_or_event'
+    (default) we only spend tokens when a live trade is on the table or a macro
+    event is within ~2 days — routine paper-only scans cost nothing."""
+    mode = mode or REVIEW_MODE
+    if mode == "off" or not candidates:
+        return False
+    if mode == "always":
+        return True
+    # live_or_event
+    if any((c.get("tag") == "live") for c in candidates):
+        return True
+    for e in (ctx.get("events") or []):
+        d = e.get("days_to_decision")
+        if e.get("status") in ("enter", "closing") or (isinstance(d, (int, float)) and d <= 2):
+            return True
+    return False
 
 
 def cand_id(c):
@@ -211,6 +236,9 @@ def run(candidates, ctx):
         log.info("agent review disabled (no ANTHROPIC_API_KEY) — passing %d through", len(candidates))
         return candidates, None
     ctx = ctx or {}
+    if not should_review(candidates, ctx):
+        log.info("agent review skipped (mode=%s, no live/event trigger) — $0 this scan", REVIEW_MODE)
+        return candidates, None
     system = _constitution(ctx.get("learnings"))
     user = _user_message(candidates, ctx)
     try:

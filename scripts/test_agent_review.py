@@ -4,7 +4,7 @@ Run without pytest:  python -m scripts.test_agent_review
 """
 import sys
 
-from monitor.agent_review import cand_id, parse_decisions, apply_decisions
+from monitor.agent_review import cand_id, parse_decisions, apply_decisions, should_review
 
 
 def _c(u, struct, s, l, ctr, max_loss=200.0, bpr=200.0):
@@ -61,12 +61,33 @@ def main() -> int:
     if len(kept) != 1 or kept[0].get("agent_action") != "approve":
         f.append("approve/unknown: {} {}".format(len(kept), kept[0].get("agent_action")))
 
+    # --- cost gate: should_review ---
+    paper = [_c("QQQ", "short_put_vertical", 694, 685, 2)]
+    paper[0]["tag"] = "paper"
+    live = [dict(paper[0], tag="live")]
+    # no key-burn on a routine paper-only scan with no event
+    if should_review(paper, {"events": []}, mode="live_or_event"):
+        f.append("should_review must skip paper-only/no-event")
+    # but review when a live candidate is present
+    if not should_review(live, {"events": []}, mode="live_or_event"):
+        f.append("should_review must run on live candidate")
+    # or when an event is near
+    if not should_review(paper, {"events": [{"days_to_decision": 1}]}, mode="live_or_event"):
+        f.append("should_review must run near an event")
+    # mode switches
+    if should_review(paper, {}, mode="off"):
+        f.append("mode off must never review")
+    if not should_review(paper, {}, mode="always"):
+        f.append("mode always must review when candidates exist")
+    if should_review([], {}, mode="always"):
+        f.append("no candidates -> no review")
+
     if f:
         print("FAILED:")
         for x in f:
             print("  - " + x)
         return 1
-    print("parse ✓ · veto ✓ · downsize ✓ · no-size-increase ✓ · approve/unknown ✓")
+    print("parse ✓ · veto ✓ · downsize ✓ · no-size-increase ✓ · approve/unknown ✓ · cost-gate ✓")
     print("All agent_review tests passed.")
     return 0
 
