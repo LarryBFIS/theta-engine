@@ -1,8 +1,8 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-16T18:09:25.908175+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-16T18:13:57.920204+00:00._
 
-**36 trades · 6 open / 30 closed · win rate 33% · realized $-3420.00 · open $+37.00 · total $-3383.00**
+**36 trades · 6 open / 30 closed · win rate 33% · realized $-3420.00 · open $+57.00 · total $-3363.00**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
@@ -24,7 +24,7 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0016_amd | AMD 410/400p | PAPER | open | $1.40 | — | $+0 |  |
 | paper_0017_qqq | QQQ 670/660p | PAPER | closed | $1.33 | $+129 | — | manage_50pct |
 | paper_0018_spy | SPY 706/697p | PAPER | closed | $1.01 | $+97 | — | manage_50pct |
-| paper_0019_iwm | IWM 274/269p | PAPER | open | $0.67 | — | $+52 |  |
+| paper_0019_iwm | IWM 274/269p | PAPER | open | $0.67 | — | $+56 |  |
 | paper_0020_tsla | TSLA 340/335p | PAPER | closed | $0.50 | $+8 | — | reconcile_caps |
 | paper_0021_spy | SPY 707/698p | PAPER | open | $0.97 | — | $+78 |  |
 | paper_0022_csco | CSCO 110/105p | PAPER | closed | $0.57 | $-79 | — | reconcile_caps |
@@ -40,5 +40,5 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0032_meta | META 655/660p | PAPER | closed | $0.60 | $-150 | — | reconcile_caps |
 | paper_0033_intc | INTC 97.5/92.5p | PAPER | closed | $0.52 | $-106 | — | reconcile_caps |
 | paper_0034_msft | MSFT 370/365p | PAPER | closed | $0.58 | $-222 | — | reconcile_caps |
-| paper_0035_xom | XOM 130/125p | PAPER | open | $0.52 | — | $-32 |  |
-| paper_0036_crm | CRM 145/140p | PAPER | open | $0.57 | — | $-87 |  |
+| paper_0035_xom | XOM 130/125p | PAPER | open | $0.52 | — | $-28 |  |
+| paper_0036_crm | CRM 145/140p | PAPER | open | $0.57 | — | $-75 |  |
