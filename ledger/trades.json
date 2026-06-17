@@ -492,8 +492,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -10.03,
-      "cost_to_close_mid": 109.0,
+      "unrealized_pnl": -11.03,
+      "cost_to_close_mid": 110.0,
       "structure": "short_call_vertical",
       "short_strike": 310.0,
       "long_strike": 312.0,
@@ -504,6 +504,51 @@
       "max_profit_total": 40.0,
       "max_loss_total": 360.0,
       "bpr_total": 360.0
+    },
+    {
+      "id": "ledger_009_cvx",
+      "underlying": "CVX",
+      "opened_at": "2026-06-17",
+      "open_order_id": "476827718",
+      "open_net_cash": 17.75,
+      "open_legs": [
+        {
+          "symbol": "CVX   260702C00190000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 0.8,
+          "net_cash": 78.87,
+          "fees": 1.13,
+          "executed_at": "2026-06-17T17:45:47.375Z"
+        },
+        {
+          "symbol": "CVX   260702C00192500",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 0.6,
+          "net_cash": -61.12,
+          "fees": 1.12,
+          "executed_at": "2026-06-17T17:45:47.376Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -3.32,
+      "cost_to_close_mid": 21.07,
+      "structure": "short_call_vertical",
+      "short_strike": 190.0,
+      "long_strike": 192.5,
+      "expiry": "2026-07-02",
+      "contracts": 1,
+      "credit_per_contract": 0.2,
+      "width": 2.5,
+      "max_profit_total": 20.0,
+      "max_loss_total": 230.0,
+      "bpr_total": 230.0
     }
   ]
 }
