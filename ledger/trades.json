@@ -429,8 +429,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 6.75,
-      "cost_to_close_mid": 41.0,
+      "unrealized_pnl": 8.25,
+      "cost_to_close_mid": 39.5,
       "structure": "short_put_vertical",
       "short_strike": 61.0,
       "long_strike": 60.0,
@@ -441,6 +441,69 @@
       "max_profit_total": 50.0,
       "max_loss_total": 50.0,
       "bpr_total": 50.0
+    },
+    {
+      "id": "ledger_008_iwm",
+      "underlying": "IWM",
+      "opened_at": "2026-06-17",
+      "open_order_id": "476756233",
+      "open_net_cash": 98.97,
+      "open_legs": [
+        {
+          "symbol": "IWM   260702C00312000",
+          "action": "Buy to Open",
+          "quantity": 2.0,
+          "price": 0.48,
+          "net_cash": -98.25,
+          "fees": 2.25,
+          "executed_at": "2026-06-17T15:25:39.197Z"
+        },
+        {
+          "symbol": "IWM   260702C00310000",
+          "action": "Sell to Open",
+          "quantity": 2.0,
+          "price": 0.68,
+          "net_cash": 133.73,
+          "fees": 2.27,
+          "executed_at": "2026-06-17T15:25:39.197Z"
+        },
+        {
+          "symbol": "IWM   260702P00281000",
+          "action": "Sell to Open",
+          "quantity": 2.0,
+          "price": 1.46,
+          "net_cash": 289.73,
+          "fees": 2.27,
+          "executed_at": "2026-06-17T15:25:39.197Z"
+        },
+        {
+          "symbol": "IWM   260702P00278000",
+          "action": "Buy to Open",
+          "quantity": 2.0,
+          "price": 1.12,
+          "net_cash": -226.25,
+          "fees": 2.25,
+          "executed_at": "2026-06-17T15:25:39.197Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -9.03,
+      "cost_to_close_mid": 108.0,
+      "structure": "short_call_vertical",
+      "short_strike": 310.0,
+      "long_strike": 312.0,
+      "expiry": "2026-07-02",
+      "contracts": 2,
+      "credit_per_contract": 0.2,
+      "width": 2.0,
+      "max_profit_total": 40.0,
+      "max_loss_total": 360.0,
+      "bpr_total": 360.0
     }
   ]
 }
