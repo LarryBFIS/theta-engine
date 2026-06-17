@@ -72,6 +72,21 @@ jobs:
       - name: Sync trades from ledger
         run: python -m scripts.sync_trades
 
+      - name: Refresh scan if stale (watchdog)
+        # The reliable tick backstops the flaky scan cron: if the board is stale
+        # during market hours, run a fresh scan now so the auto-tickets are never
+        # on yesterday's data. Non-fatal — a scan error here won't fail the tick.
+        env:
+          TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
+          TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AGENT_MODEL: ${{ vars.AGENT_MODEL }}
+          AGENT_REVIEW_MODE: ${{ vars.AGENT_REVIEW_MODE }}
+          SCAN_MAX_AGE_MIN: '25'
+        run: python -m scripts.scan_if_stale
+
       - name: Track paper trades
         env:
           TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}

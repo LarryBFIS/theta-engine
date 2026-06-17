@@ -169,6 +169,16 @@ accumulating evidence and showing it, without trading on noise.
   Honest caveat: efficiency can't manufacture edge that isn't there at low vol —
   it ensures we *capture* edge instantly when it appears, and never on stale data.
 
+## 2026-06-17 — productivity #2: scan reliability (0062)
+- Root cause of the stale board: GitHub *scheduled* scan triggers fire
+  erratically (scans skipped on a live trading day). Fix: the *tick* (reliable
+  Cloudflare dispatch, ~10 min) now runs a **scan watchdog** (`scan_if_stale.py`)
+  — if the scan is older than 25 min during market hours, it runs a fresh scan
+  before the tick's paper step, then the tick commits it. Cron stays primary;
+  the tick is the backstop. Non-fatal (a scan error never breaks the tick).
+  Pure staleness/market-hours logic unit-tested. Worst-case cost ≈ a scan every
+  ~25 min during the session (Haiku agent ≈ a few \$/mo).
+
 ## Backlog (build order)
 1. ✅ `memory/trades_ledger.json` — done (0052).
 2. ✅ Static guards: per-name + cluster + total-open caps, size cap — done (0052).
