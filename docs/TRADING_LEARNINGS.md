@@ -153,6 +153,22 @@ accumulating evidence and showing it, without trading on noise.
 - Dashboards show each opportunity's AI verdict (🧠 AI approved/trimmed/not-
   reviewed + reason on hover). Cost at always-on Haiku ≈ $1-2.50/mo.
 
+## 2026-06-17 — first LIVE managed trade + productivity build (0061)
+- First live trade executed end-to-end through chat: IWM iron condor (×2,
+  re-centered to ~20Δ, GTC 50% close armed). Live record stands at +$64.96
+  realized (6 closes, 67% win) + 2 open (SLV put vert, IWM IC). Friction was the
+  problem: ~6 round trips to build one ticket (skew + size fixes by hand).
+- **Auto-ticket builder** (`scripts/trade_ticket.py`): every scanned opportunity
+  now carries a ready-to-send order — exact legs, net-credit limit, sizing, max
+  loss, copy-ready text, and the 50%/1.5x/21-DTE management orders. Surfaced on
+  both dashboards (📋 line; full legs on hover). Turns a 6-step build into review-
+  and-send. Unit-tested.
+- **Productivity roadmap (agreed):** (1) auto-ticket [done], (2) reliable scans
+  via the tick trigger + watchdog [next], (3) auto-arm management orders at entry,
+  (4) widen funnel (post-blackout scan, earnings crush, CPI/jobs, more structures).
+  Honest caveat: efficiency can't manufacture edge that isn't there at low vol —
+  it ensures we *capture* edge instantly when it appears, and never on stale data.
+
 ## Backlog (build order)
 1. ✅ `memory/trades_ledger.json` — done (0052).
 2. ✅ Static guards: per-name + cluster + total-open caps, size cap — done (0052).

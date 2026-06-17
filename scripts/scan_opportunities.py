@@ -1176,6 +1176,15 @@ def main() -> int:
         for c in ranked:
             if c.get("tag") == "live":
                 c["tag"], c["demoted"] = "paper", "pre-event blackout (<=2d to macro event)"
+    # Auto-ticket: attach a ready-to-send order spec (legs + limit + sizing + the
+    # 50%/1.5x/21-DTE management plan) to every surfaced opportunity, so a pick can
+    # be entered in one glance instead of hand-built leg by leg.
+    try:
+        from scripts import trade_ticket
+        for c in ranked:
+            c["ticket"] = trade_ticket.build_ticket(c)
+    except Exception as e:  # noqa: BLE001 — never fail the scan on ticket rendering
+        log.warning("ticket build failed: %s", e)
     _write(ranked, candidates, skipped, regime, long_vol, events, learnings, agent_summary)
     _alert_live([c for c in ranked if c.get("tag") == "live"])
     if regime.get("stand_down"):

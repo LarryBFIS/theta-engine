@@ -645,11 +645,13 @@ async function loadFeed(){
       const ai=o.agent_reviewed
         ? `<span class="up" title="${aiReason}">🧠 AI ${o.agent_action==='downsize'?'trimmed':'approved'}</span>`
         : `<span class="down" title="awaiting AI risk review">🧠 not AI-reviewed</span>`;
+      const tk=o.ticket?`<div class="fmeta" style="font-family:ui-monospace,monospace" title="${(o.ticket.text||'').replace(/"/g,'&quot;')}">📋 ×${o.ticket.contracts} @ $${(+o.ticket.limit).toFixed(2)}cr · close $${(+o.ticket.manage.close_debit).toFixed(2)} · max loss $${Math.round(o.ticket.max_loss_total)}</div>`:'';
       return `<div class="fitem ${tag} reveal" style="animation-delay:${(0.04*i).toFixed(2)}s">
         <div class="fhead"><span class="sym">${o.underlying}</span> <span class="${code==='VC'?'tagC':(code==='VP'?'tagP':'tagIC')}">${code}</span> <span class="struct">${strikes}</span>
           <span class="ftag ${tag}">${tag.toUpperCase()}</span></div>
         <div class="fmeta"><b>$${(+o.credit).toFixed(2)}</b>cr · POP ${Math.round((o.pop||0)*100)}% · IVR ${Math.round((o.iv_rank||0)*100)}% · EV ${ev>=0?'+':''}$${ev}</div>
         <div class="fmeta">${ai}</div>
+        ${tk}
       </div>`;
     };
     // Separate by the trade's directional bias: short puts = bullish, short calls
