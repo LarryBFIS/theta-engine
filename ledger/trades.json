@@ -429,8 +429,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -4.75,
-      "cost_to_close_mid": 52.5,
+      "unrealized_pnl": -7.25,
+      "cost_to_close_mid": 55.0,
       "structure": "short_put_vertical",
       "short_strike": 61.0,
       "long_strike": 60.0,
@@ -492,8 +492,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 3.97,
-      "cost_to_close_mid": 95.0,
+      "unrealized_pnl": 0.97,
+      "cost_to_close_mid": 98.0,
       "structure": "short_call_vertical",
       "short_strike": 310.0,
       "long_strike": 312.0,
@@ -531,14 +531,34 @@
           "executed_at": "2026-06-17T17:45:47.376Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": 2.92,
-      "cost_to_close_mid": 14.83,
+      "close_orders": [
+        "476960610"
+      ],
+      "close_net_cash": -10.25,
+      "close_legs": [
+        {
+          "symbol": "CVX   260702C00190000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 0.34,
+          "net_cash": -34.12,
+          "fees": 0.12,
+          "executed_at": "2026-06-18T15:19:14.159Z"
+        },
+        {
+          "symbol": "CVX   260702C00192500",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 0.24,
+          "net_cash": 23.87,
+          "fees": 0.13,
+          "executed_at": "2026-06-18T15:19:14.159Z"
+        }
+      ],
+      "closed_at": "2026-06-18",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": 7.5,
       "structure": "short_call_vertical",
       "short_strike": 190.0,
       "long_strike": 192.5,
@@ -548,7 +568,8 @@
       "width": 2.5,
       "max_profit_total": 20.0,
       "max_loss_total": 230.0,
-      "bpr_total": 230.0
+      "bpr_total": 230.0,
+      "close_debit_per_contract": 0.1
     }
   ]
 }
