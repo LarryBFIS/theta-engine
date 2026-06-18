@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-18T19:24:28.254789+00:00",
+  "generated_at": "2026-06-18T19:35:59.566601+00:00",
   "regime": {
-    "vix": 16.86,
-    "vix_day_change_pct": -0.0857,
+    "vix": 16.84,
+    "vix_day_change_pct": -0.0868,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (-9% day)"
@@ -44,7 +44,7 @@
         "iv_rank_min": 0.4,
         "vix_min": 18
       },
-      "vix": 16.86,
+      "vix": 16.84,
       "live_ok": false,
       "tag": "paper",
       "reasoning": "FOMC IV/vega crush \u2014 sell a put-skewed iron condor on IWM/QQQ (2026-07-17, ~12\u0394 shorts, 3-wide, max loss \u2264$300). Enter 2026-06-16, close 2026-06-18. Harvest the vol collapse after the 2026-06-17 2:00pm ET decision. LIVE only if IV Rank \u226540% AND VIX \u226518 (currently closing)."
@@ -77,9 +77,9 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-06-18T19:24:28.251286+00:00",
+    "generated_at": "2026-06-18T19:35:59.563192+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is underwater -$29 with 7 open positions heavily weighted to us_tech cluster (3/7). FOMC just closed; regime is normal but volatility compressed (VIX 16.86). Adding more tech exposure risks correlated drawdown.",
+    "portfolio_note": "Book is -$8 unrealized on 7 open positions; us_tech cluster already at cap (3/3) with negative recent expectancy. FOMC just closed\u2014vol regime normalizing.",
     "reviewed": 1,
     "vetoed": 1,
     "downsized": 0,
@@ -87,7 +87,7 @@
       {
         "id": "QQQ|short_put_vertical|686/675",
         "action": "veto",
-        "reason": "us_tech cluster already at cap (3/3); QQQ is index but QQQ + MSFT + AMD = saturated tech bet; downside pop 80% insufficient edge given realized -32% WR on tech; book already down on tech exposure."
+        "reason": "us_tech cluster at hard cap (3/3); QQQ is index ETF but cluster is already saturated and shows 23% win rate vs. 32% book average\u2014adding here increases correlated risk without margin."
       }
     ]
   },
@@ -107,15 +107,15 @@
       "fees_est": 3.0,
       "bpr": 964.0,
       "max_loss": 964.0,
-      "pop": 0.8,
-      "short_delta": 0.177,
-      "short_spread_pct": 0.006,
+      "pop": 0.801,
+      "short_delta": 0.176,
+      "short_spread_pct": 0.004,
       "credit_to_bpr": 0.141,
-      "ev_per_contract": 10.66,
-      "ev_on_bpr": 0.0111,
+      "ev_per_contract": 10.9,
+      "ev_on_bpr": 0.0113,
       "iv": 0.27,
       "iv_rank": 0.69,
-      "underlying_price": 739.44,
+      "underlying_price": 739.64,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -131,23 +131,23 @@
         "cluster=us_tech \u00d70.70",
         "structure=short_put_vertical \u00d71.32"
       ],
-      "rank_score": 0.010279,
+      "rank_score": 0.010464,
       "agent_action": "veto",
-      "agent_reason": "us_tech cluster already at cap (3/3); QQQ is index but QQQ + MSFT + AMD = saturated tech bet; downside pop 80% insufficient edge given realized -32% WR on tech; book already down on tech exposure."
+      "agent_reason": "us_tech cluster at hard cap (3/3); QQQ is index ETF but cluster is already saturated and shows 23% win rate vs. 32% book average\u2014adding here increases correlated risk without margin."
     }
   ],
   "skipped": {
     "SPY": "iv_rank 38%",
     "IWM": "iv_rank 35%",
     "DIA": "iv_rank 27%",
-    "GLD": "iv_rank 39%",
+    "GLD": "failed: pv: credit/width 0.05 < 0.10",
     "SLV": "iv_rank 30%",
     "TLT": "iv_rank -5%",
     "XLF": "iv_rank 35%",
     "XLE": "failed: pv: no/invalid leg quote",
     "XLK": "failed: pv: spread short 44%/long 79%",
     "AAPL": "iv_rank 32%",
-    "MSFT": "failed: pv: credit/width 0.09 < 0.10",
+    "MSFT": "failed: pv: credit/width 0.07 < 0.10",
     "AMZN": "iv_rank 23%",
     "GOOGL": "iv_rank 28%",
     "META": "failed: pv: credit/width 0.07 < 0.10",
@@ -160,21 +160,21 @@
     "WFC": "earnings 2026-07-14 before expiry",
     "GS": "earnings 2026-07-14 before expiry",
     "V": "iv_rank 32%",
-    "MA": "failed: pv: spread short 35%/long 28%",
+    "MA": "failed: pv: spread short 33%/long 28%",
     "DIS": "iv_rank 33%",
-    "KO": "failed: pv: spread short 58%/long 192%",
+    "KO": "failed: pv: spread short 60%/long 195%",
     "PEP": "earnings 2026-07-09 before expiry",
     "WMT": "iv_rank 36%",
     "COST": "iv_rank 39%",
-    "XOM": "failed: pv: spread short 34%/long 33%",
+    "XOM": "failed: pv: spread short 38%/long 33%",
     "CVX": "failed: pv: spread short 22%/long 44%",
     "PFE": "iv_rank 19%",
-    "MRK": "failed: pv: spread short 51%/long 59%",
+    "MRK": "failed: pv: no/invalid leg quote",
     "INTC": "earnings 2026-07-23 before expiry",
-    "CSCO": "failed: pv: spread short 32%/long 54%",
-    "ORCL": "failed: pv: credit/width 0.08 < 0.10",
-    "CRM": "failed: pv: spread short 30%/long 25%",
-    "BA": "failed: pv: credit/width 0.02 < 0.10",
-    "CAT": "failed: pv: spread short 26%/long 23%"
+    "CSCO": "failed: pv: spread short 31%/long 53%",
+    "ORCL": "failed: pv: credit/width 0.07 < 0.10",
+    "CRM": "failed: pv: credit/width 0.08 < 0.10",
+    "BA": "failed: pv: spread short 17%/long 49%",
+    "CAT": "failed: pv: exec credit -1.00 <= 0"
   }
 }
