@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-18T15:33:23.382487+00:00",
+  "generated_at": "2026-06-18T15:33:46.671156+00:00",
   "regime": {
-    "vix": 17.11,
-    "vix_day_change_pct": -0.0721,
+    "vix": 17.08,
+    "vix_day_change_pct": -0.0738,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (-7% day)"
@@ -28,38 +28,38 @@
       "short_symbol": "QQQ   260724P00685000",
       "long_symbol": "QQQ   260724P00675000",
       "width": 10.0,
-      "credit": 1.32,
-      "mid_credit": 1.35,
+      "credit": 1.28,
+      "mid_credit": 1.37,
       "fees_est": 3.0,
-      "bpr": 868.0,
-      "max_loss": 868.0,
-      "pop": 0.792,
-      "short_delta": 0.185,
-      "short_spread_pct": 0.004,
-      "credit_to_bpr": 0.152,
-      "ev_per_contract": 7.96,
-      "ev_on_bpr": 0.0092,
+      "bpr": 872.0,
+      "max_loss": 872.0,
+      "pop": 0.79,
+      "short_delta": 0.186,
+      "short_spread_pct": 0.013,
+      "credit_to_bpr": 0.147,
+      "ev_per_contract": 7.36,
+      "ev_on_bpr": 0.0084,
       "iv": 0.2726,
       "iv_rank": 0.702,
-      "underlying_price": 737.0,
+      "underlying_price": 736.77,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 868.0,
-      "bpr_total": 868.0,
+      "max_loss_total": 872.0,
+      "bpr_total": 872.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 685/675p \u00d72 \u2014 bullish lean. Edge: IV rank 70%, EV $+8/ctr (+0.9% on BPR). POP 79% \u00b7 credit $1.32 \u00b7 max loss $868 \u00b7 BPR $1736 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 685/675p \u00d72 \u2014 bullish lean. Edge: IV rank 70%, EV $+7/ctr (+0.8% on BPR). POP 79% \u00b7 credit $1.28 \u00b7 max loss $872 \u00b7 BPR $1744 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.926,
       "learn_notes": [
         "cluster=us_tech \u00d70.70",
         "structure=short_put_vertical \u00d71.32"
       ],
-      "rank_score": 0.008519,
+      "rank_score": 0.007778,
       "agent_action": "downsize",
-      "agent_reason": "us_tech cluster at 2/3 cap; QQQ adds correlated duration to existing MSFT/AMD; reduce to 1 contract to stay within diversification guardrails.",
+      "agent_reason": "QQQ is index (good), structure favored, but us_tech cluster is at 2/3 cap; adding 2 contracts would breach soft diversification; 1 contract acceptable.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
@@ -69,7 +69,7 @@
         "underlying": "QQQ",
         "code": "VP",
         "order_type": "Net Credit",
-        "limit": 1.32,
+        "limit": 1.28,
         "contracts": 1,
         "expiry": "2026-07-24",
         "legs": [
@@ -88,18 +88,18 @@
             "type": "P"
           }
         ],
-        "credit_total": 132.0,
-        "max_loss_total": 868.0,
-        "bpr_total": 868.0,
-        "pop": 0.792,
+        "credit_total": 128.0,
+        "max_loss_total": 872.0,
+        "bpr_total": 872.0,
+        "pop": 0.79,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
-          "close_debit": 0.66,
-          "stop_debit": 3.3,
+          "close_debit": 0.64,
+          "stop_debit": 3.2,
           "exit_dte": 21
         },
-        "text": "QQQ VP \u00d71 \u2014 SELL 685P / BUY 675P (2026-07-24) @ $1.32 net credit. Max loss $868. After fill: GTC buy-to-close @ $0.66 (50%)."
+        "text": "QQQ VP \u00d71 \u2014 SELL 685P / BUY 675P (2026-07-24) @ $1.28 net credit. Max loss $872. After fill: GTC buy-to-close @ $0.64 (50%)."
       }
     }
   ],
@@ -129,7 +129,7 @@
         "iv_rank_min": 0.4,
         "vix_min": 18
       },
-      "vix": 17.11,
+      "vix": 17.08,
       "live_ok": false,
       "tag": "paper",
       "reasoning": "FOMC IV/vega crush \u2014 sell a put-skewed iron condor on IWM/QQQ (2026-07-17, ~12\u0394 shorts, 3-wide, max loss \u2264$300). Enter 2026-06-16, close 2026-06-18. Harvest the vol collapse after the 2026-06-17 2:00pm ET decision. LIVE only if IV Rank \u226540% AND VIX \u226518 (currently closing)."
@@ -162,9 +162,9 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-06-18T15:33:23.175061+00:00",
+    "generated_at": "2026-06-18T15:33:46.459435+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is underwater -$90; us_tech cluster (MSFT, AMD) already at 2/3 cap and showing neg expectancy. FOMC closed yesterday, regime normal but volatility regime still settling; adding more directional short-vol is premature.",
+    "portfolio_note": "Book is -$90 unrealized with 6 open positions across 3 clusters; us_tech cluster already at 2/3 cap. FOMC just closed (low event risk now), but CVX has weak EV and we already have energy saturation.",
     "reviewed": 2,
     "vetoed": 1,
     "downsized": 1,
@@ -174,12 +174,12 @@
         "action": "downsize",
         "from": 2,
         "to": 1,
-        "reason": "us_tech cluster at 2/3 cap; QQQ adds correlated duration to existing MSFT/AMD; reduce to 1 contract to stay within diversification guardrails."
+        "reason": "QQQ is index (good), structure favored, but us_tech cluster is at 2/3 cap; adding 2 contracts would breach soft diversification; 1 contract acceptable."
       },
       {
         "id": "CVX|short_call_vertical|185/190",
         "action": "veto",
-        "reason": "Energy cluster already at 2/3 cap (XOM, CVX); EV on BPR (0.19%) is marginal; single-name idiosyncratic risk not compensated at this credit size."
+        "reason": "Single-name energy, energy cluster already at 2/3 cap (XOM+CVX), EV/BPR marginal (0.21%), and low IV rank (0.47) vs. normal regime\u2014poor risk/reward."
       }
     ]
   },
@@ -194,38 +194,38 @@
       "short_symbol": "QQQ   260724P00685000",
       "long_symbol": "QQQ   260724P00675000",
       "width": 10.0,
-      "credit": 1.32,
-      "mid_credit": 1.35,
+      "credit": 1.28,
+      "mid_credit": 1.37,
       "fees_est": 3.0,
-      "bpr": 868.0,
-      "max_loss": 868.0,
-      "pop": 0.792,
-      "short_delta": 0.185,
-      "short_spread_pct": 0.004,
-      "credit_to_bpr": 0.152,
-      "ev_per_contract": 7.96,
-      "ev_on_bpr": 0.0092,
+      "bpr": 872.0,
+      "max_loss": 872.0,
+      "pop": 0.79,
+      "short_delta": 0.186,
+      "short_spread_pct": 0.013,
+      "credit_to_bpr": 0.147,
+      "ev_per_contract": 7.36,
+      "ev_on_bpr": 0.0084,
       "iv": 0.2726,
       "iv_rank": 0.702,
-      "underlying_price": 737.0,
+      "underlying_price": 736.77,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 868.0,
-      "bpr_total": 868.0,
+      "max_loss_total": 872.0,
+      "bpr_total": 872.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 685/675p \u00d72 \u2014 bullish lean. Edge: IV rank 70%, EV $+8/ctr (+0.9% on BPR). POP 79% \u00b7 credit $1.32 \u00b7 max loss $868 \u00b7 BPR $1736 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 685/675p \u00d72 \u2014 bullish lean. Edge: IV rank 70%, EV $+7/ctr (+0.8% on BPR). POP 79% \u00b7 credit $1.28 \u00b7 max loss $872 \u00b7 BPR $1744 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.926,
       "learn_notes": [
         "cluster=us_tech \u00d70.70",
         "structure=short_put_vertical \u00d71.32"
       ],
-      "rank_score": 0.008519,
+      "rank_score": 0.007778,
       "agent_action": "downsize",
-      "agent_reason": "us_tech cluster at 2/3 cap; QQQ adds correlated duration to existing MSFT/AMD; reduce to 1 contract to stay within diversification guardrails.",
+      "agent_reason": "QQQ is index (good), structure favored, but us_tech cluster is at 2/3 cap; adding 2 contracts would breach soft diversification; 1 contract acceptable.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
@@ -235,7 +235,7 @@
         "underlying": "QQQ",
         "code": "VP",
         "order_type": "Net Credit",
-        "limit": 1.32,
+        "limit": 1.28,
         "contracts": 1,
         "expiry": "2026-07-24",
         "legs": [
@@ -254,18 +254,18 @@
             "type": "P"
           }
         ],
-        "credit_total": 132.0,
-        "max_loss_total": 868.0,
-        "bpr_total": 868.0,
-        "pop": 0.792,
+        "credit_total": 128.0,
+        "max_loss_total": 872.0,
+        "bpr_total": 872.0,
+        "pop": 0.79,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
-          "close_debit": 0.66,
-          "stop_debit": 3.3,
+          "close_debit": 0.64,
+          "stop_debit": 3.2,
           "exit_dte": 21
         },
-        "text": "QQQ VP \u00d71 \u2014 SELL 685P / BUY 675P (2026-07-24) @ $1.32 net credit. Max loss $868. After fill: GTC buy-to-close @ $0.66 (50%)."
+        "text": "QQQ VP \u00d71 \u2014 SELL 685P / BUY 675P (2026-07-24) @ $1.28 net credit. Max loss $872. After fill: GTC buy-to-close @ $0.64 (50%)."
       }
     },
     {
@@ -283,15 +283,15 @@
       "fees_est": 3.0,
       "bpr": 444.0,
       "max_loss": 444.0,
-      "pop": 0.784,
-      "short_delta": 0.242,
+      "pop": 0.785,
+      "short_delta": 0.241,
       "short_spread_pct": 0.155,
       "credit_to_bpr": 0.126,
-      "ev_per_contract": 0.86,
-      "ev_on_bpr": 0.0019,
+      "ev_per_contract": 0.94,
+      "ev_on_bpr": 0.0021,
       "iv": 0.2755,
       "iv_rank": 0.473,
-      "underlying_price": 173.47,
+      "underlying_price": 173.43,
       "liquidity": 3,
       "earnings_date": "2026-08-07",
       "tag": "paper",
@@ -303,9 +303,9 @@
       "sized_capped": true,
       "reasoning": "short call vertical 185/190c \u00d73 \u2014 bearish lean. Edge: IV rank 47%, EV $+1/ctr (+0.2% on BPR). POP 78% \u00b7 credit $0.56 \u00b7 max loss $444 \u00b7 BPR $1332 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.0,
-      "rank_score": 0.0019,
+      "rank_score": 0.0021,
       "agent_action": "veto",
-      "agent_reason": "Energy cluster already at 2/3 cap (XOM, CVX); EV on BPR (0.19%) is marginal; single-name idiosyncratic risk not compensated at this credit size."
+      "agent_reason": "Single-name energy, energy cluster already at 2/3 cap (XOM+CVX), EV/BPR marginal (0.21%), and low IV rank (0.47) vs. normal regime\u2014poor risk/reward."
     }
   ],
   "skipped": {
