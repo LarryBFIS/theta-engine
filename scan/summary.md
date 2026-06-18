@@ -1,10 +1,10 @@
 # Opportunity scan
 
-_Generated 2026-06-18T13:34:30.414804+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (-8% day)._
+_Generated 2026-06-18T14:04:31.240903+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (-7% day)._
 
 | # | Trade | Tag | DTE | Credit | BPR | POP | Cr/BPR | EV/ctr | EV/BPR | IVR |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | IWM 274/269p | PAPER | 36 | $0.54 | $446 | 80% | 12% | $+2 | 0.5% | 46% |
+| — | _no setups passed filters_ | | | | | | | | | |
 
 ## Macro events · scheduled-event crush setups
 

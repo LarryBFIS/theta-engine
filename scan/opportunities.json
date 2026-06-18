@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-18T13:34:30.414804+00:00",
+  "generated_at": "2026-06-18T14:04:31.240903+00:00",
   "regime": {
-    "vix": 16.97,
-    "vix_day_change_pct": -0.0797,
+    "vix": 17.2,
+    "vix_day_change_pct": -0.0672,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (-8% day)"
+    "note": "normal regime (-7% day)"
   },
   "params": {
     "min_iv_rank": 0.4,
@@ -17,91 +17,7 @@
     "longvol_max_iv_rank": 0.3,
     "longvol_catalyst_days": 14
   },
-  "top": [
-    {
-      "underlying": "IWM",
-      "structure": "short_put_vertical",
-      "expiry": "2026-07-24",
-      "dte": 36,
-      "short_strike": 274.0,
-      "long_strike": 269.0,
-      "short_symbol": "IWM   260724P00274000",
-      "long_symbol": "IWM   260724P00269000",
-      "width": 5.0,
-      "credit": 0.54,
-      "mid_credit": 0.59,
-      "fees_est": 3.0,
-      "bpr": 446.0,
-      "max_loss": 446.0,
-      "pop": 0.797,
-      "short_delta": 0.181,
-      "short_spread_pct": 0.028,
-      "credit_to_bpr": 0.121,
-      "ev_per_contract": 2.1,
-      "ev_on_bpr": 0.0047,
-      "iv": 0.2581,
-      "iv_rank": 0.464,
-      "underlying_price": 294.08,
-      "liquidity": 4,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 3,
-      "max_loss_total": 1338.0,
-      "bpr_total": 1338.0,
-      "trend": "bullish",
-      "sized_capped": true,
-      "reasoning": "short put vertical 274/269p \u00d73 \u2014 bullish lean. Edge: IV rank 46%, EV $+2/ctr (+0.5% on BPR). POP 80% \u00b7 credit $0.54 \u00b7 max loss $446 \u00b7 BPR $1338 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 1.333,
-      "learn_notes": [
-        "structure=short_put_vertical \u00d71.33"
-      ],
-      "rank_score": 0.006265,
-      "agent_action": "approve",
-      "agent_reason": "Index ETF, diversifying cluster (us_index at 2/3 cap), strong structure (short_put_vertical), 36 DTE post-FOMC; acceptable risk.",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "clear",
-        "hits": []
-      },
-      "ticket": {
-        "underlying": "IWM",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 0.54,
-        "contracts": 3,
-        "expiry": "2026-07-24",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 3,
-            "expiry": "2026-07-24",
-            "strike": 274.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 3,
-            "expiry": "2026-07-24",
-            "strike": 269.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 162.0,
-        "max_loss_total": 1338.0,
-        "bpr_total": 1338.0,
-        "pop": 0.797,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.27,
-          "stop_debit": 1.35,
-          "exit_dte": 21
-        },
-        "text": "IWM VP \u00d73 \u2014 SELL 274P / BUY 269P (2026-07-24) @ $0.54 net credit. Max loss $1338. After fill: GTC buy-to-close @ $0.27 (50%)."
-      }
-    }
-  ],
+  "top": [],
   "long_vol": [],
   "events": [
     {
@@ -128,7 +44,7 @@
         "iv_rank_min": 0.4,
         "vix_min": 18
       },
-      "vix": 16.97,
+      "vix": 17.2,
       "live_ok": false,
       "tag": "paper",
       "reasoning": "FOMC IV/vega crush \u2014 sell a put-skewed iron condor on IWM/QQQ (2026-07-17, ~12\u0394 shorts, 3-wide, max loss \u2264$300). Enter 2026-06-16, close 2026-06-18. Harvest the vol collapse after the 2026-06-17 2:00pm ET decision. LIVE only if IV Rank \u226540% AND VIX \u226518 (currently closing)."
@@ -136,47 +52,42 @@
   ],
   "learnings": {
     "global": {
-      "closed": 30,
+      "closed": 31,
       "wins": 10,
-      "losses": 20,
-      "win_rate": 0.333,
-      "total_pnl": -3420.0
+      "losses": 21,
+      "win_rate": 0.323,
+      "total_pnl": -3793.5
     },
     "min_sample": 20,
     "actionable": [
       {
         "dim": "structure",
         "value": "short_put_vertical",
-        "multiplier": 1.333,
+        "multiplier": 1.323,
         "recommendation": "favor",
-        "n": 20
+        "n": 21
       },
       {
         "dim": "cluster",
         "value": "us_tech",
-        "multiplier": 0.71,
-        "recommendation": "AVOID (neg expectancy; wr 24% < prior 33%)",
-        "n": 21
+        "multiplier": 0.7,
+        "recommendation": "AVOID (neg expectancy; wr 23% < prior 32%)",
+        "n": 22
       }
     ]
   },
   "agent": {
-    "generated_at": "2026-06-18T13:34:30.233495+00:00",
+    "generated_at": "2026-06-18T14:04:31.237224+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is -$546 unrealized with 7 open; us_tech cluster already at max (3 positions, 24% win rate vs 33% avg). FOMC just closed; normal regime but adding short-vol into tech concentration is imprudent.",
-    "reviewed": 2,
+    "portfolio_note": "Book is underwater -$168 after a -7% regime day; FOMC closing today reduces macro tail risk. us_tech cluster already at 2/3 cap with negative realized expectancy (23% wr).",
+    "reviewed": 1,
     "vetoed": 1,
     "downsized": 0,
     "decisions": [
       {
-        "id": "IWM|short_put_vertical|274/269",
-        "action": "approve",
-        "reason": "Index ETF, diversifying cluster (us_index at 2/3 cap), strong structure (short_put_vertical), 36 DTE post-FOMC; acceptable risk."
-      },
-      {
         "id": "QQQ|short_put_vertical|680/670",
         "action": "veto",
-        "reason": "us_tech cluster already saturated (3/3); QQQ adds correlated directional short-vol to MSFT/AMD/CRM; underperforming cluster (24% wr); veto to respect concentration limit."
+        "reason": "us_tech cluster at 2/3 cap; adding QQQ (correlated to MSFT/AMD) violates diversification mandate and cluster would reach 3/3; realized wr on us_tech 23% < 32% portfolio baseline indicates negative edge in this sector."
       }
     ]
   },
@@ -191,161 +102,79 @@
       "short_symbol": "QQQ   260724P00680000",
       "long_symbol": "QQQ   260724P00670000",
       "width": 10.0,
-      "credit": 1.12,
-      "mid_credit": 1.22,
+      "credit": 1.19,
+      "mid_credit": 1.25,
       "fees_est": 3.0,
-      "bpr": 888.0,
-      "max_loss": 888.0,
-      "pop": 0.79,
-      "short_delta": 0.185,
-      "short_spread_pct": 0.017,
-      "credit_to_bpr": 0.126,
-      "ev_per_contract": 5.87,
-      "ev_on_bpr": 0.0066,
-      "iv": 0.2951,
-      "iv_rank": 0.781,
-      "underlying_price": 735.83,
+      "bpr": 881.0,
+      "max_loss": 881.0,
+      "pop": 0.811,
+      "short_delta": 0.167,
+      "short_spread_pct": 0.009,
+      "credit_to_bpr": 0.135,
+      "ev_per_contract": 11.43,
+      "ev_on_bpr": 0.013,
+      "iv": 0.2708,
+      "iv_rank": 0.701,
+      "underlying_price": 735.51,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 2,
-      "max_loss_total": 1776.0,
-      "bpr_total": 1776.0,
+      "max_loss_total": 1762.0,
+      "bpr_total": 1762.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 680/670p \u00d72 \u2014 bullish lean. Edge: IV rank 78%, EV $+6/ctr (+0.7% on BPR). POP 79% \u00b7 credit $1.12 \u00b7 max loss $888 \u00b7 BPR $1776 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 0.946,
+      "reasoning": "short put vertical 680/670p \u00d72 \u2014 bullish lean. Edge: IV rank 70%, EV $+11/ctr (+1.3% on BPR). POP 81% \u00b7 credit $1.19 \u00b7 max loss $881 \u00b7 BPR $1762 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 0.926,
       "learn_notes": [
-        "cluster=us_tech \u00d70.71",
-        "structure=short_put_vertical \u00d71.33"
+        "cluster=us_tech \u00d70.70",
+        "structure=short_put_vertical \u00d71.32"
       ],
-      "rank_score": 0.006244,
+      "rank_score": 0.012038,
       "agent_action": "veto",
-      "agent_reason": "us_tech cluster already saturated (3/3); QQQ adds correlated directional short-vol to MSFT/AMD/CRM; underperforming cluster (24% wr); veto to respect concentration limit."
-    },
-    {
-      "underlying": "IWM",
-      "structure": "short_put_vertical",
-      "expiry": "2026-07-24",
-      "dte": 36,
-      "short_strike": 274.0,
-      "long_strike": 269.0,
-      "short_symbol": "IWM   260724P00274000",
-      "long_symbol": "IWM   260724P00269000",
-      "width": 5.0,
-      "credit": 0.54,
-      "mid_credit": 0.59,
-      "fees_est": 3.0,
-      "bpr": 446.0,
-      "max_loss": 446.0,
-      "pop": 0.797,
-      "short_delta": 0.181,
-      "short_spread_pct": 0.028,
-      "credit_to_bpr": 0.121,
-      "ev_per_contract": 2.1,
-      "ev_on_bpr": 0.0047,
-      "iv": 0.2581,
-      "iv_rank": 0.464,
-      "underlying_price": 294.08,
-      "liquidity": 4,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 3,
-      "max_loss_total": 1338.0,
-      "bpr_total": 1338.0,
-      "trend": "bullish",
-      "sized_capped": true,
-      "reasoning": "short put vertical 274/269p \u00d73 \u2014 bullish lean. Edge: IV rank 46%, EV $+2/ctr (+0.5% on BPR). POP 80% \u00b7 credit $0.54 \u00b7 max loss $446 \u00b7 BPR $1338 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 1.333,
-      "learn_notes": [
-        "structure=short_put_vertical \u00d71.33"
-      ],
-      "rank_score": 0.006265,
-      "agent_action": "approve",
-      "agent_reason": "Index ETF, diversifying cluster (us_index at 2/3 cap), strong structure (short_put_vertical), 36 DTE post-FOMC; acceptable risk.",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "clear",
-        "hits": []
-      },
-      "ticket": {
-        "underlying": "IWM",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 0.54,
-        "contracts": 3,
-        "expiry": "2026-07-24",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 3,
-            "expiry": "2026-07-24",
-            "strike": 274.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 3,
-            "expiry": "2026-07-24",
-            "strike": 269.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 162.0,
-        "max_loss_total": 1338.0,
-        "bpr_total": 1338.0,
-        "pop": 0.797,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.27,
-          "stop_debit": 1.35,
-          "exit_dte": 21
-        },
-        "text": "IWM VP \u00d73 \u2014 SELL 274P / BUY 269P (2026-07-24) @ $0.54 net credit. Max loss $1338. After fill: GTC buy-to-close @ $0.27 (50%)."
-      }
+      "agent_reason": "us_tech cluster at 2/3 cap; adding QQQ (correlated to MSFT/AMD) violates diversification mandate and cluster would reach 3/3; realized wr on us_tech 23% < 32% portfolio baseline indicates negative edge in this sector."
     }
   ],
   "skipped": {
-    "SPY": "failed: pv: credit/width 0.09 < 0.10",
-    "DIA": "iv_rank 34%",
-    "GLD": "failed: pv: credit/width 0.00 < 0.10",
-    "SLV": "iv_rank 33%",
-    "TLT": "iv_rank 3%",
-    "XLF": "iv_rank 37%",
+    "SPY": "iv_rank 40%",
+    "IWM": "iv_rank 38%",
+    "DIA": "iv_rank 29%",
+    "GLD": "iv_rank 36%",
+    "SLV": "iv_rank 31%",
+    "TLT": "iv_rank -4%",
+    "XLF": "iv_rank 35%",
     "XLE": "failed: pv: no/invalid leg quote",
-    "XLK": "failed: pv: spread short 52%/long 72%",
-    "AAPL": "failed: pv: credit/width 0.07 < 0.10",
-    "MSFT": "failed: pv: spread short 44%/long 55%",
-    "AMZN": "iv_rank 26%",
-    "GOOGL": "iv_rank 33%",
-    "META": "failed: pv: exec credit 0.00 <= 0",
-    "NVDA": "iv_rank 23%",
-    "AMD": "failed: pv: spread short 23%/long 25%",
-    "TSLA": "iv_rank 28%",
+    "XLK": "failed: pv: spread short 34%/long 42%",
+    "AAPL": "iv_rank 36%",
+    "MSFT": "failed: pv: spread short 31%/long 20%",
+    "AMZN": "iv_rank 23%",
+    "GOOGL": "iv_rank 30%",
+    "META": "failed: pv: credit/width 0.03 < 0.10",
+    "NVDA": "iv_rank 18%",
+    "AMD": "failed: pv: exec credit -0.40 <= 0",
+    "TSLA": "iv_rank 31%",
     "NFLX": "earnings 2026-07-16 before expiry",
     "JPM": "earnings 2026-07-14 before expiry",
     "BAC": "iv_rank 38%",
     "WFC": "earnings 2026-07-14 before expiry",
     "GS": "earnings 2026-07-14 before expiry",
-    "V": "iv_rank 32%",
-    "MA": "failed: pv: spread short 74%/long 197%",
-    "DIS": "iv_rank 34%",
+    "V": "iv_rank 31%",
+    "MA": "failed: pv: spread short 72%/long 143%",
+    "DIS": "failed: pv: no/invalid leg quote",
     "KO": "failed: pv: no/invalid leg quote",
     "PEP": "earnings 2026-07-09 before expiry",
-    "WMT": "iv_rank 37%",
-    "COST": "failed: pv: spread short 92%/long 159%",
-    "XOM": "failed: pv: spread short 42%/long 36%",
-    "CVX": "failed: pv: spread short 74%/long 92%",
-    "PFE": "iv_rank 20%",
-    "MRK": "failed: pv: no/invalid leg quote",
+    "WMT": "iv_rank 34%",
+    "COST": "failed: pv: spread short 60%/long 66%",
+    "XOM": "failed: pv: spread short 34%/long 53%",
+    "CVX": "failed: pv: spread short 47%/long 92%",
+    "PFE": "iv_rank 17%",
+    "MRK": "iv_rank 37%",
     "INTC": "earnings 2026-07-23 before expiry",
-    "CSCO": "failed: pv: spread short 75%/long 104%",
-    "ORCL": "failed: pv: spread short 57%/long 42%",
-    "CRM": "failed: pv: spread short 41%/long 103%",
-    "BA": "failed: pv: no/invalid leg quote",
-    "CAT": "failed: pv: spread short 63%/long 82%"
+    "CSCO": "failed: pv: spread short 61%/long 97%",
+    "ORCL": "failed: pv: spread short 38%/long 29%",
+    "CRM": "failed: pv: spread short 30%/long 74%",
+    "BA": "failed: pv: spread short 144%/long 167%",
+    "CAT": "failed: pv: spread short 51%/long 52%"
   }
 }
