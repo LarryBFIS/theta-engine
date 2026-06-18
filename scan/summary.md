@@ -1,10 +1,10 @@
 # Opportunity scan
 
-_Generated 2026-06-18T17:49:05.582199+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (-10% day)._
+_Generated 2026-06-18T17:53:19.677252+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (-9% day)._
 
 | # | Trade | Tag | DTE | Credit | BPR | POP | Cr/BPR | EV/ctr | EV/BPR | IVR |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| — | _no setups passed filters_ | | | | | | | | | |
+| 1 | CVX 185/190p | PAPER | 36 | $0.53 | $447 | 80% | 12% | $+2 | 0.4% | 49% |
 
 ## Macro events · scheduled-event crush setups
 
