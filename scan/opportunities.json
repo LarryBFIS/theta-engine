@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-18T20:38:07.796698+00:00",
+  "generated_at": "2026-06-19T13:34:32.251080+00:00",
   "regime": {
-    "vix": 16.4,
-    "vix_day_change_pct": -0.1106,
+    "vix": 16.91,
+    "vix_day_change_pct": -0.083,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (-11% day)"
+    "note": "normal regime (-8% day)"
   },
   "params": {
     "min_iv_rank": 0.4,
@@ -19,37 +19,7 @@
   },
   "top": [],
   "long_vol": [],
-  "events": [
-    {
-      "type": "event",
-      "event": "FOMC",
-      "label": "FOMC IV-crush iron condor",
-      "underlyings": [
-        "IWM",
-        "QQQ"
-      ],
-      "structure": "iron_condor",
-      "expiry": "2026-07-17",
-      "short_delta": 0.12,
-      "put_skew": true,
-      "wing_width": 3,
-      "max_loss_cap": 300,
-      "enter_date": "2026-06-16",
-      "close_date": "2026-06-18",
-      "decision_date": "2026-06-17",
-      "decision_time_et": "14:00",
-      "days_to_decision": -1,
-      "status": "closing",
-      "live_conditions": {
-        "iv_rank_min": 0.4,
-        "vix_min": 18
-      },
-      "vix": 16.4,
-      "live_ok": false,
-      "tag": "paper",
-      "reasoning": "FOMC IV/vega crush \u2014 sell a put-skewed iron condor on IWM/QQQ (2026-07-17, ~12\u0394 shorts, 3-wide, max loss \u2264$300). Enter 2026-06-16, close 2026-06-18. Harvest the vol collapse after the 2026-06-17 2:00pm ET decision. LIVE only if IV Rank \u226540% AND VIX \u226518 (currently closing)."
-    }
-  ],
+  "events": [],
   "learnings": {
     "global": {
       "closed": 31,
@@ -83,12 +53,12 @@
     "QQQ": "failed: pv: credit/width 0.09 < 0.10",
     "IWM": "iv_rank 34%",
     "DIA": "iv_rank 25%",
-    "GLD": "failed: pv: credit/width 0.07 < 0.10",
+    "GLD": "failed: pv: credit/width 0.05 < 0.10",
     "SLV": "iv_rank 30%",
     "TLT": "iv_rank -3%",
     "XLF": "iv_rank 36%",
     "XLE": "failed: pv: no/invalid leg quote",
-    "XLK": "failed: pv: spread short 27%/long 56%",
+    "XLK": "failed: pv: spread short 50%/long 96%",
     "AAPL": "iv_rank 31%",
     "MSFT": "failed: pv: spread short 45%/long 43%",
     "AMZN": "iv_rank 23%",
@@ -117,7 +87,7 @@
     "CSCO": "failed: pv: spread short 45%/long 57%",
     "ORCL": "failed: pv: spread short 22%/long 30%",
     "CRM": "failed: pv: spread short 51%/long 85%",
-    "BA": "failed: pv: spread short 72%/long 112%",
+    "BA": "failed: pv: spread short 55%/long 72%",
     "CAT": "failed: pv: spread short 65%/long 78%"
   }
 }
