@@ -55,7 +55,12 @@ _CLUSTER_MEMBERS = {
     "industrials": ("BA", "CAT"),
 }
 CLUSTERS = {sym: cl for cl, syms in _CLUSTER_MEMBERS.items() for sym in syms}
-INDEX_ETFS = {"SPY", "QQQ", "IWM", "DIA"}
+# Broad-market index ETFs ONLY — the proven sweet spot (SPY/IWM 9/9, +$746).
+# QQQ is deliberately EXCLUDED: it is a tech-concentrated ETF (us_tech cluster)
+# and trades like big tech, the cohort we lose on (~17%, -$2,704). Treating it as
+# a broad-index diversifier let the agent wrongly approve it; it now buckets as a
+# single_name/us_tech name so the learner's index edge stays pure SPY/IWM.
+INDEX_ETFS = {"SPY", "IWM", "DIA"}
 SECTOR_ETFS = {"GLD", "SLV", "TLT", "XLF", "XLE", "XLK"}
 
 log = logging.getLogger("paper")
@@ -69,7 +74,8 @@ def cluster_of(sym):
 
 def asset_class(sym):
     """index_etf / sector_etf / single_name — the bucket the learning loop cares about.
-    (QQQ counts as an index ETF here even though its correlation cluster is us_tech.)"""
+    (QQQ is NOT an index ETF here — it is tech-concentrated, so it buckets as a
+    single_name in the us_tech cluster, alongside the big-tech names we lose on.)"""
     u = (sym or "").upper()
     if u in INDEX_ETFS:
         return "index_etf"

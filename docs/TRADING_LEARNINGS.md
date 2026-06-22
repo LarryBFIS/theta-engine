@@ -220,3 +220,34 @@ accumulating evidence and showing it, without trading on noise.
    "what the engine learned" story is visible.
 6. _Later:_ once a bucket is actionable, let a strongly-negative bucket hard-demote
    LIVE→PAPER (today learnings only soft-tilt the ranking, never hard-block).
+
+---
+
+## 2026-06-22 — QQQ is tech, not an index; tickets now flag the 10% cap
+
+### 🟢 L — QQQ is a tech-concentrated ETF, not a broad-index diversifier
+- The agent was approving QQQ as a "diversifying index ETF." It is not: QQQ is
+  ~50% mega-cap tech and trades like the big-tech cohort we LOSE on (~17% win,
+  −$2,704), not like SPY/IWM (9/9, +$746).
+- Root cause: `asset_class("QQQ")` returned `index_etf`, so the agent's candidate
+  payload literally told it QQQ was a broad index. Wrong premise → wrong approval.
+- Fix: removed QQQ from `INDEX_ETFS`. It now buckets as `single_name` in the
+  `us_tech` cluster (it was already in us_tech for concentration caps). Effects:
+  (1) the agent stops treating it as a diversifier; (2) the learner's `index_etf`
+  bucket stays **pure SPY/IWM/DIA** so the proven index edge isn't diluted;
+  (3) QQQ now shares the us_tech ceiling and any tech down-weighting. Unit-tested.
+
+### 🟢 L — Index spreads must be sized to the live account, not just the paper book
+- Opportunity widths are sized to the $20k PAPER sandbox, so a natural SPY
+  9-wide showed a tradeable-looking ticket. On the real ~$3.4k account that's
+  ~$804 max loss = **~23% of net liq**, far over the 10% per-position cap (~$344).
+  The SPY 703/712 opened from opportunities was exactly this: right underlying,
+  wrong width. (Same structural flaw as the QQQ wide spread.)
+- Fix: the auto-ticket now computes **live-cap fit** from net liq. When one
+  contract's max loss exceeds 10% of the account it (a) flags the ticket on both
+  dashboards (red maxloss + "⚠ over 10% live cap — narrow to ~N-wide for live, or
+  paper only") and (b) suggests the widest spread that WOULD fit
+  (width ≤ cap/100 + credit; for a $344 cap that's ~3–4 wide). Unit-tested.
+- Lesson: the proven *underlying* (SPY/IWM) is necessary but not sufficient — the
+  *width* must keep max loss ≤ 10% of the live account until it grows. The
+  dashboard now refuses to let a cap-busting width look executable.

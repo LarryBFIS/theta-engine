@@ -659,7 +659,9 @@ function paintOpps(){
       : `<span class="down" title="awaiting AI risk review">🧠 not AI-reviewed</span>`;
     const _exp=o.expiry?new Date(o.expiry+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'}):'';
     const _dte=(o.dte!=null)?` (${o.dte}d)`:'';
-    const tk=o.ticket?`<div class="fmeta" style="font-family:ui-monospace,monospace" title="${(o.ticket.text||'').replace(/"/g,'&quot;')}">📋 ×${o.ticket.contracts} · ${_exp}${_dte} @ $${(+o.ticket.limit).toFixed(2)} cr · close $${(+o.ticket.manage.close_debit).toFixed(2)} · maxloss $${Math.round(o.ticket.max_loss_total)}</div>`:'';
+    const _bust=o.ticket&&o.ticket.fits_live_cap===false;
+    const _ml=o.ticket?`<span${_bust?' style="color:#ff6b6b;font-weight:700"':''}>maxloss $${Math.round(o.ticket.max_loss_total)}</span>`:'';
+    const tk=o.ticket?`<div class="fmeta" style="font-family:ui-monospace,monospace" title="${(o.ticket.text||'').replace(/"/g,'&quot;')}">📋 ×${o.ticket.contracts} · ${_exp}${_dte} @ $${(+o.ticket.limit).toFixed(2)} cr · close $${(+o.ticket.manage.close_debit).toFixed(2)} · ${_ml}</div>${_bust?`<div class="fmeta" style="color:#ff6b6b">⚠ over 10% live cap ($${Math.round(o.ticket.live_cap)}) — narrow to ~${o.ticket.suggested_width}-wide for live, or paper only</div>`:''}`:'';
     return `<div class="fitem ${tag} reveal" style="animation-delay:${(0.04*i).toFixed(2)}s">
       <div class="fhead"><span class="sym">${o.underlying}</span> <span class="${code==='VC'?'tagC':(code==='VP'?'tagP':'tagIC')}">${code}</span> <span class="struct">${strikes}</span>
         <span class="ftag ${tag}">${tag.toUpperCase()}</span></div>

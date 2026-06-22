@@ -1182,6 +1182,7 @@ def main() -> int:
     try:
         from scripts import trade_ticket
         for c in ranked:
+            c.setdefault("net_liq", net_liq)   # so the ticket can flag live-cap fit
             c["ticket"] = trade_ticket.build_ticket(c)
     except Exception as e:  # noqa: BLE001 — never fail the scan on ticket rendering
         log.warning("ticket build failed: %s", e)

@@ -10,6 +10,25 @@ Pure logic; unit-tested in scripts/test_trade_ticket.py.
 """
 
 
+LIVE_CAP_FRAC = 0.10   # a single position's max loss must stay <= 10% of net liq
+
+
+def _live_fit(c, max_loss_per_ct, credit):
+    """Does ONE contract's max loss fit the live 10% cap? Returns
+    (fits|None, cap$|None, suggested_width|None). None when net_liq is unknown
+    (paper context) — no claim made. When it busts the cap, suggest the widest
+    spread that WOULD fit: max_loss=(width-credit)*100 <= cap  ->  width <= cap/100+credit.
+    This is the guardrail that should have flagged the SPY 703/712 (9-wide,
+    ~$804 max loss = ~23% of a $3.4k account) before it was opened live."""
+    net_liq = c.get("net_liq")
+    if not net_liq or net_liq <= 0:
+        return None, None, None
+    cap = round(LIVE_CAP_FRAC * float(net_liq), 2)
+    fits = max_loss_per_ct <= cap
+    suggested = None if fits else max(1, int(cap / 100.0 + credit))
+    return fits, cap, suggested
+
+
 def struct_code(structure):
     s = (structure or "").lower()
     if "condor" in s:
@@ -58,6 +77,16 @@ def build_ticket(c):
     max_loss_total = c.get("max_loss_total")
     if max_loss_total is None:
         max_loss_total = round(float(c.get("max_loss") or c.get("bpr") or 0) * n, 2)
+    max_loss_1ct = float(c.get("max_loss") or c.get("bpr") or (max_loss_total / max(n, 1)))
+    fits_live_cap, live_cap, suggested_width = _live_fit(c, max_loss_1ct, credit)
+    fit_note = ""
+    if fits_live_cap is False:
+        fit_note = ("⚠ max loss ${ml:.0f} > 10% live cap (${cap:.0f}) — narrow to "
+                    "~{sw}-wide for live, or keep on paper."
+                    ).format(ml=max_loss_1ct, cap=live_cap, sw=suggested_width)
+    text = _text(c.get("underlying"), code, legs, exp, n, credit, close_debit, max_loss_total)
+    if fit_note:
+        text = text + " " + fit_note
     return {
         "underlying": c.get("underlying"),
         "code": code,
@@ -74,5 +103,9 @@ def build_ticket(c):
         "tag": c.get("tag"),
         "manage": {"profit_target_pct": 50, "close_debit": close_debit,
                    "stop_debit": stop_debit, "exit_dte": 21},
-        "text": _text(c.get("underlying"), code, legs, exp, n, credit, close_debit, max_loss_total),
+        "fits_live_cap": fits_live_cap,
+        "live_cap": live_cap,
+        "suggested_width": suggested_width,
+        "fit_note": fit_note,
+        "text": text,
     }

@@ -50,6 +50,30 @@ def main() -> int:
         if needle not in t:
             f.append("text missing '{}': {}".format(needle, t))
 
+    # --- live-cap fit flag (the SPY 703/712 guardrail) ---
+    # 9-wide SPY put vert, ~$804 max loss, on a $3,440 account (10% cap = $344) -> busts cap.
+    busts = build_ticket({"underlying": "SPY", "structure": "short_put_vertical",
+                          "short_strike": 712, "long_strike": 703, "expiry": "2026-07-24",
+                          "credit": 0.96, "max_loss": 804, "contracts": 1, "net_liq": 3440})
+    if busts["fits_live_cap"] is not False or busts["live_cap"] != 344.0:
+        f.append("fit: expected bust, got fits={} cap={}".format(busts["fits_live_cap"], busts["live_cap"]))
+    if busts["suggested_width"] != 4:   # int(344/100 + 0.96) = int(4.4) = 4
+        f.append("fit suggested_width: {}".format(busts["suggested_width"]))
+    if "⚠" not in busts["text"] or "10% live cap" not in busts["text"]:
+        f.append("fit warning missing from text: {}".format(busts["text"]))
+    # a narrow spread that fits, same account -> no warning
+    ok = build_ticket({"underlying": "SPY", "structure": "short_put_vertical",
+                       "short_strike": 712, "long_strike": 709, "expiry": "2026-07-24",
+                       "credit": 0.40, "max_loss": 260, "contracts": 1, "net_liq": 3440})
+    if ok["fits_live_cap"] is not True or "⚠" in ok["text"]:
+        f.append("fit: expected OK, got fits={} text={}".format(ok["fits_live_cap"], ok["text"]))
+    # no account context -> no claim, no warning
+    paper = build_ticket({"underlying": "SPY", "structure": "short_put_vertical",
+                          "short_strike": 712, "long_strike": 703, "expiry": "2026-07-24",
+                          "credit": 0.96, "max_loss": 804, "contracts": 1})
+    if paper["fits_live_cap"] is not None or "⚠" in paper["text"]:
+        f.append("fit: expected None w/o net_liq, got {}".format(paper["fits_live_cap"]))
+
     # --- struct_code ---
     if struct_code("short_put_vertical") != "VP" or struct_code("iron_condor") != "IC" or struct_code("short_call_vertical") != "VC":
         f.append("struct_code")

@@ -145,7 +145,8 @@ def main() -> int:
         f.append("max_open cap: expected 4, got {}".format(len(book7["trades"])))
 
     # --- classification helpers ---
-    if cluster_of("QQQ") != "us_tech" or asset_class("QQQ") != "index_etf":
+    # QQQ is tech-concentrated, NOT a broad index — buckets as single_name/us_tech.
+    if cluster_of("QQQ") != "us_tech" or asset_class("QQQ") != "single_name":
         f.append("classify QQQ: {} / {}".format(cluster_of("QQQ"), asset_class("QQQ")))
     if cluster_of("XOM") != "energy" or asset_class("XOM") != "single_name":
         f.append("classify XOM: {} / {}".format(cluster_of("XOM"), asset_class("XOM")))
