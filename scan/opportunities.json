@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T18:10:28.898746+00:00",
+  "generated_at": "2026-06-22T18:12:08.983898+00:00",
   "regime": {
     "vix": 17.17,
     "vix_day_change_pct": 0.047,
@@ -17,133 +17,47 @@
     "longvol_max_iv_rank": 0.3,
     "longvol_catalyst_days": 14
   },
-  "top": [
-    {
-      "underlying": "COST",
-      "structure": "short_call_vertical",
-      "expiry": "2026-07-24",
-      "dte": 32,
-      "short_strike": 1000.0,
-      "long_strike": 1010.0,
-      "short_symbol": "COST  260724C01000000",
-      "long_symbol": "COST  260724C01010000",
-      "width": 10.0,
-      "credit": 1.25,
-      "mid_credit": 2.2,
-      "fees_est": 3.0,
-      "bpr": 875.0,
-      "max_loss": 875.0,
-      "pop": 0.791,
-      "short_delta": 0.229,
-      "short_spread_pct": 0.127,
-      "credit_to_bpr": 0.143,
-      "ev_per_contract": 7.2,
-      "ev_on_bpr": 0.0082,
-      "iv": 0.2319,
-      "iv_rank": 0.421,
-      "underlying_price": 948.19,
-      "liquidity": 2,
-      "earnings_date": "2026-05-28",
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 2,
-      "max_loss_total": 1750.0,
-      "bpr_total": 1750.0,
-      "trend": "bearish",
-      "sized_capped": true,
-      "reasoning": "short call vertical 1000/1010c \u00d72 \u2014 bearish lean. Edge: IV rank 42%, EV $+7/ctr (+0.8% on BPR). POP 79% \u00b7 credit $1.25 \u00b7 max loss $875 \u00b7 BPR $1750 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 1.0,
-      "rank_score": 0.0082,
-      "agent_action": "approve",
-      "agent_reason": "Single-name consumer exposure, solid POP (79%), 32 DTE, acceptable EV; adds diversification and respects all caps.",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "clear",
-        "hits": []
-      },
-      "ticket": {
-        "underlying": "COST",
-        "code": "VC",
-        "order_type": "Net Credit",
-        "limit": 1.25,
-        "contracts": 2,
-        "expiry": "2026-07-24",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 2,
-            "expiry": "2026-07-24",
-            "strike": 1000.0,
-            "type": "C"
-          },
-          {
-            "action": "BUY",
-            "qty": 2,
-            "expiry": "2026-07-24",
-            "strike": 1010.0,
-            "type": "C"
-          }
-        ],
-        "credit_total": 250.0,
-        "max_loss_total": 1750.0,
-        "bpr_total": 1750.0,
-        "pop": 0.791,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.62,
-          "stop_debit": 3.12,
-          "exit_dte": 21
-        },
-        "text": "COST VC \u00d72 \u2014 SELL 1000C / BUY 1010C (2026-07-24) @ $1.25 net credit. Max loss $1750. After fill: GTC buy-to-close @ $0.62 (50%)."
-      }
-    }
-  ],
+  "top": [],
   "long_vol": [],
   "events": [],
   "learnings": {
     "global": {
-      "closed": 31,
+      "closed": 32,
       "wins": 10,
-      "losses": 21,
-      "win_rate": 0.323,
-      "total_pnl": -3793.5
+      "losses": 22,
+      "win_rate": 0.312,
+      "total_pnl": -4178.5
     },
     "min_sample": 20,
     "actionable": [
       {
         "dim": "structure",
         "value": "short_put_vertical",
-        "multiplier": 1.323,
+        "multiplier": 1.355,
         "recommendation": "favor",
         "n": 21
       },
       {
         "dim": "cluster",
         "value": "us_tech",
-        "multiplier": 0.7,
-        "recommendation": "AVOID (neg expectancy; wr 23% < prior 32%)",
+        "multiplier": 0.713,
+        "recommendation": "AVOID (neg expectancy; wr 22% < prior 31%)",
         "n": 22
       }
     ]
   },
   "agent": {
-    "generated_at": "2026-06-22T18:10:28.630209+00:00",
+    "generated_at": "2026-06-22T18:12:08.980985+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is well-diversified across 7 names, 3 clusters, with modest +$27 unrealized. us_tech cluster already at 3/3 cap (MSFT, AMD, QQQ); adding QQQ iron_condor would breach cluster limit and concentrate short-vol risk in a negative-expectancy zone.",
-    "reviewed": 2,
+    "portfolio_note": "Book is balanced across clusters (us_tech 3, us_index 2, energy 2) with low event risk today. Adding QQQ iron condor would breach us_tech cap (4/3) and cluster correlation; veto.",
+    "reviewed": 1,
     "vetoed": 1,
     "downsized": 0,
     "decisions": [
       {
-        "id": "COST|short_call_vertical|1000/1010",
-        "action": "approve",
-        "reason": "Single-name consumer exposure, solid POP (79%), 32 DTE, acceptable EV; adds diversification and respects all caps."
-      },
-      {
         "id": "QQQ|iron_condor|665/810",
         "action": "veto",
-        "reason": "us_tech cluster is at cap (3/3); QQQ addition breaches max_per_cluster. us_tech showed 23% win rate vs. 32% portfolio average\u2014do not compound that weakness."
+        "reason": "us_tech cluster already at max (3/3 with MSFT, AMD, QQQ); adding QQQ iron condor breaches cap and concentrates directional index risk in already-correlated tech."
       }
     ]
   },
@@ -166,118 +80,38 @@
         "call_long": "QQQ   260724C00820000"
       },
       "width": 10.0,
-      "credit": 1.26,
+      "credit": 1.25,
       "put_credit": 0.75,
-      "call_credit": 0.51,
+      "call_credit": 0.5,
       "fees_est": 3.0,
-      "bpr": 874.0,
-      "max_loss": 874.0,
+      "bpr": 875.0,
+      "max_loss": 875.0,
       "pop": 0.769,
-      "put_short_delta": 0.097,
-      "call_short_delta": 0.136,
-      "credit_to_bpr": 0.144,
-      "ev_per_contract": 1.78,
+      "put_short_delta": 0.098,
+      "call_short_delta": 0.135,
+      "credit_to_bpr": 0.143,
+      "ev_per_contract": 1.75,
       "ev_on_bpr": 0.002,
       "iv": 0.2781,
       "iv_rank": 0.727,
-      "underlying_price": 737.5,
+      "underlying_price": 737.25,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 2,
-      "max_loss_total": 1748.0,
-      "bpr_total": 1748.0,
-      "trend": "bullish",
-      "sized_capped": true,
-      "reasoning": "iron condor 665/655p + 810/820c \u00d72 \u2014 neutral (book bias +2 \u2192 balance). Edge: IV rank 73%, EV $+2/ctr (+0.2% on BPR). POP 77% \u00b7 credit $1.26 \u00b7 max loss $874 \u00b7 BPR $1748 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 0.7,
-      "learn_notes": [
-        "cluster=us_tech \u00d70.70"
-      ],
-      "rank_score": 0.0014,
-      "agent_action": "veto",
-      "agent_reason": "us_tech cluster is at cap (3/3); QQQ addition breaches max_per_cluster. us_tech showed 23% win rate vs. 32% portfolio average\u2014do not compound that weakness."
-    },
-    {
-      "underlying": "COST",
-      "structure": "short_call_vertical",
-      "expiry": "2026-07-24",
-      "dte": 32,
-      "short_strike": 1000.0,
-      "long_strike": 1010.0,
-      "short_symbol": "COST  260724C01000000",
-      "long_symbol": "COST  260724C01010000",
-      "width": 10.0,
-      "credit": 1.25,
-      "mid_credit": 2.2,
-      "fees_est": 3.0,
-      "bpr": 875.0,
-      "max_loss": 875.0,
-      "pop": 0.791,
-      "short_delta": 0.229,
-      "short_spread_pct": 0.127,
-      "credit_to_bpr": 0.143,
-      "ev_per_contract": 7.2,
-      "ev_on_bpr": 0.0082,
-      "iv": 0.2319,
-      "iv_rank": 0.421,
-      "underlying_price": 948.19,
-      "liquidity": 2,
-      "earnings_date": "2026-05-28",
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 2,
       "max_loss_total": 1750.0,
       "bpr_total": 1750.0,
-      "trend": "bearish",
+      "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short call vertical 1000/1010c \u00d72 \u2014 bearish lean. Edge: IV rank 42%, EV $+7/ctr (+0.8% on BPR). POP 79% \u00b7 credit $1.25 \u00b7 max loss $875 \u00b7 BPR $1750 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 1.0,
-      "rank_score": 0.0082,
-      "agent_action": "approve",
-      "agent_reason": "Single-name consumer exposure, solid POP (79%), 32 DTE, acceptable EV; adds diversification and respects all caps.",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "clear",
-        "hits": []
-      },
-      "ticket": {
-        "underlying": "COST",
-        "code": "VC",
-        "order_type": "Net Credit",
-        "limit": 1.25,
-        "contracts": 2,
-        "expiry": "2026-07-24",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 2,
-            "expiry": "2026-07-24",
-            "strike": 1000.0,
-            "type": "C"
-          },
-          {
-            "action": "BUY",
-            "qty": 2,
-            "expiry": "2026-07-24",
-            "strike": 1010.0,
-            "type": "C"
-          }
-        ],
-        "credit_total": 250.0,
-        "max_loss_total": 1750.0,
-        "bpr_total": 1750.0,
-        "pop": 0.791,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.62,
-          "stop_debit": 3.12,
-          "exit_dte": 21
-        },
-        "text": "COST VC \u00d72 \u2014 SELL 1000C / BUY 1010C (2026-07-24) @ $1.25 net credit. Max loss $1750. After fill: GTC buy-to-close @ $0.62 (50%)."
-      }
+      "reasoning": "iron condor 665/655p + 810/820c \u00d72 \u2014 neutral (book bias +2 \u2192 balance). Edge: IV rank 73%, EV $+2/ctr (+0.2% on BPR). POP 77% \u00b7 credit $1.25 \u00b7 max loss $875 \u00b7 BPR $1750 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 0.713,
+      "learn_notes": [
+        "cluster=us_tech \u00d70.71"
+      ],
+      "rank_score": 0.001426,
+      "agent_action": "veto",
+      "agent_reason": "us_tech cluster already at max (3/3 with MSFT, AMD, QQQ); adding QQQ iron condor breaches cap and concentrates directional index risk in already-correlated tech."
     }
   ],
   "skipped": {
@@ -306,9 +140,10 @@
     "V": "iv_rank 39%",
     "MA": "failed: pv: spread short 61%/long 54%",
     "DIS": "iv_rank 39%",
-    "KO": "failed: pv: spread short 56%/long 133%",
+    "KO": "failed: pv: no/invalid leg quote",
     "PEP": "earnings 2026-07-09 before expiry",
     "WMT": "iv_rank 35%",
+    "COST": "failed: pv: spread short 21%/long 24%",
     "XOM": "failed: pv: spread short 33%/long 41%",
     "CVX": "failed: pv: spread short 27%/long 53%",
     "PFE": "iv_rank 12%",
