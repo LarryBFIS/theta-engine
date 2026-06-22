@@ -91,6 +91,25 @@ def main() -> int:
     if changes3:
         failures.append("expected no changes on re-run, got {}".format(changes3))
 
+    # --- self-heal a FALSE close: ledger shows open, trades.json wrongly closed ---
+    healh = {"schema_version": 2, "trades": [
+        {"id": "trade_011_spy_712_703", "underlying": "SPY", "status": "closed",
+         "open_order_id": "477674903", "short_strike": 712, "long_strike": 703,
+         "closed_at": "2026-06-22", "realized_pnl": 0.0, "pop_at_open": 0.8},
+    ]}
+    healledger = [
+        {"open_order_id": "477674903", "status": "open", "short_strike": 712,
+         "long_strike": 703, "underlying": "SPY"},
+    ]
+    healh, healchg = merge_ledger_into_trades(healh, healledger)
+    spy = healh["trades"][0]
+    if spy.get("status") != "open" or spy.get("closed_at") is not None or spy.get("realized_pnl") is not None:
+        failures.append("false-close not healed: {}".format(spy))
+    if spy.get("pop_at_open") != 0.8:
+        failures.append("re-open wiped hand metadata")
+    if not any("re-opened" in c for c in healchg):
+        failures.append("expected a 're-opened' change, got {}".format(healchg))
+
     if failures:
         print("FAILED:")
         for f in failures:

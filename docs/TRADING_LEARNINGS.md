@@ -195,6 +195,21 @@ accumulating evidence and showing it, without trading on noise.
   Jay can focus on the proven core. (Selection-side: consider down-weighting/curbing
   us_tech once the learner is fully active — a future build.)
 
+## 2026-06-22 — bug: fresh/24h trades vanished from the dashboard (patch 0065)
+- Symptom: Jay opened SPY (in the 24-hour session, 16:30 ET) and it never showed
+  in OPEN POSITIONS. Root cause: `monitor/positions_sync.py` marked a trade CLOSED
+  the instant it was missing from a single broker positions snapshot — and a
+  freshly-opened (esp. 24h-session) position is routinely absent from the snapshot
+  for a poll or two. So it flipped live SPY to "closed" and it disappeared, even
+  though the broker-truth transaction ledger correctly had it OPEN.
+- Fix: (1) positions_sync no longer marks closes from snapshot absence — close
+  detection is owned by the ledger-based `sync_trades` (real closing transactions).
+  (2) `sync_trades` now SELF-HEALS: if the ledger shows a trade open but trades.json
+  has it closed, it re-opens it (preserving hand metadata). Verified it re-opens the
+  real SPY on the next sync. Unit-tested.
+- Lesson: the transaction LEDGER is the single source of truth for open/closed —
+  never infer "closed" from a snapshot's absence (snapshots lag, esp. after hours).
+
 ## Backlog (build order)
 1. ✅ `memory/trades_ledger.json` — done (0052).
 2. ✅ Static guards: per-name + cluster + total-open caps, size cap — done (0052).

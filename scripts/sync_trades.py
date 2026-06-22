@@ -104,6 +104,14 @@ def merge_ledger_into_trades(hand: dict, ledger_trades: list):
         elif lt.get("status") == "closed" and ht.get("status") != "closed":
             _apply_close(ht, lt)
             changes.append("closed " + (ht.get("id") or oid))
+        elif lt.get("status") == "open" and ht.get("status") == "closed":
+            # Self-heal a FALSE close: the broker-truth ledger shows this trade
+            # still open (no closing transactions), so re-open it. Guards against a
+            # snapshot-absence reconciler having wrongly marked a fresh trade closed.
+            ht["status"] = "open"
+            ht["closed_at"] = None
+            ht["realized_pnl"] = None
+            changes.append("re-opened " + (ht.get("id") or oid) + " (ledger shows open)")
     return hand, changes
 
 

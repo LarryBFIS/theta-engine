@@ -194,17 +194,19 @@ def sync():
         added += 1
         print(f"  + ADDED: {new_id} (credit {credit}, BPR {normalized.get('bpr_total')})")
 
-    closed = 0
-    for sig, t in open_sigs.items():
-        if sig not in broker_sigs:
-            t["status"] = "closed"
-            t["closed_at"] = date.today().isoformat()
-            closed += 1
-            print(f"  - CLOSED: {t['id']}")
+    # Closes are intentionally NOT marked from snapshot absence. A trade missing
+    # from a single positions snapshot does NOT mean it closed — freshly-opened
+    # positions (especially in the 24-hour session) are routinely absent for a poll
+    # or two, which used to flip live trades to "closed" and vanish them from the
+    # dashboard. Close detection is owned by sync_trades, which closes a trade only
+    # when the broker-truth transaction ledger shows actual closing transactions.
+    missing = [t["id"] for sig, t in open_sigs.items() if sig not in broker_sigs]
+    if missing:
+        print(f"  (not in snapshot — left OPEN for the ledger to confirm: {', '.join(missing)})")
 
-    if added or closed:
+    if added:
         save_trades(data)
-        print(f"\nSaved trades.json: +{added} added, -{closed} closed.")
+        print(f"\nSaved trades.json: +{added} added (closes handled by the ledger sync).")
     else:
         print("\nNo changes needed — already in sync.")
 
