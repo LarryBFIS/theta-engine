@@ -179,6 +179,22 @@ accumulating evidence and showing it, without trading on noise.
   Pure staleness/market-hours logic unit-tested. Worst-case cost ≈ a scan every
   ~25 min during the session (Haiku agent ≈ a few \$/mo).
 
+## 2026-06-22 — 🟢 Broad index (SPY/IWM) >> big tech (data-confirmed, patch 0064)
+- Jay's observation, verified against the ledger: **broad index is the sweet spot,
+  big tech is a trap.**
+  - **SPY/IWM:** live 3/3 (+$104) · paper 6/6 (+$642) → **9/9, 100% win, +$746.**
+  - **Big tech (us_tech: QQQ + tech single-names):** live 0/1 · paper 4/22 →
+    **~17% win, −$2,704.**
+- Caveats (act on signal, not noise): much of the tech loss came from the pre-cap
+  concentration blowup, and tech was high-beta/trending this window (murders short
+  premium). Small live sample. So it's a strong *current* edge + sound rationale
+  (index = diversified, mean-reverting, lower gap risk; tech = concentrated,
+  high-beta, idiosyncratic), not an eternal law. The learner + agent already lean
+  this way (agent cited "us_tech 24% win rate" when vetoing tech).
+- Shipped: an **opportunities filter toggle (ALL ↔ SPY/IWM)** on both dashboards so
+  Jay can focus on the proven core. (Selection-side: consider down-weighting/curbing
+  us_tech once the learner is fully active — a future build.)
+
 ## Backlog (build order)
 1. ✅ `memory/trades_ledger.json` — done (0052).
 2. ✅ Static guards: per-name + cluster + total-open caps, size cap — done (0052).
