@@ -234,7 +234,7 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
     </div>
     <div class="lh-op">=</div>
     <div class="lh-cell lh-diff">
-      <div class="lh-lab">DIFFERENCE · TOTAL P&amp;L</div>
+      <div class="lh-lab">STRATEGY P&amp;L</div>
       <div class="lh-val" id="lh-diff">—</div>
       <div class="lh-sub" id="lh-diffsub">—</div>
     </div>
@@ -496,21 +496,24 @@ function renderTotals(){
   aEl.textContent=(actual>=0?'+':'-')+fmtUsd(Math.abs(actual));
   aEl.className='v '+(actual>=0?'up':'down');
 
-  // ── top liquidity hero: opening → current = difference (realized + unrealized) ──
+  // ── top hero: headline is STRATEGY P&L (the engine's own trades). The account
+  // net-liq change is shown DISTINCTLY below — it won't match strategy P&L because
+  // of non-strategy holdings (e.g. USO) + baseline drift. ──
   $('lh-open').textContent=fmtUsd(DATA.start);
   $('lh-cur').textContent=fmtUsd(DATA.netLiq);
+  const strat=DATA.realized+open;        // STRATEGY P&L = realized + unrealized
+  const resid=actual-strat;              // account drift the strategy doesn't explain
   const dEl=$('lh-diff');
-  dEl.textContent=(actual>=0?'+':'-')+fmtUsd(Math.abs(actual));
-  dEl.className='lh-val '+(actual>=0?'up':'down');
+  dEl.textContent=(strat>=0?'+':'-')+fmtUsd(Math.abs(strat));
+  dEl.className='lh-val '+(strat>=0?'up':'down');
   const part=(lab,v,tip)=>`<span class="${v>=0?'up':'down'}"${tip?` title="${tip}"`:''}>${lab} ${(v>=0?'+$':'-$')+Math.abs(v).toFixed(2)}</span>`;
-  // Whatever the live ACCOUNT moved that the engine's strategy P&L doesn't explain:
-  // non-strategy holdings (e.g. USO), interest/baseline drift, and net commissions.
-  // This is NOT trading profit and the sign can be either way — hence "non-strategy",
-  // never "fees" (real fees can only be negative).
-  const resid=actual-DATA.realized-open;
   let parts=part('realized',DATA.realized,'closed strategy trades (net of commissions)')
           +'&nbsp;&nbsp;·&nbsp;&nbsp;'+part('unrealized',open,'open strategy positions at current marks');
-  if(Math.abs(resid)>=0.5) parts+='&nbsp;&nbsp;·&nbsp;&nbsp;'+part('non-strategy',resid,"account value the engine's strategy doesn't explain — non-strategy holdings (e.g. USO), interest/baseline drift, net fees. NOT trading profit.");
+  // distinct line: account net-liq change (includes non-strategy holdings), kept
+  // separate so the headline stays pure strategy P&L.
+  parts+='<br><span style="opacity:.6;font-size:11px">net liq &Delta; '+(actual>=0?'+$':'-$')+Math.abs(actual).toFixed(2);
+  if(Math.abs(resid)>=0.5) parts+=' &nbsp;·&nbsp; <span title="account value not explained by the strategy — non-strategy holdings (e.g. USO), baseline drift, net fees. NOT trading profit.">non-strategy '+(resid>=0?'+$':'-$')+Math.abs(resid).toFixed(2)+'</span>';
+  parts+='</span>';
   $('lh-diffsub').innerHTML=parts;
 }
 
@@ -647,7 +650,9 @@ async function loadFeed(){
       const ai=o.agent_reviewed
         ? `<span class="up" title="${aiReason}">🧠 AI ${o.agent_action==='downsize'?'trimmed':'approved'}</span>`
         : `<span class="down" title="awaiting AI risk review">🧠 not AI-reviewed</span>`;
-      const tk=o.ticket?`<div class="fmeta" style="font-family:ui-monospace,monospace" title="${(o.ticket.text||'').replace(/"/g,'&quot;')}">📋 ×${o.ticket.contracts} @ $${(+o.ticket.limit).toFixed(2)}cr · close $${(+o.ticket.manage.close_debit).toFixed(2)} · max loss $${Math.round(o.ticket.max_loss_total)}</div>`:'';
+      const _exp=o.expiry?new Date(o.expiry+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'}):'';
+      const _dte=(o.dte!=null)?` (${o.dte}d)`:'';
+      const tk=o.ticket?`<div class="fmeta" style="font-family:ui-monospace,monospace" title="${(o.ticket.text||'').replace(/"/g,'&quot;')}">📋 ×${o.ticket.contracts} · ${_exp}${_dte} @ $${(+o.ticket.limit).toFixed(2)} cr · close $${(+o.ticket.manage.close_debit).toFixed(2)} · maxloss $${Math.round(o.ticket.max_loss_total)}</div>`:'';
       return `<div class="fitem ${tag} reveal" style="animation-delay:${(0.04*i).toFixed(2)}s">
         <div class="fhead"><span class="sym">${o.underlying}</span> <span class="${code==='VC'?'tagC':(code==='VP'?'tagP':'tagIC')}">${code}</span> <span class="struct">${strikes}</span>
           <span class="ftag ${tag}">${tag.toUpperCase()}</span></div>

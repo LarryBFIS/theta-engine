@@ -234,7 +234,7 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
     </div>
     <div class="lh-op">=</div>
     <div class="lh-cell lh-diff">
-      <div class="lh-lab">DIFFERENCE · TOTAL P&amp;L</div>
+      <div class="lh-lab">STRATEGY P&amp;L</div>
       <div class="lh-val" id="lh-diff">—</div>
       <div class="lh-sub" id="lh-diffsub">—</div>
     </div>
@@ -499,16 +499,18 @@ function renderTotals(){
   // ── top liquidity hero: opening → current = difference (realized + unrealized) ──
   $('lh-open').textContent=fmtUsd(DATA.start);
   $('lh-cur').textContent=fmtUsd(DATA.netLiq);
+  // Headline is STRATEGY P&L (realized + unrealized). Net liq Δ (after the
+  // round-trip commissions still owed) is shown DISTINCTLY below.
+  const strat=DATA.realized+open;        // STRATEGY P&L = realized + unrealized (gross marks)
   const dEl=$('lh-diff');
-  dEl.textContent=(actual>=0?'+':'-')+fmtUsd(Math.abs(actual));
-  dEl.className='lh-val '+(actual>=0?'up':'down');
+  dEl.textContent=(strat>=0?'+':'-')+fmtUsd(Math.abs(strat));
+  dEl.className='lh-val '+(strat>=0?'up':'down');
   const part=(lab,v,tip)=>`<span class="${v>=0?'up':'down'}"${tip?` title="${tip}"`:''}>${lab} ${(v>=0?'+$':'-$')+Math.abs(v).toFixed(2)}</span>`;
-  // Paper P&L is kept CONSERVATIVE vs. real money: the round-trip commissions still
-  // owed on open positions are netted out of net liq and shown explicitly, so what
-  // you see here is no better than what a real tastytrade account would show.
   let parts=part('realized',DATA.realized,'closed trades (net of commissions)')
           +'&nbsp;&nbsp;·&nbsp;&nbsp;'+part('unrealized',open,'open positions marked to current quotes');
-  if((DATA.openFees||0)>=0.5) parts+='&nbsp;&nbsp;·&nbsp;&nbsp;'+part('est. fees',-DATA.openFees,'round-trip commissions still owed on open positions ($1.25/leg/contract) — netted so paper P&L never overstates real money');
+  parts+='<br><span style="opacity:.6;font-size:11px">net liq &Delta; '+(actual>=0?'+$':'-$')+Math.abs(actual).toFixed(2);
+  if((DATA.openFees||0)>=0.5) parts+=' &nbsp;·&nbsp; <span title="round-trip commissions still owed on open positions — netted so paper P&L never overstates real money">est. fees -$'+(DATA.openFees).toFixed(2)+'</span>';
+  parts+='</span>';
   $('lh-diffsub').innerHTML=parts;
 }
 
@@ -645,7 +647,9 @@ async function loadFeed(){
       const ai=o.agent_reviewed
         ? `<span class="up" title="${aiReason}">🧠 AI ${o.agent_action==='downsize'?'trimmed':'approved'}</span>`
         : `<span class="down" title="awaiting AI risk review">🧠 not AI-reviewed</span>`;
-      const tk=o.ticket?`<div class="fmeta" style="font-family:ui-monospace,monospace" title="${(o.ticket.text||'').replace(/"/g,'&quot;')}">📋 ×${o.ticket.contracts} @ $${(+o.ticket.limit).toFixed(2)}cr · close $${(+o.ticket.manage.close_debit).toFixed(2)} · max loss $${Math.round(o.ticket.max_loss_total)}</div>`:'';
+      const _exp=o.expiry?new Date(o.expiry+'T00:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'}):'';
+      const _dte=(o.dte!=null)?` (${o.dte}d)`:'';
+      const tk=o.ticket?`<div class="fmeta" style="font-family:ui-monospace,monospace" title="${(o.ticket.text||'').replace(/"/g,'&quot;')}">📋 ×${o.ticket.contracts} · ${_exp}${_dte} @ $${(+o.ticket.limit).toFixed(2)} cr · close $${(+o.ticket.manage.close_debit).toFixed(2)} · maxloss $${Math.round(o.ticket.max_loss_total)}</div>`:'';
       return `<div class="fitem ${tag} reveal" style="animation-delay:${(0.04*i).toFixed(2)}s">
         <div class="fhead"><span class="sym">${o.underlying}</span> <span class="${code==='VC'?'tagC':(code==='VP'?'tagP':'tagIC')}">${code}</span> <span class="struct">${strikes}</span>
           <span class="ftag ${tag}">${tag.toUpperCase()}</span></div>
