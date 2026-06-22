@@ -429,8 +429,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -7.25,
-      "cost_to_close_mid": 55.0,
+      "unrealized_pnl": -9.75,
+      "cost_to_close_mid": 57.5,
       "structure": "short_put_vertical",
       "short_strike": 61.0,
       "long_strike": 60.0,
@@ -642,8 +642,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -5.75,
-      "cost_to_close_mid": 99.5,
+      "unrealized_pnl": -3.75,
+      "cost_to_close_mid": 97.5,
       "structure": "short_put_vertical",
       "short_strike": 712.0,
       "long_strike": 703.0,
@@ -654,6 +654,51 @@
       "max_profit_total": 96.0,
       "max_loss_total": 804.0,
       "bpr_total": 804.0
+    },
+    {
+      "id": "ledger_011_cost",
+      "underlying": "COST",
+      "opened_at": "2026-06-22",
+      "open_order_id": "477750053",
+      "open_net_cash": 178.74,
+      "open_legs": [
+        {
+          "symbol": "COST  260724C01010000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 6.62,
+          "net_cash": -663.12,
+          "fees": 1.12,
+          "executed_at": "2026-06-22T18:59:31.744Z"
+        },
+        {
+          "symbol": "COST  260724C01000000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 8.43,
+          "net_cash": 841.86,
+          "fees": 1.14,
+          "executed_at": "2026-06-22T18:59:31.744Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -16.26,
+      "cost_to_close_mid": 195.0,
+      "structure": "short_call_vertical",
+      "short_strike": 1000.0,
+      "long_strike": 1010.0,
+      "expiry": "2026-07-24",
+      "contracts": 1,
+      "credit_per_contract": 1.81,
+      "width": 10.0,
+      "max_profit_total": 181.0,
+      "max_loss_total": 819.0,
+      "bpr_total": 819.0
     }
   ]
 }
