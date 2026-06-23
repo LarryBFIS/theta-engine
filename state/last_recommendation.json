@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-06-23T16:14:19.600148+00:00",
-  "market_view": "Risk-off regime deepening into close \u2014 VIX +12.56% on day, +21% five-day with tech -3.07% leading down; defensives (XLP +1.64%, XLV +0.91%) bid signals rotation not bounce. No catalyst for short-premium relief today.",
+  "last_run": "2026-06-23T16:24:21.253719+00:00",
+  "market_view": "Risk-off regime persisting into close \u2014 VIX +10.82% on day, +19% five-day with QQQ -2.48% and tech -3.15% leading down while defensives (XLP +1.71%, XLV +0.96%) confirm rotation not bounce. No catalyst for short-premium relief; SLV and SPY 712/703p remain critical requires immediate execution.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-06-23T16:14:04.870445+00:00",
-    "reasoning": "Short strike 61 breached with SLV at $56.26 \u2014 deeply ITM, worst fill $0.85 is 1.7x the $0.50 credit, hard 1.5x stop triggered multiple cycles with no execution. Max loss scenario fully in progress, every tick of delay compounds losses."
+    "timestamp": "2026-06-23T16:24:07.835201+00:00",
+    "reasoning": "Short strike 61 remains deeply breached with SLV at $56.27 \u2014 worst fill $0.80 is 1.6x the $0.50 credit, hard 1.5x stop at $0.75 was triggered multiple cycles ago. This position has been flagged CRITICAL for at least one full cycle with no execution \u2014 delay is compounding max loss."
   },
   "SPY 712/703p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-06-23T16:14:04.870445+00:00",
-    "reasoning": "Mid-cost $1.34 is 1.40x the $0.96 credit and worst fill $1.38 is 1.4375x \u2014 one tick of SPY weakness in this confirmed risk-off close pushes through the 1.5x hard stop of $1.44; two SPY verticals on the same expiry amplifies directional risk."
+    "timestamp": "2026-06-23T16:24:07.835201+00:00",
+    "reasoning": "Mid-cost $1.34 is 1.40x the $0.96 credit; worst fill $1.37 is 1.43x \u2014 one tick of continued SPY weakness in this confirmed risk-off tape pushes through the hard 1.5x stop at $1.44. Two SPY verticals on same expiry amplify directional gamma risk into close."
   },
   "SPY 704/695p": {
     "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-06-23T16:14:04.870445+00:00",
-    "reasoning": "Mid-cost $1.04 is below the $1.10 credit showing a small profit, but once 712/703p is closed this becomes the only open position and sits 4.5% OTM in a risk-off tape with 30 DTE \u2014 no stop trigger yet but monitor every cycle."
+    "confidence": 0.75,
+    "timestamp": "2026-06-23T16:24:07.835201+00:00",
+    "reasoning": "Mid-cost $1.045 is still below the $1.10 credit showing a marginal profit at 5% on max profit, but sits 4.5% OTM with 30 DTE in a deteriorating tape \u2014 once 712/703p is closed this becomes sole open SPY position. No stop trigger yet but VIX expansion is eating into this."
   }
 }
