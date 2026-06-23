@@ -1,8 +1,8 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-23T20:14:01.619266+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-23T20:24:12.032732+00:00._
 
-**40 trades · 7 open / 33 closed · win rate 30% · realized $-4374.00 · open $-331.00 · total $-4705.00**
+**40 trades · 7 open / 33 closed · win rate 30% · realized $-4374.00 · open $-325.00 · total $-4699.00**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
@@ -45,4 +45,4 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0037_cvx | CVX 190/195p | PAPER | open | $0.75 | — | $+9 |  |
 | paper_0038_qqq | QQQ 685/675p | PAPER | closed | $1.28 | $-196 | — | stop_1.5x |
 | paper_0039_cost | COST 1000/1010p | PAPER | closed | $1.25 | $-385 | — | stop_1.5x |
-| paper_0040_qqq | QQQ 665/655p | PAPER | open | $1.30 | — | $-130 |  |
+| paper_0040_qqq | QQQ 665/655p | PAPER | open | $1.30 | — | $-124 |  |
