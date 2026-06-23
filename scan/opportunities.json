@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-23T18:24:20.522627+00:00",
+  "generated_at": "2026-06-23T18:24:34.072582+00:00",
   "regime": {
-    "vix": 19.11,
-    "vix_day_change_pct": 0.1059,
+    "vix": 19.1,
+    "vix_day_change_pct": 0.1053,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (+11% day)"
@@ -31,17 +31,17 @@
       "credit": 1.0,
       "mid_credit": 1.03,
       "fees_est": 3.0,
-      "bpr": 800.0,
-      "max_loss": 800.0,
+      "bpr": 801.0,
+      "max_loss": 801.0,
       "pop": 0.798,
       "short_delta": 0.187,
       "short_spread_pct": 0.007,
-      "credit_to_bpr": 0.125,
-      "ev_per_contract": 6.61,
-      "ev_on_bpr": 0.0083,
+      "credit_to_bpr": 0.124,
+      "ev_per_contract": 6.52,
+      "ev_on_bpr": 0.0081,
       "iv": 0.1871,
       "iv_rank": 0.466,
-      "underlying_price": 735.77,
+      "underlying_price": 735.78,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -51,12 +51,12 @@
       "bpr_total": 1600.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "short put vertical 702/693p \u00d72 \u2014 rich premium. Edge: IV rank 47%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $1.00 \u00b7 max loss $800 \u00b7 BPR $1600 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 702/693p \u00d72 \u2014 rich premium. Edge: IV rank 47%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.99 \u00b7 max loss $801 \u00b7 BPR $1602 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.344,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.34"
       ],
-      "rank_score": 0.011155,
+      "rank_score": 0.010886,
       "agent_reviewed": false,
       "news_risk": {
         "level": "clear",
@@ -86,9 +86,9 @@
             "type": "P"
           }
         ],
-        "credit_total": 200.0,
-        "max_loss_total": 1600.0,
-        "bpr_total": 1600.0,
+        "credit_total": 198.0,
+        "max_loss_total": 1602.0,
+        "bpr_total": 1602.0,
         "pop": 0.798,
         "tag": "paper",
         "manage": {
@@ -100,10 +100,10 @@
         "fits_live_cap": false,
         "live_cap": 339.88,
         "suggested_width": 4,
-        "fit_note": "\u26a0 max loss $800 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d72 \u2014 SELL 702P / BUY 693P (2026-07-24) @ $1.00 net credit. Max loss $1600. After fill: GTC buy-to-close @ $0.50 (50%). \u26a0 max loss $800 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $801 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper.",
+        "text": "SPY VP \u00d72 \u2014 SELL 702P / BUY 693P (2026-07-24) @ $0.99 net credit. Max loss $1602. After fill: GTC buy-to-close @ $0.49 (50%). \u26a0 max loss $801 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
-      "posted_at": "2026-06-23T18:24:20.522627+00:00"
+      "posted_at": "2026-06-23T18:24:34.072582+00:00"
     },
     {
       "underlying": "QQQ",
@@ -116,7 +116,7 @@
       "long_symbol": "QQQ   260724P00650000",
       "width": 10.0,
       "credit": 1.28,
-      "mid_credit": 1.34,
+      "mid_credit": 1.33,
       "fees_est": 3.0,
       "bpr": 872.0,
       "max_loss": 872.0,
@@ -124,11 +124,11 @@
       "short_delta": 0.177,
       "short_spread_pct": 0.008,
       "credit_to_bpr": 0.147,
-      "ev_per_contract": 9.36,
+      "ev_per_contract": 9.35,
       "ev_on_bpr": 0.0107,
       "iv": 0.3182,
       "iv_rank": 0.913,
-      "underlying_price": 716.25,
+      "underlying_price": 716.24,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -191,7 +191,7 @@
         "fit_note": "\u26a0 max loss $872 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper.",
         "text": "QQQ VP \u00d72 \u2014 SELL 660P / BUY 650P (2026-07-24) @ $1.28 net credit. Max loss $1744. After fill: GTC buy-to-close @ $0.64 (50%). \u26a0 max loss $872 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
-      "posted_at": "2026-06-23T18:24:20.522627+00:00"
+      "posted_at": "2026-06-23T18:24:34.072582+00:00"
     },
     {
       "underlying": "IWM",
@@ -278,7 +278,7 @@
         "fit_note": "\u26a0 max loss $484 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper.",
         "text": "IWM VP \u00d73 \u2014 SELL 277.5P / BUY 272P (2026-07-24) @ $0.66 net credit. Max loss $1452. After fill: GTC buy-to-close @ $0.33 (50%). \u26a0 max loss $484 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
-      "posted_at": "2026-06-23T18:24:20.522627+00:00"
+      "posted_at": "2026-06-23T18:24:34.072582+00:00"
     },
     {
       "underlying": "CRM",
@@ -290,17 +290,17 @@
       "short_symbol": "CRM   260724C00170000",
       "long_symbol": "CRM   260724C00175000",
       "width": 5.0,
-      "credit": 0.66,
-      "mid_credit": 0.92,
+      "credit": 0.73,
+      "mid_credit": 0.95,
       "fees_est": 3.0,
-      "bpr": 434.0,
-      "max_loss": 434.0,
+      "bpr": 427.0,
+      "max_loss": 427.0,
       "pop": 0.791,
       "short_delta": 0.249,
       "short_spread_pct": 0.129,
-      "credit_to_bpr": 0.152,
-      "ev_per_contract": 2.41,
-      "ev_on_bpr": 0.0056,
+      "credit_to_bpr": 0.171,
+      "ev_per_contract": 2.98,
+      "ev_on_bpr": 0.007,
       "iv": 0.454,
       "iv_rank": 0.542,
       "underlying_price": 154.07,
@@ -309,16 +309,16 @@
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 3,
-      "max_loss_total": 1302.0,
-      "bpr_total": 1302.0,
+      "max_loss_total": 1281.0,
+      "bpr_total": 1281.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short call vertical 170/175c \u00d73 \u2014 bearish lean. Edge: IV rank 54%, EV $+2/ctr (+0.6% on BPR). POP 79% \u00b7 credit $0.66 \u00b7 max loss $434 \u00b7 BPR $1302 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short call vertical 170/175c \u00d73 \u2014 bearish lean. Edge: IV rank 54%, EV $+3/ctr (+0.7% on BPR). POP 79% \u00b7 credit $0.73 \u00b7 max loss $427 \u00b7 BPR $1281 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.703,
       "learn_notes": [
         "cluster=us_tech \u00d70.70"
       ],
-      "rank_score": 0.003937,
+      "rank_score": 0.004921,
       "agent_reviewed": false,
       "news_risk": {
         "level": "clear",
@@ -329,7 +329,7 @@
         "underlying": "CRM",
         "code": "VC",
         "order_type": "Net Credit",
-        "limit": 0.66,
+        "limit": 0.73,
         "contracts": 3,
         "expiry": "2026-07-24",
         "legs": [
@@ -348,22 +348,22 @@
             "type": "C"
           }
         ],
-        "credit_total": 198.0,
-        "max_loss_total": 1302.0,
-        "bpr_total": 1302.0,
+        "credit_total": 219.0,
+        "max_loss_total": 1281.0,
+        "bpr_total": 1281.0,
         "pop": 0.791,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
-          "close_debit": 0.33,
-          "stop_debit": 1.65,
+          "close_debit": 0.36,
+          "stop_debit": 1.82,
           "exit_dte": 21
         },
         "fits_live_cap": false,
         "live_cap": 339.88,
         "suggested_width": 4,
-        "fit_note": "\u26a0 max loss $434 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper.",
-        "text": "CRM VC \u00d73 \u2014 SELL 170C / BUY 175C (2026-07-24) @ $0.66 net credit. Max loss $1302. After fill: GTC buy-to-close @ $0.33 (50%). \u26a0 max loss $434 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $427 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper.",
+        "text": "CRM VC \u00d73 \u2014 SELL 170C / BUY 175C (2026-07-24) @ $0.73 net credit. Max loss $1281. After fill: GTC buy-to-close @ $0.36 (50%). \u26a0 max loss $427 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
       "posted_at": "2026-06-23T17:54:28.789493+00:00"
     },
@@ -383,14 +383,14 @@
       "bpr": 447.0,
       "max_loss": 447.0,
       "pop": 0.789,
-      "short_delta": 0.239,
+      "short_delta": 0.238,
       "short_spread_pct": 0.121,
       "credit_to_bpr": 0.119,
-      "ev_per_contract": 1.09,
-      "ev_on_bpr": 0.0024,
+      "ev_per_contract": 1.17,
+      "ev_on_bpr": 0.0026,
       "iv": 0.3107,
       "iv_rank": 0.581,
-      "underlying_price": 140.07,
+      "underlying_price": 140.04,
       "liquidity": 4,
       "earnings_date": "2026-08-07",
       "tag": "paper",
@@ -400,9 +400,9 @@
       "bpr_total": 1341.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short call vertical 150/155c \u00d73 \u2014 bearish lean. Edge: IV rank 58%, EV $+1/ctr (+0.2% on BPR). POP 79% \u00b7 credit $0.53 \u00b7 max loss $447 \u00b7 BPR $1341 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short call vertical 150/155c \u00d73 \u2014 bearish lean. Edge: IV rank 58%, EV $+1/ctr (+0.3% on BPR). POP 79% \u00b7 credit $0.53 \u00b7 max loss $447 \u00b7 BPR $1341 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.0,
-      "rank_score": 0.0024,
+      "rank_score": 0.0026,
       "agent_reviewed": false,
       "news_risk": {
         "level": "clear",
@@ -495,17 +495,17 @@
       "credit": 1.0,
       "mid_credit": 1.03,
       "fees_est": 3.0,
-      "bpr": 800.0,
-      "max_loss": 800.0,
+      "bpr": 801.0,
+      "max_loss": 801.0,
       "pop": 0.798,
       "short_delta": 0.187,
       "short_spread_pct": 0.007,
-      "credit_to_bpr": 0.125,
-      "ev_per_contract": 6.61,
-      "ev_on_bpr": 0.0083,
+      "credit_to_bpr": 0.124,
+      "ev_per_contract": 6.52,
+      "ev_on_bpr": 0.0081,
       "iv": 0.1871,
       "iv_rank": 0.466,
-      "underlying_price": 735.77,
+      "underlying_price": 735.78,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -515,12 +515,12 @@
       "bpr_total": 1600.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "short put vertical 702/693p \u00d72 \u2014 rich premium. Edge: IV rank 47%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $1.00 \u00b7 max loss $800 \u00b7 BPR $1600 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 702/693p \u00d72 \u2014 rich premium. Edge: IV rank 47%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.99 \u00b7 max loss $801 \u00b7 BPR $1602 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.344,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.34"
       ],
-      "rank_score": 0.011155,
+      "rank_score": 0.010886,
       "agent_reviewed": false,
       "news_risk": {
         "level": "clear",
@@ -550,9 +550,9 @@
             "type": "P"
           }
         ],
-        "credit_total": 200.0,
-        "max_loss_total": 1600.0,
-        "bpr_total": 1600.0,
+        "credit_total": 198.0,
+        "max_loss_total": 1602.0,
+        "bpr_total": 1602.0,
         "pop": 0.798,
         "tag": "paper",
         "manage": {
@@ -564,10 +564,10 @@
         "fits_live_cap": false,
         "live_cap": 339.88,
         "suggested_width": 4,
-        "fit_note": "\u26a0 max loss $800 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d72 \u2014 SELL 702P / BUY 693P (2026-07-24) @ $1.00 net credit. Max loss $1600. After fill: GTC buy-to-close @ $0.50 (50%). \u26a0 max loss $800 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $801 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper.",
+        "text": "SPY VP \u00d72 \u2014 SELL 702P / BUY 693P (2026-07-24) @ $0.99 net credit. Max loss $1602. After fill: GTC buy-to-close @ $0.49 (50%). \u26a0 max loss $801 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
-      "posted_at": "2026-06-23T18:24:20.522627+00:00"
+      "posted_at": "2026-06-23T18:24:34.072582+00:00"
     },
     {
       "underlying": "QQQ",
@@ -580,7 +580,7 @@
       "long_symbol": "QQQ   260724P00650000",
       "width": 10.0,
       "credit": 1.28,
-      "mid_credit": 1.34,
+      "mid_credit": 1.33,
       "fees_est": 3.0,
       "bpr": 872.0,
       "max_loss": 872.0,
@@ -588,11 +588,11 @@
       "short_delta": 0.177,
       "short_spread_pct": 0.008,
       "credit_to_bpr": 0.147,
-      "ev_per_contract": 9.36,
+      "ev_per_contract": 9.35,
       "ev_on_bpr": 0.0107,
       "iv": 0.3182,
       "iv_rank": 0.913,
-      "underlying_price": 716.25,
+      "underlying_price": 716.24,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -655,7 +655,7 @@
         "fit_note": "\u26a0 max loss $872 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper.",
         "text": "QQQ VP \u00d72 \u2014 SELL 660P / BUY 650P (2026-07-24) @ $1.28 net credit. Max loss $1744. After fill: GTC buy-to-close @ $0.64 (50%). \u26a0 max loss $872 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
-      "posted_at": "2026-06-23T18:24:20.522627+00:00"
+      "posted_at": "2026-06-23T18:24:34.072582+00:00"
     },
     {
       "underlying": "IWM",
@@ -742,7 +742,7 @@
         "fit_note": "\u26a0 max loss $484 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper.",
         "text": "IWM VP \u00d73 \u2014 SELL 277.5P / BUY 272P (2026-07-24) @ $0.66 net credit. Max loss $1452. After fill: GTC buy-to-close @ $0.33 (50%). \u26a0 max loss $484 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
-      "posted_at": "2026-06-23T18:24:20.522627+00:00"
+      "posted_at": "2026-06-23T18:24:34.072582+00:00"
     },
     {
       "underlying": "XOM",
@@ -760,14 +760,14 @@
       "bpr": 447.0,
       "max_loss": 447.0,
       "pop": 0.789,
-      "short_delta": 0.239,
+      "short_delta": 0.238,
       "short_spread_pct": 0.121,
       "credit_to_bpr": 0.119,
-      "ev_per_contract": 1.09,
-      "ev_on_bpr": 0.0024,
+      "ev_per_contract": 1.17,
+      "ev_on_bpr": 0.0026,
       "iv": 0.3107,
       "iv_rank": 0.581,
-      "underlying_price": 140.07,
+      "underlying_price": 140.04,
       "liquidity": 4,
       "earnings_date": "2026-08-07",
       "tag": "paper",
@@ -777,9 +777,9 @@
       "bpr_total": 1341.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short call vertical 150/155c \u00d73 \u2014 bearish lean. Edge: IV rank 58%, EV $+1/ctr (+0.2% on BPR). POP 79% \u00b7 credit $0.53 \u00b7 max loss $447 \u00b7 BPR $1341 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short call vertical 150/155c \u00d73 \u2014 bearish lean. Edge: IV rank 58%, EV $+1/ctr (+0.3% on BPR). POP 79% \u00b7 credit $0.53 \u00b7 max loss $447 \u00b7 BPR $1341 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.0,
-      "rank_score": 0.0024,
+      "rank_score": 0.0026,
       "agent_reviewed": false,
       "news_risk": {
         "level": "clear",
@@ -838,17 +838,17 @@
       "short_symbol": "CRM   260724C00170000",
       "long_symbol": "CRM   260724C00175000",
       "width": 5.0,
-      "credit": 0.66,
-      "mid_credit": 0.92,
+      "credit": 0.73,
+      "mid_credit": 0.95,
       "fees_est": 3.0,
-      "bpr": 434.0,
-      "max_loss": 434.0,
+      "bpr": 427.0,
+      "max_loss": 427.0,
       "pop": 0.791,
       "short_delta": 0.249,
       "short_spread_pct": 0.129,
-      "credit_to_bpr": 0.152,
-      "ev_per_contract": 2.41,
-      "ev_on_bpr": 0.0056,
+      "credit_to_bpr": 0.171,
+      "ev_per_contract": 2.98,
+      "ev_on_bpr": 0.007,
       "iv": 0.454,
       "iv_rank": 0.542,
       "underlying_price": 154.07,
@@ -857,16 +857,16 @@
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 3,
-      "max_loss_total": 1302.0,
-      "bpr_total": 1302.0,
+      "max_loss_total": 1281.0,
+      "bpr_total": 1281.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short call vertical 170/175c \u00d73 \u2014 bearish lean. Edge: IV rank 54%, EV $+2/ctr (+0.6% on BPR). POP 79% \u00b7 credit $0.66 \u00b7 max loss $434 \u00b7 BPR $1302 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short call vertical 170/175c \u00d73 \u2014 bearish lean. Edge: IV rank 54%, EV $+3/ctr (+0.7% on BPR). POP 79% \u00b7 credit $0.73 \u00b7 max loss $427 \u00b7 BPR $1281 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.703,
       "learn_notes": [
         "cluster=us_tech \u00d70.70"
       ],
-      "rank_score": 0.003937,
+      "rank_score": 0.004921,
       "agent_reviewed": false,
       "news_risk": {
         "level": "clear",
@@ -877,7 +877,7 @@
         "underlying": "CRM",
         "code": "VC",
         "order_type": "Net Credit",
-        "limit": 0.66,
+        "limit": 0.73,
         "contracts": 3,
         "expiry": "2026-07-24",
         "legs": [
@@ -896,22 +896,22 @@
             "type": "C"
           }
         ],
-        "credit_total": 198.0,
-        "max_loss_total": 1302.0,
-        "bpr_total": 1302.0,
+        "credit_total": 219.0,
+        "max_loss_total": 1281.0,
+        "bpr_total": 1281.0,
         "pop": 0.791,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
-          "close_debit": 0.33,
-          "stop_debit": 1.65,
+          "close_debit": 0.36,
+          "stop_debit": 1.82,
           "exit_dte": 21
         },
         "fits_live_cap": false,
         "live_cap": 339.88,
         "suggested_width": 4,
-        "fit_note": "\u26a0 max loss $434 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper.",
-        "text": "CRM VC \u00d73 \u2014 SELL 170C / BUY 175C (2026-07-24) @ $0.66 net credit. Max loss $1302. After fill: GTC buy-to-close @ $0.33 (50%). \u26a0 max loss $434 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $427 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper.",
+        "text": "CRM VC \u00d73 \u2014 SELL 170C / BUY 175C (2026-07-24) @ $0.73 net credit. Max loss $1281. After fill: GTC buy-to-close @ $0.36 (50%). \u26a0 max loss $427 > 10% live cap ($340) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
       "posted_at": "2026-06-23T17:54:28.789493+00:00"
     }
@@ -928,7 +928,7 @@
     "MSFT": "failed: pv: credit/width 0.08 < 0.10",
     "AMZN": "iv_rank 27%",
     "GOOGL": "earnings 2026-07-22 before expiry",
-    "META": "failed: pv: credit/width 0.06 < 0.10",
+    "META": "failed: pv: credit/width 0.05 < 0.10",
     "NVDA": "iv_rank 23%",
     "AMD": "failed: pv: credit/width 0.02 < 0.10",
     "TSLA": "iv_rank 39%",
