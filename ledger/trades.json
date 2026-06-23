@@ -642,8 +642,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -46.25,
-      "cost_to_close_mid": 140.0,
+      "unrealized_pnl": -55.25,
+      "cost_to_close_mid": 149.0,
       "structure": "short_put_vertical",
       "short_strike": 712.0,
       "long_strike": 703.0,
@@ -687,8 +687,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -66.26,
-      "cost_to_close_mid": 245.0,
+      "unrealized_pnl": -101.26,
+      "cost_to_close_mid": 280.0,
       "structure": "short_call_vertical",
       "short_strike": 1000.0,
       "long_strike": 1010.0,
@@ -699,6 +699,51 @@
       "max_profit_total": 181.0,
       "max_loss_total": 819.0,
       "bpr_total": 819.0
+    },
+    {
+      "id": "ledger_012_spy",
+      "underlying": "SPY",
+      "opened_at": "2026-06-23",
+      "open_order_id": "477982863",
+      "open_net_cash": 107.74,
+      "open_legs": [
+        {
+          "symbol": "SPY   260724P00695000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 4.01,
+          "net_cash": -402.12,
+          "fees": 1.12,
+          "executed_at": "2026-06-23T15:14:54.740Z"
+        },
+        {
+          "symbol": "SPY   260724P00704000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 5.11,
+          "net_cash": 509.86,
+          "fees": 1.14,
+          "executed_at": "2026-06-23T15:14:54.741Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -9.76,
+      "cost_to_close_mid": 117.5,
+      "structure": "short_put_vertical",
+      "short_strike": 704.0,
+      "long_strike": 695.0,
+      "expiry": "2026-07-24",
+      "contracts": 1,
+      "credit_per_contract": 1.1,
+      "width": 9.0,
+      "max_profit_total": 110.0,
+      "max_loss_total": 790.0,
+      "bpr_total": 790.0
     }
   ]
 }
