@@ -1,6 +1,6 @@
 # Opportunity scan
 
-_Generated 2026-06-23T15:17:46.853343+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (+12% day)._
+_Generated 2026-06-23T15:21:21.090658+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (+13% day)._
 
 | # | Trade | Tag | DTE | Credit | BPR | POP | Cr/BPR | EV/ctr | EV/BPR | IVR |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
