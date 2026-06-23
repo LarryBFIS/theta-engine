@@ -1,8 +1,8 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-23T16:44:16.509779+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-23T16:54:33.611448+00:00._
 
-**39 trades · 6 open / 33 closed · win rate 30% · realized $-4374.00 · open $-30.00 · total $-4404.00**
+**39 trades · 6 open / 33 closed · win rate 30% · realized $-4374.00 · open $-34.00 · total $-4408.00**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
@@ -10,7 +10,7 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0002_spy | SPY 686/677p | PAPER | closed | $1.08 | $+107 | — | manage_50pct |
 | paper_0003_iwm | IWM 264/259p | PAPER | closed | $0.68 | $+154 | — | manage_50pct |
 | paper_0004_gld | GLD 405/410p | PAPER | closed | $0.68 | $-418 | — | stop_1.5x |
-| paper_0005_msft | MSFT 355/350p | PAPER | open | $0.75 | — | $-130 |  |
+| paper_0005_msft | MSFT 355/350p | PAPER | open | $0.75 | — | $-120 |  |
 | paper_0006_aapl | AAPL 260/320p | PAPER | closed | $0.56 | $-96 | — | reconcile_caps |
 | paper_0007_spy | SPY 687/678p | PAPER | closed | $1.06 | $+149 | — | manage_50pct |
 | paper_0008_qqq | QQQ 608/785p | PAPER | closed | $1.04 | $-236 | — | reconcile_caps |
@@ -24,9 +24,9 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0016_amd | AMD 410/400p | PAPER | open | $1.40 | — | $+0 |  |
 | paper_0017_qqq | QQQ 670/660p | PAPER | closed | $1.33 | $+129 | — | manage_50pct |
 | paper_0018_spy | SPY 706/697p | PAPER | closed | $1.01 | $+97 | — | manage_50pct |
-| paper_0019_iwm | IWM 274/269p | PAPER | open | $0.67 | — | $+100 |  |
+| paper_0019_iwm | IWM 274/269p | PAPER | open | $0.67 | — | $+92 |  |
 | paper_0020_tsla | TSLA 340/335p | PAPER | closed | $0.50 | $+8 | — | reconcile_caps |
-| paper_0021_spy | SPY 707/698p | PAPER | open | $0.97 | — | $-8 |  |
+| paper_0021_spy | SPY 707/698p | PAPER | open | $0.97 | — | $-14 |  |
 | paper_0022_csco | CSCO 110/105p | PAPER | closed | $0.57 | $-79 | — | reconcile_caps |
 | paper_0023_xom | XOM 135/130p | PAPER | closed | $0.50 | $-538 | — | stop_1.5x |
 | paper_0024_intc | INTC 95/90p | PAPER | closed | $0.53 | $-62 | — | reconcile_caps |
