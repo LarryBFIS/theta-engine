@@ -1303,9 +1303,38 @@ def _mid(q):
     return (b + a) / 2 if (b is not None and a is not None) else None
 
 
+def _opp_key(c):
+    """Stable identity for an opportunity — same setup keeps its posted_at across
+    scans; a changed strike/expiry counts as a fresh posting (re-stamped now)."""
+    return "{}|{}|{:g}|{:g}|{}".format(
+        (c.get("underlying") or "").upper(), c.get("structure") or "",
+        float(c.get("short_strike") or 0), float(c.get("long_strike") or 0),
+        c.get("expiry") or "")
+
+
+def _stamp_posted(ranked, generated_at):
+    """Set posted_at on each opportunity: the first time this exact setup appeared.
+    Carries the time forward from the previous scan so 'posted' means when it was
+    FIRST surfaced, not when this scan ran. New/changed setups get `generated_at`."""
+    prev = {}
+    opp_file = SCAN_DIR / "opportunities.json"
+    if opp_file.exists():
+        try:
+            old = json.loads(opp_file.read_text())
+            for c in old.get("top", []):
+                if c.get("posted_at"):
+                    prev[_opp_key(c)] = c["posted_at"]
+        except Exception:  # noqa: BLE001 — a bad/old file just means everything is "new"
+            pass
+    for c in ranked:
+        c["posted_at"] = prev.get(_opp_key(c), generated_at)
+
+
 def _write(ranked, candidates, skipped, regime=None, long_vol=None, events=None,
            learnings=None, agent=None):
     SCAN_DIR.mkdir(parents=True, exist_ok=True)
+    generated_at = datetime.now(timezone.utc).isoformat()
+    _stamp_posted(ranked, generated_at)
     long_vol = long_vol or []
     # Compact learnings summary for the dashboards (full detail in memory/learnings.*).
     learn_summary = None
@@ -1318,7 +1347,7 @@ def _write(ranked, candidates, skipped, regime=None, long_vol=None, events=None,
                              for dim, bs in learnings.get("buckets", {}).items()
                              for v, b in bs.items() if b.get("actionable")]}
     payload = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": generated_at,
         "regime": regime or {},
         "params": {"min_iv_rank": MIN_IV_RANK, "dte_min": DTE_MIN, "dte_max": DTE_MAX,
                    "target_pop": TARGET_POP, "width_pct": WIDTH_PCT, "min_width": MIN_WIDTH,

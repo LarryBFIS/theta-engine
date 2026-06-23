@@ -659,12 +659,14 @@ function paintOpps(){
     const _bust=o.ticket&&o.ticket.fits_live_cap===false;
     const _ml=o.ticket?`<span${_bust?' style="color:#ff6b6b;font-weight:700"':''}>maxloss $${Math.round(o.ticket.max_loss_total)}</span>`:'';
     const tk=o.ticket?`<div class="fmeta" style="font-family:ui-monospace,monospace" title="${(o.ticket.text||'').replace(/"/g,'&quot;')}">📋 ×${o.ticket.contracts} · ${_exp}${_dte} @ $${(+o.ticket.limit).toFixed(2)} cr · close $${(+o.ticket.manage.close_debit).toFixed(2)} · ${_ml}</div>${_bust?`<div class="fmeta" style="color:#ff6b6b">⚠ over 10% live cap ($${Math.round(o.ticket.live_cap)}) — narrow to ~${o.ticket.suggested_width}-wide for live, or paper only</div>`:''}`:'';
+    const _posted=o.posted_at?new Date(o.posted_at).toLocaleString('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})+' CDT':'';
     return `<div class="fitem ${tag} reveal" style="animation-delay:${(0.04*i).toFixed(2)}s">
       <div class="fhead"><span class="sym">${o.underlying}</span> <span class="${code==='VC'?'tagC':(code==='VP'?'tagP':'tagIC')}">${code}</span> <span class="struct">${strikes}</span>
         <span class="ftag ${tag}">${tag.toUpperCase()}</span></div>
       <div class="fmeta"><b>$${(+o.credit).toFixed(2)}</b>cr · POP ${Math.round((o.pop||0)*100)}% · IVR ${Math.round((o.iv_rank||0)*100)}% · EV ${ev>=0?'+':''}$${ev}</div>
       <div class="fmeta">${ai}</div>
       ${tk}
+      ${_posted?`<div class="fmeta" style="color:var(--dimmer)">🕒 posted ${_posted}</div>`:''}
     </div>`;
   };
   const dir=(o)=>{const c=structCode(o.structure);return c==='VP'?'bull':c==='VC'?'bear':(c==='IC'||c==='RIC')?'neutral':'other';};
@@ -680,7 +682,7 @@ function paintOpps(){
 async function loadFeed(){
   let scan=null; try{ scan=await fetchJSON(SCAN_URL); }catch(e){ console.warn('feed', e); }
   window.OPP_SCAN=scan; paintOpps();
-  const t=$('feedtime'); if(t) t.textContent=(scan&&scan.generated_at)?new Date(scan.generated_at).toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}):'—';
+  const t=$('feedtime'); if(t) t.textContent=(scan&&scan.generated_at)?new Date(scan.generated_at).toLocaleString('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})+' CDT':'—';
 
   // long-vol watch — cheap IV into a near catalyst (same scan payload, paper-only)
   const lv=(scan&&scan.long_vol)||[]; const lb=$('lvbody');
@@ -694,7 +696,7 @@ async function loadFeed(){
         <div class="fmeta">IVR <b>${Math.round((o.iv_rank||0)*100)}%</b> · earnings ${o.days_to_catalyst}d · ~${em} move</div>
       </div>`;
     }).join('');
-    const lt=$('lvtime'); if(lt) lt.textContent=(scan&&scan.generated_at)?new Date(scan.generated_at).toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}):'—';
+    const lt=$('lvtime'); if(lt) lt.textContent=(scan&&scan.generated_at)?new Date(scan.generated_at).toLocaleString('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})+' CDT':'—';
   }
 }
 
@@ -711,7 +713,7 @@ async function loadNews(){
       <a class="fmeta" href="${url}" target="_blank" rel="noopener" style="color:var(--dim);text-decoration:none;display:block">${t}</a>
     </div>`;
   }).join('');
-  const el=$('newstime'); if(el) el.textContent=(news&&news.generated_at)?new Date(news.generated_at).toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}):'—';
+  const el=$('newstime'); if(el) el.textContent=(news&&news.generated_at)?new Date(news.generated_at).toLocaleString('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})+' CDT':'—';
 }
 window.LAST_POLL = '';
 window.LAST_POLL_AT = null;
