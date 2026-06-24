@@ -1,8 +1,8 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-24T17:24:05.684677+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-24T17:26:46.235955+00:00._
 
-**42 trades · 7 open / 35 closed · win rate 34% · realized $-4204.50 · open $-675.00 · total $-4879.50**
+**42 trades · 7 open / 35 closed · win rate 34% · realized $-4204.50 · open $-690.00 · total $-4894.50**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
@@ -21,7 +21,7 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0013_iwm | IWM 273/268p | PAPER | closed | $0.63 | $+38 | — | reconcile_caps |
 | paper_0014_tsla | TSLA 330/325p | PAPER | closed | $0.55 | $+80 | — | manage_50pct |
 | paper_0015_qqq | QQQ 640/800p | PAPER | closed | $1.31 | $-52 | — | reconcile_caps |
-| paper_0016_amd | AMD 410/400p | PAPER | open | $1.40 | — | $-70 |  |
+| paper_0016_amd | AMD 410/400p | PAPER | open | $1.40 | — | $-60 |  |
 | paper_0017_qqq | QQQ 670/660p | PAPER | closed | $1.33 | $+129 | — | manage_50pct |
 | paper_0018_spy | SPY 706/697p | PAPER | closed | $1.01 | $+97 | — | manage_50pct |
 | paper_0019_iwm | IWM 274/269p | PAPER | closed | $0.67 | $+126 | — | manage_50pct |
@@ -40,11 +40,11 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0032_meta | META 655/660p | PAPER | closed | $0.60 | $-150 | — | reconcile_caps |
 | paper_0033_intc | INTC 97.5/92.5p | PAPER | closed | $0.52 | $-106 | — | reconcile_caps |
 | paper_0034_msft | MSFT 370/365p | PAPER | closed | $0.58 | $-222 | — | reconcile_caps |
-| paper_0035_xom | XOM 130/125p | PAPER | open | $0.52 | — | $-148 |  |
+| paper_0035_xom | XOM 130/125p | PAPER | open | $0.52 | — | $-152 |  |
 | paper_0036_crm | CRM 145/140p | PAPER | closed | $0.57 | $-374 | — | stop_1.5x |
 | paper_0037_cvx | CVX 190/195p | PAPER | closed | $0.75 | $+44 | — | manage_50pct |
 | paper_0038_qqq | QQQ 685/675p | PAPER | closed | $1.28 | $-196 | — | stop_1.5x |
 | paper_0039_cost | COST 1000/1010p | PAPER | closed | $1.25 | $-385 | — | stop_1.5x |
 | paper_0040_qqq | QQQ 665/655p | PAPER | open | $1.30 | — | $-86 |  |
-| paper_0041_gld | GLD 340/335p | PAPER | open | $0.50 | — | $-108 |  |
-| paper_0042_iwm | IWM 280/275p | PAPER | open | $0.61 | — | $-51 |  |
+| paper_0041_gld | GLD 340/335p | PAPER | open | $0.50 | — | $-132 |  |
+| paper_0042_iwm | IWM 280/275p | PAPER | open | $0.61 | — | $-48 |  |
