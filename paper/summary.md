@@ -1,8 +1,8 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-24T15:37:43.775902+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-24T15:39:41.100230+00:00._
 
-**40 trades · 6 open / 34 closed · win rate 32% · realized $-4330.50 · open $-154.00 · total $-4484.50**
+**40 trades · 6 open / 34 closed · win rate 32% · realized $-4330.50 · open $-174.00 · total $-4504.50**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
@@ -24,9 +24,9 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0016_amd | AMD 410/400p | PAPER | open | $1.40 | — | $+10 |  |
 | paper_0017_qqq | QQQ 670/660p | PAPER | closed | $1.33 | $+129 | — | manage_50pct |
 | paper_0018_spy | SPY 706/697p | PAPER | closed | $1.01 | $+97 | — | manage_50pct |
-| paper_0019_iwm | IWM 274/269p | PAPER | open | $0.67 | — | $+132 |  |
+| paper_0019_iwm | IWM 274/269p | PAPER | open | $0.67 | — | $+128 |  |
 | paper_0020_tsla | TSLA 340/335p | PAPER | closed | $0.50 | $+8 | — | reconcile_caps |
-| paper_0021_spy | SPY 707/698p | PAPER | open | $0.97 | — | $+20 |  |
+| paper_0021_spy | SPY 707/698p | PAPER | open | $0.97 | — | $+12 |  |
 | paper_0022_csco | CSCO 110/105p | PAPER | closed | $0.57 | $-79 | — | reconcile_caps |
 | paper_0023_xom | XOM 135/130p | PAPER | closed | $0.50 | $-538 | — | stop_1.5x |
 | paper_0024_intc | INTC 95/90p | PAPER | closed | $0.53 | $-62 | — | reconcile_caps |
@@ -45,4 +45,4 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0037_cvx | CVX 190/195p | PAPER | closed | $0.75 | $+44 | — | manage_50pct |
 | paper_0038_qqq | QQQ 685/675p | PAPER | closed | $1.28 | $-196 | — | stop_1.5x |
 | paper_0039_cost | COST 1000/1010p | PAPER | closed | $1.25 | $-385 | — | stop_1.5x |
-| paper_0040_qqq | QQQ 665/655p | PAPER | open | $1.30 | — | $-16 |  |
+| paper_0040_qqq | QQQ 665/655p | PAPER | open | $1.30 | — | $-24 |  |
