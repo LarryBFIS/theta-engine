@@ -1,8 +1,8 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-24T20:04:13.117874+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-24T20:04:43.535001+00:00._
 
-**43 trades · 7 open / 36 closed · win rate 33% · realized $-4459.50 · open $-845.00 · total $-5304.50**
+**43 trades · 7 open / 36 closed · win rate 33% · realized $-4459.50 · open $-865.00 · total $-5324.50**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
@@ -26,7 +26,7 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0018_spy | SPY 706/697p | PAPER | closed | $1.01 | $+97 | — | manage_50pct |
 | paper_0019_iwm | IWM 274/269p | PAPER | closed | $0.67 | $+126 | — | manage_50pct |
 | paper_0020_tsla | TSLA 340/335p | PAPER | closed | $0.50 | $+8 | — | reconcile_caps |
-| paper_0021_spy | SPY 707/698p | PAPER | open | $0.97 | — | $-30 |  |
+| paper_0021_spy | SPY 707/698p | PAPER | open | $0.97 | — | $-26 |  |
 | paper_0022_csco | CSCO 110/105p | PAPER | closed | $0.57 | $-79 | — | reconcile_caps |
 | paper_0023_xom | XOM 135/130p | PAPER | closed | $0.50 | $-538 | — | stop_1.5x |
 | paper_0024_intc | INTC 95/90p | PAPER | closed | $0.53 | $-62 | — | reconcile_caps |
@@ -45,7 +45,7 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0037_cvx | CVX 190/195p | PAPER | closed | $0.75 | $+44 | — | manage_50pct |
 | paper_0038_qqq | QQQ 685/675p | PAPER | closed | $1.28 | $-196 | — | stop_1.5x |
 | paper_0039_cost | COST 1000/1010p | PAPER | closed | $1.25 | $-385 | — | stop_1.5x |
-| paper_0040_qqq | QQQ 665/655p | PAPER | open | $1.30 | — | $-214 |  |
-| paper_0041_gld | GLD 340/335p | PAPER | open | $0.50 | — | $-180 |  |
-| paper_0042_iwm | IWM 280/275p | PAPER | open | $0.61 | — | $-48 |  |
+| paper_0040_qqq | QQQ 665/655p | PAPER | open | $1.30 | — | $-226 |  |
+| paper_0041_gld | GLD 340/335p | PAPER | open | $0.50 | — | $-189 |  |
+| paper_0042_iwm | IWM 280/275p | PAPER | open | $0.61 | — | $-51 |  |
 | paper_0043_ba | BA 240/245p | PAPER | open | $0.51 | — | $-183 |  |
