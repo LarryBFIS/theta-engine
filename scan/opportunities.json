@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-25T19:25:35.490473+00:00",
+  "generated_at": "2026-06-25T19:51:14.951882+00:00",
   "regime": {
-    "vix": 19.03,
-    "vix_day_change_pct": 0.0215,
+    "vix": 19.17,
+    "vix_day_change_pct": 0.029,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (+2% day)"
+    "note": "normal regime (+3% day)"
   },
   "params": {
     "min_iv_rank": 0.4,
@@ -17,96 +17,7 @@
     "longvol_max_iv_rank": 0.3,
     "longvol_catalyst_days": 14
   },
-  "top": [
-    {
-      "underlying": "CRM",
-      "structure": "short_call_vertical",
-      "expiry": "2026-07-31",
-      "dte": 36,
-      "short_strike": 170.0,
-      "long_strike": 175.0,
-      "short_symbol": "CRM   260731C00170000",
-      "long_symbol": "CRM   260731C00175000",
-      "width": 5.0,
-      "credit": 0.51,
-      "mid_credit": 0.74,
-      "fees_est": 3.0,
-      "bpr": 449.0,
-      "max_loss": 449.0,
-      "pop": 0.817,
-      "short_delta": 0.224,
-      "short_spread_pct": 0.089,
-      "credit_to_bpr": 0.114,
-      "ev_per_contract": 3.78,
-      "ev_on_bpr": 0.0084,
-      "iv": 0.4583,
-      "iv_rank": 0.519,
-      "underlying_price": 150.85,
-      "liquidity": 3,
-      "earnings_date": "2026-05-27",
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 3,
-      "max_loss_total": 1347.0,
-      "bpr_total": 1347.0,
-      "trend": "bearish",
-      "sized_capped": true,
-      "reasoning": "short call vertical 170/175c \u00d73 \u2014 bearish lean. Edge: IV rank 52%, EV $+4/ctr (+0.8% on BPR). POP 82% \u00b7 credit $0.51 \u00b7 max loss $449 \u00b7 BPR $1347 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 0.445,
-      "learn_notes": [
-        "asset_class=single_name \u00d70.67",
-        "cluster=us_tech \u00d70.67"
-      ],
-      "rank_score": 0.003738,
-      "agent_reviewed": false,
-      "news_risk": {
-        "level": "clear",
-        "hits": []
-      },
-      "net_liq": 3422.721,
-      "ticket": {
-        "underlying": "CRM",
-        "code": "VC",
-        "order_type": "Net Credit",
-        "limit": 0.51,
-        "contracts": 3,
-        "expiry": "2026-07-31",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 3,
-            "expiry": "2026-07-31",
-            "strike": 170.0,
-            "type": "C"
-          },
-          {
-            "action": "BUY",
-            "qty": 3,
-            "expiry": "2026-07-31",
-            "strike": 175.0,
-            "type": "C"
-          }
-        ],
-        "credit_total": 153.0,
-        "max_loss_total": 1347.0,
-        "bpr_total": 1347.0,
-        "pop": 0.817,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.26,
-          "stop_debit": 1.27,
-          "exit_dte": 21
-        },
-        "fits_live_cap": false,
-        "live_cap": 342.27,
-        "suggested_width": 3,
-        "fit_note": "\u26a0 max loss $449 > 10% live cap ($342) \u2014 narrow to ~3-wide for live, or keep on paper.",
-        "text": "CRM VC \u00d73 \u2014 SELL 170C / BUY 175C (2026-07-31) @ $0.51 net credit. Max loss $1347. After fill: GTC buy-to-close @ $0.26 (50%). \u26a0 max loss $449 > 10% live cap ($342) \u2014 narrow to ~3-wide for live, or keep on paper."
-      },
-      "posted_at": "2026-06-25T19:24:18.890317+00:00"
-    }
-  ],
+  "top": [],
   "long_vol": [],
   "events": [],
   "learnings": {
@@ -143,96 +54,7 @@
     ]
   },
   "agent": null,
-  "all_candidates": [
-    {
-      "underlying": "CRM",
-      "structure": "short_call_vertical",
-      "expiry": "2026-07-31",
-      "dte": 36,
-      "short_strike": 170.0,
-      "long_strike": 175.0,
-      "short_symbol": "CRM   260731C00170000",
-      "long_symbol": "CRM   260731C00175000",
-      "width": 5.0,
-      "credit": 0.51,
-      "mid_credit": 0.74,
-      "fees_est": 3.0,
-      "bpr": 449.0,
-      "max_loss": 449.0,
-      "pop": 0.817,
-      "short_delta": 0.224,
-      "short_spread_pct": 0.089,
-      "credit_to_bpr": 0.114,
-      "ev_per_contract": 3.78,
-      "ev_on_bpr": 0.0084,
-      "iv": 0.4583,
-      "iv_rank": 0.519,
-      "underlying_price": 150.85,
-      "liquidity": 3,
-      "earnings_date": "2026-05-27",
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 3,
-      "max_loss_total": 1347.0,
-      "bpr_total": 1347.0,
-      "trend": "bearish",
-      "sized_capped": true,
-      "reasoning": "short call vertical 170/175c \u00d73 \u2014 bearish lean. Edge: IV rank 52%, EV $+4/ctr (+0.8% on BPR). POP 82% \u00b7 credit $0.51 \u00b7 max loss $449 \u00b7 BPR $1347 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 0.445,
-      "learn_notes": [
-        "asset_class=single_name \u00d70.67",
-        "cluster=us_tech \u00d70.67"
-      ],
-      "rank_score": 0.003738,
-      "agent_reviewed": false,
-      "news_risk": {
-        "level": "clear",
-        "hits": []
-      },
-      "net_liq": 3422.721,
-      "ticket": {
-        "underlying": "CRM",
-        "code": "VC",
-        "order_type": "Net Credit",
-        "limit": 0.51,
-        "contracts": 3,
-        "expiry": "2026-07-31",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 3,
-            "expiry": "2026-07-31",
-            "strike": 170.0,
-            "type": "C"
-          },
-          {
-            "action": "BUY",
-            "qty": 3,
-            "expiry": "2026-07-31",
-            "strike": 175.0,
-            "type": "C"
-          }
-        ],
-        "credit_total": 153.0,
-        "max_loss_total": 1347.0,
-        "bpr_total": 1347.0,
-        "pop": 0.817,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.26,
-          "stop_debit": 1.27,
-          "exit_dte": 21
-        },
-        "fits_live_cap": false,
-        "live_cap": 342.27,
-        "suggested_width": 3,
-        "fit_note": "\u26a0 max loss $449 > 10% live cap ($342) \u2014 narrow to ~3-wide for live, or keep on paper.",
-        "text": "CRM VC \u00d73 \u2014 SELL 170C / BUY 175C (2026-07-31) @ $0.51 net credit. Max loss $1347. After fill: GTC buy-to-close @ $0.26 (50%). \u26a0 max loss $449 > 10% live cap ($342) \u2014 narrow to ~3-wide for live, or keep on paper."
-      },
-      "posted_at": "2026-06-25T19:24:18.890317+00:00"
-    }
-  ],
+  "all_candidates": [],
   "skipped": {
     "SPY": "iv_rank 12%",
     "QQQ": "iv_rank 25%",
@@ -241,7 +63,7 @@
     "GLD": "iv_rank 16%",
     "SLV": "iv_rank 23%",
     "TLT": "iv_rank 2%",
-    "XLF": "iv_rank 30%",
+    "XLF": "iv_rank 32%",
     "XLE": "failed: pv: no/invalid leg quote",
     "XLK": "failed: pv: spread short 71%/long 75%",
     "AAPL": "earnings 2026-07-30 before expiry",
@@ -250,28 +72,29 @@
     "GOOGL": "earnings 2026-07-22 before expiry",
     "META": "earnings 2026-07-29 before expiry",
     "NVDA": "iv_rank 23%",
-    "AMD": "failed: pv: exec credit -0.35 <= 0",
+    "AMD": "failed: pv: exec credit -0.75 <= 0",
     "TSLA": "iv_rank 14%",
     "NFLX": "earnings 2026-07-16 before expiry",
     "JPM": "iv_rank 30%",
     "BAC": "iv_rank 11%",
     "WFC": "iv_rank 22%",
     "GS": "iv_rank 20%",
-    "V": "iv_rank 40%",
+    "V": "failed: pv: spread short 26%/long 22%",
     "MA": "earnings 2026-07-30 before expiry",
-    "DIS": "failed: pv: spread short 28%/long 129%",
+    "DIS": "failed: pv: spread short 17%/long 129%",
     "KO": "earnings 2026-07-28 before expiry",
     "PEP": "earnings 2026-07-09 before expiry",
     "WMT": "iv_rank 23%",
     "COST": "iv_rank 23%",
-    "XOM": "failed: pv: credit/width 0.07 < 0.10",
-    "CVX": "failed: pv: spread short 45%/long 46%",
+    "XOM": "failed: pv: spread short 29%/long 90%",
+    "CVX": "failed: pv: spread short 51%/long 60%",
     "PFE": "iv_rank 22%",
-    "MRK": "iv_rank 28%",
+    "MRK": "iv_rank 30%",
     "INTC": "iv_rank 39%",
-    "CSCO": "failed: pv: spread short 47%/long 102%",
+    "CSCO": "failed: pv: spread short 39%/long 102%",
     "ORCL": "iv_rank 25%",
-    "BA": "iv_rank 39%",
+    "CRM": "failed: pv: credit/width 0.06 < 0.10",
+    "BA": "failed: pv: spread short 42%/long 85%",
     "CAT": "iv_rank 35%"
   }
 }
