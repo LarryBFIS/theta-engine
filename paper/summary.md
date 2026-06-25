@@ -1,8 +1,8 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-25T15:45:00.299716+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-25T15:54:03.895486+00:00._
 
-**45 trades · 5 open / 40 closed · win rate 30% · realized $-5938.00 · open $-191.00 · total $-6129.00**
+**45 trades · 5 open / 40 closed · win rate 30% · realized $-5938.00 · open $-153.00 · total $-6091.00**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
@@ -21,7 +21,7 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0013_iwm | IWM 273/268p | PAPER | closed | $0.63 | $+38 | — | reconcile_caps |
 | paper_0014_tsla | TSLA 330/325p | PAPER | closed | $0.55 | $+80 | — | manage_50pct |
 | paper_0015_qqq | QQQ 640/800p | PAPER | closed | $1.31 | $-52 | — | reconcile_caps |
-| paper_0016_amd | AMD 410/400p | PAPER | open | $1.40 | — | $-10 |  |
+| paper_0016_amd | AMD 410/400p | PAPER | open | $1.40 | — | $+10 |  |
 | paper_0017_qqq | QQQ 670/660p | PAPER | closed | $1.33 | $+129 | — | manage_50pct |
 | paper_0018_spy | SPY 706/697p | PAPER | closed | $1.01 | $+97 | — | manage_50pct |
 | paper_0019_iwm | IWM 274/269p | PAPER | closed | $0.67 | $+126 | — | manage_50pct |
@@ -46,8 +46,8 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0038_qqq | QQQ 685/675p | PAPER | closed | $1.28 | $-196 | — | stop_1.5x |
 | paper_0039_cost | COST 1000/1010p | PAPER | closed | $1.25 | $-385 | — | stop_1.5x |
 | paper_0040_qqq | QQQ 665/655p | PAPER | open | $1.30 | — | $-38 |  |
-| paper_0041_gld | GLD 340/335p | PAPER | open | $0.50 | — | $-90 |  |
-| paper_0042_iwm | IWM 280/275p | PAPER | open | $0.61 | — | $-27 |  |
+| paper_0041_gld | GLD 340/335p | PAPER | open | $0.50 | — | $-69 |  |
+| paper_0042_iwm | IWM 280/275p | PAPER | open | $0.61 | — | $-30 |  |
 | paper_0043_ba | BA 240/245p | PAPER | closed | $0.51 | $-434 | — | stop_1.5x |
 | paper_0044_orcl | ORCL 135/130p | PAPER | closed | $0.60 | $-368 | — | stop_1.5x |
 | paper_0045_v | V 315/310p | PAPER | closed | $0.50 | $-248 | — | stop_1.5x |
