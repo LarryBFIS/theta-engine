@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-25T15:08:22.210978+00:00",
+  "generated_at": "2026-06-25T15:34:22.702666+00:00",
   "regime": {
-    "vix": 18.41,
-    "vix_day_change_pct": -0.0118,
+    "vix": 19.24,
+    "vix_day_change_pct": 0.0327,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (-1% day)"
+    "note": "normal regime (+3% day)"
   },
   "params": {
     "min_iv_rank": 0.4,
@@ -17,273 +17,84 @@
     "longvol_max_iv_rank": 0.3,
     "longvol_catalyst_days": 14
   },
-  "top": [
-    {
-      "underlying": "V",
-      "structure": "short_put_vertical",
-      "expiry": "2026-07-31",
-      "dte": 36,
-      "short_strike": 315.0,
-      "long_strike": 310.0,
-      "short_symbol": "V     260731P00315000",
-      "long_symbol": "V     260731P00310000",
-      "width": 5.0,
-      "credit": 0.5,
-      "mid_credit": 0.9,
-      "fees_est": 3.0,
-      "bpr": 450.0,
-      "max_loss": 450.0,
-      "pop": 0.811,
-      "short_delta": 0.17,
-      "short_spread_pct": 0.094,
-      "credit_to_bpr": 0.111,
-      "ev_per_contract": 3.08,
-      "ev_on_bpr": 0.0068,
-      "iv": 0.2373,
-      "iv_rank": 0.409,
-      "underlying_price": 337.31,
-      "liquidity": 3,
-      "earnings_date": "2026-08-04",
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 3,
-      "max_loss_total": 1350.0,
-      "bpr_total": 1350.0,
-      "trend": "bullish",
-      "sized_capped": true,
-      "reasoning": "short put vertical 315/310p \u00d73 \u2014 bullish lean. Edge: IV rank 41%, EV $+3/ctr (+0.7% on BPR). POP 81% \u00b7 credit $0.50 \u00b7 max loss $450 \u00b7 BPR $1350 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 0.859,
-      "learn_notes": [
-        "asset_class=single_name \u00d70.68",
-        "structure=short_put_vertical \u00d71.27"
-      ],
-      "rank_score": 0.005841,
-      "agent_reviewed": false,
-      "news_risk": {
-        "level": "caution",
-        "hits": [
-          {
-            "title": "Visa Redefines Its Role in Travel With the Global Launch of Visa Destinations",
-            "severity": 2,
-            "keyword": "fine"
-          }
-        ]
-      },
-      "net_liq": 3456.154,
-      "ticket": {
-        "underlying": "V",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 0.5,
-        "contracts": 3,
-        "expiry": "2026-07-31",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 3,
-            "expiry": "2026-07-31",
-            "strike": 315.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 3,
-            "expiry": "2026-07-31",
-            "strike": 310.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 150.0,
-        "max_loss_total": 1350.0,
-        "bpr_total": 1350.0,
-        "pop": 0.811,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.25,
-          "stop_debit": 1.25,
-          "exit_dte": 21
-        },
-        "fits_live_cap": false,
-        "live_cap": 345.62,
-        "suggested_width": 3,
-        "fit_note": "\u26a0 max loss $450 > 10% live cap ($346) \u2014 narrow to ~3-wide for live, or keep on paper.",
-        "text": "V VP \u00d73 \u2014 SELL 315P / BUY 310P (2026-07-31) @ $0.50 net credit. Max loss $1350. After fill: GTC buy-to-close @ $0.25 (50%). \u26a0 max loss $450 > 10% live cap ($346) \u2014 narrow to ~3-wide for live, or keep on paper."
-      },
-      "posted_at": "2026-06-25T15:08:22.210978+00:00"
-    }
-  ],
+  "top": [],
   "long_vol": [],
   "events": [],
   "learnings": {
     "global": {
-      "closed": 39,
+      "closed": 40,
       "wins": 12,
-      "losses": 27,
-      "win_rate": 0.308,
-      "total_pnl": -5690.5
+      "losses": 28,
+      "win_rate": 0.3,
+      "total_pnl": -5938.0
     },
     "min_sample": 20,
     "actionable": [
       {
         "dim": "asset_class",
         "value": "single_name",
-        "multiplier": 0.676,
-        "recommendation": "AVOID (neg expectancy; wr 21% < prior 31%)",
-        "n": 24
+        "multiplier": 0.667,
+        "recommendation": "AVOID (neg expectancy; wr 20% < prior 30%)",
+        "n": 25
       },
       {
         "dim": "structure",
         "value": "short_put_vertical",
-        "multiplier": 1.271,
+        "multiplier": 1.261,
         "recommendation": "favor",
-        "n": 26
+        "n": 27
       },
       {
         "dim": "cluster",
         "value": "us_tech",
-        "multiplier": 0.657,
-        "recommendation": "AVOID (neg expectancy; wr 20% < prior 31%)",
+        "multiplier": 0.667,
+        "recommendation": "AVOID (neg expectancy; wr 20% < prior 30%)",
         "n": 25
       }
     ]
   },
   "agent": null,
-  "all_candidates": [
-    {
-      "underlying": "V",
-      "structure": "short_put_vertical",
-      "expiry": "2026-07-31",
-      "dte": 36,
-      "short_strike": 315.0,
-      "long_strike": 310.0,
-      "short_symbol": "V     260731P00315000",
-      "long_symbol": "V     260731P00310000",
-      "width": 5.0,
-      "credit": 0.5,
-      "mid_credit": 0.9,
-      "fees_est": 3.0,
-      "bpr": 450.0,
-      "max_loss": 450.0,
-      "pop": 0.811,
-      "short_delta": 0.17,
-      "short_spread_pct": 0.094,
-      "credit_to_bpr": 0.111,
-      "ev_per_contract": 3.08,
-      "ev_on_bpr": 0.0068,
-      "iv": 0.2373,
-      "iv_rank": 0.409,
-      "underlying_price": 337.31,
-      "liquidity": 3,
-      "earnings_date": "2026-08-04",
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 3,
-      "max_loss_total": 1350.0,
-      "bpr_total": 1350.0,
-      "trend": "bullish",
-      "sized_capped": true,
-      "reasoning": "short put vertical 315/310p \u00d73 \u2014 bullish lean. Edge: IV rank 41%, EV $+3/ctr (+0.7% on BPR). POP 81% \u00b7 credit $0.50 \u00b7 max loss $450 \u00b7 BPR $1350 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 0.859,
-      "learn_notes": [
-        "asset_class=single_name \u00d70.68",
-        "structure=short_put_vertical \u00d71.27"
-      ],
-      "rank_score": 0.005841,
-      "agent_reviewed": false,
-      "news_risk": {
-        "level": "caution",
-        "hits": [
-          {
-            "title": "Visa Redefines Its Role in Travel With the Global Launch of Visa Destinations",
-            "severity": 2,
-            "keyword": "fine"
-          }
-        ]
-      },
-      "net_liq": 3456.154,
-      "ticket": {
-        "underlying": "V",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 0.5,
-        "contracts": 3,
-        "expiry": "2026-07-31",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 3,
-            "expiry": "2026-07-31",
-            "strike": 315.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 3,
-            "expiry": "2026-07-31",
-            "strike": 310.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 150.0,
-        "max_loss_total": 1350.0,
-        "bpr_total": 1350.0,
-        "pop": 0.811,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.25,
-          "stop_debit": 1.25,
-          "exit_dte": 21
-        },
-        "fits_live_cap": false,
-        "live_cap": 345.62,
-        "suggested_width": 3,
-        "fit_note": "\u26a0 max loss $450 > 10% live cap ($346) \u2014 narrow to ~3-wide for live, or keep on paper.",
-        "text": "V VP \u00d73 \u2014 SELL 315P / BUY 310P (2026-07-31) @ $0.50 net credit. Max loss $1350. After fill: GTC buy-to-close @ $0.25 (50%). \u26a0 max loss $450 > 10% live cap ($346) \u2014 narrow to ~3-wide for live, or keep on paper."
-      },
-      "posted_at": "2026-06-25T15:08:22.210978+00:00"
-    }
-  ],
+  "all_candidates": [],
   "skipped": {
-    "SPY": "iv_rank 11%",
-    "QQQ": "iv_rank 24%",
-    "IWM": "iv_rank 14%",
-    "DIA": "iv_rank 9%",
+    "SPY": "iv_rank 12%",
+    "QQQ": "iv_rank 26%",
+    "IWM": "iv_rank 16%",
+    "DIA": "iv_rank 12%",
     "GLD": "iv_rank 16%",
     "SLV": "iv_rank 23%",
     "TLT": "iv_rank 2%",
-    "XLF": "iv_rank 6%",
-    "XLE": "iv_rank 25%",
+    "XLF": "iv_rank 10%",
+    "XLE": "iv_rank 23%",
     "XLK": "failed: pv: spread short 71%/long 75%",
     "AAPL": "earnings 2026-07-30 before expiry",
     "MSFT": "earnings 2026-07-29 before expiry",
     "AMZN": "earnings 2026-07-30 before expiry",
     "GOOGL": "earnings 2026-07-22 before expiry",
     "META": "earnings 2026-07-29 before expiry",
-    "NVDA": "iv_rank 21%",
-    "AMD": "failed: pv: exec credit -0.20 <= 0",
-    "TSLA": "iv_rank 14%",
+    "NVDA": "iv_rank 22%",
+    "AMD": "failed: pv: exec credit -0.55 <= 0",
+    "TSLA": "iv_rank 15%",
     "NFLX": "earnings 2026-07-16 before expiry",
-    "JPM": "iv_rank 33%",
-    "BAC": "iv_rank 8%",
-    "WFC": "iv_rank 23%",
-    "GS": "iv_rank 20%",
+    "JPM": "iv_rank 31%",
+    "BAC": "iv_rank 9%",
+    "WFC": "iv_rank 22%",
+    "GS": "iv_rank 22%",
+    "V": "failed: pv: credit/width 0.08 < 0.10",
     "MA": "earnings 2026-07-30 before expiry",
-    "DIS": "failed: pv: spread short 42%/long 184%",
+    "DIS": "failed: pv: spread short 37%/long 184%",
     "KO": "earnings 2026-07-28 before expiry",
     "PEP": "earnings 2026-07-09 before expiry",
-    "WMT": "iv_rank 29%",
-    "COST": "iv_rank 25%",
-    "XOM": "failed: pv: credit/width 0.08 < 0.10",
-    "CVX": "failed: pv: spread short 36%/long 46%",
-    "PFE": "iv_rank -15%",
-    "MRK": "iv_rank 26%",
+    "WMT": "iv_rank 27%",
+    "COST": "iv_rank 24%",
+    "XOM": "failed: pv: credit/width 0.07 < 0.10",
+    "CVX": "failed: pv: spread short 45%/long 53%",
+    "PFE": "iv_rank -12%",
+    "MRK": "iv_rank 18%",
     "INTC": "earnings 2026-07-23 before expiry",
-    "CSCO": "failed: pv: spread short 24%/long 75%",
-    "ORCL": "iv_rank 28%",
-    "CRM": "failed: pv: spread short 26%/long 61%",
-    "BA": "failed: pv: spread short 36%/long 51%",
+    "CSCO": "failed: pv: spread short 38%/long 58%",
+    "ORCL": "iv_rank 27%",
+    "CRM": "failed: pv: spread short 26%/long 54%",
+    "BA": "failed: pv: spread short 28%/long 48%",
     "CAT": "iv_rank 38%"
   }
 }
