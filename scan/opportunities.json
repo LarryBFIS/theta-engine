@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-25T13:30:58.700501+00:00",
+  "generated_at": "2026-06-25T14:04:25.913143+00:00",
   "regime": {
-    "vix": 17.89,
-    "vix_day_change_pct": -0.0397,
+    "vix": 19.49,
+    "vix_day_change_pct": 0.0462,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (-4% day)"
+    "note": "normal regime (+5% day)"
   },
   "params": {
     "min_iv_rank": 0.4,
@@ -22,79 +22,79 @@
   "events": [],
   "learnings": {
     "global": {
-      "closed": 36,
+      "closed": 39,
       "wins": 12,
-      "losses": 24,
-      "win_rate": 0.333,
-      "total_pnl": -4459.5
+      "losses": 27,
+      "win_rate": 0.308,
+      "total_pnl": -5690.5
     },
     "min_sample": 20,
     "actionable": [
       {
         "dim": "asset_class",
         "value": "single_name",
-        "multiplier": 0.71,
-        "recommendation": "AVOID (neg expectancy; wr 24% < prior 33%)",
-        "n": 21
+        "multiplier": 0.676,
+        "recommendation": "AVOID (neg expectancy; wr 21% < prior 31%)",
+        "n": 24
       },
       {
         "dim": "structure",
         "value": "short_put_vertical",
-        "multiplier": 1.265,
+        "multiplier": 1.271,
         "recommendation": "favor",
-        "n": 24
+        "n": 26
       },
       {
         "dim": "cluster",
         "value": "us_tech",
-        "multiplier": 0.647,
-        "recommendation": "AVOID (neg expectancy; wr 22% < prior 33%)",
-        "n": 24
+        "multiplier": 0.657,
+        "recommendation": "AVOID (neg expectancy; wr 20% < prior 31%)",
+        "n": 25
       }
     ]
   },
   "agent": null,
   "all_candidates": [],
   "skipped": {
-    "SPY": "failed: pv: credit/width 0.10 < 0.10",
-    "QQQ": "failed: pv: credit/width 0.08 < 0.10",
-    "IWM": "failed: pv: credit/width 0.09 < 0.10",
-    "DIA": "iv_rank 38%",
-    "GLD": "failed: pv: credit/width 0.08 < 0.10",
-    "SLV": "iv_rank 40%",
-    "TLT": "iv_rank 9%",
-    "XLF": "iv_rank 36%",
-    "XLE": "failed: pv: no/invalid leg quote",
-    "XLK": "failed: pv: spread short 25%/long 32%",
+    "SPY": "iv_rank 14%",
+    "QQQ": "iv_rank 27%",
+    "IWM": "iv_rank 16%",
+    "DIA": "iv_rank 13%",
+    "GLD": "iv_rank 18%",
+    "SLV": "iv_rank 24%",
+    "TLT": "iv_rank 4%",
+    "XLF": "iv_rank 37%",
+    "XLE": "iv_rank 32%",
+    "XLK": "failed: pv: spread short 71%/long 75%",
     "AAPL": "earnings 2026-07-30 before expiry",
     "MSFT": "earnings 2026-07-29 before expiry",
-    "AMZN": "iv_rank 29%",
+    "AMZN": "earnings 2026-07-30 before expiry",
     "GOOGL": "earnings 2026-07-22 before expiry",
     "META": "earnings 2026-07-29 before expiry",
-    "NVDA": "iv_rank 25%",
-    "AMD": "failed: pv: spread short 48%/long 52%",
-    "TSLA": "iv_rank 40%",
+    "NVDA": "iv_rank 19%",
+    "AMD": "failed: pv: exec credit -0.80 <= 0",
+    "TSLA": "iv_rank 18%",
     "NFLX": "earnings 2026-07-16 before expiry",
-    "JPM": "earnings 2026-07-14 before expiry",
-    "BAC": "iv_rank 31%",
-    "WFC": "earnings 2026-07-14 before expiry",
-    "GS": "earnings 2026-07-14 before expiry",
-    "V": "failed: pv: spread short 38%/long 46%",
+    "JPM": "iv_rank 36%",
+    "BAC": "iv_rank -1%",
+    "WFC": "iv_rank 16%",
+    "GS": "iv_rank 20%",
+    "V": "failed: pv: spread short 23%/long 34%",
     "MA": "earnings 2026-07-30 before expiry",
-    "DIS": "iv_rank 28%",
+    "DIS": "failed: pv: spread short 96%/long 177%",
     "KO": "earnings 2026-07-28 before expiry",
     "PEP": "earnings 2026-07-09 before expiry",
-    "WMT": "iv_rank 34%",
-    "COST": "failed: pv: spread short 70%/long 71%",
-    "XOM": "failed: pv: spread short 62%/long 167%",
-    "CVX": "failed: pv: spread short 32%/long 77%",
-    "PFE": "iv_rank 22%",
-    "MRK": "iv_rank 33%",
+    "WMT": "iv_rank 32%",
+    "COST": "iv_rank 26%",
+    "XOM": "failed: pv: spread short 51%/long 42%",
+    "CVX": "failed: pv: spread short 64%/long 77%",
+    "PFE": "iv_rank 3%",
+    "MRK": "iv_rank 32%",
     "INTC": "earnings 2026-07-23 before expiry",
-    "CSCO": "failed: pv: spread short 119%/long 108%",
-    "ORCL": "failed: pv: spread short 31%/long 23%",
-    "CRM": "failed: pv: spread short 49%/long 77%",
-    "BA": "failed: pv: spread short 132%/long 194%",
-    "CAT": "failed: pv: spread short 59%/long 72%"
+    "CSCO": "failed: pv: spread short 48%/long 82%",
+    "ORCL": "iv_rank 29%",
+    "CRM": "failed: pv: spread short 48%/long 52%",
+    "BA": "failed: pv: spread short 147%/long 199%",
+    "CAT": "iv_rank 38%"
   }
 }
