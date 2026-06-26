@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-26T13:27:40.103230+00:00",
+  "generated_at": "2026-06-26T13:54:20.738509+00:00",
   "regime": {
-    "vix": 20.28,
-    "vix_day_change_pct": 0.0736,
+    "vix": 20.42,
+    "vix_day_change_pct": 0.081,
     "level": "elevated",
     "stand_down": false,
-    "note": "elevated vol \u2014 premium rich, proceed (+7% day)"
+    "note": "elevated vol \u2014 premium rich, proceed (+8% day)"
   },
   "params": {
     "min_iv_rank": 0.4,
@@ -17,84 +17,299 @@
     "longvol_max_iv_rank": 0.3,
     "longvol_catalyst_days": 14
   },
-  "top": [],
+  "top": [
+    {
+      "underlying": "IWM",
+      "structure": "iron_condor",
+      "expiry": "2026-07-31",
+      "dte": 35,
+      "put_short_strike": 264.0,
+      "put_long_strike": 260.0,
+      "call_short_strike": 325.0,
+      "call_long_strike": 330.0,
+      "short_strike": 264.0,
+      "long_strike": 325.0,
+      "symbols": {
+        "put_short": "IWM   260731P00264000",
+        "put_long": "IWM   260731P00260000",
+        "call_short": "IWM   260731C00325000",
+        "call_long": "IWM   260731C00330000"
+      },
+      "width": 5.0,
+      "credit": 0.54,
+      "put_credit": 0.24,
+      "call_credit": 0.3,
+      "fees_est": 3.0,
+      "bpr": 446.0,
+      "max_loss": 446.0,
+      "pop": 0.801,
+      "put_short_delta": 0.067,
+      "call_short_delta": 0.138,
+      "credit_to_bpr": 0.121,
+      "ev_per_contract": 2.47,
+      "ev_on_bpr": 0.0055,
+      "iv": 0.2596,
+      "iv_rank": 0.451,
+      "underlying_price": 296.77,
+      "liquidity": 4,
+      "earnings_date": null,
+      "tag": "paper",
+      "sized_for": "paper",
+      "contracts": 3,
+      "max_loss_total": 1338.0,
+      "bpr_total": 1338.0,
+      "trend": "bullish",
+      "sized_capped": true,
+      "reasoning": "iron condor 264/260p + 325/330c \u00d73 \u2014 neutral (book bias +4 \u2192 balance). Edge: IV rank 45%, EV $+2/ctr (+0.5% on BPR). POP 80% \u00b7 credit $0.54 \u00b7 max loss $446 \u00b7 BPR $1338 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 1.0,
+      "rank_score": 0.0055,
+      "agent_reviewed": false,
+      "news_risk": {
+        "level": "clear",
+        "hits": []
+      },
+      "net_liq": 3376.189,
+      "ticket": {
+        "underlying": "IWM",
+        "code": "IC",
+        "order_type": "Net Credit",
+        "limit": 0.54,
+        "contracts": 3,
+        "expiry": "2026-07-31",
+        "legs": [
+          {
+            "action": "SELL",
+            "qty": 3,
+            "expiry": "2026-07-31",
+            "strike": 264.0,
+            "type": "P"
+          },
+          {
+            "action": "BUY",
+            "qty": 3,
+            "expiry": "2026-07-31",
+            "strike": 260.0,
+            "type": "P"
+          },
+          {
+            "action": "SELL",
+            "qty": 3,
+            "expiry": "2026-07-31",
+            "strike": 325.0,
+            "type": "C"
+          },
+          {
+            "action": "BUY",
+            "qty": 3,
+            "expiry": "2026-07-31",
+            "strike": 330.0,
+            "type": "C"
+          }
+        ],
+        "credit_total": 162.0,
+        "max_loss_total": 1338.0,
+        "bpr_total": 1338.0,
+        "pop": 0.801,
+        "tag": "paper",
+        "manage": {
+          "profit_target_pct": 50,
+          "close_debit": 0.27,
+          "stop_debit": 1.35,
+          "exit_dte": 21
+        },
+        "fits_live_cap": false,
+        "live_cap": 337.62,
+        "suggested_width": 3,
+        "fit_note": "\u26a0 max loss $446 > 10% live cap ($338) \u2014 narrow to ~3-wide for live, or keep on paper.",
+        "text": "IWM IC \u00d73 \u2014 SELL 264P / BUY 260P / SELL 325C / BUY 330C (2026-07-31) @ $0.54 net credit. Max loss $1338. After fill: GTC buy-to-close @ $0.27 (50%). \u26a0 max loss $446 > 10% live cap ($338) \u2014 narrow to ~3-wide for live, or keep on paper."
+      },
+      "posted_at": "2026-06-26T13:54:20.738509+00:00"
+    }
+  ],
   "long_vol": [],
   "events": [],
   "learnings": {
     "global": {
-      "closed": 42,
+      "closed": 43,
       "wins": 13,
-      "losses": 29,
-      "win_rate": 0.31,
-      "total_pnl": -5952.0
+      "losses": 30,
+      "win_rate": 0.302,
+      "total_pnl": -6568.5
     },
     "min_sample": 20,
     "actionable": [
       {
         "dim": "asset_class",
         "value": "single_name",
-        "multiplier": 0.726,
-        "recommendation": "AVOID (neg expectancy; wr 22% < prior 31%)",
-        "n": 26
+        "multiplier": 0.717,
+        "recommendation": "AVOID (neg expectancy; wr 22% < prior 30%)",
+        "n": 27
       },
       {
         "dim": "structure",
         "value": "short_put_vertical",
-        "multiplier": 1.25,
+        "multiplier": 1.274,
         "recommendation": "favor",
         "n": 29
       },
       {
         "dim": "cluster",
         "value": "us_tech",
-        "multiplier": 0.726,
-        "recommendation": "AVOID (neg expectancy; wr 22% < prior 31%)",
-        "n": 26
+        "multiplier": 0.717,
+        "recommendation": "AVOID (neg expectancy; wr 22% < prior 30%)",
+        "n": 27
       }
     ]
   },
   "agent": null,
-  "all_candidates": [],
+  "all_candidates": [
+    {
+      "underlying": "IWM",
+      "structure": "iron_condor",
+      "expiry": "2026-07-31",
+      "dte": 35,
+      "put_short_strike": 264.0,
+      "put_long_strike": 260.0,
+      "call_short_strike": 325.0,
+      "call_long_strike": 330.0,
+      "short_strike": 264.0,
+      "long_strike": 325.0,
+      "symbols": {
+        "put_short": "IWM   260731P00264000",
+        "put_long": "IWM   260731P00260000",
+        "call_short": "IWM   260731C00325000",
+        "call_long": "IWM   260731C00330000"
+      },
+      "width": 5.0,
+      "credit": 0.54,
+      "put_credit": 0.24,
+      "call_credit": 0.3,
+      "fees_est": 3.0,
+      "bpr": 446.0,
+      "max_loss": 446.0,
+      "pop": 0.801,
+      "put_short_delta": 0.067,
+      "call_short_delta": 0.138,
+      "credit_to_bpr": 0.121,
+      "ev_per_contract": 2.47,
+      "ev_on_bpr": 0.0055,
+      "iv": 0.2596,
+      "iv_rank": 0.451,
+      "underlying_price": 296.77,
+      "liquidity": 4,
+      "earnings_date": null,
+      "tag": "paper",
+      "sized_for": "paper",
+      "contracts": 3,
+      "max_loss_total": 1338.0,
+      "bpr_total": 1338.0,
+      "trend": "bullish",
+      "sized_capped": true,
+      "reasoning": "iron condor 264/260p + 325/330c \u00d73 \u2014 neutral (book bias +4 \u2192 balance). Edge: IV rank 45%, EV $+2/ctr (+0.5% on BPR). POP 80% \u00b7 credit $0.54 \u00b7 max loss $446 \u00b7 BPR $1338 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 1.0,
+      "rank_score": 0.0055,
+      "agent_reviewed": false,
+      "news_risk": {
+        "level": "clear",
+        "hits": []
+      },
+      "net_liq": 3376.189,
+      "ticket": {
+        "underlying": "IWM",
+        "code": "IC",
+        "order_type": "Net Credit",
+        "limit": 0.54,
+        "contracts": 3,
+        "expiry": "2026-07-31",
+        "legs": [
+          {
+            "action": "SELL",
+            "qty": 3,
+            "expiry": "2026-07-31",
+            "strike": 264.0,
+            "type": "P"
+          },
+          {
+            "action": "BUY",
+            "qty": 3,
+            "expiry": "2026-07-31",
+            "strike": 260.0,
+            "type": "P"
+          },
+          {
+            "action": "SELL",
+            "qty": 3,
+            "expiry": "2026-07-31",
+            "strike": 325.0,
+            "type": "C"
+          },
+          {
+            "action": "BUY",
+            "qty": 3,
+            "expiry": "2026-07-31",
+            "strike": 330.0,
+            "type": "C"
+          }
+        ],
+        "credit_total": 162.0,
+        "max_loss_total": 1338.0,
+        "bpr_total": 1338.0,
+        "pop": 0.801,
+        "tag": "paper",
+        "manage": {
+          "profit_target_pct": 50,
+          "close_debit": 0.27,
+          "stop_debit": 1.35,
+          "exit_dte": 21
+        },
+        "fits_live_cap": false,
+        "live_cap": 337.62,
+        "suggested_width": 3,
+        "fit_note": "\u26a0 max loss $446 > 10% live cap ($338) \u2014 narrow to ~3-wide for live, or keep on paper.",
+        "text": "IWM IC \u00d73 \u2014 SELL 264P / BUY 260P / SELL 325C / BUY 330C (2026-07-31) @ $0.54 net credit. Max loss $1338. After fill: GTC buy-to-close @ $0.27 (50%). \u26a0 max loss $446 > 10% live cap ($338) \u2014 narrow to ~3-wide for live, or keep on paper."
+      },
+      "posted_at": "2026-06-26T13:54:20.738509+00:00"
+    }
+  ],
   "skipped": {
     "SPY": "iv_rank 12%",
     "QQQ": "iv_rank 25%",
-    "IWM": "iv_rank 16%",
-    "DIA": "iv_rank 12%",
+    "DIA": "failed: pv: credit/width 0.08 < 0.10",
     "GLD": "iv_rank 16%",
-    "SLV": "iv_rank 23%",
-    "TLT": "iv_rank 1%",
-    "XLF": "iv_rank 32%",
+    "SLV": "iv_rank 35%",
+    "TLT": "iv_rank 8%",
+    "XLF": "iv_rank 23%",
     "XLE": "failed: pv: no/invalid leg quote",
-    "XLK": "failed: pv: spread short 92%/long 76%",
+    "XLK": "failed: pv: spread short 37%/long 41%",
     "AAPL": "earnings 2026-07-30 before expiry",
     "MSFT": "earnings 2026-07-29 before expiry",
     "AMZN": "earnings 2026-07-30 before expiry",
     "GOOGL": "earnings 2026-07-22 before expiry",
     "META": "earnings 2026-07-29 before expiry",
     "NVDA": "iv_rank 22%",
-    "AMD": "failed: pv: exec credit -0.55 <= 0",
+    "AMD": "failed: pv: exec credit -0.65 <= 0",
     "TSLA": "iv_rank 12%",
     "NFLX": "earnings 2026-07-16 before expiry",
     "JPM": "iv_rank 29%",
-    "BAC": "iv_rank 11%",
+    "BAC": "iv_rank 16%",
     "WFC": "iv_rank 23%",
-    "GS": "iv_rank 20%",
-    "V": "failed: pv: spread short 29%/long 28%",
+    "GS": "earnings 2026-07-14 before expiry",
+    "V": "failed: pv: spread short 22%/long 28%",
     "MA": "earnings 2026-07-30 before expiry",
-    "DIS": "failed: pv: spread short 36%/long 127%",
+    "DIS": "failed: pv: no/invalid leg quote",
     "KO": "earnings 2026-07-28 before expiry",
     "PEP": "earnings 2026-07-09 before expiry",
-    "WMT": "iv_rank 21%",
-    "COST": "iv_rank 22%",
-    "XOM": "failed: pv: no/invalid leg quote",
-    "CVX": "failed: pv: spread short 86%/long 60%",
-    "PFE": "iv_rank 18%",
+    "WMT": "iv_rank 28%",
+    "COST": "failed: pv: spread short 42%/long 101%",
+    "XOM": "failed: pv: spread short 55%/long 86%",
+    "CVX": "failed: pv: spread short 61%/long 85%",
+    "PFE": "iv_rank 7%",
     "MRK": "iv_rank 30%",
     "INTC": "iv_rank 39%",
-    "CSCO": "failed: pv: spread short 40%/long 102%",
+    "CSCO": "failed: pv: spread short 48%/long 87%",
     "ORCL": "iv_rank 25%",
-    "CRM": "failed: pv: EV -1.25 <= 0 after fees",
-    "BA": "failed: pv: spread short 35%/long 52%",
-    "CAT": "iv_rank 35%"
+    "CRM": "failed: pv: spread short 34%/long 30%",
+    "BA": "failed: pv: no/invalid leg quote",
+    "CAT": "failed: pv: spread short 44%/long 49%"
   }
 }
