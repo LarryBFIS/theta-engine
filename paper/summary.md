@@ -1,6 +1,6 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-26T13:03:56.205821+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-26T13:14:01.138162+00:00._
 
 **46 trades · 4 open / 42 closed · win rate 31% · realized $-5952.00 · open $-367.00 · total $-6319.00**
 
