@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-25T20:28:11.905977+00:00",
+  "generated_at": "2026-06-26T13:27:40.103230+00:00",
   "regime": {
-    "vix": 18.92,
-    "vix_day_change_pct": 0.0156,
-    "level": "normal",
+    "vix": 20.28,
+    "vix_day_change_pct": 0.0736,
+    "level": "elevated",
     "stand_down": false,
-    "note": "normal regime (+2% day)"
+    "note": "elevated vol \u2014 premium rich, proceed (+7% day)"
   },
   "params": {
     "min_iv_rank": 0.4,
@@ -22,34 +22,34 @@
   "events": [],
   "learnings": {
     "global": {
-      "closed": 40,
-      "wins": 12,
-      "losses": 28,
-      "win_rate": 0.3,
-      "total_pnl": -5938.0
+      "closed": 42,
+      "wins": 13,
+      "losses": 29,
+      "win_rate": 0.31,
+      "total_pnl": -5952.0
     },
     "min_sample": 20,
     "actionable": [
       {
         "dim": "asset_class",
         "value": "single_name",
-        "multiplier": 0.667,
-        "recommendation": "AVOID (neg expectancy; wr 20% < prior 30%)",
-        "n": 25
+        "multiplier": 0.726,
+        "recommendation": "AVOID (neg expectancy; wr 22% < prior 31%)",
+        "n": 26
       },
       {
         "dim": "structure",
         "value": "short_put_vertical",
-        "multiplier": 1.261,
+        "multiplier": 1.25,
         "recommendation": "favor",
-        "n": 27
+        "n": 29
       },
       {
         "dim": "cluster",
         "value": "us_tech",
-        "multiplier": 0.667,
-        "recommendation": "AVOID (neg expectancy; wr 20% < prior 30%)",
-        "n": 25
+        "multiplier": 0.726,
+        "recommendation": "AVOID (neg expectancy; wr 22% < prior 31%)",
+        "n": 26
       }
     ]
   },
@@ -65,14 +65,14 @@
     "TLT": "iv_rank 1%",
     "XLF": "iv_rank 32%",
     "XLE": "failed: pv: no/invalid leg quote",
-    "XLK": "failed: pv: spread short 81%/long 92%",
+    "XLK": "failed: pv: spread short 92%/long 76%",
     "AAPL": "earnings 2026-07-30 before expiry",
     "MSFT": "earnings 2026-07-29 before expiry",
     "AMZN": "earnings 2026-07-30 before expiry",
     "GOOGL": "earnings 2026-07-22 before expiry",
     "META": "earnings 2026-07-29 before expiry",
     "NVDA": "iv_rank 22%",
-    "AMD": "failed: pv: exec credit -0.75 <= 0",
+    "AMD": "failed: pv: exec credit -0.55 <= 0",
     "TSLA": "iv_rank 12%",
     "NFLX": "earnings 2026-07-16 before expiry",
     "JPM": "iv_rank 29%",
@@ -91,9 +91,9 @@
     "PFE": "iv_rank 18%",
     "MRK": "iv_rank 30%",
     "INTC": "iv_rank 39%",
-    "CSCO": "failed: pv: spread short 64%/long 102%",
+    "CSCO": "failed: pv: spread short 40%/long 102%",
     "ORCL": "iv_rank 25%",
-    "CRM": "failed: pv: credit/width 0.06 < 0.10",
+    "CRM": "failed: pv: EV -1.25 <= 0 after fees",
     "BA": "failed: pv: spread short 35%/long 52%",
     "CAT": "iv_rank 35%"
   }
