@@ -1,8 +1,8 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-26T20:14:05.514801+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-26T20:22:07.211151+00:00._
 
-**51 trades · 5 open / 46 closed · win rate 28% · realized $-7488.00 · open $-377.00 · total $-7865.00**
+**51 trades · 5 open / 46 closed · win rate 28% · realized $-7488.00 · open $-393.00 · total $-7881.00**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
@@ -45,9 +45,9 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0037_cvx | CVX 190/195p | PAPER | closed | $0.75 | $+44 | — | manage_50pct |
 | paper_0038_qqq | QQQ 685/675p | PAPER | closed | $1.28 | $-196 | — | stop_1.5x |
 | paper_0039_cost | COST 1000/1010p | PAPER | closed | $1.25 | $-385 | — | stop_1.5x |
-| paper_0040_qqq | QQQ 665/655p | PAPER | open | $1.30 | — | $-94 |  |
+| paper_0040_qqq | QQQ 665/655p | PAPER | open | $1.30 | — | $-98 |  |
 | paper_0041_gld | GLD 340/335p | PAPER | open | $0.50 | — | $-39 |  |
-| paper_0042_iwm | IWM 280/275p | PAPER | open | $0.61 | — | $-81 |  |
+| paper_0042_iwm | IWM 280/275p | PAPER | open | $0.61 | — | $-93 |  |
 | paper_0043_ba | BA 240/245p | PAPER | closed | $0.51 | $-434 | — | stop_1.5x |
 | paper_0044_orcl | ORCL 135/130p | PAPER | closed | $0.60 | $-368 | — | stop_1.5x |
 | paper_0045_v | V 315/310p | PAPER | closed | $0.50 | $-248 | — | stop_1.5x |
