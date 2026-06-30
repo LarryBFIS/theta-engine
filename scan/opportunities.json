@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-29T20:25:49.558207+00:00",
+  "generated_at": "2026-06-30T13:24:58.006941+00:00",
   "regime": {
     "vix": 17.68,
-    "vix_day_change_pct": -0.0397,
+    "vix_day_change_pct": 0.0017,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (-4% day)"
+    "note": "normal regime (+0% day)"
   },
   "params": {
     "min_iv_rank": 0.4,
@@ -18,7 +18,34 @@
     "longvol_catalyst_days": 14
   },
   "top": [],
-  "long_vol": [],
+  "long_vol": [
+    {
+      "underlying": "BAC",
+      "structure": "long_strangle",
+      "iv_rank": 0.224,
+      "iv": 0.2662,
+      "price": 57.49,
+      "earnings_date": "2026-07-14",
+      "days_to_catalyst": 14,
+      "expected_move": 3.0,
+      "expected_move_pct": 0.0521,
+      "tag": "paper",
+      "rationale": "IV rank 22% (cheap) into earnings in 14d \u2014 market may be under-pricing the move"
+    },
+    {
+      "underlying": "JPM",
+      "structure": "long_strangle",
+      "iv_rank": 0.293,
+      "iv": 0.2767,
+      "price": 329.34,
+      "earnings_date": "2026-07-14",
+      "days_to_catalyst": 14,
+      "expected_move": 17.85,
+      "expected_move_pct": 0.0542,
+      "tag": "paper",
+      "rationale": "IV rank 29% (cheap) into earnings in 14d \u2014 market may be under-pricing the move"
+    }
+  ],
   "events": [],
   "learnings": {
     "global": {
@@ -65,7 +92,7 @@
     "TLT": "iv_rank 4%",
     "XLF": "iv_rank 24%",
     "XLE": "failed: pv: no/invalid leg quote",
-    "XLK": "failed: pv: spread short 136%/long 129%",
+    "XLK": "failed: pv: spread short 115%/long 129%",
     "AAPL": "earnings 2026-07-30 before expiry",
     "MSFT": "earnings 2026-07-29 before expiry",
     "AMZN": "earnings 2026-07-30 before expiry",
@@ -81,11 +108,11 @@
     "GS": "earnings 2026-07-14 before expiry",
     "V": "failed: pv: spread short 57%/long 24%",
     "MA": "earnings 2026-07-30 before expiry",
-    "DIS": "failed: pv: spread short 21%/long 193%",
+    "DIS": "failed: pv: spread short 58%/long 168%",
     "KO": "earnings 2026-07-28 before expiry",
     "PEP": "earnings 2026-07-09 before expiry",
     "WMT": "iv_rank 31%",
-    "COST": "failed: pv: spread short 55%/long 92%",
+    "COST": "failed: pv: spread short 94%/long 109%",
     "XOM": "failed: pv: spread short 29%/long 59%",
     "CVX": "failed: pv: spread short 67%/long 165%",
     "PFE": "iv_rank 18%",
