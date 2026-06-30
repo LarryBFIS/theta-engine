@@ -1,8 +1,8 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-30T18:51:41.835768+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-30T18:54:05.641681+00:00._
 
-**56 trades · 6 open / 50 closed · win rate 30% · realized $-7807.00 · open $-433.00 · total $-8240.00**
+**56 trades · 6 open / 50 closed · win rate 30% · realized $-7807.00 · open $-390.00 · total $-8197.00**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
@@ -59,6 +59,6 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0050_ba | BA 240/245p | PAPER | closed | $0.61 | $-298 | — | stop_1.5x |
 | paper_0052_cvx | CVX 180/185p | PAPER | closed | $0.51 | $-244 | — | stop_1.5x |
 | paper_0053_orcl | ORCL 125/120p | PAPER | closed | $0.50 | $-292 | — | stop_1.5x |
-| paper_0054_qqq | QQQ 686/677p | PAPER | open | $1.11 | — | $-28 |  |
+| paper_0054_qqq | QQQ 686/677p | PAPER | open | $1.11 | — | $-30 |  |
 | paper_0055_crm | CRM 140/135p | PAPER | open | $0.54 | — | $-123 |  |
-| paper_0056_amd | AMD 465/460p | PAPER | open | $0.60 | — | $-240 |  |
+| paper_0056_amd | AMD 465/460p | PAPER | open | $0.60 | — | $-195 |  |
