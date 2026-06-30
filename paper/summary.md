@@ -1,8 +1,8 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-30T19:04:02.532542+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-06-30T19:14:07.192305+00:00._
 
-**56 trades · 6 open / 50 closed · win rate 30% · realized $-7807.00 · open $-418.00 · total $-8225.00**
+**56 trades · 6 open / 50 closed · win rate 30% · realized $-7807.00 · open $-410.00 · total $-8217.00**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
@@ -46,19 +46,19 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0038_qqq | QQQ 685/675p | PAPER | closed | $1.28 | $-196 | — | stop_1.5x |
 | paper_0039_cost | COST 1000/1010p | PAPER | closed | $1.25 | $-385 | — | stop_1.5x |
 | paper_0040_qqq | QQQ 665/655p | PAPER | closed | $1.30 | $+125 | — | manage_50pct |
-| paper_0041_gld | GLD 340/335p | PAPER | open | $0.50 | — | $-3 |  |
-| paper_0042_iwm | IWM 280/275p | PAPER | open | $0.61 | — | $+69 |  |
+| paper_0041_gld | GLD 340/335p | PAPER | open | $0.50 | — | $-6 |  |
+| paper_0042_iwm | IWM 280/275p | PAPER | open | $0.61 | — | $+72 |  |
 | paper_0043_ba | BA 240/245p | PAPER | closed | $0.51 | $-434 | — | stop_1.5x |
 | paper_0044_orcl | ORCL 135/130p | PAPER | closed | $0.60 | $-368 | — | stop_1.5x |
 | paper_0045_v | V 315/310p | PAPER | closed | $0.50 | $-248 | — | stop_1.5x |
 | paper_0046_crm | CRM 170/175p | PAPER | closed | $0.51 | $-616 | — | stop_1.5x |
 | paper_0047_spy | SPY 696/687p | PAPER | closed | $0.98 | $+93 | — | manage_50pct |
 | paper_0048_crm | CRM 175/180p | PAPER | closed | $0.54 | $-260 | — | stop_1.5x |
-| paper_0049_xom | XOM 145/150p | PAPER | open | $0.69 | — | $-108 |  |
+| paper_0049_xom | XOM 145/150p | PAPER | open | $0.69 | — | $-135 |  |
 | paper_0050_ba | BA 240/245p | PAPER | closed | $0.61 | $-362 | — | stop_1.5x |
 | paper_0050_ba | BA 240/245p | PAPER | closed | $0.61 | $-298 | — | stop_1.5x |
 | paper_0052_cvx | CVX 180/185p | PAPER | closed | $0.51 | $-244 | — | stop_1.5x |
 | paper_0053_orcl | ORCL 125/120p | PAPER | closed | $0.50 | $-292 | — | stop_1.5x |
-| paper_0054_qqq | QQQ 686/677p | PAPER | open | $1.11 | — | $-28 |  |
-| paper_0055_crm | CRM 140/135p | PAPER | open | $0.54 | — | $-123 |  |
-| paper_0056_amd | AMD 465/460p | PAPER | open | $0.60 | — | $-225 |  |
+| paper_0054_qqq | QQQ 686/677p | PAPER | open | $1.11 | — | $-26 |  |
+| paper_0055_crm | CRM 140/135p | PAPER | open | $0.54 | — | $-135 |  |
+| paper_0056_amd | AMD 465/460p | PAPER | open | $0.60 | — | $-180 |  |
