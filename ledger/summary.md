@@ -1,21 +1,21 @@
 # Ledger Summary
 
-_Generated 2026-06-30T14:14:36.080047+00:00 from tastytrade transaction history._
+_Generated 2026-06-30T14:24:01.667115+00:00 from tastytrade transaction history._
 
 ## Reconciliation
 
 | Item | Amount |
 |---|---:|
 | Starting capital | $3,389.91 |
-| Net liq (now) | $3,597.81 |
-| Strategy realized (closed) | $+106.86 |
-| Strategy unrealized (open) | $+81.12 |
-| **Strategy P&L** | **$+187.98** |
+| Net liq (now) | $3,641.37 |
+| Strategy realized (closed) | $+159.35 |
+| Strategy unrealized (open) | $+53.88 |
+| **Strategy P&L** | **$+213.23** |
 | Money movement | $-0.15 |
-| Non-strategy activity | $+20.07 |
-| **Account P&L** | **$+207.90** |
+| Non-strategy activity | $+38.38 |
+| **Account P&L** | **$+251.46** |
 
-_Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger positions closed in-window). Total fees paid: $38.62._
+_Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger positions closed in-window). Total fees paid: $38.87._
 
 ### Money movement detail
 
@@ -32,10 +32,10 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 | ledger_004_jpm | JPM | 2026-05-29 | 2026-06-04 | closed | $+100.49 | — |
 | ledger_005_gld | GLD | 2026-06-01 | 2026-06-05 | closed | $-71.51 | — |
 | ledger_006_iwm | IWM | 2026-06-02 | 2026-06-05 | closed | $+44.50 | — |
-| ledger_007_slv | SLV | 2026-06-08 | — | open | — | $-34.75 |
+| ledger_007_slv | SLV | 2026-06-08 | — | open | — | $-32.25 |
 | ledger_008_iwm | IWM | 2026-06-17 | 2026-06-22 | closed | $+17.93 | — |
 | ledger_009_cvx | CVX | 2026-06-17 | 2026-06-18 | closed | $+7.50 | — |
-| ledger_010_spy | SPY | 2026-06-22 | — | open | — | $+14.75 |
+| ledger_010_spy | SPY | 2026-06-22 | — | open | — | $+18.75 |
 | ledger_011_cost | COST | 2026-06-22 | 2026-06-25 | closed | $+21.48 | — |
-| ledger_012_spy | SPY | 2026-06-23 | — | open | — | $+51.24 |
-| ledger_013_slv | SLV | 2026-06-25 | — | open | — | $+49.88 |
+| ledger_012_spy | SPY | 2026-06-23 | 2026-06-30 | closed | $+52.49 | — |
+| ledger_013_slv | SLV | 2026-06-25 | — | open | — | $+67.38 |
