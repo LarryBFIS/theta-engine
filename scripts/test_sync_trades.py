@@ -110,6 +110,35 @@ def main() -> int:
     if not any("re-opened" in c for c in healchg):
         failures.append("expected a 're-opened' change, got {}".format(healchg))
 
+    # --- dedupe a snapshot PHANTOM: ledger-tracked closed trade + order-id-less open dup ---
+    # (the COST 1000/1010 case: real close booked +$21.48, plus a ghost open from a
+    #  lagging gist snapshot with no open_order_id that could never be reconciled)
+    dedh = {"schema_version": 2, "trades": [
+        {"id": "trade_012_cost_1000_1010", "underlying": "COST", "status": "closed",
+         "open_order_id": "477750053", "close_order_id": "478727405",
+         "short_strike": 1000, "long_strike": 1010, "expiry": "2026-07-24", "realized_pnl": 21.48},
+        {"id": "trade_014_cost_1000_1010", "underlying": "COST", "status": "open",
+         "open_order_id": None, "short_strike": 1000, "long_strike": 1010, "expiry": "2026-07-24"},
+    ]}
+    dedh, dedchg = merge_ledger_into_trades(dedh, [])  # dedupe runs on every merge
+    ded_ids = [t["id"] for t in dedh["trades"]]
+    if "trade_014_cost_1000_1010" in ded_ids:
+        failures.append("phantom not removed: {}".format(ded_ids))
+    if not any("removed phantom" in c for c in dedchg):
+        failures.append("expected a 'removed phantom' change, got {}".format(dedchg))
+    real = next((t for t in dedh["trades"] if t["id"] == "trade_012_cost_1000_1010"), None)
+    if not real or real.get("realized_pnl") != 21.48 or real.get("status") != "closed":
+        failures.append("real closed trade harmed by dedupe: {}".format(real))
+
+    # a lone order-id-less open (no ledger-backed twin) must be LEFT ALONE
+    soloh = {"schema_version": 2, "trades": [
+        {"id": "trade_020_amd_100_95", "underlying": "AMD", "status": "open",
+         "open_order_id": None, "short_strike": 100, "long_strike": 95, "expiry": "2026-08-21"},
+    ]}
+    soloh, solochg = merge_ledger_into_trades(soloh, [])
+    if len(soloh["trades"]) != 1 or any("removed phantom" in c for c in solochg):
+        failures.append("lone order-id-less open wrongly removed: {} / {}".format(soloh["trades"], solochg))
+
     if failures:
         print("FAILED:")
         for f in failures:

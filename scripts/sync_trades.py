@@ -81,12 +81,44 @@ def _hand_from_ledger(lt: dict, trades: list) -> dict:
     return ht
 
 
+def _sig(t: dict) -> str:
+    """Identity of a position by underlying + strikes + expiry (order-id free)."""
+    def n(x):
+        try:
+            return str(int(float(x)))
+        except (TypeError, ValueError):
+            return str(x)
+    return "{}|{}|{}|{}".format((t.get("underlying") or "").upper(),
+                                n(t.get("short_strike")), n(t.get("long_strike")),
+                                (t.get("expiry") or "")[:10])
+
+
+def _dedupe_phantoms(trades: list):
+    """Drop a snapshot PHANTOM: an OPEN trade with no open_order_id whose signature
+    matches another trade that DOES have an open_order_id. The order-id-backed entry
+    is broker-truth (it came from the transaction ledger); the order-id-less one is a
+    positions snapshot that raced the ledger — e.g. the gist still showed a position
+    open just after the ledger booked it closed, so positions_sync re-added it as a
+    fresh, un-closable open. Returns (kept_trades, changes[])."""
+    backed = {_sig(t) for t in trades if t.get("open_order_id")}
+    kept, changes = [], []
+    for t in trades:
+        if (t.get("status") == "open" and not t.get("open_order_id")
+                and _sig(t) in backed):
+            changes.append("removed phantom {} (duplicate of ledger-tracked trade)".format(
+                t.get("id") or _sig(t)))
+            continue
+        kept.append(t)
+    return kept, changes
+
+
 def merge_ledger_into_trades(hand: dict, ledger_trades: list):
     """Reconcile hand trades with the ledger. Returns (hand, changes[]).
 
     Only enriched ledger trades (those with a parsed short_strike) are synced —
     unmatched/pre-window close-only entries are skipped. Idempotent: matching an
-    already-tracked, already-closed trade does nothing.
+    already-tracked, already-closed trade does nothing. A final pass removes any
+    order-id-less snapshot phantom duplicating a ledger-tracked trade.
     """
     trades = hand.setdefault("trades", [])
     by_order = {str(t.get("open_order_id")): t for t in trades if t.get("open_order_id")}
@@ -112,6 +144,10 @@ def merge_ledger_into_trades(hand: dict, ledger_trades: list):
             ht["closed_at"] = None
             ht["realized_pnl"] = None
             changes.append("re-opened " + (ht.get("id") or oid) + " (ledger shows open)")
+    kept, dchanges = _dedupe_phantoms(trades)
+    if dchanges:
+        hand["trades"] = kept
+        changes.extend(dchanges)
     return hand, changes
 
 

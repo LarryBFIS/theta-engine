@@ -139,10 +139,15 @@ def sync():
     trades = data.setdefault("trades", [])
 
     open_sigs = {}
+    closed_sigs = set()
     for t in trades:
+        if not (t.get("short_strike") and t.get("long_strike")):
+            continue
+        sig = trade_sig(t["underlying"], t["short_strike"], t["long_strike"], t["expiry"])
         if t.get("status") == "open":
-            sig = trade_sig(t["underlying"], t["short_strike"], t["long_strike"], t["expiry"])
             open_sigs[sig] = t
+        elif t.get("status") == "closed":
+            closed_sigs.add(sig)
 
     broker_sigs = set()
     added = 0
@@ -164,6 +169,14 @@ def sync():
 
         if sig in open_sigs:
             print(f"  = TRACKED: {normalized['underlying']} {normalized['short_strike']}/{normalized['long_strike']} exp {normalized['expiry']}")
+            continue
+
+        if sig in closed_sigs:
+            # The transaction ledger already booked this position CLOSED, but the
+            # gist snapshot still shows it (snapshots lag a poll or two after a fill).
+            # Do NOT re-add it — that created order-id-less phantom "open" duplicates
+            # that the ledger could never reconcile. Ledger is the source of truth.
+            print(f"  ~ SNAPSHOT LAG: {normalized['underlying']} {normalized['short_strike']}/{normalized['long_strike']} already closed in ledger — not re-adding")
             continue
 
         new_id = next_trade_id(trades, normalized['underlying'], normalized['short_strike'], normalized['long_strike'])
