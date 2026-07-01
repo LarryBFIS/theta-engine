@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-30T20:27:29.341127+00:00",
+  "generated_at": "2026-07-01T13:34:31.632704+00:00",
   "regime": {
-    "vix": 16.52,
-    "vix_day_change_pct": -0.064,
+    "vix": 16.8,
+    "vix_day_change_pct": 0.0213,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (-6% day)"
+    "note": "normal regime (+2% day)"
   },
   "params": {
     "min_iv_rank": 0.4,
@@ -17,110 +17,20 @@
     "longvol_max_iv_rank": 0.3,
     "longvol_catalyst_days": 14
   },
-  "top": [
-    {
-      "underlying": "QQQ",
-      "structure": "short_put_vertical",
-      "expiry": "2026-07-31",
-      "dte": 31,
-      "short_strike": 687.0,
-      "long_strike": 678.0,
-      "short_symbol": "QQQ   260731P00687000",
-      "long_symbol": "QQQ   260731P00678000",
-      "width": 9.0,
-      "credit": 0.99,
-      "mid_credit": 1.22,
-      "fees_est": 3.0,
-      "bpr": 801.0,
-      "max_loss": 801.0,
-      "pop": 0.8,
-      "short_delta": 0.179,
-      "short_spread_pct": 0.034,
-      "credit_to_bpr": 0.124,
-      "ev_per_contract": 6.83,
-      "ev_on_bpr": 0.0085,
-      "iv": 0.2668,
-      "iv_rank": 0.675,
-      "underlying_price": 735.6,
-      "liquidity": 4,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 2,
-      "max_loss_total": 1602.0,
-      "bpr_total": 1602.0,
-      "trend": "bullish",
-      "sized_capped": true,
-      "reasoning": "short put vertical 687/678p \u00d72 \u2014 bullish lean. Edge: IV rank 68%, EV $+7/ctr (+0.9% on BPR). POP 80% \u00b7 credit $0.99 \u00b7 max loss $801 \u00b7 BPR $1602 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 0.673,
-      "learn_notes": [
-        "asset_class=single_name \u00d70.70",
-        "cluster=us_tech \u00d70.73",
-        "structure=short_put_vertical \u00d71.32"
-      ],
-      "rank_score": 0.005721,
-      "agent_reviewed": false,
-      "news_risk": {
-        "level": "clear",
-        "hits": []
-      },
-      "net_liq": 3592.597,
-      "ticket": {
-        "underlying": "QQQ",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 0.99,
-        "contracts": 2,
-        "expiry": "2026-07-31",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 2,
-            "expiry": "2026-07-31",
-            "strike": 687.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 2,
-            "expiry": "2026-07-31",
-            "strike": 678.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 198.0,
-        "max_loss_total": 1602.0,
-        "bpr_total": 1602.0,
-        "pop": 0.8,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.49,
-          "stop_debit": 2.48,
-          "exit_dte": 21
-        },
-        "fits_live_cap": false,
-        "live_cap": 359.26,
-        "suggested_width": 4,
-        "fit_note": "\u26a0 max loss $801 > 10% live cap ($359) \u2014 narrow to ~4-wide for live, or keep on paper.",
-        "text": "QQQ VP \u00d72 \u2014 SELL 687P / BUY 678P (2026-07-31) @ $0.99 net credit. Max loss $1602. After fill: GTC buy-to-close @ $0.49 (50%). \u26a0 max loss $801 > 10% live cap ($359) \u2014 narrow to ~4-wide for live, or keep on paper."
-      },
-      "posted_at": "2026-06-30T20:27:29.341127+00:00"
-    }
-  ],
+  "top": [],
   "long_vol": [
     {
       "underlying": "BAC",
       "structure": "long_strangle",
       "iv_rank": 0.289,
       "iv": 0.2863,
-      "price": 57.01,
+      "price": 57.03,
       "earnings_date": "2026-07-14",
-      "days_to_catalyst": 14,
-      "expected_move": 3.2,
-      "expected_move_pct": 0.0561,
+      "days_to_catalyst": 13,
+      "expected_move": 3.08,
+      "expected_move_pct": 0.054,
       "tag": "paper",
-      "rationale": "IV rank 29% (cheap) into earnings in 14d \u2014 market may be under-pricing the move"
+      "rationale": "IV rank 29% (cheap) into earnings in 13d \u2014 market may be under-pricing the move"
     }
   ],
   "events": [],
@@ -164,96 +74,65 @@
       }
     ]
   },
-  "agent": null,
+  "agent": {
+    "generated_at": "2026-07-01T13:34:31.629333+00:00",
+    "model": "claude-haiku-4-5",
+    "portfolio_note": "Book is small (5 open, -$327 unrealized) but already concentrated: us_tech has 2 positions (QQQ, CRM), and this candidate adds a 3rd to the same cluster. Cluster cap is 3; approval would hit it and violate diversification principle.",
+    "reviewed": 1,
+    "vetoed": 1,
+    "downsized": 0,
+    "decisions": [
+      {
+        "id": "QQQ|short_put_vertical|679/670",
+        "action": "veto",
+        "reason": "Adding QQQ vertical to existing QQQ + CRM (us_tech cluster) violates diversification; cluster would be at max 3 with correlated tech exposure. Single-name has shown negative expectancy (21% wr). Pass."
+      }
+    ]
+  },
   "all_candidates": [
     {
       "underlying": "QQQ",
       "structure": "short_put_vertical",
       "expiry": "2026-07-31",
-      "dte": 31,
-      "short_strike": 687.0,
-      "long_strike": 678.0,
-      "short_symbol": "QQQ   260731P00687000",
-      "long_symbol": "QQQ   260731P00678000",
+      "dte": 30,
+      "short_strike": 679.0,
+      "long_strike": 670.0,
+      "short_symbol": "QQQ   260731P00679000",
+      "long_symbol": "QQQ   260731P00670000",
       "width": 9.0,
-      "credit": 0.99,
-      "mid_credit": 1.22,
+      "credit": 1.13,
+      "mid_credit": 1.26,
       "fees_est": 3.0,
-      "bpr": 801.0,
-      "max_loss": 801.0,
-      "pop": 0.8,
+      "bpr": 787.0,
+      "max_loss": 787.0,
+      "pop": 0.801,
       "short_delta": 0.179,
-      "short_spread_pct": 0.034,
-      "credit_to_bpr": 0.124,
-      "ev_per_contract": 6.83,
-      "ev_on_bpr": 0.0085,
+      "short_spread_pct": 0.019,
+      "credit_to_bpr": 0.144,
+      "ev_per_contract": 8.47,
+      "ev_on_bpr": 0.0108,
       "iv": 0.2668,
       "iv_rank": 0.675,
-      "underlying_price": 735.6,
+      "underlying_price": 726.41,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 2,
-      "max_loss_total": 1602.0,
-      "bpr_total": 1602.0,
+      "max_loss_total": 1574.0,
+      "bpr_total": 1574.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 687/678p \u00d72 \u2014 bullish lean. Edge: IV rank 68%, EV $+7/ctr (+0.9% on BPR). POP 80% \u00b7 credit $0.99 \u00b7 max loss $801 \u00b7 BPR $1602 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 679/670p \u00d72 \u2014 bullish lean. Edge: IV rank 68%, EV $+8/ctr (+1.1% on BPR). POP 80% \u00b7 credit $1.13 \u00b7 max loss $787 \u00b7 BPR $1574 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.673,
       "learn_notes": [
         "asset_class=single_name \u00d70.70",
         "cluster=us_tech \u00d70.73",
         "structure=short_put_vertical \u00d71.32"
       ],
-      "rank_score": 0.005721,
-      "agent_reviewed": false,
-      "news_risk": {
-        "level": "clear",
-        "hits": []
-      },
-      "net_liq": 3592.597,
-      "ticket": {
-        "underlying": "QQQ",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 0.99,
-        "contracts": 2,
-        "expiry": "2026-07-31",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 2,
-            "expiry": "2026-07-31",
-            "strike": 687.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 2,
-            "expiry": "2026-07-31",
-            "strike": 678.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 198.0,
-        "max_loss_total": 1602.0,
-        "bpr_total": 1602.0,
-        "pop": 0.8,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.49,
-          "stop_debit": 2.48,
-          "exit_dte": 21
-        },
-        "fits_live_cap": false,
-        "live_cap": 359.26,
-        "suggested_width": 4,
-        "fit_note": "\u26a0 max loss $801 > 10% live cap ($359) \u2014 narrow to ~4-wide for live, or keep on paper.",
-        "text": "QQQ VP \u00d72 \u2014 SELL 687P / BUY 678P (2026-07-31) @ $0.99 net credit. Max loss $1602. After fill: GTC buy-to-close @ $0.49 (50%). \u26a0 max loss $801 > 10% live cap ($359) \u2014 narrow to ~4-wide for live, or keep on paper."
-      },
-      "posted_at": "2026-06-30T20:27:29.341127+00:00"
+      "rank_score": 0.007268,
+      "agent_action": "veto",
+      "agent_reason": "Adding QQQ vertical to existing QQQ + CRM (us_tech cluster) violates diversification; cluster would be at max 3 with correlated tech exposure. Single-name has shown negative expectancy (21% wr). Pass."
     }
   ],
   "skipped": {
@@ -263,38 +142,38 @@
     "GLD": "iv_rank 38%",
     "SLV": "iv_rank 31%",
     "TLT": "iv_rank 7%",
-    "XLF": "failed: pv: no/invalid leg quote",
-    "XLE": "failed: pv: no/invalid leg quote",
-    "XLK": "failed: pv: spread short 97%/long 88%",
+    "XLF": "failed: pv: spread short 69%/long 178%",
+    "XLE": "failed: pv: spread short 114%/long 183%",
+    "XLK": "failed: pv: spread short 32%/long 42%",
     "AAPL": "earnings 2026-07-30 before expiry",
     "MSFT": "earnings 2026-07-29 before expiry",
     "AMZN": "earnings 2026-07-30 before expiry",
     "GOOGL": "earnings 2026-07-22 before expiry",
     "META": "earnings 2026-07-29 before expiry",
     "NVDA": "iv_rank 24%",
-    "AMD": "failed: pv: credit/width 0.01 < 0.10",
+    "AMD": "failed: pv: spread short 29%/long 30%",
     "TSLA": "iv_rank 34%",
     "NFLX": "earnings 2026-07-16 before expiry",
     "JPM": "iv_rank 35%",
     "BAC": "iv_rank 29%",
     "WFC": "earnings 2026-07-14 before expiry",
     "GS": "earnings 2026-07-14 before expiry",
-    "V": "failed: pv: spread short 39%/long 36%",
+    "V": "failed: pv: spread short 38%/long 46%",
     "MA": "earnings 2026-07-30 before expiry",
-    "DIS": "failed: pv: spread short 26%/long 196%",
+    "DIS": "failed: pv: no/invalid leg quote",
     "KO": "earnings 2026-07-28 before expiry",
     "PEP": "earnings 2026-07-09 before expiry",
     "WMT": "iv_rank 25%",
     "COST": "iv_rank 39%",
-    "XOM": "failed: pv: spread short 25%/long 54%",
-    "CVX": "failed: pv: spread short 21%/long 58%",
+    "XOM": "failed: pv: spread short 29%/long 167%",
+    "CVX": "failed: pv: spread short 47%/long 100%",
     "PFE": "iv_rank 33%",
-    "MRK": "failed: pv: spread short 104%/long 136%",
+    "MRK": "failed: pv: no/invalid leg quote",
     "INTC": "earnings 2026-07-23 before expiry",
-    "CSCO": "failed: pv: spread short 47%/long 77%",
-    "ORCL": "failed: pv: credit/width 0.09 < 0.10",
-    "CRM": "failed: pv: credit/width 0.08 < 0.10",
-    "BA": "failed: pv: spread short 26%/long 58%",
-    "CAT": "failed: pv: spread short 56%/long 46%"
+    "CSCO": "failed: pv: spread short 80%/long 121%",
+    "ORCL": "failed: pv: spread short 47%/long 64%",
+    "CRM": "failed: pv: spread short 44%/long 62%",
+    "BA": "failed: pv: spread short 83%/long 94%",
+    "CAT": "failed: pv: spread short 48%/long 65%"
   }
 }
