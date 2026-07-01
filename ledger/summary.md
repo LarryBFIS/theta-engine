@@ -1,6 +1,6 @@
 # Ledger Summary
 
-_Generated 2026-07-01T20:24:13.431590+00:00 from tastytrade transaction history._
+_Generated 2026-07-01T20:28:27.046974+00:00 from tastytrade transaction history._
 
 ## Reconciliation
 
