@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T13:34:31.632704+00:00",
+  "generated_at": "2026-07-01T13:39:01.951774+00:00",
   "regime": {
     "vix": 16.8,
     "vix_day_change_pct": 0.0213,
@@ -24,7 +24,7 @@
       "structure": "long_strangle",
       "iv_rank": 0.289,
       "iv": 0.2863,
-      "price": 57.03,
+      "price": 57.05,
       "earnings_date": "2026-07-14",
       "days_to_catalyst": 13,
       "expected_move": 3.08,
@@ -36,48 +36,48 @@
   "events": [],
   "learnings": {
     "global": {
-      "closed": 50,
+      "closed": 51,
       "wins": 15,
-      "losses": 35,
-      "win_rate": 0.3,
-      "total_pnl": -7738.0
+      "losses": 36,
+      "win_rate": 0.294,
+      "total_pnl": -8171.5
     },
     "min_sample": 20,
     "actionable": [
       {
         "dim": "asset_class",
         "value": "single_name",
-        "multiplier": 0.698,
-        "recommendation": "AVOID (neg expectancy; wr 21% < prior 30%)",
-        "n": 33
+        "multiplier": 0.691,
+        "recommendation": "AVOID (neg expectancy; wr 20% < prior 29%)",
+        "n": 34
       },
       {
         "dim": "structure",
         "value": "short_put_vertical",
-        "multiplier": 1.318,
+        "multiplier": 1.34,
         "recommendation": "favor",
         "n": 33
       },
       {
         "dim": "cluster",
         "value": "us_tech",
-        "multiplier": 0.732,
-        "recommendation": "AVOID (neg expectancy; wr 22% < prior 30%)",
+        "multiplier": 0.741,
+        "recommendation": "AVOID (neg expectancy; wr 22% < prior 29%)",
         "n": 31
       },
       {
         "dim": "size",
         "value": "2x",
-        "multiplier": 1.333,
+        "multiplier": 1.353,
         "recommendation": "favor",
         "n": 20
       }
     ]
   },
   "agent": {
-    "generated_at": "2026-07-01T13:34:31.629333+00:00",
+    "generated_at": "2026-07-01T13:39:01.948138+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is small (5 open, -$327 unrealized) but already concentrated: us_tech has 2 positions (QQQ, CRM), and this candidate adds a 3rd to the same cluster. Cluster cap is 3; approval would hit it and violate diversification principle.",
+    "portfolio_note": "Book is already 50% concentrated in us_tech (2/4 open positions); adding QQQ vertical would push cluster to 3/3 cap and create correlated short-vol exposure across QQQ + existing positions. VIX 16.8 is benign, but cluster saturation is the binding constraint.",
     "reviewed": 1,
     "vetoed": 1,
     "downsized": 0,
@@ -85,7 +85,7 @@
       {
         "id": "QQQ|short_put_vertical|679/670",
         "action": "veto",
-        "reason": "Adding QQQ vertical to existing QQQ + CRM (us_tech cluster) violates diversification; cluster would be at max 3 with correlated tech exposure. Single-name has shown negative expectancy (21% wr). Pass."
+        "reason": "us_tech cluster already at 2 open; this trade would hit 3/3 cap and create uncompensated correlation risk; favor diversification into uncorrelated asset class instead."
       }
     ]
   },
@@ -100,39 +100,39 @@
       "short_symbol": "QQQ   260731P00679000",
       "long_symbol": "QQQ   260731P00670000",
       "width": 9.0,
-      "credit": 1.13,
-      "mid_credit": 1.26,
+      "credit": 1.22,
+      "mid_credit": 1.33,
       "fees_est": 3.0,
-      "bpr": 787.0,
-      "max_loss": 787.0,
-      "pop": 0.801,
-      "short_delta": 0.179,
-      "short_spread_pct": 0.019,
-      "credit_to_bpr": 0.144,
-      "ev_per_contract": 8.47,
-      "ev_on_bpr": 0.0108,
+      "bpr": 778.0,
+      "max_loss": 778.0,
+      "pop": 0.799,
+      "short_delta": 0.18,
+      "short_spread_pct": 0.015,
+      "credit_to_bpr": 0.157,
+      "ev_per_contract": 9.05,
+      "ev_on_bpr": 0.0116,
       "iv": 0.2668,
       "iv_rank": 0.675,
-      "underlying_price": 726.41,
+      "underlying_price": 726.14,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 2,
-      "max_loss_total": 1574.0,
-      "bpr_total": 1574.0,
+      "max_loss_total": 1556.0,
+      "bpr_total": 1556.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 679/670p \u00d72 \u2014 bullish lean. Edge: IV rank 68%, EV $+8/ctr (+1.1% on BPR). POP 80% \u00b7 credit $1.13 \u00b7 max loss $787 \u00b7 BPR $1574 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 0.673,
+      "reasoning": "short put vertical 679/670p \u00d72 \u2014 bullish lean. Edge: IV rank 68%, EV $+9/ctr (+1.2% on BPR). POP 80% \u00b7 credit $1.22 \u00b7 max loss $778 \u00b7 BPR $1556 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 0.686,
       "learn_notes": [
-        "asset_class=single_name \u00d70.70",
-        "cluster=us_tech \u00d70.73",
-        "structure=short_put_vertical \u00d71.32"
+        "asset_class=single_name \u00d70.69",
+        "cluster=us_tech \u00d70.74",
+        "structure=short_put_vertical \u00d71.34"
       ],
-      "rank_score": 0.007268,
+      "rank_score": 0.007958,
       "agent_action": "veto",
-      "agent_reason": "Adding QQQ vertical to existing QQQ + CRM (us_tech cluster) violates diversification; cluster would be at max 3 with correlated tech exposure. Single-name has shown negative expectancy (21% wr). Pass."
+      "agent_reason": "us_tech cluster already at 2 open; this trade would hit 3/3 cap and create uncompensated correlation risk; favor diversification into uncorrelated asset class instead."
     }
   ],
   "skipped": {
@@ -142,23 +142,23 @@
     "GLD": "iv_rank 38%",
     "SLV": "iv_rank 31%",
     "TLT": "iv_rank 7%",
-    "XLF": "failed: pv: spread short 69%/long 178%",
-    "XLE": "failed: pv: spread short 114%/long 183%",
-    "XLK": "failed: pv: spread short 32%/long 42%",
+    "XLF": "failed: pv: spread short 67%/long 176%",
+    "XLE": "failed: pv: spread short 94%/long 183%",
+    "XLK": "failed: pv: spread short 39%/long 42%",
     "AAPL": "earnings 2026-07-30 before expiry",
     "MSFT": "earnings 2026-07-29 before expiry",
     "AMZN": "earnings 2026-07-30 before expiry",
     "GOOGL": "earnings 2026-07-22 before expiry",
     "META": "earnings 2026-07-29 before expiry",
     "NVDA": "iv_rank 24%",
-    "AMD": "failed: pv: spread short 29%/long 30%",
+    "AMD": "failed: pv: exec credit -0.90 <= 0",
     "TSLA": "iv_rank 34%",
     "NFLX": "earnings 2026-07-16 before expiry",
     "JPM": "iv_rank 35%",
     "BAC": "iv_rank 29%",
     "WFC": "earnings 2026-07-14 before expiry",
     "GS": "earnings 2026-07-14 before expiry",
-    "V": "failed: pv: spread short 38%/long 46%",
+    "V": "failed: pv: spread short 36%/long 42%",
     "MA": "earnings 2026-07-30 before expiry",
     "DIS": "failed: pv: no/invalid leg quote",
     "KO": "earnings 2026-07-28 before expiry",
@@ -170,10 +170,10 @@
     "PFE": "iv_rank 33%",
     "MRK": "failed: pv: no/invalid leg quote",
     "INTC": "earnings 2026-07-23 before expiry",
-    "CSCO": "failed: pv: spread short 80%/long 121%",
-    "ORCL": "failed: pv: spread short 47%/long 64%",
-    "CRM": "failed: pv: spread short 44%/long 62%",
+    "CSCO": "failed: pv: spread short 59%/long 110%",
+    "ORCL": "failed: pv: spread short 32%/long 63%",
+    "CRM": "failed: pv: spread short 42%/long 56%",
     "BA": "failed: pv: spread short 83%/long 94%",
-    "CAT": "failed: pv: spread short 48%/long 65%"
+    "CAT": "failed: pv: spread short 37%/long 59%"
   }
 }
