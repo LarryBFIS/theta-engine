@@ -251,3 +251,31 @@ accumulating evidence and showing it, without trading on noise.
 - Lesson: the proven *underlying* (SPY/IWM) is necessary but not sufficient — the
   *width* must keep max loss ≤ 10% of the live account until it grows. The
   dashboard now refuses to let a cap-busting width look executable.
+
+---
+
+## 2026-07-01 — engine restricted to the proven edge: SPY / IWM / DIA only
+
+The paper book settled the question with 54 closes (−$8,892 realized):
+
+| Bucket | n | Win% | P&L |
+|---|---|---:|---:|
+| Index (SPY/IWM/DIA) | 10 | **90%** | **+$918** |
+| Tech | 31 | 19% | −$4,768 |
+| Other single names | 13 | 8% | −$5,042 |
+
+And by size: **≥3-lot trades = −$7,394 (83% of all losses)**; 1–2 lots = −$1,499.
+The actual strategy — **index, 1–2 lots — is +$514, 5/6 wins.** 100% of the damage
+is names we don't trade, sized too big, before the guardrails existed.
+
+**Decision (Jay):** stop scanning everything. `DEFAULT_UNIVERSE` is now **SPY, IWM,
+DIA** only. The engine can't open a trade outside the edge because it never looks
+at anything else — this also kills the earnings-crush and day-trade passes on
+single names (they had no index candidates to work with). The −$8.9k stays in
+history; going forward the book only adds index trades, so the line turns green on
+its own. Full former universe is restorable via `SCAN_UNIVERSE="..."`.
+
+**Why it's real (not just a hot streak):** premium selling harvests the vol risk
+premium on **low-vol, mean-reverting** underlyings; single names **trend and gap**,
+running over the short strike. SPY/IWM/DIA are the structural fit; big tech is the
+structural enemy. This is direction-independent → safe to hardcode.

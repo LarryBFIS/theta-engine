@@ -40,12 +40,15 @@ def _no(reason):
     return None
 
 # ── Tunables (env-overridable) ──────────────────────────────────────────
-# A curated liquid, optionable universe. Override with SCAN_UNIVERSE="A,B,C".
+# PROVEN EDGE ONLY — the broad-market index ETFs. The paper book proved it hard:
+# index (SPY/IWM/DIA) closed ~90% wins / +$918, while tech and single names bled
+# ~-$9,800 (mostly oversized, pre-guardrail). Premium selling works on low-vol,
+# mean-reverting indices and gets run over on trending single names. So the engine
+# now scans ONLY these three — it can't open a trade outside the edge because it
+# never looks at anything else. The full former universe lives in git history and
+# can be restored by setting SCAN_UNIVERSE="A,B,C" if we ever want to test more.
 DEFAULT_UNIVERSE = [
-    "SPY", "QQQ", "IWM", "DIA", "GLD", "SLV", "TLT", "XLF", "XLE", "XLK",
-    "AAPL", "MSFT", "AMZN", "GOOGL", "META", "NVDA", "AMD", "TSLA", "NFLX",
-    "JPM", "BAC", "WFC", "GS", "V", "MA", "DIS", "KO", "PEP", "WMT", "COST",
-    "XOM", "CVX", "PFE", "MRK", "INTC", "CSCO", "ORCL", "CRM", "BA", "CAT",
+    "SPY", "IWM", "DIA",
 ]
 MIN_IV_RANK = float(os.getenv("SCAN_MIN_IV_RANK", "0.40"))   # only rich premium (P4: 0.30->0.40)
 DTE_MIN = int(os.getenv("SCAN_DTE_MIN", "30"))
