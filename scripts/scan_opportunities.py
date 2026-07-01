@@ -50,7 +50,10 @@ def _no(reason):
 DEFAULT_UNIVERSE = [
     "SPY", "IWM", "DIA",
 ]
-MIN_IV_RANK = float(os.getenv("SCAN_MIN_IV_RANK", "0.40"))   # only rich premium (P4: 0.30->0.40)
+MIN_IV_RANK = float(os.getenv("SCAN_MIN_IV_RANK", "0.30"))   # rich-premium floor. 0.30 is where the
+# SPY/IWM index edge was actually proven; it was briefly bumped to 0.40 for the broad single-name
+# universe. Index ETFs are low-vol and rarely reach 40% IV rank, so with the universe now restricted
+# to SPY/IWM/DIA a 0.40 floor leaves the feed empty for weeks. Back to 0.30; EV/POP/liquidity still gate.
 DTE_MIN = int(os.getenv("SCAN_DTE_MIN", "30"))
 DTE_MAX = int(os.getenv("SCAN_DTE_MAX", "60"))               # P4: 50->60
 TARGET_POP = float(os.getenv("SCAN_TARGET_POP", "0.80"))     # ~0.20Δ short put
@@ -122,7 +125,9 @@ IC_PUT_POP_DEFENSIVE = float(os.getenv("SCAN_IC_PUT_POP_DEF", "0.92"))  # furthe
 # A pick is "live-worthy" (route to Approve/Reject for real execution) only if it
 # clears these higher bars; everything else is paper-traded to keep proving edge.
 LIVE_MIN_EV_ON_BPR = float(os.getenv("SCAN_LIVE_MIN_EV_ON_BPR", "0.018"))
-LIVE_MIN_IV_RANK = float(os.getenv("SCAN_LIVE_MIN_IV_RANK", "0.50"))
+LIVE_MIN_IV_RANK = float(os.getenv("SCAN_LIVE_MIN_IV_RANK", "0.35"))  # live-worthy IV floor. Index
+# ETFs almost never hit 50% IV rank, so 0.50 would tag every index setup PAPER forever; 0.35 lets a
+# genuinely rich index setup qualify as a live recommendation (still gated by AI approval + EV).
 # New structures (call verticals, iron condors) stay PAPER until they've proven
 # out in the paper book for several sessions. Flip SCAN_NEW_STRUCTURES_LIVE=1 to
 # allow them to earn a LIVE tag. Put verticals (the proven core) are unaffected.
