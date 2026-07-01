@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-07-01T14:55:33.782025+00:00",
-  "market_view": "VIX at 16.29 and still compressing, SPY flat on the day while tech continues to bleed -2.1% \u2014 neutral regime. Both flagged positions from last cycle remain unexecuted and are now urgent.",
+  "last_run": "2026-07-01T15:04:19.586529+00:00",
+  "market_view": "VIX at 16.48 in neutral regime, SPY flat while tech rotates out -1.91% \u2014 no systemic risk but SLV remains deep in the breach and SPY hits the 21 DTE hard wall tomorrow. Both positions require immediate execution, not analysis.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-01T14:55:22.701060+00:00",
-    "reasoning": "Short strike 61 hard-breached with SLV at $54.51 \u2014 11.9% through the strike. Mid at $0.75 is 1.5x credit and worst fill $0.90 is 1.8x credit, both triggering the 1.5x stop rule. This is the third consecutive cycle unfilled \u2014 max loss on a $50 BPR position is imminent."
+    "timestamp": "2026-07-01T15:04:05.933436+00:00",
+    "reasoning": "Short strike 61 is 11.9% breached with SLV at $54.51 \u2014 mid at $0.75 is 1.5x credit (stop rule triggered) and worst fill $0.95 is 1.9x credit. This is the fourth consecutive cycle flagged CRITICAL with zero execution \u2014 max loss on this $50 BPR position is now a certainty if not closed immediately."
   },
   "SPY 712/703p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-07-01T14:55:22.701060+00:00",
-    "reasoning": "DTE hits 22 today and crosses the hard 21 DTE exit rule tomorrow with zero exceptions \u2014 this flagged ACTION last cycle and remains unexecuted, escalating to CRITICAL. SPY at $746.88 keeps short strike 4.6% OTM but the rule fires regardless of P&L."
+    "timestamp": "2026-07-01T15:04:05.933436+00:00",
+    "reasoning": "DTE is 22 today \u2014 the 21 DTE hard exit rule fires at open tomorrow with zero exceptions, and this has been flagged unexecuted for multiple cycles. Mid at $0.555 is 42% of credit received ($0.96), just below the 50% profit target but the DTE rule overrides \u2014 close today before market close."
   }
 }
