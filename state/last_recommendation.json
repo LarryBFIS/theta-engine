@@ -1,16 +1,10 @@
 {
-  "last_run": "2026-07-01T15:04:19.586529+00:00",
-  "market_view": "VIX at 16.48 in neutral regime, SPY flat while tech rotates out -1.91% \u2014 no systemic risk but SLV remains deep in the breach and SPY hits the 21 DTE hard wall tomorrow. Both positions require immediate execution, not analysis.",
+  "last_run": "2026-07-01T16:14:15.445996+00:00",
+  "market_view": "VIX at 16.09 and falling (-11% 5d), neutral regime with tech rotating out hard (-1.86% XLK) while financials rip +2.64% \u2014 no systemic risk but SLV breach is structural, not volatility-driven.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-01T15:04:05.933436+00:00",
-    "reasoning": "Short strike 61 is 11.9% breached with SLV at $54.51 \u2014 mid at $0.75 is 1.5x credit (stop rule triggered) and worst fill $0.95 is 1.9x credit. This is the fourth consecutive cycle flagged CRITICAL with zero execution \u2014 max loss on this $50 BPR position is now a certainty if not closed immediately."
-  },
-  "SPY 712/703p": {
-    "action": "CRITICAL",
-    "confidence": 0.98,
-    "timestamp": "2026-07-01T15:04:05.933436+00:00",
-    "reasoning": "DTE is 22 today \u2014 the 21 DTE hard exit rule fires at open tomorrow with zero exceptions, and this has been flagged unexecuted for multiple cycles. Mid at $0.555 is 42% of credit received ($0.96), just below the 50% profit target but the DTE rule overrides \u2014 close today before market close."
+    "timestamp": "2026-07-01T16:14:04.737446+00:00",
+    "reasoning": "Short strike 61 is 11.9% breached with SLV at $54.53, mid at $0.75 is 1.5x credit triggering the hard stop rule \u2014 this is now the fifth consecutive cycle flagged CRITICAL with zero execution, and the position is at full max loss trajectory on a $50 BPR trade. SPY position from last cycle is gone from positions list confirming that one was closed, so full focus on SLV now."
   }
 }
