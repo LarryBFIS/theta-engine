@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-02T13:20:55.770913+00:00",
+  "generated_at": "2026-07-02T14:29:17.340420+00:00",
   "regime": {
-    "vix": 16.25,
-    "vix_day_change_pct": -0.0205,
+    "vix": 15.82,
+    "vix_day_change_pct": -0.0464,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (-2% day)"
+    "note": "normal regime (-5% day)"
   },
   "params": {
     "min_iv_rank": 0.4,
@@ -22,39 +22,39 @@
   "events": [],
   "learnings": {
     "global": {
-      "closed": 53,
+      "closed": 54,
       "wins": 16,
-      "losses": 37,
-      "win_rate": 0.302,
-      "total_pnl": -8531.0
+      "losses": 38,
+      "win_rate": 0.296,
+      "total_pnl": -8741.5
     },
     "min_sample": 20,
     "actionable": [
       {
         "dim": "asset_class",
         "value": "single_name",
-        "multiplier": 0.664,
-        "recommendation": "AVOID (neg expectancy; wr 20% < prior 30%)",
-        "n": 35
+        "multiplier": 0.658,
+        "recommendation": "AVOID (neg expectancy; wr 19% < prior 30%)",
+        "n": 36
       },
       {
         "dim": "structure",
         "value": "short_put_vertical",
-        "multiplier": 1.357,
+        "multiplier": 1.378,
         "recommendation": "favor",
         "n": 34
       },
       {
         "dim": "cluster",
         "value": "us_tech",
-        "multiplier": 0.729,
+        "multiplier": 0.738,
         "recommendation": "AVOID (neg expectancy; wr 22% < prior 30%)",
         "n": 31
       },
       {
         "dim": "size",
         "value": "2x",
-        "multiplier": 1.284,
+        "multiplier": 1.302,
         "recommendation": "favor",
         "n": 21
       }
@@ -63,8 +63,8 @@
   "agent": null,
   "all_candidates": [],
   "skipped": {
-    "SPY": "iv_rank 34%",
-    "IWM": "iv_rank 27%",
-    "DIA": "iv_rank 25%"
+    "SPY": "iv_rank 32%",
+    "IWM": "iv_rank 25%",
+    "DIA": "iv_rank 24%"
   }
 }
