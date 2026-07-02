@@ -1,6 +1,6 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-07-02T17:19:36.799943+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-07-02T17:24:18.131861+00:00._
 
 **60 trades · 5 open / 55 closed · win rate 29% · realized $-9103.00 · open $-255.00 · total $-9358.00**
 
@@ -59,10 +59,10 @@ _Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026
 | paper_0050_ba | BA 240/245p | PAPER | closed | $0.61 | $-298 | — | stop_1.5x |
 | paper_0052_cvx | CVX 180/185p | PAPER | closed | $0.51 | $-244 | — | stop_1.5x |
 | paper_0053_orcl | ORCL 125/120p | PAPER | closed | $0.50 | $-292 | — | stop_1.5x |
-| paper_0054_qqq | QQQ 686/677p | PAPER | open | $1.11 | — | $-228 |  |
+| paper_0054_qqq | QQQ 686/677p | PAPER | open | $1.11 | — | $-226 |  |
 | paper_0055_crm | CRM 140/135p | PAPER | open | $0.54 | — | $+15 |  |
 | paper_0056_amd | AMD 465/460p | PAPER | closed | $0.60 | $-292 | — | stop_1.5x |
 | paper_0057_ba | BA 235/240p | PAPER | closed | $0.80 | $-445 | — | stop_1.5x |
 | paper_0058_cvx | CVX 155/150p | PAPER | open | $0.52 | — | $-60 |  |
 | paper_0059_dis | DIS 102/107p | PAPER | closed | $0.53 | $-210 | — | stop_1.5x |
-| paper_0060_spy | SPY 711/702p | PAPER | open | $0.95 | — | $-30 |  |
+| paper_0060_spy | SPY 711/702p | PAPER | open | $0.95 | — | $-32 |  |
