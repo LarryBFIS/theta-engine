@@ -1706,8 +1706,8 @@
       "opened_credit": 0.54,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 15.0,
-      "current_debit": 0.49,
+      "unrealized_pnl": -48.0,
+      "current_debit": 0.7,
       "close_reason": null
     },
     {
@@ -1857,21 +1857,50 @@
       "opened_credit": 0.95,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -32.0,
-      "current_debit": 1.11,
+      "unrealized_pnl": -30.0,
+      "current_debit": 1.1,
+      "close_reason": null
+    },
+    {
+      "id": "paper_0061_iwm",
+      "sig": "IWM_278_273_2026-08-07",
+      "underlying": "IWM",
+      "structure": "short_put_vertical",
+      "short_strike": 278.0,
+      "long_strike": 273.0,
+      "short_symbol": "IWM   260807P00278000",
+      "long_symbol": "IWM   260807P00273000",
+      "symbols": null,
+      "expiry": "2026-08-07",
+      "credit": 0.6,
+      "bpr": 440.0,
+      "pop": 0.796,
+      "iv_rank": 0.316,
+      "tag": "paper",
+      "contracts": 2,
+      "event": null,
+      "close_date": null,
+      "day_trade": null,
+      "close_after_et": null,
+      "opened_at": "2026-07-02",
+      "opened_credit": 0.6,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -16.0,
+      "current_debit": 0.68,
       "close_reason": null
     }
   ],
-  "updated_at": "2026-07-02T17:24:18.131861+00:00",
+  "updated_at": "2026-07-02T18:08:11.081420+00:00",
   "summary": {
-    "trades": 60,
-    "open": 5,
+    "trades": 61,
+    "open": 6,
     "closed": 55,
     "wins": 16,
     "losses": 39,
     "win_rate": 0.291,
     "realized_pnl": -9103.0,
-    "open_unrealized_pnl": -255.0,
-    "total_pnl": -9358.0
+    "open_unrealized_pnl": -332.0,
+    "total_pnl": -9435.0
   }
 }
