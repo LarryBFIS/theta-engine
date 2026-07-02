@@ -1276,8 +1276,8 @@
       "opened_credit": 0.5,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 48.0,
-      "current_debit": 0.34,
+      "unrealized_pnl": 45.0,
+      "current_debit": 0.35,
       "close_reason": null
     },
     {
@@ -1677,8 +1677,8 @@
       "opened_credit": 1.11,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -154.0,
-      "current_debit": 1.88,
+      "unrealized_pnl": -186.0,
+      "current_debit": 2.04,
       "close_reason": null
     },
     {
@@ -1706,8 +1706,8 @@
       "opened_credit": 0.54,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -57.0,
-      "current_debit": 0.73,
+      "unrealized_pnl": -15.0,
+      "current_debit": 0.59,
       "close_reason": null
     },
     {
@@ -1797,8 +1797,8 @@
       "opened_credit": 0.52,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -84.0,
-      "current_debit": 0.94,
+      "unrealized_pnl": -80.0,
+      "current_debit": 0.92,
       "close_reason": null
     },
     {
@@ -1831,18 +1831,47 @@
       "close_reason": "stop_1.5x",
       "closed_at": "2026-07-02",
       "fees": 2.5
+    },
+    {
+      "id": "paper_0060_spy",
+      "sig": "SPY_711_702_2026-08-07",
+      "underlying": "SPY",
+      "structure": "short_put_vertical",
+      "short_strike": 711.0,
+      "long_strike": 702.0,
+      "short_symbol": "SPY   260807P00711000",
+      "long_symbol": "SPY   260807P00702000",
+      "symbols": null,
+      "expiry": "2026-08-07",
+      "credit": 0.95,
+      "bpr": 805.0,
+      "pop": 0.8,
+      "iv_rank": 0.359,
+      "tag": "paper",
+      "contracts": 2,
+      "event": null,
+      "close_date": null,
+      "day_trade": null,
+      "close_after_et": null,
+      "opened_at": "2026-07-02",
+      "opened_credit": 0.95,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -12.0,
+      "current_debit": 1.01,
+      "close_reason": null
     }
   ],
-  "updated_at": "2026-07-02T15:32:40.560805+00:00",
+  "updated_at": "2026-07-02T16:07:04.347852+00:00",
   "summary": {
-    "trades": 59,
-    "open": 4,
+    "trades": 60,
+    "open": 5,
     "closed": 55,
     "wins": 16,
     "losses": 39,
     "win_rate": 0.291,
     "realized_pnl": -9103.0,
-    "open_unrealized_pnl": -247.0,
-    "total_pnl": -9350.0
+    "open_unrealized_pnl": -248.0,
+    "total_pnl": -9351.0
   }
 }
