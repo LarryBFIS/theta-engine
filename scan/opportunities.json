@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T15:19:53.942171+00:00",
+  "generated_at": "2026-07-03T15:30:01.221908+00:00",
   "regime": {
     "vix": 15.8,
     "vix_day_change_pct": -0.0217,
@@ -46,9 +46,9 @@
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
-      "contracts": 1,
-      "max_loss_total": 801.0,
-      "bpr_total": 801.0,
+      "contracts": 2,
+      "max_loss_total": 1602.0,
+      "bpr_total": 1602.0,
       "trend": "bullish",
       "sized_capped": true,
       "reasoning": "short put vertical 714/705p \u00d72 \u2014 bullish lean. Edge: IV rank 33%, EV $+7/ctr (+0.9% on BPR). POP 80% \u00b7 credit $0.99 \u00b7 max loss $801 \u00b7 BPR $1602 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
@@ -57,8 +57,8 @@
         "structure=short_put_vertical \u00d71.37"
       ],
       "rank_score": 0.012494,
-      "agent_action": "downsize",
-      "agent_reason": "Structure and underlying are sound (index ETF, short vertical, 35 DTE, 80% PoP), but 2 contracts would hit us_index cluster cap (3); reduce to 1 contract to preserve capacity for future diversification.",
+      "agent_action": "approve",
+      "agent_reason": "Index ETF, favorable structure (short_put_vertical), 35 DTE, low IV rank (0.33) fits calm regime, diversifies away from current us_tech concentration.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
@@ -70,27 +70,27 @@
         "code": "VP",
         "order_type": "Net Credit",
         "limit": 0.99,
-        "contracts": 1,
+        "contracts": 2,
         "expiry": "2026-08-07",
         "legs": [
           {
             "action": "SELL",
-            "qty": 1,
+            "qty": 2,
             "expiry": "2026-08-07",
             "strike": 714.0,
             "type": "P"
           },
           {
             "action": "BUY",
-            "qty": 1,
+            "qty": 2,
             "expiry": "2026-08-07",
             "strike": 705.0,
             "type": "P"
           }
         ],
-        "credit_total": 99.0,
-        "max_loss_total": 801.0,
-        "bpr_total": 801.0,
+        "credit_total": 198.0,
+        "max_loss_total": 1602.0,
+        "bpr_total": 1602.0,
         "pop": 0.802,
         "tag": "paper",
         "manage": {
@@ -103,7 +103,7 @@
         "live_cap": 376.64,
         "suggested_width": 4,
         "fit_note": "\u26a0 max loss $801 > 10% live cap ($377) \u2014 narrow to ~4-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d71 \u2014 SELL 714P / BUY 705P (2026-08-07) @ $0.99 net credit. Max loss $801. After fill: GTC buy-to-close @ $0.49 (50%). \u26a0 max loss $801 > 10% live cap ($377) \u2014 narrow to ~4-wide for live, or keep on paper."
+        "text": "SPY VP \u00d72 \u2014 SELL 714P / BUY 705P (2026-08-07) @ $0.99 net credit. Max loss $1602. After fill: GTC buy-to-close @ $0.49 (50%). \u26a0 max loss $801 > 10% live cap ($377) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
       "posted_at": "2026-07-03T13:22:22.143126+00:00"
     }
@@ -151,19 +151,17 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-07-03T15:19:53.748514+00:00",
+    "generated_at": "2026-07-03T15:30:00.848525+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is small (5 open, -$371 unrealized) with 2 us_tech positions already; normal regime, no macro events today. SPY vertical is well-structured but pushes us_index cluster to 3/3 cap.",
+    "portfolio_note": "Book is slightly underwater (-$371); cluster concentration in us_tech already at 2/3 cap. VIX 15.8 is calm; no macro events today. Adding SPY vertical is index-diversified and structurally sound.",
     "reviewed": 1,
     "vetoed": 0,
-    "downsized": 1,
+    "downsized": 0,
     "decisions": [
       {
         "id": "SPY|short_put_vertical|714/705",
-        "action": "downsize",
-        "from": 2,
-        "to": 1,
-        "reason": "Structure and underlying are sound (index ETF, short vertical, 35 DTE, 80% PoP), but 2 contracts would hit us_index cluster cap (3); reduce to 1 contract to preserve capacity for future diversification."
+        "action": "approve",
+        "reason": "Index ETF, favorable structure (short_put_vertical), 35 DTE, low IV rank (0.33) fits calm regime, diversifies away from current us_tech concentration."
       }
     ]
   },
@@ -196,9 +194,9 @@
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
-      "contracts": 1,
-      "max_loss_total": 801.0,
-      "bpr_total": 801.0,
+      "contracts": 2,
+      "max_loss_total": 1602.0,
+      "bpr_total": 1602.0,
       "trend": "bullish",
       "sized_capped": true,
       "reasoning": "short put vertical 714/705p \u00d72 \u2014 bullish lean. Edge: IV rank 33%, EV $+7/ctr (+0.9% on BPR). POP 80% \u00b7 credit $0.99 \u00b7 max loss $801 \u00b7 BPR $1602 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
@@ -207,8 +205,8 @@
         "structure=short_put_vertical \u00d71.37"
       ],
       "rank_score": 0.012494,
-      "agent_action": "downsize",
-      "agent_reason": "Structure and underlying are sound (index ETF, short vertical, 35 DTE, 80% PoP), but 2 contracts would hit us_index cluster cap (3); reduce to 1 contract to preserve capacity for future diversification.",
+      "agent_action": "approve",
+      "agent_reason": "Index ETF, favorable structure (short_put_vertical), 35 DTE, low IV rank (0.33) fits calm regime, diversifies away from current us_tech concentration.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
@@ -220,27 +218,27 @@
         "code": "VP",
         "order_type": "Net Credit",
         "limit": 0.99,
-        "contracts": 1,
+        "contracts": 2,
         "expiry": "2026-08-07",
         "legs": [
           {
             "action": "SELL",
-            "qty": 1,
+            "qty": 2,
             "expiry": "2026-08-07",
             "strike": 714.0,
             "type": "P"
           },
           {
             "action": "BUY",
-            "qty": 1,
+            "qty": 2,
             "expiry": "2026-08-07",
             "strike": 705.0,
             "type": "P"
           }
         ],
-        "credit_total": 99.0,
-        "max_loss_total": 801.0,
-        "bpr_total": 801.0,
+        "credit_total": 198.0,
+        "max_loss_total": 1602.0,
+        "bpr_total": 1602.0,
         "pop": 0.802,
         "tag": "paper",
         "manage": {
@@ -253,7 +251,7 @@
         "live_cap": 376.64,
         "suggested_width": 4,
         "fit_note": "\u26a0 max loss $801 > 10% live cap ($377) \u2014 narrow to ~4-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d71 \u2014 SELL 714P / BUY 705P (2026-08-07) @ $0.99 net credit. Max loss $801. After fill: GTC buy-to-close @ $0.49 (50%). \u26a0 max loss $801 > 10% live cap ($377) \u2014 narrow to ~4-wide for live, or keep on paper."
+        "text": "SPY VP \u00d72 \u2014 SELL 714P / BUY 705P (2026-08-07) @ $0.99 net credit. Max loss $1602. After fill: GTC buy-to-close @ $0.49 (50%). \u26a0 max loss $801 > 10% live cap ($377) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
       "posted_at": "2026-07-03T13:22:22.143126+00:00"
     }
