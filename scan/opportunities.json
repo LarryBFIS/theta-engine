@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-03T14:30:27.142283+00:00",
+  "generated_at": "2026-07-03T14:32:54.190124+00:00",
   "regime": {
-    "vix": 15.95,
-    "vix_day_change_pct": -0.0124,
+    "vix": 15.89,
+    "vix_day_change_pct": -0.0161,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (-1% day)"
+    "note": "normal regime (-2% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -58,7 +58,7 @@
       ],
       "rank_score": 0.012494,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, favorable short_put_vertical structure, 35 DTE away from macro risk (next event post-holiday), low IV rank (0.33) = room for compression; tight spread (9pt width), healthy 80% POP. Risk acceptable at 2 contracts.",
+      "agent_reason": "Index ETF, favorable short_put_vertical structure, 35 DTE away from events, strong POP (80.2%), low IV rank limits vol crush risk, and 2 contracts fit max-per-cluster constraint.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
@@ -151,9 +151,9 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-07-03T14:30:26.787372+00:00",
+    "generated_at": "2026-07-03T14:32:53.936307+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is underwater (-$371 unrealized); us_tech cluster already at 2/3 cap. SPY candidate adds to us_index (now 2/3 cap) but is sound fundamentally.",
+    "portfolio_note": "Book has 5 open positions with -$371 unrealized loss; us_tech cluster already at 2/3 cap. Adding SPY vertical keeps us_index at 3/3 but within diversification limits.",
     "reviewed": 1,
     "vetoed": 0,
     "downsized": 0,
@@ -161,7 +161,7 @@
       {
         "id": "SPY|short_put_vertical|714/705",
         "action": "approve",
-        "reason": "Index ETF, favorable short_put_vertical structure, 35 DTE away from macro risk (next event post-holiday), low IV rank (0.33) = room for compression; tight spread (9pt width), healthy 80% POP. Risk acceptable at 2 contracts."
+        "reason": "Index ETF, favorable short_put_vertical structure, 35 DTE away from events, strong POP (80.2%), low IV rank limits vol crush risk, and 2 contracts fit max-per-cluster constraint."
       }
     ]
   },
@@ -206,7 +206,7 @@
       ],
       "rank_score": 0.012494,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, favorable short_put_vertical structure, 35 DTE away from macro risk (next event post-holiday), low IV rank (0.33) = room for compression; tight spread (9pt width), healthy 80% POP. Risk acceptable at 2 contracts.",
+      "agent_reason": "Index ETF, favorable short_put_vertical structure, 35 DTE away from events, strong POP (80.2%), low IV rank limits vol crush risk, and 2 contracts fit max-per-cluster constraint.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
