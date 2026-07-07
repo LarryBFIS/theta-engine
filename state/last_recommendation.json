@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-06T21:21:51.573828+00:00",
-  "market_view": "Market is closed \u2014 SPY +0.87% on the day, VIX crushed to 15.57. SLV remains deep ITM with no resolution executed despite repeated CRITICAL flags; this must be addressed at open tomorrow.",
+  "last_run": "2026-07-07T13:48:36.276765+00:00",
+  "market_view": "SPY flat (-0.17%) but QQQ bleeding hard (-1.32%) with tech sector down 2.24% \u2014 rotation into defensives (XLV +1.99%, XLP +1.80%) and cyclicals (XLF +0.63%) suggests risk-off in growth but not broad panic. VIX at 15.88 is benign; SPY put verticals remain safe.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-06T21:21:39Z",
-    "reasoning": "Short strike 61 is 8.7% ITM, mid $0.75 is 1.5x credit breaching the hard loss-cut rule, worst-case $0.90 is 1.8x \u2014 spread is near max loss with zero recovery path. This is the sixth consecutive CRITICAL flag with no close executed; further inaction turns a manageable loss into full max loss."
+    "timestamp": "2026-07-07T13:48:18Z",
+    "reasoning": "Short strike 61 is 9.3% ITM, mid $0.75 is 1.5x the $0.50 credit \u2014 hard loss-cut rule already triggered. This is the seventh consecutive CRITICAL flag; closing now salvages ~$25 vs risking the full $50 max loss if SLV stays depressed."
   },
   "SPY 711/707p": {
     "action": "ACTION",
-    "confidence": 0.85,
-    "timestamp": "2026-07-06T21:21:39Z",
-    "reasoning": "Mid $0.29 vs $0.47 credit = 38% profit captured, approaching but not yet at 50% target ($0.235); VIX compression and SPY strength mean target fill is likely early tomorrow."
+    "confidence": 0.88,
+    "timestamp": "2026-07-07T13:48:18Z",
+    "reasoning": "Mid $0.325 vs $0.47 credit = 31% profit captured \u2014 not yet at 50% target ($0.235), but SPY is flat and QQQ weakness could create a brief intraday dip that briefly widens the spread; monitor for fill at $0.235 mid."
   },
   "SPY 712/708p": {
     "action": "HOLD",
-    "confidence": 0.85,
-    "timestamp": "2026-07-06T21:21:39Z",
-    "reasoning": "Opened today, mid $0.305 vs $0.32 credit \u2014 essentially flat, 31 DTE, short strike 5.2% OTM in a low-VIX risk-on tape. No action needed."
+    "confidence": 0.82,
+    "timestamp": "2026-07-07T13:48:18Z",
+    "reasoning": "Mid $0.34 vs $0.32 credit \u2014 slightly underwater but within noise, 30 DTE, short strike 5.1% OTM with SPY well above strike levels. No action warranted."
   }
 }
