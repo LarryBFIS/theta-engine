@@ -27,16 +27,22 @@ jobs:
           echo "Minutes since last poll: $DIFF_MIN"
           HOUR=$(date -u +%H)
           DOW=$(date -u +%u)
-          if [ "$DOW" -le 5 ] && [ "$HOUR" -ge 13 ] && [ "$HOUR" -lt 21 ] && [ "$DIFF_MIN" -gt 45 ]; then
-            echo "ALERT: stale during market hours"
+          # Alert ONLY within a bounded window after the poll goes stale: from 60 to
+          # 180 min. This does two things: (1) rides out brief blips (<60 min) without
+          # paging, and (2) caps a single outage to ~4 reminders (one per 30-min run in
+          # that window) then goes quiet — so a prolonged outage can't spam you. Uses
+          # priority 1 (high, bypasses quiet hours) with NO retry/expire, so each ping
+          # is delivered exactly once. (The old priority-2 + retry=300/expire=3600 was an
+          # EMERGENCY alert that re-sent every 5 min for an hour, per run — that is what
+          # blasted ~100 notifications.)
+          if [ "$DOW" -le 5 ] && [ "$HOUR" -ge 13 ] && [ "$HOUR" -lt 21 ] && [ "$DIFF_MIN" -gt 60 ] && [ "$DIFF_MIN" -le 180 ]; then
+            echo "ALERT: stale during market hours ($DIFF_MIN min)"
             curl -s --form-string "token=${{ secrets.PUSHOVER_APP_TOKEN }}" \
               --form-string "user=${{ secrets.PUSHOVER_USER_KEY }}" \
-              --form-string "title=theta-engine DEAD" \
-              --form-string "message=Last poll: $DIFF_MIN min ago at $LAST_POLL UTC. Bot likely down." \
-              --form-string "priority=2" \
-              --form-string "retry=300" \
-              --form-string "expire=3600" \
+              --form-string "title=theta-engine: poll stale" \
+              --form-string "message=Last poll $DIFF_MIN min ago ($LAST_POLL). Bot may be down — check the workflows." \
+              --form-string "priority=1" \
               https://api.pushover.net/1/messages.json
           else
-            echo "OK: dow=$DOW hour=$HOUR diff=$DIFF_MIN"
+            echo "OK (no alert): dow=$DOW hour=$HOUR diff=$DIFF_MIN"
           fi
