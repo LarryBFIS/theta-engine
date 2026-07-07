@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-07T15:49:36.298815+00:00",
-  "market_view": "Tech-led rotation continues with QQQ -1.99% and XLK -2.61% while defensives and energy hold bid \u2014 SPY stabilizing slightly at -0.58% vs prior hour's -0.69%, VIX ticking up 5% to 16.36 but still low. No new catalyst; market structure unchanged from last cycle.",
+  "last_run": "2026-07-07T16:42:32.814072+00:00",
+  "market_view": "SPY stabilizing at -0.36% with short strikes 5% OTM \u2014 tech rotation persists but SPY holding well above put strikes. SLV remains deeply ITM with no recovery signal, VIX cooling slightly to 15.81 from 16.36 last cycle.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-07T15:49:22.852423+00:00",
-    "reasoning": "Short strike 61 is 10.6% ITM, mid at $0.825 is 1.65x the $0.50 credit \u2014 1.5x loss-cut rule has been breached for multiple cycles and position is bleeding toward full $50 max loss. No improvement; SLV not recovering toward 61."
+    "timestamp": "2026-07-07T16:42:16.767792+00:00",
+    "reasoning": "Short strike 61 is 10.9% ITM, mid at $0.775 is 1.55x credit \u2014 loss-cut rule breached, position has been flagged CRITICAL for multiple cycles with zero recovery. Mid improved marginally from $0.825 but strike remains deeply ITM and position is approaching max loss with 44 DTE, no reason to hold."
   },
   "SPY 711/707p": {
     "action": "HOLD",
-    "confidence": 0.78,
-    "timestamp": "2026-07-07T15:49:22.852423+00:00",
-    "reasoning": "Mid at $0.395 vs $0.47 credit, SPY at 746.18 with short strike 711 now 4.7% OTM \u2014 not at 50% profit target ($0.235) and not near 1.5x loss-cut ($0.705). Position is improving marginally as SPY stabilizes."
+    "confidence": 0.82,
+    "timestamp": "2026-07-07T16:42:16.767792+00:00",
+    "reasoning": "Mid at $0.33 vs $0.47 credit \u2014 not yet at 50% profit target ($0.235), SPY at 748.58 with short strike 711 now 5.0% OTM and improving, 1.5x loss-cut at $0.705 not threatened."
   },
   "SPY 712/708p": {
     "action": "WATCH",
-    "confidence": 0.72,
-    "timestamp": "2026-07-07T15:49:22.852423+00:00",
-    "reasoning": "Mid at $0.40 vs $0.32 credit = 25% underwater, 1.5x loss-cut trigger is $0.48 \u2014 not breached yet but two correlated SPY verticals means combined delta exposure is elevated if SPY leg lower accelerates."
+    "confidence": 0.7,
+    "timestamp": "2026-07-07T16:42:16.767792+00:00",
+    "reasoning": "Mid at $0.35 vs $0.32 credit \u2014 still slightly underwater but 1.5x loss-cut trigger is $0.48 and not breached; SPY recovering slightly. Two correlated SPY verticals remain a concern if SPY reverses but no action warranted yet."
   }
 }
