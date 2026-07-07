@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-07T14:35:37.001659+00:00",
+  "generated_at": "2026-07-07T14:40:59.977751+00:00",
   "regime": {
-    "vix": 16.24,
-    "vix_day_change_pct": 0.043,
+    "vix": 16.46,
+    "vix_day_change_pct": 0.0572,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (+4% day)"
+    "note": "normal regime (+6% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -33,15 +33,15 @@
       "fees_est": 3.0,
       "bpr": 806.0,
       "max_loss": 806.0,
-      "pop": 0.804,
-      "short_delta": 0.183,
+      "pop": 0.801,
+      "short_delta": 0.186,
       "short_spread_pct": 0.008,
       "credit_to_bpr": 0.117,
-      "ev_per_contract": 7.15,
-      "ev_on_bpr": 0.0089,
+      "ev_per_contract": 6.53,
+      "ev_on_bpr": 0.0081,
       "iv": 0.1621,
       "iv_rank": 0.342,
-      "underlying_price": 746.37,
+      "underlying_price": 745.95,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -51,14 +51,14 @@
       "bpr_total": 1612.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 716/707p \u00d72 \u2014 bullish lean. Edge: IV rank 34%, EV $+7/ctr (+0.9% on BPR). POP 80% \u00b7 credit $0.94 \u00b7 max loss $806 \u00b7 BPR $1612 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 716/707p \u00d72 \u2014 bullish lean. Edge: IV rank 34%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.94 \u00b7 max loss $806 \u00b7 BPR $1612 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.363,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.36"
       ],
-      "rank_score": 0.012131,
+      "rank_score": 0.01104,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, favored structure, reasonable POP (80%), low IV rank mitigates gamma risk, 31 DTE solid; 2 contracts acceptable given cap headroom and diversification benefit to book.",
+      "agent_reason": "Index ETF, favored short_put_vertical structure, 31 DTE, solid pop (80.1%), and normal regime with no macro event risk. Size 2 contracts is within cap. Diversifies away from problematic us_tech cluster.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
@@ -91,7 +91,7 @@
         "credit_total": 188.0,
         "max_loss_total": 1612.0,
         "bpr_total": 1612.0,
-        "pop": 0.804,
+        "pop": 0.801,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -151,9 +151,9 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-07-07T14:35:36.759828+00:00",
+    "generated_at": "2026-07-07T14:40:59.724758+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is small (4 open, -$139 unrealized) with mild us_tech overweight (2/4). VIX normal, no macro events; environment permissive for short-vol.",
+    "portfolio_note": "Book is slightly underwater (-$238 unrealized) with 4 open positions split evenly between us_tech (2, a cluster showing neg expectancy) and us_index (2). Adding SPY would push us_index to 3/3 cap and overall to 5/8 open.",
     "reviewed": 1,
     "vetoed": 0,
     "downsized": 0,
@@ -161,7 +161,7 @@
       {
         "id": "SPY|short_put_vertical|716/707",
         "action": "approve",
-        "reason": "Index ETF, favored structure, reasonable POP (80%), low IV rank mitigates gamma risk, 31 DTE solid; 2 contracts acceptable given cap headroom and diversification benefit to book."
+        "reason": "Index ETF, favored short_put_vertical structure, 31 DTE, solid pop (80.1%), and normal regime with no macro event risk. Size 2 contracts is within cap. Diversifies away from problematic us_tech cluster."
       }
     ]
   },
@@ -181,15 +181,15 @@
       "fees_est": 3.0,
       "bpr": 806.0,
       "max_loss": 806.0,
-      "pop": 0.804,
-      "short_delta": 0.183,
+      "pop": 0.801,
+      "short_delta": 0.186,
       "short_spread_pct": 0.008,
       "credit_to_bpr": 0.117,
-      "ev_per_contract": 7.15,
-      "ev_on_bpr": 0.0089,
+      "ev_per_contract": 6.53,
+      "ev_on_bpr": 0.0081,
       "iv": 0.1621,
       "iv_rank": 0.342,
-      "underlying_price": 746.37,
+      "underlying_price": 745.95,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -199,14 +199,14 @@
       "bpr_total": 1612.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 716/707p \u00d72 \u2014 bullish lean. Edge: IV rank 34%, EV $+7/ctr (+0.9% on BPR). POP 80% \u00b7 credit $0.94 \u00b7 max loss $806 \u00b7 BPR $1612 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 716/707p \u00d72 \u2014 bullish lean. Edge: IV rank 34%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.94 \u00b7 max loss $806 \u00b7 BPR $1612 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.363,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.36"
       ],
-      "rank_score": 0.012131,
+      "rank_score": 0.01104,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, favored structure, reasonable POP (80%), low IV rank mitigates gamma risk, 31 DTE solid; 2 contracts acceptable given cap headroom and diversification benefit to book.",
+      "agent_reason": "Index ETF, favored short_put_vertical structure, 31 DTE, solid pop (80.1%), and normal regime with no macro event risk. Size 2 contracts is within cap. Diversifies away from problematic us_tech cluster.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
@@ -239,7 +239,7 @@
         "credit_total": 188.0,
         "max_loss_total": 1612.0,
         "bpr_total": 1612.0,
-        "pop": 0.804,
+        "pop": 0.801,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
