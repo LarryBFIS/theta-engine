@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-07T16:44:13.240380+00:00",
+  "generated_at": "2026-07-07T17:29:32.015623+00:00",
   "regime": {
-    "vix": 15.82,
-    "vix_day_change_pct": 0.0161,
+    "vix": 15.68,
+    "vix_day_change_pct": 0.0071,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (+2% day)"
+    "note": "normal regime (+1% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -17,7 +17,97 @@
     "longvol_max_iv_rank": 0.3,
     "longvol_catalyst_days": 14
   },
-  "top": [],
+  "top": [
+    {
+      "underlying": "SPY",
+      "structure": "short_put_vertical",
+      "expiry": "2026-08-07",
+      "dte": 31,
+      "short_strike": 720.0,
+      "long_strike": 711.0,
+      "short_symbol": "SPY   260807P00720000",
+      "long_symbol": "SPY   260807P00711000",
+      "width": 9.0,
+      "credit": 0.9,
+      "mid_credit": 0.93,
+      "fees_est": 3.0,
+      "bpr": 810.0,
+      "max_loss": 810.0,
+      "pop": 0.803,
+      "short_delta": 0.185,
+      "short_spread_pct": 0.005,
+      "credit_to_bpr": 0.111,
+      "ev_per_contract": 6.49,
+      "ev_on_bpr": 0.008,
+      "iv": 0.1544,
+      "iv_rank": 0.304,
+      "underlying_price": 748.88,
+      "liquidity": 4,
+      "earnings_date": null,
+      "tag": "paper",
+      "sized_for": "paper",
+      "contracts": 2,
+      "max_loss_total": 1620.0,
+      "bpr_total": 1620.0,
+      "trend": "bullish",
+      "sized_capped": true,
+      "reasoning": "short put vertical 720/711p \u00d72 \u2014 bullish lean. Edge: IV rank 30%, EV $+6/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.90 \u00b7 max loss $810 \u00b7 BPR $1620 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 1.363,
+      "learn_notes": [
+        "structure=short_put_vertical \u00d71.36"
+      ],
+      "rank_score": 0.010904,
+      "agent_action": "approve",
+      "agent_reason": "Index ETF, favorable structure (short_put_vertical), 31 DTE, 80.3% PoP, low IV_rank\u2014textbook vol premium harvest; risk is 1620 total loss on 2 contracts, acceptable for account.",
+      "agent_reviewed": true,
+      "news_risk": {
+        "level": "clear",
+        "hits": []
+      },
+      "net_liq": 3769.253,
+      "ticket": {
+        "underlying": "SPY",
+        "code": "VP",
+        "order_type": "Net Credit",
+        "limit": 0.9,
+        "contracts": 2,
+        "expiry": "2026-08-07",
+        "legs": [
+          {
+            "action": "SELL",
+            "qty": 2,
+            "expiry": "2026-08-07",
+            "strike": 720.0,
+            "type": "P"
+          },
+          {
+            "action": "BUY",
+            "qty": 2,
+            "expiry": "2026-08-07",
+            "strike": 711.0,
+            "type": "P"
+          }
+        ],
+        "credit_total": 180.0,
+        "max_loss_total": 1620.0,
+        "bpr_total": 1620.0,
+        "pop": 0.803,
+        "tag": "paper",
+        "manage": {
+          "profit_target_pct": 50,
+          "close_debit": 0.45,
+          "stop_debit": 2.25,
+          "exit_dte": 21
+        },
+        "fits_live_cap": false,
+        "live_cap": 376.93,
+        "suggested_width": 4,
+        "fit_note": "\u26a0 max loss $810 > 10% live cap ($377) \u2014 narrow to ~4-wide for live, or keep on paper.",
+        "text": "SPY VP \u00d72 \u2014 SELL 720P / BUY 711P (2026-08-07) @ $0.90 net credit. Max loss $1620. After fill: GTC buy-to-close @ $0.45 (50%). \u26a0 max loss $810 > 10% live cap ($377) \u2014 narrow to ~4-wide for live, or keep on paper."
+      },
+      "posted_at": "2026-07-07T17:29:32.015623+00:00"
+    }
+  ],
   "long_vol": [],
   "events": [],
   "learnings": {
@@ -60,11 +150,114 @@
       }
     ]
   },
-  "agent": null,
-  "all_candidates": [],
+  "agent": {
+    "generated_at": "2026-07-07T17:29:31.709707+00:00",
+    "model": "claude-haiku-4-5",
+    "portfolio_note": "Book is small (4 open, \u2212$83 unrealized) with acceptable cluster split (2 tech / 2 index). No macro events; VIX 15.68 is benign.",
+    "reviewed": 1,
+    "vetoed": 0,
+    "downsized": 0,
+    "decisions": [
+      {
+        "id": "SPY|short_put_vertical|720/711",
+        "action": "approve",
+        "reason": "Index ETF, favorable structure (short_put_vertical), 31 DTE, 80.3% PoP, low IV_rank\u2014textbook vol premium harvest; risk is 1620 total loss on 2 contracts, acceptable for account."
+      }
+    ]
+  },
+  "all_candidates": [
+    {
+      "underlying": "SPY",
+      "structure": "short_put_vertical",
+      "expiry": "2026-08-07",
+      "dte": 31,
+      "short_strike": 720.0,
+      "long_strike": 711.0,
+      "short_symbol": "SPY   260807P00720000",
+      "long_symbol": "SPY   260807P00711000",
+      "width": 9.0,
+      "credit": 0.9,
+      "mid_credit": 0.93,
+      "fees_est": 3.0,
+      "bpr": 810.0,
+      "max_loss": 810.0,
+      "pop": 0.803,
+      "short_delta": 0.185,
+      "short_spread_pct": 0.005,
+      "credit_to_bpr": 0.111,
+      "ev_per_contract": 6.49,
+      "ev_on_bpr": 0.008,
+      "iv": 0.1544,
+      "iv_rank": 0.304,
+      "underlying_price": 748.88,
+      "liquidity": 4,
+      "earnings_date": null,
+      "tag": "paper",
+      "sized_for": "paper",
+      "contracts": 2,
+      "max_loss_total": 1620.0,
+      "bpr_total": 1620.0,
+      "trend": "bullish",
+      "sized_capped": true,
+      "reasoning": "short put vertical 720/711p \u00d72 \u2014 bullish lean. Edge: IV rank 30%, EV $+6/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.90 \u00b7 max loss $810 \u00b7 BPR $1620 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 1.363,
+      "learn_notes": [
+        "structure=short_put_vertical \u00d71.36"
+      ],
+      "rank_score": 0.010904,
+      "agent_action": "approve",
+      "agent_reason": "Index ETF, favorable structure (short_put_vertical), 31 DTE, 80.3% PoP, low IV_rank\u2014textbook vol premium harvest; risk is 1620 total loss on 2 contracts, acceptable for account.",
+      "agent_reviewed": true,
+      "news_risk": {
+        "level": "clear",
+        "hits": []
+      },
+      "net_liq": 3769.253,
+      "ticket": {
+        "underlying": "SPY",
+        "code": "VP",
+        "order_type": "Net Credit",
+        "limit": 0.9,
+        "contracts": 2,
+        "expiry": "2026-08-07",
+        "legs": [
+          {
+            "action": "SELL",
+            "qty": 2,
+            "expiry": "2026-08-07",
+            "strike": 720.0,
+            "type": "P"
+          },
+          {
+            "action": "BUY",
+            "qty": 2,
+            "expiry": "2026-08-07",
+            "strike": 711.0,
+            "type": "P"
+          }
+        ],
+        "credit_total": 180.0,
+        "max_loss_total": 1620.0,
+        "bpr_total": 1620.0,
+        "pop": 0.803,
+        "tag": "paper",
+        "manage": {
+          "profit_target_pct": 50,
+          "close_debit": 0.45,
+          "stop_debit": 2.25,
+          "exit_dte": 21
+        },
+        "fits_live_cap": false,
+        "live_cap": 376.93,
+        "suggested_width": 4,
+        "fit_note": "\u26a0 max loss $810 > 10% live cap ($377) \u2014 narrow to ~4-wide for live, or keep on paper.",
+        "text": "SPY VP \u00d72 \u2014 SELL 720P / BUY 711P (2026-08-07) @ $0.90 net credit. Max loss $1620. After fill: GTC buy-to-close @ $0.45 (50%). \u26a0 max loss $810 > 10% live cap ($377) \u2014 narrow to ~4-wide for live, or keep on paper."
+      },
+      "posted_at": "2026-07-07T17:29:32.015623+00:00"
+    }
+  ],
   "skipped": {
-    "SPY": "no metrics/price",
-    "IWM": "no metrics/price",
-    "DIA": "no metrics/price"
+    "IWM": "iv_rank 26%",
+    "DIA": "iv_rank 22%"
   }
 }
