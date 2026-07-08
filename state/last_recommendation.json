@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-08T16:13:13.902933+00:00",
-  "market_view": "SPY has bounced slightly to 742.21 (-0.74%) from -1.07% last cycle, VIX still elevated at 18.33 but off the spike highs \u2014 modest stabilization but not a recovery. SLV remains deeply ITM and both SPY verticals are still at or near loss-cut territory with no structural improvement.",
+  "last_run": "2026-07-08T16:49:51.228296+00:00",
+  "market_view": "SPY has partially recovered to 744.24 (-0.46%) from -0.74% last cycle, VIX pulled back to 17.46 from 18.33 \u2014 modest improvement but SLV remains catastrophically ITM and the SPY 712/708p stop rule breach persists. No new news to change the thesis.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-08T16:12:59+00:00",
-    "reasoning": "Short strike 61 is ~17.2% ITM with SLV at $52.04, mid cost $0.90 is 1.8x the $0.50 credit \u2014 hard 1.5x stop rule breached multiple cycles, zero recovery path with 43 DTE remaining. This was flagged CRITICAL last cycle and has not been closed."
+    "timestamp": "2026-07-08T16:49:36+00:00",
+    "reasoning": "Short strike 61 is ~16.5% ITM with SLV at $52.34, mid cost $0.875 is 1.75x the $0.50 credit \u2014 1.5x stop rule breached multiple consecutive cycles with zero recovery path. This has been flagged CRITICAL twice and remains open \u2014 no further delay justified."
   },
   "SPY 711/707p": {
-    "action": "CRITICAL",
-    "confidence": 0.85,
-    "timestamp": "2026-07-08T16:12:59+00:00",
-    "reasoning": "Mid at $0.475 is essentially breakeven on the $0.47 credit and worst case $0.52 is 1.11x \u2014 not yet 1.5x stop, but holding two SPY put verticals same expiry is correlated max-loss concentration risk; SPY is still down on the day with VIX at 18.33 and 29 DTE."
+    "action": "WATCH",
+    "confidence": 0.72,
+    "timestamp": "2026-07-08T16:49:36+00:00",
+    "reasoning": "Mid at $0.42 is now below the $0.47 credit \u2014 position is slightly profitable at mid, worst case $0.45 is 0.96x credit. SPY recovery to 744 has helped; 29 DTE, not at 50% profit target yet and not at stop."
   },
   "SPY 712/708p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-07-08T16:12:59+00:00",
-    "reasoning": "Mid at $0.50 vs $0.32 credit is 1.56x \u2014 hard 1.5x stop rule breached, was flagged CRITICAL last cycle and has not been closed; worst case $0.55 is 1.72x credit."
+    "confidence": 0.95,
+    "timestamp": "2026-07-08T16:49:36+00:00",
+    "reasoning": "Mid at $0.435 vs $0.32 credit is 1.36x \u2014 slightly improved from last cycle's 1.56x as SPY bounced, but worst case $0.47 is still 1.47x and intraday reversals can re-breach the stop instantly. Two correlated SPY verticals same expiry amplify tail risk; this position has been flagged CRITICAL twice."
   }
 }
