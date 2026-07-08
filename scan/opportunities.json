@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-08T17:14:18.971750+00:00",
+  "generated_at": "2026-07-08T17:57:36.934992+00:00",
   "regime": {
-    "vix": 16.91,
-    "vix_day_change_pct": 0.0484,
+    "vix": 16.78,
+    "vix_day_change_pct": 0.0403,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (+5% day)"
+    "note": "normal regime (+4% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -28,48 +28,48 @@
       "short_symbol": "SPY   260807P00714000",
       "long_symbol": "SPY   260807P00705000",
       "width": 9.0,
-      "credit": 0.93,
-      "mid_credit": 0.96,
+      "credit": 0.96,
+      "mid_credit": 0.98,
       "fees_est": 3.0,
-      "bpr": 807.0,
-      "max_loss": 807.0,
-      "pop": 0.802,
-      "short_delta": 0.185,
+      "bpr": 804.0,
+      "max_loss": 804.0,
+      "pop": 0.8,
+      "short_delta": 0.187,
       "short_spread_pct": 0.005,
-      "credit_to_bpr": 0.115,
-      "ev_per_contract": 6.65,
-      "ev_on_bpr": 0.0082,
-      "iv": 0.1674,
-      "iv_rank": 0.379,
-      "underlying_price": 744.52,
+      "credit_to_bpr": 0.119,
+      "ev_per_contract": 6.68,
+      "ev_on_bpr": 0.0083,
+      "iv": 0.1657,
+      "iv_rank": 0.357,
+      "underlying_price": 744.01,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 2,
-      "max_loss_total": 1614.0,
-      "bpr_total": 1614.0,
+      "max_loss_total": 1608.0,
+      "bpr_total": 1608.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 714/705p \u00d72 \u2014 bullish lean. Edge: IV rank 38%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.93 \u00b7 max loss $807 \u00b7 BPR $1614 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 714/705p \u00d72 \u2014 bullish lean. Edge: IV rank 36%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.96 \u00b7 max loss $804 \u00b7 BPR $1608 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.363,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.36"
       ],
-      "rank_score": 0.011177,
+      "rank_score": 0.011313,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, short_put_vertical (favored structure), 30 DTE, strong POP, low IV rank provides edge; cluster cap allows.",
+      "agent_reason": "Index ETF, short_put_vertical structure (favored), 30 DTE, low IV rank, solid POP; us_index cluster at 2/3 cap after approval.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
         "hits": []
       },
-      "net_liq": 3619.088,
+      "net_liq": 3632.828,
       "ticket": {
         "underlying": "SPY",
         "code": "VP",
         "order_type": "Net Credit",
-        "limit": 0.93,
+        "limit": 0.96,
         "contracts": 2,
         "expiry": "2026-08-07",
         "legs": [
@@ -88,22 +88,22 @@
             "type": "P"
           }
         ],
-        "credit_total": 186.0,
-        "max_loss_total": 1614.0,
-        "bpr_total": 1614.0,
-        "pop": 0.802,
+        "credit_total": 192.0,
+        "max_loss_total": 1608.0,
+        "bpr_total": 1608.0,
+        "pop": 0.8,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
-          "close_debit": 0.47,
-          "stop_debit": 2.33,
+          "close_debit": 0.48,
+          "stop_debit": 2.4,
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 361.91,
+        "live_cap": 363.28,
         "suggested_width": 4,
-        "fit_note": "\u26a0 max loss $807 > 10% live cap ($362) \u2014 narrow to ~4-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d72 \u2014 SELL 714P / BUY 705P (2026-08-07) @ $0.93 net credit. Max loss $1614. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $807 > 10% live cap ($362) \u2014 narrow to ~4-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $804 > 10% live cap ($363) \u2014 narrow to ~4-wide for live, or keep on paper.",
+        "text": "SPY VP \u00d72 \u2014 SELL 714P / BUY 705P (2026-08-07) @ $0.96 net credit. Max loss $1608. After fill: GTC buy-to-close @ $0.48 (50%). \u26a0 max loss $804 > 10% live cap ($363) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
       "posted_at": "2026-07-08T16:50:01.529071+00:00"
     },
@@ -122,15 +122,15 @@
       "fees_est": 3.0,
       "bpr": 438.0,
       "max_loss": 438.0,
-      "pop": 0.793,
-      "short_delta": 0.189,
+      "pop": 0.795,
+      "short_delta": 0.187,
       "short_spread_pct": 0.022,
       "credit_to_bpr": 0.142,
-      "ev_per_contract": 2.35,
-      "ev_on_bpr": 0.0054,
-      "iv": 0.2274,
-      "iv_rank": 0.314,
-      "underlying_price": 292.78,
+      "ev_per_contract": 2.53,
+      "ev_on_bpr": 0.0058,
+      "iv": 0.2269,
+      "iv_rank": 0.312,
+      "underlying_price": 292.85,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -140,20 +140,20 @@
       "bpr_total": 876.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "short put vertical 277/272p \u00d73 \u2014 rich premium. Edge: IV rank 31%, EV $+2/ctr (+0.5% on BPR). POP 79% \u00b7 credit $0.62 \u00b7 max loss $438 \u00b7 BPR $1314 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 277/272p \u00d73 \u2014 rich premium. Edge: IV rank 31%, EV $+3/ctr (+0.6% on BPR). POP 80% \u00b7 credit $0.62 \u00b7 max loss $438 \u00b7 BPR $1314 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.363,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.36"
       ],
-      "rank_score": 0.00736,
+      "rank_score": 0.007905,
       "agent_action": "downsize",
-      "agent_reason": "Solid trade, but 3 contracts would push us_index cluster to 5 open (cap 3); downsize to 2 keeps cluster balanced and respects position limit.",
+      "agent_reason": "Approve structure and asset class, but 3 contracts would push us_index to 4/3 cap and total open to 7/8; reduce to 2 to stay within cluster limit and preserve room.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
         "hits": []
       },
-      "net_liq": 3619.088,
+      "net_liq": 3632.828,
       "ticket": {
         "underlying": "IWM",
         "code": "VP",
@@ -180,7 +180,7 @@
         "credit_total": 124.0,
         "max_loss_total": 876.0,
         "bpr_total": 876.0,
-        "pop": 0.793,
+        "pop": 0.795,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -189,10 +189,10 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 361.91,
+        "live_cap": 363.28,
         "suggested_width": 4,
-        "fit_note": "\u26a0 max loss $438 > 10% live cap ($362) \u2014 narrow to ~4-wide for live, or keep on paper.",
-        "text": "IWM VP \u00d72 \u2014 SELL 277P / BUY 272P (2026-08-07) @ $0.62 net credit. Max loss $876. After fill: GTC buy-to-close @ $0.31 (50%). \u26a0 max loss $438 > 10% live cap ($362) \u2014 narrow to ~4-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $438 > 10% live cap ($363) \u2014 narrow to ~4-wide for live, or keep on paper.",
+        "text": "IWM VP \u00d72 \u2014 SELL 277P / BUY 272P (2026-08-07) @ $0.62 net credit. Max loss $876. After fill: GTC buy-to-close @ $0.31 (50%). \u26a0 max loss $438 > 10% live cap ($363) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
       "posted_at": "2026-07-08T17:14:18.971750+00:00"
     }
@@ -240,9 +240,9 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-07-08T17:14:18.481717+00:00",
+    "generated_at": "2026-07-08T17:57:36.420445+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is 50% us_tech (2 open), 50% us_index (2 open). Both candidates are index ETFs with favorable structures; adding them keeps cluster risk manageable (us_index would be 4/3 cap if both approved at full size).",
+    "portfolio_note": "Book is small (4 open, $-175 unrealized) but already 50% concentrated in us_index cluster. Both candidates are index ETFs with favorable structures; approval keeps diversification in play while respecting cluster caps.",
     "reviewed": 2,
     "vetoed": 0,
     "downsized": 1,
@@ -250,14 +250,14 @@
       {
         "id": "SPY|short_put_vertical|714/705",
         "action": "approve",
-        "reason": "Index ETF, short_put_vertical (favored structure), 30 DTE, strong POP, low IV rank provides edge; cluster cap allows."
+        "reason": "Index ETF, short_put_vertical structure (favored), 30 DTE, low IV rank, solid POP; us_index cluster at 2/3 cap after approval."
       },
       {
         "id": "IWM|short_put_vertical|277/272",
         "action": "downsize",
         "from": 3,
         "to": 2,
-        "reason": "Solid trade, but 3 contracts would push us_index cluster to 5 open (cap 3); downsize to 2 keeps cluster balanced and respects position limit."
+        "reason": "Approve structure and asset class, but 3 contracts would push us_index to 4/3 cap and total open to 7/8; reduce to 2 to stay within cluster limit and preserve room."
       }
     ]
   },
@@ -272,48 +272,48 @@
       "short_symbol": "SPY   260807P00714000",
       "long_symbol": "SPY   260807P00705000",
       "width": 9.0,
-      "credit": 0.93,
-      "mid_credit": 0.96,
+      "credit": 0.96,
+      "mid_credit": 0.98,
       "fees_est": 3.0,
-      "bpr": 807.0,
-      "max_loss": 807.0,
-      "pop": 0.802,
-      "short_delta": 0.185,
+      "bpr": 804.0,
+      "max_loss": 804.0,
+      "pop": 0.8,
+      "short_delta": 0.187,
       "short_spread_pct": 0.005,
-      "credit_to_bpr": 0.115,
-      "ev_per_contract": 6.65,
-      "ev_on_bpr": 0.0082,
-      "iv": 0.1674,
-      "iv_rank": 0.379,
-      "underlying_price": 744.52,
+      "credit_to_bpr": 0.119,
+      "ev_per_contract": 6.68,
+      "ev_on_bpr": 0.0083,
+      "iv": 0.1657,
+      "iv_rank": 0.357,
+      "underlying_price": 744.01,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 2,
-      "max_loss_total": 1614.0,
-      "bpr_total": 1614.0,
+      "max_loss_total": 1608.0,
+      "bpr_total": 1608.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 714/705p \u00d72 \u2014 bullish lean. Edge: IV rank 38%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.93 \u00b7 max loss $807 \u00b7 BPR $1614 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 714/705p \u00d72 \u2014 bullish lean. Edge: IV rank 36%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.96 \u00b7 max loss $804 \u00b7 BPR $1608 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.363,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.36"
       ],
-      "rank_score": 0.011177,
+      "rank_score": 0.011313,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, short_put_vertical (favored structure), 30 DTE, strong POP, low IV rank provides edge; cluster cap allows.",
+      "agent_reason": "Index ETF, short_put_vertical structure (favored), 30 DTE, low IV rank, solid POP; us_index cluster at 2/3 cap after approval.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
         "hits": []
       },
-      "net_liq": 3619.088,
+      "net_liq": 3632.828,
       "ticket": {
         "underlying": "SPY",
         "code": "VP",
         "order_type": "Net Credit",
-        "limit": 0.93,
+        "limit": 0.96,
         "contracts": 2,
         "expiry": "2026-08-07",
         "legs": [
@@ -332,22 +332,22 @@
             "type": "P"
           }
         ],
-        "credit_total": 186.0,
-        "max_loss_total": 1614.0,
-        "bpr_total": 1614.0,
-        "pop": 0.802,
+        "credit_total": 192.0,
+        "max_loss_total": 1608.0,
+        "bpr_total": 1608.0,
+        "pop": 0.8,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
-          "close_debit": 0.47,
-          "stop_debit": 2.33,
+          "close_debit": 0.48,
+          "stop_debit": 2.4,
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 361.91,
+        "live_cap": 363.28,
         "suggested_width": 4,
-        "fit_note": "\u26a0 max loss $807 > 10% live cap ($362) \u2014 narrow to ~4-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d72 \u2014 SELL 714P / BUY 705P (2026-08-07) @ $0.93 net credit. Max loss $1614. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $807 > 10% live cap ($362) \u2014 narrow to ~4-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $804 > 10% live cap ($363) \u2014 narrow to ~4-wide for live, or keep on paper.",
+        "text": "SPY VP \u00d72 \u2014 SELL 714P / BUY 705P (2026-08-07) @ $0.96 net credit. Max loss $1608. After fill: GTC buy-to-close @ $0.48 (50%). \u26a0 max loss $804 > 10% live cap ($363) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
       "posted_at": "2026-07-08T16:50:01.529071+00:00"
     },
@@ -366,15 +366,15 @@
       "fees_est": 3.0,
       "bpr": 438.0,
       "max_loss": 438.0,
-      "pop": 0.793,
-      "short_delta": 0.189,
+      "pop": 0.795,
+      "short_delta": 0.187,
       "short_spread_pct": 0.022,
       "credit_to_bpr": 0.142,
-      "ev_per_contract": 2.35,
-      "ev_on_bpr": 0.0054,
-      "iv": 0.2274,
-      "iv_rank": 0.314,
-      "underlying_price": 292.78,
+      "ev_per_contract": 2.53,
+      "ev_on_bpr": 0.0058,
+      "iv": 0.2269,
+      "iv_rank": 0.312,
+      "underlying_price": 292.85,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -384,20 +384,20 @@
       "bpr_total": 876.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "short put vertical 277/272p \u00d73 \u2014 rich premium. Edge: IV rank 31%, EV $+2/ctr (+0.5% on BPR). POP 79% \u00b7 credit $0.62 \u00b7 max loss $438 \u00b7 BPR $1314 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 277/272p \u00d73 \u2014 rich premium. Edge: IV rank 31%, EV $+3/ctr (+0.6% on BPR). POP 80% \u00b7 credit $0.62 \u00b7 max loss $438 \u00b7 BPR $1314 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.363,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.36"
       ],
-      "rank_score": 0.00736,
+      "rank_score": 0.007905,
       "agent_action": "downsize",
-      "agent_reason": "Solid trade, but 3 contracts would push us_index cluster to 5 open (cap 3); downsize to 2 keeps cluster balanced and respects position limit.",
+      "agent_reason": "Approve structure and asset class, but 3 contracts would push us_index to 4/3 cap and total open to 7/8; reduce to 2 to stay within cluster limit and preserve room.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
         "hits": []
       },
-      "net_liq": 3619.088,
+      "net_liq": 3632.828,
       "ticket": {
         "underlying": "IWM",
         "code": "VP",
@@ -424,7 +424,7 @@
         "credit_total": 124.0,
         "max_loss_total": 876.0,
         "bpr_total": 876.0,
-        "pop": 0.793,
+        "pop": 0.795,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -433,10 +433,10 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 361.91,
+        "live_cap": 363.28,
         "suggested_width": 4,
-        "fit_note": "\u26a0 max loss $438 > 10% live cap ($362) \u2014 narrow to ~4-wide for live, or keep on paper.",
-        "text": "IWM VP \u00d72 \u2014 SELL 277P / BUY 272P (2026-08-07) @ $0.62 net credit. Max loss $876. After fill: GTC buy-to-close @ $0.31 (50%). \u26a0 max loss $438 > 10% live cap ($362) \u2014 narrow to ~4-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $438 > 10% live cap ($363) \u2014 narrow to ~4-wide for live, or keep on paper.",
+        "text": "IWM VP \u00d72 \u2014 SELL 277P / BUY 272P (2026-08-07) @ $0.62 net credit. Max loss $876. After fill: GTC buy-to-close @ $0.31 (50%). \u26a0 max loss $438 > 10% live cap ($363) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
       "posted_at": "2026-07-08T17:14:18.971750+00:00"
     }
