@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-08T15:31:11.895884+00:00",
-  "market_view": "SPY now at 739.68 (-1.07%) with VIX spiking 12.52% to 18.15 \u2014 vol expansion accelerating sharply and broad market selling intensifying across tech, financials, and discretionary. This is a deteriorating tape with no stabilization signal.",
+  "last_run": "2026-07-08T16:13:13.902933+00:00",
+  "market_view": "SPY has bounced slightly to 742.21 (-0.74%) from -1.07% last cycle, VIX still elevated at 18.33 but off the spike highs \u2014 modest stabilization but not a recovery. SLV remains deeply ITM and both SPY verticals are still at or near loss-cut territory with no structural improvement.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-08T15:30:56+00:00",
-    "reasoning": "Short strike 61 is ~17.7% ITM with SLV at $51.80, mid cost $0.85 is 1.7x the $0.50 credit \u2014 hard loss-cut rule at 1.5x has been breached for multiple consecutive cycles with zero recovery path and 43 DTE. This is a near-max-loss position that must be closed immediately."
+    "timestamp": "2026-07-08T16:12:59+00:00",
+    "reasoning": "Short strike 61 is ~17.2% ITM with SLV at $52.04, mid cost $0.90 is 1.8x the $0.50 credit \u2014 hard 1.5x stop rule breached multiple cycles, zero recovery path with 43 DTE remaining. This was flagged CRITICAL last cycle and has not been closed."
   },
   "SPY 711/707p": {
     "action": "CRITICAL",
-    "confidence": 0.88,
-    "timestamp": "2026-07-08T15:30:56+00:00",
-    "reasoning": "Mid at $0.55 vs $0.47 credit is 1.17x \u2014 not yet at 1.5x hard stop, but SPY is down 1.07% today with VIX ripping 12.52%; short strike 711 is now only 3.9% OTM and closing distance fast in a selling tape. Previously flagged as CRITICAL due to concentration \u2014 two SPY put verticals same expiry is correlated max-loss risk."
+    "confidence": 0.85,
+    "timestamp": "2026-07-08T16:12:59+00:00",
+    "reasoning": "Mid at $0.475 is essentially breakeven on the $0.47 credit and worst case $0.52 is 1.11x \u2014 not yet 1.5x stop, but holding two SPY put verticals same expiry is correlated max-loss concentration risk; SPY is still down on the day with VIX at 18.33 and 29 DTE."
   },
   "SPY 712/708p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-07-08T15:30:56+00:00",
-    "reasoning": "Mid at $0.565 vs $0.32 credit is 1.77x the credit \u2014 worst case $0.60 is 1.875x, both hard breach the 1.5x stop rule. This was flagged CRITICAL last cycle and has continued to deteriorate with VIX now at 18.15."
+    "timestamp": "2026-07-08T16:12:59+00:00",
+    "reasoning": "Mid at $0.50 vs $0.32 credit is 1.56x \u2014 hard 1.5x stop rule breached, was flagged CRITICAL last cycle and has not been closed; worst case $0.55 is 1.72x credit."
   }
 }
