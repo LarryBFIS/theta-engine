@@ -1,19 +1,19 @@
 # Ledger Summary
 
-_Generated 2026-07-08T13:40:49.386810+00:00 from tastytrade transaction history._
+_Generated 2026-07-08T14:35:10.445806+00:00 from tastytrade transaction history._
 
 ## Reconciliation
 
 | Item | Amount |
 |---|---:|
 | Starting capital | $3,389.91 |
-| Net liq (now) | $3,716.70 |
+| Net liq (now) | $3,616.33 |
 | Strategy realized (closed) | $+200.85 |
-| Strategy unrealized (open) | $-56.87 |
-| **Strategy P&L** | **$+143.98** |
+| Strategy unrealized (open) | $-77.37 |
+| **Strategy P&L** | **$+123.48** |
 | Money movement | $-0.15 |
-| Non-strategy activity | $+182.96 |
-| **Account P&L** | **$+326.79** |
+| Non-strategy activity | $+103.09 |
+| **Account P&L** | **$+226.42** |
 
 _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger positions closed in-window). Total fees paid: $43.63._
 
@@ -38,6 +38,6 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 | ledger_010_spy | SPY | 2026-06-22 | 2026-07-01 | closed | $+41.50 | — |
 | ledger_011_cost | COST | 2026-06-22 | 2026-06-25 | closed | $+21.48 | — |
 | ledger_012_spy | SPY | 2026-06-23 | 2026-06-30 | closed | $+52.49 | — |
-| ledger_013_slv | SLV | 2026-06-25 | — | open | — | $-2.62 |
-| ledger_014_spy | SPY | 2026-07-02 | — | open | — | $+0.75 |
-| ledger_015_spy | SPY | 2026-07-06 | — | open | — | $-15.25 |
+| ledger_013_slv | SLV | 2026-06-25 | — | open | — | $-19.12 |
+| ledger_014_spy | SPY | 2026-07-02 | — | open | — | $-0.75 |
+| ledger_015_spy | SPY | 2026-07-06 | — | open | — | $-17.75 |
