@@ -212,6 +212,7 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
   <div class="clock" id="clock">--:--:-- ET</div>
   <div class="mkt" id="mkt">····</div>
   <a id="pollnow" href="dashboard.html" class="mkt" style="text-decoration:none;color:var(--amber);border-color:#3a3015">LIVE DASHBOARD →</a>
+  <button id="refreshbtn" class="mkt" style="cursor:pointer;background:none;font-family:inherit;color:var(--green);border-color:#1f3a25" title="Fire the refresh workflow — re-pull live positions + opportunities straight from the broker (~90s)">⟳ REFRESH</button>
   <span class="mkt" id="refreshed" style="color:var(--cyan);border-color:#1d3a44;letter-spacing:.1em">DATA ··:··:··</span>
 </header>
 
@@ -820,7 +821,21 @@ loadLive().finally(()=>{ renderTape(); liveFeel(); });
 loadFeed(); loadNews();
 setInterval(loadLive, REFRESH_MS);
 
-/* ---- POLL NOW: instant re-fetch ---- */
+/* ---- REFRESH: fire the GitHub 'refresh' workflow (fresh broker data) ----
+   Public pages can't hold a GitHub token, so this POSTs to a tiny Cloudflare
+   Worker that holds the token and dispatches refresh.yml. Deploy the Worker
+   in workers/refresh-trigger.js, then paste its URL below. */
+const REFRESH_ENDPOINT = "";   // <-- paste your refresh-trigger Worker URL here
+(()=>{ const b=document.getElementById('refreshbtn'); if(!b) return;
+  b.addEventListener('click', async ()=>{
+    if(!REFRESH_ENDPOINT){ alert('Set REFRESH_ENDPOINT (bottom of the script) to your refresh-trigger Worker URL. See workers/refresh-trigger.js for the 2-minute setup.'); return; }
+    const o=b.textContent; b.textContent='⟳ FIRING…'; b.disabled=true;
+    try{ const r=await fetch(REFRESH_ENDPOINT,{method:'POST'}); b.textContent = r.ok ? '⟳ QUEUED ✓' : '⟳ FAILED'; }
+    catch(e){ b.textContent='⟳ FAILED'; }
+    setTimeout(()=>{ b.textContent=o; b.disabled=false; }, 4000);
+    setTimeout(()=>location.reload(), 95000);   // run ~60-90s + Pages rebuild
+  });
+})();
 </script>
 </body>
 </html>
