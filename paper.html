@@ -666,7 +666,7 @@ function paintOpps(){
       <div class="fmeta"><b>$${(+o.credit).toFixed(2)}</b>cr · POP ${Math.round((o.pop||0)*100)}% · IVR ${Math.round((o.iv_rank||0)*100)}% · EV ${ev>=0?'+':''}$${ev}</div>
       <div class="fmeta">${ai}</div>
       ${tk}
-      ${_posted?`<div class="fmeta" style="color:var(--dimmer)">🕒 posted ${_posted}</div>`:''}
+      ${_posted?`<div class="fmeta" style="color:var(--dimmer)">🕒 spotted ${_posted}</div>`:''}
     </div>`;
   };
   const dir=(o)=>{const c=structCode(o.structure);return c==='VP'?'bull':c==='VC'?'bear':(c==='IC'||c==='RIC')?'neutral':'other';};

@@ -1311,31 +1311,12 @@ def _mid(q):
     return (b + a) / 2 if (b is not None and a is not None) else None
 
 
-def _opp_key(c):
-    """Stable identity for an opportunity — same setup keeps its posted_at across
-    scans; a changed strike/expiry counts as a fresh posting (re-stamped now)."""
-    return "{}|{}|{:g}|{:g}|{}".format(
-        (c.get("underlying") or "").upper(), c.get("structure") or "",
-        float(c.get("short_strike") or 0), float(c.get("long_strike") or 0),
-        c.get("expiry") or "")
-
-
 def _stamp_posted(ranked, generated_at):
-    """Set posted_at on each opportunity: the first time this exact setup appeared.
-    Carries the time forward from the previous scan so 'posted' means when it was
-    FIRST surfaced, not when this scan ran. New/changed setups get `generated_at`."""
-    prev = {}
-    opp_file = SCAN_DIR / "opportunities.json"
-    if opp_file.exists():
-        try:
-            old = json.loads(opp_file.read_text())
-            for c in old.get("top", []):
-                if c.get("posted_at"):
-                    prev[_opp_key(c)] = c["posted_at"]
-        except Exception:  # noqa: BLE001 — a bad/old file just means everything is "new"
-            pass
+    """Stamp each opportunity with the time THIS scan spotted it (the scan's own
+    generated_at). Every scan re-stamps, so the timestamp always reflects the
+    current, freshly-priced snapshot — not when the setup first appeared."""
     for c in ranked:
-        c["posted_at"] = prev.get(_opp_key(c), generated_at)
+        c["posted_at"] = generated_at
 
 
 def _write(ranked, candidates, skipped, regime=None, long_vol=None, events=None,
