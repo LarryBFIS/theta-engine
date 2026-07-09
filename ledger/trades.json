@@ -429,8 +429,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -27.25,
-      "cost_to_close_mid": 75.0,
+      "unrealized_pnl": -29.75,
+      "cost_to_close_mid": 77.5,
       "structure": "short_put_vertical",
       "short_strike": 61.0,
       "long_strike": 60.0,
@@ -831,8 +831,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 27.38,
-      "cost_to_close_mid": -307.5
+      "unrealized_pnl": 24.88,
+      "cost_to_close_mid": -305.0
     },
     {
       "id": "ledger_014_spy",
@@ -860,14 +860,34 @@
           "executed_at": "2026-07-02T16:53:39.083Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": 14.75,
-      "cost_to_close_mid": 30.0,
+      "close_orders": [
+        "482366420"
+      ],
+      "close_net_cash": -30.25,
+      "close_legs": [
+        {
+          "symbol": "SPY   260807P00707000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 2.24,
+          "net_cash": 223.87,
+          "fees": 0.13,
+          "executed_at": "2026-07-09T18:47:59.704Z"
+        },
+        {
+          "symbol": "SPY   260807P00711000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 2.54,
+          "net_cash": -254.12,
+          "fees": 0.12,
+          "executed_at": "2026-07-09T18:47:59.704Z"
+        }
+      ],
+      "closed_at": "2026-07-09",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": 14.5,
       "structure": "short_put_vertical",
       "short_strike": 711.0,
       "long_strike": 707.0,
@@ -877,7 +897,8 @@
       "width": 4.0,
       "max_profit_total": 47.0,
       "max_loss_total": 353.0,
-      "bpr_total": 353.0
+      "bpr_total": 353.0,
+      "close_debit_per_contract": 0.3
     },
     {
       "id": "ledger_015_spy",
