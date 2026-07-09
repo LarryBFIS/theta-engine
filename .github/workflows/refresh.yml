@@ -1,0 +1,107 @@
+name: refresh
+
+# ONE button to refresh EVERYTHING the dashboard shows, together, with aligned
+# timestamps: live position marks/P&L (from the broker) AND the opportunity scan
+# (fresh quotes + AI review + spotted-time). Two triggers:
+#   1. schedule — hourly during market hours. GitHub reliably honors HOURLY crons;
+#      it was the old 10-minute tick cron that got throttled to ~once an hour.
+#   2. workflow_dispatch — the MANUAL button. Actions tab -> refresh -> Run workflow,
+#      and everything on the dashboard re-pulls from the broker on demand.
+on:
+  schedule:
+    - cron: '5 13-20 * * 1-5'   # :05 past each hour, ~8am-3pm CDT, Mon-Fri
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # ---------- POSITIONS: fresh marks + P&L straight from the broker ----------
+      - name: Poll positions
+        env:
+          TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
+          TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          STARTING_CAPITAL: ${{ secrets.STARTING_CAPITAL }}
+          GIST_ID: ${{ secrets.GIST_ID }}
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          DECISION_SECRET: ${{ secrets.DECISION_SECRET }}
+          DECIDE_BASE_URL: ${{ secrets.DECIDE_BASE_URL }}
+        run: python -m scripts.poll
+
+      - name: Build ledger (broker truth)
+        env:
+          TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
+          TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          STARTING_CAPITAL: ${{ secrets.STARTING_CAPITAL }}
+        run: python -m scripts.build_ledger
+
+      - name: Sync trades from ledger
+        run: python -m scripts.sync_trades
+
+      # ---------- OPPORTUNITIES: fresh scan + AI review + spotted-time ----------
+      - name: Scan opportunities
+        env:
+          TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
+          TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AGENT_MODEL: ${{ vars.AGENT_MODEL }}
+          AGENT_REVIEW_MODE: ${{ vars.AGENT_REVIEW_MODE }}
+        run: python -m scripts.scan_opportunities
+
+      - name: Track paper trades
+        env:
+          TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
+          TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+        run: python -m scripts.paper_trades
+
+      - name: Commit refresh
+        run: |
+          git config user.name "theta-bot"
+          git config user.email "bot@theta-engine"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "refresh: positions + opportunities $(date -u +%Y-%m-%dT%H:%MZ)"
+            # Survive a moved ref AND data-file conflicts: replay on latest main,
+            # resolve conflicts to THIS run's fresh files, always abort a failed
+            # rebase so the next retry starts clean.
+            pushed=0
+            for i in 1 2 3 4 5; do
+              git fetch -q origin main || true
+              if git rebase -X theirs origin/main && git push origin HEAD:main; then pushed=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              echo "push attempt $i failed — retrying"; sleep $((RANDOM % 4 + 3))
+            done
+            [ "$pushed" = "1" ] || { echo "push failed after retries"; exit 1; }
+          fi
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          curl -s --form-string "token=${{ secrets.PUSHOVER_APP_TOKEN }}" \
+            --form-string "user=${{ secrets.PUSHOVER_USER_KEY }}" \
+            --form-string "title=theta-engine refresh FAILED" \
+            --form-string "message=Refresh at $(date -u +%H:%MZ) failed. Check the Actions log." \
+            --form-string "priority=1" \
+            https://api.pushover.net/1/messages.json
