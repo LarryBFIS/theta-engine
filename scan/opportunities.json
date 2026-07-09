@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-09T20:24:19.318638+00:00",
+  "generated_at": "2026-07-09T20:42:39.610440+00:00",
   "regime": {
-    "vix": 15.86,
-    "vix_day_change_pct": -0.0615,
+    "vix": 15.84,
+    "vix_day_change_pct": -0.0627,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (-6% day)"
@@ -61,9 +61,9 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-07-09T20:24:19.315085+00:00",
+    "generated_at": "2026-07-09T20:42:39.606923+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is small (1 open SPY position, -$12 unrealized). Adding a correlated SPY short put vertical would concentrate directional and volatility risk in the same asset/cluster.",
+    "portfolio_note": "Book holds 1 SPY position (us_index cluster) with \u2013$4 unrealized loss. Adding SPY vertical keeps us under cluster cap (2/3) and name cap (2/1 would violate \u2014 STOP). Candidate is index ETF, tight vertical, 36 DTE, reasonable POP; regime is normal, no macro event risk.",
     "reviewed": 1,
     "vetoed": 1,
     "downsized": 0,
@@ -71,7 +71,7 @@
       {
         "id": "SPY|short_put_vertical|720/711",
         "action": "veto",
-        "reason": "SPY already open in portfolio; second SPY position violates diversification rule and creates correlated cluster concentration (2/3 of max_per_cluster). Single-name over-concentration is a key failure mode."
+        "reason": "Max SPY per-name cap is 1; we already have 1 SPY open. Adding this violates hard constraint."
       }
     ]
   },
@@ -91,15 +91,15 @@
       "fees_est": 3.0,
       "bpr": 809.0,
       "max_loss": 809.0,
-      "pop": 0.801,
+      "pop": 0.802,
       "short_delta": 0.185,
       "short_spread_pct": 0.007,
       "credit_to_bpr": 0.112,
-      "ev_per_contract": 6.35,
-      "ev_on_bpr": 0.0078,
+      "ev_per_contract": 6.48,
+      "ev_on_bpr": 0.008,
       "iv": 0.1558,
       "iv_rank": 0.312,
-      "underlying_price": 751.35,
+      "underlying_price": 751.45,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -114,9 +114,9 @@
       "learn_notes": [
         "structure=short_put_vertical \u00d71.36"
       ],
-      "rank_score": 0.010631,
+      "rank_score": 0.010904,
       "agent_action": "veto",
-      "agent_reason": "SPY already open in portfolio; second SPY position violates diversification rule and creates correlated cluster concentration (2/3 of max_per_cluster). Single-name over-concentration is a key failure mode."
+      "agent_reason": "Max SPY per-name cap is 1; we already have 1 SPY open. Adding this violates hard constraint."
     }
   ],
   "skipped": {
