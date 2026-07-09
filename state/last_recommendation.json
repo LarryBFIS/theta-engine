@@ -1,28 +1,28 @@
 {
-  "last_run": "2026-07-09T13:59:01.692257+00:00",
-  "market_view": "VIX at 16.64 (-1.54%) with SPY +0.48% and tech ripping +2.64% \u2014 bullish tape today but SLV remains deeply breached regardless of broad equity strength. Both SPY verticals are recovering on the rally.",
+  "last_run": "2026-07-09T15:09:31.330203+00:00",
+  "market_view": "VIX at 16.59 (-1.83%) with SPY +0.54% and tech ripping +2.32% \u2014 bullish tape compressing equity puts but SLV remains a structural bleed at 12% below short strike with no reversal in sight.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-09T13:58:46Z",
-    "reasoning": "Short strike 61 breached with SLV at 54.44 \u2014 12% below short strike, mid cost $0.825 is 1.65x credit, well past 1.5x stop threshold of $0.75. This has been flagged CRITICAL for multiple cycles with no action taken \u2014 every minute of inaction risks pinning at max loss."
+    "timestamp": "2026-07-09T15:09:14Z",
+    "reasoning": "Short strike 61 breached with SLV at 54.51 \u2014 mid cost $0.85 is 1.7x the $0.50 credit, worst cost $1.05 is 2.1x credit, both obliterating the 1.5x stop at $0.75. This has been flagged CRITICAL multiple cycles with zero action \u2014 position is pinned at max loss trajectory and hemorrhaging further."
   },
   "SPY 711/707p": {
     "action": "ACTION",
-    "confidence": 0.85,
-    "timestamp": "2026-07-09T13:58:46Z",
-    "reasoning": "Mid cost $0.325 vs $0.47 credit = 30.9% profit \u2014 approaching 50% profit target ($0.235), SPY at 749 with short strike 711 now 5.1% OTM on a strong tape."
+    "confidence": 0.88,
+    "timestamp": "2026-07-09T15:09:14Z",
+    "reasoning": "Mid cost $0.315 vs $0.47 credit = 33% profit, approaching 50% target at $0.235 \u2014 SPY at 749.4 with 5.1% OTM cushion on a bullish tape means further decay is slowing; lock in the gain now rather than overstaying."
   },
   "SPY 712/708p": {
     "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-07-09T13:58:46Z",
-    "reasoning": "Mid cost $0.34 vs $0.32 credit \u2014 slightly underwater but recovering fast on SPY rally; worst cost $0.37 is still well below 1.5x stop at $0.48, and today's +0.48% SPY move is compressing these puts."
+    "confidence": 0.72,
+    "timestamp": "2026-07-09T15:09:14Z",
+    "reasoning": "Mid cost $0.33 vs $0.32 credit \u2014 essentially flat, worst case $0.35 well inside the 1.5x stop at $0.48; today's rally is pushing this back toward profitability but not actionable yet."
   },
   "IWM 276/272p": {
-    "action": "HOLD",
+    "action": "ACTION",
     "confidence": 0.82,
-    "timestamp": "2026-07-09T13:58:46Z",
-    "reasoning": "Mid cost $0.365 vs $0.48 credit = 24% profit, IWM +1.07% today pushing short strike 276 further OTM at 6.96% distance \u2014 position is recovering cleanly."
+    "timestamp": "2026-07-09T15:09:14Z",
+    "reasoning": "Mid cost $0.33 vs $0.48 credit = 31.25% profit with IWM +1.41% today and short strike 276 now 7.26% OTM \u2014 theta is decelerating at 28 DTE and the bulk of easy gains are in; 50% target is $0.24 but the tape is doing the work now."
   }
 }
