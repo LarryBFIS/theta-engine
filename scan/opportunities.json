@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-09T19:14:44.277889+00:00",
+  "generated_at": "2026-07-09T19:41:45.796848+00:00",
   "regime": {
-    "vix": 16.06,
-    "vix_day_change_pct": -0.0497,
+    "vix": 15.92,
+    "vix_day_change_pct": -0.058,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (-5% day)"
+    "note": "normal regime (-6% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -61,17 +61,17 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-07-09T19:14:44.274181+00:00",
+    "generated_at": "2026-07-09T19:41:45.793240+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book has 1 open SPY position (unrealized -$12). Candidate adds same underlying/cluster; already at max_per_name=1. VIX normal, no macro events.",
+    "portfolio_note": "Book is long 1 SPY position (unrealized -$12). Candidate adds correlated directional risk to existing us_index exposure; cluster would reach 2/3 cap, but the real issue is concentration.",
     "reviewed": 1,
     "vetoed": 1,
     "downsized": 0,
     "decisions": [
       {
-        "id": "SPY|short_put_vertical|719/710",
+        "id": "SPY|short_put_vertical|720/711",
         "action": "veto",
-        "reason": "Already long 1 SPY position; adding second SPY trade (same cluster) violates max_per_name=1 cap and creates correlated duration/delta risk on underwater position."
+        "reason": "Adds correlated short-vol risk to existing SPY long; us_index cluster already has 1 open position; marginal EV (0.75%) does not justify concentration in same underlying and regime."
       }
     ]
   },
@@ -81,46 +81,46 @@
       "structure": "short_put_vertical",
       "expiry": "2026-08-14",
       "dte": 36,
-      "short_strike": 719.0,
-      "long_strike": 710.0,
-      "short_symbol": "SPY   260814P00719000",
-      "long_symbol": "SPY   260814P00710000",
+      "short_strike": 720.0,
+      "long_strike": 711.0,
+      "short_symbol": "SPY   260814P00720000",
+      "long_symbol": "SPY   260814P00711000",
       "width": 9.0,
-      "credit": 0.92,
-      "mid_credit": 0.94,
+      "credit": 0.93,
+      "mid_credit": 0.96,
       "fees_est": 3.0,
-      "bpr": 808.0,
-      "max_loss": 808.0,
-      "pop": 0.803,
-      "short_delta": 0.184,
+      "bpr": 807.0,
+      "max_loss": 807.0,
+      "pop": 0.799,
+      "short_delta": 0.188,
       "short_spread_pct": 0.007,
-      "credit_to_bpr": 0.114,
-      "ev_per_contract": 6.68,
-      "ev_on_bpr": 0.0083,
-      "iv": 0.158,
-      "iv_rank": 0.323,
-      "underlying_price": 750.94,
+      "credit_to_bpr": 0.115,
+      "ev_per_contract": 6.07,
+      "ev_on_bpr": 0.0075,
+      "iv": 0.157,
+      "iv_rank": 0.318,
+      "underlying_price": 751.26,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 808.0,
-      "bpr_total": 808.0,
+      "max_loss_total": 807.0,
+      "bpr_total": 807.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 719/710p \u00d71 \u2014 bullish lean. Edge: IV rank 32%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.92 \u00b7 max loss $808 \u00b7 BPR $808 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 720/711p \u00d71 \u2014 bullish lean. Edge: IV rank 32%, EV $+6/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.93 \u00b7 max loss $807 \u00b7 BPR $807 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.363,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.36"
       ],
-      "rank_score": 0.011313,
+      "rank_score": 0.010222,
       "agent_action": "veto",
-      "agent_reason": "Already long 1 SPY position; adding second SPY trade (same cluster) violates max_per_name=1 cap and creates correlated duration/delta risk on underwater position."
+      "agent_reason": "Adds correlated short-vol risk to existing SPY long; us_index cluster already has 1 open position; marginal EV (0.75%) does not justify concentration in same underlying and regime."
     }
   ],
   "skipped": {
     "IWM": "iv_rank 25%",
-    "DIA": "iv_rank 23%"
+    "DIA": "iv_rank 22%"
   }
 }
