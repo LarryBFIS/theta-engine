@@ -20843,6 +20843,34 @@
       "alternative": "Hold and hope. Risk: up to $50 max loss (currently $38 unrealized).",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20260709T095840_trade_008_slv_61_60",
+      "trade_id": "trade_008_slv_61_60",
+      "timestamp": "2026-07-09T09:58:40.650571-04:00",
+      "action": "URGENT_CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\u26a0\ufe0f SLV @ $54.44 is BELOW short strike $61 (ITM).",
+        "Max loss exposure increasing. Current close: $0.83 mid / $1.05 worst.",
+        "42 DTE remaining; negative delta hurts daily."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.8250000000000002,
+        "cost_to_close_worst": 1.0499999999999998,
+        "profit_if_closed_mid": -32.500000000000014,
+        "profit_if_closed_worst": -54.999999999999986,
+        "pct_max_profit_captured_mid": -0.6500000000000004,
+        "dte": 42,
+        "underlying_price": 54.435001373291016,
+        "short_strike_breached": true,
+        "has_live_quotes": true,
+        "net_liq": 3691.195,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold and hope. Risk: up to $50 max loss (currently $33 unrealized).",
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
