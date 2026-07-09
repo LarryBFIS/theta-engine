@@ -4,12 +4,31 @@ Run without pytest:  python -m scripts.test_paper_trades
 """
 import sys
 
+import scripts.paper_trades as _pt
 from scripts.paper_trades import (record_picks, manage_decision, mark_trade, summarize,
                                   cluster_of, asset_class, ledger_record)
 
 
 def main() -> int:
     f = []
+    # The cap/cluster tests below exercise many underlyings; the production
+    # index-only TRADE_UNIVERSE filter is verified in its own block. Disable it here.
+    _pt.TRADE_UNIVERSE = set()
+
+    # --- index-only trade filter: non-index picks are view-only (never opened) ---
+    iob = {"trades": []}
+    _pt.TRADE_UNIVERSE = {"SPY", "IWM", "DIA"}
+    iopicks = [
+        {"underlying": "SPY", "short_strike": 720, "long_strike": 716, "expiry": "2026-08-14",
+         "credit": 0.5, "bpr": 350, "pop": 0.8, "iv_rank": 0.35, "tag": "paper"},
+        {"underlying": "TSLA", "short_strike": 400, "long_strike": 390, "expiry": "2026-08-14",
+         "credit": 2.0, "bpr": 800, "pop": 0.8, "iv_rank": 0.6, "tag": "paper"},
+    ]
+    record_picks(iob, iopicks, "2026-07-09")
+    opened = [t["underlying"] for t in iob["trades"]]
+    if opened != ["SPY"]:
+        f.append("index-only filter: expected only SPY, got {}".format(opened))
+    _pt.TRADE_UNIVERSE = set()   # back to no-filter for the remaining cap tests
 
     # --- record_picks: dedup + tag carried ---
     book = {"trades": []}

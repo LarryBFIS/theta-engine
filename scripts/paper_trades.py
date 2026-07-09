@@ -24,7 +24,7 @@ SCAN_FILE = REPO_ROOT / "scan" / "opportunities.json"
 MEMORY_DIR = REPO_ROOT / "memory"
 LEDGER_FILE = MEMORY_DIR / "trades_ledger.json"   # persistent outcomes memory (learn.py input)
 
-BOOK_SCHEMA = 2        # bump to wipe a book written by buggy older logic
+BOOK_SCHEMA = 3        # bump to wipe the book. v3: fresh $10k start, index-only trading (2026-07-09)
 import os
 # Real-money fidelity: tastytrade ~$1/contract/leg to open + regulatory both
 # ways; ~$1.25 per leg per contract round-trip. Deducted from every realized.
@@ -40,6 +40,13 @@ STOP_DEBIT_MULT = 1.5  # cut at 1.5x credit (debit to close >= 2.5x credit)
 MAX_PER_NAME = int(os.getenv("PAPER_MAX_PER_NAME", "1"))      # no duplicate underlyings
 MAX_PER_CLUSTER = int(os.getenv("PAPER_MAX_PER_CLUSTER", "3"))  # correlated names share one ceiling
 MAX_OPEN = int(os.getenv("PAPER_MAX_OPEN", "8"))             # total open positions
+
+# The bot only ever paper-TRADES these — "I'm only going to use the bot as the SPY
+# trader" (Jay, 2026-07-09). Every other underlying still shows in the opportunities
+# feed for viewing; it just never gets opened on the paper book. Override with
+# PAPER_TRADE_UNIVERSE="A,B,C".
+TRADE_UNIVERSE = set(
+    (os.getenv("PAPER_TRADE_UNIVERSE") or "SPY,IWM,DIA").replace(" ", "").upper().split(","))
 
 # Correlation clusters — names that move together count against one ceiling.
 _CLUSTER_MEMBERS = {
@@ -128,6 +135,8 @@ def record_picks(book, picks, today, caps=None):
         if sig in known_sigs:
             continue
         u = (p.get("underlying") or "").upper()
+        if TRADE_UNIVERSE and u not in TRADE_UNIVERSE:
+            continue   # view-only: the bot only paper-trades SPY/IWM/DIA (empty set = no filter)
         cl = cluster_of(u)
         if total >= max_open:
             capped.append("{} (book full: {} open)".format(u, total))

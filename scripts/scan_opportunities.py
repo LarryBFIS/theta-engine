@@ -83,7 +83,7 @@ BPR_TARGET_LOW = float(os.getenv("SCAN_BPR_TARGET_LOW", "0.35")) # target band 3
 # Paper book capital — the $20k sandbox. Picks too big for the live account are
 # routed to paper and sized against this (same 10% / 50% rules), so high-value
 # trades still get proven before real capital ever touches them.
-PAPER_CAPITAL = float(os.getenv("SCAN_PAPER_CAPITAL", "20000"))
+PAPER_CAPITAL = float(os.getenv("SCAN_PAPER_CAPITAL", "10000"))  # fresh $10k paper start (2026-07-09)
 # ── Earnings IV-crush (P3b) — the frequency engine ──────────────────────
 # Defined-risk iron condor entered the day before earnings, closed the morning
 # after: harvests the post-print vol collapse (implied moves overstate realized

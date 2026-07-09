@@ -279,3 +279,25 @@ its own. Full former universe is restorable via `SCAN_UNIVERSE="..."`.
 premium on **low-vol, mean-reverting** underlyings; single names **trend and gap**,
 running over the short strike. SPY/IWM/DIA are the structural fit; big tech is the
 structural enemy. This is direction-independent → safe to hardcode.
+
+---
+
+## 2026-07-09 — fresh $10k paper book, index-only TRADING, wide VIEWING
+
+Jay: "I'm only going to use the bot as the SPY trader." New model — decouple what
+the bot **shows** from what it **trades**:
+- **Trades ONLY SPY / IWM / DIA.** `paper_trades.record_picks` now skips any pick
+  outside `TRADE_UNIVERSE` (env `PAPER_TRADE_UNIVERSE`, default SPY,IWM,DIA). Every
+  other underlying still appears in the opportunities feed for viewing — it just
+  never gets opened on the paper book.
+- **Fresh $10k start.** Bumped `BOOK_SCHEMA` 2→3 (auto-wipes the old -$9.2k book on
+  the next run, race-proof — no data file to hand-edit). `PAPER_CAPITAL` and the
+  dashboard's `PAPER_START` both 20000→10000.
+- The learner's outcomes ledger (`memory/trades_ledger.json`) is intentionally
+  **kept** — its hard-won "index wins / tech loses" knowledge still informs ranking,
+  and only matters for index now anyway. (Wipe separately if a truly clean learner
+  is ever wanted.)
+
+Net: the paper book becomes a clean forward-test of the *actual* strategy (index,
+$10k, guardrailed) instead of a scattershot scar, while Jay keeps a full-market
+view of opportunities.
