@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-09T21:05:09.280383+00:00",
-  "market_view": "VIX at 15.84 (-6.27%) with broad risk-on tape \u2014 equities grinding higher, put verticals decaying nicely. SLV remains structurally broken well below short strike with no recovery catalyst.",
+  "last_run": "2026-07-10T13:44:40.863869+00:00",
+  "market_view": "VIX 15.73 and drifting lower in a neutral regime \u2014 put verticals on SPY/IWM continue to decay with strikes well OTM. SLV remains structurally broken with short strike 13% ITM, no recovery in sight.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-09T21:04:56Z",
-    "reasoning": "Short strike 61 breached with SLV at 54.14 \u2014 mid cost $0.80 is 1.6x the $0.50 credit, hard-stop rule triggered last cycle with zero improvement, position is on max-loss trajectory and dead money tying up BPR. CRITICAL flagged last cycle \u2014 this is not improving."
+    "timestamp": "2026-07-10T13:44:24Z",
+    "reasoning": "Short strike 61 breached with SLV at $54.01 \u2014 mid cost $0.85 is 1.7x the $0.50 credit, hard stop rule (1.5x) has been triggered for multiple cycles with zero improvement. This is approaching max loss and is dead BPR."
   },
   "SPY 712/708p": {
-    "action": "HOLD",
-    "confidence": 0.83,
-    "timestamp": "2026-07-09T21:04:56Z",
-    "reasoning": "Mid cost $0.285 vs $0.32 credit \u2014 11% profit, SPY 5.5% above short strike with VIX crushed; need more theta decay to reach $0.16 target."
+    "action": "ACTION",
+    "confidence": 0.82,
+    "timestamp": "2026-07-10T13:44:24Z",
+    "reasoning": "Mid cost $0.27 vs $0.32 credit is 84% of max profit captured \u2014 past the 50% manage target at $0.16, SPY is 5.4% above short strike with VIX suppressed."
   },
   "IWM 276/272p": {
     "action": "ACTION",
-    "confidence": 0.87,
-    "timestamp": "2026-07-09T21:04:56Z",
-    "reasoning": "Mid cost $0.315 vs $0.48 credit \u2014 34% profit, IWM +1.28% today and short strike 7.1% OTM; one more up tick or vol crush should push this to 50% target at $0.24 but we're close enough intraday to work a limit."
+    "confidence": 0.88,
+    "timestamp": "2026-07-10T13:44:24Z",
+    "reasoning": "Mid cost $0.34 vs $0.48 credit is 29% profit \u2014 not yet at 50% target ($0.24), but IWM is down today and one more session of decay should get there; work a GTC limit."
   }
 }
