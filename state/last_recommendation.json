@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-10T17:59:18.069201+00:00",
-  "market_view": "VIX at 15.37 continuing to compress (-2.97% today, -6.28% 5d), SPY/QQQ holding green while IWM underperforms at -0.39% \u2014 low vol regime is good for theta decay on surviving positions but SLV breach remains an open wound that must be closed immediately.",
+  "last_run": "2026-07-10T18:37:32.779367+00:00",
+  "market_view": "VIX at 15.36 continuing to compress, SPY/QQQ holding green in low-vol regime \u2014 theta decay is working on SPY and IWM but SLV is a fully breached position that has been flagged CRITICAL twice with no action taken.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-10T17:59:05.438204+00:00",
-    "reasoning": "Short strike 61 remains deeply breached with SLV at $53.83, mid cost $0.80 is 1.6x the $0.50 credit \u2014 hard stop at 1.5x was triggered long ago and this was flagged CRITICAL last cycle with no action taken, max loss is effectively realized."
+    "timestamp": "2026-07-10T18:37:20Z",
+    "reasoning": "Short strike 61 is deeply breached with SLV at $53.96, mid cost $0.825 is 1.65x the $0.50 credit \u2014 hard stop at 1.5x was triggered long ago, this is now near max loss and has been CRITICAL two consecutive cycles with no close executed."
   },
   "SPY 712/708p": {
     "action": "ACTION",
-    "confidence": 0.92,
-    "timestamp": "2026-07-10T17:59:05.438204+00:00",
-    "reasoning": "Mid cost $0.25 vs $0.32 credit is 78% of max profit captured \u2014 this has been above the 50% manage threshold and was flagged last cycle with no action taken, SPY at $754 is 5.8% above the short strike with VIX collapsing leaving minimal remaining edge."
+    "confidence": 0.93,
+    "timestamp": "2026-07-10T18:37:20Z",
+    "reasoning": "Mid cost $0.24 vs $0.32 credit is 75% of max profit captured, well past the 50% manage threshold \u2014 this has been flagged ACTION last cycle with no close taken, SPY at $754 is 5.6% above short strike with 27 DTE and VIX collapsing leaving virtually no remaining edge to hold."
   },
   "IWM 276/272p": {
     "action": "WATCH",
     "confidence": 0.72,
-    "timestamp": "2026-07-10T17:59:05.438204+00:00",
-    "reasoning": "Mid cost $0.315 vs $0.48 credit is 34% profit \u2014 still below 50% manage threshold, short strike is 6.8% OTM at 27 DTE, but IWM continued lagging today at -0.39% while large caps held green which is a mild headwind to monitor."
+    "timestamp": "2026-07-10T18:37:20Z",
+    "reasoning": "Mid cost $0.31 vs $0.48 credit is 35% profit, still below 50% manage threshold at 27 DTE \u2014 IWM soft today at -0.38% but short strike is 6.8% OTM with no breach risk near-term."
   }
 }
