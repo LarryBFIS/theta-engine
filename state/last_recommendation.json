@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-10T16:33:12.626224+00:00",
-  "market_view": "VIX at 15.37 continuing its decline in a neutral regime, SPY/QQQ flat-to-green while IWM lags at -0.62% \u2014 broad market complacency supports short premium but SLV remains a critical unresolved problem from prior cycle.",
+  "last_run": "2026-07-10T17:14:30.910161+00:00",
+  "market_view": "VIX at 15.28 dropping further (-3.54% today), SPY/QQQ holding green while IWM continues to lag at -0.54% \u2014 low volatility environment favors short premium decay but SLV remains a critical breach requiring immediate closure.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-10T16:33:00.970798+00:00",
-    "reasoning": "Short strike 61 remains deeply breached with SLV at $54.15, mid cost $0.85 is 1.7x the $0.50 credit \u2014 hard stop rule triggered cycles ago, this is near-max loss with zero recovery path and position must be closed immediately."
+    "timestamp": "2026-07-10T17:14:18.969870+00:00",
+    "reasoning": "Short strike 61 remains deeply breached with SLV at $53.90, mid cost $0.85 is 1.7x the $0.50 credit \u2014 hard stop triggered multiple cycles ago, this is at max loss with zero recovery path and every minute of delay compounds the damage."
   },
   "SPY 712/708p": {
     "action": "ACTION",
-    "confidence": 0.88,
-    "timestamp": "2026-07-10T16:33:00.970798+00:00",
-    "reasoning": "Mid cost $0.245 vs $0.32 credit represents 23.4% remaining value captured \u2014 that's 76.6% of max profit in hand, well past the 50% manage rule, and SPY is 5.5% above the short strike with VIX falling."
+    "confidence": 0.91,
+    "timestamp": "2026-07-10T17:14:18.969870+00:00",
+    "reasoning": "Mid cost $0.25 vs $0.32 credit means 78% of max profit is captured \u2014 well past the 50% manage rule, SPY is 5.5% above short strike with VIX falling, no reason to hold theta risk."
   },
   "IWM 276/272p": {
     "action": "WATCH",
-    "confidence": 0.72,
-    "timestamp": "2026-07-10T16:33:00.970798+00:00",
-    "reasoning": "Mid cost $0.34 vs $0.48 credit is 29% profit \u2014 approaching but not at 50% manage target, short strike is 6.6% OTM with 27 DTE and IWM weakness is a mild headwind but not actionable yet."
+    "confidence": 0.7,
+    "timestamp": "2026-07-10T17:14:18.969870+00:00",
+    "reasoning": "Mid cost $0.335 vs $0.48 credit is 30% profit \u2014 still below the 50% manage threshold, but IWM weakness (-0.54% today, -0.71% 5d) is a mild headwind; short strike remains 6.6% OTM with 27 DTE so no action yet."
   }
 }
