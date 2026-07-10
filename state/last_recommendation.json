@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-10T20:20:36.464237+00:00",
-  "market_view": "VIX down 5% to 15.04, SPY/QQQ grinding higher while IWM lags slightly \u2014 theta environment remains favorable for short premium but SLV is a fully breached, unmanaged loss that is now 3+ cycles past its hard stop trigger.",
+  "last_run": "2026-07-10T20:51:26.251318+00:00",
+  "market_view": "VIX at 15.03 down 5% today, SPY grinding higher +0.43% while IWM lags at -0.42% \u2014 theta environment still favorable but SLV remains a critical unmanaged breach requiring immediate execution.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-10T20:20:22.824753+00:00",
-    "reasoning": "Short strike 61 breached with SLV at $53.95, mid cost $0.85 is 1.70x the $0.50 credit \u2014 hard stop at 1.5x was triggered multiple cycles ago and this position has now been flagged CRITICAL across 5+ consecutive alerts with zero execution. This is no longer a trading decision, it's account discipline failure."
+    "timestamp": "2026-07-10T20:51:13Z",
+    "reasoning": "Short strike 61 breached with SLV at $53.95, mid cost $0.85 is 1.70x the $0.50 credit \u2014 hard stop at 1.5x has been violated for multiple consecutive cycles with zero execution, this is an account discipline emergency. Every minute held is discretionary overriding a mechanical rule."
   },
   "SPY 712/708p": {
     "action": "ACTION",
     "confidence": 0.95,
-    "timestamp": "2026-07-10T20:20:22.824753+00:00",
-    "reasoning": "Mid cost $0.225 vs $0.32 credit = 70% of max profit captured, well above the 50% manage threshold with 27 DTE remaining and VIX collapsing \u2014 there is no edge left to hold this position."
+    "timestamp": "2026-07-10T20:51:13Z",
+    "reasoning": "Mid cost $0.225 vs $0.32 credit = 70% of max profit captured, well above the 50% manage threshold with 27 DTE remaining \u2014 edge is gone and there is no reason to carry this into the weekend."
   },
   "IWM 276/272p": {
     "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-07-10T20:20:22.824753+00:00",
-    "reasoning": "Mid cost $0.31 vs $0.48 credit = 35% profit, below the 50% manage threshold at 27 DTE \u2014 short strike is 6.7% OTM with IWM only slightly soft today, no breach risk and no action trigger yet."
+    "confidence": 0.78,
+    "timestamp": "2026-07-10T20:51:13Z",
+    "reasoning": "Mid cost $0.31 vs $0.48 credit = 35% profit, still below the 50% manage threshold with 27 DTE and short strike 6.7% OTM \u2014 IWM slightly soft today but no breach risk and no action trigger."
   }
 }
