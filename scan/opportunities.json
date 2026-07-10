@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-10T13:26:30.577153+00:00",
+  "generated_at": "2026-07-10T13:46:22.133925+00:00",
   "regime": {
-    "vix": 15.76,
-    "vix_day_change_pct": -0.0051,
+    "vix": 15.69,
+    "vix_day_change_pct": -0.0095,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (-1% day)"
@@ -61,17 +61,17 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-07-10T13:26:30.573743+00:00",
+    "generated_at": "2026-07-10T13:46:22.130182+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is currently 1 SPY long with -$4 unrealized loss in normal regime. Adding a short put vertical on SPY creates directional correlation (both long and short vol on same underlier) \u2014 this doubles our SPY bet rather than diversifying.",
+    "portfolio_note": "Book is small (1 SPY long) with modest unrealized gain. Adding a correlated short-put vertical on SPY creates directional concentration in the same cluster; this violates diversification principle.",
     "reviewed": 1,
     "vetoed": 1,
     "downsized": 0,
     "decisions": [
       {
-        "id": "SPY|short_put_vertical|721/712",
+        "id": "SPY|short_put_vertical|722/713",
         "action": "veto",
-        "reason": "Already long 1 SPY; adding short put vertical on same underlier violates diversification principle and concentrates us_index cluster risk (would be 2/3 cap). Single underlier correlated positions compound loss in downside scenarios."
+        "reason": "Candidate is already at max_per_name=1 (SPY) and would double exposure to us_index cluster; correlated short-vol bet into existing long increases ruin risk despite favorable structure and metrics."
       }
     ]
   },
@@ -81,42 +81,42 @@
       "structure": "short_put_vertical",
       "expiry": "2026-08-14",
       "dte": 35,
-      "short_strike": 721.0,
-      "long_strike": 712.0,
-      "short_symbol": "SPY   260814P00721000",
-      "long_symbol": "SPY   260814P00712000",
+      "short_strike": 722.0,
+      "long_strike": 713.0,
+      "short_symbol": "SPY   260814P00722000",
+      "long_symbol": "SPY   260814P00713000",
       "width": 9.0,
-      "credit": 0.94,
-      "mid_credit": 0.97,
+      "credit": 0.93,
+      "mid_credit": 0.96,
       "fees_est": 3.0,
-      "bpr": 806.0,
-      "max_loss": 806.0,
-      "pop": 0.803,
-      "short_delta": 0.184,
-      "short_spread_pct": 0.007,
-      "credit_to_bpr": 0.117,
-      "ev_per_contract": 7.01,
-      "ev_on_bpr": 0.0087,
+      "bpr": 807.0,
+      "max_loss": 807.0,
+      "pop": 0.796,
+      "short_delta": 0.19,
+      "short_spread_pct": 0.01,
+      "credit_to_bpr": 0.115,
+      "ev_per_contract": 5.59,
+      "ev_on_bpr": 0.0069,
       "iv": 0.1558,
       "iv_rank": 0.312,
-      "underlying_price": 752.18,
+      "underlying_price": 752.31,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 806.0,
-      "bpr_total": 806.0,
+      "max_loss_total": 807.0,
+      "bpr_total": 807.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 721/712p \u00d71 \u2014 bullish lean. Edge: IV rank 31%, EV $+7/ctr (+0.9% on BPR). POP 80% \u00b7 credit $0.94 \u00b7 max loss $806 \u00b7 BPR $806 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 722/713p \u00d71 \u2014 bullish lean. Edge: IV rank 31%, EV $+6/ctr (+0.7% on BPR). POP 80% \u00b7 credit $0.93 \u00b7 max loss $807 \u00b7 BPR $807 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.363,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.36"
       ],
-      "rank_score": 0.011858,
+      "rank_score": 0.009405,
       "agent_action": "veto",
-      "agent_reason": "Already long 1 SPY; adding short put vertical on same underlier violates diversification principle and concentrates us_index cluster risk (would be 2/3 cap). Single underlier correlated positions compound loss in downside scenarios."
+      "agent_reason": "Candidate is already at max_per_name=1 (SPY) and would double exposure to us_index cluster; correlated short-vol bet into existing long increases ruin risk despite favorable structure and metrics."
     }
   ],
   "skipped": {
