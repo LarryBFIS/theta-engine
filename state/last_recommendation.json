@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-13T14:49:19.981221+00:00",
-  "market_view": "VIX up 8.52% today to 16.31 with tech continuing to bleed (QQQ -1.2%, XLK -1.41%) while energy rips +2.39% \u2014 clear risk-off rotation with small-caps underperforming 5-day. SLV breach is a multi-cycle unresolved mechanical stop violation that demands immediate execution.",
+  "last_run": "2026-07-13T15:48:06.148218+00:00",
+  "market_view": "VIX still elevated at 16.17 (+7.58% today) with tech leading the selloff (QQQ -1.33%, XLK -1.59%) while energy and defensives outperform \u2014 risk-off rotation persisting intraday. SLV breach remains unresolved and is the only critical action required.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-13T14:49:03Z",
-    "reasoning": "Short strike 61 breached with SLV at $52.38, mid cost $0.975 is 1.95x the $0.50 credit \u2014 the 1.5x hard stop was violated multiple cycles ago and this position is now approaching max loss at $1.00. This is not a discretionary hold, the mechanical rule has been broken repeatedly with zero execution."
+    "timestamp": "2026-07-13T15:47:53.981392+00:00",
+    "reasoning": "Short strike 61 breached with SLV at $52.42, mid cost $0.875 is 1.75x the $0.50 credit \u2014 the 1.5x hard stop rule has been violated for multiple consecutive cycles with zero execution. This position has been flagged CRITICAL repeatedly and still has not been closed."
   },
   "SPY 712/708p": {
-    "action": "ACTION",
-    "confidence": 0.88,
-    "timestamp": "2026-07-13T14:49:03Z",
-    "reasoning": "Mid cost $0.275 vs $0.32 credit = 14% profit captured, below 50% manage threshold, but SPY short strike is 5.3% OTM with VIX spiking 8.52% today and only 24 DTE \u2014 risk/reward favors closing given elevated vol environment and the 21 DTE hard exit approaching in 3 days."
+    "action": "WATCH",
+    "confidence": 0.72,
+    "timestamp": "2026-07-13T15:47:53.981392+00:00",
+    "reasoning": "Mid cost $0.275 vs $0.32 credit = 14% profit, not at 50% target; short strike is 5.3% OTM and SPY is only down 0.43% today \u2014 position is intact and not deteriorating materially from last cycle."
   },
   "IWM 276/272p": {
     "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-07-13T14:49:03Z",
-    "reasoning": "Mid cost $0.37 vs $0.48 credit = 23% profit, short strike 6.3% OTM, but IWM -1.55% over 5 days and small-caps continue to underperform with VIX elevated \u2014 not at 50% profit target yet but deteriorating setup."
+    "confidence": 0.7,
+    "timestamp": "2026-07-13T15:47:53.981392+00:00",
+    "reasoning": "Mid cost $0.37 vs $0.48 credit = 23% profit, short strike 6.2% OTM; IWM -0.6% today and -1.65% over 5 days but not approaching the stop threshold yet \u2014 monitor for further small-cap deterioration."
   }
 }
