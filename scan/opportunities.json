@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-13T15:40:57.272452+00:00",
+  "generated_at": "2026-07-13T16:06:45.545557+00:00",
   "regime": {
-    "vix": 16.21,
-    "vix_day_change_pct": 0.0785,
+    "vix": 16.28,
+    "vix_day_change_pct": 0.0832,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (+8% day)"
@@ -61,17 +61,17 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-07-13T15:40:57.269291+00:00",
+    "generated_at": "2026-07-13T16:06:45.542074+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is small (1 SPY position, +$6 unrealized) in normal regime with no macro events. Adding a second SPY position would concentrate us_index cluster to 2/3 cap.",
+    "portfolio_note": "Book is clean: 1 open SPY index position, no event risk, normal regime. Candidate adds to same name/cluster but within caps.",
     "reviewed": 1,
     "vetoed": 1,
     "downsized": 0,
     "decisions": [
       {
-        "id": "SPY|short_put_vertical|722/713",
+        "id": "SPY|short_put_vertical|721/712",
         "action": "veto",
-        "reason": "Already long 1 SPY contract; adding a second short-vol SPY trade creates directional/cluster correlation with open position and violates diversification principle\u2014two bets on same name masquerading as separate trades."
+        "reason": "Already at 1 SPY position (max_per_name cap); adding a second correlated short-vol trade on same underlying concentrates directional risk despite being same cluster. IV rank 33.8% is low\u2014poor vol premium environment. Pass."
       }
     ]
   },
@@ -81,25 +81,25 @@
       "structure": "short_put_vertical",
       "expiry": "2026-08-14",
       "dte": 32,
-      "short_strike": 722.0,
-      "long_strike": 713.0,
-      "short_symbol": "SPY   260814P00722000",
-      "long_symbol": "SPY   260814P00713000",
+      "short_strike": 721.0,
+      "long_strike": 712.0,
+      "short_symbol": "SPY   260814P00721000",
+      "long_symbol": "SPY   260814P00712000",
       "width": 9.0,
       "credit": 0.95,
-      "mid_credit": 0.97,
+      "mid_credit": 0.98,
       "fees_est": 3.0,
       "bpr": 805.0,
       "max_loss": 805.0,
-      "pop": 0.8,
-      "short_delta": 0.187,
+      "pop": 0.799,
+      "short_delta": 0.188,
       "short_spread_pct": 0.007,
       "credit_to_bpr": 0.118,
-      "ev_per_contract": 6.51,
-      "ev_on_bpr": 0.0081,
-      "iv": 0.1594,
-      "iv_rank": 0.332,
-      "underlying_price": 752.1,
+      "ev_per_contract": 6.35,
+      "ev_on_bpr": 0.0079,
+      "iv": 0.1606,
+      "iv_rank": 0.338,
+      "underlying_price": 751.18,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -109,18 +109,18 @@
       "bpr_total": 805.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 722/713p \u00d71 \u2014 bullish lean. Edge: IV rank 33%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.95 \u00b7 max loss $805 \u00b7 BPR $805 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 721/712p \u00d71 \u2014 bullish lean. Edge: IV rank 34%, EV $+6/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.95 \u00b7 max loss $805 \u00b7 BPR $805 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.363,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.36"
       ],
-      "rank_score": 0.01104,
+      "rank_score": 0.010768,
       "agent_action": "veto",
-      "agent_reason": "Already long 1 SPY contract; adding a second short-vol SPY trade creates directional/cluster correlation with open position and violates diversification principle\u2014two bets on same name masquerading as separate trades."
+      "agent_reason": "Already at 1 SPY position (max_per_name cap); adding a second correlated short-vol trade on same underlying concentrates directional risk despite being same cluster. IV rank 33.8% is low\u2014poor vol premium environment. Pass."
     }
   ],
   "skipped": {
-    "IWM": "iv_rank 27%",
+    "IWM": "iv_rank 26%",
     "DIA": "iv_rank 24%"
   }
 }
