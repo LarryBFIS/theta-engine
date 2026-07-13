@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-13T17:27:24.285762+00:00",
+  "generated_at": "2026-07-13T17:28:09.657370+00:00",
   "regime": {
-    "vix": 16.59,
-    "vix_day_change_pct": 0.1038,
+    "vix": 16.6,
+    "vix_day_change_pct": 0.1045,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (+10% day)"
@@ -61,9 +61,9 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-07-13T17:27:24.282515+00:00",
+    "generated_at": "2026-07-13T17:28:09.653889+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is currently -$24 unrealized on 1 SPY position. Adding another SPY short put vertical would increase us_index cluster to 2/3 cap and concentrate directional risk in already-underwater position.",
+    "portfolio_note": "Book is underwater by $24; VIX normal at 16.6. Single SPY short put vertical is marginal: tight credit (0.96), low IV rank (35%), and overlaps existing SPY position in a correlated cluster.",
     "reviewed": 1,
     "vetoed": 1,
     "downsized": 0,
@@ -71,7 +71,7 @@
       {
         "id": "SPY|short_put_vertical|719/710",
         "action": "veto",
-        "reason": "Candidate adds correlated short-vol exposure to SPY when book already carries unrealized loss on SPY; clustering risk violates diversification principle and amplifies drawdown if regime shifts."
+        "reason": "Existing SPY position already fills us_index bucket; adding a second correlated short-vol bet on same underlying concentrates risk and violates diversification mandate when edge is weak (EV/BPR 0.84%, IV rank 35%)."
       }
     ]
   },
@@ -91,15 +91,15 @@
       "fees_est": 3.0,
       "bpr": 804.0,
       "max_loss": 804.0,
-      "pop": 0.8,
-      "short_delta": 0.187,
+      "pop": 0.801,
+      "short_delta": 0.186,
       "short_spread_pct": 0.007,
       "credit_to_bpr": 0.119,
-      "ev_per_contract": 6.51,
-      "ev_on_bpr": 0.0081,
+      "ev_per_contract": 6.76,
+      "ev_on_bpr": 0.0084,
       "iv": 0.1636,
       "iv_rank": 0.352,
-      "underlying_price": 749.74,
+      "underlying_price": 749.91,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -114,9 +114,9 @@
       "learn_notes": [
         "structure=short_put_vertical \u00d71.36"
       ],
-      "rank_score": 0.01104,
+      "rank_score": 0.011449,
       "agent_action": "veto",
-      "agent_reason": "Candidate adds correlated short-vol exposure to SPY when book already carries unrealized loss on SPY; clustering risk violates diversification principle and amplifies drawdown if regime shifts."
+      "agent_reason": "Existing SPY position already fills us_index bucket; adding a second correlated short-vol bet on same underlying concentrates risk and violates diversification mandate when edge is weak (EV/BPR 0.84%, IV rank 35%)."
     }
   ],
   "skipped": {
