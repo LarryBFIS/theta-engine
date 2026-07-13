@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-13T20:32:41.282961+00:00",
-  "market_view": "VIX at 17.16 (+14.17% today) with tech getting crushed (QQQ -1.9%, XLK -2.42%) while energy rips +3% \u2014 clear risk-off rotation. SLV short strike breach is an unresolved emergency that has been flagged repeatedly without execution.",
+  "last_run": "2026-07-13T20:56:18.531418+00:00",
+  "market_view": "VIX +14% today with tech hemorrhaging (QQQ -1.9%, XLK -2.42%) while energy rips \u2014 risk-off rotation is real but SPY/IWM short strikes remain well OTM. SLV is an open wound that must be closed immediately.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-13T20:32:28.985780+00:00",
-    "reasoning": "Short strike 61 is breached with SLV at 52.16 \u2014 mid cost $0.90 is 1.8x credit, worst-case $1.05 is 2.1x. The 1.5x stop ($0.75) was blown through long ago and this has been flagged CRITICAL multiple cycles with zero execution. This is costing money every minute it stays open."
+    "timestamp": "2026-07-13T20:56:06.415220+00:00",
+    "reasoning": "Short strike 61 breached with SLV at 52.16 \u2014 mid at $0.90 is 1.8x credit, worst-case $1.05 is 2.1x, both well past the 1.5x stop of $0.75. This has been CRITICAL for multiple consecutive cycles with zero execution \u2014 every minute open is additional realized loss on a position that already violated the stop rule."
   },
   "SPY 712/708p": {
     "action": "WATCH",
     "confidence": 0.78,
-    "timestamp": "2026-07-13T20:32:28.985780+00:00",
-    "reasoning": "Mid cost $0.335 is essentially flat vs $0.32 credit; short strike 712 is ~4.96% OTM with SPY at 749.17. VIX expansion is a headwind but 1.5x stop at $0.48 not breached and 21 DTE hard exit triggers in 3 days."
+    "timestamp": "2026-07-13T20:56:06.415220+00:00",
+    "reasoning": "Mid $0.335 vs $0.32 credit \u2014 essentially breakeven, 1.5x stop at $0.48 not threatened. Short strike 712 is 4.96% OTM with SPY at 749; 21 DTE hard exit triggers in 3 days on July 17."
   },
   "IWM 276/272p": {
     "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-07-13T20:32:28.985780+00:00",
-    "reasoning": "Mid cost $0.435 is slight profit vs $0.48 credit; short strike 276 is ~5.96% OTM with IWM at 293.48. IWM 5-day weakness -1.9% is notable in a risk-off tape but 1.5x stop at $0.72 is not close."
+    "confidence": 0.72,
+    "timestamp": "2026-07-13T20:56:06.415220+00:00",
+    "reasoning": "Mid $0.435 is slight profit vs $0.48 credit; IWM 5-day -1.9% is the weakest index but short strike 276 is nearly 6% OTM. 1.5x stop at $0.72 has room. Watch for continued small-cap deterioration."
   }
 }
