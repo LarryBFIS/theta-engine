@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-10T21:18:20.055924+00:00",
-  "market_view": "VIX crushed to 15.03 (-5.11% today, -8.35% 5d) in low-volatility grind higher \u2014 theta environment remains favorable but SLV breach is an unresolved mechanical rule violation now spanning multiple alert cycles with zero execution.",
+  "last_run": "2026-07-13T13:47:24.084719+00:00",
+  "market_view": "VIX spiked 7.85% today to 16.21 with tech leading the selloff (XLK -2.01%, QQQ -1.51%) while defensives and energy bid \u2014 rotation to risk-off but broad indices holding relatively well. SLV breach remains the critical unresolved position from multiple prior cycles.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-10T21:18:08.750880+00:00",
-    "reasoning": "Short strike 61 breached, SLV at $53.95 \u2014 mid cost $0.85 is 1.70x the $0.50 credit, hard stop at 1.5x has been violated for multiple consecutive cycles. This is no longer a trade decision, it is an account discipline emergency that has been flagged repeatedly without execution."
+    "timestamp": "2026-07-13T13:47:09.373859+00:00",
+    "reasoning": "Short strike 61 breached with SLV at $52.75, mid cost $0.875 is 1.75x the $0.50 credit \u2014 the 1.5x hard stop rule has been violated for multiple consecutive alert cycles with zero execution. This is a mechanical rule breach, not a discretionary decision."
   },
   "SPY 712/708p": {
     "action": "ACTION",
-    "confidence": 0.95,
-    "timestamp": "2026-07-10T21:18:08.750880+00:00",
-    "reasoning": "Mid cost $0.225 vs $0.32 credit = 70% of max profit captured, well above 50% manage threshold with 27 DTE \u2014 edge is fully extracted and holding into next week adds risk with no remaining reward asymmetry."
+    "confidence": 0.92,
+    "timestamp": "2026-07-13T13:47:09.373859+00:00",
+    "reasoning": "Mid cost $0.25 vs $0.32 credit = 22% profit captured but SPY is only 5.4% above short strike with VIX spiking 7.85% and 24 DTE approaching 21 DTE exit window \u2014 risk/reward no longer favors holding."
   },
   "IWM 276/272p": {
-    "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-07-10T21:18:08.750880+00:00",
-    "reasoning": "Mid cost $0.31 vs $0.48 credit = 35% profit, below 50% manage threshold with short strike 6.75% OTM and 27 DTE \u2014 IWM softness (-0.42% today) is not a breach threat at current levels."
+    "action": "ACTION",
+    "confidence": 0.82,
+    "timestamp": "2026-07-13T13:47:09.373859+00:00",
+    "reasoning": "Mid cost $0.335 vs $0.48 credit = 30% profit, below 50% manage threshold, but IWM is -1.32% over 5 days with VIX spiking and 24 DTE \u2014 IWM structural weakness and small-cap underperformance elevate downside risk meaningfully."
   }
 }

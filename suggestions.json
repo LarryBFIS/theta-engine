@@ -21933,6 +21933,53 @@
       "alternative": "Hold and hope. Risk: up to $50 max loss (currently $35 unrealized).",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20260713T094703_trade_008_slv_61_60",
+      "trade_id": "trade_008_slv_61_60",
+      "timestamp": "2026-07-13T09:47:04.085353-04:00",
+      "action": "URGENT_CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\u26a0\ufe0f SLV @ $52.75 is BELOW short strike $61 (ITM).",
+        "Max loss exposure increasing. Current close: $0.87 mid / $1.10 worst.",
+        "38 DTE remaining; negative delta hurts daily."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.8749999999999991,
+        "cost_to_close_worst": 1.0999999999999996,
+        "profit_if_closed_mid": -37.499999999999915,
+        "profit_if_closed_worst": -59.999999999999964,
+        "pct_max_profit_captured_mid": -0.7499999999999982,
+        "dte": 38,
+        "underlying_price": 52.749900817871094,
+        "short_strike_breached": true,
+        "has_live_quotes": true,
+        "net_liq": 3686.955,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold and hope. Risk: up to $50 max loss (currently $37 unrealized).",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20260713T094704_trade_016_iwm_276_272",
+      "trade_id": "trade_016_iwm_276_272",
+      "timestamp": "2026-07-13T09:47:04.785498-04:00",
+      "action": "PROTECT_PROFITS",
+      "urgency": "normal",
+      "reasoning": [
+        "24d to expiry \u2014 gamma/whipsaw risk rising",
+        "captured 30% in 5d \u2014 front-loaded, little left to squeeze"
+      ],
+      "metrics_snapshot": {
+        "pct_captured": 0.30208333333333337,
+        "dte": 24,
+        "short_strike_breached": false
+      },
+      "alternative": null,
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
