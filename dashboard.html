@@ -225,7 +225,7 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
     <div class="lh-cell">
       <div class="lh-lab">OPENING LIQUIDITY</div>
       <div class="lh-val" id="lh-open">—</div>
-      <div class="lh-sub">baseline · May 13</div>
+      <div class="lh-sub" id="lh-opensub">baseline · May 13</div>
     </div>
     <div class="lh-op">→</div>
     <div class="lh-cell">
@@ -356,7 +356,9 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
    ============================================================ */
 const DATA = {
   start: 3438.16,          // goal denominator (re-baselined: excludes pre-experiment non-strategy P&L)
-  goalReturn: 0.5,         // 50% target (realistic)
+  deposits: 3000,          // external cash added since kickoff — capital, NOT profit. Subtracted from
+                           //   net-liq Δ so a deposit never reads as a gain. 2026-07-14: +$3,000 wire.
+  goalReturn: 0.5,         // 50% target (realistic) — measured on the original stake (deposit-neutral)
   realized: 60.99,         // closed-trade strategy P&L (net)
   netLiq: 3551.31,         // account info only — NOT the challenge number
   bprUsed: 1973, bprPct: 55.6,
@@ -491,16 +493,19 @@ function renderTotals(){
   // P&L. While trades are open this includes unrealized marks; once everything is
   // closed it converges to realized strategy P&L (± fees / money movement).
   const fmtUsd=n=>'$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
-  $('kopenliq').textContent=fmtUsd(DATA.start);
+  const capIn=DATA.start+(DATA.deposits||0);   // total capital contributed = baseline + deposits
+  $('kopenliq').textContent=fmtUsd(capIn);
   $('knl').textContent=fmtUsd(DATA.netLiq);
-  const actual=DATA.netLiq-DATA.start, aEl=$('kactual');
+  const actual=DATA.netLiq-capIn, aEl=$('kactual');   // real-dollar return, deposit-neutral
   aEl.textContent=(actual>=0?'+':'-')+fmtUsd(Math.abs(actual));
   aEl.className='v '+(actual>=0?'up':'down');
 
   // ── top hero: headline is STRATEGY P&L (the engine's own trades). The account
   // net-liq change is shown DISTINCTLY below — it won't match strategy P&L because
   // of non-strategy holdings (e.g. USO) + baseline drift. ──
-  $('lh-open').textContent=fmtUsd(DATA.start);
+  $('lh-open').textContent=fmtUsd(capIn);
+  if($('lh-opensub')) $('lh-opensub').textContent = (DATA.deposits>0)
+    ? 'baseline + $'+DATA.deposits.toLocaleString('en-US')+' deposited' : 'baseline · May 13';
   $('lh-cur').textContent=fmtUsd(DATA.netLiq);
   const strat=DATA.realized+open;        // STRATEGY P&L = realized + unrealized
   const resid=actual-strat;              // account drift the strategy doesn't explain
@@ -759,6 +764,7 @@ async function loadLive(){
 
   if(tj && Array.isArray(tj.trades)){
     if(tj.experiment && tj.experiment.starting_capital) DATA.start = tj.experiment.starting_capital;
+    if(tj.experiment && tj.experiment.deposits != null) DATA.deposits = tj.experiment.deposits;
     const gById = new Map((gist && gist.trades || []).map(g => [g.id, g]));
     const open   = tj.trades.filter(t => t.status === 'open');
     const closed = tj.trades.filter(t => t.status === 'closed');
