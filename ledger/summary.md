@@ -1,6 +1,6 @@
 # Ledger Summary
 
-_Generated 2026-07-14T18:33:04.531148+00:00 from tastytrade transaction history._
+_Generated 2026-07-14T18:36:29.765647+00:00 from tastytrade transaction history._
 
 ## Reconciliation
 
@@ -9,10 +9,10 @@ _Generated 2026-07-14T18:33:04.531148+00:00 from tastytrade transaction history.
 | Starting capital | $3,389.91 |
 | Net liq (now) | $3,682.78 |
 | Strategy realized (closed) | $+215.35 |
-| Strategy unrealized (open) | $-60.12 |
-| **Strategy P&L** | **$+155.23** |
+| Strategy unrealized (open) | $-57.12 |
+| **Strategy P&L** | **$+158.23** |
 | Money movement | $-0.19 |
-| Non-strategy activity | $+137.83 |
+| Non-strategy activity | $+134.83 |
 | **Account P&L** | **$+292.87** |
 
 _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger positions closed in-window). Total fees paid: $48.39._
@@ -32,7 +32,7 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 | ledger_004_jpm | JPM | 2026-05-29 | 2026-06-04 | closed | $+100.49 | — |
 | ledger_005_gld | GLD | 2026-06-01 | 2026-06-05 | closed | $-71.51 | — |
 | ledger_006_iwm | IWM | 2026-06-02 | 2026-06-05 | closed | $+44.50 | — |
-| ledger_007_slv | SLV | 2026-06-08 | — | open | — | $-39.75 |
+| ledger_007_slv | SLV | 2026-06-08 | — | open | — | $-37.25 |
 | ledger_008_iwm | IWM | 2026-06-17 | 2026-06-22 | closed | $+17.93 | — |
 | ledger_009_cvx | CVX | 2026-06-17 | 2026-06-18 | closed | $+7.50 | — |
 | ledger_010_spy | SPY | 2026-06-22 | 2026-07-01 | closed | $+41.50 | — |
@@ -41,5 +41,5 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 | ledger_013_slv | SLV | 2026-06-25 | — | open | — | $-36.62 |
 | ledger_014_spy | SPY | 2026-07-02 | 2026-07-09 | closed | $+14.50 | — |
 | ledger_015_spy | SPY | 2026-07-06 | — | open | — | $+4.25 |
-| ledger_016_iwm | IWM | 2026-07-08 | — | open | — | $+12.25 |
-| ledger_017_spy | SPY | 2026-07-14 | — | open | — | $-0.25 |
+| ledger_016_iwm | IWM | 2026-07-08 | — | open | — | $+11.75 |
+| ledger_017_spy | SPY | 2026-07-14 | — | open | — | $+0.75 |
