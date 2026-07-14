@@ -41,12 +41,13 @@ MAX_PER_NAME = int(os.getenv("PAPER_MAX_PER_NAME", "1"))      # no duplicate und
 MAX_PER_CLUSTER = int(os.getenv("PAPER_MAX_PER_CLUSTER", "3"))  # correlated names share one ceiling
 MAX_OPEN = int(os.getenv("PAPER_MAX_OPEN", "8"))             # total open positions
 
-# The bot only ever paper-TRADES these — "I'm only going to use the bot as the SPY
-# trader" (Jay, 2026-07-09). Every other underlying still shows in the opportunities
-# feed for viewing; it just never gets opened on the paper book. Override with
-# PAPER_TRADE_UNIVERSE="A,B,C".
+# The bot only paper-TRADES these — index core + equity-ETF baskets (2026-07-14:
+# added QQQ, XLE, XLF). Single stocks and cross-asset (GLD/SLV/TLT) are excluded for
+# now: single names gap/trend (the cohort that bled). Anything not here can still show
+# in the opportunities feed for viewing. Override with PAPER_TRADE_UNIVERSE="A,B,C".
 TRADE_UNIVERSE = set(
-    (os.getenv("PAPER_TRADE_UNIVERSE") or "SPY,IWM,DIA").replace(" ", "").upper().split(","))
+    (os.getenv("PAPER_TRADE_UNIVERSE") or "SPY,IWM,DIA,QQQ,XLE,XLF")
+    .replace(" ", "").upper().split(","))
 
 # Correlation clusters — names that move together count against one ceiling.
 _CLUSTER_MEMBERS = {

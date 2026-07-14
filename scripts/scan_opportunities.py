@@ -40,15 +40,15 @@ def _no(reason):
     return None
 
 # ── Tunables (env-overridable) ──────────────────────────────────────────
-# PROVEN EDGE ONLY — the broad-market index ETFs. The paper book proved it hard:
-# index (SPY/IWM/DIA) closed ~90% wins / +$918, while tech and single names bled
-# ~-$9,800 (mostly oversized, pre-guardrail). Premium selling works on low-vol,
-# mean-reverting indices and gets run over on trending single names. So the engine
-# now scans ONLY these three — it can't open a trade outside the edge because it
-# never looks at anything else. The full former universe lives in git history and
-# can be restored by setting SCAN_UNIVERSE="A,B,C" if we ever want to test more.
+# Proven core: SPY/IWM/DIA (index, ~90% wins/+$918). Expanded (2026-07-14) with three
+# more EQUITY-ETF baskets — QQQ (Nasdaq-100 index, deepest options), XLE (energy),
+# XLF (financials) — to paper-test how far the premium-selling edge reaches. ETF
+# baskets only (not single stocks, which gap/trend — the cohort that bled). Metals/
+# bonds (GLD/SLV/TLT) deliberately left out for now (trendier/cross-asset). The
+# learner reports which earn a place. Override with SCAN_UNIVERSE="A,B,C".
 DEFAULT_UNIVERSE = [
-    "SPY", "IWM", "DIA",
+    "SPY", "IWM", "DIA",           # broad index ETFs — the proven core
+    "QQQ", "XLE", "XLF",           # + Nasdaq index / energy / financials (equity ETFs)
 ]
 MIN_IV_RANK = float(os.getenv("SCAN_MIN_IV_RANK", "0.30"))   # rich-premium floor. 0.30 is where the
 # SPY/IWM index edge was actually proven; it was briefly bumped to 0.40 for the broad single-name
