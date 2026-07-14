@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-14T16:07:43.640447+00:00",
-  "market_view": "Market regime neutral, VIX 16.56 down 3.5% on the day, SPY flat +0.12% while QQQ leads at +0.87% \u2014 benign tape with no catalyst. SLV divergence continues to be the singular account risk.",
+  "last_run": "2026-07-14T16:40:27.776553+00:00",
+  "market_view": "VIX 16.76 in neutral regime, QQQ +1.1% leading tech higher while defensives (XLV -1.98%, XLP -1.09%) rotate out \u2014 risk-on tape with no macro catalyst. SLV continues to diverge catastrophically from account risk rules.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-14T16:07:27.745711+00:00",
-    "reasoning": "Short strike 61 breached with SLV at 53.06 \u2014 mid $0.85 is 1.7x credit and worst $1.05 is 2.1x credit, both catastrophically beyond the 1.5x stop rule of $0.75. This is now the FIFTH consecutive cycle flagged CRITICAL with zero execution \u2014 this is an active account rule violation and the position must be closed immediately."
+    "timestamp": "2026-07-14T16:40:15Z",
+    "reasoning": "Short strike 61 breached, SLV at 53.10 \u2014 mid $0.85 is 1.7x credit and worst $1.05 is 2.1x credit, both beyond the hard 1.5x stop at $0.75. This is now the SIXTH consecutive cycle flagged CRITICAL with no execution \u2014 this is an active account rule violation."
   },
   "SPY 712/708p": {
     "action": "ACTION",
     "confidence": 0.95,
-    "timestamp": "2026-07-14T16:07:27.745711+00:00",
-    "reasoning": "23 DTE today \u2014 21 DTE hard exit triggers Thursday July 16, 48 hours away. SPY at 750.07 is 5.3% above the 712 short strike, mid $0.305 is a small profit; close now and free $368 BPR rather than being forced out at expiry mechanics."
+    "timestamp": "2026-07-14T16:40:15Z",
+    "reasoning": "21 DTE hard exit triggers Thursday July 16 \u2014 that is two days away and SPY at 751.12 is 5.2% above the short strike with mid $0.28 showing a small gain. Close now, free $368 BPR, and avoid expiry-week mechanics."
   },
   "IWM 276/272p": {
     "action": "ACTION",
     "confidence": 0.93,
-    "timestamp": "2026-07-14T16:07:27.745711+00:00",
-    "reasoning": "23 DTE today \u2014 21 DTE hard exit triggers Thursday July 16. IWM at 294.39 is 6.6% above the 276 short strike, mid $0.35 is 27% profit; 21 DTE rule is non-negotiable regardless of not reaching 50% target."
+    "timestamp": "2026-07-14T16:40:15Z",
+    "reasoning": "21 DTE hard exit triggers Thursday July 16, IWM at 294.62 is 6.3% above the short strike, mid $0.345 is 28% profit \u2014 21 DTE rule is non-negotiable regardless of not hitting 50% target."
   }
 }

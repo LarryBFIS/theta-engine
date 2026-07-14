@@ -429,8 +429,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -39.75,
-      "cost_to_close_mid": 87.5,
+      "unrealized_pnl": -37.25,
+      "cost_to_close_mid": 85.0,
       "structure": "short_put_vertical",
       "short_strike": 61.0,
       "long_strike": 60.0,
@@ -831,8 +831,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -37.12,
-      "cost_to_close_mid": -243.0
+      "unrealized_pnl": -35.12,
+      "cost_to_close_mid": -245.0
     },
     {
       "id": "ledger_014_spy",
@@ -932,8 +932,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 0.25,
-      "cost_to_close_mid": 29.5,
+      "unrealized_pnl": 2.25,
+      "cost_to_close_mid": 27.5,
       "structure": "short_put_vertical",
       "short_strike": 712.0,
       "long_strike": 708.0,
@@ -989,6 +989,51 @@
       "max_profit_total": 48.0,
       "max_loss_total": 352.0,
       "bpr_total": 352.0
+    },
+    {
+      "id": "ledger_017_spy",
+      "underlying": "SPY",
+      "opened_at": "2026-07-14",
+      "open_order_id": "483374890",
+      "open_net_cash": 55.75,
+      "open_legs": [
+        {
+          "symbol": "SPY   260814P00711000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 3.03,
+          "net_cash": -304.12,
+          "fees": 1.12,
+          "executed_at": "2026-07-14T16:40:25.613Z"
+        },
+        {
+          "symbol": "SPY   260814P00717000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 3.61,
+          "net_cash": 359.87,
+          "fees": 1.13,
+          "executed_at": "2026-07-14T16:40:25.613Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -4.25,
+      "cost_to_close_mid": 60.0,
+      "structure": "short_put_vertical",
+      "short_strike": 717.0,
+      "long_strike": 711.0,
+      "expiry": "2026-08-14",
+      "contracts": 1,
+      "credit_per_contract": 0.58,
+      "width": 6.0,
+      "max_profit_total": 58.0,
+      "max_loss_total": 542.0,
+      "bpr_total": 542.0
     }
   ]
 }
