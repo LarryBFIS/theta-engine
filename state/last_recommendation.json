@@ -1,28 +1,28 @@
 {
-  "last_run": "2026-07-15T15:37:21.271420+00:00",
-  "market_view": "VIX 16.25 and grinding lower, SPY/IWM holding gains while QQQ/tech lag \u2014 low-vol regime with sector rotation. Three positions have had unexecuted rule violations across multiple alert cycles; this is a discipline problem, not a market problem.",
+  "last_run": "2026-07-15T16:10:12.038214+00:00",
+  "market_view": "VIX 16.13 and drifting lower, SPY/IWM stable while QQQ/tech selling off hard (-0.91%/-2.3% XLK) \u2014 rotation out of tech into financials and discretionary. Low-vol regime intact but tech weakness is worth watching for broader contagion.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-15T15:37:08Z",
-    "reasoning": "Short strike 61 remains breached with SLV at 52.15, mid $0.925 is 1.85x credit \u2014 85% past the 1.5x stop. This is the fourth consecutive alert cycle with zero action taken."
+    "timestamp": "2026-07-15T16:09:57Z",
+    "reasoning": "Short strike 61 breached with SLV at 52.06, mid $0.90 is 1.8x the $0.50 credit \u2014 hard stop at 1.5x was triggered weeks ago. This is the fifth consecutive alert cycle with no action; account discipline is broken on this trade."
   },
   "SPY 712/708p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-15T15:37:08Z",
-    "reasoning": "22 DTE today equals the 21 DTE hard exit rule threshold \u2014 mid $0.22 locks a $10 winner and frees $368 BPR. Fourth alert cycle, rule is non-negotiable."
+    "timestamp": "2026-07-15T16:09:57Z",
+    "reasoning": "DTE is 22, one day past the 21 DTE hard exit rule \u2014 this position must be closed, no exceptions, no debate. Mid $0.25 still captures a small winner at $7 profit."
   },
   "IWM 276/272p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-15T15:37:08Z",
-    "reasoning": "22 DTE today triggers the 21 DTE hard exit rule \u2014 mid $0.275 captures a $20.50 gain with IWM 6.7% above short strike. Fourth alert cycle with no action."
+    "timestamp": "2026-07-15T16:09:57Z",
+    "reasoning": "DTE is 22, past the 21 DTE hard exit rule \u2014 IWM 6.7% above short strike, mid $0.29 locks a $19 winner. Fifth alert cycle with no close; this rule is non-negotiable."
   },
   "SPY 717/711p": {
     "action": "HOLD",
-    "confidence": 0.88,
-    "timestamp": "2026-07-15T15:37:08Z",
-    "reasoning": "29 DTE, mid $0.505 vs $0.58 credit \u2014 13% profit, no rules triggered, SPY 4.9% above short strike with VIX compressing further. Theta working, nothing to do."
+    "confidence": 0.87,
+    "timestamp": "2026-07-15T16:09:57Z",
+    "reasoning": "29 DTE, mid $0.55 vs $0.58 credit \u2014 barely 5% profit, no rules triggered, SPY 4.6% above short strike. Tech weakness in QQQ today is worth monitoring but SPY is flat and VIX is compressing."
   }
 }
