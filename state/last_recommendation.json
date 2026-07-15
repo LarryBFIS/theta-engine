@@ -1,28 +1,28 @@
 {
-  "last_run": "2026-07-15T20:17:17.081344+00:00",
-  "market_view": "VIX 15.69 down 4.9% with SPY +0.4% and IWM +0.44% \u2014 low-vol theta-friendly grind, tech weakness in XLK -1.08% isolated. Three positions remain in active rule violation requiring immediate close; market conditions are not the issue, discipline is.",
+  "last_run": "2026-07-15T20:42:33.855027+00:00",
+  "market_view": "VIX 15.67 down 5% on the day, SPY +0.4% with IWM +0.43% \u2014 low-vol theta-friendly environment with tech rotation out of XLK. Three positions remain in active rule violation requiring immediate closes; this is a discipline issue, not a market issue.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-15T20:17:02.106887+00:00",
-    "reasoning": "Short strike 61 remains breached with SLV at 52.21, mid $0.90 is 1.8x credit and worst $1.10 is 2.2x \u2014 1.5x stop triggered cycles ago at $0.75, position is at max loss with no recovery path. This has been flagged CRITICAL across multiple consecutive cycles with zero action taken."
+    "timestamp": "2026-07-15T20:42:19.912120+00:00",
+    "reasoning": "Short strike 61 breached with SLV at 52.21 \u2014 mid $0.90 is 1.8x credit and worst $1.10 is 2.2x, both well beyond the 1.5x stop at $0.75. This has been flagged CRITICAL across multiple consecutive cycles with zero action; position is at max loss with zero recovery path."
   },
   "SPY 712/708p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-15T20:17:02.106887+00:00",
-    "reasoning": "DTE is 22, one day from the firm 21 DTE hard exit rule, and this has been flagged CRITICAL multiple cycles with no action \u2014 mid $0.20 locks in a $12 winner right now."
+    "timestamp": "2026-07-15T20:42:19.912120+00:00",
+    "reasoning": "DTE is 22, one day from the firm 21 DTE hard exit rule, flagged CRITICAL multiple cycles with no action \u2014 mid $0.20 locks in a $12 winner ($32 credit - $20 debit = +37.5% profit)."
   },
   "IWM 276/272p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-15T20:17:02.106887+00:00",
-    "reasoning": "DTE is 22, same 21 DTE hard exit rule violation flagged across multiple cycles with no action \u2014 mid $0.25 is 48% profit, essentially at the 50% target with IWM 6.7% above the short strike."
+    "timestamp": "2026-07-15T20:42:19.912120+00:00",
+    "reasoning": "DTE is 22, one day from the 21 DTE hard exit rule, flagged CRITICAL multiple cycles with no action \u2014 mid $0.25 is 48% profit, essentially at the 50% manage target with IWM 6.7% above the short strike."
   },
   "SPY 717/711p": {
     "action": "HOLD",
-    "confidence": 0.82,
-    "timestamp": "2026-07-15T20:17:02.106887+00:00",
-    "reasoning": "Mid $0.47 vs $0.58 credit is 19% profit captured, well short of the 50% target at $0.29, 29 DTE with theta working and SPY 5% above the short strike in a low-VIX environment. No rule violations."
+    "confidence": 0.83,
+    "timestamp": "2026-07-15T20:42:19.912120+00:00",
+    "reasoning": "Mid $0.47 vs $0.58 credit is 19% profit, well short of the 50% target at $0.29, 29 DTE with SPY 5% above the short strike and VIX compressing. No rule violations, theta working."
   }
 }
