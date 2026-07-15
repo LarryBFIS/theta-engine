@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-15T13:12:50.239905+00:00",
+  "generated_at": "2026-07-15T13:44:21.834635+00:00",
   "regime": {
-    "vix": 16.13,
-    "vix_day_change_pct": -0.06,
+    "vix": 16.17,
+    "vix_day_change_pct": -0.0577,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (-6% day)"
@@ -17,108 +17,7 @@
     "longvol_max_iv_rank": 0.3,
     "longvol_catalyst_days": 14
   },
-  "top": [
-    {
-      "underlying": "SPY",
-      "structure": "short_put_vertical",
-      "expiry": "2026-08-14",
-      "dte": 30,
-      "short_strike": 724.0,
-      "long_strike": 715.0,
-      "short_symbol": "SPY   260814P00724000",
-      "long_symbol": "SPY   260814P00715000",
-      "width": 9.0,
-      "credit": 1.01,
-      "mid_credit": 1.05,
-      "fees_est": 3.0,
-      "bpr": 799.0,
-      "max_loss": 799.0,
-      "pop": 0.802,
-      "short_delta": 0.186,
-      "short_spread_pct": 0.007,
-      "credit_to_bpr": 0.126,
-      "ev_per_contract": 7.42,
-      "ev_on_bpr": 0.0093,
-      "iv": 0.1621,
-      "iv_rank": 0.342,
-      "underlying_price": 753.89,
-      "liquidity": 4,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 1,
-      "max_loss_total": 799.0,
-      "bpr_total": 799.0,
-      "trend": "bullish",
-      "sized_capped": true,
-      "reasoning": "short put vertical 724/715p \u00d71 \u2014 bullish lean. Edge: IV rank 34%, EV $+7/ctr (+0.9% on BPR). POP 80% \u00b7 credit $1.01 \u00b7 max loss $799 \u00b7 BPR $799 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 1.363,
-      "learn_notes": [
-        "structure=short_put_vertical \u00d71.36"
-      ],
-      "rank_score": 0.012676,
-      "agent_action": "approve",
-      "agent_reason": "Index ETF, favored structure (short_put_vertical), 30 DTE, solid POP 0.802, EV positive; adds no cluster concentration (us_index at 2/3 cap post-trade).",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "veto",
-        "hits": [
-          {
-            "title": "Is XLF's New High A Quiet Warning?",
-            "severity": 2,
-            "keyword": "warning"
-          },
-          {
-            "title": "Traders Bet There's An 88% Chance The S&P 500 Will Plunge Soon",
-            "severity": 3,
-            "keyword": "plunge"
-          }
-        ]
-      },
-      "net_liq": 3692.458,
-      "ticket": {
-        "underlying": "SPY",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 1.01,
-        "contracts": 1,
-        "expiry": "2026-08-14",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 1,
-            "expiry": "2026-08-14",
-            "strike": 724.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 1,
-            "expiry": "2026-08-14",
-            "strike": 715.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 101.0,
-        "max_loss_total": 799.0,
-        "bpr_total": 799.0,
-        "pop": 0.802,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.51,
-          "stop_debit": 2.52,
-          "exit_dte": 21
-        },
-        "fits_live_cap": false,
-        "live_cap": 369.25,
-        "suggested_width": 4,
-        "fit_note": "\u26a0 max loss $799 > 10% live cap ($369) \u2014 narrow to ~4-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d71 \u2014 SELL 724P / BUY 715P (2026-08-14) @ $1.01 net credit. Max loss $799. After fill: GTC buy-to-close @ $0.51 (50%). \u26a0 max loss $799 > 10% live cap ($369) \u2014 narrow to ~4-wide for live, or keep on paper."
-      },
-      "posted_at": "2026-07-15T13:12:50.239905+00:00"
-    }
-  ],
+  "top": [],
   "long_vol": [],
   "events": [],
   "learnings": {
@@ -161,184 +60,14 @@
       }
     ]
   },
-  "agent": {
-    "generated_at": "2026-07-15T13:12:50.016628+00:00",
-    "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is small (2 open, both us_index), unrealized +$4. Normal regime, no macro events; room to add diversified positions.",
-    "reviewed": 2,
-    "vetoed": 1,
-    "downsized": 0,
-    "decisions": [
-      {
-        "id": "SPY|short_put_vertical|724/715",
-        "action": "approve",
-        "reason": "Index ETF, favored structure (short_put_vertical), 30 DTE, solid POP 0.802, EV positive; adds no cluster concentration (us_index at 2/3 cap post-trade)."
-      },
-      {
-        "id": "QQQ|iron_condor|661/790",
-        "action": "veto",
-        "reason": "Single-name QQQ (asset_class mismatch vs mandate), us_tech cluster (negative expectancy, wr 22%), and ev_on_bpr 0.0004 is marginal; cap better reserved for index diversification."
-      }
-    ]
-  },
-  "all_candidates": [
-    {
-      "underlying": "SPY",
-      "structure": "short_put_vertical",
-      "expiry": "2026-08-14",
-      "dte": 30,
-      "short_strike": 724.0,
-      "long_strike": 715.0,
-      "short_symbol": "SPY   260814P00724000",
-      "long_symbol": "SPY   260814P00715000",
-      "width": 9.0,
-      "credit": 1.01,
-      "mid_credit": 1.05,
-      "fees_est": 3.0,
-      "bpr": 799.0,
-      "max_loss": 799.0,
-      "pop": 0.802,
-      "short_delta": 0.186,
-      "short_spread_pct": 0.007,
-      "credit_to_bpr": 0.126,
-      "ev_per_contract": 7.42,
-      "ev_on_bpr": 0.0093,
-      "iv": 0.1621,
-      "iv_rank": 0.342,
-      "underlying_price": 753.89,
-      "liquidity": 4,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 1,
-      "max_loss_total": 799.0,
-      "bpr_total": 799.0,
-      "trend": "bullish",
-      "sized_capped": true,
-      "reasoning": "short put vertical 724/715p \u00d71 \u2014 bullish lean. Edge: IV rank 34%, EV $+7/ctr (+0.9% on BPR). POP 80% \u00b7 credit $1.01 \u00b7 max loss $799 \u00b7 BPR $799 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 1.363,
-      "learn_notes": [
-        "structure=short_put_vertical \u00d71.36"
-      ],
-      "rank_score": 0.012676,
-      "agent_action": "approve",
-      "agent_reason": "Index ETF, favored structure (short_put_vertical), 30 DTE, solid POP 0.802, EV positive; adds no cluster concentration (us_index at 2/3 cap post-trade).",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "veto",
-        "hits": [
-          {
-            "title": "Is XLF's New High A Quiet Warning?",
-            "severity": 2,
-            "keyword": "warning"
-          },
-          {
-            "title": "Traders Bet There's An 88% Chance The S&P 500 Will Plunge Soon",
-            "severity": 3,
-            "keyword": "plunge"
-          }
-        ]
-      },
-      "net_liq": 3692.458,
-      "ticket": {
-        "underlying": "SPY",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 1.01,
-        "contracts": 1,
-        "expiry": "2026-08-14",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 1,
-            "expiry": "2026-08-14",
-            "strike": 724.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 1,
-            "expiry": "2026-08-14",
-            "strike": 715.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 101.0,
-        "max_loss_total": 799.0,
-        "bpr_total": 799.0,
-        "pop": 0.802,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.51,
-          "stop_debit": 2.52,
-          "exit_dte": 21
-        },
-        "fits_live_cap": false,
-        "live_cap": 369.25,
-        "suggested_width": 4,
-        "fit_note": "\u26a0 max loss $799 > 10% live cap ($369) \u2014 narrow to ~4-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d71 \u2014 SELL 724P / BUY 715P (2026-08-14) @ $1.01 net credit. Max loss $799. After fill: GTC buy-to-close @ $0.51 (50%). \u26a0 max loss $799 > 10% live cap ($369) \u2014 narrow to ~4-wide for live, or keep on paper."
-      },
-      "posted_at": "2026-07-15T13:12:50.239905+00:00"
-    },
-    {
-      "underlying": "QQQ",
-      "structure": "iron_condor",
-      "expiry": "2026-08-14",
-      "dte": 30,
-      "put_short_strike": 661.0,
-      "put_long_strike": 652.0,
-      "call_short_strike": 790.0,
-      "call_long_strike": 800.0,
-      "short_strike": 661.0,
-      "long_strike": 790.0,
-      "symbols": {
-        "put_short": "QQQ   260814P00661000",
-        "put_long": "QQQ   260814P00652000",
-        "call_short": "QQQ   260814C00790000",
-        "call_long": "QQQ   260814C00800000"
-      },
-      "width": 10.0,
-      "credit": 1.14,
-      "put_credit": 0.81,
-      "call_credit": 0.33,
-      "fees_est": 3.0,
-      "bpr": 886.0,
-      "max_loss": 886.0,
-      "pop": 0.765,
-      "put_short_delta": 0.106,
-      "call_short_delta": 0.13,
-      "credit_to_bpr": 0.129,
-      "ev_per_contract": 0.33,
-      "ev_on_bpr": 0.0004,
-      "iv": 0.262,
-      "iv_rank": 0.651,
-      "underlying_price": 723.87,
-      "liquidity": 4,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 1,
-      "max_loss_total": 886.0,
-      "bpr_total": 886.0,
-      "trend": "bullish",
-      "sized_capped": true,
-      "reasoning": "iron condor 661/652p + 790/800c \u00d71 \u2014 neutral (book bias +4 \u2192 balance). Edge: IV rank 65%, EV $+0/ctr (+0.0% on BPR). POP 76% \u00b7 credit $1.14 \u00b7 max loss $886 \u00b7 BPR $886 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 0.46,
-      "learn_notes": [
-        "asset_class=single_name \u00d70.63",
-        "cluster=us_tech \u00d70.73"
-      ],
-      "rank_score": 0.000184,
-      "agent_action": "veto",
-      "agent_reason": "Single-name QQQ (asset_class mismatch vs mandate), us_tech cluster (negative expectancy, wr 22%), and ev_on_bpr 0.0004 is marginal; cap better reserved for index diversification."
-    }
-  ],
+  "agent": null,
+  "all_candidates": [],
   "skipped": {
-    "IWM": "iv_rank 23%",
-    "DIA": "iv_rank 25%",
-    "XLE": "failed: pv: spread short 51%/long 186%",
-    "XLF": "failed: pv: no/invalid leg quote"
+    "SPY": "no metrics/price",
+    "IWM": "no metrics/price",
+    "DIA": "no metrics/price",
+    "QQQ": "no metrics/price",
+    "XLE": "no metrics/price",
+    "XLF": "no metrics/price"
   }
 }

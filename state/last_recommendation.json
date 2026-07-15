@@ -1,28 +1,28 @@
 {
-  "last_run": "2026-07-14T21:04:10.878854+00:00",
-  "market_view": "VIX 16.5 (-3.85%) with SPY +0.36% and QQQ +1.12% \u2014 same low-vol risk-on regime, no new catalysts. Three positions remain in hard rules violation and market is now after-hours; these must be actioned at tomorrow's open without exception.",
+  "last_run": "2026-07-15T13:38:39.827588+00:00",
+  "market_view": "VIX 16.17 (-5.77%) with SPY +0.76% and QQQ +1.39% \u2014 low-vol risk-on continues, no catalysts in news. Market open now; three flagged violations from last night must be closed immediately, no waiting.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-14T21:03:57Z",
-    "reasoning": "Short strike 61 breached with SLV at 53.17, mid $0.85 is 1.70x credit and worst $1.05 is 2.10x \u2014 both exceed the 1.5x stop at $0.75. This position has been flagged repeatedly and must be closed at tomorrow's open, first trade."
+    "timestamp": "2026-07-15T13:38:22Z",
+    "reasoning": "Short strike 61 remains breached (SLV at 53.17), mid $0.85 is 1.70x credit and worst $1.05 is 2.10x \u2014 both blow past the 1.5x stop at $0.75. This has been flagged repeatedly; market is open right now."
   },
   "SPY 712/708p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-07-14T21:03:57Z",
-    "reasoning": "At 23 DTE today, the 21 DTE hard exit rule triggers Thursday July 16 open \u2014 mid $0.26 locks a $6 gain with SPY 5.3% above short strike, rule is mandatory."
+    "timestamp": "2026-07-15T13:38:22Z",
+    "reasoning": "DTE is 23 yesterday meaning it hits the 21 DTE hard exit wall today July 15 \u2014 SPY is now at 754.86, mid $0.26 locks a $6 winner, rule is non-negotiable."
   },
   "IWM 276/272p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-07-14T21:03:57Z",
-    "reasoning": "At 23 DTE today, same 21 DTE hard exit wall triggers Thursday July 16 open \u2014 mid $0.335 captures a $14.50 gain with IWM 6.3% above short strike, no discretion here."
+    "timestamp": "2026-07-15T13:38:22Z",
+    "reasoning": "Same 21 DTE hard exit applies today \u2014 IWM at 295.35, mid $0.335 captures a $14.50 gain with IWM 6.3% above short strike, theta is nearly done working for you anyway."
   },
   "SPY 717/711p": {
     "action": "HOLD",
-    "confidence": 0.87,
-    "timestamp": "2026-07-14T21:03:57Z",
-    "reasoning": "30 DTE, mid $0.57 essentially flat to $0.58 credit \u2014 no rules triggered, SPY 4.6% above short strike, theta accelerates as DTE decays, VIX compression is a tailwind."
+    "confidence": 0.88,
+    "timestamp": "2026-07-15T13:38:22Z",
+    "reasoning": "30 DTE, mid $0.57 essentially flat to $0.58 credit \u2014 no rules triggered, SPY 4.6% above short strike, VIX compression and theta decay are tailwinds. Nothing to do."
   }
 }
