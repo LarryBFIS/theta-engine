@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-16T18:45:17.180936+00:00",
-  "market_view": "Tech rotation intensifying with XLK -2.36% and QQQ -1.60% but SPY holding at -0.58% on defensive bid (XLP +2.70%, XLV +2.18%) \u2014 VIX nudging to 16.46 up 5% intraday remains contained, broad market structure orderly with SPY short strikes well OTM.",
+  "last_run": "2026-07-16T19:19:10.985921+00:00",
+  "market_view": "Tech rotation continues with XLK -2.45% and QQQ -1.83% but defensives (XLP +2.61%, XLV +1.98%) and energy (XLE +1.09%) providing a bid \u2014 VIX at 16.58 up 5.81% is elevated intraday but still contained, SPY holding -0.68% with short strikes well OTM.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-16T18:45:05+00:00",
-    "reasoning": "Short strike 61 remains breached with SLV at 50.22, mid at $0.95 is 1.9x the $0.50 credit \u2014 1.5x stop triggered at $0.75 multiple cycles ago, this is a hard playbook violation requiring immediate close."
+    "timestamp": "2026-07-16T19:18:58+00:00",
+    "reasoning": "Short strike 61 remains breached with SLV at 50.27, mid at $0.975 is 1.95x the $0.50 credit \u2014 1.5x stop ($0.75) was triggered multiple cycles ago and this position has been flagged CRITICAL since at least the last cycle with no action taken."
   },
   "SPY 717/711p": {
     "action": "HOLD",
-    "confidence": 0.88,
-    "timestamp": "2026-07-16T18:45:05+00:00",
-    "reasoning": "Mid at $0.58 flat to credit with SPY at 750.51 \u2014 short strike 717 is 4.45% OTM at 28 DTE, no deterioration from last cycle, theta working."
+    "confidence": 0.87,
+    "timestamp": "2026-07-16T19:18:58+00:00",
+    "reasoning": "Mid at $0.61 vs $0.58 credit with SPY at 749.64 \u2014 short strike 717 is 4.35% OTM at 28 DTE, negligible adverse drift, theta is working and position is well within normal noise."
   },
   "SPY 723/714p": {
     "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-07-16T18:45:05+00:00",
-    "reasoning": "Mid at $1.13 vs $0.96 credit opened today \u2014 slight adverse move driven by VIX tick-up and tech weakness, but 723 short strike is 3.67% OTM at 35 DTE and within normal day-one noise; flag if mid exceeds $1.44 (1.5x stop)."
+    "confidence": 0.76,
+    "timestamp": "2026-07-16T19:18:58+00:00",
+    "reasoning": "Mid at $1.18 vs $0.96 credit opened today \u2014 adverse mark is $0.22 over credit but short strike 723 is 3.55% OTM at 35 DTE; 1.5x stop trigger is $1.44 mid, not yet breached."
   }
 }
