@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-16T15:13:37.198041+00:00",
+  "generated_at": "2026-07-16T15:20:33.205944+00:00",
   "regime": {
-    "vix": 15.85,
-    "vix_day_change_pct": 0.0115,
+    "vix": 15.94,
+    "vix_day_change_pct": 0.0172,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (+1% day)"
+    "note": "normal regime (+2% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -29,19 +29,19 @@
       "long_symbol": "SPY   260821P00713000",
       "width": 9.0,
       "credit": 0.94,
-      "mid_credit": 0.97,
+      "mid_credit": 0.96,
       "fees_est": 3.0,
       "bpr": 806.0,
       "max_loss": 806.0,
-      "pop": 0.799,
-      "short_delta": 0.188,
+      "pop": 0.798,
+      "short_delta": 0.189,
       "short_spread_pct": 0.007,
       "credit_to_bpr": 0.117,
-      "ev_per_contract": 6.16,
-      "ev_on_bpr": 0.0076,
-      "iv": 0.1562,
-      "iv_rank": 0.313,
-      "underlying_price": 753.18,
+      "ev_per_contract": 5.94,
+      "ev_on_bpr": 0.0074,
+      "iv": 0.1577,
+      "iv_rank": 0.323,
+      "underlying_price": 753.33,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -51,14 +51,14 @@
       "bpr_total": 806.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 722/713p \u00d71 \u2014 bullish lean. Edge: IV rank 31%, EV $+6/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.94 \u00b7 max loss $806 \u00b7 BPR $806 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 722/713p \u00d71 \u2014 bullish lean. Edge: IV rank 32%, EV $+6/ctr (+0.7% on BPR). POP 80% \u00b7 credit $0.94 \u00b7 max loss $806 \u00b7 BPR $806 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.363,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.36"
       ],
-      "rank_score": 0.010359,
+      "rank_score": 0.010086,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, favorable structure (short_put_vertical), 36 DTE, normal regime, no macro event risk; within caps (would be 2/3 cluster, 2/8 open).",
+      "agent_reason": "Index ETF, favored short_put_vertical structure, 36 DTE, solid POP (0.798), low IV rank mitigates vol event risk, and adds no correlated cluster burden (us_index cap 2/3).",
       "agent_reviewed": true,
       "news_risk": {
         "level": "veto",
@@ -70,7 +70,7 @@
           }
         ]
       },
-      "net_liq": 3662.013,
+      "net_liq": 3646.933,
       "ticket": {
         "underlying": "SPY",
         "code": "VP",
@@ -97,7 +97,7 @@
         "credit_total": 94.0,
         "max_loss_total": 806.0,
         "bpr_total": 806.0,
-        "pop": 0.799,
+        "pop": 0.798,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -106,12 +106,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 366.2,
+        "live_cap": 364.69,
         "suggested_width": 4,
-        "fit_note": "\u26a0 max loss $806 > 10% live cap ($366) \u2014 narrow to ~4-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d71 \u2014 SELL 722P / BUY 713P (2026-08-21) @ $0.94 net credit. Max loss $806. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $806 > 10% live cap ($366) \u2014 narrow to ~4-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $806 > 10% live cap ($365) \u2014 narrow to ~4-wide for live, or keep on paper.",
+        "text": "SPY VP \u00d71 \u2014 SELL 722P / BUY 713P (2026-08-21) @ $0.94 net credit. Max loss $806. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $806 > 10% live cap ($365) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
-      "posted_at": "2026-07-16T15:13:37.198041+00:00"
+      "posted_at": "2026-07-16T15:20:33.205944+00:00"
     }
   ],
   "long_vol": [],
@@ -157,9 +157,9 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-07-16T15:13:36.826352+00:00",
+    "generated_at": "2026-07-16T15:20:32.793289+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is small (2 open, both us_index), unrealized +$55. Adding a third us_index position would breach diversification; QQQ (single_name + us_tech cluster) has demonstrated negative expectancy in our realized data.",
+    "portfolio_note": "Book is small (2 open, both us_index) and profitable. SPY candidate is index-based and favored; QQQ is single_name in us_tech cluster\u2014both are structural red flags per engine learnings.",
     "reviewed": 2,
     "vetoed": 1,
     "downsized": 0,
@@ -167,12 +167,12 @@
       {
         "id": "SPY|short_put_vertical|722/713",
         "action": "approve",
-        "reason": "Index ETF, favorable structure (short_put_vertical), 36 DTE, normal regime, no macro event risk; within caps (would be 2/3 cluster, 2/8 open)."
+        "reason": "Index ETF, favored short_put_vertical structure, 36 DTE, solid POP (0.798), low IV rank mitigates vol event risk, and adds no correlated cluster burden (us_index cap 2/3)."
       },
       {
         "id": "QQQ|iron_condor|640/780",
         "action": "veto",
-        "reason": "Single-name + us_tech cluster both show negative expectancy in realized data (19% and 22% wr); marginal EV (0.33%) does not justify idiosyncratic gap risk."
+        "reason": "Single-name underlying (19% realized win rate) in us_tech cluster (22% realized win rate)\u2014both are structural liabilities; low EV (0.0033) does not justify idiosyncratic gap risk."
       }
     ]
   },
@@ -188,19 +188,19 @@
       "long_symbol": "SPY   260821P00713000",
       "width": 9.0,
       "credit": 0.94,
-      "mid_credit": 0.97,
+      "mid_credit": 0.96,
       "fees_est": 3.0,
       "bpr": 806.0,
       "max_loss": 806.0,
-      "pop": 0.799,
-      "short_delta": 0.188,
+      "pop": 0.798,
+      "short_delta": 0.189,
       "short_spread_pct": 0.007,
       "credit_to_bpr": 0.117,
-      "ev_per_contract": 6.16,
-      "ev_on_bpr": 0.0076,
-      "iv": 0.1562,
-      "iv_rank": 0.313,
-      "underlying_price": 753.18,
+      "ev_per_contract": 5.94,
+      "ev_on_bpr": 0.0074,
+      "iv": 0.1577,
+      "iv_rank": 0.323,
+      "underlying_price": 753.33,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -210,14 +210,14 @@
       "bpr_total": 806.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 722/713p \u00d71 \u2014 bullish lean. Edge: IV rank 31%, EV $+6/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.94 \u00b7 max loss $806 \u00b7 BPR $806 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 722/713p \u00d71 \u2014 bullish lean. Edge: IV rank 32%, EV $+6/ctr (+0.7% on BPR). POP 80% \u00b7 credit $0.94 \u00b7 max loss $806 \u00b7 BPR $806 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.363,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.36"
       ],
-      "rank_score": 0.010359,
+      "rank_score": 0.010086,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, favorable structure (short_put_vertical), 36 DTE, normal regime, no macro event risk; within caps (would be 2/3 cluster, 2/8 open).",
+      "agent_reason": "Index ETF, favored short_put_vertical structure, 36 DTE, solid POP (0.798), low IV rank mitigates vol event risk, and adds no correlated cluster burden (us_index cap 2/3).",
       "agent_reviewed": true,
       "news_risk": {
         "level": "veto",
@@ -229,7 +229,7 @@
           }
         ]
       },
-      "net_liq": 3662.013,
+      "net_liq": 3646.933,
       "ticket": {
         "underlying": "SPY",
         "code": "VP",
@@ -256,7 +256,7 @@
         "credit_total": 94.0,
         "max_loss_total": 806.0,
         "bpr_total": 806.0,
-        "pop": 0.799,
+        "pop": 0.798,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -265,12 +265,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 366.2,
+        "live_cap": 364.69,
         "suggested_width": 4,
-        "fit_note": "\u26a0 max loss $806 > 10% live cap ($366) \u2014 narrow to ~4-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d71 \u2014 SELL 722P / BUY 713P (2026-08-21) @ $0.94 net credit. Max loss $806. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $806 > 10% live cap ($366) \u2014 narrow to ~4-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $806 > 10% live cap ($365) \u2014 narrow to ~4-wide for live, or keep on paper.",
+        "text": "SPY VP \u00d71 \u2014 SELL 722P / BUY 713P (2026-08-21) @ $0.94 net credit. Max loss $806. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $806 > 10% live cap ($365) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
-      "posted_at": "2026-07-16T15:13:37.198041+00:00"
+      "posted_at": "2026-07-16T15:20:33.205944+00:00"
     },
     {
       "underlying": "QQQ",
@@ -291,20 +291,20 @@
       },
       "width": 10.0,
       "credit": 1.26,
-      "put_credit": 0.81,
-      "call_credit": 0.45,
+      "put_credit": 0.8,
+      "call_credit": 0.46,
       "fees_est": 3.0,
       "bpr": 874.0,
       "max_loss": 874.0,
       "pop": 0.773,
-      "put_short_delta": 0.097,
-      "call_short_delta": 0.131,
+      "put_short_delta": 0.096,
+      "call_short_delta": 0.132,
       "credit_to_bpr": 0.144,
       "ev_per_contract": 2.86,
       "ev_on_bpr": 0.0033,
       "iv": 0.2605,
       "iv_rank": 0.643,
-      "underlying_price": 709.25,
+      "underlying_price": 709.59,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -322,7 +322,7 @@
       ],
       "rank_score": 0.001518,
       "agent_action": "veto",
-      "agent_reason": "Single-name + us_tech cluster both show negative expectancy in realized data (19% and 22% wr); marginal EV (0.33%) does not justify idiosyncratic gap risk."
+      "agent_reason": "Single-name underlying (19% realized win rate) in us_tech cluster (22% realized win rate)\u2014both are structural liabilities; low EV (0.0033) does not justify idiosyncratic gap risk."
     }
   ],
   "skipped": {
