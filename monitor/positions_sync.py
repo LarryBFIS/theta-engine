@@ -9,6 +9,7 @@ The bot detects them automatically within the next sync cycle.
 """
 
 import json
+import os
 import re
 import time
 from datetime import date
@@ -19,6 +20,12 @@ import requests
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TRADES_FILE = REPO_ROOT / "trades.json"
 GIST_URL = "https://gist.githubusercontent.com/LarryBFIS/08e2cb50b3a645e9569617a6298ee987/raw/last_poll.json"
+
+# Off-strategy positions to NEVER track — matched by "UNDERLYING_short_long" (no expiry).
+# Mirrors sync_trades' ignore so a hand-opened off-strategy trade (SLV 61/60) can't be
+# re-added here without an order-id either. Override via SYNC_IGNORE_SIGS.
+IGNORE_SIGS = set(
+    x for x in (os.getenv("SYNC_IGNORE_SIGS") or "SLV_61_60").replace(" ", "").upper().split(",") if x)
 
 
 def load_trades():
@@ -157,6 +164,12 @@ def sync():
         if not normalized:
             print(f"  ? UNRECOGNIZED position format. Available fields: {sorted(pos.keys())}")
             print(f"    Paste this output to Claude to fix the field mapping.")
+            continue
+
+        ig = "{}_{}_{}".format(normalized["underlying"].upper(),
+                               int(normalized["short_strike"]), int(normalized["long_strike"]))
+        if ig in IGNORE_SIGS:
+            print(f"  ~ IGNORED (off-strategy): {ig} — never tracked")
             continue
 
         sig = trade_sig(

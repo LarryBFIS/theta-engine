@@ -28,6 +28,16 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # ---------- act on any pending Approve/Reject deep-link decisions first ----------
+      - name: Apply approve/reject decisions
+        env:
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          GIST_ID: ${{ secrets.GIST_ID }}
+          TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
+          TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
+        run: python -m scripts.apply_decisions
+
       # ---------- POSITIONS: fresh marks + P&L straight from the broker ----------
       - name: Poll positions
         env:
@@ -41,6 +51,17 @@ jobs:
           DECISION_SECRET: ${{ secrets.DECISION_SECRET }}
           DECIDE_BASE_URL: ${{ secrets.DECIDE_BASE_URL }}
         run: python -m scripts.poll
+
+      - name: AI decide (manage open positions)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          GIST_ID: ${{ secrets.GIST_ID }}
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
+          TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
+        run: python -m scripts.ai_decide
 
       - name: Build ledger (broker truth)
         env:
@@ -73,6 +94,23 @@ jobs:
           PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
           PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
         run: python -m scripts.paper_trades
+
+      - name: Summary (conditional digest)
+        env:
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          GIST_ID: ${{ secrets.GIST_ID }}
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          STARTING_CAPITAL: ${{ secrets.STARTING_CAPITAL }}
+          TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
+          TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
+        run: |
+          HOUR=$(date -u +%H); MIN=$(date -u +%M)
+          if [[ "$HOUR" =~ ^(14|16|18|20)$ ]] && [ "$((10#$MIN))" -lt 8 ]; then
+            python -m scripts.summary
+          else
+            echo "Skipping summary (not in digest window)"
+          fi
 
       - name: Commit refresh
         run: |
