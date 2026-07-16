@@ -1,28 +1,22 @@
 {
-  "last_run": "2026-07-16T13:38:34.475967+00:00",
-  "market_view": "SPY flat at -0.37% with VIX ticking up 3.3% to 16.19 \u2014 tech rotating out (XLK -1.83%) while defensives/energy bid; neutral regime but defensive rotation warrants monitoring short-delta book. Rule violations on SLV, SPY 712/708p, and IWM are now compounding across multiple cycles with zero action \u2014 this is a discipline problem that must be corrected immediately.",
+  "last_run": "2026-07-16T14:26:02.161271+00:00",
+  "market_view": "SPY holding -0.17% with VIX at 15.93, tech still bleeding (XLK -1.89%) while defensives and energy outperform \u2014 rotation is persistent but not disorderly. Short-put book is well-defended on SPY legs; SLV remains the urgent problem requiring immediate closure.",
   "SLV 61/60p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-16T13:38:16.673248+00:00",
-    "reasoning": "Short strike 61 is breached with SLV at 50.56, mid $0.925 is 1.85x credit and worst $1.45 is 2.9x credit \u2014 both catastrophically beyond the 1.5x stop ($0.75). This has been flagged CRITICAL across 5+ consecutive cycles with zero action; the position is at near-max loss with no recovery path."
+    "timestamp": "2026-07-16T14:25:49.623460+00:00",
+    "reasoning": "Short strike 61 breached with SLV at 50.46, mid $0.925 is 1.85x credit \u2014 hard stop was 1.5x ($0.75) and this has been flagged CRITICAL across 6+ consecutive cycles with zero action. Position is at near-max loss with zero recovery path and continued inaction compounds the discipline failure."
   },
   "SPY 712/708p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-16T13:38:16.673248+00:00",
-    "reasoning": "21 DTE hard exit rule triggered today \u2014 this is the hard line, no exceptions. Mid $0.24 vs $0.32 credit is 25% profit and a clean close; worst case $0.26 still closes green."
-  },
-  "IWM 276/272p": {
-    "action": "CRITICAL",
-    "confidence": 0.99,
-    "timestamp": "2026-07-16T13:38:16.673248+00:00",
-    "reasoning": "21 DTE hard exit rule triggered today with mid $0.235 at 51% profit \u2014 this simultaneously hits the 50% profit management target AND the 21 DTE hard exit, making this a dual-rule trigger that is non-negotiable."
+    "timestamp": "2026-07-16T14:25:49.623460+00:00",
+    "reasoning": "21 DTE hard exit rule is triggered today \u2014 this is a non-negotiable rule with no exceptions, and mid $0.21 vs $0.32 credit is 34% profit making this a clean green close."
   },
   "SPY 717/711p": {
     "action": "HOLD",
     "confidence": 0.82,
-    "timestamp": "2026-07-16T13:38:16.673248+00:00",
-    "reasoning": "28 DTE, mid $0.53 vs $0.58 credit is only 9% profit \u2014 no rule triggers, SPY is 4.7% above the 717 short strike. VIX uptick from tech rotation is a minor headwind but strikes remain well-defended."
+    "timestamp": "2026-07-16T14:25:49.623460+00:00",
+    "reasoning": "28 DTE, mid $0.485 vs $0.58 credit is 16% profit \u2014 no rule triggers, SPY is 4.8% above the 717 short strike. Tech weakness is a headwind to monitor but strikes remain well-defended."
   }
 }
