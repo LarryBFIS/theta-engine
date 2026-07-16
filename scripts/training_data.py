@@ -18,7 +18,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-LEDGER = REPO_ROOT / "memory" / "trades_ledger.json"
+LEDGER = REPO_ROOT / "memory" / "trades_ledger.json"         # paper outcomes (the learner's memory)
+LIVE_LEDGER = REPO_ROOT / "ledger" / "trades.json"          # real broker-truth closes
 JOURNAL = REPO_ROOT / "memory" / "agent_journal.jsonl"
 OUT_DATA = REPO_ROOT / "memory" / "training_data.jsonl"
 OUT_STATUS = REPO_ROOT / "memory" / "training_status.json"
@@ -41,6 +42,40 @@ def _days_held(opened, closed):
         return None
 
 
+def _live_rows():
+    """Real broker-truth CLOSED trades — every position ever actually traded. Fewer
+    entry features than the paper ledger (no IV rank/POP recorded at open), but the
+    outcome label is real money. Off-strategy ignored orders (e.g. SLV) are excluded."""
+    if not LIVE_LEDGER.exists():
+        return []
+    try:
+        from scripts.paper_trades import asset_class, cluster_of
+        from scripts.sync_trades import IGNORE_ORDER_IDS
+        trades = json.loads(LIVE_LEDGER.read_text()).get("trades", [])
+    except Exception:  # noqa: BLE001
+        return []
+    rows = []
+    for t in trades:
+        if t.get("status") != "closed":
+            continue
+        if str(t.get("open_order_id")) in IGNORE_ORDER_IDS:
+            continue  # off-strategy — excluded everywhere, training included
+        u = (t.get("underlying") or "").upper()
+        rows.append({
+            "source": "live",
+            "underlying": u, "asset_class": asset_class(u), "cluster": cluster_of(u),
+            "structure": t.get("structure"), "contracts": t.get("contracts"),
+            "credit": t.get("credit_per_contract"), "iv_rank": t.get("iv_rank"),
+            "pop": t.get("pop_at_open"), "tag": "live", "event": None,
+            "opened_at": t.get("opened_at"), "closed_at": t.get("closed_at"),
+            "close_reason": t.get("close_reason"), "fees": None,
+            "days_held": _days_held(t.get("opened_at") or "", t.get("closed_at") or ""),
+            "realized_pnl": t.get("realized_pnl"),
+            "won": (t.get("realized_pnl") or 0) > 0,
+        })
+    return rows
+
+
 def build():
     ledger = []
     if LEDGER.exists():
@@ -52,10 +87,14 @@ def build():
     rows = []
     for t in ledger:
         row = {k: t.get(k) for k in FEATURES}
+        row["source"] = "paper"
         row["days_held"] = _days_held(t.get("opened_at") or "", t.get("closed_at") or "")
         row["realized_pnl"] = t.get("realized_pnl")     # regression label
         row["won"] = bool(t.get("won"))                 # classification label
         rows.append(row)
+
+    # Every real broker-truth close too — all the data we've ever had.
+    rows.extend(_live_rows())
 
     OUT_DATA.parent.mkdir(parents=True, exist_ok=True)
     OUT_DATA.write_text("\n".join(json.dumps(r, default=str) for r in rows) + ("\n" if rows else ""))
@@ -70,12 +109,13 @@ def build():
                 pass
 
     wins = sum(1 for r in rows if r["won"])
-    by_bucket = {}
+    by_bucket, by_source = {}, {}
     for r in rows:
         b = r.get("asset_class") or "?"
         d = by_bucket.setdefault(b, {"n": 0, "wins": 0})
         d["n"] += 1
         d["wins"] += 1 if r["won"] else 0
+        by_source[r.get("source") or "?"] = by_source.get(r.get("source") or "?", 0) + 1
 
     status = {
         "records": len(rows),
@@ -83,6 +123,7 @@ def build():
         "losses": len(rows) - wins,
         "win_rate": round(wins / len(rows), 3) if rows else 0.0,
         "reasoned_decisions": decisions,
+        "by_source": by_source,
         "by_asset_class": by_bucket,
         "milestones": [
             {"name": "Collect trade outcomes", "target": FIRST_MODEL_TARGET,
