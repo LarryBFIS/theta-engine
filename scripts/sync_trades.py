@@ -15,6 +15,7 @@ scripts/test_sync_trades.py.
 """
 import json
 import logging
+import os
 import re
 import sys
 from pathlib import Path
@@ -22,6 +23,13 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TRADES_FILE = REPO_ROOT / "trades.json"
 LEDGER_TRADES = REPO_ROOT / "ledger" / "trades.json"
+
+# Off-strategy positions to EXCLUDE forever — opened by hand on a non-engine idea and
+# not part of the strategy. Matched by open_order_id: dropped from trades.json on every
+# sync and never re-added, so they vanish from the dashboard/P&L permanently.
+# 473738879 = SLV 61/60 (Jay, off-strategy). Override/add via SYNC_IGNORE_ORDER_IDS.
+IGNORE_ORDER_IDS = set(
+    x for x in (os.getenv("SYNC_IGNORE_ORDER_IDS") or "473738879").replace(" ", "").split(",") if x)
 
 log = logging.getLogger("sync_trades")
 
@@ -121,10 +129,19 @@ def merge_ledger_into_trades(hand: dict, ledger_trades: list):
     order-id-less snapshot phantom duplicating a ledger-tracked trade.
     """
     trades = hand.setdefault("trades", [])
-    by_order = {str(t.get("open_order_id")): t for t in trades if t.get("open_order_id")}
     changes = []
+    # Purge any off-strategy (ignored) trade already tracked, and never re-add below.
+    if IGNORE_ORDER_IDS:
+        keep = [t for t in trades if str(t.get("open_order_id")) not in IGNORE_ORDER_IDS]
+        if len(keep) != len(trades):
+            changes.append("removed {} off-strategy (ignored) trade(s)".format(len(trades) - len(keep)))
+            trades = keep
+            hand["trades"] = trades
+    by_order = {str(t.get("open_order_id")): t for t in trades if t.get("open_order_id")}
     for lt in ledger_trades:
         oid = str(lt.get("open_order_id") or "")
+        if oid in IGNORE_ORDER_IDS:
+            continue  # off-strategy — excluded forever
         if not oid or lt.get("short_strike") is None:
             continue  # skip un-enriched / pre-window close-only entries
         ht = by_order.get(oid)

@@ -88,10 +88,31 @@ def _build_snapshot(
             },
         })
 
+    # Live broker holdings — the option legs the account CURRENTLY holds, parsed to
+    # (underlying, expiry, strike, type). The dashboard reconciles its open trades
+    # against this so a close reflects within ONE poll (the position vanishes here
+    # the instant it's closed), instead of waiting minutes for the transaction feed
+    # that build_ledger reads. Empty list => dashboard skips reconciliation (fail-safe).
+    broker_open_legs = []
+    try:
+        from scripts.build_ledger import parse_occ
+        for p in getattr(snapshot, "positions", []) or []:
+            if not getattr(p, "is_option", False) or not getattr(p, "symbol", None):
+                continue
+            parsed = parse_occ(p.symbol)
+            if parsed:
+                broker_open_legs.append({
+                    "underlying": parsed["underlying"], "expiry": parsed["expiry"],
+                    "strike": parsed["strike"], "type": parsed["type"],
+                })
+    except Exception:  # noqa: BLE001 — never fail the poll on reconciliation data
+        broker_open_legs = []
+
     return {
         "version": 2,
         "last_poll_at": timestamp_et.isoformat() if timestamp_et else None,
         "trigger": trigger,
+        "broker_open_legs": broker_open_legs,
         "account": {
             "net_liquidating_value": current,
             "day_pnl": snapshot.day_pnl,

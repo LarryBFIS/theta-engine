@@ -139,6 +139,19 @@ def main() -> int:
     if len(soloh["trades"]) != 1 or any("removed phantom" in c for c in solochg):
         failures.append("lone order-id-less open wrongly removed: {} / {}".format(soloh["trades"], solochg))
 
+    # --- off-strategy ignore: a trade with an ignored order-id is purged + never re-added ---
+    igh = {"schema_version": 2, "trades": [
+        {"id": "trade_099_slv_61_60", "underlying": "SLV", "status": "open",
+         "open_order_id": "473738879", "short_strike": 61, "long_strike": 60, "expiry": "2026-08-21"},
+    ]}
+    igledger = [{"open_order_id": "473738879", "status": "open", "short_strike": 61,
+                 "long_strike": 60, "underlying": "SLV", "expiry": "2026-08-21"}]
+    igh, igchg = merge_ledger_into_trades(igh, igledger)
+    if any(str(t.get("open_order_id")) == "473738879" for t in igh["trades"]):
+        failures.append("ignored SLV order not purged: {}".format(igh["trades"]))
+    if not any("off-strategy" in c for c in igchg):
+        failures.append("expected an off-strategy removal change, got {}".format(igchg))
+
     if failures:
         print("FAILED:")
         for f in failures:

@@ -766,7 +766,22 @@ async function loadLive(){
     if(tj.experiment && tj.experiment.starting_capital) DATA.start = tj.experiment.starting_capital;
     if(tj.experiment && tj.experiment.deposits != null) DATA.deposits = tj.experiment.deposits;
     const gById = new Map((gist && gist.trades || []).map(g => [g.id, g]));
-    const open   = tj.trades.filter(t => t.status === 'open');
+    // Reconcile against the broker's LIVE holdings: a trade still 'open' in
+    // trades.json whose short leg the broker no longer holds was just closed — drop
+    // it from Open now (the transaction feed that marks it closed for real lags
+    // minutes). Fail-safe: if the gist carries no broker legs, show all as-is.
+    const brokerLegs = (gist && gist.broker_open_legs) || [];
+    const brokerHasShort = t => {
+      if(!brokerLegs.length) return true;
+      const ss=+t.short_strike, u=(t.underlying||'').toUpperCase(), ex=(t.expiry||'').slice(0,10);
+      return brokerLegs.some(l => (l.underlying||'').toUpperCase()===u
+        && Math.abs((+l.strike)-ss)<1e-6
+        && (!ex || !(l.expiry) || (l.expiry).slice(0,10)===ex));
+    };
+    let open = tj.trades.filter(t => t.status === 'open');
+    const _openBefore = open.length;
+    open = open.filter(brokerHasShort);
+    DATA.brokerClosing = _openBefore - open.length;   // closed at broker, ledger still syncing P&L
     const closed = tj.trades.filter(t => t.status === 'closed');
 
     DATA.closed = closed.map(t => {
