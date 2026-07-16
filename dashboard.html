@@ -328,6 +328,19 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
     </div>
   </div>
 
+  <div class="panel reveal" id="modelpanel" style="animation-delay:.52s">
+    <div class="phead"><span class="t">🧠 MODEL BUILD · toward our own LLM</span><span class="meta" id="modelupd">—</span></div>
+    <div style="padding:14px 16px">
+      <div style="display:flex;gap:28px;align-items:baseline;flex-wrap:wrap">
+        <div><div class="val glow-a" id="mrecords" style="font-size:30px;font-weight:700">—</div><div style="font-size:10px;color:var(--dim);letter-spacing:.12em;margin-top:4px">TRAINING ROWS</div></div>
+        <div><div class="val" id="mwr" style="font-size:22px;font-weight:700">—</div><div style="font-size:10px;color:var(--dim);letter-spacing:.12em;margin-top:4px">WIN RATE</div></div>
+        <div><div class="val" id="mdec" style="font-size:22px;font-weight:700">—</div><div style="font-size:10px;color:var(--dim);letter-spacing:.12em;margin-top:4px">REASONED AI DECISIONS</div></div>
+      </div>
+      <div id="mmilestones" style="margin-top:14px"></div>
+      <div style="margin-top:10px;font-size:10.5px;color:var(--dimmer)">Every closed trade is logged as a model-ready row (features → outcome). Path: collect data → train a gradient-boosted ranker → fine-tune the LLM on the reasoned decisions.</div>
+    </div>
+  </div>
+
   <footer>
     <span class="dot" style="width:6px;height:6px"></span>
     <span id="poll">last poll —</span>
@@ -639,6 +652,7 @@ const GIST_URL   = 'https://gist.githubusercontent.com/LarryBFIS/08e2cb50b3a645e
 const TRADES_URL = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/trades.json';
 const SCAN_URL   = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/scan/opportunities.json';
 const NEWS_URL   = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/news/feed.json';
+const MODEL_URL  = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/memory/training_status.json';
 const REFRESH_MS = 60000;
 
 /* ---- right rail: live opportunities feed (from the AI scanner) ---- */
@@ -739,6 +753,24 @@ async function fetchJSON(u){
   if(!r.ok) throw new Error('HTTP ' + r.status);
   return r.json();
 }
+async function loadModel(){
+  let s; try{ s = await fetchJSON(MODEL_URL); }catch(e){ return; }
+  if(!s) return;
+  if($('mrecords')) $('mrecords').textContent = (s.records!=null?s.records:'—');
+  if($('mwr'))      $('mwr').textContent      = Math.round((s.win_rate||0)*100)+'%';
+  if($('mdec'))     $('mdec').textContent     = (s.reasoned_decisions!=null?s.reasoned_decisions:'—');
+  if($('modelupd') && s.updated_at) $('modelupd').textContent =
+    'updated '+new Date(s.updated_at).toLocaleString('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})+' CDT';
+  const box=$('mmilestones'); if(!box) return;
+  box.innerHTML=(s.milestones||[]).map(m=>{
+    const pct=Math.max(0,Math.min(100,Math.round((m.have/(m.target||1))*100)));
+    const icon=m.done?'✅':(pct>=100?'⏳':'○'), col=m.done?'var(--green)':'var(--amber)';
+    return `<div style="margin:7px 0">
+      <div style="display:flex;justify-content:space-between;font-size:12px"><span>${icon} ${m.name}</span><span style="color:var(--dim)">${m.have} / ${m.target}</span></div>
+      <div style="height:6px;background:#15160e;border-radius:3px;margin-top:3px;overflow:hidden"><div style="height:100%;width:${pct}%;background:${col};border-radius:3px;transition:width 1s"></div></div>
+    </div>`;
+  }).join('');
+}
 function structCode(st){
   st=(st||'').toLowerCase();
   if(st.includes('reverse')&&st.includes('condor')) return 'RIC';
@@ -833,7 +865,7 @@ async function loadLive(){
 /* ---- init: paint seed instantly, then go live ---- */
 renderMission(); renderPositions(); renderClosed(); renderTotals(); renderSpark();
 loadLive().finally(()=>{ renderTape(); liveFeel(); });
-loadFeed(); loadNews();
+loadFeed(); loadNews(); loadModel();
 setInterval(loadLive, REFRESH_MS);
 
 /* ---- POLL NOW: instant re-fetch of the latest committed data ---- */
@@ -855,7 +887,7 @@ const REFRESH_ENDPOINT = "";   // <-- paste your refresh-trigger Worker URL here
     catch(e){ b.textContent='⟳ FAILED'; }
     setTimeout(()=>{ b.textContent=o; b.disabled=false; }, 4000);
     // the run takes ~60-90s + a Pages rebuild — auto-reload the data after 95s
-    setTimeout(()=>{ try{loadLive();}catch(e){} try{loadFeed();}catch(e){} }, 95000);
+    setTimeout(()=>{ try{loadLive();}catch(e){} try{loadFeed();}catch(e){} try{loadModel();}catch(e){} }, 95000);
   });
 })();
 </script>

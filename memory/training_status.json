@@ -1,0 +1,42 @@
+{
+  "records": 56,
+  "wins": 17,
+  "losses": 39,
+  "win_rate": 0.304,
+  "reasoned_decisions": 296,
+  "by_asset_class": {
+    "index_etf": {
+      "n": 17,
+      "wins": 10
+    },
+    "sector_etf": {
+      "n": 2,
+      "wins": 1
+    },
+    "single_name": {
+      "n": 37,
+      "wins": 6
+    }
+  },
+  "milestones": [
+    {
+      "name": "Collect trade outcomes",
+      "target": 300,
+      "have": 56,
+      "done": false
+    },
+    {
+      "name": "Train first ranker (gradient-boosted)",
+      "target": 300,
+      "have": 56,
+      "done": false
+    },
+    {
+      "name": "Fine-tune our LLM (reasoned decisions)",
+      "target": 2000,
+      "have": 296,
+      "done": false
+    }
+  ],
+  "updated_at": "2026-07-16T14:50:59.534843+00:00"
+}

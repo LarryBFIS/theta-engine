@@ -517,6 +517,13 @@ def main() -> int:
     # on first run) — this is the memory the learning loop will consume.
     append_ledger([t for t in book["trades"] if t.get("status") == "closed"])
 
+    # Rebuild the model-ready training dataset + progress rollup (never fail the book).
+    try:
+        from scripts import training_data
+        training_data.build()
+    except Exception as e:  # noqa: BLE001
+        log.warning("training-data build skipped: %s", e)
+
     summary = summarize(book)
     book["updated_at"] = datetime.now(timezone.utc).isoformat()
     book["summary"] = summary
