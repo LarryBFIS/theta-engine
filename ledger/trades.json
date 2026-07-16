@@ -429,8 +429,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -42.25,
-      "cost_to_close_mid": 90.0,
+      "unrealized_pnl": -44.75,
+      "cost_to_close_mid": 92.5,
       "structure": "short_put_vertical",
       "short_strike": 61.0,
       "long_strike": 60.0,
@@ -831,8 +831,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -104.12,
-      "cost_to_close_mid": -176.0
+      "unrealized_pnl": -100.12,
+      "cost_to_close_mid": -180.0
     },
     {
       "id": "ledger_014_spy",
@@ -926,14 +926,34 @@
           "executed_at": "2026-07-06T15:12:42.333Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": 8.75,
-      "cost_to_close_mid": 21.0,
+      "close_orders": [
+        "484086946"
+      ],
+      "close_net_cash": -21.25,
+      "close_legs": [
+        {
+          "symbol": "SPY   260807P00712000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 1.57,
+          "net_cash": -157.12,
+          "fees": 0.12,
+          "executed_at": "2026-07-16T14:27:42.534Z"
+        },
+        {
+          "symbol": "SPY   260807P00708000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 1.36,
+          "net_cash": 135.87,
+          "fees": 0.13,
+          "executed_at": "2026-07-16T14:27:42.534Z"
+        }
+      ],
+      "closed_at": "2026-07-16",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": 8.5,
       "structure": "short_put_vertical",
       "short_strike": 712.0,
       "long_strike": 708.0,
@@ -943,7 +963,8 @@
       "width": 4.0,
       "max_profit_total": 32.0,
       "max_loss_total": 368.0,
-      "bpr_total": 368.0
+      "bpr_total": 368.0,
+      "close_debit_per_contract": 0.21
     },
     {
       "id": "ledger_016_iwm",
@@ -1043,8 +1064,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 7.25,
-      "cost_to_close_mid": 48.5,
+      "unrealized_pnl": 8.75,
+      "cost_to_close_mid": 47.0,
       "structure": "short_put_vertical",
       "short_strike": 717.0,
       "long_strike": 711.0,
