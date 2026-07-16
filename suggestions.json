@@ -23687,6 +23687,90 @@
       "alternative": "Hold and hope. Risk: up to $50 max loss (currently $40 unrealized).",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20260716T093807_trade_008_slv_61_60",
+      "trade_id": "trade_008_slv_61_60",
+      "timestamp": "2026-07-16T09:38:08.092528-04:00",
+      "action": "URGENT_CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\u26a0\ufe0f SLV @ $50.56 is BELOW short strike $61 (ITM).",
+        "Max loss exposure increasing. Current close: $0.92 mid / $1.45 worst.",
+        "35 DTE remaining; negative delta hurts daily."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.9249999999999989,
+        "cost_to_close_worst": 1.4499999999999993,
+        "profit_if_closed_mid": -42.49999999999989,
+        "profit_if_closed_worst": -94.99999999999993,
+        "pct_max_profit_captured_mid": -0.8499999999999979,
+        "dte": 35,
+        "underlying_price": 50.55500030517578,
+        "short_strike_breached": true,
+        "has_live_quotes": true,
+        "net_liq": 3702.799,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold and hope. Risk: up to $50 max loss (currently $42 unrealized).",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20260716T093808_trade_015_spy_712_708",
+      "trade_id": "trade_015_spy_712_708",
+      "timestamp": "2026-07-16T09:38:08.845972-04:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 21 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently 25% captured ($8 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.24,
+        "cost_to_close_worst": 0.26,
+        "profit_if_closed_mid": 8.000000000000002,
+        "profit_if_closed_worst": 6.0,
+        "pct_max_profit_captured_mid": 0.25000000000000006,
+        "dte": 21,
+        "underlying_price": 751.9849853515625,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 3702.799,
+        "day_pnl": 0.0
+      },
+      "alternative": "ROLL: short strike is 5.3% OTM \u2014 candidate to roll to next monthly expiry for additional credit.",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20260716T093809_trade_016_iwm_276_272",
+      "trade_id": "trade_016_iwm_276_272",
+      "timestamp": "2026-07-16T09:38:09.760644-04:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u2705 Captured 51% of max profit at mid (target 50%).",
+        "Close cost: $0.23 mid / $0.27 worst-case fill.",
+        "Profit if closed: $24 (mid) to $21 (worst).",
+        "Closes free $352 BPR for the next setup."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.235,
+        "cost_to_close_worst": 0.27,
+        "profit_if_closed_mid": 24.5,
+        "profit_if_closed_worst": 20.999999999999996,
+        "pct_max_profit_captured_mid": 0.5104166666666666,
+        "dte": 21,
+        "underlying_price": 295.94500732421875,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 3702.799,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold for $24 more potential profit but risk $352 if breached before expiry.",
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
