@@ -803,8 +803,19 @@ async function loadLive(){
     // it from Open now (the transaction feed that marks it closed for real lags
     // minutes). Fail-safe: if the gist carries no broker legs, show all as-is.
     const brokerLegs = (gist && gist.broker_open_legs) || [];
+    // Only trust the broker snapshot to HIDE a live trade when that snapshot is FRESH.
+    // A stale gist (e.g. a CDN-cached older poll, or the browser holding an old copy)
+    // can be missing a leg for a position that is genuinely open — which would wrongly
+    // hide a real open trade. So: reconcile only against a poll <90 min old, and never
+    // hide a trade the snapshot predates (opened at/after the last poll). Otherwise fall
+    // back to trades.json/ledger as-is (authoritative). This can only ever SHOW more, so
+    // it's the safe direction to fail.
+    const pollAt = (gist && gist.last_poll_at) ? new Date(gist.last_poll_at).getTime() : 0;
+    const gistFresh = pollAt && (Date.now() - pollAt) < 90*60*1000;   // within 90 min
     const brokerHasShort = t => {
-      if(!brokerLegs.length) return true;
+      if(!gistFresh || !brokerLegs.length) return true;   // no fresh snapshot -> show as-is
+      const openedAt = t.opened_at ? new Date(t.opened_at + 'T00:00:00Z').getTime() : 0;
+      if(openedAt && pollAt && openedAt > pollAt) return true;   // snapshot predates the trade
       const ss=+t.short_strike, u=(t.underlying||'').toUpperCase(), ex=(t.expiry||'').slice(0,10);
       return brokerLegs.some(l => (l.underlying||'').toUpperCase()===u
         && Math.abs((+l.strike)-ss)<1e-6
