@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-07-20T16:39:33.787550+00:00",
-  "market_view": "SPY +0.39% to 746.18 with VIX -7.19% to 17.42 \u2014 conditions are modestly better but both SPY put verticals remain underwater and the 21 DTE clock on SPY 717/711p is non-negotiable; same alert issued 2 minutes ago, status unchanged.",
+  "last_run": "2026-07-20T17:10:24.523755+00:00",
+  "market_view": "SPY slipped to 744.57 from 746.18 at last check, down ~0.2% intraday \u2014 the modest VIX relief from earlier (-4.69% today but +3.95% 5d) hasn't improved the underwater vertical positions. Both SPY put verticals remain losers and the 21 DTE clock on the 717/711p is 3 days from forced exit.",
   "SPY 717/711p": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-07-20T16:39:23Z",
-    "reasoning": "24 DTE today, hard 21 DTE exit triggers Wednesday July 23 \u2014 close now while liquidity is full and SPY is near highs of day; mid $0.665 is a small debit vs $0.58 credit but the rule is non-negotiable."
+    "timestamp": "2026-07-20T17:10:09Z",
+    "reasoning": "At 24 DTE today, the hard 21 DTE exit triggers Wednesday July 23 \u2014 only 3 trading days away. Current mid $0.73 vs $0.58 credit is already a loss; waiting risks further deterioration or a gap move that widens the spread. Close now with full liquidity on Monday rather than scramble mid-week."
   },
   "SPY 723/714p": {
     "action": "CRITICAL",
     "confidence": 0.95,
-    "timestamp": "2026-07-20T16:39:23Z",
-    "reasoning": "Mid $1.295 vs $0.96 credit = 1.349x loss ratio, hard stop triggers at 1.5x ($1.44) \u2014 only $0.145 of cushion remaining; VIX relief today is a gift, use it to exit before the stop forces a worse fill."
+    "timestamp": "2026-07-20T17:10:09Z",
+    "reasoning": "Mid $1.385 vs $0.96 credit = 1.44x loss ratio \u2014 the 1.5x hard stop triggers at $1.44 mid ($1.385 worst-case already $1.41), meaning one more tick of adverse movement hits the mechanical stop. SPY sliding back from intraday highs makes this increasingly dangerous."
   }
 }
