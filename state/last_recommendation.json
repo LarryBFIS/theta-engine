@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-07-20T18:45:25.527858+00:00",
-  "market_view": "SPY down slightly to 742.71 (-0.08% today, -1.09% 5d) with VIX at 17.88 and falling \u2014 market drift lower continues and both SPY short put verticals remain underwater with no catalyst for recovery today.",
+  "last_run": "2026-07-20T18:46:18.565548+00:00",
+  "market_view": "SPY slipped to 742.54 (-0.1% today, -1.11% 5d) with VIX at 17.93 \u2014 both short put verticals are deeper in the red and the 723/714p is now past the 1.5x stop trigger at mid $1.52 vs $0.96 credit (1.58x). Close both now.",
   "SPY 717/711p": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-07-20T18:45:14Z",
-    "reasoning": "DTE is 24 \u2014 hard 21 DTE exit triggers Wednesday July 23, three trading days away. Mid is $0.82 vs $0.96 credit on the other position dragging attention; this one is a $24 loser but closing now avoids forced exit mid-week with gap risk on a drifting tape."
+    "timestamp": "2026-07-20T18:46:01Z",
+    "reasoning": "24 DTE hits the 21 DTE hard exit Wednesday \u2014 3 trading days left, mid $0.82 is a defined loss but SPY is drifting lower and waiting risks a worse fill at forced exit. Close now while liquidity is full."
   },
   "SPY 723/714p": {
     "action": "CRITICAL",
-    "confidence": 0.99,
-    "timestamp": "2026-07-20T18:45:14Z",
-    "reasoning": "Mid is $1.52 vs $0.96 credit \u2014 that is 1.58x loss ratio, materially through the 1.5x mechanical stop of $1.44. This stop triggered last cycle and has not been acted on; every minute of inaction is a rule violation."
+    "confidence": 1.0,
+    "timestamp": "2026-07-20T18:46:01Z",
+    "reasoning": "Mid $1.52 vs $0.96 credit = 1.58x loss ratio \u2014 mechanical 1.5x stop was triggered last cycle and this position has continued to deteriorate with SPY down another 2 handles. Stop rule mandates immediate closure, no discretion."
   }
 }
