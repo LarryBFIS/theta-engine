@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-20T17:54:48.170505+00:00",
+  "generated_at": "2026-07-20T17:55:02.485256+00:00",
   "regime": {
-    "vix": 18.1,
-    "vix_day_change_pct": -0.0357,
+    "vix": 18.12,
+    "vix_day_change_pct": -0.0346,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (-4% day)"
+    "note": "normal regime (-3% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -34,14 +34,14 @@
       "bpr": 808.0,
       "max_loss": 808.0,
       "pop": 0.8,
-      "short_delta": 0.185,
+      "short_delta": 0.186,
       "short_spread_pct": 0.007,
       "credit_to_bpr": 0.114,
-      "ev_per_contract": 6.26,
-      "ev_on_bpr": 0.0077,
+      "ev_per_contract": 6.13,
+      "ev_on_bpr": 0.0076,
       "iv": 0.1803,
       "iv_rank": 0.435,
-      "underlying_price": 744.78,
+      "underlying_price": 744.68,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -56,9 +56,9 @@
       "learn_notes": [
         "structure=short_put_vertical \u00d71.36"
       ],
-      "rank_score": 0.010495,
+      "rank_score": 0.010359,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, favorable structure (short_put_vertical), 32 DTE, IV_rank moderate, tight spread, fits mandate.",
+      "agent_reason": "Index ETF, favored structure, reasonable EV; keeps us_index at 3-position cap; 32 DTE avoids event risk.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
@@ -105,7 +105,7 @@
         "fit_note": "\u26a0 max loss $808 > 10% live cap ($354) \u2014 narrow to ~4-wide for live, or keep on paper.",
         "text": "SPY VP \u00d71 \u2014 SELL 711P / BUY 702P (2026-08-21) @ $0.92 net credit. Max loss $808. After fill: GTC buy-to-close @ $0.46 (50%). \u26a0 max loss $808 > 10% live cap ($354) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
-      "posted_at": "2026-07-20T17:54:48.170505+00:00"
+      "posted_at": "2026-07-20T17:55:02.485256+00:00"
     }
   ],
   "long_vol": [],
@@ -151,9 +151,9 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-07-20T17:54:47.860537+00:00",
+    "generated_at": "2026-07-20T17:55:02.186913+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is 2/2 index (us_index cluster), down $45 unrealized. Both candidates are index/tech; first is safe, second violates cluster pattern and asset-class learnings.",
+    "portfolio_note": "Book is small (2 open, both us_index) and underwater slightly. Adding SPY keeps cluster at cap; QQQ violates learned edge and adds correlated tech risk.",
     "reviewed": 2,
     "vetoed": 2,
     "downsized": 0,
@@ -161,12 +161,12 @@
       {
         "id": "SPY|short_put_vertical|711/702",
         "action": "approve",
-        "reason": "Index ETF, favorable structure (short_put_vertical), 32 DTE, IV_rank moderate, tight spread, fits mandate."
+        "reason": "Index ETF, favored structure, reasonable EV; keeps us_index at 3-position cap; 32 DTE avoids event risk."
       },
       {
         "id": "QQQ|short_call_vertical|749/755",
         "action": "veto",
-        "reason": "Single-name cluster (us_tech) shows 22% win rate vs 30% benchmark; adding to tech risk when book already stressed; marginal EV does not compensate."
+        "reason": "Single-name QQQ in us_tech cluster: both carry negative realized expectancy (wr 22%, 19%); correlated with tech holdings; marginal edge not worth idiosyncratic gap risk."
       }
     ]
   },
@@ -187,14 +187,14 @@
       "bpr": 808.0,
       "max_loss": 808.0,
       "pop": 0.8,
-      "short_delta": 0.185,
+      "short_delta": 0.186,
       "short_spread_pct": 0.007,
       "credit_to_bpr": 0.114,
-      "ev_per_contract": 6.26,
-      "ev_on_bpr": 0.0077,
+      "ev_per_contract": 6.13,
+      "ev_on_bpr": 0.0076,
       "iv": 0.1803,
       "iv_rank": 0.435,
-      "underlying_price": 744.78,
+      "underlying_price": 744.68,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -209,9 +209,9 @@
       "learn_notes": [
         "structure=short_put_vertical \u00d71.36"
       ],
-      "rank_score": 0.010495,
+      "rank_score": 0.010359,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, favorable structure (short_put_vertical), 32 DTE, IV_rank moderate, tight spread, fits mandate.",
+      "agent_reason": "Index ETF, favored structure, reasonable EV; keeps us_index at 3-position cap; 32 DTE avoids event risk.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
@@ -258,7 +258,7 @@
         "fit_note": "\u26a0 max loss $808 > 10% live cap ($354) \u2014 narrow to ~4-wide for live, or keep on paper.",
         "text": "SPY VP \u00d71 \u2014 SELL 711P / BUY 702P (2026-08-21) @ $0.92 net credit. Max loss $808. After fill: GTC buy-to-close @ $0.46 (50%). \u26a0 max loss $808 > 10% live cap ($354) \u2014 narrow to ~4-wide for live, or keep on paper."
       },
-      "posted_at": "2026-07-20T17:54:48.170505+00:00"
+      "posted_at": "2026-07-20T17:55:02.485256+00:00"
     },
     {
       "underlying": "QQQ",
@@ -276,14 +276,14 @@
       "bpr": 514.0,
       "max_loss": 514.0,
       "pop": 0.8,
-      "short_delta": 0.225,
+      "short_delta": 0.224,
       "short_spread_pct": 0.015,
       "credit_to_bpr": 0.167,
-      "ev_per_contract": 5.52,
-      "ev_on_bpr": 0.0107,
+      "ev_per_contract": 5.66,
+      "ev_on_bpr": 0.011,
       "iv": 0.2822,
       "iv_rank": 0.745,
-      "underlying_price": 700.68,
+      "underlying_price": 700.5,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -299,9 +299,9 @@
         "asset_class=single_name \u00d70.63",
         "cluster=us_tech \u00d70.73"
       ],
-      "rank_score": 0.004922,
+      "rank_score": 0.00506,
       "agent_action": "veto",
-      "agent_reason": "Single-name cluster (us_tech) shows 22% win rate vs 30% benchmark; adding to tech risk when book already stressed; marginal EV does not compensate."
+      "agent_reason": "Single-name QQQ in us_tech cluster: both carry negative realized expectancy (wr 22%, 19%); correlated with tech holdings; marginal edge not worth idiosyncratic gap risk."
     }
   ],
   "skipped": {
