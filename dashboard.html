@@ -77,7 +77,7 @@ body::after{
 
 /* ---------- header ---------- */
 header{
-  display:flex;align-items:center;gap:18px;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
   padding:12px 14px;border-bottom:1px solid var(--line);
   background:linear-gradient(180deg,#121310,#0b0c09);
 }
@@ -201,6 +201,35 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
   .row2{grid-template-columns:1fr}
   .reason{display:none}
   thead th.hideM,tbody td.hideM{display:none}
+  /* header: let the controls wrap onto their own line instead of overflowing
+     off-screen (the body clips horizontal overflow, so they were unreachable) */
+  header{gap:8px 10px;padding:10px 12px;justify-content:flex-start}
+  .hspace{display:none}
+  .brand{font-size:13px}
+  .live{font-size:10px}
+  .clock{font-size:11px}
+  header .mkt{font-size:9.5px;padding:2px 6px;letter-spacing:.06em}
+  .wrap{padding:0 10px 32px}
+  /* any table wider than the phone scrolls INSIDE its panel — nothing gets clipped */
+  .panel{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  thead th,tbody td{padding:7px 8px;font-size:11px}
+  .node b{font-size:11px}
+  .node span{font-size:8px}
+  .mbody{padding:16px 12px 12px}
+}
+@media(max-width:480px){
+  .tiles{gap:7px}
+  .tile{padding:11px 12px}
+  .tile .val{font-size:23px}
+  .tile .lab{letter-spacing:.1em}
+  .lh-val{font-size:27px}
+  .lh-cell.lh-diff .lh-val{font-size:30px}
+  .lh-cell{padding:12px 12px}
+  .brand{font-size:12px}
+  .maker{font-size:9px;letter-spacing:.14em}
+  header .mkt{font-size:9px;padding:2px 5px}
+  #mrecords{font-size:24px !important}
+  footer{flex-wrap:wrap;gap:6px}
 }
 </style>
 </head>
