@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-07-21T17:07:06.412875+00:00",
-  "market_view": "SPY +0.89% today with VIX crushed -8.31% intraday \u2014 this bounce is helping but both spreads remain losers and the 21 DTE hard rule on SPY 717/711p triggers at tomorrow's open. VIX 5d still +5.56% warns the vol spike is recent and real.",
+  "last_run": "2026-07-21T17:38:57.806977+00:00",
+  "market_view": "SPY +0.89% with VIX crushed -8.26% intraday is giving a gift on exits \u2014 both spreads are at or near close-to-breakeven on the loser and the 21 DTE hard rule on 717/711p fires at tomorrow's open with no exceptions.",
   "SPY 717/711p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-21T17:06:50Z",
-    "reasoning": "23 DTE now \u2014 tomorrow crosses the 21 DTE hard exit threshold with no exceptions. Mid $0.575 is essentially break-even on a $0.58 credit, meaning closing costs near zero and delay only adds execution risk. This is the fourth consecutive alert with no recorded execution."
+    "timestamp": "2026-07-21T17:38:45Z",
+    "reasoning": "23 DTE means tomorrow crosses the 21 DTE hard exit rule \u2014 no exceptions per playbook. Mid $0.565 vs $0.58 credit is essentially free to close right now with VIX crushed; waiting until tomorrow adds execution risk and slippage. This is the fifth consecutive CRITICAL alert with no recorded execution."
   },
   "SPY 723/714p": {
     "action": "CRITICAL",
-    "confidence": 0.98,
-    "timestamp": "2026-07-21T17:06:50Z",
-    "reasoning": "Mid $1.155 vs $0.96 credit is 1.20x loss, still marching toward the 1.5x mechanical stop at $1.44 \u2014 today's VIX crush helped marginally but short strike 723 is only 3.4% OTM and this is a second correlated SPY spread doubling concentration risk with no diversification benefit. Fourth consecutive CRITICAL with no execution."
+    "confidence": 0.97,
+    "timestamp": "2026-07-21T17:38:45Z",
+    "reasoning": "Mid $1.14 vs $0.96 credit is 1.19x loss, still tracking toward the 1.5x mechanical stop at $1.44 \u2014 this is the second correlated SPY spread adding concentration risk with no diversification benefit, and today's VIX crush is the best exit window available."
   }
 }
