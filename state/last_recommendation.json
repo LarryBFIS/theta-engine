@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-07-21T20:34:54.639772+00:00",
-  "market_view": "SPY +0.83% today with VIX collapsing -8.6% to 17.05, but 5d trend still negative at -0.79% \u2014 IV crush is a tailwind for short premium yet both SPY verticals remain marked as losers with stacked correlated exposure on the same expiry.",
+  "last_run": "2026-07-21T20:59:58.067411+00:00",
+  "market_view": "SPY +0.83% with VIX -8.6% to 17.05 is a short-premium tailwind, but both positions are stacked on identical SPY Aug-21 expiry \u2014 concentration risk is the dominant concern, not market direction. SPY 723/714p remains a loser at 1.21x credit, close it to fix the concentration violation.",
   "SPY 723/714p": {
     "action": "ACTION",
     "confidence": 0.97,
-    "timestamp": "2026-07-21T20:34:43Z",
-    "reasoning": "Mid at $1.16 vs $0.96 credit is 1.21x \u2014 not at 1.5x stop yet but this position has been flagged for close since 19:57 UTC; two SPY put verticals on identical expiry is a hard concentration violation and this is the worse-performing leg."
+    "timestamp": "2026-07-21T20:59:47Z",
+    "reasoning": "Mid $1.16 vs $0.96 credit is 1.21x \u2014 not at 1.5x stop yet, but two SPY put verticals on identical expiry is a hard concentration violation flagged last cycle. This is the worse-performing leg and must be closed now."
   },
   "SPY 717/708p": {
-    "action": "WATCH",
-    "confidence": 0.8,
-    "timestamp": "2026-07-21T20:34:43Z",
-    "reasoning": "Mid at $0.96 is flat to $0.94 credit, no rule trigger, short strike 4.2% OTM with 30 DTE \u2014 becomes the surviving sole SPY position once the 723/714p is closed, which is acceptable."
+    "action": "HOLD",
+    "confidence": 0.85,
+    "timestamp": "2026-07-21T20:59:47Z",
+    "reasoning": "Mid $0.96 is flat to $0.94 credit, short strike 4.2% OTM with 30 DTE, no rule triggers. Becomes the sole acceptable SPY position once the 723/714p is closed."
   }
 }
