@@ -461,11 +461,13 @@ def _notify_opens(new_trades):
                 "{:.0%}".format(t["pop"]) if t.get("pop") is not None else "—",
                 (t.get("tag") or "paper").upper()))
         notifier.send(
-            title="📋 Paper: {} trade{} opened".format(len(new_trades), "s" if len(new_trades) > 1 else ""),
-            message="Engine opened (paper, at live quotes):\n" + "\n".join(lines)
-                    + "\n\nWant to replicate one live? Bring it to chat and we'll size it together.",
-            priority=notifier.PRIORITY_NORMAL,
-            sound=notifier.SOUND_INFO,
+            title="🆕 {} tracked trade{} opened — mirror live?".format(
+                len(new_trades), "s" if len(new_trades) > 1 else ""),
+            message="The engine just OPENED (paper, at live quotes). Open it in tastytrade "
+                    "now if you want the real position — don't let it slip by:\n" + "\n".join(lines)
+                    + "\n\nSet a GTC close at 50% when you do. Unsure on size? Bring it to chat.",
+            priority=notifier.PRIORITY_HIGH,
+            sound=notifier.SOUND_ALERT,
         )
     except Exception as e:  # noqa: BLE001
         log.warning("paper open notify failed: %s", e)
