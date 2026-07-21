@@ -429,8 +429,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -42.25,
-      "cost_to_close_mid": 90.0,
+      "unrealized_pnl": -44.75,
+      "cost_to_close_mid": 92.5,
       "structure": "short_put_vertical",
       "short_strike": 61.0,
       "long_strike": 60.0,
@@ -831,8 +831,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -52.12,
-      "cost_to_close_mid": -228.0
+      "unrealized_pnl": -51.12,
+      "cost_to_close_mid": -229.0
     },
     {
       "id": "ledger_014_spy",
@@ -1058,14 +1058,34 @@
           "executed_at": "2026-07-14T16:40:25.613Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": -1.25,
-      "cost_to_close_mid": 57.0,
+      "close_orders": [
+        "485854022"
+      ],
+      "close_net_cash": -57.25,
+      "close_legs": [
+        {
+          "symbol": "SPY   260814P00711000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 2.62,
+          "net_cash": 261.87,
+          "fees": 0.13,
+          "executed_at": "2026-07-21T17:44:52.223Z"
+        },
+        {
+          "symbol": "SPY   260814P00717000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 3.19,
+          "net_cash": -319.12,
+          "fees": 0.12,
+          "executed_at": "2026-07-21T17:44:52.223Z"
+        }
+      ],
+      "closed_at": "2026-07-21",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": -1.5,
       "structure": "short_put_vertical",
       "short_strike": 717.0,
       "long_strike": 711.0,
@@ -1075,7 +1095,8 @@
       "width": 6.0,
       "max_profit_total": 58.0,
       "max_loss_total": 542.0,
-      "bpr_total": 542.0
+      "bpr_total": 542.0,
+      "close_debit_per_contract": 0.57
     },
     {
       "id": "ledger_018_spy",
@@ -1109,8 +1130,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -20.75,
-      "cost_to_close_mid": 114.5,
+      "unrealized_pnl": -21.25,
+      "cost_to_close_mid": 115.0,
       "structure": "short_put_vertical",
       "short_strike": 723.0,
       "long_strike": 714.0,
