@@ -166,17 +166,20 @@ def main():
     for pos in decision.get("positions", []):
         print(f"[ai_decide]   {pos['symbol']}: {pos['action']} ({pos.get('confidence', 0):.0%}) — {pos.get('reasoning', '')[:80]}")
 
+    # ---- SINGLE SOURCE OF TRUTH: poll.py owns position alerts ----
+    # poll.py pages Pushover straight from decisions.make_recommendation — the SAME
+    # engine that fills the dashboard's ACT column — so its alerts ALWAYS match the
+    # dashboard chip. ai_decide used to page independently from Claude's own judgment,
+    # which measured the stop off a different quantity (buyback ≥1.5× credit) than
+    # decisions.py (loss ≥1.5× credit), so it could shout "close" while the dashboard
+    # said HOLD. We keep the AI read for market context + logging, but no longer send
+    # contradicting position pages. Now every position Pushover == the dashboard chip.
     alerts = should_alert(decision, last_state, dedupe_hours=4)
     if alerts:
-        print(f"[ai_decide] PUSHING {len(alerts)} alert(s)")
-        title, body, priority = format_pushover_message(alerts, decision)
-        try:
-            send(title=title, message=body, priority=priority)
-            print(f"[ai_decide] pushover sent: {title}")
-        except Exception as e:
-            print(f"[ai_decide] pushover FAIL: {e}", file=sys.stderr)
+        print(f"[ai_decide] {len(alerts)} AI note(s) — NOT paging; poll.py owns position "
+              f"alerts and keeps them in sync with the dashboard")
     else:
-        print("[ai_decide] no alerts to push (all HOLD/WATCH or deduped)")
+        print("[ai_decide] no AI notes (all HOLD/WATCH or deduped)")
 
     update_state(decision)
     print("[ai_decide] state updated, done")
