@@ -48,6 +48,9 @@ class TradeMetrics:
     max_loss_total: float
     bpr_total: float
 
+    # Identity
+    expiry: Optional[str] = None
+
     # Matching
     is_matched: bool = False
     legs_found: int = 0
@@ -151,6 +154,7 @@ def compute_metrics(
         trade_id=trade.id,
         underlying=trade.underlying,
         dte=trade.dte,
+        expiry=trade.expiry,
         short_strike=trade.short_strike,
         long_strike=trade.long_strike,
         contracts=trade.contracts,
@@ -382,7 +386,7 @@ def format_recommendation(rec: Recommendation) -> str:
         lines.append(f"Captured (mid): {m.pct_max_profit_captured_mid*100:.0f}% (${m.profit_if_closed_mid:.0f})")
     else:
         lines.append("Quotes unavailable — see reasoning below")
-    lines.append(f"DTE: {m.dte} · BPR: ${m.bpr_total:.0f}")
+    lines.append(f"Expiry: {m.expiry or '?'} · DTE: {m.dte} · BPR: ${m.bpr_total:.0f}")
     if m.underlying_price:
         lines.append(f"{m.underlying} @ ${m.underlying_price:.2f}")
 

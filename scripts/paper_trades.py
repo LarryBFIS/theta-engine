@@ -454,9 +454,10 @@ def _notify_opens(new_trades):
         for t in new_trades:
             st = (t.get("structure") or "")
             code = ("IC" if "condor" in st else "VC" if "call" in st else "VP")
-            lines.append("{} {} {:g}/{:g}{} ×{} · ${:.2f} cr · POP {} · [{}]".format(
+            lines.append("{} {} {:g}/{:g}{} exp {} ×{} · ${:.2f} cr · POP {} · [{}]".format(
                 t.get("underlying"), code, t.get("short_strike") or 0, t.get("long_strike") or 0,
                 "p/c" if code == "IC" else ("c" if code == "VC" else "p"),
+                t.get("expiry") or "?",
                 int(t.get("contracts") or 1), t.get("opened_credit") or 0,
                 "{:.0%}".format(t["pop"]) if t.get("pop") is not None else "—",
                 (t.get("tag") or "paper").upper()))

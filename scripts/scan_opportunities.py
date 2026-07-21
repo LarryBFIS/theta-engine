@@ -1321,9 +1321,9 @@ def _alert_new_opportunities(ranked):
     lines = []
     for _, c in fresh:
         note = "LIVE — open + set GTC 50%" if c.get("tag") == "live" else "paper (auto-tracked)"
-        lines.append("{} {:g}/{:g}p · ${:.2f} cr · POP {:.0%} · IVR {:.0%} · {}".format(
-            c["underlying"], c["short_strike"], c["long_strike"], c["credit"],
-            c["pop"], c["iv_rank"], note))
+        lines.append("{} {:g}/{:g}p exp {} · ${:.2f} cr · POP {:.0%} · IVR {:.0%} · {}".format(
+            c["underlying"], c["short_strike"], c["long_strike"], c.get("expiry") or "?",
+            c["credit"], c["pop"], c["iv_rank"], note))
     try:
         from monitor import notifier
         notifier.send(
