@@ -1195,7 +1195,7 @@ def main() -> int:
     except Exception as e:  # noqa: BLE001 — never fail the scan on ticket rendering
         log.warning("ticket build failed: %s", e)
     _write(ranked, candidates, skipped, regime, long_vol, events, learnings, agent_summary)
-    _alert_live([c for c in ranked if c.get("tag") == "live"])
+    _alert_new_opportunities(ranked)
     if regime.get("stand_down"):
         _alert_regime(regime)
     log.info("Scan done: %d candidates, top %d ranked, %d skipped, %d long-vol, %d events",
@@ -1282,28 +1282,67 @@ def _apply_news_gate(ranked):
                      v["hits"][0]["keyword"] if v.get("hits") else "catalyst")
 
 
-def _alert_live(live):
-    """Pushover digest of high-conviction picks for you to open (+ set GTC 50%)."""
-    if not live:
+OPP_ALERTS_FILE = SCAN_DIR / "opp_alerts.json"
+
+
+def _opp_sig(c):
+    return "{}_{:g}_{:g}_{}".format(c["underlying"], c["short_strike"],
+                                    c["long_strike"], c["expiry"])
+
+
+def _load_alerted_opps():
+    try:
+        return json.loads(OPP_ALERTS_FILE.read_text()).get("alerted", {})
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def _alert_new_opportunities(ranked):
+    """Pushover ping the moment a NEW setup shows up on the scanner — live OR paper.
+
+    Fires once per distinct setup (underlying+strikes+expiry): a pick that persists
+    across the hourly scans is NOT re-alerted, and a pick already in the paper book is
+    skipped. Dedup state lives in scan/opp_alerts.json (committed by refresh, pruned to
+    10 days). Replaces the old live-only alerter, which almost never fired because a
+    small account tags nearly everything PAPER."""
+    if not ranked:
         return
+    alerted = _load_alerted_opps()
     open_sigs = _open_sigs()
-    fresh = [c for c in live
-             if "{}_{:g}_{:g}_{}".format(c["underlying"], c["short_strike"],
-                                         c["long_strike"], c["expiry"]) not in open_sigs]
+    fresh = []
+    for c in ranked:
+        sig = _opp_sig(c)
+        if sig in alerted or sig in open_sigs:
+            continue
+        fresh.append((sig, c))
     if not fresh:
         return
-    lines = ["{} {:g}/{:g}p · ${:.2f} cr · POP {:.0%} · IVR {:.0%} · BPR ${:.0f}".format(
-        c["underlying"], c["short_strike"], c["long_strike"], c["credit"],
-        c["pop"], c["iv_rank"], c["bpr"]) for c in fresh]
+    fresh = fresh[:5]  # cap the digest so one scan can't blast a wall of pings
+    lines = []
+    for _, c in fresh:
+        note = "LIVE — open + set GTC 50%" if c.get("tag") == "live" else "paper (auto-tracked)"
+        lines.append("{} {:g}/{:g}p · ${:.2f} cr · POP {:.0%} · IVR {:.0%} · {}".format(
+            c["underlying"], c["short_strike"], c["long_strike"], c["credit"],
+            c["pop"], c["iv_rank"], note))
     try:
         from monitor import notifier
         notifier.send(
-            title="📈 {} setup{} to open".format(len(fresh), "s" if len(fresh) > 1 else ""),
-            message="Open these + set GTC close at 50%:\n" + "\n".join(lines),
+            title="⚡ {} new setup{}".format(len(fresh), "s" if len(fresh) > 1 else ""),
+            message="Fresh on the scanner:\n" + "\n".join(lines),
             priority=notifier.PRIORITY_NORMAL,
         )
     except Exception as e:  # noqa: BLE001 — never fail the scan on a notify error
-        log.warning("scan alert failed: %s", e)
+        log.warning("opportunity alert failed: %s", e)
+        return  # don't persist as "alerted" if the send failed — retry next scan
+    now_iso = datetime.now(timezone.utc).isoformat()
+    for sig, _ in fresh:
+        alerted[sig] = now_iso
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=10)).isoformat()
+    alerted = {s: t for s, t in alerted.items() if t >= cutoff}
+    try:
+        OPP_ALERTS_FILE.write_text(json.dumps({"alerted": alerted}, indent=2) + "\n")
+    except Exception as e:  # noqa: BLE001
+        log.warning("opp_alerts write failed: %s", e)
 
 
 def _mid(q):
