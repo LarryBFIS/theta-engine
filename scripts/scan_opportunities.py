@@ -23,6 +23,8 @@ import sys
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
+from scripts.paper_trades import asset_class  # index_etf / sector_etf / single_name bucket
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SCAN_DIR = REPO_ROOT / "scan"
 
@@ -50,6 +52,11 @@ DEFAULT_UNIVERSE = [
     "SPY", "IWM", "DIA",           # broad index ETFs — the proven core
     "QQQ", "XLE", "XLF",           # + Nasdaq index / energy / financials (equity ETFs)
 ]
+# Index ETFs (SPY/IWM/DIA) are liquid and a proven edge, so they clear at a lower IV
+# floor than the 0.30 rich-premium bar used for sector names — otherwise a quiet-vol
+# tape (IWM/DIA at ~25% IV rank) leaves the feed SPY-only for weeks. EV/POP/liquidity
+# and the credit/width floor still gate, so a genuinely too-thin index setup is still cut.
+INDEX_MIN_IV_RANK = float(os.getenv("SCAN_INDEX_MIN_IV_RANK", "0.22"))
 MIN_IV_RANK = float(os.getenv("SCAN_MIN_IV_RANK", "0.30"))   # rich-premium floor. 0.30 is where the
 # SPY/IWM index edge was actually proven; it was briefly bumped to 0.40 for the broad single-name
 # universe. Index ETFs are low-vol and rarely reach 40% IV rank, so with the universe now restricted
@@ -1042,8 +1049,9 @@ def main() -> int:
         if not m or m.get("iv") is None or m.get("iv_rank") is None or not price:
             skipped[sym] = "no metrics/price"
             continue
-        if m["iv_rank"] < MIN_IV_RANK:
-            skipped[sym] = "iv_rank {:.0%}".format(m["iv_rank"])
+        iv_floor = INDEX_MIN_IV_RANK if asset_class(sym) == "index_etf" else MIN_IV_RANK
+        if m["iv_rank"] < iv_floor:
+            skipped[sym] = "iv_rank {:.0%} (floor {:.0%})".format(m["iv_rank"], iv_floor)
             continue
         exp = fetch_chain_expiration(client, sym)
         if not exp:
