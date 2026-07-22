@@ -130,23 +130,28 @@ async function deadmanCheck(env) {
   }
   if (!lastPoll) return;
   const ageMin = (Date.now() - new Date(lastPoll).getTime()) / 60000;
-  const staleMin = parseFloat(env.DEADMAN_STALE_MIN || "45");
-  if (ageMin <= staleMin) {
-    console.log("deadmanCheck: OK, last poll", Math.round(ageMin), "min ago");
+  // Alert ONLY within a bounded window after the poll goes stale — mirrors the
+  // GitHub deadman. Below staleMin: fine. Above windowMax: this is the NORMAL
+  // overnight/weekend gap (the bot only runs market hours; the morning's first
+  // poll refreshes it), so alerting just spams a burst every single market open.
+  // Single priority-1 ping (bypasses quiet hours) with NO retry/expire, so one
+  // genuine stall pages exactly once instead of re-buzzing for an hour.
+  const staleMin = parseFloat(env.DEADMAN_STALE_MIN || "60");
+  const windowMax = parseFloat(env.DEADMAN_WINDOW_MAX_MIN || "180");
+  if (ageMin <= staleMin || ageMin > windowMax) {
+    console.log("deadmanCheck: no alert, last poll", Math.round(ageMin), "min ago");
     return;
   }
-  console.log("deadmanCheck: STALE", Math.round(ageMin), "min — alerting");
+  console.log("deadmanCheck: STALE", Math.round(ageMin), "min — alerting (once)");
   await fetch("https://api.pushover.net/1/messages.json", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
       token: env.PUSHOVER_APP_TOKEN,
       user: env.PUSHOVER_USER_KEY,
-      title: "theta-engine DEAD",
-      message: `Last poll ${Math.round(ageMin)} min ago (${lastPoll}). Bot likely down.`,
-      priority: "2",
-      retry: "300",
-      expire: "3600",
+      title: "theta-engine: poll stale",
+      message: `Last poll ${Math.round(ageMin)} min ago (${lastPoll}). Check the workflows.`,
+      priority: "1",
     }),
   });
 }
