@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-07-22T19:42:53.144522+00:00",
-  "market_view": "SPY flat to slightly green at $747.76 with VIX at 16.93 (-0.7% today but +7% on 5d), suggesting residual vol expansion risk despite intraday calm. Double SPY concentration with both spreads losing remains the dominant account risk.",
+  "last_run": "2026-07-22T20:11:34.876249+00:00",
+  "market_view": "SPY holding $747 with VIX at 16.87 and drifting lower intraday \u2014 no acute spike but the 5d VIX +6.6% expansion remains a headwind for short premium. IWM leading weakness at -0.93% signals risk-off rotation that could pressure SPY further.",
   "SPY 723/714p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-22T19:42:42Z",
-    "reasoning": "Mid $1.145 vs $0.96 credit = 1.19x loss and approaching the 1.5x stop at $1.44. This was flagged CRITICAL last cycle and remains unactioned \u2014 two consecutive CRITICAL alerts with no response is unacceptable risk management."
+    "timestamp": "2026-07-22T20:11:22Z",
+    "reasoning": "Mid at $1.165 vs $0.96 credit = 1.21x loss, approaching 1.5x stop at $1.44. This is the third consecutive CRITICAL flag \u2014 position must be closed immediately, no further delay is acceptable."
   },
   "SPY 717/708p": {
     "action": "WATCH",
-    "confidence": 0.82,
-    "timestamp": "2026-07-22T19:42:42Z",
-    "reasoning": "Mid $0.94 matches entry credit \u2014 flat PnL, short strike 4.1% OTM at 29 DTE, no rule violations as a standalone position but double SPY exposure makes this the sole remaining concern once 723/714p is closed."
+    "confidence": 0.78,
+    "timestamp": "2026-07-22T20:11:22Z",
+    "reasoning": "Mid $0.95 vs $0.94 credit \u2014 effectively flat PnL, short strike 4.1% OTM at 29 DTE, no rule violations in isolation. Once 723/714p is closed this becomes a normal single position to manage."
   }
 }
