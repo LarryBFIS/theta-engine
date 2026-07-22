@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-07-22T16:37:01.854530+00:00",
-  "market_view": "SPY flat to marginally higher at $749.85, VIX declining slightly to 16.79 but still up 6.13% on the 5-day \u2014 vol regime remains elevated. Both SPY put verticals are losers with double concentration in one underlying, and the 723/714p was flagged CRITICAL last cycle with no action taken.",
+  "last_run": "2026-07-22T16:38:45.598196+00:00",
+  "market_view": "SPY flat at $749.87, VIX 16.8 and falling on the day but still +6.19% on the 5-day \u2014 vol remains elevated and both SPY put verticals are losers with dangerous double concentration in one underlying. Last cycle flagged both positions for action with no execution confirmed.",
   "SPY 723/714p": {
     "action": "CRITICAL",
-    "confidence": 0.98,
-    "timestamp": "2026-07-22T16:36:49.345697+00:00",
-    "reasoning": "Mid $1.065 vs $0.96 credit = 1.11x loss multiple, trending toward 1.5x hard stop at $1.44 \u2014 flagged CRITICAL 42 minutes ago, still open, SPY at $749.85 gives a clean exit window before close."
+    "confidence": 0.99,
+    "timestamp": "2026-07-22T16:38:33.391362+00:00",
+    "reasoning": "Mid $1.065 vs $0.96 credit = 1.11x loss, trending toward 1.5x hard stop at $1.44 \u2014 this was flagged CRITICAL last cycle and is still open; SPY at $749.87 is 26 points above short strike but the position is already a loser and close is mandatory before EOD with market about to close."
   },
   "SPY 717/708p": {
     "action": "ACTION",
-    "confidence": 0.92,
-    "timestamp": "2026-07-22T16:36:49.345697+00:00",
-    "reasoning": "Mid $0.87 vs $0.94 credit = 7.4% profit, well past the 50% max profit manage target \u2014 and closing eliminates all double SPY concentration after the 723/714p is closed."
+    "confidence": 0.93,
+    "timestamp": "2026-07-22T16:38:33.391362+00:00",
+    "reasoning": "Mid $0.865 vs $0.94 credit = 8% profit, approaching 50% max profit manage target, and closing eliminates all double SPY concentration risk \u2014 this was flagged ACTION last cycle and still not closed."
   }
 }
