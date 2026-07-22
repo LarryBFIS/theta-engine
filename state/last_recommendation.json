@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-07-22T20:32:34.484863+00:00",
-  "market_view": "SPY flat at $747 with VIX easing to 16.64 (-2.4% today) \u2014 IV compression slightly helps short premium but 5d VIX still +5.18% and small-cap weakness (IWM -0.93%) signals ongoing risk-off tone. Both SPY verticals remain well OTM with no strike breach.",
+  "last_run": "2026-07-22T20:43:48.264613+00:00",
+  "market_view": "SPY flat at $747, VIX at 16.64 and falling today but still up 5.18% on the week \u2014 mild risk-off bias persists. Both SPY put verticals remain well OTM but the 723/714p continues to trade above entry credit.",
   "SPY 723/714p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-22T20:32:22.646039+00:00",
-    "reasoning": "Mid at $1.085 vs $0.96 credit = 1.13x loss \u2014 still in losing territory after multiple CRITICAL flags. This position has been flagged repeatedly and has not been closed; with 29 DTE and no catalyst for rapid recovery, continued holding violates loss management discipline."
+    "timestamp": "2026-07-22T20:43:37.213122+00:00",
+    "reasoning": "Mid at $1.085 vs $0.96 credit is a 1.13x loss \u2014 this has been flagged CRITICAL repeatedly and remains unactioned. 29 DTE with no recovery catalyst; holding this violates loss management discipline and ties up $804 BPR on a loser."
   },
   "SPY 717/708p": {
-    "action": "WATCH",
-    "confidence": 0.8,
-    "timestamp": "2026-07-22T20:32:22.646039+00:00",
-    "reasoning": "Mid at $0.885 vs $0.94 credit \u2014 position is slightly profitable (~6% of max profit), short strike 4.1% OTM with 29 DTE, no rule violations. Once 723/714p is closed, this is the only SPY exposure and sits within normal parameters."
+    "action": "HOLD",
+    "confidence": 0.85,
+    "timestamp": "2026-07-22T20:43:37.213122+00:00",
+    "reasoning": "Mid at $0.885 vs $0.94 credit \u2014 position is ~6% profitable, short strike 4.1% OTM, no rule violations, 29 DTE well within exit window."
   }
 }
