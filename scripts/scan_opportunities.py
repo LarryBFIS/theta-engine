@@ -79,6 +79,12 @@ MIN_OPEN_INTEREST = int(os.getenv("SCAN_MIN_OI", "100"))     # P4: reject thin c
 MANAGE_FRAC = float(os.getenv("SCAN_MANAGE_FRAC", "0.5"))    # take profit at 50%
 STOP_MULT = float(os.getenv("SCAN_STOP_MULT", "1.5"))        # cut losers at 1.5x credit (matches rule)
 TOP_N = int(os.getenv("SCAN_TOP_N", "10"))
+# Guarded-allow: names the agent would normally VETO (weak/losing track record) but
+# that Jay wants to SEE anyway — surfaced PAPER-only with a loud "be careful" note,
+# never as a live recommendation, and their bucket is left unchanged so the pure
+# SPY/IWM index edge isn't polluted. QQQ is here on request (tech, -$567 record).
+GUARDED_ALLOW = set(
+    x for x in (os.getenv("SCAN_GUARDED_ALLOW") or "QQQ").replace(" ", "").upper().split(",") if x)
 # Hard size cap. Learning 2026-06-15: the 4-lot positions were nearly the ENTIRE
 # realized loss (−$1,182 of −$999 net). Keep size small until edge is proven,
 # regardless of how much room the max-loss/BPR caps leave.
@@ -1174,6 +1180,23 @@ def main() -> int:
     except Exception as e:  # noqa: BLE001
         log.warning("agent review skipped: %s", e)
 
+    # Guarded-allow rescue: the agent hard-removes vetoed candidates from the feed.
+    # For names on GUARDED_ALLOW (e.g. QQQ), put them back — PAPER-only, tagged with a
+    # loud "be careful" so the setup is visible but never a live rec. Bucket unchanged,
+    # so this doesn't touch the SPY/IWM index edge. Re-added from the full candidate list.
+    _ranked_ids = {id(c) for c in ranked}
+    for c in candidates:
+        if (c.get("underlying") in GUARDED_ALLOW and c.get("agent_action") == "veto"
+                and id(c) not in _ranked_ids):
+            c["tag"] = "paper"                 # never live without real AI approval
+            c["agent_action"] = "guarded"
+            c["guarded_warn"] = True
+            c["demoted"] = "guarded — surfaced with a caution, paper only"
+            c["reasoning"] = "⚠️ BE CAREFUL — tech ETF with a losing record (-$567). " \
+                             + (c.get("reasoning") or "")
+            ranked.append(c)
+            log.info("guarded-allow: rescued %s from veto (surfaced paper + caution)", c.get("underlying"))
+
     # Jay's rule: every surfaced opportunity must pass the full agentic reasoning,
     # and a LIVE recommendation requires the agent's explicit sign-off. Tag each
     # pick with whether the agent reviewed it; demote any LIVE pick the agent did
@@ -1328,7 +1351,12 @@ def _alert_new_opportunities(ranked):
     fresh = fresh[:5]  # cap the digest so one scan can't blast a wall of pings
     lines = []
     for _, c in fresh:
-        note = "LIVE — open + set GTC 50%" if c.get("tag") == "live" else "paper (auto-tracked)"
+        if c.get("guarded_warn"):
+            note = "⚠️ BE CAREFUL — tech, losing record"
+        elif c.get("tag") == "live":
+            note = "LIVE — open + set GTC 50%"
+        else:
+            note = "paper (auto-tracked)"
         lines.append("{} {:g}/{:g}p exp {} · ${:.2f} cr · POP {:.0%} · IVR {:.0%} · {}".format(
             c["underlying"], c["short_strike"], c["long_strike"], c.get("expiry") or "?",
             c["credit"], c["pop"], c["iv_rank"], note))
