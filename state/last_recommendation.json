@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-07-22T14:48:00.326544+00:00",
-  "market_view": "SPY drifting lower (-0.14% today, -0.74% 5d) with VIX creeping up to 17.12 (+8.22% 5d) \u2014 vol structurally bid, bearish drift continues to pressure short put verticals. Double SPY concentration remains the dominant account risk with two positions on the same underlying and expiry.",
+  "last_run": "2026-07-22T15:14:46.591535+00:00",
+  "market_view": "SPY has stabilized flat on the day (+0.06%) and VIX pulled back slightly to 17.08 \u2014 bearish drift has paused, giving a brief window to act on the 723/714p before conditions worsen again. Double SPY concentration remains the primary account risk.",
   "SPY 723/714p": {
     "action": "CRITICAL",
-    "confidence": 0.99,
-    "timestamp": "2026-07-22T14:47:47.633860+00:00",
-    "reasoning": "Mid now $1.20 vs $0.96 credit = 1.25x loss multiple, trending toward 1.5x stop as SPY continues lower \u2014 this was flagged ACTION last cycle and no close was executed, delay is costing real money. Double SPY concentration rule breach compounds urgency."
+    "confidence": 0.97,
+    "timestamp": "2026-07-22T15:14:32Z",
+    "reasoning": "Mid at $1.125 vs $0.96 credit = 1.17x loss multiple, trending toward 1.5x stop \u2014 this was flagged CRITICAL last cycle and still open; SPY is 3.44% above short strike with 29 DTE and VIX 5d up 8%, continued delay increases risk of hitting hard stop. Close now while SPY is flat and fills are cleaner."
   },
   "SPY 717/708p": {
     "action": "WATCH",
-    "confidence": 0.8,
-    "timestamp": "2026-07-22T14:47:47.633860+00:00",
-    "reasoning": "Mid $0.99 vs $0.94 credit is only 1.05x \u2014 no rule trigger yet, but if SPY 723/714p is closed this becomes the surviving position with short strike 4.04% OTM and 29 DTE, manageable in isolation."
+    "confidence": 0.75,
+    "timestamp": "2026-07-22T15:14:32Z",
+    "reasoning": "Mid $0.915 vs $0.94 credit = position is profitable at 97.3% of credit received \u2014 nearly at 50% max profit target but not quite; short strike 4.24% OTM with 29 DTE is manageable as a standalone position once 723/714p is closed."
   }
 }
