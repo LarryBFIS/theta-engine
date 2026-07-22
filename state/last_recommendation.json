@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-07-22T14:26:08.485996+00:00",
-  "market_view": "SPY flat to slightly red, VIX at 16.87 still elevated vs recent baseline despite today's -1.06% dip \u2014 vol remains structurally bid on 5d basis (+6.64%). No fresh catalysts but double SPY concentration remains the primary risk.",
+  "last_run": "2026-07-22T14:48:00.326544+00:00",
+  "market_view": "SPY drifting lower (-0.14% today, -0.74% 5d) with VIX creeping up to 17.12 (+8.22% 5d) \u2014 vol structurally bid, bearish drift continues to pressure short put verticals. Double SPY concentration remains the dominant account risk with two positions on the same underlying and expiry.",
   "SPY 723/714p": {
-    "action": "ACTION",
-    "confidence": 0.98,
-    "timestamp": "2026-07-22T14:25:54Z",
-    "reasoning": "Mid $1.19 vs $0.96 credit is 1.24x \u2014 approaching 1.5x stop, double SPY concentration rule is breached, and this position was flagged ACTION last cycle with no close executed. Further delay increases loss probability as VIX remains elevated."
+    "action": "CRITICAL",
+    "confidence": 0.99,
+    "timestamp": "2026-07-22T14:47:47.633860+00:00",
+    "reasoning": "Mid now $1.20 vs $0.96 credit = 1.25x loss multiple, trending toward 1.5x stop as SPY continues lower \u2014 this was flagged ACTION last cycle and no close was executed, delay is costing real money. Double SPY concentration rule breach compounds urgency."
   },
   "SPY 717/708p": {
     "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-07-22T14:25:54Z",
-    "reasoning": "Mid $0.965 vs $0.94 credit is only 1.03x with short strike 4.1% OTM \u2014 no rule triggers, but VIX expansion trend and SPY softness on 5d basis warrant continued monitoring."
+    "confidence": 0.8,
+    "timestamp": "2026-07-22T14:47:47.633860+00:00",
+    "reasoning": "Mid $0.99 vs $0.94 credit is only 1.05x \u2014 no rule trigger yet, but if SPY 723/714p is closed this becomes the surviving position with short strike 4.04% OTM and 29 DTE, manageable in isolation."
   }
 }

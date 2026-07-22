@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-22T14:30:12.650476+00:00",
+  "generated_at": "2026-07-22T14:48:12.813870+00:00",
   "regime": {
-    "vix": 16.95,
-    "vix_day_change_pct": -0.0059,
+    "vix": 17.1,
+    "vix_day_change_pct": 0.0029,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (-1% day)"
+    "note": "normal regime (+0% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -34,14 +34,14 @@
       "bpr": 807.0,
       "max_loss": 807.0,
       "pop": 0.8,
-      "short_delta": 0.186,
+      "short_delta": 0.187,
       "short_spread_pct": 0.005,
       "credit_to_bpr": 0.115,
-      "ev_per_contract": 6.31,
+      "ev_per_contract": 6.26,
       "ev_on_bpr": 0.0078,
       "iv": 0.1722,
       "iv_rank": 0.392,
-      "underlying_price": 747.29,
+      "underlying_price": 747.25,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -58,13 +58,13 @@
       ],
       "rank_score": 0.010631,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, favored structure (short_put_vertical), normal regime, 30 DTE, low event risk; adds to us_index cluster (now 2/3 cap) but diversifies existing long index exposure.",
+      "agent_reason": "Already 1 SPY + 1 IWM (both us_index, 2/3 cluster cap); adding correlated index position is a single bet resized, not diversification.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
         "hits": []
       },
-      "net_liq": 6657.524,
+      "net_liq": 6654.264,
       "ticket": {
         "underlying": "SPY",
         "code": "VP",
@@ -100,12 +100,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 665.75,
+        "live_cap": 665.43,
         "suggested_width": 7,
-        "fit_note": "\u26a0 max loss $807 > 10% live cap ($666) \u2014 narrow to ~7-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d71 \u2014 SELL 716P / BUY 707P (2026-08-21) @ $0.93 net credit. Max loss $807. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $807 > 10% live cap ($666) \u2014 narrow to ~7-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $807 > 10% live cap ($665) \u2014 narrow to ~7-wide for live, or keep on paper.",
+        "text": "SPY VP \u00d71 \u2014 SELL 716P / BUY 707P (2026-08-21) @ $0.93 net credit. Max loss $807. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $807 > 10% live cap ($665) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-07-22T14:30:12.650476+00:00"
+      "posted_at": "2026-07-22T14:48:12.813870+00:00"
     }
   ],
   "long_vol": [],
@@ -151,9 +151,9 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-07-22T14:30:12.524357+00:00",
+    "generated_at": "2026-07-22T14:48:12.509691+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is small and net long index (SPY/IWM); adding more index short-vol is acceptable if structure is sound. us_tech cluster has shown negative expectancy and should be avoided.",
+    "portfolio_note": "Book is small (2 open, +$9 unrealized) and concentrated in us_index. Adding SPY deepens that correlation; QQQ violates cluster learning and asset_class rule.",
     "reviewed": 2,
     "vetoed": 1,
     "downsized": 0,
@@ -161,12 +161,12 @@
       {
         "id": "SPY|short_put_vertical|716/707",
         "action": "approve",
-        "reason": "Index ETF, favored structure (short_put_vertical), normal regime, 30 DTE, low event risk; adds to us_index cluster (now 2/3 cap) but diversifies existing long index exposure."
+        "reason": "Already 1 SPY + 1 IWM (both us_index, 2/3 cluster cap); adding correlated index position is a single bet resized, not diversification."
       },
       {
         "id": "QQQ|short_call_vertical|750/760",
         "action": "veto",
-        "reason": "asset_class 'single_name' and cluster 'us_tech' both show negative historical expectancy (19% and 22% wr); QQQ is concentrated tech and adds directional tail risk we do not want to harvest."
+        "reason": "Single-name (QQQ is equity tracker, not index diversifier) + us_tech cluster (neg expectancy, wr 22% in book); avoid."
       }
     ]
   },
@@ -187,14 +187,14 @@
       "bpr": 807.0,
       "max_loss": 807.0,
       "pop": 0.8,
-      "short_delta": 0.186,
+      "short_delta": 0.187,
       "short_spread_pct": 0.005,
       "credit_to_bpr": 0.115,
-      "ev_per_contract": 6.31,
+      "ev_per_contract": 6.26,
       "ev_on_bpr": 0.0078,
       "iv": 0.1722,
       "iv_rank": 0.392,
-      "underlying_price": 747.29,
+      "underlying_price": 747.25,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -211,13 +211,13 @@
       ],
       "rank_score": 0.010631,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, favored structure (short_put_vertical), normal regime, 30 DTE, low event risk; adds to us_index cluster (now 2/3 cap) but diversifies existing long index exposure.",
+      "agent_reason": "Already 1 SPY + 1 IWM (both us_index, 2/3 cluster cap); adding correlated index position is a single bet resized, not diversification.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
         "hits": []
       },
-      "net_liq": 6657.524,
+      "net_liq": 6654.264,
       "ticket": {
         "underlying": "SPY",
         "code": "VP",
@@ -253,12 +253,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 665.75,
+        "live_cap": 665.43,
         "suggested_width": 7,
-        "fit_note": "\u26a0 max loss $807 > 10% live cap ($666) \u2014 narrow to ~7-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d71 \u2014 SELL 716P / BUY 707P (2026-08-21) @ $0.93 net credit. Max loss $807. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $807 > 10% live cap ($666) \u2014 narrow to ~7-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $807 > 10% live cap ($665) \u2014 narrow to ~7-wide for live, or keep on paper.",
+        "text": "SPY VP \u00d71 \u2014 SELL 716P / BUY 707P (2026-08-21) @ $0.93 net credit. Max loss $807. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $807 > 10% live cap ($665) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-07-22T14:30:12.650476+00:00"
+      "posted_at": "2026-07-22T14:48:12.813870+00:00"
     },
     {
       "underlying": "QQQ",
@@ -270,44 +270,44 @@
       "short_symbol": "QQQ   260821C00750000",
       "long_symbol": "QQQ   260821C00760000",
       "width": 10.0,
-      "credit": 1.53,
+      "credit": 1.54,
       "mid_credit": 1.57,
       "fees_est": 3.0,
-      "bpr": 847.0,
-      "max_loss": 847.0,
-      "pop": 0.789,
-      "short_delta": 0.234,
-      "short_spread_pct": 0.013,
-      "credit_to_bpr": 0.181,
-      "ev_per_contract": 9.05,
-      "ev_on_bpr": 0.0107,
+      "bpr": 846.0,
+      "max_loss": 846.0,
+      "pop": 0.79,
+      "short_delta": 0.233,
+      "short_spread_pct": 0.011,
+      "credit_to_bpr": 0.182,
+      "ev_per_contract": 9.32,
+      "ev_on_bpr": 0.011,
       "iv": 0.2711,
       "iv_rank": 0.694,
-      "underlying_price": 706.69,
+      "underlying_price": 706.57,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 847.0,
-      "bpr_total": 847.0,
+      "max_loss_total": 846.0,
+      "bpr_total": 846.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short call vertical 750/760c \u00d71 \u2014 bearish lean. Edge: IV rank 69%, EV $+9/ctr (+1.1% on BPR). POP 79% \u00b7 credit $1.53 \u00b7 max loss $847 \u00b7 BPR $847 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short call vertical 750/760c \u00d71 \u2014 bearish lean. Edge: IV rank 69%, EV $+9/ctr (+1.1% on BPR). POP 79% \u00b7 credit $1.54 \u00b7 max loss $846 \u00b7 BPR $846 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.46,
       "learn_notes": [
         "asset_class=single_name \u00d70.63",
         "cluster=us_tech \u00d70.73"
       ],
-      "rank_score": 0.004922,
+      "rank_score": 0.00506,
       "agent_action": "veto",
-      "agent_reason": "asset_class 'single_name' and cluster 'us_tech' both show negative historical expectancy (19% and 22% wr); QQQ is concentrated tech and adds directional tail risk we do not want to harvest."
+      "agent_reason": "Single-name (QQQ is equity tracker, not index diversifier) + us_tech cluster (neg expectancy, wr 22% in book); avoid."
     }
   ],
   "skipped": {
     "IWM": "iv_rank 24%",
     "DIA": "iv_rank 26%",
-    "XLE": "failed: pv: credit/width 0.05 < 0.10",
-    "XLF": "failed: pv: credit/width 0.05 < 0.10"
+    "XLE": "failed: pv: credit/width 0.06 < 0.10",
+    "XLF": "failed: pv: credit/width 0.03 < 0.10"
   }
 }
