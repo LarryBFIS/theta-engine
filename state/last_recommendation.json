@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-23T19:53:08.744815+00:00",
-  "market_view": "SPY -1.44%, QQQ -2.20%, VIX +15.87% to 19.28 with XLY -4.73% leading the rout \u2014 after-hours pricing has both SPY verticals sitting deep past 1.5x stop levels. Both SPY positions are confirmed rule violations requiring immediate close at tomorrow's open, no exceptions.",
+  "last_run": "2026-07-23T20:19:38.085873+00:00",
+  "market_view": "VIX +12.44% to 18.71 with SPY -1.23% and QQQ -1.90% \u2014 broad selloff driven by XLY -4.61% consumer discretionary weakness. Both SPY verticals remain above hard stop levels per last cycle; market is after-hours so these must be closed at tomorrow's open, no exceptions.",
   "SPY 723/714p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-23T19:52:57Z",
-    "reasoning": "Mid at $1.89 is 1.97x the $0.96 credit \u2014 hard stop is $1.44, now nearly 2x credit with no close action taken across multiple cycles. This is a compounding rule violation; loss is growing."
+    "timestamp": "2026-07-23T20:19:25+00:00",
+    "reasoning": "Mid at $1.675 is 1.74x the $0.96 credit \u2014 hard stop is $1.44, breached across multiple cycles with no close action taken. This position is a compounding rule violation and must be closed at tomorrow's open."
   },
   "SPY 717/708p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-07-23T19:52:57Z",
-    "reasoning": "Mid at $1.525 is 1.62x the $0.94 credit \u2014 hard stop is $1.41, breached multiple cycles with no action. Two correlated SPY verticals both in stop territory is dangerous concentration risk."
+    "timestamp": "2026-07-23T20:19:25+00:00",
+    "reasoning": "Mid at $1.395 is 1.48x the $0.94 credit \u2014 hard stop is $1.41, effectively at stop level and will breach further on any continued weakness. Running two correlated SPY verticals both in or near stop territory is max concentration risk."
   },
   "IWM 276/271p": {
     "action": "WATCH",
-    "confidence": 0.72,
-    "timestamp": "2026-07-23T19:52:57Z",
-    "reasoning": "Mid at $0.78 is 1.10x the $0.71 credit, hard stop is $1.065 \u2014 still inside acceptable range with short strike 5.2% OTM. IWM showing relative strength vs SPY/QQQ today."
+    "confidence": 0.75,
+    "timestamp": "2026-07-23T20:19:25+00:00",
+    "reasoning": "Mid at $0.725 is only 1.02x the $0.71 credit with short strike 5.5% OTM \u2014 IWM showing clear relative strength vs SPY/QQQ today, still inside acceptable range. Hard stop is $1.065, nowhere near it."
   }
 }
