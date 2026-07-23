@@ -381,6 +381,7 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
 
 <aside class="feed">
   <div class="phead"><span class="t">⚡ OPPORTUNITIES</span><span class="meta"><span id="oppfilter" onclick="toggleOppCore()" title="Toggle: ALL opportunities, or only SPY/IWM — the engine's proven sweet spot (100% win rate vs ~17% on big tech)" style="cursor:pointer;border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:1px 6px;font-size:10px;margin-right:8px">ALL</span><span class="dot" style="width:6px;height:6px;display:inline-block;vertical-align:middle"></span> <span id="feedtime">—</span></span></div>
+  <div id="macrobanner"></div>
   <div id="feedbody"><div class="fitem" style="color:var(--dim)">loading scanner…</div></div>
   <div class="phead"><span class="t">🌊 LONG-VOL WATCH</span><span class="meta"><span id="lvtime">—</span></span></div>
   <div id="lvbody"><div class="fitem" style="color:var(--dim)">loading…</div></div>
@@ -731,9 +732,29 @@ function paintOpps(){
   });
   box.innerHTML=html;
 }
+// Macro banner: VIX + day-change + a plain-English caution, so every put-spread
+// opportunity is read against the tape. Put spreads are BULLISH — a spiking VIX /
+// dropping market is exactly when to size down or wait, and this says so up front.
+function paintMacro(scan){
+  const el=$('macrobanner'); if(!el) return;
+  const reg=(scan&&scan.regime)||{};
+  const vix=reg.vix, dchg=reg.vix_day_change_pct, stand=reg.stand_down;
+  if(vix==null){ el.innerHTML=''; return; }
+  const arrow=(dchg==null)?'':(dchg>=0?'▲':'▼');
+  const dpct=(dchg==null)?'':` ${arrow}${Math.abs(dchg*100).toFixed(0)}% today`;
+  let color,bg,msg;
+  if(stand){ color='var(--red)'; bg='rgba(255,77,77,.09)'; msg='🛑 VOL STAND-DOWN · no new LIVE setups'; }
+  else if(vix>=20 || (dchg!=null && dchg>=0.10)){ color='var(--amber)'; bg='rgba(255,176,46,.10)'; msg='⚠️ Stressed tape — put spreads are BULLISH; size down or wait'; }
+  else if(vix>=16){ color='var(--amber-dim)'; bg='rgba(255,176,46,.05)'; msg='elevated — normal premium selling'; }
+  else { color='var(--green)'; bg='rgba(63,240,122,.06)'; msg='calm — trend-following premium selling'; }
+  el.innerHTML=`<div style="padding:8px 13px;border-bottom:1px solid var(--line);background:${bg};font-size:11px;line-height:1.5">
+    <span style="color:${color};font-weight:700;letter-spacing:.04em">VIX ${vix.toFixed(1)}${dpct}</span>
+    <span style="color:var(--dim);margin-left:6px">${msg}</span></div>`;
+}
+
 async function loadFeed(){
   let scan=null; try{ scan=await fetchJSON(SCAN_URL); }catch(e){ console.warn('feed', e); }
-  window.OPP_SCAN=scan; paintOpps();
+  window.OPP_SCAN=scan; paintOpps(); paintMacro(scan);
   const t=$('feedtime'); if(t) t.textContent=(scan&&scan.generated_at)?new Date(scan.generated_at).toLocaleString('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})+' CDT':'—';
 
   // long-vol watch — cheap IV into a near catalyst (same scan payload, paper-only)
