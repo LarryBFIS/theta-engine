@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-07-22T21:05:34.630395+00:00",
-  "market_view": "SPY flat at $747, VIX at 16.64 down 2.4% today but still +5.18% on the week \u2014 mild risk-off bias with small-caps (IWM -0.93%) and consumer discretionary leading weakness. No fresh catalysts this cycle.",
+  "last_run": "2026-07-23T13:38:56.163627+00:00",
+  "market_view": "SPY down 0.82% to $741 with VIX spiking 16.71% to 19.42 \u2014 volatility expansion is the dominant story today, with consumer discretionary (XLY -3.32%) and tech (QQQ -1.29%) leading the selloff while defensive rotation into energy and industrials signals risk-off. Both short put verticals are under pressure with the selloff compressing strike distance.",
   "SPY 723/714p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-22T21:05:23Z",
-    "reasoning": "Mid at $1.085 vs $0.96 credit is 1.13x loss \u2014 1.5x stop is $1.44 mid but this has been flagged CRITICAL for multiple cycles and remains unactioned. Position is a loser with 29 DTE, no recovery catalyst, and $804 BPR locked on a losing trade violating discipline."
+    "timestamp": "2026-07-23T13:38:42Z",
+    "reasoning": "Mid at $1.55 vs $0.96 credit is 1.61x unrealized loss \u2014 hard stop is 1.5x ($1.44 mid) and we are THROUGH it. This was flagged CRITICAL last cycle, remains unactioned, and SPY has now dropped another $6 to $741 with short strike only 2.47% OTM. Close immediately."
   },
   "SPY 717/708p": {
-    "action": "HOLD",
-    "confidence": 0.85,
-    "timestamp": "2026-07-22T21:05:23Z",
-    "reasoning": "Mid at $0.885 vs $0.94 credit \u2014 position is ~6% profitable, short strike 4.1% OTM at $717 with SPY at $747, 29 DTE well within exit window, no rule violations."
+    "action": "WATCH",
+    "confidence": 0.82,
+    "timestamp": "2026-07-23T13:38:42Z",
+    "reasoning": "Mid at $1.31 vs $0.94 credit is 1.39x unrealized loss \u2014 approaching the 1.5x stop trigger ($1.41 mid) with SPY at $741 and VIX at 19.42 and trending higher. Short strike at $717 is 3.28% OTM and shrinking fast."
   }
 }
