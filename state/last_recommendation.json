@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-24T17:36:21.576509+00:00",
-  "market_view": "SPY +0.52% on the day with VIX at 18.03 (-3.58%) \u2014 constructive tape but SPY 723/714p worst-case fill $1.48 remains above the 1.5x hard stop of $1.44, this position has been in violation for multiple cycles with no action taken. Close it now.",
+  "last_run": "2026-07-24T17:40:23.091953+00:00",
+  "market_view": "SPY +0.45% with VIX at 18.06 (-3.42%) \u2014 tape is constructive but SPY 723/714p worst-case fill $1.51 has now widened further above the 1.5x hard stop of $1.44, rules violation is escalating not improving.",
   "SPY 723/714p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-24T17:36:11Z",
-    "reasoning": "Worst-case fill $1.48 is 1.54x the $0.96 entry credit, hard stop is $1.44 \u2014 rules violation persists and this has been flagged CRITICAL for multiple consecutive cycles with no action. Market being up does not change the rule."
+    "timestamp": "2026-07-24T17:40:10Z",
+    "reasoning": "Worst-case fill $1.51 is now 1.57x the $0.96 entry credit \u2014 hard stop is $1.44 (1.5x), this violation has been flagged CRITICAL for multiple consecutive cycles with zero action taken, the rule exists for a reason and the cost is growing."
   },
   "SPY 717/708p": {
     "action": "WATCH",
-    "confidence": 0.8,
-    "timestamp": "2026-07-24T17:36:11Z",
-    "reasoning": "Mid $1.18 is 1.26x the $0.94 credit, hard stop threshold is $1.41 \u2014 not breached yet, but running two SPY put spreads in the same expiry with correlated risk is concentration; reassess after 723/714p is closed."
+    "confidence": 0.82,
+    "timestamp": "2026-07-24T17:40:10Z",
+    "reasoning": "Mid $1.24 is 1.32x the $0.94 credit, hard stop at $1.41 not yet breached, but running two SPY put spreads same expiry is concentrated correlated risk \u2014 reassess sizing once 723/714p is closed."
   },
   "IWM 276/271p": {
     "action": "HOLD",
     "confidence": 0.95,
-    "timestamp": "2026-07-24T17:36:11Z",
-    "reasoning": "Mid $0.645 is below entry credit of $0.71 \u2014 position is profitable, short strike 5.8% OTM at 34 DTE, all rules clean, no action needed."
+    "timestamp": "2026-07-24T17:40:10Z",
+    "reasoning": "Mid $0.66 is below entry credit $0.71, position is profitable, short strike 5.77% OTM at 34 DTE, all rules clean."
   }
 }
