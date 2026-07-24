@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-24T18:39:30.339998+00:00",
-  "market_view": "SPY flat on the day but QQQ -1.06% with tech selling off hard \u2014 VIX at 18.23 still contained but the rotation out of tech is notable. SPY put spreads face ongoing bid pressure from the QQQ weakness even with SPY holding.",
+  "last_run": "2026-07-24T18:44:35.631617+00:00",
+  "market_view": "SPY flat on day but QQQ -1.11% with tech continuing to bleed \u2014 sector rotation into defensives/energy is intact but the two SPY put spreads remain deeply in trouble with no recovery. VIX at 18.44 slightly elevated from last cycle, not helpful for the short premium book.",
   "SPY 723/714p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-24T18:39:17Z",
-    "reasoning": "Worst-case fill $1.75 is 1.823x the $0.96 credit \u2014 hard stop was $1.44 (1.5x), this has now blown past stop by 23% and is still widening. This position was flagged CRITICAL 32 minutes ago and has not been closed \u2014 every cycle of inaction compounds the loss."
+    "timestamp": "2026-07-24T18:44:22Z",
+    "reasoning": "Worst-case fill $1.75 is 1.823x the $0.96 credit \u2014 hard stop at 1.5x ($1.44) was breached cycles ago and this position still has not been closed. Every minute of inaction is compounding realized loss beyond the rule threshold."
   },
   "SPY 717/708p": {
-    "action": "WATCH",
-    "confidence": 0.85,
-    "timestamp": "2026-07-24T18:39:17Z",
-    "reasoning": "Worst-case fill $1.44 is now exactly at the 1.5x hard stop threshold ($1.41) \u2014 mid $1.415 is 1.505x the $0.94 credit, essentially at the line. With QQQ down over 1% and two correlated SPY spreads same expiry, this is one more tick from a hard stop trigger."
+    "action": "CRITICAL",
+    "confidence": 0.95,
+    "timestamp": "2026-07-24T18:44:22Z",
+    "reasoning": "Mid $1.435 is 1.527x the $0.94 credit \u2014 this has crossed the 1.5x hard stop threshold. With the 723/714p also being closed, both correlated SPY spreads same expiry must come off to prevent margin concentration and further loss compounding."
   },
   "IWM 276/271p": {
     "action": "HOLD",
     "confidence": 0.9,
-    "timestamp": "2026-07-24T18:39:17Z",
-    "reasoning": "Mid $0.735 is marginally above entry credit $0.71 \u2014 essentially flat, short strike 5.37% OTM at 34 DTE, rules clean. IWM -0.15% today is benign."
+    "timestamp": "2026-07-24T18:44:22Z",
+    "reasoning": "Mid $0.725 is essentially flat to the $0.71 credit, short strike 5.33% OTM at 34 DTE \u2014 all rules clean, no action needed."
   }
 }
