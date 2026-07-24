@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-24T16:41:14.697853+00:00",
-  "market_view": "SPY +0.53% on the day with VIX down 6.36% to 17.51 \u2014 IV continuing to crush but SPY 723/714p worst-case fill at $1.46 has now exceeded the 1.5x hard stop of $1.44 (0.96 x 1.5); this stop has been breached across multiple cycles with no action taken, which is a rules violation.",
+  "last_run": "2026-07-24T16:57:47.133478+00:00",
+  "market_view": "SPY +0.44% on the day, VIX down 5.19% to 17.73 \u2014 IV crush continuing but SPY 723/714p worst-case fill $1.51 is now well above the 1.5x hard stop of $1.44, this has been flagged CRITICAL for multiple cycles with no action taken. Market is broadly constructive (defensive/cyclical sectors green) but the stop violation must be closed now.",
   "SPY 723/714p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-24T16:40:58.488892+00:00",
-    "reasoning": "Worst-case fill $1.46 exceeds the 1.5x hard stop of $1.44 on $0.96 credit \u2014 this rule has now been breached for multiple consecutive cycles and continuing to hold is a compounding rules violation that risks further loss if SPY reverses."
+    "timestamp": "2026-07-24T16:57:36Z",
+    "reasoning": "Worst-case fill $1.51 is 57% above the $0.96 entry credit, hard stop is $1.44 \u2014 this rule was breached last cycle and has worsened; continuing to hold is a compounding rules violation regardless of directional view."
   },
   "SPY 717/708p": {
     "action": "WATCH",
     "confidence": 0.82,
-    "timestamp": "2026-07-24T16:40:58.488892+00:00",
-    "reasoning": "Mid $1.175 is 1.25x the $0.94 credit, still below the $1.41 hard stop, but two SPY put spreads in the same expiry is correlated concentration risk \u2014 closing the 723/714p first is the priority before reassessing this one."
+    "timestamp": "2026-07-24T16:57:36Z",
+    "reasoning": "Mid $1.22 is 1.30x the $0.94 credit, hard stop is $1.41 \u2014 not yet breached but running two SPY put spreads in the same expiry creates correlated concentration; priority is closing 723/714p first, then reassess this position."
   },
   "IWM 276/271p": {
     "action": "HOLD",
     "confidence": 0.95,
-    "timestamp": "2026-07-24T16:40:58.488892+00:00",
-    "reasoning": "Mid $0.645 is below the $0.71 entry credit, position is profitable, short strike 5.8% OTM at 34 DTE \u2014 all rules clean, IWM up 0.32% on the day."
+    "timestamp": "2026-07-24T16:57:36Z",
+    "reasoning": "Mid $0.66 is below entry credit of $0.71 \u2014 position is profitable, short strike 5.7% OTM at 34 DTE, all rules clean."
   }
 }
