@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-24T18:07:44.508512+00:00",
-  "market_view": "SPY holding +0.40% with VIX at 18.07 and continuing to compress \u2014 tape is fine but the SPY 723/714p worst-case fill $1.52 is now at 1.583x the $0.96 credit, escalating further above the 1.5x hard stop. No new news catalyst, but the rule is being violated and the cost is drifting wider, not narrowing.",
+  "last_run": "2026-07-24T18:39:30.339998+00:00",
+  "market_view": "SPY flat on the day but QQQ -1.06% with tech selling off hard \u2014 VIX at 18.23 still contained but the rotation out of tech is notable. SPY put spreads face ongoing bid pressure from the QQQ weakness even with SPY holding.",
   "SPY 723/714p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-24T18:07:32Z",
-    "reasoning": "Worst-case fill $1.52 is 1.583x the $0.96 entry credit \u2014 hard stop is $1.44 (1.5x), this violation has now persisted across multiple cycles and the cost is widening. Every minute of inaction is a rules violation compounding. Market being green does not override the stop rule."
+    "timestamp": "2026-07-24T18:39:17Z",
+    "reasoning": "Worst-case fill $1.75 is 1.823x the $0.96 credit \u2014 hard stop was $1.44 (1.5x), this has now blown past stop by 23% and is still widening. This position was flagged CRITICAL 32 minutes ago and has not been closed \u2014 every cycle of inaction compounds the loss."
   },
   "SPY 717/708p": {
     "action": "WATCH",
-    "confidence": 0.82,
-    "timestamp": "2026-07-24T18:07:32Z",
-    "reasoning": "Mid $1.24 is 1.32x the $0.94 credit, hard stop at $1.41 not yet breached. Two correlated SPY put spreads same expiry remains a concentration concern \u2014 reassess sizing and potential closure after 723/714p is closed."
+    "confidence": 0.85,
+    "timestamp": "2026-07-24T18:39:17Z",
+    "reasoning": "Worst-case fill $1.44 is now exactly at the 1.5x hard stop threshold ($1.41) \u2014 mid $1.415 is 1.505x the $0.94 credit, essentially at the line. With QQQ down over 1% and two correlated SPY spreads same expiry, this is one more tick from a hard stop trigger."
   },
   "IWM 276/271p": {
     "action": "HOLD",
-    "confidence": 0.95,
-    "timestamp": "2026-07-24T18:07:32Z",
-    "reasoning": "Mid $0.665 is below entry credit $0.71 \u2014 position is profitable, short strike 5.73% OTM at 34 DTE, all rules clean."
+    "confidence": 0.9,
+    "timestamp": "2026-07-24T18:39:17Z",
+    "reasoning": "Mid $0.735 is marginally above entry credit $0.71 \u2014 essentially flat, short strike 5.37% OTM at 34 DTE, rules clean. IWM -0.15% today is benign."
   }
 }
