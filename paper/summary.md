@@ -1,11 +1,13 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-07-24T13:13:22.480779+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-07-24T13:37:00.768980+00:00._
 
-**3 trades · 1 open / 2 closed · win rate 0% · realized $-112.50 · open $-43.00 · total $-155.50**
+**5 trades · 3 open / 2 closed · win rate 0% · realized $-112.50 · open $-23.00 · total $-135.50**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
 | paper_0001_spy | SPY 720/711p | PAPER | closed | $0.95 | $-105 | — | 21_dte |
 | paper_0002_iwm | IWM 276/271p | PAPER | closed | $0.57 | $-8 | — | 21_dte |
-| paper_0003_qqq | QQQ 747/755p | PAPER | open | $1.17 | — | $-43 |  |
+| paper_0003_qqq | QQQ 747/755p | PAPER | open | $1.17 | — | $-2 |  |
+| paper_0004_spy | SPY 701/692p | PAPER | open | $0.92 | — | $-8 |  |
+| paper_0005_iwm | IWM 275/270p | PAPER | open | $0.62 | — | $-13 |  |
