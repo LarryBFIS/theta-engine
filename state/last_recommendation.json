@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-27T17:41:20.426348+00:00",
-  "market_view": "VIX now 19.58 (+5.38% today, +12% on the week) with QQQ -0.93% and XLK -1.73% \u2014 tech selloff continues into defensive rotation (XLP +1.32%, XLV +0.74%, XLF +0.72%). SPY -0.32% today holding better than tech but both SPY spreads remain in critical stop-loss violation territory.",
+  "last_run": "2026-07-27T18:05:23.923911+00:00",
+  "market_view": "SPY holding flat today (-0.08%) while QQQ is getting crushed (-1.78%) with XLK -2.74% \u2014 tech-led selloff with defensive rotation into XLP/XLV/XLF. VIX at 19.47 (+4.12% today, +11.38% on the week) signals continued vol expansion risk for both SPY spreads.",
   "SPY 723/714p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-27T17:41:04Z",
-    "reasoning": "Mid $1.81 is 1.885x the $0.96 credit \u2014 stop-loss rule (1.5x = $1.44) was breached multiple cycles ago and this position is still open. This is a repeated CRITICAL with no action taken; every additional minute increases assignment/blowthrough risk as VIX expands."
+    "timestamp": "2026-07-27T18:05:09Z",
+    "reasoning": "Mid $1.735 is 1.81x the $0.96 credit \u2014 stop-loss rule (1.5x = $1.44) has been breached for multiple cycles with no action taken. This is the third consecutive CRITICAL alert; continued inaction risks blowthrough toward max loss of $804 as VIX expands."
   },
   "SPY 717/708p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-07-27T17:41:04Z",
-    "reasoning": "Mid $1.49 is 1.585x the $0.94 credit \u2014 1.5x stop rule is breached, and holding two correlated SPY put spreads on the same expiry is a diversification rule violation. VIX still expanding with no reversal signal."
+    "timestamp": "2026-07-27T18:05:09Z",
+    "reasoning": "Mid $1.415 is 1.505x the $0.94 credit \u2014 right on the 1.5x stop trigger and deteriorating, with two correlated SPY spreads on the same expiry violating diversification rules entirely."
   },
   "IWM 276/271p": {
-    "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-07-27T17:41:04Z",
-    "reasoning": "Mid $0.72 is essentially flat to the $0.71 credit \u2014 no stop-loss breach yet with short strike 5.4% OTM at 31 DTE, but VIX expansion is eroding theta gains. No action required but monitor if IWM drops toward 285."
+    "action": "HOLD",
+    "confidence": 0.82,
+    "timestamp": "2026-07-27T18:05:09Z",
+    "reasoning": "Mid $0.69 is actually slightly below the $0.71 credit \u2014 position is profitable, short strike 5.6% OTM with 31 DTE, no stop breach. IWM only -0.37% on the week and holding well relative to tech."
   }
 }
