@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-27T18:42:18.912532+00:00",
-  "market_view": "Tech-led selloff continues with QQQ -1.89% and XLK -3.0% while defensive sectors rotate bid; VIX at 19.27 (+3.05% today, +10.24% on the week) confirms vol expansion regime that is actively working against both SPY put spreads.",
+  "last_run": "2026-07-27T19:21:01.254259+00:00",
+  "market_view": "SPY stabilized slightly (+0.2%) but VIX remains elevated at 19.05 (+8.98% on the week) and tech continues bleeding with QQQ -1.33% and XLK -2.2% \u2014 this is not a recovery, it's a pause. Both SPY spreads remain in stop-loss violation territory and the prior CRITICAL alerts went unexecuted for 38 minutes.",
   "SPY 723/714p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-27T18:42:03Z",
-    "reasoning": "Mid at $1.725 is 1.80x the $0.96 credit \u2014 stop-loss (1.5x = $1.44) has been breached for multiple consecutive cycles with no close executed. This is an active rule violation hemorrhaging capital toward the $804 max loss."
+    "timestamp": "2026-07-27T19:20:45Z",
+    "reasoning": "Mid at $1.58 is 1.65x the $0.96 credit \u2014 stop rule (1.5x = $1.44) has been breached for multiple consecutive cycles and remains violated. This is an active rule violation; continued holding risks full $804 max loss as 21 DTE rule triggers in 3 days anyway."
   },
   "SPY 717/708p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-07-27T18:42:03Z",
-    "reasoning": "Mid at $1.41 is 1.50x the $0.94 credit \u2014 exactly at the 1.5x stop trigger and VIX expansion makes further deterioration the base case, not recovery. Two correlated SPY spreads on same expiry is a compounding portfolio risk."
+    "confidence": 0.95,
+    "timestamp": "2026-07-27T19:20:45Z",
+    "reasoning": "Mid at $1.285 is 1.37x the $0.94 credit \u2014 not technically at 1.5x yet but VIX at 19+ with upward trajectory and 21 DTE exit triggers in 3 days; holding two correlated SPY put spreads on the same expiry in a vol expansion regime is compounding risk with no rule-based justification."
   },
   "IWM 276/271p": {
     "action": "HOLD",
-    "confidence": 0.83,
-    "timestamp": "2026-07-27T18:42:03Z",
-    "reasoning": "Mid at $0.68 is slightly below the $0.71 credit entry \u2014 position is mildly profitable, short strike 5.8% OTM, IWM flat on the day and only -0.45% on the week showing clear relative strength vs tech."
+    "confidence": 0.82,
+    "timestamp": "2026-07-27T19:20:45Z",
+    "reasoning": "Mid at $0.645 is below the $0.71 credit entry \u2014 position is profitable, short strike 5.8% OTM, IWM showing clear relative strength at +0.3% today and only -0.16% on the week vs QQQ's -3.37% drawdown."
   }
 }
