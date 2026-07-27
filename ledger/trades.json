@@ -429,8 +429,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -42.25,
-      "cost_to_close_mid": 90.0,
+      "unrealized_pnl": -44.75,
+      "cost_to_close_mid": 92.5,
       "structure": "short_put_vertical",
       "short_strike": 61.0,
       "long_strike": 60.0,
@@ -831,8 +831,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -67.12,
-      "cost_to_close_mid": -213.0
+      "unrealized_pnl": -67.62,
+      "cost_to_close_mid": -212.5
     },
     {
       "id": "ledger_014_spy",
@@ -1130,8 +1130,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -69.25,
-      "cost_to_close_mid": 163.0,
+      "unrealized_pnl": -69.75,
+      "cost_to_close_mid": 163.5,
       "structure": "short_put_vertical",
       "short_strike": 723.0,
       "long_strike": 714.0,
@@ -1175,8 +1175,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -40.75,
-      "cost_to_close_mid": 132.5,
+      "unrealized_pnl": -41.75,
+      "cost_to_close_mid": 133.5,
       "structure": "short_put_vertical",
       "short_strike": 717.0,
       "long_strike": 708.0,
@@ -1220,8 +1220,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 4.75,
-      "cost_to_close_mid": 64.0,
+      "unrealized_pnl": 5.75,
+      "cost_to_close_mid": 63.0,
       "structure": "short_put_vertical",
       "short_strike": 276.0,
       "long_strike": 271.0,
@@ -1232,6 +1232,51 @@
       "max_profit_total": 71.0,
       "max_loss_total": 429.0,
       "bpr_total": 429.0
+    },
+    {
+      "id": "ledger_021_qqq",
+      "underlying": "QQQ",
+      "opened_at": "2026-07-27",
+      "open_order_id": "488117121",
+      "open_net_cash": 85.75,
+      "open_legs": [
+        {
+          "symbol": "QQQ   260828C00738000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 2.22,
+          "net_cash": -223.12,
+          "fees": 1.12,
+          "executed_at": "2026-07-27T19:43:47.696Z"
+        },
+        {
+          "symbol": "QQQ   260828C00732000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 3.1,
+          "net_cash": 308.87,
+          "fees": 1.13,
+          "executed_at": "2026-07-27T19:43:47.696Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -2.75,
+      "cost_to_close_mid": 88.5,
+      "structure": "short_call_vertical",
+      "short_strike": 732.0,
+      "long_strike": 738.0,
+      "expiry": "2026-08-28",
+      "contracts": 1,
+      "credit_per_contract": 0.88,
+      "width": 6.0,
+      "max_profit_total": 88.0,
+      "max_loss_total": 512.0,
+      "bpr_total": 512.0
     }
   ]
 }
