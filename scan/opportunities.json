@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-27T18:15:14.029706+00:00",
+  "generated_at": "2026-07-27T18:45:04.607814+00:00",
   "regime": {
-    "vix": 19.2,
-    "vix_day_change_pct": 0.0334,
+    "vix": 19.27,
+    "vix_day_change_pct": 0.0305,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (+3% day)"
@@ -23,25 +23,25 @@
       "structure": "short_put_vertical",
       "expiry": "2026-08-28",
       "dte": 32,
-      "short_strike": 703.0,
-      "long_strike": 694.0,
-      "short_symbol": "SPY   260828P00703000",
-      "long_symbol": "SPY   260828P00694000",
+      "short_strike": 702.0,
+      "long_strike": 693.0,
+      "short_symbol": "SPY   260828P00702000",
+      "long_symbol": "SPY   260828P00693000",
       "width": 9.0,
       "credit": 0.96,
       "mid_credit": 0.99,
       "fees_est": 3.0,
       "bpr": 804.0,
       "max_loss": 804.0,
-      "pop": 0.797,
-      "short_delta": 0.188,
+      "pop": 0.801,
+      "short_delta": 0.184,
       "short_spread_pct": 0.006,
       "credit_to_bpr": 0.119,
-      "ev_per_contract": 5.95,
-      "ev_on_bpr": 0.0074,
-      "iv": 0.1903,
-      "iv_rank": 0.49,
-      "underlying_price": 737.81,
+      "ev_per_contract": 6.78,
+      "ev_on_bpr": 0.0084,
+      "iv": 0.1904,
+      "iv_rank": 0.486,
+      "underlying_price": 737.41,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -51,14 +51,14 @@
       "bpr_total": 804.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "short put vertical 703/694p \u00d71 \u2014 rich premium. Edge: IV rank 49%, EV $+6/ctr (+0.7% on BPR). POP 80% \u00b7 credit $0.96 \u00b7 max loss $804 \u00b7 BPR $804 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 702/693p \u00d71 \u2014 rich premium. Edge: IV rank 49%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.96 \u00b7 max loss $804 \u00b7 BPR $804 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.301,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.30"
       ],
-      "rank_score": 0.009627,
+      "rank_score": 0.010928,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, favored vertical structure, low IV rank, good pop; diversifies existing IWM + QQQ; within cap limits.",
+      "agent_reason": "Index ETF, favored structure, healthy pop/ev; aligns with cap (SPY already at 1, us_index at 2/3).",
       "agent_reviewed": true,
       "news_risk": {
         "level": "caution",
@@ -70,7 +70,7 @@
           }
         ]
       },
-      "net_liq": 6519.516,
+      "net_liq": 6505.925,
       "ticket": {
         "underlying": "SPY",
         "code": "VP",
@@ -83,21 +83,21 @@
             "action": "SELL",
             "qty": 1,
             "expiry": "2026-08-28",
-            "strike": 703.0,
+            "strike": 702.0,
             "type": "P"
           },
           {
             "action": "BUY",
             "qty": 1,
             "expiry": "2026-08-28",
-            "strike": 694.0,
+            "strike": 693.0,
             "type": "P"
           }
         ],
         "credit_total": 96.0,
         "max_loss_total": 804.0,
         "bpr_total": 804.0,
-        "pop": 0.797,
+        "pop": 0.801,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -106,101 +106,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 651.95,
+        "live_cap": 650.59,
         "suggested_width": 7,
-        "fit_note": "\u26a0 max loss $804 > 10% live cap ($652) \u2014 narrow to ~7-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d71 \u2014 SELL 703P / BUY 694P (2026-08-28) @ $0.96 net credit. Max loss $804. After fill: GTC buy-to-close @ $0.48 (50%). \u26a0 max loss $804 > 10% live cap ($652) \u2014 narrow to ~7-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $804 > 10% live cap ($651) \u2014 narrow to ~7-wide for live, or keep on paper.",
+        "text": "SPY VP \u00d71 \u2014 SELL 702P / BUY 693P (2026-08-28) @ $0.96 net credit. Max loss $804. After fill: GTC buy-to-close @ $0.48 (50%). \u26a0 max loss $804 > 10% live cap ($651) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-07-27T18:15:14.029706+00:00"
-    },
-    {
-      "underlying": "IWM",
-      "structure": "short_put_vertical",
-      "expiry": "2026-08-28",
-      "dte": 32,
-      "short_strike": 275.0,
-      "long_strike": 270.0,
-      "short_symbol": "IWM   260828P00275000",
-      "long_symbol": "IWM   260828P00270000",
-      "width": 5.0,
-      "credit": 0.59,
-      "mid_credit": 0.65,
-      "fees_est": 3.0,
-      "bpr": 441.0,
-      "max_loss": 441.0,
-      "pop": 0.797,
-      "short_delta": 0.184,
-      "short_spread_pct": 0.029,
-      "credit_to_bpr": 0.134,
-      "ev_per_contract": 2.55,
-      "ev_on_bpr": 0.0058,
-      "iv": 0.2371,
-      "iv_rank": 0.359,
-      "underlying_price": 292.24,
-      "liquidity": 4,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "live",
-      "contracts": 1,
-      "max_loss_total": 441.0,
-      "bpr_total": 441.0,
-      "trend": "mixed",
-      "sized_capped": true,
-      "reasoning": "short put vertical 275/270p \u00d71 \u2014 rich premium. Edge: IV rank 36%, EV $+3/ctr (+0.6% on BPR). POP 80% \u00b7 credit $0.59 \u00b7 max loss $441 \u00b7 BPR $441 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 1.301,
-      "learn_notes": [
-        "structure=short_put_vertical \u00d71.30"
-      ],
-      "rank_score": 0.007546,
-      "agent_action": "approve",
-      "agent_reason": "Index ETF, short_put_vertical favored, 32 DTE, acceptable EV; second us_index position is justified diversification.",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "clear",
-        "hits": []
-      },
-      "net_liq": 6519.516,
-      "ticket": {
-        "underlying": "IWM",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 0.59,
-        "contracts": 1,
-        "expiry": "2026-08-28",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 1,
-            "expiry": "2026-08-28",
-            "strike": 275.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 1,
-            "expiry": "2026-08-28",
-            "strike": 270.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 59.0,
-        "max_loss_total": 441.0,
-        "bpr_total": 441.0,
-        "pop": 0.797,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.29,
-          "stop_debit": 1.47,
-          "exit_dte": 21
-        },
-        "fits_live_cap": true,
-        "live_cap": 651.95,
-        "suggested_width": null,
-        "fit_note": "",
-        "text": "IWM VP \u00d71 \u2014 SELL 275P / BUY 270P (2026-08-28) @ $0.59 net credit. Max loss $441. After fill: GTC buy-to-close @ $0.29 (50%)."
-      },
-      "posted_at": "2026-07-27T18:15:14.029706+00:00"
+      "posted_at": "2026-07-27T18:45:04.607814+00:00"
     },
     {
       "underlying": "QQQ",
@@ -212,38 +123,38 @@
       "short_symbol": "QQQ   260828C00728000",
       "long_symbol": "QQQ   260828C00736000",
       "width": 8.0,
-      "credit": 1.19,
-      "mid_credit": 1.25,
+      "credit": 1.16,
+      "mid_credit": 1.23,
       "fees_est": 3.0,
-      "bpr": 681.0,
-      "max_loss": 681.0,
-      "pop": 0.798,
-      "short_delta": 0.227,
-      "short_spread_pct": 0.02,
-      "credit_to_bpr": 0.175,
-      "ev_per_contract": 8.53,
-      "ev_on_bpr": 0.0125,
-      "iv": 0.2913,
-      "iv_rank": 0.79,
-      "underlying_price": 679.88,
+      "bpr": 684.0,
+      "max_loss": 684.0,
+      "pop": 0.802,
+      "short_delta": 0.223,
+      "short_spread_pct": 0.023,
+      "credit_to_bpr": 0.17,
+      "ev_per_contract": 9.0,
+      "ev_on_bpr": 0.0132,
+      "iv": 0.2907,
+      "iv_rank": 0.787,
+      "underlying_price": 679.28,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 681.0,
-      "bpr_total": 681.0,
+      "max_loss_total": 684.0,
+      "bpr_total": 684.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short call vertical 728/736c \u00d71 \u2014 bearish lean. Edge: IV rank 79%, EV $+9/ctr (+1.2% on BPR). POP 80% \u00b7 credit $1.19 \u00b7 max loss $681 \u00b7 BPR $681 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short call vertical 728/736c \u00d71 \u2014 bearish lean. Edge: IV rank 79%, EV $+9/ctr (+1.3% on BPR). POP 80% \u00b7 credit $1.16 \u00b7 max loss $684 \u00b7 BPR $684 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.538,
       "learn_notes": [
         "asset_class=single_name \u00d70.69",
         "cluster=us_tech \u00d70.78"
       ],
-      "rank_score": 0.006725,
+      "rank_score": 0.007102,
       "agent_action": "guarded",
-      "agent_reason": "QQQ is single_name asset_class (21% win rate; neg expectancy) + us_tech cluster (24% wr; structural underperformance); already have 1 open QQQ trade; not worth the correlation and unproven edge.",
+      "agent_reason": "us_tech cluster has negative realized expectancy (24% WR) and already 1 position; single_name asset_class also flagged negative; adding here doubles down on two weak signals.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -257,12 +168,12 @@
           }
         ]
       },
-      "net_liq": 6519.516,
+      "net_liq": 6505.925,
       "ticket": {
         "underlying": "QQQ",
         "code": "VC",
         "order_type": "Net Credit",
-        "limit": 1.19,
+        "limit": 1.16,
         "contracts": 1,
         "expiry": "2026-08-28",
         "legs": [
@@ -281,24 +192,24 @@
             "type": "C"
           }
         ],
-        "credit_total": 119.0,
-        "max_loss_total": 681.0,
-        "bpr_total": 681.0,
-        "pop": 0.798,
+        "credit_total": 116.0,
+        "max_loss_total": 684.0,
+        "bpr_total": 684.0,
+        "pop": 0.802,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
-          "close_debit": 0.59,
-          "stop_debit": 2.97,
+          "close_debit": 0.58,
+          "stop_debit": 2.9,
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 651.95,
+        "live_cap": 650.59,
         "suggested_width": 7,
-        "fit_note": "\u26a0 max loss $681 > 10% live cap ($652) \u2014 narrow to ~7-wide for live, or keep on paper.",
-        "text": "QQQ VC \u00d71 \u2014 SELL 728C / BUY 736C (2026-08-28) @ $1.19 net credit. Max loss $681. After fill: GTC buy-to-close @ $0.59 (50%). \u26a0 max loss $681 > 10% live cap ($652) \u2014 narrow to ~7-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $684 > 10% live cap ($651) \u2014 narrow to ~7-wide for live, or keep on paper.",
+        "text": "QQQ VC \u00d71 \u2014 SELL 728C / BUY 736C (2026-08-28) @ $1.16 net credit. Max loss $684. After fill: GTC buy-to-close @ $0.58 (50%). \u26a0 max loss $684 > 10% live cap ($651) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-07-27T18:15:14.029706+00:00"
+      "posted_at": "2026-07-27T18:45:04.607814+00:00"
     }
   ],
   "long_vol": [],
@@ -344,27 +255,27 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-07-27T18:15:13.469777+00:00",
+    "generated_at": "2026-07-27T18:45:04.096971+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is flat-ish (3 open, -$29 unrealized) across diversified index ETFs in normal regime with no macro events. Adding more index short verticals is acceptable; QQQ (single_name + us_tech cluster) is a structural red flag given our negative realized expectancy in that segment.",
+    "portfolio_note": "Book is underwater -$29 on 3 correlated US positions (2 us_index, 1 us_tech). Adding more us_index or us_tech risks compounding drawdown; QQQ cluster is already flagged as negative-expectancy in our realized data.",
     "reviewed": 3,
-    "vetoed": 1,
+    "vetoed": 2,
     "downsized": 0,
     "decisions": [
       {
-        "id": "SPY|short_put_vertical|703/694",
+        "id": "SPY|short_put_vertical|702/693",
         "action": "approve",
-        "reason": "Index ETF, favored vertical structure, low IV rank, good pop; diversifies existing IWM + QQQ; within cap limits."
+        "reason": "Index ETF, favored structure, healthy pop/ev; aligns with cap (SPY already at 1, us_index at 2/3)."
       },
       {
         "id": "IWM|short_put_vertical|275/270",
-        "action": "approve",
-        "reason": "Index ETF, short_put_vertical favored, 32 DTE, acceptable EV; second us_index position is justified diversification."
+        "action": "veto",
+        "reason": "Adding second us_index trade concentrates correlated risk into already-underwater us_index cluster (would be 3/3); marginal EV (0.58% credit, 0.0058 ev_on_bpr) not worth tail risk."
       },
       {
         "id": "QQQ|short_call_vertical|728/736",
         "action": "veto",
-        "reason": "QQQ is single_name asset_class (21% win rate; neg expectancy) + us_tech cluster (24% wr; structural underperformance); already have 1 open QQQ trade; not worth the correlation and unproven edge."
+        "reason": "us_tech cluster has negative realized expectancy (24% WR) and already 1 position; single_name asset_class also flagged negative; adding here doubles down on two weak signals."
       }
     ]
   },
@@ -374,25 +285,25 @@
       "structure": "short_put_vertical",
       "expiry": "2026-08-28",
       "dte": 32,
-      "short_strike": 703.0,
-      "long_strike": 694.0,
-      "short_symbol": "SPY   260828P00703000",
-      "long_symbol": "SPY   260828P00694000",
+      "short_strike": 702.0,
+      "long_strike": 693.0,
+      "short_symbol": "SPY   260828P00702000",
+      "long_symbol": "SPY   260828P00693000",
       "width": 9.0,
       "credit": 0.96,
       "mid_credit": 0.99,
       "fees_est": 3.0,
       "bpr": 804.0,
       "max_loss": 804.0,
-      "pop": 0.797,
-      "short_delta": 0.188,
+      "pop": 0.801,
+      "short_delta": 0.184,
       "short_spread_pct": 0.006,
       "credit_to_bpr": 0.119,
-      "ev_per_contract": 5.95,
-      "ev_on_bpr": 0.0074,
-      "iv": 0.1903,
-      "iv_rank": 0.49,
-      "underlying_price": 737.81,
+      "ev_per_contract": 6.78,
+      "ev_on_bpr": 0.0084,
+      "iv": 0.1904,
+      "iv_rank": 0.486,
+      "underlying_price": 737.41,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -402,14 +313,14 @@
       "bpr_total": 804.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "short put vertical 703/694p \u00d71 \u2014 rich premium. Edge: IV rank 49%, EV $+6/ctr (+0.7% on BPR). POP 80% \u00b7 credit $0.96 \u00b7 max loss $804 \u00b7 BPR $804 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 702/693p \u00d71 \u2014 rich premium. Edge: IV rank 49%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.96 \u00b7 max loss $804 \u00b7 BPR $804 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.301,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.30"
       ],
-      "rank_score": 0.009627,
+      "rank_score": 0.010928,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, favored vertical structure, low IV rank, good pop; diversifies existing IWM + QQQ; within cap limits.",
+      "agent_reason": "Index ETF, favored structure, healthy pop/ev; aligns with cap (SPY already at 1, us_index at 2/3).",
       "agent_reviewed": true,
       "news_risk": {
         "level": "caution",
@@ -421,7 +332,7 @@
           }
         ]
       },
-      "net_liq": 6519.516,
+      "net_liq": 6505.925,
       "ticket": {
         "underlying": "SPY",
         "code": "VP",
@@ -434,21 +345,21 @@
             "action": "SELL",
             "qty": 1,
             "expiry": "2026-08-28",
-            "strike": 703.0,
+            "strike": 702.0,
             "type": "P"
           },
           {
             "action": "BUY",
             "qty": 1,
             "expiry": "2026-08-28",
-            "strike": 694.0,
+            "strike": 693.0,
             "type": "P"
           }
         ],
         "credit_total": 96.0,
         "max_loss_total": 804.0,
         "bpr_total": 804.0,
-        "pop": 0.797,
+        "pop": 0.801,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -457,12 +368,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 651.95,
+        "live_cap": 650.59,
         "suggested_width": 7,
-        "fit_note": "\u26a0 max loss $804 > 10% live cap ($652) \u2014 narrow to ~7-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d71 \u2014 SELL 703P / BUY 694P (2026-08-28) @ $0.96 net credit. Max loss $804. After fill: GTC buy-to-close @ $0.48 (50%). \u26a0 max loss $804 > 10% live cap ($652) \u2014 narrow to ~7-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $804 > 10% live cap ($651) \u2014 narrow to ~7-wide for live, or keep on paper.",
+        "text": "SPY VP \u00d71 \u2014 SELL 702P / BUY 693P (2026-08-28) @ $0.96 net credit. Max loss $804. After fill: GTC buy-to-close @ $0.48 (50%). \u26a0 max loss $804 > 10% live cap ($651) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-07-27T18:15:14.029706+00:00"
+      "posted_at": "2026-07-27T18:45:04.607814+00:00"
     },
     {
       "underlying": "IWM",
@@ -474,84 +385,37 @@
       "short_symbol": "IWM   260828P00275000",
       "long_symbol": "IWM   260828P00270000",
       "width": 5.0,
-      "credit": 0.59,
+      "credit": 0.58,
       "mid_credit": 0.65,
       "fees_est": 3.0,
-      "bpr": 441.0,
-      "max_loss": 441.0,
-      "pop": 0.797,
-      "short_delta": 0.184,
+      "bpr": 442.0,
+      "max_loss": 442.0,
+      "pop": 0.798,
+      "short_delta": 0.183,
       "short_spread_pct": 0.029,
-      "credit_to_bpr": 0.134,
-      "ev_per_contract": 2.55,
+      "credit_to_bpr": 0.131,
+      "ev_per_contract": 2.58,
       "ev_on_bpr": 0.0058,
-      "iv": 0.2371,
-      "iv_rank": 0.359,
-      "underlying_price": 292.24,
+      "iv": 0.2355,
+      "iv_rank": 0.352,
+      "underlying_price": 292.19,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "live",
       "contracts": 1,
-      "max_loss_total": 441.0,
-      "bpr_total": 441.0,
+      "max_loss_total": 442.0,
+      "bpr_total": 442.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "short put vertical 275/270p \u00d71 \u2014 rich premium. Edge: IV rank 36%, EV $+3/ctr (+0.6% on BPR). POP 80% \u00b7 credit $0.59 \u00b7 max loss $441 \u00b7 BPR $441 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 275/270p \u00d71 \u2014 rich premium. Edge: IV rank 35%, EV $+3/ctr (+0.6% on BPR). POP 80% \u00b7 credit $0.58 \u00b7 max loss $442 \u00b7 BPR $442 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.301,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.30"
       ],
       "rank_score": 0.007546,
-      "agent_action": "approve",
-      "agent_reason": "Index ETF, short_put_vertical favored, 32 DTE, acceptable EV; second us_index position is justified diversification.",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "clear",
-        "hits": []
-      },
-      "net_liq": 6519.516,
-      "ticket": {
-        "underlying": "IWM",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 0.59,
-        "contracts": 1,
-        "expiry": "2026-08-28",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 1,
-            "expiry": "2026-08-28",
-            "strike": 275.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 1,
-            "expiry": "2026-08-28",
-            "strike": 270.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 59.0,
-        "max_loss_total": 441.0,
-        "bpr_total": 441.0,
-        "pop": 0.797,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.29,
-          "stop_debit": 1.47,
-          "exit_dte": 21
-        },
-        "fits_live_cap": true,
-        "live_cap": 651.95,
-        "suggested_width": null,
-        "fit_note": "",
-        "text": "IWM VP \u00d71 \u2014 SELL 275P / BUY 270P (2026-08-28) @ $0.59 net credit. Max loss $441. After fill: GTC buy-to-close @ $0.29 (50%)."
-      },
-      "posted_at": "2026-07-27T18:15:14.029706+00:00"
+      "agent_action": "veto",
+      "agent_reason": "Adding second us_index trade concentrates correlated risk into already-underwater us_index cluster (would be 3/3); marginal EV (0.58% credit, 0.0058 ev_on_bpr) not worth tail risk."
     },
     {
       "underlying": "QQQ",
@@ -563,38 +427,38 @@
       "short_symbol": "QQQ   260828C00728000",
       "long_symbol": "QQQ   260828C00736000",
       "width": 8.0,
-      "credit": 1.19,
-      "mid_credit": 1.25,
+      "credit": 1.16,
+      "mid_credit": 1.23,
       "fees_est": 3.0,
-      "bpr": 681.0,
-      "max_loss": 681.0,
-      "pop": 0.798,
-      "short_delta": 0.227,
-      "short_spread_pct": 0.02,
-      "credit_to_bpr": 0.175,
-      "ev_per_contract": 8.53,
-      "ev_on_bpr": 0.0125,
-      "iv": 0.2913,
-      "iv_rank": 0.79,
-      "underlying_price": 679.88,
+      "bpr": 684.0,
+      "max_loss": 684.0,
+      "pop": 0.802,
+      "short_delta": 0.223,
+      "short_spread_pct": 0.023,
+      "credit_to_bpr": 0.17,
+      "ev_per_contract": 9.0,
+      "ev_on_bpr": 0.0132,
+      "iv": 0.2907,
+      "iv_rank": 0.787,
+      "underlying_price": 679.28,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 681.0,
-      "bpr_total": 681.0,
+      "max_loss_total": 684.0,
+      "bpr_total": 684.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short call vertical 728/736c \u00d71 \u2014 bearish lean. Edge: IV rank 79%, EV $+9/ctr (+1.2% on BPR). POP 80% \u00b7 credit $1.19 \u00b7 max loss $681 \u00b7 BPR $681 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short call vertical 728/736c \u00d71 \u2014 bearish lean. Edge: IV rank 79%, EV $+9/ctr (+1.3% on BPR). POP 80% \u00b7 credit $1.16 \u00b7 max loss $684 \u00b7 BPR $684 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.538,
       "learn_notes": [
         "asset_class=single_name \u00d70.69",
         "cluster=us_tech \u00d70.78"
       ],
-      "rank_score": 0.006725,
+      "rank_score": 0.007102,
       "agent_action": "guarded",
-      "agent_reason": "QQQ is single_name asset_class (21% win rate; neg expectancy) + us_tech cluster (24% wr; structural underperformance); already have 1 open QQQ trade; not worth the correlation and unproven edge.",
+      "agent_reason": "us_tech cluster has negative realized expectancy (24% WR) and already 1 position; single_name asset_class also flagged negative; adding here doubles down on two weak signals.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -608,12 +472,12 @@
           }
         ]
       },
-      "net_liq": 6519.516,
+      "net_liq": 6505.925,
       "ticket": {
         "underlying": "QQQ",
         "code": "VC",
         "order_type": "Net Credit",
-        "limit": 1.19,
+        "limit": 1.16,
         "contracts": 1,
         "expiry": "2026-08-28",
         "legs": [
@@ -632,24 +496,24 @@
             "type": "C"
           }
         ],
-        "credit_total": 119.0,
-        "max_loss_total": 681.0,
-        "bpr_total": 681.0,
-        "pop": 0.798,
+        "credit_total": 116.0,
+        "max_loss_total": 684.0,
+        "bpr_total": 684.0,
+        "pop": 0.802,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
-          "close_debit": 0.59,
-          "stop_debit": 2.97,
+          "close_debit": 0.58,
+          "stop_debit": 2.9,
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 651.95,
+        "live_cap": 650.59,
         "suggested_width": 7,
-        "fit_note": "\u26a0 max loss $681 > 10% live cap ($652) \u2014 narrow to ~7-wide for live, or keep on paper.",
-        "text": "QQQ VC \u00d71 \u2014 SELL 728C / BUY 736C (2026-08-28) @ $1.19 net credit. Max loss $681. After fill: GTC buy-to-close @ $0.59 (50%). \u26a0 max loss $681 > 10% live cap ($652) \u2014 narrow to ~7-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $684 > 10% live cap ($651) \u2014 narrow to ~7-wide for live, or keep on paper.",
+        "text": "QQQ VC \u00d71 \u2014 SELL 728C / BUY 736C (2026-08-28) @ $1.16 net credit. Max loss $684. After fill: GTC buy-to-close @ $0.58 (50%). \u26a0 max loss $684 > 10% live cap ($651) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-07-27T18:15:14.029706+00:00"
+      "posted_at": "2026-07-27T18:45:04.607814+00:00"
     }
   ],
   "skipped": {
