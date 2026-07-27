@@ -1,13 +1,13 @@
 # Paper-trade book
 
-_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-07-27T13:40:17.047413+00:00._
+_Shadow P&L of the scanner's picks — zero risk, proving the edge. Updated 2026-07-27T13:52:31.209282+00:00._
 
-**5 trades · 3 open / 2 closed · win rate 0% · realized $-112.50 · open $+59.00 · total $-53.50**
+**5 trades · 3 open / 2 closed · win rate 0% · realized $-112.50 · open $+60.00 · total $-52.50**
 
 | ID | Trade | Tag | Status | Credit | Realized | Unreal | Reason |
 |---|---|---|---|---:|---:|---:|---|
 | paper_0001_spy | SPY 720/711p | PAPER | closed | $0.95 | $-105 | — | 21_dte |
 | paper_0002_iwm | IWM 276/271p | PAPER | closed | $0.57 | $-8 | — | 21_dte |
-| paper_0003_qqq | QQQ 747/755p | PAPER | open | $1.17 | — | $+35 |  |
-| paper_0004_spy | SPY 701/692p | PAPER | open | $0.92 | — | $+20 |  |
-| paper_0005_iwm | IWM 275/270p | PAPER | open | $0.62 | — | $+4 |  |
+| paper_0003_qqq | QQQ 747/755p | PAPER | open | $1.17 | — | $+39 |  |
+| paper_0004_spy | SPY 701/692p | PAPER | open | $0.92 | — | $+16 |  |
+| paper_0005_iwm | IWM 275/270p | PAPER | open | $0.62 | — | $+5 |  |
