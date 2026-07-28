@@ -1,6 +1,6 @@
 # Ledger Summary
 
-_Generated 2026-07-28T18:37:23.657314+00:00 from tastytrade transaction history._
+_Generated 2026-07-28T18:38:43.391345+00:00 from tastytrade transaction history._
 
 ## Reconciliation
 
@@ -9,10 +9,10 @@ _Generated 2026-07-28T18:37:23.657314+00:00 from tastytrade transaction history.
 | Starting capital | $3,389.91 |
 | Net liq (now) | $6,607.33 |
 | Strategy realized (closed) | $+243.85 |
-| Strategy unrealized (open) | $-212.37 |
-| **Strategy P&L** | **$+31.48** |
+| Strategy unrealized (open) | $-208.87 |
+| **Strategy P&L** | **$+34.98** |
 | Money movement | $+2,999.77 |
-| Non-strategy activity | $+186.17 |
+| Non-strategy activity | $+182.67 |
 | **Account P&L** | **$+3,217.42** |
 
 _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger positions closed in-window). Total fees paid: $58.16._
@@ -39,12 +39,12 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 | ledger_010_spy | SPY | 2026-06-22 | 2026-07-01 | closed | $+41.50 | — |
 | ledger_011_cost | COST | 2026-06-22 | 2026-06-25 | closed | $+21.48 | — |
 | ledger_012_spy | SPY | 2026-06-23 | 2026-06-30 | closed | $+52.49 | — |
-| ledger_013_slv | SLV | 2026-06-25 | — | open | — | $-108.12 |
+| ledger_013_slv | SLV | 2026-06-25 | — | open | — | $-107.62 |
 | ledger_014_spy | SPY | 2026-07-02 | 2026-07-09 | closed | $+14.50 | — |
 | ledger_015_spy | SPY | 2026-07-06 | 2026-07-16 | closed | $+8.50 | — |
 | ledger_016_iwm | IWM | 2026-07-08 | 2026-07-16 | closed | $+21.50 | — |
 | ledger_017_spy | SPY | 2026-07-14 | 2026-07-21 | closed | $-1.50 | — |
-| ledger_018_spy | SPY | 2026-07-16 | — | open | — | $-54.75 |
-| ledger_019_spy | SPY | 2026-07-21 | — | open | — | $-27.75 |
+| ledger_018_spy | SPY | 2026-07-16 | — | open | — | $-52.75 |
+| ledger_019_spy | SPY | 2026-07-21 | — | open | — | $-26.25 |
 | ledger_020_iwm | IWM | 2026-07-23 | — | open | — | $+5.25 |
-| ledger_021_qqq | QQQ | 2026-07-27 | — | open | — | $+22.75 |
+| ledger_021_qqq | QQQ | 2026-07-27 | — | open | — | $+22.25 |
