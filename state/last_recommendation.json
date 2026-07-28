@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-27T21:05:59.156665+00:00",
-  "market_view": "SPY flat on the day but QQQ -0.31% with tech (XLK -0.9%) and energy (XLE -2.11%) dragging while defensives bid \u2014 VIX 5-day surge of 6.81% confirms vol expansion regime unfavorable for short premium. Both SPY spreads remain above stop thresholds with 21 DTE hard exit firing in 3 days.",
+  "last_run": "2026-07-28T13:39:36.463079+00:00",
+  "market_view": "Tech carnage accelerating \u2014 QQQ -1.36% on the day, XLK -2.67%, VIX 5d +7% confirming vol expansion regime. SPY holding better than QQQ but both SPY short put spreads are already at/past stop levels and the 21 DTE hard exit rule fires in 2 days.",
   "SPY 723/714p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-27T21:05:44Z",
-    "reasoning": "Mid at $1.63 is 1.70x the $0.96 credit \u2014 1.5x stop at $1.44 was breached multiple cycles ago with no close executed. 21 DTE hard exit fires in 3 days and this is a realized loss position that must be closed now."
+    "timestamp": "2026-07-28T13:39:20Z",
+    "reasoning": "Mid at $1.725 is 1.80x the $0.96 credit \u2014 stop triggered at $1.44 multiple cycles ago, still not closed. 21 DTE hard exit fires in 2 days and this position is a clear realized loss that must be exited immediately."
   },
   "SPY 717/708p": {
     "action": "CRITICAL",
-    "confidence": 0.95,
-    "timestamp": "2026-07-27T21:05:44Z",
-    "reasoning": "Mid at $1.325 is 1.41x the $0.94 credit, essentially at the 1.5x stop threshold of $1.41 \u2014 with the 723/714p also on the same expiry this is double SPY short put exposure and correlated concentration risk that violates the playbook."
+    "confidence": 0.97,
+    "timestamp": "2026-07-28T13:39:20Z",
+    "reasoning": "Mid at $1.39 is 1.48x the $0.94 credit, worst-case $1.42 is 1.51x \u2014 1.5x stop is breached. Holding double SPY short put exposure on same expiry while tech is dumping -2.67% amplifies correlation risk; this must go."
   },
   "IWM 276/271p": {
     "action": "HOLD",
-    "confidence": 0.88,
-    "timestamp": "2026-07-27T21:05:44Z",
-    "reasoning": "Mid at $0.65 is below entry credit of $0.71 \u2014 position is profitable, short strike 5.77% OTM, IWM showing relative strength (+0.6% today), and 31 DTE gives runway."
+    "confidence": 0.82,
+    "timestamp": "2026-07-28T13:39:20Z",
+    "reasoning": "Mid at $0.68 is still below entry credit of $0.71 \u2014 barely profitable, short strike 5.5% OTM with 30 DTE, but IWM -0.29% holding relatively well. Watch closely given broad tech-led selloff."
   }
 }
