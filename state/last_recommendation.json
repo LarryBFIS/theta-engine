@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-28T19:39:59.955784+00:00",
-  "market_view": "SPY holding flat +0.26% but QQQ -0.88% and XLK -1.78% confirm tech is still the drag; VIX 18.2 down today but 5d still +4.48% \u2014 rotation into defensives (XLV +2.52%, XLP +2.01%) signals risk-off undercurrent that keeps downside pressure on SPY verticals.",
+  "last_run": "2026-07-28T19:46:53.813190+00:00",
+  "market_view": "SPY flat +0.25% but QQQ -0.91% and XLK -1.78% confirm tech drag persists; VIX 18.17 still elevated on 5d basis with defensive rotation (XLV +2.45%, XLP +2.06%) signaling risk-off undercurrent that keeps both SPY put verticals under pressure.",
   "SPY 723/714p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-28T19:39:45Z",
-    "reasoning": "Worst cost $1.49 is 1.552x the $0.96 credit \u2014 hard 1.5x stop is breached and has been flagged CRITICAL for over 30 minutes without action; 21 DTE rule fires in 2 days and this is a confirmed loser. Close immediately."
+    "timestamp": "2026-07-28T19:46:41Z",
+    "reasoning": "Worst cost $1.50 is 1.5625x the $0.96 credit \u2014 hard 1.5x stop is definitively breached, flagged CRITICAL last cycle with no close executed; 21 DTE fires in 2 days regardless. This is a confirmed loser, not a hold."
   },
   "SPY 717/708p": {
     "action": "ACTION",
-    "confidence": 0.93,
-    "timestamp": "2026-07-28T19:39:45Z",
-    "reasoning": "Mid $1.19 is 1.266x the $0.94 credit and creeping toward the 1.5x stop ($1.41), 21 DTE fires in 2 days, and holding two SPY verticals simultaneously is a concentration violation per diversification rules \u2014 close alongside the 723/714p."
+    "confidence": 0.94,
+    "timestamp": "2026-07-28T19:46:41Z",
+    "reasoning": "Mid $1.185 is 1.26x credit and trending toward 1.5x stop ($1.41); closing the 723/714p first is required, but this must follow immediately \u2014 two SPY verticals in same expiry is a concentration violation and 21 DTE fires in 2 days."
   },
   "IWM 276/271p": {
     "action": "HOLD",
-    "confidence": 0.86,
-    "timestamp": "2026-07-28T19:39:45Z",
-    "reasoning": "Mid $0.615 vs $0.71 credit is 13.4% gain, short strike 5.83% OTM at 30 DTE \u2014 not at 50% profit target yet, no breach risk, IWM +0.06% today with healthy strike distance."
+    "confidence": 0.87,
+    "timestamp": "2026-07-28T19:46:41Z",
+    "reasoning": "Mid $0.62 vs $0.71 credit is 12.7% profit, short strike 5.8% OTM at 30 DTE with IWM +0.03% today \u2014 no breach risk, not at 50% target yet, clean position."
   }
 }
