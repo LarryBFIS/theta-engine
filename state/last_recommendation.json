@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-28T20:19:13.822882+00:00",
-  "market_view": "SPY +0.24% holding but QQQ -0.97% and XLK -1.84% confirm ongoing tech-led pressure; VIX 18.33 ticked up slightly, defensive rotation into XLV +2.36% and XLP +1.98% persists \u2014 risk-off undercurrent unchanged from last cycle.",
+  "last_run": "2026-07-28T20:34:29.878456+00:00",
+  "market_view": "SPY holding +0.24% but QQQ -0.97% and XLK -1.84% confirm tech-led drag persisting; VIX 18.21 easing slightly but 5d +4.54% shows underlying risk-off tone still intact.",
   "SPY 723/714p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-28T20:19:00Z",
-    "reasoning": "Worst cost $1.51 is 1.573x the $0.96 credit \u2014 1.5x hard stop blown, CRITICAL flagged last cycle, position still open. This is now a rules violation every minute it stays on."
+    "timestamp": "2026-07-28T20:34:14Z",
+    "reasoning": "Worst cost $1.51 is 1.573x the $0.96 credit \u2014 hard stop at 1.5x was blown last cycle and this position is still open, representing an active rules violation. No change in quotes means this needs to close immediately."
   },
   "SPY 717/708p": {
     "action": "ACTION",
     "confidence": 0.94,
-    "timestamp": "2026-07-28T20:19:00Z",
-    "reasoning": "Two SPY put verticals in the same expiry is a concentration violation; once 723/714p is closed, this must follow \u2014 mid $1.185 is 1.26x credit and 21 DTE fires in 2 days regardless."
+    "timestamp": "2026-07-28T20:34:14Z",
+    "reasoning": "21 DTE hard exit fires in 2 days and two SPY put verticals in the same expiry is a concentration problem; once 723/714p is closed this must follow regardless \u2014 mid $1.185 is 1.26x credit and deteriorating."
   },
   "IWM 276/271p": {
     "action": "HOLD",
     "confidence": 0.88,
-    "timestamp": "2026-07-28T20:19:00Z",
-    "reasoning": "Mid $0.605 is 14.8% profit on $0.71 credit, short strike 5.9% OTM at 30 DTE with IWM +0.16% \u2014 no breach risk, not at 50% target ($0.355), clean position."
+    "timestamp": "2026-07-28T20:34:14Z",
+    "reasoning": "Mid $0.605 is 14.8% profit on $0.71 credit, short strike 5.9% OTM at 30 DTE, IWM flat on the day \u2014 no breach risk and not yet at 50% target ($0.355)."
   }
 }
