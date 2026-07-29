@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-29T18:08:01.476686+00:00",
-  "market_view": "VIX up 6.5% today and nearly 10% on the week signals sustained risk-off pressure; XLI cratering -2.2% and XLF -1% today while defensives hold \u2014 market is not recovering intraday and both SPY verticals remain deep in stop territory with DTE hitting 21 at tomorrow's open.",
+  "last_run": "2026-07-29T18:29:25.643693+00:00",
+  "market_view": "VIX holding at 18.81 (+3.3% today, +6.5% on week) with XLI -2.6% and broad risk-off rotation into defensives \u2014 no intraday recovery, SPY down -0.52% heading into close. Both SPY verticals remain in critical stop territory and have not been closed despite CRITICAL alerts 21 minutes ago.",
   "SPY 723/714p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-29T18:07:48Z",
-    "reasoning": "Worst cost $1.69 is 1.76x the $0.96 credit \u2014 stop threshold is $1.44, rule breached for the entire session with no close executed. DTE is 22 and the 21 DTE hard exit rule triggers at tomorrow's open; this must be closed before market close today."
+    "timestamp": "2026-07-29T18:29:13Z",
+    "reasoning": "Worst cost $1.82 is now 1.90x the $0.96 credit \u2014 stop threshold is $1.44, blown through massively. DTE hits 21 at tomorrow's open triggering hard exit rule; this must be closed before market close today, ~30 minutes remaining."
   },
   "SPY 717/708p": {
     "action": "CRITICAL",
-    "confidence": 0.98,
-    "timestamp": "2026-07-29T18:07:48Z",
-    "reasoning": "Worst cost $1.36 is 1.45x the $0.94 credit \u2014 stop threshold is $1.41, this is right at the breach line with VIX still elevated and no intraday recovery; holding two correlated SPY losers into close violates both stop and diversification rules."
+    "confidence": 0.97,
+    "timestamp": "2026-07-29T18:29:13Z",
+    "reasoning": "Worst cost $1.46 is 1.55x the $0.94 credit \u2014 stop threshold is $1.41, rule breached. Two correlated SPY losers held simultaneously violates diversification rules and both are past stop; this is the second CRITICAL alert with no action taken."
   },
   "IWM 276/271p": {
-    "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-07-29T18:07:48Z",
-    "reasoning": "Mid cost $0.665 is actually below the $0.71 credit received \u2014 position is slightly profitable; short strike at 276 is 5.35% OTM with 29 DTE and IWM's 5-day performance (+0.24%) is outperforming QQQ significantly."
+    "action": "HOLD",
+    "confidence": 0.82,
+    "timestamp": "2026-07-29T18:29:13Z",
+    "reasoning": "Mid cost $0.72 is essentially flat to the $0.71 credit with short strike 5.05% OTM and 29 DTE \u2014 no rule breach, IWM outperforming SPY/QQQ on the week."
   }
 }
