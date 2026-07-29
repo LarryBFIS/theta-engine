@@ -38,7 +38,26 @@ jobs:
           TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
         run: python -m scripts.apply_decisions
 
-      # ---------- POSITIONS: fresh marks + P&L straight from the broker ----------
+      # ---------- RECONCILE THE BOOK FIRST (broker truth), THEN poll ----------
+      # Order matters: build_ledger + sync_trades reconcile trades.json to the broker
+      # BEFORE poll computes marks and writes the gist. Poll used to run first, so a
+      # just-changed position (close + reopen) got a NEW trade id from sync that the
+      # gist's marks — taken a moment earlier — didn't know yet, leaving that position
+      # blank/$0 unrealized for a whole cycle. Reconciling first keeps the gist marks
+      # keyed to the CURRENT book, so a freshly-opened trade marks correctly right away.
+      - name: Build ledger (broker truth)
+        env:
+          TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
+          TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
+          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
+          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
+          STARTING_CAPITAL: ${{ secrets.STARTING_CAPITAL }}
+        run: python -m scripts.build_ledger
+
+      - name: Sync trades from ledger
+        run: python -m scripts.sync_trades
+
+      # ---------- POSITIONS: fresh marks + P&L on the reconciled book ----------
       - name: Poll positions
         env:
           TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
@@ -62,18 +81,6 @@ jobs:
           TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
           TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
         run: python -m scripts.ai_decide
-
-      - name: Build ledger (broker truth)
-        env:
-          TASTYTRADE_CLIENT_SECRET: ${{ secrets.TASTYTRADE_CLIENT_SECRET }}
-          TASTYTRADE_REFRESH_TOKEN: ${{ secrets.TASTYTRADE_REFRESH_TOKEN }}
-          PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
-          PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
-          STARTING_CAPITAL: ${{ secrets.STARTING_CAPITAL }}
-        run: python -m scripts.build_ledger
-
-      - name: Sync trades from ledger
-        run: python -m scripts.sync_trades
 
       # ---------- OPPORTUNITIES: fresh scan + AI review + spotted-time ----------
       - name: Scan opportunities

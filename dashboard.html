@@ -848,6 +848,11 @@ async function loadLive(){
     if(tj.experiment && tj.experiment.starting_capital) DATA.start = tj.experiment.starting_capital;
     if(tj.experiment && tj.experiment.deposits != null) DATA.deposits = tj.experiment.deposits;
     const gById = new Map((gist && gist.trades || []).map(g => [g.id, g]));
+    // Also index the gist marks by position SIGNATURE (underlying+strikes+expiry), so a
+    // trade whose id changed (e.g. sync_trades renumbered it after a close+reopen) still
+    // finds its live mark instead of falling back to credit and showing $0 unrealized.
+    const _sig = x => `${(x.underlying||'').toUpperCase()}|${x.short_strike}|${x.long_strike}|${(x.expiry||'').slice(0,10)}`;
+    const gBySig = new Map((gist && gist.trades || []).map(g => [_sig(g), g]));
     // Reconcile against the broker's LIVE holdings: a trade still 'open' in
     // trades.json whose short leg the broker no longer holds was just closed — drop
     // it from Open now (the transaction feed that marks it closed for real lags
@@ -875,7 +880,10 @@ async function loadLive(){
     const _openBefore = open.length;
     open = open.filter(brokerHasShort);
     DATA.brokerClosing = _openBefore - open.length;   // closed at broker, ledger still syncing P&L
-    const closed = tj.trades.filter(t => t.status === 'closed');
+    // Newest close first, so a trade you just closed shows at the TOP of the list
+    // instead of being buried at the bottom in file order.
+    const closed = tj.trades.filter(t => t.status === 'closed')
+      .sort((a,b) => String(b.closed_at||b.opened_at||'').localeCompare(String(a.closed_at||a.opened_at||'')));
 
     DATA.closed = closed.map(t => {
       const s = structOf(t);
@@ -884,7 +892,7 @@ async function loadLive(){
     DATA.realized = DATA.closed.reduce((a,c)=>a+c.pnl, 0);   // bottom-up, no USO
 
     DATA.positions = open.map(t => {
-      const s = structOf(t), g = gById.get(t.id), m = (g&&g.metrics)||{}, rec = (g&&g.recommendation)||{};
+      const s = structOf(t), g = gById.get(t.id) || gBySig.get(_sig(t)), m = (g&&g.metrics)||{}, rec = (g&&g.recommendation)||{};
       const cc = m.cost_to_close || {};
       const credit = +t.credit_per_contract || 0;
       const mark = (cc.mid != null) ? +(+cc.mid).toFixed(2) : credit;   // current debit to close
