@@ -24468,6 +24468,34 @@
       "alternative": "Hold and hope. Risk: up to $50 max loss (currently $45 unrealized).",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20260729T160645_trade_018_spy_723_714",
+      "trade_id": "trade_018_spy_723_714",
+      "timestamp": "2026-07-29T16:06:46.127473-04:00",
+      "action": "CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\ud83d\udcc9 Unrealized loss is $149 \u2014 >1.5\u00d7 credit received.",
+        "Mechanical loss-cutting trigger to avoid the full $804 max loss.",
+        "Close cost: $2.45 mid / $2.52 worst."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 2.4450000000000003,
+        "cost_to_close_worst": 2.5200000000000005,
+        "profit_if_closed_mid": -148.50000000000003,
+        "profit_if_closed_worst": -156.00000000000006,
+        "pct_max_profit_captured_mid": -1.5468750000000004,
+        "dte": 22,
+        "underlying_price": 729.52001953125,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 6472.971,
+        "day_pnl": 0.0
+      },
+      "alternative": null,
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
