@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-29T16:37:37.498200+00:00",
-  "market_view": "VIX +10% to 20.07, risk-off regime intact with tech and industrials leading lower \u2014 both SPY verticals are at 22 DTE and hit hard-stop 1.5x loss rule, these are overdue closes not debates.",
+  "last_run": "2026-07-29T17:06:20.102038+00:00",
+  "market_view": "VIX spiked 9% today to 19.86 with broad risk-off: tech -1.3%, industrials -2.7%, IWM -1.2% \u2014 selling pressure is real and ongoing. Both SPY verticals remain well past 1.5x stop rule and DTE is 22 (21 DTE hard exit triggers at open tomorrow).",
   "SPY 723/714p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-29T16:37:26.318196+00:00",
-    "reasoning": "Worst cost $2.12 is 2.21x the $0.96 credit \u2014 stop rule (1.5x = $1.44) has been violated for multiple cycles, 21 DTE hard exit triggers at tomorrow's open, and two consecutive CRITICAL alerts have gone unacted."
+    "timestamp": "2026-07-29T17:06:07Z",
+    "reasoning": "Current worst cost $1.91 is 1.99x the $0.96 credit \u2014 stop rule threshold is $1.44, blown through multiple cycles. DTE is 22, hard exit at tomorrow's open is mandatory regardless. This has been CRITICAL for multiple consecutive alerts with no action taken."
   },
   "SPY 717/708p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-07-29T16:37:26.318196+00:00",
-    "reasoning": "Worst cost $1.74 is 1.85x the $0.94 credit \u2014 stop rule (1.5x = $1.41) is blown through, 21 DTE hard exit triggers tomorrow, and holding two correlated losing SPY verticals simultaneously is a direct rulebook violation."
+    "timestamp": "2026-07-29T17:06:07Z",
+    "reasoning": "Current worst cost $1.56 is 1.66x the $0.94 credit \u2014 stop rule threshold is $1.41, clearly violated. Two correlated losing SPY verticals open simultaneously violates the rulebook's diversification and max-positions constraints."
   },
   "IWM 276/271p": {
     "action": "WATCH",
-    "confidence": 0.73,
-    "timestamp": "2026-07-29T16:37:26.318196+00:00",
-    "reasoning": "Worst cost $0.95 is 1.34x the $0.71 credit \u2014 approaching but not yet at $1.065 stop threshold with short strike still 4.4% OTM and 29 DTE."
+    "confidence": 0.72,
+    "timestamp": "2026-07-29T17:06:07Z",
+    "reasoning": "Mid cost $0.79 is 1.11x the $0.71 credit, approaching but still below $1.065 stop threshold \u2014 IWM -1.2% today but short strike is 4.7% OTM with 29 DTE providing buffer."
   }
 }

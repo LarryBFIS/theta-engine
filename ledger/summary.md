@@ -1,19 +1,19 @@
 # Ledger Summary
 
-_Generated 2026-07-29T16:37:19.823226+00:00 from tastytrade transaction history._
+_Generated 2026-07-29T17:06:21.151247+00:00 from tastytrade transaction history._
 
 ## Reconciliation
 
 | Item | Amount |
 |---|---:|
 | Starting capital | $3,389.91 |
-| Net liq (now) | $6,502.94 |
+| Net liq (now) | $6,490.68 |
 | Strategy realized (closed) | $+283.35 |
-| Strategy unrealized (open) | $-360.37 |
-| **Strategy P&L** | **$-77.02** |
+| Strategy unrealized (open) | $-309.37 |
+| **Strategy P&L** | **$-26.02** |
 | Money movement | $+2,999.77 |
-| Non-strategy activity | $+190.28 |
-| **Account P&L** | **$+3,113.03** |
+| Non-strategy activity | $+127.02 |
+| **Account P&L** | **$+3,100.77** |
 
 _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger positions closed in-window). Total fees paid: $60.67._
 
@@ -39,13 +39,13 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 | ledger_010_spy | SPY | 2026-06-22 | 2026-07-01 | closed | $+41.50 | — |
 | ledger_011_cost | COST | 2026-06-22 | 2026-06-25 | closed | $+21.48 | — |
 | ledger_012_spy | SPY | 2026-06-23 | 2026-06-30 | closed | $+52.49 | — |
-| ledger_013_slv | SLV | 2026-06-25 | — | open | — | $-108.62 |
+| ledger_013_slv | SLV | 2026-06-25 | — | open | — | $-89.62 |
 | ledger_014_spy | SPY | 2026-07-02 | 2026-07-09 | closed | $+14.50 | — |
 | ledger_015_spy | SPY | 2026-07-06 | 2026-07-16 | closed | $+8.50 | — |
 | ledger_016_iwm | IWM | 2026-07-08 | 2026-07-16 | closed | $+21.50 | — |
 | ledger_017_spy | SPY | 2026-07-14 | 2026-07-21 | closed | $-1.50 | — |
-| ledger_018_spy | SPY | 2026-07-16 | — | open | — | $-113.75 |
-| ledger_019_spy | SPY | 2026-07-21 | — | open | — | $-78.75 |
-| ledger_020_iwm | IWM | 2026-07-23 | — | open | — | $-15.25 |
+| ledger_018_spy | SPY | 2026-07-16 | — | open | — | $-93.25 |
+| ledger_019_spy | SPY | 2026-07-21 | — | open | — | $-60.75 |
+| ledger_020_iwm | IWM | 2026-07-23 | — | open | — | $-10.25 |
 | ledger_021_qqq | QQQ | 2026-07-27 | 2026-07-29 | closed | $+39.50 | — |
-| ledger_022_qqq | QQQ | 2026-07-29 | — | open | — | $+3.25 |
+| ledger_022_qqq | QQQ | 2026-07-29 | — | open | — | $-8.25 |
