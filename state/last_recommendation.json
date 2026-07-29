@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-29T18:58:45.538733+00:00",
-  "market_view": "SPY has recovered sharply to +0.18% and VIX dropped to 18.0 (-1.15%) \u2014 the risk-off panic from prior cycles has fully reversed intraday. Both SPY verticals are now well OTM with short strikes 2.6% and 3.4% below current price, but cost basis rules still apply.",
+  "last_run": "2026-07-29T19:00:46.798436+00:00",
+  "market_view": "Market closed essentially flat \u2014 SPY +0.12%, VIX at 17.79 (-2.31%), neutral regime holding. Both SPY short put verticals remain well OTM but the 21 DTE hard exit rule fires at tomorrow's open for SPY 723/714p.",
   "SPY 723/714p": {
     "action": "ACTION",
-    "confidence": 0.97,
-    "timestamp": "2026-07-29T18:58:24Z",
-    "reasoning": "DTE hits 21 at tomorrow's open \u2014 hard exit rule triggers regardless of P&L. Mid cost $1.345 vs $0.96 credit still represents a loser, but the 21 DTE rule is non-negotiable and this fires at open tomorrow."
+    "confidence": 0.98,
+    "timestamp": "2026-07-29T19:00:30Z",
+    "reasoning": "DTE hits 21 at tomorrow's open \u2014 hard exit rule is non-negotiable regardless of P&L. Mid cost $1.355 vs $0.96 credit is a loser but holding past 21 DTE violates playbook."
   },
   "SPY 717/708p": {
-    "action": "ACTION",
-    "confidence": 0.91,
-    "timestamp": "2026-07-29T18:58:24Z",
-    "reasoning": "Mid cost $1.07 vs $0.94 credit \u2014 position is a small loser but still manageable; however, two simultaneous SPY short put verticals violate the uncorrelated diversification rule and one must go. Market close is imminent."
+    "action": "WATCH",
+    "confidence": 0.82,
+    "timestamp": "2026-07-29T19:00:30Z",
+    "reasoning": "Mid cost $1.07 vs $0.94 credit \u2014 small loser at 13.8% unrealized loss relative to credit, well within 1.5x cut threshold ($1.41). Two concurrent SPY verticals remain a diversification concern but this one has 22 DTE and isn't actionable until 723/714p is closed."
   },
   "IWM 276/271p": {
     "action": "HOLD",
-    "confidence": 0.88,
-    "timestamp": "2026-07-29T18:58:24Z",
-    "reasoning": "Mid cost $0.57 vs $0.71 credit \u2014 position is at 19.7% of max profit, short strike 5.87% OTM with 29 DTE. No rules triggered, theta working in our favor."
+    "confidence": 0.89,
+    "timestamp": "2026-07-29T19:00:30Z",
+    "reasoning": "Mid cost $0.56 vs $0.71 credit \u2014 position is at 21.1% of max profit, short strike 5.85% OTM with 29 DTE, theta grinding in our favor. No rules triggered."
   }
 }
