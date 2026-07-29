@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-29T19:00:46.798436+00:00",
-  "market_view": "Market closed essentially flat \u2014 SPY +0.12%, VIX at 17.79 (-2.31%), neutral regime holding. Both SPY short put verticals remain well OTM but the 21 DTE hard exit rule fires at tomorrow's open for SPY 723/714p.",
+  "last_run": "2026-07-29T19:33:56.634779+00:00",
+  "market_view": "SPY down 1% on the day, VIX spiking to 18.59 (+2.09%) with tech and industrials leading losses \u2014 risk-off tone into close. SPY short put verticals are taking heat but short strikes remain well OTM.",
   "SPY 723/714p": {
     "action": "ACTION",
-    "confidence": 0.98,
-    "timestamp": "2026-07-29T19:00:30Z",
-    "reasoning": "DTE hits 21 at tomorrow's open \u2014 hard exit rule is non-negotiable regardless of P&L. Mid cost $1.355 vs $0.96 credit is a loser but holding past 21 DTE violates playbook."
+    "confidence": 0.99,
+    "timestamp": "2026-07-29T19:33:43Z",
+    "reasoning": "DTE is 22 but this position opened 2026-07-16 and hits the 21 DTE hard exit rule at tomorrow's open \u2014 non-negotiable close regardless of P&L. Mid cost $2.045 vs $0.96 credit is a 2.13x loser breaching the 1.5x cut threshold ($1.44), so this must be closed NOW on both the DTE rule and the loss-cut rule."
   },
   "SPY 717/708p": {
     "action": "WATCH",
-    "confidence": 0.82,
-    "timestamp": "2026-07-29T19:00:30Z",
-    "reasoning": "Mid cost $1.07 vs $0.94 credit \u2014 small loser at 13.8% unrealized loss relative to credit, well within 1.5x cut threshold ($1.41). Two concurrent SPY verticals remain a diversification concern but this one has 22 DTE and isn't actionable until 723/714p is closed."
+    "confidence": 0.85,
+    "timestamp": "2026-07-29T19:33:43Z",
+    "reasoning": "Mid cost $1.645 vs $0.94 credit is 1.75x the original credit \u2014 this breaches the 1.5x loss-cut threshold of $1.41. With SPY down 1% today and VIX elevated, this needs immediate evaluation after closing the 723/714p."
   },
   "IWM 276/271p": {
-    "action": "HOLD",
-    "confidence": 0.89,
-    "timestamp": "2026-07-29T19:00:30Z",
-    "reasoning": "Mid cost $0.56 vs $0.71 credit \u2014 position is at 21.1% of max profit, short strike 5.85% OTM with 29 DTE, theta grinding in our favor. No rules triggered."
+    "action": "WATCH",
+    "confidence": 0.78,
+    "timestamp": "2026-07-29T19:33:43Z",
+    "reasoning": "Mid cost $0.76 vs $0.71 credit \u2014 small loser now with IWM down 1.22% but short strike still 4.77% OTM with 29 DTE, well within all thresholds. VIX uptick is a concern to monitor."
   }
 }
