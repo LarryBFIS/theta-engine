@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-30T13:40:00.203080+00:00",
-  "market_view": "VIX crushed -8.81% to 18.84 on a strong risk-on open \u2014 SPY +0.78%, QQQ +2% tech-led recovery. Both SPY verticals that were CRITICAL yesterday have recovered significantly from breach levels.",
+  "last_run": "2026-07-30T13:42:27.734283+00:00",
+  "market_view": "VIX -8.91% to 18.82 with SPY +0.84% and QQQ +2.09% \u2014 risk-on tape continues but both SPY verticals hit their 21 DTE hard exit rule today and remain actionable closes regardless of P&L. IWM holding steady with short strike 4.9% OTM.",
   "SPY 723/714p": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-07-30T13:39:45Z",
-    "reasoning": "DTE hit 21 today \u2014 hard exit rule fires with zero exceptions regardless of current P&L. Mid cost $1.87 vs $0.96 credit is still a loser but the 21 DTE rule is a mandatory close."
+    "timestamp": "2026-07-30T13:42:15Z",
+    "reasoning": "21 DTE hard exit rule fires today \u2014 no exceptions per playbook. Mid cost $1.825 vs $0.96 credit is a loser but the rule does not care about P&L."
   },
   "SPY 717/708p": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-07-30T13:39:45Z",
-    "reasoning": "DTE hit 21 today \u2014 same hard exit rule fires. Mid cost $1.505 vs $0.94 credit is still a loser but the rule does not care about P&L, it fires at 21 DTE."
+    "timestamp": "2026-07-30T13:42:15Z",
+    "reasoning": "21 DTE hard exit rule fires today \u2014 same mandatory close as the 723/714p. Mid $1.45 vs $0.94 credit, still a loser, rule fires regardless."
   },
   "IWM 276/271p": {
     "action": "HOLD",
     "confidence": 0.85,
-    "timestamp": "2026-07-30T13:39:45Z",
-    "reasoning": "Mid cost $0.735 vs $0.71 credit is essentially flat \u2014 stop at $1.065 not breached, 28 DTE, short strike 4.9% OTM with VIX compressing. IWM recovered and the position is no longer in danger zone."
+    "timestamp": "2026-07-30T13:42:15Z",
+    "reasoning": "Mid $0.73 vs $0.71 credit is essentially flat, short strike 4.9% OTM at 28 DTE, stop at $1.065 not threatened \u2014 VIX compression and IWM stability favor time decay from here."
   }
 }
