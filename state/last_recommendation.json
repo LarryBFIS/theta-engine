@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-07-30T13:39:36.958638+00:00",
-  "market_view": "VIX crushed 8.81% to 18.84 and SPY ripping +0.81% intraday \u2014 both SPY verticals have recovered dramatically from yesterday's CRITICAL levels. Both SPY positions hit 21 DTE today, hard exit rule fires regardless of P&L recovery.",
+  "last_run": "2026-07-30T13:40:00.203080+00:00",
+  "market_view": "VIX crushed -8.81% to 18.84 on a strong risk-on open \u2014 SPY +0.78%, QQQ +2% tech-led recovery. Both SPY verticals that were CRITICAL yesterday have recovered significantly from breach levels.",
   "SPY 723/714p": {
-    "action": "CRITICAL",
+    "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-07-30T13:39:20Z",
-    "reasoning": "21 DTE hard exit rule fires today \u2014 no exceptions per playbook. Mid cost $1.875 vs $0.96 credit means closing at a loss, but the rule is mechanical and non-negotiable."
+    "timestamp": "2026-07-30T13:39:45Z",
+    "reasoning": "DTE hit 21 today \u2014 hard exit rule fires with zero exceptions regardless of current P&L. Mid cost $1.87 vs $0.96 credit is still a loser but the 21 DTE rule is a mandatory close."
   },
   "SPY 717/708p": {
-    "action": "CRITICAL",
+    "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-07-30T13:39:20Z",
-    "reasoning": "21 DTE hard exit rule fires today \u2014 mid cost $1.445 vs $0.94 credit, still a loss but VIX collapsing means this is as good as it gets today; rule is absolute."
+    "timestamp": "2026-07-30T13:39:45Z",
+    "reasoning": "DTE hit 21 today \u2014 same hard exit rule fires. Mid cost $1.505 vs $0.94 credit is still a loser but the rule does not care about P&L, it fires at 21 DTE."
   },
   "IWM 276/271p": {
     "action": "HOLD",
     "confidence": 0.85,
-    "timestamp": "2026-07-30T13:39:20Z",
-    "reasoning": "Mid cost $0.725 vs $0.71 credit \u2014 essentially flat, stop rule not triggered, short strike 5% OTM with IWM +0.67% and 28 DTE. No rule fires, position is fine."
+    "timestamp": "2026-07-30T13:39:45Z",
+    "reasoning": "Mid cost $0.735 vs $0.71 credit is essentially flat \u2014 stop at $1.065 not breached, 28 DTE, short strike 4.9% OTM with VIX compressing. IWM recovered and the position is no longer in danger zone."
   }
 }
