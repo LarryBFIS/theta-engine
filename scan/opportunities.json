@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-29T20:28:39.441560+00:00",
+  "generated_at": "2026-07-30T13:17:08.163025+00:00",
   "regime": {
-    "vix": 20.48,
-    "vix_day_change_pct": 0.1247,
-    "level": "elevated",
+    "vix": 18.87,
+    "vix_day_change_pct": -0.0866,
+    "level": "normal",
     "stand_down": false,
-    "note": "elevated vol \u2014 premium rich, proceed (+12% day)"
+    "note": "normal regime (-9% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -19,197 +19,93 @@
   },
   "top": [
     {
-      "underlying": "SPY",
+      "underlying": "IWM",
       "structure": "short_put_vertical",
-      "expiry": "2026-08-28",
-      "dte": 30,
-      "short_strike": 692.0,
-      "long_strike": 685.0,
-      "short_symbol": "SPY   260828P00692000",
-      "long_symbol": "SPY   260828P00685000",
-      "width": 7.0,
-      "credit": 0.77,
-      "mid_credit": 0.83,
+      "expiry": "2026-09-04",
+      "dte": 36,
+      "short_strike": 272.0,
+      "long_strike": 267.0,
+      "short_symbol": "IWM   260904P00272000",
+      "long_symbol": "IWM   260904P00267000",
+      "width": 5.0,
+      "credit": 0.63,
+      "mid_credit": 0.78,
       "fees_est": 3.0,
-      "bpr": 623.0,
-      "max_loss": 623.0,
-      "pop": 0.798,
-      "short_delta": 0.186,
-      "short_spread_pct": 0.014,
-      "credit_to_bpr": 0.124,
-      "ev_per_contract": 4.41,
-      "ev_on_bpr": 0.0071,
-      "iv": 0.2003,
-      "iv_rank": 0.535,
-      "underlying_price": 727.18,
+      "bpr": 437.0,
+      "max_loss": 437.0,
+      "pop": 0.799,
+      "short_delta": 0.18,
+      "short_spread_pct": 0.048,
+      "credit_to_bpr": 0.144,
+      "ev_per_contract": 3.18,
+      "ev_on_bpr": 0.0073,
+      "iv": 0.2412,
+      "iv_rank": 0.383,
+      "underlying_price": 290.66,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
-      "sized_for": "paper",
+      "sized_for": "live",
       "contracts": 1,
-      "max_loss_total": 623.0,
-      "bpr_total": 623.0,
+      "max_loss_total": 437.0,
+      "bpr_total": 437.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "short put vertical 692/685p \u00d71 \u2014 rich premium. Edge: IV rank 54%, EV $+4/ctr (+0.7% on BPR). POP 80% \u00b7 credit $0.77 \u00b7 max loss $623 \u00b7 BPR $623 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 272/267p \u00d71 \u2014 rich premium. Edge: IV rank 38%, EV $+3/ctr (+0.7% on BPR). POP 80% \u00b7 credit $0.63 \u00b7 max loss $437 \u00b7 BPR $437 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.301,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.30"
       ],
-      "rank_score": 0.009237,
+      "rank_score": 0.009497,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, proven short_put_vertical structure, 30 DTE, 79.8% PoP, ev_on_bpr solid at 0.71%. Adds to us_index cluster (now 3/3 cap) but remains within diversification bounds.",
+      "agent_reason": "IWM is second index-etf candidate into an already 2-open us_index cluster; would reach max_per_cluster (3) and create correlated directional correlation. Veto to preserve defensive diversification.",
       "agent_reviewed": true,
       "news_risk": {
-        "level": "caution",
-        "hits": [
-          {
-            "title": "Wall Street Sends Fresh Warning as AI Tech Stocks Stumble After Earnings",
-            "severity": 2,
-            "keyword": "warning"
-          }
-        ]
+        "level": "clear",
+        "hits": []
       },
-      "net_liq": 6423.36,
+      "net_liq": 6397.229,
       "ticket": {
-        "underlying": "SPY",
+        "underlying": "IWM",
         "code": "VP",
         "order_type": "Net Credit",
-        "limit": 0.77,
+        "limit": 0.63,
         "contracts": 1,
-        "expiry": "2026-08-28",
+        "expiry": "2026-09-04",
         "legs": [
           {
             "action": "SELL",
             "qty": 1,
-            "expiry": "2026-08-28",
-            "strike": 692.0,
+            "expiry": "2026-09-04",
+            "strike": 272.0,
             "type": "P"
           },
           {
             "action": "BUY",
             "qty": 1,
-            "expiry": "2026-08-28",
-            "strike": 685.0,
+            "expiry": "2026-09-04",
+            "strike": 267.0,
             "type": "P"
           }
         ],
-        "credit_total": 77.0,
-        "max_loss_total": 623.0,
-        "bpr_total": 623.0,
-        "pop": 0.798,
+        "credit_total": 63.0,
+        "max_loss_total": 437.0,
+        "bpr_total": 437.0,
+        "pop": 0.799,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
-          "close_debit": 0.39,
-          "stop_debit": 1.93,
+          "close_debit": 0.32,
+          "stop_debit": 1.57,
           "exit_dte": 21
         },
         "fits_live_cap": true,
-        "live_cap": 642.34,
+        "live_cap": 639.72,
         "suggested_width": null,
         "fit_note": "",
-        "text": "SPY VP \u00d71 \u2014 SELL 692P / BUY 685P (2026-08-28) @ $0.77 net credit. Max loss $623. After fill: GTC buy-to-close @ $0.39 (50%)."
+        "text": "IWM VP \u00d71 \u2014 SELL 272P / BUY 267P (2026-09-04) @ $0.63 net credit. Max loss $437. After fill: GTC buy-to-close @ $0.32 (50%)."
       },
-      "posted_at": "2026-07-29T20:28:39.441560+00:00"
-    },
-    {
-      "underlying": "QQQ",
-      "structure": "short_call_vertical",
-      "expiry": "2026-08-28",
-      "dte": 30,
-      "short_strike": 705.0,
-      "long_strike": 713.0,
-      "short_symbol": "QQQ   260828C00705000",
-      "long_symbol": "QQQ   260828C00713000",
-      "width": 8.0,
-      "credit": 0.89,
-      "mid_credit": 1.43,
-      "fees_est": 3.0,
-      "bpr": 711.0,
-      "max_loss": 711.0,
-      "pop": 0.798,
-      "short_delta": 0.227,
-      "short_spread_pct": 0.132,
-      "credit_to_bpr": 0.125,
-      "ev_per_contract": 5.52,
-      "ev_on_bpr": 0.0078,
-      "iv": 0.2993,
-      "iv_rank": 0.815,
-      "underlying_price": 658.73,
-      "liquidity": 4,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 1,
-      "max_loss_total": 711.0,
-      "bpr_total": 711.0,
-      "trend": "bearish",
-      "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short call vertical 705/713c \u00d71 \u2014 bearish lean. Edge: IV rank 82%, EV $+6/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.89 \u00b7 max loss $711 \u00b7 BPR $711 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 0.538,
-      "learn_notes": [
-        "asset_class=single_name \u00d70.69",
-        "cluster=us_tech \u00d70.78"
-      ],
-      "rank_score": 0.004196,
-      "agent_action": "guarded",
-      "agent_reason": "Classified as single_name, cluster us_tech (already 1/3 open); engine data shows single_name win rate collapsed to 21% vs. prior 31%, and us_tech shows negative expectancy. Directional short call into elevated vol is uncompensated event ris",
-      "guarded_warn": true,
-      "demoted": "guarded \u2014 surfaced with a caution, paper only",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "caution",
-        "hits": [
-          {
-            "title": "Dow Tumbles Over 850 Points \u2013 Trump's Latest Iran Warning Sends Crude Oil Prices Soaring Ahead Of Fed Decision",
-            "severity": 2,
-            "keyword": "warning"
-          }
-        ]
-      },
-      "net_liq": 6423.36,
-      "ticket": {
-        "underlying": "QQQ",
-        "code": "VC",
-        "order_type": "Net Credit",
-        "limit": 0.89,
-        "contracts": 1,
-        "expiry": "2026-08-28",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 1,
-            "expiry": "2026-08-28",
-            "strike": 705.0,
-            "type": "C"
-          },
-          {
-            "action": "BUY",
-            "qty": 1,
-            "expiry": "2026-08-28",
-            "strike": 713.0,
-            "type": "C"
-          }
-        ],
-        "credit_total": 89.0,
-        "max_loss_total": 711.0,
-        "bpr_total": 711.0,
-        "pop": 0.798,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.45,
-          "stop_debit": 2.23,
-          "exit_dte": 21
-        },
-        "fits_live_cap": false,
-        "live_cap": 642.34,
-        "suggested_width": 7,
-        "fit_note": "\u26a0 max loss $711 > 10% live cap ($642) \u2014 narrow to ~7-wide for live, or keep on paper.",
-        "text": "QQQ VC \u00d71 \u2014 SELL 705C / BUY 713C (2026-08-28) @ $0.89 net credit. Max loss $711. After fill: GTC buy-to-close @ $0.45 (50%). \u26a0 max loss $711 > 10% live cap ($642) \u2014 narrow to ~7-wide for live, or keep on paper."
-      },
-      "posted_at": "2026-07-29T20:28:39.441560+00:00"
+      "posted_at": "2026-07-30T13:17:08.163025+00:00"
     }
   ],
   "long_vol": [],
@@ -255,27 +151,22 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-07-29T20:28:39.110170+00:00",
+    "generated_at": "2026-07-30T13:17:07.923681+00:00",
     "model": "claude-haiku-4-5",
-    "portfolio_note": "Book is underwater (-$60); three index/tech shorts already open across us_index (2) and us_tech (1). VIX elevated at 20.48 with rich premium \u2014 good entry regime. All candidates are index ETFs or tech; must control cluster concentration.",
-    "reviewed": 3,
-    "vetoed": 2,
+    "portfolio_note": "Book is 3-open, all us_index/us_tech, -$56 unrealized. Both candidates are index ETF short-put verticals (favored structure), but SPY is already 1-open in us_index (at max_per_name cap); IWM adds correlated index risk to an already 2-heavy us_index cluster.",
+    "reviewed": 2,
+    "vetoed": 1,
     "downsized": 0,
     "decisions": [
       {
-        "id": "SPY|short_put_vertical|692/685",
+        "id": "SPY|short_put_vertical|698/689",
+        "action": "veto",
+        "reason": "SPY already 1-open; max_per_name cap (1) is at limit. Adding a second SPY violates position cap."
+      },
+      {
+        "id": "IWM|short_put_vertical|272/267",
         "action": "approve",
-        "reason": "Index ETF, proven short_put_vertical structure, 30 DTE, 79.8% PoP, ev_on_bpr solid at 0.71%. Adds to us_index cluster (now 3/3 cap) but remains within diversification bounds."
-      },
-      {
-        "id": "IWM|short_put_vertical|271/265",
-        "action": "veto",
-        "reason": "Adding this trade would push us_index cluster to 4 (max 3); IWM is correlated with SPY\u2014this is one macro bet sized up, not diversification. Skip and preserve capacity."
-      },
-      {
-        "id": "QQQ|short_call_vertical|705/713",
-        "action": "veto",
-        "reason": "Classified as single_name, cluster us_tech (already 1/3 open); engine data shows single_name win rate collapsed to 21% vs. prior 31%, and us_tech shows negative expectancy. Directional short call into elevated vol is uncompensated event ris"
+        "reason": "IWM is second index-etf candidate into an already 2-open us_index cluster; would reach max_per_cluster (3) and create correlated directional correlation. Veto to preserve defensive diversification."
       }
     ]
   },
@@ -283,242 +174,139 @@
     {
       "underlying": "SPY",
       "structure": "short_put_vertical",
-      "expiry": "2026-08-28",
-      "dte": 30,
-      "short_strike": 692.0,
-      "long_strike": 685.0,
-      "short_symbol": "SPY   260828P00692000",
-      "long_symbol": "SPY   260828P00685000",
-      "width": 7.0,
-      "credit": 0.77,
-      "mid_credit": 0.83,
+      "expiry": "2026-08-31",
+      "dte": 32,
+      "short_strike": 698.0,
+      "long_strike": 689.0,
+      "short_symbol": "SPY   260831P00698000",
+      "long_symbol": "SPY   260831P00689000",
+      "width": 9.0,
+      "credit": 1.2,
+      "mid_credit": 1.27,
       "fees_est": 3.0,
-      "bpr": 623.0,
-      "max_loss": 623.0,
-      "pop": 0.798,
-      "short_delta": 0.186,
-      "short_spread_pct": 0.014,
-      "credit_to_bpr": 0.124,
-      "ev_per_contract": 4.41,
-      "ev_on_bpr": 0.0071,
+      "bpr": 780.0,
+      "max_loss": 780.0,
+      "pop": 0.799,
+      "short_delta": 0.184,
+      "short_spread_pct": 0.011,
+      "credit_to_bpr": 0.154,
+      "ev_per_contract": 8.86,
+      "ev_on_bpr": 0.0114,
       "iv": 0.2003,
       "iv_rank": 0.535,
-      "underlying_price": 727.18,
+      "underlying_price": 734.92,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 623.0,
-      "bpr_total": 623.0,
+      "max_loss_total": 780.0,
+      "bpr_total": 780.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "short put vertical 692/685p \u00d71 \u2014 rich premium. Edge: IV rank 54%, EV $+4/ctr (+0.7% on BPR). POP 80% \u00b7 credit $0.77 \u00b7 max loss $623 \u00b7 BPR $623 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 698/689p \u00d71 \u2014 rich premium. Edge: IV rank 54%, EV $+9/ctr (+1.1% on BPR). POP 80% \u00b7 credit $1.20 \u00b7 max loss $780 \u00b7 BPR $780 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.301,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.30"
       ],
-      "rank_score": 0.009237,
-      "agent_action": "approve",
-      "agent_reason": "Index ETF, proven short_put_vertical structure, 30 DTE, 79.8% PoP, ev_on_bpr solid at 0.71%. Adds to us_index cluster (now 3/3 cap) but remains within diversification bounds.",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "caution",
-        "hits": [
-          {
-            "title": "Wall Street Sends Fresh Warning as AI Tech Stocks Stumble After Earnings",
-            "severity": 2,
-            "keyword": "warning"
-          }
-        ]
-      },
-      "net_liq": 6423.36,
-      "ticket": {
-        "underlying": "SPY",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 0.77,
-        "contracts": 1,
-        "expiry": "2026-08-28",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 1,
-            "expiry": "2026-08-28",
-            "strike": 692.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 1,
-            "expiry": "2026-08-28",
-            "strike": 685.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 77.0,
-        "max_loss_total": 623.0,
-        "bpr_total": 623.0,
-        "pop": 0.798,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.39,
-          "stop_debit": 1.93,
-          "exit_dte": 21
-        },
-        "fits_live_cap": true,
-        "live_cap": 642.34,
-        "suggested_width": null,
-        "fit_note": "",
-        "text": "SPY VP \u00d71 \u2014 SELL 692P / BUY 685P (2026-08-28) @ $0.77 net credit. Max loss $623. After fill: GTC buy-to-close @ $0.39 (50%)."
-      },
-      "posted_at": "2026-07-29T20:28:39.441560+00:00"
+      "rank_score": 0.014831,
+      "agent_action": "veto",
+      "agent_reason": "SPY already 1-open; max_per_name cap (1) is at limit. Adding a second SPY violates position cap."
     },
     {
       "underlying": "IWM",
       "structure": "short_put_vertical",
-      "expiry": "2026-08-28",
-      "dte": 30,
-      "short_strike": 271.0,
-      "long_strike": 265.0,
-      "short_symbol": "IWM   260828P00271000",
-      "long_symbol": "IWM   260828P00265000",
-      "width": 6.0,
-      "credit": 0.67,
-      "mid_credit": 0.77,
+      "expiry": "2026-09-04",
+      "dte": 36,
+      "short_strike": 272.0,
+      "long_strike": 267.0,
+      "short_symbol": "IWM   260904P00272000",
+      "long_symbol": "IWM   260904P00267000",
+      "width": 5.0,
+      "credit": 0.63,
+      "mid_credit": 0.78,
       "fees_est": 3.0,
-      "bpr": 533.0,
-      "max_loss": 533.0,
-      "pop": 0.794,
-      "short_delta": 0.187,
-      "short_spread_pct": 0.045,
-      "credit_to_bpr": 0.126,
-      "ev_per_contract": 2.93,
-      "ev_on_bpr": 0.0055,
+      "bpr": 437.0,
+      "max_loss": 437.0,
+      "pop": 0.799,
+      "short_delta": 0.18,
+      "short_spread_pct": 0.048,
+      "credit_to_bpr": 0.144,
+      "ev_per_contract": 3.18,
+      "ev_on_bpr": 0.0073,
       "iv": 0.2412,
       "iv_rank": 0.383,
-      "underlying_price": 287.52,
+      "underlying_price": 290.66,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "live",
       "contracts": 1,
-      "max_loss_total": 533.0,
-      "bpr_total": 533.0,
+      "max_loss_total": 437.0,
+      "bpr_total": 437.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "short put vertical 271/265p \u00d71 \u2014 rich premium. Edge: IV rank 38%, EV $+3/ctr (+0.5% on BPR). POP 79% \u00b7 credit $0.67 \u00b7 max loss $533 \u00b7 BPR $533 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 272/267p \u00d71 \u2014 rich premium. Edge: IV rank 38%, EV $+3/ctr (+0.7% on BPR). POP 80% \u00b7 credit $0.63 \u00b7 max loss $437 \u00b7 BPR $437 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.301,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.30"
       ],
-      "rank_score": 0.007155,
-      "agent_action": "veto",
-      "agent_reason": "Adding this trade would push us_index cluster to 4 (max 3); IWM is correlated with SPY\u2014this is one macro bet sized up, not diversification. Skip and preserve capacity."
-    },
-    {
-      "underlying": "QQQ",
-      "structure": "short_call_vertical",
-      "expiry": "2026-08-28",
-      "dte": 30,
-      "short_strike": 705.0,
-      "long_strike": 713.0,
-      "short_symbol": "QQQ   260828C00705000",
-      "long_symbol": "QQQ   260828C00713000",
-      "width": 8.0,
-      "credit": 0.89,
-      "mid_credit": 1.43,
-      "fees_est": 3.0,
-      "bpr": 711.0,
-      "max_loss": 711.0,
-      "pop": 0.798,
-      "short_delta": 0.227,
-      "short_spread_pct": 0.132,
-      "credit_to_bpr": 0.125,
-      "ev_per_contract": 5.52,
-      "ev_on_bpr": 0.0078,
-      "iv": 0.2993,
-      "iv_rank": 0.815,
-      "underlying_price": 658.73,
-      "liquidity": 4,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 1,
-      "max_loss_total": 711.0,
-      "bpr_total": 711.0,
-      "trend": "bearish",
-      "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short call vertical 705/713c \u00d71 \u2014 bearish lean. Edge: IV rank 82%, EV $+6/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.89 \u00b7 max loss $711 \u00b7 BPR $711 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 0.538,
-      "learn_notes": [
-        "asset_class=single_name \u00d70.69",
-        "cluster=us_tech \u00d70.78"
-      ],
-      "rank_score": 0.004196,
-      "agent_action": "guarded",
-      "agent_reason": "Classified as single_name, cluster us_tech (already 1/3 open); engine data shows single_name win rate collapsed to 21% vs. prior 31%, and us_tech shows negative expectancy. Directional short call into elevated vol is uncompensated event ris",
-      "guarded_warn": true,
-      "demoted": "guarded \u2014 surfaced with a caution, paper only",
+      "rank_score": 0.009497,
+      "agent_action": "approve",
+      "agent_reason": "IWM is second index-etf candidate into an already 2-open us_index cluster; would reach max_per_cluster (3) and create correlated directional correlation. Veto to preserve defensive diversification.",
       "agent_reviewed": true,
       "news_risk": {
-        "level": "caution",
-        "hits": [
-          {
-            "title": "Dow Tumbles Over 850 Points \u2013 Trump's Latest Iran Warning Sends Crude Oil Prices Soaring Ahead Of Fed Decision",
-            "severity": 2,
-            "keyword": "warning"
-          }
-        ]
+        "level": "clear",
+        "hits": []
       },
-      "net_liq": 6423.36,
+      "net_liq": 6397.229,
       "ticket": {
-        "underlying": "QQQ",
-        "code": "VC",
+        "underlying": "IWM",
+        "code": "VP",
         "order_type": "Net Credit",
-        "limit": 0.89,
+        "limit": 0.63,
         "contracts": 1,
-        "expiry": "2026-08-28",
+        "expiry": "2026-09-04",
         "legs": [
           {
             "action": "SELL",
             "qty": 1,
-            "expiry": "2026-08-28",
-            "strike": 705.0,
-            "type": "C"
+            "expiry": "2026-09-04",
+            "strike": 272.0,
+            "type": "P"
           },
           {
             "action": "BUY",
             "qty": 1,
-            "expiry": "2026-08-28",
-            "strike": 713.0,
-            "type": "C"
+            "expiry": "2026-09-04",
+            "strike": 267.0,
+            "type": "P"
           }
         ],
-        "credit_total": 89.0,
-        "max_loss_total": 711.0,
-        "bpr_total": 711.0,
-        "pop": 0.798,
+        "credit_total": 63.0,
+        "max_loss_total": 437.0,
+        "bpr_total": 437.0,
+        "pop": 0.799,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
-          "close_debit": 0.45,
-          "stop_debit": 2.23,
+          "close_debit": 0.32,
+          "stop_debit": 1.57,
           "exit_dte": 21
         },
-        "fits_live_cap": false,
-        "live_cap": 642.34,
-        "suggested_width": 7,
-        "fit_note": "\u26a0 max loss $711 > 10% live cap ($642) \u2014 narrow to ~7-wide for live, or keep on paper.",
-        "text": "QQQ VC \u00d71 \u2014 SELL 705C / BUY 713C (2026-08-28) @ $0.89 net credit. Max loss $711. After fill: GTC buy-to-close @ $0.45 (50%). \u26a0 max loss $711 > 10% live cap ($642) \u2014 narrow to ~7-wide for live, or keep on paper."
+        "fits_live_cap": true,
+        "live_cap": 639.72,
+        "suggested_width": null,
+        "fit_note": "",
+        "text": "IWM VP \u00d71 \u2014 SELL 272P / BUY 267P (2026-09-04) @ $0.63 net credit. Max loss $437. After fill: GTC buy-to-close @ $0.32 (50%)."
       },
-      "posted_at": "2026-07-29T20:28:39.441560+00:00"
+      "posted_at": "2026-07-30T13:17:08.163025+00:00"
     }
   ],
   "skipped": {
-    "DIA": "failed: pv: spread short 21%/long 24%",
-    "XLE": "failed: pv: spread short 71%/long 187%",
+    "DIA": "failed: pv: credit/width 0.01 < 0.10",
+    "QQQ": "failed: pv: credit/width 0.08 < 0.10",
+    "XLE": "failed: pv: spread short 53%/long 173%",
     "XLF": "failed: pv: no/invalid leg quote"
   }
 }
