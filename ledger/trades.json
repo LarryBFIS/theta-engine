@@ -429,8 +429,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -42.25,
-      "cost_to_close_mid": 90.0,
+      "unrealized_pnl": -49.75,
+      "cost_to_close_mid": 97.5,
       "structure": "short_put_vertical",
       "short_strike": 61.0,
       "long_strike": 60.0,
@@ -831,8 +831,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -90.62,
-      "cost_to_close_mid": -189.5
+      "unrealized_pnl": -88.62,
+      "cost_to_close_mid": -191.5
     },
     {
       "id": "ledger_014_spy",
@@ -1124,14 +1124,34 @@
           "executed_at": "2026-07-16T14:37:27.799Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": -90.75,
-      "cost_to_close_mid": 184.5,
+      "close_orders": [
+        "489213165"
+      ],
+      "close_net_cash": -160.25,
+      "close_legs": [
+        {
+          "symbol": "SPY   260821P00723000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 5.68,
+          "net_cash": -568.12,
+          "fees": 0.12,
+          "executed_at": "2026-07-30T14:07:42.778Z"
+        },
+        {
+          "symbol": "SPY   260821P00714000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 4.08,
+          "net_cash": 407.87,
+          "fees": 0.13,
+          "executed_at": "2026-07-30T14:07:42.778Z"
+        }
+      ],
+      "closed_at": "2026-07-30",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": -66.5,
       "structure": "short_put_vertical",
       "short_strike": 723.0,
       "long_strike": 714.0,
@@ -1141,7 +1161,8 @@
       "width": 9.0,
       "max_profit_total": 96.0,
       "max_loss_total": 804.0,
-      "bpr_total": 804.0
+      "bpr_total": 804.0,
+      "close_debit_per_contract": 1.6
     },
     {
       "id": "ledger_019_spy",
@@ -1175,8 +1196,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -55.75,
-      "cost_to_close_mid": 147.5,
+      "unrealized_pnl": -38.25,
+      "cost_to_close_mid": 130.0,
       "structure": "short_put_vertical",
       "short_strike": 717.0,
       "long_strike": 708.0,
@@ -1214,14 +1235,34 @@
           "executed_at": "2026-07-23T14:17:00.607Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": -5.75,
-      "cost_to_close_mid": 74.5,
+      "close_orders": [
+        "489216669"
+      ],
+      "close_net_cash": -74.25,
+      "close_legs": [
+        {
+          "symbol": "IWM   260828P00271000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 1.81,
+          "net_cash": 180.87,
+          "fees": 0.13,
+          "executed_at": "2026-07-30T14:09:20.090Z"
+        },
+        {
+          "symbol": "IWM   260828P00276000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 2.55,
+          "net_cash": -255.12,
+          "fees": 0.12,
+          "executed_at": "2026-07-30T14:09:20.090Z"
+        }
+      ],
+      "closed_at": "2026-07-30",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": -5.5,
       "structure": "short_put_vertical",
       "short_strike": 276.0,
       "long_strike": 271.0,
@@ -1231,7 +1272,8 @@
       "width": 5.0,
       "max_profit_total": 71.0,
       "max_loss_total": 429.0,
-      "bpr_total": 429.0
+      "bpr_total": 429.0,
+      "close_debit_per_contract": 0.74
     },
     {
       "id": "ledger_021_qqq",
@@ -1331,8 +1373,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -22.25,
-      "cost_to_close_mid": 105.0,
+      "unrealized_pnl": -55.75,
+      "cost_to_close_mid": 138.5,
       "structure": "short_call_vertical",
       "short_strike": 721.0,
       "long_strike": 728.0,
