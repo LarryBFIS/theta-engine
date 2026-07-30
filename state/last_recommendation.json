@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-07-30T20:38:34.523522+00:00",
-  "market_view": "VIX at 17.09 (-17.28% today) with QQQ +3.3% and XLK +5.5% \u2014 tech is in a full momentum rip and the QQQ short call is bleeding deeper into loss territory. Market is closed; both positions have hard rule violations requiring immediate action at tomorrow's open.",
+  "last_run": "2026-07-30T21:05:45.169298+00:00",
+  "market_view": "VIX crushed -17.28% to 17.09 as QQQ ripped +3.3% and XLK +5.5% on what appears to be a major tech catalyst \u2014 market is closed now but both hard rule violations (21 DTE SPY, 1.5x stop QQQ) remain unexecuted and must be addressed at tomorrow's open without exception.",
   "SPY 717/708p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-30T20:38:25Z",
-    "reasoning": "21 DTE hard exit rule fired today \u2014 this is a no-exceptions rule that has been flagged CRITICAL across multiple consecutive cycles with zero execution. Current mid $0.925 vs $0.94 credit means near-zero cost to close."
+    "timestamp": "2026-07-30T21:05:33Z",
+    "reasoning": "21 DTE hard exit rule fired today \u2014 this is a no-exceptions rule that has now been flagged CRITICAL across multiple consecutive cycles with zero execution. SPY is 3.3% above short strike making this nearly worthless and essentially free to close."
   },
   "QQQ 721/728c": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-30T20:38:25Z",
-    "reasoning": "Current mid $1.585 is 1.86x the $0.85 credit \u2014 1.5x hard stop ($1.275) was breached sessions ago with zero action; QQQ ripping +3.3% with short call at 721 only 5.5% OTM and tech momentum accelerating, max loss exposure growing every session this goes unaddressed."
+    "timestamp": "2026-07-30T21:05:33Z",
+    "reasoning": "Mid $1.585 is 1.86x the $0.85 credit \u2014 the 1.5x hard stop at $1.275 was breached sessions ago and QQQ just ripped +3.3% today with XLK +5.5%, further widening the loss and leaving the short 721 call only 5.5% OTM in a tech momentum environment with VIX collapsing."
   }
 }
