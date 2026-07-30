@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-07-30T16:00:16.196857+00:00",
-  "market_view": "VIX crushed -9.68% to 18.66 on a broad tech-led risk-on day, but the SPY 717/708p has now hit its 21 DTE hard exit rule \u2014 this is not a market call, it is a mechanical rule that must be executed before market close today.",
+  "last_run": "2026-07-30T16:37:46.645276+00:00",
+  "market_view": "VIX crushed another -12% to 18.18 on massive tech-led rally (XLK +4.89%, QQQ +2.89%) \u2014 risk-on regime is accelerating theta decay on both positions. The SPY 717/708p 21 DTE hard exit rule has been active since market open and must be executed immediately \u2014 this is not negotiable.",
   "SPY 717/708p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-30T16:00:04Z",
-    "reasoning": "21 DTE hard exit rule fires unconditionally today \u2014 this is the fourth consecutive CRITICAL flag with no action taken, which is a serious playbook breach regardless of P&L or market direction."
+    "timestamp": "2026-07-30T16:37:32Z",
+    "reasoning": "21 DTE hard exit rule fires unconditionally today \u2014 this is the fifth consecutive flag with no action taken, a severe playbook breach. SPY is at 738.67, spread is deeply OTM and buyback should be cheap \u2014 close now before market close at 4pm ET."
   },
   "QQQ 721/728c": {
-    "action": "HOLD",
-    "confidence": 0.93,
-    "timestamp": "2026-07-30T16:00:04Z",
-    "reasoning": "QQQ at 679.71 is 5.7% below the 721 short call strike with 28 DTE \u2014 even after today's +2.72% rip the spread is comfortably OTM and VIX collapse accelerates theta decay in our favor."
+    "action": "WATCH",
+    "confidence": 0.82,
+    "timestamp": "2026-07-30T16:37:32Z",
+    "reasoning": "QQQ ripped +2.89% to 680.87 today \u2014 short call at 721 is now only 5.9% OTM vs 5.9% yesterday, distance is holding but the velocity of this tech rally warrants close monitoring. Current mid $1.35 vs $0.85 credit means we're at 1.59x credit loss \u2014 approaching but not yet triggering the 1.5x cut rule at worst-case ($1.43 = 1.68x, that DOES breach the 1.5x rule)."
   }
 }
