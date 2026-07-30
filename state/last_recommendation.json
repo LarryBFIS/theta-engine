@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-07-30T16:37:46.645276+00:00",
-  "market_view": "VIX crushed another -12% to 18.18 on massive tech-led rally (XLK +4.89%, QQQ +2.89%) \u2014 risk-on regime is accelerating theta decay on both positions. The SPY 717/708p 21 DTE hard exit rule has been active since market open and must be executed immediately \u2014 this is not negotiable.",
+  "last_run": "2026-07-30T16:39:46.782108+00:00",
+  "market_view": "VIX -11.62% to 18.26, XLK +4.89%, QQQ +2.89% \u2014 pure risk-on tech squeeze. SPY 717/708p 21 DTE rule fires today unconditionally, and QQQ 721/728c worst-case at $1.43 is 1.68x credit which hard-triggers the 1.5x cut rule.",
   "SPY 717/708p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-30T16:37:32Z",
-    "reasoning": "21 DTE hard exit rule fires unconditionally today \u2014 this is the fifth consecutive flag with no action taken, a severe playbook breach. SPY is at 738.67, spread is deeply OTM and buyback should be cheap \u2014 close now before market close at 4pm ET."
+    "timestamp": "2026-07-30T16:39:34Z",
+    "reasoning": "21 DTE hard exit rule fires today \u2014 no exceptions, this is a firm rule breach every minute it stays open. Spread is deeply OTM with SPY at 738.64, buyback should be cheap near $1.23-1.25."
   },
   "QQQ 721/728c": {
-    "action": "WATCH",
-    "confidence": 0.82,
-    "timestamp": "2026-07-30T16:37:32Z",
-    "reasoning": "QQQ ripped +2.89% to 680.87 today \u2014 short call at 721 is now only 5.9% OTM vs 5.9% yesterday, distance is holding but the velocity of this tech rally warrants close monitoring. Current mid $1.35 vs $0.85 credit means we're at 1.59x credit loss \u2014 approaching but not yet triggering the 1.5x cut rule at worst-case ($1.43 = 1.68x, that DOES breach the 1.5x rule)."
+    "action": "CRITICAL",
+    "confidence": 0.95,
+    "timestamp": "2026-07-30T16:39:34Z",
+    "reasoning": "Worst-case fill at $1.43 = 1.68x original credit of $0.85 \u2014 this hard-breaches the 1.5x cut rule. QQQ +2.89% today with tech momentum unrelenting, short call at 721 is only 5.9% OTM against a +2.89% single-day move."
   }
 }
