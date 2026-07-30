@@ -25039,6 +25039,33 @@
       "alternative": "ROLL: short strike is 3.1% OTM \u2014 candidate to roll to next monthly expiry for additional credit.",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20260730T145231_trade_019_spy_717_708",
+      "trade_id": "trade_019_spy_717_708",
+      "timestamp": "2026-07-30T14:52:32.108852-04:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 21 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently -16% captured ($-15 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 1.0899999999999999,
+        "cost_to_close_worst": 1.1100000000000003,
+        "profit_if_closed_mid": -14.999999999999991,
+        "profit_if_closed_worst": -17.000000000000036,
+        "pct_max_profit_captured_mid": -0.1595744680851063,
+        "dte": 21,
+        "underlying_price": 740.5800170898438,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 6558.605,
+        "day_pnl": 0.0
+      },
+      "alternative": "ROLL: short strike is 3.2% OTM \u2014 candidate to roll to next monthly expiry for additional credit.",
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
