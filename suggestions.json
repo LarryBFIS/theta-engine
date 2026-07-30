@@ -24769,6 +24769,33 @@
       "alternative": "Hold to expiry, but the next 21 days carry concentrated gamma risk.",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20260730T111915_trade_019_spy_717_708",
+      "trade_id": "trade_019_spy_717_708",
+      "timestamp": "2026-07-30T11:19:16.068804-04:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 21 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently -58% captured ($-55 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 1.4850000000000003,
+        "cost_to_close_worst": 1.52,
+        "profit_if_closed_mid": -54.500000000000036,
+        "profit_if_closed_worst": -58.00000000000001,
+        "pct_max_profit_captured_mid": -0.5797872340425536,
+        "dte": 21,
+        "underlying_price": 735.3400268554688,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 6486.148,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold to expiry, but the next 21 days carry concentrated gamma risk.",
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
