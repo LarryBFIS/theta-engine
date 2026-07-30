@@ -117,6 +117,11 @@ def _parse_occ(symbol: str) -> Optional[dict]:
 def _find_legs(trade: Trade, positions: list[PositionSnapshot]) -> dict:
     short_pos = None
     long_pos = None
+    # Match the trade's actual option type — a CALL vertical (bearish) has call legs,
+    # a PUT vertical (bullish) has put legs. This used to hard-match "P", so a call
+    # spread (e.g. a QQQ short-call vertical) found 0/2 legs and couldn't be priced,
+    # falling back to a fake mark = credit. Derive the right from the structure.
+    want = "C" if "call" in (trade.structure or "").lower() else "P"
     for p in positions:
         if not p.symbol:
             continue
@@ -127,7 +132,7 @@ def _find_legs(trade: Trade, positions: list[PositionSnapshot]) -> dict:
             continue
         if parsed["expiry"] != trade.expiry:
             continue
-        if parsed["right"] != "P":
+        if parsed["right"] != want:
             continue
         if abs(parsed["strike"] - trade.short_strike) < 0.005:
             short_pos = p
@@ -178,8 +183,14 @@ def compute_metrics(
 
     # Underlying distance
     if underlying_price:
-        m.short_strike_distance_pct = (underlying_price - trade.short_strike) / underlying_price
-        m.short_strike_breached = underlying_price < trade.short_strike
+        # Cushion + breach are direction-aware: a put short is breached when price
+        # falls BELOW it; a call short when price rises ABOVE it.
+        if "call" in (trade.structure or "").lower():
+            m.short_strike_distance_pct = (trade.short_strike - underlying_price) / underlying_price
+            m.short_strike_breached = underlying_price > trade.short_strike
+        else:
+            m.short_strike_distance_pct = (underlying_price - trade.short_strike) / underlying_price
+            m.short_strike_breached = underlying_price < trade.short_strike
 
     # Only compute close economics if we have quotes for BOTH legs
     have_marks = (
