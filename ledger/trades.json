@@ -831,8 +831,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -106.62,
-      "cost_to_close_mid": -173.5
+      "unrealized_pnl": -103.62,
+      "cost_to_close_mid": -176.5
     },
     {
       "id": "ledger_014_spy",
@@ -1190,14 +1190,34 @@
           "executed_at": "2026-07-21T18:14:09.826Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": -0.25,
-      "cost_to_close_mid": 92.0,
+      "close_orders": [
+        "489813192"
+      ],
+      "close_net_cash": -83.25,
+      "close_legs": [
+        {
+          "symbol": "SPY   260821P00708000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 2.09,
+          "net_cash": 208.87,
+          "fees": 0.13,
+          "executed_at": "2026-07-31T16:40:15.854Z"
+        },
+        {
+          "symbol": "SPY   260821P00717000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 2.92,
+          "net_cash": -292.12,
+          "fees": 0.12,
+          "executed_at": "2026-07-31T16:40:15.854Z"
+        }
+      ],
+      "closed_at": "2026-07-31",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": 8.5,
       "structure": "short_put_vertical",
       "short_strike": 717.0,
       "long_strike": 708.0,
@@ -1207,7 +1227,8 @@
       "width": 9.0,
       "max_profit_total": 94.0,
       "max_loss_total": 806.0,
-      "bpr_total": 806.0
+      "bpr_total": 806.0,
+      "close_debit_per_contract": 0.83
     },
     {
       "id": "ledger_020_iwm",
@@ -1373,8 +1394,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -60.75,
-      "cost_to_close_mid": 143.5,
+      "unrealized_pnl": -67.75,
+      "cost_to_close_mid": 150.5,
       "structure": "short_call_vertical",
       "short_strike": 721.0,
       "long_strike": 728.0,

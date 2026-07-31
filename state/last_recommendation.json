@@ -1,16 +1,10 @@
 {
-  "last_run": "2026-07-31T16:08:03.622844+00:00",
-  "market_view": "Market is largely flat today with SPY +0.15% and QQQ +0.14%, but XLK -0.9% and IWM -0.88% show continued sector rotation risk. VIX at 17.32 (+1.35%) with neither position closed despite repeated CRITICAL alerts \u2014 rule violations are compounding.",
-  "SPY 717/708p": {
-    "action": "CRITICAL",
-    "confidence": 0.99,
-    "timestamp": "2026-07-31T16:07:51.928745+00:00",
-    "reasoning": "DTE is 20 \u2014 the 21 DTE hard exit rule required closure yesterday, now on day 4 of violation. Current mid $0.955 is slightly above credit $0.94 but the exit rule is DTE-based, not P&L-based \u2014 this must close now."
-  },
+  "last_run": "2026-07-31T16:42:16.762623+00:00",
+  "market_view": "Market neutral with QQQ +0.38% today but down 0.8% on the week \u2014 tech weakness (XLK -1.79% 5d) is the headwind directly pressuring the QQQ 721/728c short call spread. VIX at 17.06 is benign but the damage to the QQQ position is already done.",
   "QQQ 721/728c": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-31T16:07:51.928745+00:00",
-    "reasoning": "Current mid $1.415 is 1.66x the $0.85 credit \u2014 hard stop at 1.5x ($1.275) was breached cycles ago and loss is now $56.50 mid vs $85 max profit; this position is past the mechanical stop and still open."
+    "timestamp": "2026-07-31T16:42:05.698418+00:00",
+    "reasoning": "Mid is $1.515, which is 1.78x the $0.85 credit \u2014 the 1.5x hard stop ($1.275) was blown through multiple cycles ago and this position has been flagged CRITICAL repeatedly with no action taken. Rule violation is compounding with 27 DTE still remaining and no P&L path to recovery at current levels."
   }
 }
