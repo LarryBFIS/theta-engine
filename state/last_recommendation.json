@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-07-31T14:57:07.825874+00:00",
-  "market_view": "VIX pulled back to 17.56 from ~18.49 earlier, market regime neutral with SPY/QQQ slightly green but IWM and most sectors still soft. No change to the position risk picture \u2014 rules violations from last cycle remain unresolved.",
+  "last_run": "2026-07-31T15:22:51.005648+00:00",
+  "market_view": "VIX ticking up +2.69% intraday with IWM and XLK leading weakness \u2014 mild risk-off tone but no panic. Both positions have hard rule violations that are unresolved from prior cycles and must be actioned now.",
   "SPY 717/708p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-31T14:56:56Z",
-    "reasoning": "DTE is 20 \u2014 the 21 DTE hard exit rule required closing this position last session, no exceptions per playbook. Current mid $0.97 vs $0.94 credit is near breakeven, this is the best fill window you'll get."
+    "timestamp": "2026-07-31T15:22:40Z",
+    "reasoning": "DTE is 20 \u2014 21 DTE hard exit rule required closing this position at last session open, no exceptions per playbook. This is the third consecutive cycle flagging this violation with no action taken."
   },
   "QQQ 721/728c": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-07-31T14:56:56Z",
-    "reasoning": "Current mid $1.525 is 1.79x the $0.85 credit \u2014 hard stop at 1.5x ($1.275) was breached multiple sessions ago with no action taken, loss is compounding and QQQ at $685.7 is still only 5.1% below the short 721 strike with 27 DTE remaining."
+    "timestamp": "2026-07-31T15:22:40Z",
+    "reasoning": "Current mid $1.44 is 1.69x the $0.85 credit \u2014 hard stop at 1.5x ($1.275) was breached multiple sessions ago with loss now compounding; QQQ at $683.18 is only 5.5% below short 721c strike with 27 DTE and VIX rising."
   }
 }
