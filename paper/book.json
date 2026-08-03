@@ -150,8 +150,8 @@
       "opened_credit": 0.62,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 18.0,
-      "current_debit": 0.44,
+      "unrealized_pnl": 21.0,
+      "current_debit": 0.41,
       "close_reason": null
     },
     {
@@ -210,21 +210,50 @@
       "opened_credit": 1.12,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -15.0,
-      "current_debit": 1.27,
+      "unrealized_pnl": -11.0,
+      "current_debit": 1.23,
+      "close_reason": null
+    },
+    {
+      "id": "paper_0008_spy",
+      "sig": "SPY_722_713_2026-09-04",
+      "underlying": "SPY",
+      "structure": "short_put_vertical",
+      "short_strike": 722.0,
+      "long_strike": 713.0,
+      "short_symbol": "SPY   260904P00722000",
+      "long_symbol": "SPY   260904P00713000",
+      "symbols": null,
+      "expiry": "2026-09-04",
+      "credit": 0.93,
+      "bpr": 807.0,
+      "pop": 0.802,
+      "iv_rank": 0.319,
+      "tag": "paper",
+      "contracts": 1,
+      "event": null,
+      "close_date": null,
+      "day_trade": null,
+      "close_after_et": null,
+      "opened_at": "2026-08-03",
+      "opened_credit": 0.93,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": 0.0,
+      "current_debit": 0.93,
       "close_reason": null
     }
   ],
-  "updated_at": "2026-08-03T13:41:07.577439+00:00",
+  "updated_at": "2026-08-03T13:55:43.989949+00:00",
   "summary": {
-    "trades": 7,
-    "open": 2,
+    "trades": 8,
+    "open": 3,
     "closed": 5,
     "wins": 2,
     "losses": 3,
     "win_rate": 0.4,
     "realized_pnl": -524.0,
-    "open_unrealized_pnl": 3.0,
-    "total_pnl": -521.0
+    "open_unrealized_pnl": 10.0,
+    "total_pnl": -514.0
   }
 }
