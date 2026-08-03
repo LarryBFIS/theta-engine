@@ -25697,6 +25697,34 @@
       "alternative": null,
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20260803T171612_trade_022_qqq_721_728",
+      "trade_id": "trade_022_qqq_721_728",
+      "timestamp": "2026-08-03T17:16:13.081533-04:00",
+      "action": "CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\ud83d\udcc9 Unrealized loss is $130 \u2014 >1.5\u00d7 credit received.",
+        "Mechanical loss-cutting trigger to avoid the full $615 max loss.",
+        "Close cost: $2.15 mid / $2.30 worst."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 2.1450000000000005,
+        "cost_to_close_worst": 2.3,
+        "profit_if_closed_mid": -129.50000000000003,
+        "profit_if_closed_worst": -144.99999999999997,
+        "pct_max_profit_captured_mid": -1.5235294117647065,
+        "dte": 24,
+        "underlying_price": 700.0700073242188,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 6494.88,
+        "day_pnl": 0.0
+      },
+      "alternative": null,
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
