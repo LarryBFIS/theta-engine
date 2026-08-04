@@ -831,8 +831,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -50.12,
-      "cost_to_close_mid": -230.0
+      "unrealized_pnl": -68.12,
+      "cost_to_close_mid": -212.0
     },
     {
       "id": "ledger_014_spy",
@@ -1394,8 +1394,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -230.75,
-      "cost_to_close_mid": 313.5,
+      "unrealized_pnl": -241.75,
+      "cost_to_close_mid": 324.5,
       "structure": "short_call_vertical",
       "short_strike": 721.0,
       "long_strike": 728.0,
@@ -1406,6 +1406,96 @@
       "max_profit_total": 85.0,
       "max_loss_total": 615.0,
       "bpr_total": 615.0
+    },
+    {
+      "id": "ledger_023_spy",
+      "underlying": "SPY",
+      "opened_at": "2026-08-04",
+      "open_order_id": "490464547",
+      "open_net_cash": 91.75,
+      "open_legs": [
+        {
+          "symbol": "SPY   260904P00721000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 2.66,
+          "net_cash": -267.12,
+          "fees": 1.12,
+          "executed_at": "2026-08-04T13:44:08.999Z"
+        },
+        {
+          "symbol": "SPY   260904P00731000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 3.6,
+          "net_cash": 358.87,
+          "fees": 1.13,
+          "executed_at": "2026-08-04T13:44:08.999Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": 9.75,
+      "cost_to_close_mid": 82.0,
+      "structure": "short_put_vertical",
+      "short_strike": 731.0,
+      "long_strike": 721.0,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "credit_per_contract": 0.94,
+      "width": 10.0,
+      "max_profit_total": 94.0,
+      "max_loss_total": 906.0,
+      "bpr_total": 906.0
+    },
+    {
+      "id": "ledger_024_qqq",
+      "underlying": "QQQ",
+      "opened_at": "2026-08-04",
+      "open_order_id": "490467660",
+      "open_net_cash": 94.74,
+      "open_legs": [
+        {
+          "symbol": "QQQ   260904P00657000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 4.03,
+          "net_cash": -404.12,
+          "fees": 1.12,
+          "executed_at": "2026-08-04T13:45:31.654Z"
+        },
+        {
+          "symbol": "QQQ   260904P00665000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 5.0,
+          "net_cash": 498.86,
+          "fees": 1.14,
+          "executed_at": "2026-08-04T13:45:31.654Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": 4.74,
+      "cost_to_close_mid": 90.0,
+      "structure": "short_put_vertical",
+      "short_strike": 665.0,
+      "long_strike": 657.0,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "credit_per_contract": 0.97,
+      "width": 8.0,
+      "max_profit_total": 97.0,
+      "max_loss_total": 703.0,
+      "bpr_total": 703.0
     }
   ]
 }
