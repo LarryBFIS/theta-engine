@@ -831,8 +831,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -68.12,
-      "cost_to_close_mid": -212.0
+      "unrealized_pnl": -65.62,
+      "cost_to_close_mid": -214.5
     },
     {
       "id": "ledger_014_spy",
@@ -1388,14 +1388,34 @@
           "executed_at": "2026-07-29T14:27:36.736Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": -241.75,
-      "cost_to_close_mid": 324.5,
+      "close_orders": [
+        "490558862"
+      ],
+      "close_net_cash": -320.27,
+      "close_legs": [
+        {
+          "symbol": "QQQ   260828C00728000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 11.54,
+          "net_cash": 1153.85,
+          "fees": 0.15,
+          "executed_at": "2026-08-04T14:41:17.769Z"
+        },
+        {
+          "symbol": "QQQ   260828C00721000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 14.74,
+          "net_cash": -1474.12,
+          "fees": 0.12,
+          "executed_at": "2026-08-04T14:41:17.769Z"
+        }
+      ],
+      "closed_at": "2026-08-04",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": -237.52,
       "structure": "short_call_vertical",
       "short_strike": 721.0,
       "long_strike": 728.0,
@@ -1405,7 +1425,8 @@
       "width": 7.0,
       "max_profit_total": 85.0,
       "max_loss_total": 615.0,
-      "bpr_total": 615.0
+      "bpr_total": 615.0,
+      "close_debit_per_contract": 3.2
     },
     {
       "id": "ledger_023_spy",
@@ -1439,8 +1460,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 9.75,
-      "cost_to_close_mid": 82.0,
+      "unrealized_pnl": 11.25,
+      "cost_to_close_mid": 80.5,
       "structure": "short_put_vertical",
       "short_strike": 731.0,
       "long_strike": 721.0,
@@ -1484,8 +1505,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 4.74,
-      "cost_to_close_mid": 90.0,
+      "unrealized_pnl": 2.74,
+      "cost_to_close_mid": 92.0,
       "structure": "short_put_vertical",
       "short_strike": 665.0,
       "long_strike": 657.0,
