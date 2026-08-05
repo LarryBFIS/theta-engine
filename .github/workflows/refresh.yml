@@ -19,6 +19,13 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 12
+    # AI provider — committed HERE (not a dashboard Variable) so the choice is
+    # version-controlled and auditable, and inherited by EVERY step that makes an
+    # LLM call. Switch providers by editing this one line: 'kimi' -> Moonshot/Kimi,
+    # 'claude' -> Anthropic. Keys stay secrets.
+    env:
+      AI_PROVIDER: kimi
+      MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -92,11 +99,8 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           AGENT_MODEL: ${{ vars.AGENT_MODEL }}
           AGENT_REVIEW_MODE: ${{ vars.AGENT_REVIEW_MODE }}
-          # Provider switch: set repo variable AI_PROVIDER=kimi to route the review
-          # to Moonshot/Kimi (needs the MOONSHOT_API_KEY secret). Unset/"claude" = Claude.
-          AI_PROVIDER: ${{ vars.AI_PROVIDER }}
-          MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
           MOONSHOT_MODEL: ${{ vars.MOONSHOT_MODEL }}
+          # AI_PROVIDER + MOONSHOT_API_KEY are inherited from the job-level env above.
         run: python -m scripts.scan_opportunities
 
       - name: Track paper trades

@@ -13,7 +13,10 @@ The two APIs differ in shape (Anthropic: `messages.create(system=..., content bl
 OpenAI/Moonshot: `chat.completions.create(messages=[{role:system},{role:user}])`), and
 this module hides that difference behind one `chat()` call that returns plain text.
 """
+import logging
 import os
+
+log = logging.getLogger("llm")
 
 CLAUDE = "claude"
 KIMI = "kimi"
@@ -42,6 +45,11 @@ def chat(system: str, user: str, model: str = None, max_tokens: int = 1024,
          timeout: int = 45) -> str:
     """One system+user turn against the active provider. Returns the reply text.
     Raises on a missing key or API error (callers already guard/catch)."""
+    # Loud, unmissable line so a misconfig is obvious in the logs instead of silently
+    # falling back to Claude (which is exactly what bit us setting this up).
+    log.info("llm call · provider=%s · model=%s · key=%s",
+             provider(), model or active_model("(caller default)"),
+             "present" if api_key_present() else "MISSING")
     if provider() == KIMI:
         # Moonshot speaks the OpenAI Chat Completions dialect — lazy import so the
         # openai package is only needed when actually running on Kimi.
