@@ -1,6 +1,6 @@
 # Ledger Summary
 
-_Generated 2026-08-05T18:39:10.857997+00:00 from tastytrade transaction history._
+_Generated 2026-08-05T18:39:42.580352+00:00 from tastytrade transaction history._
 
 ## Reconciliation
 
@@ -12,7 +12,7 @@ _Generated 2026-08-05T18:39:10.857997+00:00 from tastytrade transaction history.
 | Strategy unrealized (open) | $-1.12 |
 | **Strategy P&L** | **$+18.70** |
 | Money movement | $+2,999.73 |
-| Non-strategy activity | $+213.76 |
+| Non-strategy activity | $+214.26 |
 | **Account P&L** | **$+3,232.19** |
 
 _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger positions closed in-window). Total fees paid: $71.48._
@@ -52,4 +52,4 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 | ledger_023_spy | SPY | 2026-08-04 | 2026-08-04 | closed | $+25.50 | — |
 | ledger_024_qqq | QQQ | 2026-08-04 | 2026-08-04 | closed | $+22.49 | — |
 | ledger_025_spy | SPY | 2026-08-05 | 2026-08-05 | closed | $-10.50 | — |
-| ledger_026_spy | SPY | 2026-08-05 | — | open | — | $+1.25 |
+| ledger_026_spy | SPY | 2026-08-05 | — | open | — | $+0.75 |
