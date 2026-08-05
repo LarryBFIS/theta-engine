@@ -1,21 +1,21 @@
 # Ledger Summary
 
-_Generated 2026-08-05T15:58:53.305078+00:00 from tastytrade transaction history._
+_Generated 2026-08-05T16:05:44.936825+00:00 from tastytrade transaction history._
 
 ## Reconciliation
 
 | Item | Amount |
 |---|---:|
 | Starting capital | $3,389.91 |
-| Net liq (now) | $6,634.33 |
-| Strategy realized (closed) | $+30.32 |
-| Strategy unrealized (open) | $-21.62 |
-| **Strategy P&L** | **$+8.70** |
+| Net liq (now) | $6,602.26 |
+| Strategy realized (closed) | $+19.82 |
+| Strategy unrealized (open) | $-16.87 |
+| **Strategy P&L** | **$+2.95** |
 | Money movement | $+2,999.73 |
-| Non-strategy activity | $+235.99 |
-| **Account P&L** | **$+3,244.42** |
+| Non-strategy activity | $+209.67 |
+| **Account P&L** | **$+3,212.35** |
 
-_Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger positions closed in-window). Total fees paid: $68.98._
+_Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger positions closed in-window). Total fees paid: $69.23._
 
 ### Money movement detail
 
@@ -39,7 +39,7 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 | ledger_010_spy | SPY | 2026-06-22 | 2026-07-01 | closed | $+41.50 | — |
 | ledger_011_cost | COST | 2026-06-22 | 2026-06-25 | closed | $+21.48 | — |
 | ledger_012_spy | SPY | 2026-06-23 | 2026-06-30 | closed | $+52.49 | — |
-| ledger_013_slv | SLV | 2026-06-25 | — | open | — | $+24.88 |
+| ledger_013_slv | SLV | 2026-06-25 | — | open | — | $+20.38 |
 | ledger_014_spy | SPY | 2026-07-02 | 2026-07-09 | closed | $+14.50 | — |
 | ledger_015_spy | SPY | 2026-07-06 | 2026-07-16 | closed | $+8.50 | — |
 | ledger_016_iwm | IWM | 2026-07-08 | 2026-07-16 | closed | $+21.50 | — |
@@ -51,4 +51,4 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 | ledger_022_qqq | QQQ | 2026-07-29 | 2026-08-04 | closed | $-237.52 | — |
 | ledger_023_spy | SPY | 2026-08-04 | 2026-08-04 | closed | $+25.50 | — |
 | ledger_024_qqq | QQQ | 2026-08-04 | 2026-08-04 | closed | $+22.49 | — |
-| ledger_025_spy | SPY | 2026-08-05 | — | open | — | $-9.25 |
+| ledger_025_spy | SPY | 2026-08-05 | 2026-08-05 | closed | $-10.50 | — |
