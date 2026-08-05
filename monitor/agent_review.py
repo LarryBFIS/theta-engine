@@ -211,14 +211,12 @@ def apply_decisions(candidates, parsed):
 
 
 def _call_claude(system, user, model=None, max_tokens=MAX_TOKENS, timeout=45):
-    """One Anthropic Messages call; returns the text. Raises on missing key/error."""
-    import anthropic
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"],
-                                 timeout=timeout)
-    resp = client.messages.create(
-        model=model or DEFAULT_MODEL, max_tokens=max_tokens,
-        system=system, messages=[{"role": "user", "content": user}])
-    return "".join(b.text for b in resp.content if getattr(b, "type", None) == "text")
+    """One chat call to the ACTIVE provider (Claude or Kimi); returns the text.
+    Routed through monitor.llm so AI_PROVIDER=kimi moves this call to Moonshot with
+    no other change. Raises on missing key/error (run() catches)."""
+    from monitor import llm
+    return llm.chat(system, user, model=model or llm.active_model(DEFAULT_MODEL),
+                    max_tokens=max_tokens, timeout=timeout)
 
 
 def _journal(entry):
@@ -235,8 +233,9 @@ def run(candidates, ctx):
     raises for an operational reason — disabled/erroring -> candidates unchanged."""
     if not candidates:
         return candidates, None
-    if not os.getenv("ANTHROPIC_API_KEY"):
-        log.info("agent review disabled (no ANTHROPIC_API_KEY) — passing %d through", len(candidates))
+    from monitor import llm
+    if not llm.api_key_present():
+        log.info("agent review disabled (no %s key) — passing %d through", llm.provider(), len(candidates))
         return candidates, None
     ctx = ctx or {}
     if not should_review(candidates, ctx):
@@ -253,7 +252,7 @@ def run(candidates, ctx):
     kept, decision_log = apply_decisions(candidates, parsed)
     summary = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "model": DEFAULT_MODEL,
+        "model": llm.active_model(DEFAULT_MODEL),
         "portfolio_note": parsed.get("portfolio_note", ""),
         "reviewed": len(candidates), "vetoed": sum(1 for d in decision_log if d["action"] == "veto"),
         "downsized": sum(1 for d in decision_log if d["action"] == "downsize"),
