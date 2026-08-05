@@ -701,7 +701,17 @@ function paintOpps(){
   if(!top.length){ box.innerHTML='<div class="fitem" style="color:var(--dim)">'+(OPP_CORE?'no SPY/IWM setups right now':'no setups pass filters right now')+'</div>'; return; }
   const item=(o,i)=>{
     const code=structCode(o.structure), tag=(o.tag==='live')?'live':'paper';
-    const strikes=(code==='IC'||code==='RIC')?`${o.short_strike}p/${o.long_strike}c`:`${o.short_strike}/${o.long_strike}${code==='VC'?'c':'p'}`;
+    // Iron condors are 4 legs — show all four strikes (both wings), not just the two
+    // shorts, so the defined-risk boundaries are visible. Strikes parsed from the OCC
+    // symbols; falls back to the two shorts if the wing symbols are missing.
+    const _occK=s=>{const m=/(\d{8})$/.exec(s||'');return m?(+m[1]/1000):null;};
+    const icStrikes=()=>{
+      const s=o.symbols||{}, pl=_occK(s.put_long), ps=_occK(s.put_short),
+            cs=_occK(s.call_short), cl=_occK(s.call_long);
+      return (pl!=null&&ps!=null&&cs!=null&&cl!=null)
+        ? `${pl}/${ps}p · ${cs}/${cl}c` : `${o.short_strike}p/${o.long_strike}c`;
+    };
+    const strikes=(code==='IC'||code==='RIC')?icStrikes():`${o.short_strike}/${o.long_strike}${code==='VC'?'c':'p'}`;
     const ev=Math.round(o.ev_per_contract||0);
     const aiReason=(o.agent_reason||'').replace(/"/g,'&quot;');
     const ai=o.agent_reviewed
