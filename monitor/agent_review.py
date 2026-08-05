@@ -90,6 +90,11 @@ def _constitution(learnings):
         "- Prefer index ETFs over single names (idiosyncratic gap risk).",
         "- Keep size small until edge is proven; never let one loss be catastrophic.",
         "- When in doubt, do less. Vetoing a marginal trade is a valid, good outcome.",
+        "- Timing matters: the same setup is smart in a calm tape and reckless in a fast",
+        "  one. Read the CURRENT regime/direction (VIX, regime_note) and weigh whether NOW",
+        "  is a good moment to add this specific short-premium bet — not just whether it's",
+        "  allowed. Selling puts into an accelerating sell-off, or calls into a rip, is",
+        "  poorly timed even when it passes the caps.",
         "",
         "AUTHORITY (hard limits — you CANNOT exceed these):",
         "- You may ONLY make a trade more conservative: 'approve', 'downsize'",
@@ -107,11 +112,15 @@ def _constitution(learnings):
                     lines.append("- {} '{}': {}".format(dim, v, b.get("recommendation")))
     lines += ["",
               "OUTPUT: strict JSON only, no prose outside it:",
-              '{"portfolio_note": "<=2 sentences on overall book risk",',
+              '{"market_view": "<=2 sentences: your read on the tape RIGHT NOW —',
+              '   direction bias + vol regime + what it means for TIMING these premium sells",',
+              ' "portfolio_note": "<=2 sentences on overall book risk",',
               ' "decisions": [{"id": "<echo the candidate id>",',
               '   "action": "approve|downsize|veto",',
               '   "contracts": <int, only if downsize>,',
-              '   "reason": "<one concise sentence>"}]}',
+              '   "reason": "<one concise sentence; cite timing/tape when relevant>"}]}',
+              "Weigh your market_view in the decisions: veto or downsize a setup that is",
+              "poorly timed for the current tape, even if the caps would allow it.",
               "Include every candidate id exactly once."]
     return "\n".join(lines)
 
@@ -253,6 +262,7 @@ def run(candidates, ctx):
     summary = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "model": llm.active_model(DEFAULT_MODEL),
+        "market_view": parsed.get("market_view", ""),
         "portfolio_note": parsed.get("portfolio_note", ""),
         "reviewed": len(candidates), "vetoed": sum(1 for d in decision_log if d["action"] == "veto"),
         "downsized": sum(1 for d in decision_log if d["action"] == "downsize"),

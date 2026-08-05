@@ -382,6 +382,7 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
 <aside class="feed">
   <div class="phead"><span class="t">⚡ OPPORTUNITIES</span><span class="meta"><span id="oppfilter" onclick="toggleOppCore()" title="Toggle: ALL opportunities, or only SPY/IWM — the engine's proven sweet spot (100% win rate vs ~17% on big tech)" style="cursor:pointer;border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:1px 6px;font-size:10px;margin-right:8px">ALL</span><span class="dot" style="width:6px;height:6px;display:inline-block;vertical-align:middle"></span> <span id="feedtime">—</span></span></div>
   <div id="macrobanner"></div>
+  <div id="agentview"></div>
   <div id="feedbody"><div class="fitem" style="color:var(--dim)">loading scanner…</div></div>
   <div class="phead"><span class="t">🌊 LONG-VOL WATCH</span><span class="meta"><span id="lvtime">—</span></span></div>
   <div id="lvbody"><div class="fitem" style="color:var(--dim)">loading…</div></div>
@@ -762,9 +763,21 @@ function paintMacro(scan){
     <span style="color:var(--dim);margin-left:6px">${msg}</span></div>`;
 }
 
+// The AI reviewer's live market view (Kimi/Claude) — its read on the tape and what it
+// means for TIMING these premium sells, shown right where you're deciding to open one.
+function paintAgentView(scan){
+  const el=$('agentview'); if(!el) return;
+  const a=(scan&&scan.agent)||{}; const mv=(a.market_view||'').trim();
+  if(!mv){ el.innerHTML=''; return; }
+  const model=(a.model||'AI');
+  el.innerHTML=`<div style="padding:9px 13px;border-bottom:1px solid var(--line);background:rgba(70,214,255,.05);font-size:11px;line-height:1.55">
+    <span style="color:var(--cyan);font-weight:700;letter-spacing:.04em">🧠 ${model} read</span>
+    <span style="color:var(--txt);margin-left:6px">${mv}</span></div>`;
+}
+
 async function loadFeed(){
   let scan=null; try{ scan=await fetchJSON(SCAN_URL); }catch(e){ console.warn('feed', e); }
-  window.OPP_SCAN=scan; paintOpps(); paintMacro(scan);
+  window.OPP_SCAN=scan; paintOpps(); paintMacro(scan); paintAgentView(scan);
   const t=$('feedtime'); if(t) t.textContent=(scan&&scan.generated_at)?new Date(scan.generated_at).toLocaleString('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})+' CDT':'—';
 
   // long-vol watch — cheap IV into a near catalyst (same scan payload, paper-only)
