@@ -1,10 +1,10 @@
 # Opportunity scan
 
-_Generated 2026-08-05T19:40:32.417480+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (-6% day)._
+_Generated 2026-08-05T20:16:39.786814+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (-5% day)._
 
 | # | Trade | Tag | DTE | Credit | BPR | POP | Cr/BPR | EV/ctr | EV/BPR | IVR |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | QQQ 662/779p | PAPER | 30 | $1.28 | $772 | 76% | 17% | $+0 | 0.1% | 55% |
+| 1 | QQQ 675/666p | PAPER | 30 | $0.98 | $802 | 80% | 12% | $+7 | 0.9% | 56% |
 
 ## Long-vol watch · cheap IV into a catalyst (paper only)
 
