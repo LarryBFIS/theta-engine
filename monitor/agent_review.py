@@ -151,6 +151,7 @@ def _user_message(candidates, ctx):
             "id": cand_id(c), "underlying": c.get("underlying"),
             "asset_class": asset_class(c.get("underlying")), "cluster": cluster_of(c.get("underlying")),
             "structure": c.get("structure"), "dte": c.get("dte"),
+            "short_term": bool(c.get("short_term")),
             "short_strike": c.get("short_strike"), "long_strike": c.get("long_strike"),
             "credit": c.get("credit"), "pop": c.get("pop"), "iv_rank": c.get("iv_rank"),
             "ev_on_bpr": c.get("ev_on_bpr"), "contracts": c.get("contracts"),

@@ -726,6 +726,7 @@ function paintOpps(){
     const _posted=o.posted_at?new Date(o.posted_at).toLocaleString('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})+' CDT':'';
     return `<div class="fitem ${tag} reveal" style="animation-delay:${(0.04*i).toFixed(2)}s">
       <div class="fhead"><span class="sym">${o.underlying}</span> <span class="${code==='VC'?'tagC':(code==='VP'?'tagP':'tagIC')}">${code}</span> <span class="struct">${strikes}</span>
+        ${o.short_term?`<span class="ftag" style="color:var(--amber);border-color:#3a3015" title="short-dated, high-POP — cleared every quality gate (EV>0)">⚡ ${o.dte}d</span>`:''}
         <span class="ftag ${tag}">${tag.toUpperCase()}</span></div>
       <div class="fmeta"><b>$${(+o.credit).toFixed(2)}</b>cr · POP ${Math.round((o.pop||0)*100)}% · IVR ${Math.round((o.iv_rank||0)*100)}% · EV ${ev>=0?'+':''}$${ev}</div>
       <div class="fmeta">${ai}</div>

@@ -66,6 +66,17 @@ DTE_MAX = int(os.getenv("SCAN_DTE_MAX", "60"))               # P4: 50->60
 TARGET_POP = float(os.getenv("SCAN_TARGET_POP", "0.80"))     # ~0.20Δ short put
 MIN_POP = float(os.getenv("SCAN_MIN_POP", "0.70"))
 MAX_POP = float(os.getenv("SCAN_MAX_POP", "0.90"))
+# Short-term / high-POP pass (Option B). Searches SHORTER expiries at a HIGHER POP,
+# but keeps every quality gate (credit/width, liquidity, EV>0 after fees). So it
+# only surfaces short-dated trades that GENUINELY clear the bar — and in quiet vol
+# that's an empty list, which is the honest answer (short-dated high-POP is usually
+# -EV: thin credit, fat tail). Index ETFs only — no short-DTE single-name gambles.
+ST_ENABLED = (os.getenv("SCAN_SHORT_TERM") or "1") not in ("0", "false", "no", "")
+ST_DTE_MIN = int(os.getenv("SCAN_ST_DTE_MIN", "7"))
+ST_DTE_MAX = int(os.getenv("SCAN_ST_DTE_MAX", "21"))
+ST_TARGET_POP = float(os.getenv("SCAN_ST_TARGET_POP", "0.90"))
+ST_MIN_POP = float(os.getenv("SCAN_ST_MIN_POP", "0.85"))
+ST_MAX_POP = float(os.getenv("SCAN_ST_MAX_POP", "0.97"))
 WIDTH_PCT = float(os.getenv("SCAN_WIDTH_PCT", "0.012"))      # spread width ≈ 1.2% of price
 MIN_WIDTH = float(os.getenv("SCAN_MIN_WIDTH", "5"))          # preferred floor width ($)
 MIN_WIDTH_FLOOR = float(os.getenv("SCAN_MIN_WIDTH_FLOOR", "1"))  # hard floor when account forces narrow
@@ -294,7 +305,7 @@ def conviction_tag(ev_on_bpr, iv_rank, liquidity):
 
 def build_candidate(underlying, expiry, dte, short, long_, short_q, long_q,
                     price, iv, iv_rank, liquidity=None, earnings_date=None,
-                    short_symbol=None, long_symbol=None):
+                    short_symbol=None, long_symbol=None, pop_band=None):
     """Assemble + score a short-put-vertical candidate using EXECUTABLE prices,
     or None if it fails the liquidity/credit/POP/EV filters.
 
@@ -319,9 +330,10 @@ def build_candidate(underlying, expiry, dte, short, long_, short_q, long_q,
     if exec_credit / width < MIN_CREDIT_RATIO:
         return _no("pv: credit/width {:.2f} < {:.2f}".format(exec_credit / width, MIN_CREDIT_RATIO))
     pop = put_pop(price, short, iv, dte)
-    if pop is None or not (MIN_POP <= pop <= MAX_POP):
+    lo_pop, hi_pop = pop_band or (MIN_POP, MAX_POP)
+    if pop is None or not (lo_pop <= pop <= hi_pop):
         return _no("pv: pop {} outside {:.0%}-{:.0%}".format(
-            "{:.0%}".format(pop) if pop is not None else "n/a", MIN_POP, MAX_POP))
+            "{:.0%}".format(pop) if pop is not None else "n/a", lo_pop, hi_pop))
     bpr = round((width - exec_credit) * 100.0, 2)
     if bpr <= 0:
         return _no("pv: bpr <= 0")
@@ -1015,6 +1027,58 @@ def day_trade_pass(client, prices, metrics, today):
     return out
 
 
+def _short_term_candidates(client, syms, metrics, prices, today):
+    """Option B: shorter-DTE, higher-POP put verticals — with EVERY quality gate kept
+    (credit/width, liquidity, EV>0 after fees). Index ETFs only, paper-only, tagged
+    short_term. Returns the ones that genuinely clear the bar ([] in quiet vol — the
+    honest answer). Never raises: a per-name failure just skips that name."""
+    if not ST_ENABLED:
+        return []
+    out = []
+    for sym in syms:
+        if asset_class(sym) != "index_etf":          # proven index names only
+            continue
+        m, price = metrics.get(sym), prices.get(sym)
+        if not m or m.get("iv") is None or not price:
+            continue
+        try:
+            exp = fetch_chain_expiration(client, sym, dte_min=ST_DTE_MIN, dte_max=ST_DTE_MAX)
+            if not exp:
+                continue
+            expiry, dte, puts, calls = exp
+            if m.get("earnings_date") and today <= m["earnings_date"] <= (expiry or "9999"):
+                continue                              # never span earnings
+            sel = choose_strikes(list(puts.keys()), price, m["iv"], dte, target_pop=ST_TARGET_POP,
+                                 width=target_width(price, max_loss_cap=MAX_LOSS_FRAC * PAPER_CAPITAL))
+            if not sel:
+                continue
+            s, l = sel
+            q = client.fetch_option_quotes([puts[s], puts[l]])
+            if not (q.get(puts[s]) and q.get(puts[l])):
+                continue
+            cand = build_candidate(sym, expiry, dte, s, l, q[puts[s]], q[puts[l]],
+                                   price, m["iv"], m.get("iv_rank") or 0.0, m.get("liquidity"),
+                                   m.get("earnings_date"), short_symbol=puts[s], long_symbol=puts[l],
+                                   pop_band=(ST_MIN_POP, ST_MAX_POP))
+            if not cand:                              # failed a quality gate (EV/credit/liquidity) — good
+                continue
+            n = min(size_for_caps(cand["max_loss"], cand["bpr"], PAPER_CAPITAL, 0.0), MAX_CONTRACTS)
+            if n == 0:
+                continue
+            cand.update({
+                "contracts": n, "tag": "paper", "sized_for": "paper", "short_term": True,
+                "trend": "n/a",
+                "max_loss_total": round(cand["max_loss"] * n, 2),
+                "bpr_total": round(cand["bpr"] * n, 2),
+            })
+            out.append(cand)
+        except Exception as e:  # noqa: BLE001 — never break the scan on a short-term probe
+            log.warning("short-term probe failed for %s: %s", sym, e)
+    if out:
+        log.info("short-term pass: %d high-POP short-DTE candidate(s) cleared the bar", len(out))
+    return out
+
+
 def main() -> int:
     logging.basicConfig(level=logging.INFO,
                         format="%(asctime)s %(levelname)-7s %(name)s · %(message)s",
@@ -1145,6 +1209,11 @@ def main() -> int:
                        "expiry": c["expiry"], "enter_date": c["enter_date"],
                        "close_date": c["close_date"], "status": "enter", "tag": "paper",
                        "reasoning": c["reasoning"]})
+
+    # Option B short-term pass: shorter-DTE, higher-POP index trades that still clear
+    # every quality gate. Merged into the candidate pool so they rank + get Kimi's
+    # review like any other (usually empty — that's the honest answer).
+    candidates.extend(_short_term_candidates(client, syms, metrics, prices, today))
 
     # Phase 2: fold in learned realized edge. Refresh learnings from the outcomes
     # ledger and tilt each candidate's rank by its bucket multiplier (asset_class ×
