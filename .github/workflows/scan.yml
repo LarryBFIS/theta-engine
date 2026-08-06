@@ -14,6 +14,11 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    # Keep the AI reviewer in sync with refresh.yml — this standalone scan runs the
+    # same review, so it needs the same provider config or it silently uses Claude.
+    env:
+      AI_PROVIDER: kimi
+      MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
