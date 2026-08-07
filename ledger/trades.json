@@ -429,8 +429,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -32.25,
-      "cost_to_close_mid": 80.0,
+      "unrealized_pnl": -29.75,
+      "cost_to_close_mid": 77.5,
       "structure": "short_put_vertical",
       "short_strike": 61.0,
       "long_strike": 60.0,
@@ -831,8 +831,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 59.88,
-      "cost_to_close_mid": -340.0
+      "unrealized_pnl": 54.88,
+      "cost_to_close_mid": -335.0
     },
     {
       "id": "ledger_014_spy",
@@ -1658,8 +1658,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 15.75,
-      "cost_to_close_mid": 75.0,
+      "unrealized_pnl": 12.75,
+      "cost_to_close_mid": 78.0,
       "structure": "short_put_vertical",
       "short_strike": 742.0,
       "long_strike": 733.0,
@@ -1670,6 +1670,51 @@
       "max_profit_total": 93.0,
       "max_loss_total": 807.0,
       "bpr_total": 807.0
+    },
+    {
+      "id": "ledger_027_qqq",
+      "underlying": "QQQ",
+      "opened_at": "2026-08-07",
+      "open_order_id": "491992939",
+      "open_net_cash": 107.74,
+      "open_legs": [
+        {
+          "symbol": "QQQ   260911P00677000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 5.25,
+          "net_cash": 523.86,
+          "fees": 1.14,
+          "executed_at": "2026-08-07T17:06:46.608Z"
+        },
+        {
+          "symbol": "QQQ   260911P00668000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 4.15,
+          "net_cash": -416.12,
+          "fees": 1.12,
+          "executed_at": "2026-08-07T17:06:46.608Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -3.26,
+      "cost_to_close_mid": 111.0,
+      "structure": "short_put_vertical",
+      "short_strike": 677.0,
+      "long_strike": 668.0,
+      "expiry": "2026-09-11",
+      "contracts": 1,
+      "credit_per_contract": 1.1,
+      "width": 9.0,
+      "max_profit_total": 110.0,
+      "max_loss_total": 790.0,
+      "bpr_total": 790.0
     }
   ]
 }
