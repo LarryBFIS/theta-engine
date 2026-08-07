@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-07T17:06:48.780265+00:00",
+  "generated_at": "2026-08-07T17:19:00.348355+00:00",
   "regime": {
-    "vix": 14.96,
-    "vix_day_change_pct": -0.0125,
+    "vix": 14.99,
+    "vix_day_change_pct": -0.0106,
     "level": "calm",
     "stand_down": false,
     "note": "calm regime (-1% day)"
@@ -34,14 +34,14 @@
       "bpr": 794.0,
       "max_loss": 794.0,
       "pop": 0.801,
-      "short_delta": 0.18,
-      "short_spread_pct": 0.013,
+      "short_delta": 0.179,
+      "short_spread_pct": 0.011,
       "credit_to_bpr": 0.134,
-      "ev_per_contract": 7.81,
-      "ev_on_bpr": 0.0098,
+      "ev_per_contract": 7.88,
+      "ev_on_bpr": 0.0099,
       "iv": 0.2297,
       "iv_rank": 0.506,
-      "underlying_price": 720.77,
+      "underlying_price": 720.83,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -58,9 +58,9 @@
         "cluster=us_tech \u00d70.76",
         "structure=short_put_vertical \u00d71.31"
       ],
-      "rank_score": 0.006458,
+      "rank_score": 0.006524,
       "agent_action": "guarded",
-      "agent_reason": "Book already holds a QQQ short-vol position (per-name cap reached) and us_tech is an engine-flagged AVOID cluster (26% WR) \u2014 stacking a second correlated QQQ bet in a low-VIX tape adds concentration for thin premium.",
+      "agent_reason": "QQQ already has an open position (per-name cap reached) and our book shows negative expectancy in us_tech, so this doubles correlated long-delta risk for thin calm-tape premium on a down day.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -68,13 +68,18 @@
         "level": "veto",
         "hits": [
           {
+            "title": "S&P 500 Hits Record Highs \u2014 But BofA Warns Bullish Sentiment Has Gone Too Far",
+            "severity": 2,
+            "keyword": "warns"
+          },
+          {
             "title": "Trade Desk Plunges 28% After Earnings Miss Triggers Downgrade Avalanche; Ad-Tech Peers AppLovin and Magnite Hold Firm",
             "severity": 3,
             "keyword": "plunge"
           }
         ]
       },
-      "net_liq": 6775.906,
+      "net_liq": 6776.2,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
@@ -110,12 +115,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 677.59,
+        "live_cap": 677.62,
         "suggested_width": 7,
         "fit_note": "\u26a0 max loss $794 > 10% live cap ($678) \u2014 narrow to ~7-wide for live, or keep on paper.",
         "text": "QQQ VP \u00d71 \u2014 SELL 677P / BUY 668P (2026-09-11) @ $1.06 net credit. Max loss $794. After fill: GTC buy-to-close @ $0.53 (50%). \u26a0 max loss $794 > 10% live cap ($678) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-07T17:06:48.780265+00:00"
+      "posted_at": "2026-08-07T17:19:00.348355+00:00"
     }
   ],
   "long_vol": [],
@@ -168,10 +173,10 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-08-07T17:06:48.582954+00:00",
+    "generated_at": "2026-08-07T17:19:00.148430+00:00",
     "model": "kimi-k3",
-    "market_view": "VIX 14.96 in a calm regime with a mild -1% day and no scheduled macro events \u2014 a benign tape for short premium, but low implied vol means credits are thin and compensation for added risk is modest. Timing is acceptable for diversified index exposure, not for doubling up on a single tech bet.",
-    "portfolio_note": "The book already holds 4 correlated US index short-vol positions (QQQ, IWM, DIA, SPY), including one QQQ \u2014 adding a second QQQ put vertical concentrates us_tech risk rather than diversifying. Correlated positions are one bet sized up, and this cluster has negative realized expectancy.",
+    "market_view": "VIX ~15 in a calm regime with a mild -1% day: no event risk, but vol is cheap so the volatility risk premium is thin and put credits are skimpy. This is a tape for patient, small premium sells in uncorrelated names \u2014 not for adding delta to an underlier we already own.",
+    "portfolio_note": "All 4 open positions are US equity index ETFs (QQQ/IWM/DIA/SPY), effectively one correlated long-delta/short-vol bet; total book risk is moderate but concentration is the dominant exposure. Adding another QQQ put spread doubles a single name and deepens the same factor bet.",
     "reviewed": 1,
     "vetoed": 1,
     "downsized": 0,
@@ -179,7 +184,7 @@
       {
         "id": "QQQ|short_put_vertical|677/668",
         "action": "veto",
-        "reason": "Book already holds a QQQ short-vol position (per-name cap reached) and us_tech is an engine-flagged AVOID cluster (26% WR) \u2014 stacking a second correlated QQQ bet in a low-VIX tape adds concentration for thin premium."
+        "reason": "QQQ already has an open position (per-name cap reached) and our book shows negative expectancy in us_tech, so this doubles correlated long-delta risk for thin calm-tape premium on a down day."
       }
     ]
   },
@@ -200,14 +205,14 @@
       "bpr": 794.0,
       "max_loss": 794.0,
       "pop": 0.801,
-      "short_delta": 0.18,
-      "short_spread_pct": 0.013,
+      "short_delta": 0.179,
+      "short_spread_pct": 0.011,
       "credit_to_bpr": 0.134,
-      "ev_per_contract": 7.81,
-      "ev_on_bpr": 0.0098,
+      "ev_per_contract": 7.88,
+      "ev_on_bpr": 0.0099,
       "iv": 0.2297,
       "iv_rank": 0.506,
-      "underlying_price": 720.77,
+      "underlying_price": 720.83,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -224,9 +229,9 @@
         "cluster=us_tech \u00d70.76",
         "structure=short_put_vertical \u00d71.31"
       ],
-      "rank_score": 0.006458,
+      "rank_score": 0.006524,
       "agent_action": "guarded",
-      "agent_reason": "Book already holds a QQQ short-vol position (per-name cap reached) and us_tech is an engine-flagged AVOID cluster (26% WR) \u2014 stacking a second correlated QQQ bet in a low-VIX tape adds concentration for thin premium.",
+      "agent_reason": "QQQ already has an open position (per-name cap reached) and our book shows negative expectancy in us_tech, so this doubles correlated long-delta risk for thin calm-tape premium on a down day.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -234,13 +239,18 @@
         "level": "veto",
         "hits": [
           {
+            "title": "S&P 500 Hits Record Highs \u2014 But BofA Warns Bullish Sentiment Has Gone Too Far",
+            "severity": 2,
+            "keyword": "warns"
+          },
+          {
             "title": "Trade Desk Plunges 28% After Earnings Miss Triggers Downgrade Avalanche; Ad-Tech Peers AppLovin and Magnite Hold Firm",
             "severity": 3,
             "keyword": "plunge"
           }
         ]
       },
-      "net_liq": 6775.906,
+      "net_liq": 6776.2,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
@@ -276,12 +286,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 677.59,
+        "live_cap": 677.62,
         "suggested_width": 7,
         "fit_note": "\u26a0 max loss $794 > 10% live cap ($678) \u2014 narrow to ~7-wide for live, or keep on paper.",
         "text": "QQQ VP \u00d71 \u2014 SELL 677P / BUY 668P (2026-09-11) @ $1.06 net credit. Max loss $794. After fill: GTC buy-to-close @ $0.53 (50%). \u26a0 max loss $794 > 10% live cap ($678) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-07T17:06:48.780265+00:00"
+      "posted_at": "2026-08-07T17:19:00.348355+00:00"
     }
   ],
   "skipped": {

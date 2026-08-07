@@ -429,8 +429,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -29.75,
-      "cost_to_close_mid": 77.5,
+      "unrealized_pnl": -32.25,
+      "cost_to_close_mid": 80.0,
       "structure": "short_put_vertical",
       "short_strike": 61.0,
       "long_strike": 60.0,
@@ -1652,14 +1652,34 @@
           "executed_at": "2026-08-05T17:25:15.008Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": 12.75,
-      "cost_to_close_mid": 78.0,
+      "close_orders": [
+        "491997867"
+      ],
+      "close_net_cash": -78.25,
+      "close_legs": [
+        {
+          "symbol": "SPY   260904P00733000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 2.14,
+          "net_cash": 213.87,
+          "fees": 0.13,
+          "executed_at": "2026-08-07T17:14:37.292Z"
+        },
+        {
+          "symbol": "SPY   260904P00742000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 2.92,
+          "net_cash": -292.12,
+          "fees": 0.12,
+          "executed_at": "2026-08-07T17:14:37.292Z"
+        }
+      ],
+      "closed_at": "2026-08-07",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": 12.5,
       "structure": "short_put_vertical",
       "short_strike": 742.0,
       "long_strike": 733.0,
@@ -1669,7 +1689,8 @@
       "width": 9.0,
       "max_profit_total": 93.0,
       "max_loss_total": 807.0,
-      "bpr_total": 807.0
+      "bpr_total": 807.0,
+      "close_debit_per_contract": 0.78
     },
     {
       "id": "ledger_027_qqq",
