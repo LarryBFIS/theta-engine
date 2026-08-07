@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T17:19:00.348355+00:00",
+  "generated_at": "2026-08-07T17:25:32.787717+00:00",
   "regime": {
     "vix": 14.99,
     "vix_day_change_pct": -0.0106,
@@ -29,7 +29,7 @@
       "long_symbol": "QQQ   260911P00668000",
       "width": 9.0,
       "credit": 1.06,
-      "mid_credit": 1.12,
+      "mid_credit": 1.11,
       "fees_est": 3.0,
       "bpr": 794.0,
       "max_loss": 794.0,
@@ -37,11 +37,11 @@
       "short_delta": 0.179,
       "short_spread_pct": 0.011,
       "credit_to_bpr": 0.134,
-      "ev_per_contract": 7.88,
+      "ev_per_contract": 7.89,
       "ev_on_bpr": 0.0099,
-      "iv": 0.2297,
-      "iv_rank": 0.506,
-      "underlying_price": 720.83,
+      "iv": 0.2286,
+      "iv_rank": 0.502,
+      "underlying_price": 720.61,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -51,7 +51,7 @@
       "bpr_total": 794.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short put vertical 677/668p \u00d71 \u2014 rich premium. Edge: IV rank 51%, EV $+8/ctr (+1.0% on BPR). POP 80% \u00b7 credit $1.06 \u00b7 max loss $794 \u00b7 BPR $794 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short put vertical 677/668p \u00d71 \u2014 rich premium. Edge: IV rank 50%, EV $+8/ctr (+1.0% on BPR). POP 80% \u00b7 credit $1.06 \u00b7 max loss $794 \u00b7 BPR $794 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.659,
       "learn_notes": [
         "asset_class=single_name \u00d70.67",
@@ -60,7 +60,7 @@
       ],
       "rank_score": 0.006524,
       "agent_action": "guarded",
-      "agent_reason": "QQQ already has an open position (per-name cap reached) and our book shows negative expectancy in us_tech, so this doubles correlated long-delta risk for thin calm-tape premium on a down day.",
+      "agent_reason": "QQQ is already open (max_per_name=1) so this doubles the name and piles correlated short-delta onto an all-equity book, in a us_tech cluster our own results say to avoid, for thin ~15-VIX premium with ~1% EV/BPR.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -120,7 +120,7 @@
         "fit_note": "\u26a0 max loss $794 > 10% live cap ($678) \u2014 narrow to ~7-wide for live, or keep on paper.",
         "text": "QQQ VP \u00d71 \u2014 SELL 677P / BUY 668P (2026-09-11) @ $1.06 net credit. Max loss $794. After fill: GTC buy-to-close @ $0.53 (50%). \u26a0 max loss $794 > 10% live cap ($678) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-07T17:19:00.348355+00:00"
+      "posted_at": "2026-08-07T17:25:32.787717+00:00"
     }
   ],
   "long_vol": [],
@@ -173,10 +173,10 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-08-07T17:19:00.148430+00:00",
+    "generated_at": "2026-08-07T17:25:32.306136+00:00",
     "model": "kimi-k3",
-    "market_view": "VIX ~15 in a calm regime with a mild -1% day: no event risk, but vol is cheap so the volatility risk premium is thin and put credits are skimpy. This is a tape for patient, small premium sells in uncorrelated names \u2014 not for adding delta to an underlier we already own.",
-    "portfolio_note": "All 4 open positions are US equity index ETFs (QQQ/IWM/DIA/SPY), effectively one correlated long-delta/short-vol bet; total book risk is moderate but concentration is the dominant exposure. Adding another QQQ put spread doubles a single name and deepens the same factor bet.",
+    "market_view": "Calm tape with VIX at 14.99 and a -1% day: no event risk, but vol is cheap so short-premium compensation is thin (this spread's EV/BPR is ~1%). Timing is tolerable after a down day, yet the edge being paid for here is minimal.",
+    "portfolio_note": "The book is already four correlated equity-index short-premium positions (QQQ/IWM/DIA/SPY) \u2014 effectively one equity-beta bet. Adding a second QQQ put spread doubles a name already at its cap and stacks more of the same correlated short delta.",
     "reviewed": 1,
     "vetoed": 1,
     "downsized": 0,
@@ -184,7 +184,7 @@
       {
         "id": "QQQ|short_put_vertical|677/668",
         "action": "veto",
-        "reason": "QQQ already has an open position (per-name cap reached) and our book shows negative expectancy in us_tech, so this doubles correlated long-delta risk for thin calm-tape premium on a down day."
+        "reason": "QQQ is already open (max_per_name=1) so this doubles the name and piles correlated short-delta onto an all-equity book, in a us_tech cluster our own results say to avoid, for thin ~15-VIX premium with ~1% EV/BPR."
       }
     ]
   },
@@ -200,7 +200,7 @@
       "long_symbol": "QQQ   260911P00668000",
       "width": 9.0,
       "credit": 1.06,
-      "mid_credit": 1.12,
+      "mid_credit": 1.11,
       "fees_est": 3.0,
       "bpr": 794.0,
       "max_loss": 794.0,
@@ -208,11 +208,11 @@
       "short_delta": 0.179,
       "short_spread_pct": 0.011,
       "credit_to_bpr": 0.134,
-      "ev_per_contract": 7.88,
+      "ev_per_contract": 7.89,
       "ev_on_bpr": 0.0099,
-      "iv": 0.2297,
-      "iv_rank": 0.506,
-      "underlying_price": 720.83,
+      "iv": 0.2286,
+      "iv_rank": 0.502,
+      "underlying_price": 720.61,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -222,7 +222,7 @@
       "bpr_total": 794.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short put vertical 677/668p \u00d71 \u2014 rich premium. Edge: IV rank 51%, EV $+8/ctr (+1.0% on BPR). POP 80% \u00b7 credit $1.06 \u00b7 max loss $794 \u00b7 BPR $794 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short put vertical 677/668p \u00d71 \u2014 rich premium. Edge: IV rank 50%, EV $+8/ctr (+1.0% on BPR). POP 80% \u00b7 credit $1.06 \u00b7 max loss $794 \u00b7 BPR $794 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.659,
       "learn_notes": [
         "asset_class=single_name \u00d70.67",
@@ -231,7 +231,7 @@
       ],
       "rank_score": 0.006524,
       "agent_action": "guarded",
-      "agent_reason": "QQQ already has an open position (per-name cap reached) and our book shows negative expectancy in us_tech, so this doubles correlated long-delta risk for thin calm-tape premium on a down day.",
+      "agent_reason": "QQQ is already open (max_per_name=1) so this doubles the name and piles correlated short-delta onto an all-equity book, in a us_tech cluster our own results say to avoid, for thin ~15-VIX premium with ~1% EV/BPR.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -291,7 +291,7 @@
         "fit_note": "\u26a0 max loss $794 > 10% live cap ($678) \u2014 narrow to ~7-wide for live, or keep on paper.",
         "text": "QQQ VP \u00d71 \u2014 SELL 677P / BUY 668P (2026-09-11) @ $1.06 net credit. Max loss $794. After fill: GTC buy-to-close @ $0.53 (50%). \u26a0 max loss $794 > 10% live cap ($678) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-07T17:19:00.348355+00:00"
+      "posted_at": "2026-08-07T17:25:32.787717+00:00"
     }
   ],
   "skipped": {
