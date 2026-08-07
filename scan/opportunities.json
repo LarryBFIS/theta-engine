@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-08-07T16:02:55.683953+00:00",
+  "generated_at": "2026-08-07T16:06:42.209808+00:00",
   "regime": {
-    "vix": 14.94,
-    "vix_day_change_pct": -0.0139,
+    "vix": 14.92,
+    "vix_day_change_pct": -0.0152,
     "level": "calm",
     "stand_down": false,
-    "note": "calm regime (-1% day)"
+    "note": "calm regime (-2% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -37,20 +37,20 @@
       },
       "width": 10.0,
       "credit": 1.29,
-      "put_credit": 0.69,
-      "call_credit": 0.6,
+      "put_credit": 0.68,
+      "call_credit": 0.61,
       "fees_est": 3.0,
       "bpr": 871.0,
       "max_loss": 871.0,
       "pop": 0.765,
-      "put_short_delta": 0.107,
-      "call_short_delta": 0.128,
+      "put_short_delta": 0.106,
+      "call_short_delta": 0.129,
       "credit_to_bpr": 0.148,
-      "ev_per_contract": 0.85,
+      "ev_per_contract": 0.86,
       "ev_on_bpr": 0.001,
       "iv": 0.2297,
       "iv_rank": 0.505,
-      "underlying_price": 722.32,
+      "underlying_price": 722.61,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -68,7 +68,7 @@
       ],
       "rank_score": 0.000503,
       "agent_action": "guarded",
-      "agent_reason": "Violates max_per_name cap (already 1 QQQ open); also adds correlated us_tech cluster risk when already at cluster max; single-name asset class underperforms in our learnings (23% wr vs 34% avg).",
+      "agent_reason": "Already 1 QQQ open (name cap), us_tech cluster is a proven loser per engine learnings, EV ~0, and adding correlated tech short-vol into a -2% day with suspiciously low VIX is badly timed.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -137,7 +137,7 @@
         "fit_note": "\u26a0 max loss $871 > 10% live cap ($678) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ IC \u00d71 \u2014 SELL 663P / BUY 654P / SELL 785C / BUY 795C (2026-09-11) @ $1.29 net credit. Max loss $871. After fill: GTC buy-to-close @ $0.65 (50%). \u26a0 max loss $871 > 10% live cap ($678) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-07T16:02:55.683953+00:00"
+      "posted_at": "2026-08-07T16:06:42.209808+00:00"
     }
   ],
   "long_vol": [],
@@ -190,10 +190,10 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-08-07T16:02:55.411961+00:00",
-    "model": "claude-haiku-4-5",
-    "market_view": "Calm regime, VIX 14.94, flat day; conditions are benign for premium selling. However, we are already long 1 QQQ position and this candidate adds correlated tech exposure.",
-    "portfolio_note": "Book is 75% index ETFs (healthy diversification), but QQQ already represents our us_tech bucket at max capacity. Adding another QQQ trade violates concentration and correlation discipline.",
+    "generated_at": "2026-08-07T16:06:41.873028+00:00",
+    "model": "kimi-k3",
+    "market_view": "VIX 14.92 says calm, but a -2% down day with vol this low is a warning that premium may be underpriced and due to expand. That is poor timing to add more correlated short-vol, especially in tech.",
+    "portfolio_note": "The book is already four US equity index positions (QQQ, IWM, DIA, SPY) \u2014 effectively one correlated short-vol bet, with us_index at its cluster cap. Adding another QQQ would double the name beyond cap and stack more of the same exposure.",
     "reviewed": 1,
     "vetoed": 1,
     "downsized": 0,
@@ -201,7 +201,7 @@
       {
         "id": "QQQ|iron_condor|663/785",
         "action": "veto",
-        "reason": "Violates max_per_name cap (already 1 QQQ open); also adds correlated us_tech cluster risk when already at cluster max; single-name asset class underperforms in our learnings (23% wr vs 34% avg)."
+        "reason": "Already 1 QQQ open (name cap), us_tech cluster is a proven loser per engine learnings, EV ~0, and adding correlated tech short-vol into a -2% day with suspiciously low VIX is badly timed."
       }
     ]
   },
@@ -225,20 +225,20 @@
       },
       "width": 10.0,
       "credit": 1.29,
-      "put_credit": 0.69,
-      "call_credit": 0.6,
+      "put_credit": 0.68,
+      "call_credit": 0.61,
       "fees_est": 3.0,
       "bpr": 871.0,
       "max_loss": 871.0,
       "pop": 0.765,
-      "put_short_delta": 0.107,
-      "call_short_delta": 0.128,
+      "put_short_delta": 0.106,
+      "call_short_delta": 0.129,
       "credit_to_bpr": 0.148,
-      "ev_per_contract": 0.85,
+      "ev_per_contract": 0.86,
       "ev_on_bpr": 0.001,
       "iv": 0.2297,
       "iv_rank": 0.505,
-      "underlying_price": 722.32,
+      "underlying_price": 722.61,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -256,7 +256,7 @@
       ],
       "rank_score": 0.000503,
       "agent_action": "guarded",
-      "agent_reason": "Violates max_per_name cap (already 1 QQQ open); also adds correlated us_tech cluster risk when already at cluster max; single-name asset class underperforms in our learnings (23% wr vs 34% avg).",
+      "agent_reason": "Already 1 QQQ open (name cap), us_tech cluster is a proven loser per engine learnings, EV ~0, and adding correlated tech short-vol into a -2% day with suspiciously low VIX is badly timed.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -325,7 +325,7 @@
         "fit_note": "\u26a0 max loss $871 > 10% live cap ($678) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ IC \u00d71 \u2014 SELL 663P / BUY 654P / SELL 785C / BUY 795C (2026-09-11) @ $1.29 net credit. Max loss $871. After fill: GTC buy-to-close @ $0.65 (50%). \u26a0 max loss $871 > 10% live cap ($678) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-07T16:02:55.683953+00:00"
+      "posted_at": "2026-08-07T16:06:42.209808+00:00"
     }
   ],
   "skipped": {
