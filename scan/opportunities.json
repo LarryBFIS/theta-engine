@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-11T15:09:22.398450+00:00",
+  "generated_at": "2026-08-11T15:28:08.799567+00:00",
   "regime": {
-    "vix": 15.23,
-    "vix_day_change_pct": -0.0149,
+    "vix": 15.31,
+    "vix_day_change_pct": -0.0097,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (-1% day)"
@@ -29,19 +29,19 @@
       "long_symbol": "QQQ   260911P00671000",
       "width": 9.0,
       "credit": 1.04,
-      "mid_credit": 1.1,
+      "mid_credit": 1.09,
       "fees_est": 3.0,
       "bpr": 796.0,
       "max_loss": 796.0,
-      "pop": 0.802,
+      "pop": 0.801,
       "short_delta": 0.181,
-      "short_spread_pct": 0.012,
+      "short_spread_pct": 0.01,
       "credit_to_bpr": 0.131,
-      "ev_per_contract": 7.75,
-      "ev_on_bpr": 0.0097,
-      "iv": 0.2252,
-      "iv_rank": 0.485,
-      "underlying_price": 720.45,
+      "ev_per_contract": 7.61,
+      "ev_on_bpr": 0.0096,
+      "iv": 0.2249,
+      "iv_rank": 0.484,
+      "underlying_price": 720.27,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -58,9 +58,9 @@
         "cluster=us_tech \u00d70.76",
         "structure=short_put_vertical \u00d71.31"
       ],
-      "rank_score": 0.006392,
+      "rank_score": 0.006326,
       "agent_action": "guarded",
-      "agent_reason": "Duplicates an already-open QQQ (name cap is 1) and piles onto the us_tech cluster our engine flags as negative-expectancy (wr 26%), while EV/BPR of ~1% is too thin to justify a fifth correlated long-equity short-vol bet on a down day with V",
+      "agent_reason": "Duplicates an already-open QQQ position (cap is 1/name), is tagged single_name and us_tech \u2014 both engine-learned AVOID buckets with negative expectancy \u2014 and adds correlated long-delta risk for negligible edge (EV/BPR ~1%) in a low-VIX tape",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -68,7 +68,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 6882.919,
+      "net_liq": 6876.082,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
@@ -95,7 +95,7 @@
         "credit_total": 104.0,
         "max_loss_total": 796.0,
         "bpr_total": 796.0,
-        "pop": 0.802,
+        "pop": 0.801,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -104,12 +104,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 688.29,
+        "live_cap": 687.61,
         "suggested_width": 7,
         "fit_note": "\u26a0 max loss $796 > 10% live cap ($688) \u2014 narrow to ~7-wide for live, or keep on paper.",
         "text": "QQQ VP \u00d71 \u2014 SELL 680P / BUY 671P (2026-09-11) @ $1.04 net credit. Max loss $796. After fill: GTC buy-to-close @ $0.52 (50%). \u26a0 max loss $796 > 10% live cap ($688) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-11T15:09:22.398450+00:00"
+      "posted_at": "2026-08-11T15:28:08.799567+00:00"
     }
   ],
   "long_vol": [],
@@ -162,10 +162,10 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-08-11T15:09:21.630397+00:00",
+    "generated_at": "2026-08-11T15:28:08.535564+00:00",
     "model": "kimi-k3",
-    "market_view": "VIX 15.23 in a normal regime on a -1% day: calm vol but a soft tape, and low VIX means the premium we're selling is thinly compensated. No events on the calendar, so timing is acceptable in principle \u2014 but only for well-paid, uncorrelated risk, which this is not.",
-    "portfolio_note": "The book is already four correlated long-equity short-vol positions (QQQ, SPY, DIA, IWM); unrealized PnL is small and the dominant risk is concentration, not any single trade. Adding more of the same directional bet offers little diversification and stacks exposure to one equity drawdown.",
+    "market_view": "VIX 15.31 in a normal regime on a -1% day is a calm, low-vol tape with thin premium \u2014 there is no volatility edge worth pressing here. Selling more upside-risk premium into this tape yields little compensation, so selectivity should be high.",
+    "portfolio_note": "The book already holds four correlated long-delta short-put index positions (QQQ, SPY, IWM, DIA) \u2014 effectively one bet that US equities don't fall. Adding a second QQQ put spread doubles an existing name and concentrates that single bet.",
     "reviewed": 1,
     "vetoed": 1,
     "downsized": 0,
@@ -173,7 +173,7 @@
       {
         "id": "QQQ|short_put_vertical|680/671",
         "action": "veto",
-        "reason": "Duplicates an already-open QQQ (name cap is 1) and piles onto the us_tech cluster our engine flags as negative-expectancy (wr 26%), while EV/BPR of ~1% is too thin to justify a fifth correlated long-equity short-vol bet on a down day with V"
+        "reason": "Duplicates an already-open QQQ position (cap is 1/name), is tagged single_name and us_tech \u2014 both engine-learned AVOID buckets with negative expectancy \u2014 and adds correlated long-delta risk for negligible edge (EV/BPR ~1%) in a low-VIX tape"
       }
     ]
   },
@@ -189,19 +189,19 @@
       "long_symbol": "QQQ   260911P00671000",
       "width": 9.0,
       "credit": 1.04,
-      "mid_credit": 1.1,
+      "mid_credit": 1.09,
       "fees_est": 3.0,
       "bpr": 796.0,
       "max_loss": 796.0,
-      "pop": 0.802,
+      "pop": 0.801,
       "short_delta": 0.181,
-      "short_spread_pct": 0.012,
+      "short_spread_pct": 0.01,
       "credit_to_bpr": 0.131,
-      "ev_per_contract": 7.75,
-      "ev_on_bpr": 0.0097,
-      "iv": 0.2252,
-      "iv_rank": 0.485,
-      "underlying_price": 720.45,
+      "ev_per_contract": 7.61,
+      "ev_on_bpr": 0.0096,
+      "iv": 0.2249,
+      "iv_rank": 0.484,
+      "underlying_price": 720.27,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -218,9 +218,9 @@
         "cluster=us_tech \u00d70.76",
         "structure=short_put_vertical \u00d71.31"
       ],
-      "rank_score": 0.006392,
+      "rank_score": 0.006326,
       "agent_action": "guarded",
-      "agent_reason": "Duplicates an already-open QQQ (name cap is 1) and piles onto the us_tech cluster our engine flags as negative-expectancy (wr 26%), while EV/BPR of ~1% is too thin to justify a fifth correlated long-equity short-vol bet on a down day with V",
+      "agent_reason": "Duplicates an already-open QQQ position (cap is 1/name), is tagged single_name and us_tech \u2014 both engine-learned AVOID buckets with negative expectancy \u2014 and adds correlated long-delta risk for negligible edge (EV/BPR ~1%) in a low-VIX tape",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -228,7 +228,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 6882.919,
+      "net_liq": 6876.082,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
@@ -255,7 +255,7 @@
         "credit_total": 104.0,
         "max_loss_total": 796.0,
         "bpr_total": 796.0,
-        "pop": 0.802,
+        "pop": 0.801,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -264,19 +264,19 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 688.29,
+        "live_cap": 687.61,
         "suggested_width": 7,
         "fit_note": "\u26a0 max loss $796 > 10% live cap ($688) \u2014 narrow to ~7-wide for live, or keep on paper.",
         "text": "QQQ VP \u00d71 \u2014 SELL 680P / BUY 671P (2026-09-11) @ $1.04 net credit. Max loss $796. After fill: GTC buy-to-close @ $0.52 (50%). \u26a0 max loss $796 > 10% live cap ($688) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-11T15:09:22.398450+00:00"
+      "posted_at": "2026-08-11T15:28:08.799567+00:00"
     }
   ],
   "skipped": {
     "SPY": "failed: pv: credit/width 0.10 < 0.10",
-    "IWM": "iv_rank 16% (floor 22%)",
+    "IWM": "iv_rank 15% (floor 22%)",
     "DIA": "iv_rank 21% (floor 22%)",
-    "XLE": "failed: pv: credit/width 0.05 < 0.10",
+    "XLE": "failed: pv: spread short 22%/long 133%",
     "XLF": "failed: pv: spread short 25%/long 150%"
   }
 }
