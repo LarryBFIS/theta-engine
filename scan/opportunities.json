@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-11T17:08:32.169846+00:00",
+  "generated_at": "2026-08-11T17:08:33.918511+00:00",
   "regime": {
-    "vix": 15.45,
-    "vix_day_change_pct": -0.0006,
+    "vix": 15.44,
+    "vix_day_change_pct": -0.0013,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (-0% day)"
@@ -44,13 +44,13 @@
       "max_loss": 880.0,
       "pop": 0.766,
       "put_short_delta": 0.108,
-      "call_short_delta": 0.127,
+      "call_short_delta": 0.126,
       "credit_to_bpr": 0.136,
       "ev_per_contract": 0.76,
       "ev_on_bpr": 0.0009,
       "iv": 0.223,
       "iv_rank": 0.477,
-      "underlying_price": 718.03,
+      "underlying_price": 717.95,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -68,7 +68,7 @@
       ],
       "rank_score": 0.000453,
       "agent_action": "guarded",
-      "agent_reason": "QQQ (single_name, us_tech cluster) has negative realized expectancy (23% win rate vs. 34% portfolio average); we already have 1 open QQQ trade and 1 us_tech position\u2014this adds correlated risk and violates the 'max_per_name: 1' cap for this ",
+      "agent_reason": "Duplicates an existing QQQ/us_tech position (max_per_name already reached) in a cluster with proven negative expectancy, and EV/BPR of 0.0009 shows essentially zero edge for $880 of risk.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -131,7 +131,7 @@
         "fit_note": "\u26a0 max loss $880 > 10% live cap ($687) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ IC \u00d71 \u2014 SELL 664P / BUY 655P / SELL 775C / BUY 785C (2026-09-11) @ $1.20 net credit. Max loss $880. After fill: GTC buy-to-close @ $0.60 (50%). \u26a0 max loss $880 > 10% live cap ($687) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-11T17:08:32.169846+00:00"
+      "posted_at": "2026-08-11T17:08:33.918511+00:00"
     }
   ],
   "long_vol": [],
@@ -184,10 +184,10 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-08-11T17:08:31.837437+00:00",
-    "model": "claude-haiku-4-5",
-    "market_view": "VIX 15.45, normal regime, flat tape\u2014benign backdrop for premium selling. However, we are already long 1 QQQ position in a tech-heavy book (1 QQQ + 1 us_tech cluster exposure); adding a second QQQ iron condor doubles down on a proven weak asset class.",
-    "portfolio_note": "Book is small (4 open, +$39 unrealized) and well-diversified across index ETFs (QQQ, IWM, DIA, SPY). Adding QQQ concentration violates diversification principle.",
+    "generated_at": "2026-08-11T17:08:33.250190+00:00",
+    "model": "kimi-k3",
+    "market_view": "VIX 15.44 in a flat, normal regime with no scheduled events \u2014 a calm tape that permits premium selling but offers thin compensation, so only high-quality setups deserve capital. No timing red flag, but no urgency either.",
+    "portfolio_note": "The book already carries one QQQ/us_tech position, and us_tech is our worst-performing cluster (26% win rate, negative expectancy). Adding a second QQQ trade doubles one correlated bet rather than diversifying it.",
     "reviewed": 1,
     "vetoed": 1,
     "downsized": 0,
@@ -195,7 +195,7 @@
       {
         "id": "QQQ|iron_condor|664/775",
         "action": "veto",
-        "reason": "QQQ (single_name, us_tech cluster) has negative realized expectancy (23% win rate vs. 34% portfolio average); we already have 1 open QQQ trade and 1 us_tech position\u2014this adds correlated risk and violates the 'max_per_name: 1' cap for this "
+        "reason": "Duplicates an existing QQQ/us_tech position (max_per_name already reached) in a cluster with proven negative expectancy, and EV/BPR of 0.0009 shows essentially zero edge for $880 of risk."
       }
     ]
   },
@@ -226,13 +226,13 @@
       "max_loss": 880.0,
       "pop": 0.766,
       "put_short_delta": 0.108,
-      "call_short_delta": 0.127,
+      "call_short_delta": 0.126,
       "credit_to_bpr": 0.136,
       "ev_per_contract": 0.76,
       "ev_on_bpr": 0.0009,
       "iv": 0.223,
       "iv_rank": 0.477,
-      "underlying_price": 718.03,
+      "underlying_price": 717.95,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -250,7 +250,7 @@
       ],
       "rank_score": 0.000453,
       "agent_action": "guarded",
-      "agent_reason": "QQQ (single_name, us_tech cluster) has negative realized expectancy (23% win rate vs. 34% portfolio average); we already have 1 open QQQ trade and 1 us_tech position\u2014this adds correlated risk and violates the 'max_per_name: 1' cap for this ",
+      "agent_reason": "Duplicates an existing QQQ/us_tech position (max_per_name already reached) in a cluster with proven negative expectancy, and EV/BPR of 0.0009 shows essentially zero edge for $880 of risk.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -313,7 +313,7 @@
         "fit_note": "\u26a0 max loss $880 > 10% live cap ($687) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ IC \u00d71 \u2014 SELL 664P / BUY 655P / SELL 775C / BUY 785C (2026-09-11) @ $1.20 net credit. Max loss $880. After fill: GTC buy-to-close @ $0.60 (50%). \u26a0 max loss $880 > 10% live cap ($687) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-11T17:08:32.169846+00:00"
+      "posted_at": "2026-08-11T17:08:33.918511+00:00"
     }
   ],
   "skipped": {
