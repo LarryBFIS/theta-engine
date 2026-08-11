@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-08-11T14:13:13.852926+00:00",
+  "generated_at": "2026-08-11T14:32:58.278279+00:00",
   "regime": {
-    "vix": 15.53,
-    "vix_day_change_pct": 0.0045,
+    "vix": 15.42,
+    "vix_day_change_pct": -0.0026,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (+0% day)"
+    "note": "normal regime (-0% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -23,52 +23,52 @@
       "structure": "iron_condor",
       "expiry": "2026-09-11",
       "dte": 31,
-      "put_short_strike": 665.0,
-      "put_long_strike": 656.0,
+      "put_short_strike": 666.0,
+      "put_long_strike": 657.0,
       "call_short_strike": 780.0,
       "call_long_strike": 790.0,
-      "short_strike": 665.0,
+      "short_strike": 666.0,
       "long_strike": 780.0,
       "symbols": {
-        "put_short": "QQQ   260911P00665000",
-        "put_long": "QQQ   260911P00656000",
+        "put_short": "QQQ   260911P00666000",
+        "put_long": "QQQ   260911P00657000",
         "call_short": "QQQ   260911C00780000",
         "call_long": "QQQ   260911C00790000"
       },
       "width": 10.0,
-      "credit": 1.22,
-      "put_credit": 0.65,
-      "call_credit": 0.57,
+      "credit": 1.23,
+      "put_credit": 0.67,
+      "call_credit": 0.56,
       "fees_est": 3.0,
-      "bpr": 878.0,
-      "max_loss": 878.0,
-      "pop": 0.765,
-      "put_short_delta": 0.105,
-      "call_short_delta": 0.131,
-      "credit_to_bpr": 0.139,
-      "ev_per_contract": 0.61,
-      "ev_on_bpr": 0.0007,
-      "iv": 0.2305,
-      "iv_rank": 0.512,
-      "underlying_price": 721.68,
+      "bpr": 877.0,
+      "max_loss": 877.0,
+      "pop": 0.766,
+      "put_short_delta": 0.108,
+      "call_short_delta": 0.126,
+      "credit_to_bpr": 0.14,
+      "ev_per_contract": 1.05,
+      "ev_on_bpr": 0.0012,
+      "iv": 0.2275,
+      "iv_rank": 0.496,
+      "underlying_price": 721.3,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 878.0,
-      "bpr_total": 878.0,
+      "max_loss_total": 877.0,
+      "bpr_total": 877.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). iron condor 665/656p + 780/790c \u00d71 \u2014 neutral \u2014 defined-risk both sides. Edge: IV rank 51%, EV $+1/ctr (+0.1% on BPR). POP 76% \u00b7 credit $1.22 \u00b7 max loss $878 \u00b7 BPR $878 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). iron condor 666/657p + 780/790c \u00d71 \u2014 neutral \u2014 defined-risk both sides. Edge: IV rank 50%, EV $+1/ctr (+0.1% on BPR). POP 77% \u00b7 credit $1.23 \u00b7 max loss $877 \u00b7 BPR $877 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.503,
       "learn_notes": [
         "asset_class=single_name \u00d70.67",
         "cluster=us_tech \u00d70.76"
       ],
-      "rank_score": 0.000352,
+      "rank_score": 0.000604,
       "agent_action": "guarded",
-      "agent_reason": "We already hold one QQQ position (per-name cap is 1), so this doubles exposure on the same name; it's also tagged us_tech/'single_name' \u2014 both on our avoid list with negative expectancy \u2014 and EV on BP is essentially zero (0.0007), making it",
+      "agent_reason": "Duplicates an existing QQQ position (at the 1/name cap) in a book already concentrated in correlated US equity risk, with engine learnings flagging us_tech/single_name as negative expectancy and EV_on_bpr of 0.0012 offering essentially no e",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -76,12 +76,12 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 6876.392,
+      "net_liq": 6865.985,
       "ticket": {
         "underlying": "QQQ",
         "code": "IC",
         "order_type": "Net Credit",
-        "limit": 1.22,
+        "limit": 1.23,
         "contracts": 1,
         "expiry": "2026-09-11",
         "legs": [
@@ -89,14 +89,14 @@
             "action": "SELL",
             "qty": 1,
             "expiry": "2026-09-11",
-            "strike": 665.0,
+            "strike": 666.0,
             "type": "P"
           },
           {
             "action": "BUY",
             "qty": 1,
             "expiry": "2026-09-11",
-            "strike": 656.0,
+            "strike": 657.0,
             "type": "P"
           },
           {
@@ -114,24 +114,24 @@
             "type": "C"
           }
         ],
-        "credit_total": 122.0,
-        "max_loss_total": 878.0,
-        "bpr_total": 878.0,
-        "pop": 0.765,
+        "credit_total": 123.0,
+        "max_loss_total": 877.0,
+        "bpr_total": 877.0,
+        "pop": 0.766,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
           "close_debit": 0.61,
-          "stop_debit": 3.05,
+          "stop_debit": 3.08,
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 687.64,
+        "live_cap": 686.6,
         "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $878 > 10% live cap ($688) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ IC \u00d71 \u2014 SELL 665P / BUY 656P / SELL 780C / BUY 790C (2026-09-11) @ $1.22 net credit. Max loss $878. After fill: GTC buy-to-close @ $0.61 (50%). \u26a0 max loss $878 > 10% live cap ($688) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $877 > 10% live cap ($687) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "QQQ IC \u00d71 \u2014 SELL 666P / BUY 657P / SELL 780C / BUY 790C (2026-09-11) @ $1.23 net credit. Max loss $877. After fill: GTC buy-to-close @ $0.61 (50%). \u26a0 max loss $877 > 10% live cap ($687) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-11T14:13:13.852926+00:00"
+      "posted_at": "2026-08-11T14:32:58.278279+00:00"
     }
   ],
   "long_vol": [],
@@ -184,18 +184,18 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-08-11T14:13:13.526973+00:00",
+    "generated_at": "2026-08-11T14:32:58.065247+00:00",
     "model": "kimi-k3",
-    "market_view": "Calm, directionless tape: VIX 15.53 in a normal regime with a flat (+0%) day and no scheduled macro events, so timing itself is not hostile to short premium. But realized edge is thin at this vol level and the book's problem today is concentration, not timing.",
-    "portfolio_note": "All 4 open positions are broad US equity index underlyings (QQQ/SPY/IWM/DIA) \u2014 functionally one correlated short-vol bet on US equities. Adding a second QQQ trade doubles name risk and stacks more onto the us_tech cluster our own results say to avoid.",
+    "market_view": "Calm tape \u2014 VIX 15.42, flat day, normal regime, no scheduled events \u2014 so short premium is permissible but IV rank ~0.50 means vol is not rich and there is no urgency to add. Timing is neutral: nothing punishes a new short-vol position here, but nothing pays extra for it either.",
+    "portfolio_note": "The book already holds 4 correlated US equity index positions (QQQ, SPY, IWM, DIA) \u2014 effectively one long-equity short-vol bet. Adding a second QQQ structure would concentrate that single bet further, with unrealized PnL only marginally positive.",
     "reviewed": 1,
     "vetoed": 1,
     "downsized": 0,
     "decisions": [
       {
-        "id": "QQQ|iron_condor|665/780",
+        "id": "QQQ|iron_condor|666/780",
         "action": "veto",
-        "reason": "We already hold one QQQ position (per-name cap is 1), so this doubles exposure on the same name; it's also tagged us_tech/'single_name' \u2014 both on our avoid list with negative expectancy \u2014 and EV on BP is essentially zero (0.0007), making it"
+        "reason": "Duplicates an existing QQQ position (at the 1/name cap) in a book already concentrated in correlated US equity risk, with engine learnings flagging us_tech/single_name as negative expectancy and EV_on_bpr of 0.0012 offering essentially no e"
       }
     ]
   },
@@ -205,52 +205,52 @@
       "structure": "iron_condor",
       "expiry": "2026-09-11",
       "dte": 31,
-      "put_short_strike": 665.0,
-      "put_long_strike": 656.0,
+      "put_short_strike": 666.0,
+      "put_long_strike": 657.0,
       "call_short_strike": 780.0,
       "call_long_strike": 790.0,
-      "short_strike": 665.0,
+      "short_strike": 666.0,
       "long_strike": 780.0,
       "symbols": {
-        "put_short": "QQQ   260911P00665000",
-        "put_long": "QQQ   260911P00656000",
+        "put_short": "QQQ   260911P00666000",
+        "put_long": "QQQ   260911P00657000",
         "call_short": "QQQ   260911C00780000",
         "call_long": "QQQ   260911C00790000"
       },
       "width": 10.0,
-      "credit": 1.22,
-      "put_credit": 0.65,
-      "call_credit": 0.57,
+      "credit": 1.23,
+      "put_credit": 0.67,
+      "call_credit": 0.56,
       "fees_est": 3.0,
-      "bpr": 878.0,
-      "max_loss": 878.0,
-      "pop": 0.765,
-      "put_short_delta": 0.105,
-      "call_short_delta": 0.131,
-      "credit_to_bpr": 0.139,
-      "ev_per_contract": 0.61,
-      "ev_on_bpr": 0.0007,
-      "iv": 0.2305,
-      "iv_rank": 0.512,
-      "underlying_price": 721.68,
+      "bpr": 877.0,
+      "max_loss": 877.0,
+      "pop": 0.766,
+      "put_short_delta": 0.108,
+      "call_short_delta": 0.126,
+      "credit_to_bpr": 0.14,
+      "ev_per_contract": 1.05,
+      "ev_on_bpr": 0.0012,
+      "iv": 0.2275,
+      "iv_rank": 0.496,
+      "underlying_price": 721.3,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 878.0,
-      "bpr_total": 878.0,
+      "max_loss_total": 877.0,
+      "bpr_total": 877.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). iron condor 665/656p + 780/790c \u00d71 \u2014 neutral \u2014 defined-risk both sides. Edge: IV rank 51%, EV $+1/ctr (+0.1% on BPR). POP 76% \u00b7 credit $1.22 \u00b7 max loss $878 \u00b7 BPR $878 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). iron condor 666/657p + 780/790c \u00d71 \u2014 neutral \u2014 defined-risk both sides. Edge: IV rank 50%, EV $+1/ctr (+0.1% on BPR). POP 77% \u00b7 credit $1.23 \u00b7 max loss $877 \u00b7 BPR $877 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.503,
       "learn_notes": [
         "asset_class=single_name \u00d70.67",
         "cluster=us_tech \u00d70.76"
       ],
-      "rank_score": 0.000352,
+      "rank_score": 0.000604,
       "agent_action": "guarded",
-      "agent_reason": "We already hold one QQQ position (per-name cap is 1), so this doubles exposure on the same name; it's also tagged us_tech/'single_name' \u2014 both on our avoid list with negative expectancy \u2014 and EV on BP is essentially zero (0.0007), making it",
+      "agent_reason": "Duplicates an existing QQQ position (at the 1/name cap) in a book already concentrated in correlated US equity risk, with engine learnings flagging us_tech/single_name as negative expectancy and EV_on_bpr of 0.0012 offering essentially no e",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -258,12 +258,12 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 6876.392,
+      "net_liq": 6865.985,
       "ticket": {
         "underlying": "QQQ",
         "code": "IC",
         "order_type": "Net Credit",
-        "limit": 1.22,
+        "limit": 1.23,
         "contracts": 1,
         "expiry": "2026-09-11",
         "legs": [
@@ -271,14 +271,14 @@
             "action": "SELL",
             "qty": 1,
             "expiry": "2026-09-11",
-            "strike": 665.0,
+            "strike": 666.0,
             "type": "P"
           },
           {
             "action": "BUY",
             "qty": 1,
             "expiry": "2026-09-11",
-            "strike": 656.0,
+            "strike": 657.0,
             "type": "P"
           },
           {
@@ -296,31 +296,31 @@
             "type": "C"
           }
         ],
-        "credit_total": 122.0,
-        "max_loss_total": 878.0,
-        "bpr_total": 878.0,
-        "pop": 0.765,
+        "credit_total": 123.0,
+        "max_loss_total": 877.0,
+        "bpr_total": 877.0,
+        "pop": 0.766,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
           "close_debit": 0.61,
-          "stop_debit": 3.05,
+          "stop_debit": 3.08,
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 687.64,
+        "live_cap": 686.6,
         "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $878 > 10% live cap ($688) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ IC \u00d71 \u2014 SELL 665P / BUY 656P / SELL 780C / BUY 790C (2026-09-11) @ $1.22 net credit. Max loss $878. After fill: GTC buy-to-close @ $0.61 (50%). \u26a0 max loss $878 > 10% live cap ($688) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $877 > 10% live cap ($687) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "QQQ IC \u00d71 \u2014 SELL 666P / BUY 657P / SELL 780C / BUY 790C (2026-09-11) @ $1.23 net credit. Max loss $877. After fill: GTC buy-to-close @ $0.61 (50%). \u26a0 max loss $877 > 10% live cap ($687) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-11T14:13:13.852926+00:00"
+      "posted_at": "2026-08-11T14:32:58.278279+00:00"
     }
   ],
   "skipped": {
     "SPY": "failed: pv: credit/width 0.09 < 0.10",
     "IWM": "iv_rank 16% (floor 22%)",
-    "DIA": "iv_rank 22% (floor 22%)",
-    "XLE": "failed: pv: spread short 23%/long 133%",
+    "DIA": "iv_rank 21% (floor 22%)",
+    "XLE": "failed: pv: spread short 21%/long 133%",
     "XLF": "failed: pv: spread short 25%/long 150%"
   }
 }
