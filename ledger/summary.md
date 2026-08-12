@@ -1,21 +1,21 @@
 # Ledger Summary
 
-_Generated 2026-08-12T15:55:01.456611+00:00 from tastytrade transaction history._
+_Generated 2026-08-12T16:23:20.734398+00:00 from tastytrade transaction history._
 
 ## Reconciliation
 
 | Item | Amount |
 |---|---:|
 | Starting capital | $3,389.91 |
-| Net liq (now) | $6,881.46 |
-| Strategy realized (closed) | $+39.81 |
-| Strategy unrealized (open) | $+139.63 |
-| **Strategy P&L** | **$+179.44** |
+| Net liq (now) | $6,873.94 |
+| Strategy realized (closed) | $+188.07 |
+| Strategy unrealized (open) | $+445.24 |
+| **Strategy P&L** | **$+633.31** |
 | Money movement | $+2,999.66 |
-| Non-strategy activity | $+312.45 |
-| **Account P&L** | **$+3,491.55** |
+| Non-strategy activity | $-148.94 |
+| **Account P&L** | **$+3,484.03** |
 
-_Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger positions closed in-window). Total fees paid: $74.25._
+_Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger positions closed in-window). Total fees paid: $76.64._
 
 ### Money movement detail
 
@@ -33,13 +33,13 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 | ledger_004_jpm | JPM | 2026-05-29 | 2026-06-04 | closed | $+100.49 | — |
 | ledger_005_gld | GLD | 2026-06-01 | 2026-06-05 | closed | $-71.51 | — |
 | ledger_006_iwm | IWM | 2026-06-02 | 2026-06-05 | closed | $+44.50 | — |
-| ledger_007_slv | SLV | 2026-06-08 | — | open | — | $-17.75 |
+| ledger_007_slv | SLV | 2026-06-08 | — | open | — | $-16.75 |
 | ledger_008_iwm | IWM | 2026-06-17 | 2026-06-22 | closed | $+17.93 | — |
 | ledger_009_cvx | CVX | 2026-06-17 | 2026-06-18 | closed | $+7.50 | — |
 | ledger_010_spy | SPY | 2026-06-22 | 2026-07-01 | closed | $+41.50 | — |
 | ledger_011_cost | COST | 2026-06-22 | 2026-06-25 | closed | $+21.48 | — |
 | ledger_012_spy | SPY | 2026-06-23 | 2026-06-30 | closed | $+52.49 | — |
-| ledger_013_slv | SLV | 2026-06-25 | — | open | — | $+157.38 |
+| ledger_013_slv | SLV | 2026-06-25 | 2026-08-12 | closed | $+155.75 | — |
 | ledger_014_spy | SPY | 2026-07-02 | 2026-07-09 | closed | $+14.50 | — |
 | ledger_015_spy | SPY | 2026-07-06 | 2026-07-16 | closed | $+8.50 | — |
 | ledger_016_iwm | IWM | 2026-07-08 | 2026-07-16 | closed | $+21.50 | — |
@@ -53,4 +53,5 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 | ledger_024_qqq | QQQ | 2026-08-04 | 2026-08-04 | closed | $+22.49 | — |
 | ledger_025_spy | SPY | 2026-08-05 | 2026-08-05 | closed | $-10.50 | — |
 | ledger_026_spy | SPY | 2026-08-05 | 2026-08-07 | closed | $+12.50 | — |
-| ledger_027_qqq | QQQ | 2026-08-07 | 2026-08-10 | closed | $+7.49 | — |
+| ledger_027_qqq | QQQ | 2026-08-07 | 2026-08-10 | open | — | $+463.74 |
+| ledger_028_qqq | QQQ | 2026-08-12 | — | open | — | $-1.75 |
