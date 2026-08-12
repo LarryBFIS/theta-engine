@@ -1,19 +1,19 @@
 # Ledger Summary
 
-_Generated 2026-08-12T13:37:31.030073+00:00 from tastytrade transaction history._
+_Generated 2026-08-12T14:08:45.343213+00:00 from tastytrade transaction history._
 
 ## Reconciliation
 
 | Item | Amount |
 |---|---:|
 | Starting capital | $3,389.91 |
-| Net liq (now) | $6,838.89 |
+| Net liq (now) | $6,906.16 |
 | Strategy realized (closed) | $+39.81 |
-| Strategy unrealized (open) | $+149.13 |
-| **Strategy P&L** | **$+188.94** |
+| Strategy unrealized (open) | $+171.13 |
+| **Strategy P&L** | **$+210.94** |
 | Money movement | $+2,999.66 |
-| Non-strategy activity | $+260.38 |
-| **Account P&L** | **$+3,448.98** |
+| Non-strategy activity | $+305.65 |
+| **Account P&L** | **$+3,516.25** |
 
 _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger positions closed in-window). Total fees paid: $74.25._
 
@@ -33,13 +33,13 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 | ledger_004_jpm | JPM | 2026-05-29 | 2026-06-04 | closed | $+100.49 | — |
 | ledger_005_gld | GLD | 2026-06-01 | 2026-06-05 | closed | $-71.51 | — |
 | ledger_006_iwm | IWM | 2026-06-02 | 2026-06-05 | closed | $+44.50 | — |
-| ledger_007_slv | SLV | 2026-06-08 | — | open | — | $-15.75 |
+| ledger_007_slv | SLV | 2026-06-08 | — | open | — | $-13.75 |
 | ledger_008_iwm | IWM | 2026-06-17 | 2026-06-22 | closed | $+17.93 | — |
 | ledger_009_cvx | CVX | 2026-06-17 | 2026-06-18 | closed | $+7.50 | — |
 | ledger_010_spy | SPY | 2026-06-22 | 2026-07-01 | closed | $+41.50 | — |
 | ledger_011_cost | COST | 2026-06-22 | 2026-06-25 | closed | $+21.48 | — |
 | ledger_012_spy | SPY | 2026-06-23 | 2026-06-30 | closed | $+52.49 | — |
-| ledger_013_slv | SLV | 2026-06-25 | — | open | — | $+164.88 |
+| ledger_013_slv | SLV | 2026-06-25 | — | open | — | $+184.88 |
 | ledger_014_spy | SPY | 2026-07-02 | 2026-07-09 | closed | $+14.50 | — |
 | ledger_015_spy | SPY | 2026-07-06 | 2026-07-16 | closed | $+8.50 | — |
 | ledger_016_iwm | IWM | 2026-07-08 | 2026-07-16 | closed | $+21.50 | — |
