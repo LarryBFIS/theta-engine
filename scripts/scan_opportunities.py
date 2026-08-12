@@ -45,12 +45,18 @@ def _no(reason):
 # Proven core: SPY/IWM/DIA (index, ~90% wins/+$918). Expanded (2026-07-14) with three
 # more EQUITY-ETF baskets — QQQ (Nasdaq-100 index, deepest options), XLE (energy),
 # XLF (financials) — to paper-test how far the premium-selling edge reaches. ETF
-# baskets only (not single stocks, which gap/trend — the cohort that bled). Metals/
-# bonds (GLD/SLV/TLT) deliberately left out for now (trendier/cross-asset). The
-# learner reports which earn a place. Override with SCAN_UNIVERSE="A,B,C".
+# baskets only (not single stocks, which gap/trend — the cohort that bled). GLD/TLT
+# (gold/bonds) stay out for now (trendier/cross-asset); SLV was added back 2026-08-12
+# by request — surfaced for viewing only (see below). The learner reports which earn a
+# place. Override with SCAN_UNIVERSE="A,B,C".
 DEFAULT_UNIVERSE = [
     "SPY", "IWM", "DIA",           # broad index ETFs — the proven core
     "QQQ", "XLE", "XLF",           # + Nasdaq index / energy / financials (equity ETFs)
+    "SLV",                         # silver — VIEW-ONLY in the feed: gated at the 0.30
+                                   # rich-premium floor like any sector name (surfaces only
+                                   # when IV is genuinely rich), excluded from the index-only
+                                   # short-term pass, and NOT in the paper TRADE_UNIVERSE — so
+                                   # it shows for eyeballing but the bot won't auto-paper it.
 ]
 # Index ETFs (SPY/IWM/DIA) are liquid and a proven edge, so they clear at a lower IV
 # floor than the 0.30 rich-premium bar used for sector names — otherwise a quiet-vol
