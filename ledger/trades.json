@@ -429,8 +429,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -23.75,
-      "cost_to_close_mid": 71.5,
+      "unrealized_pnl": -29.75,
+      "cost_to_close_mid": 77.5,
       "structure": "short_put_vertical",
       "short_strike": 61.0,
       "long_strike": 60.0,
@@ -1730,9 +1730,10 @@
         }
       ],
       "close_orders": [
-        "492378778"
+        "492378778",
+        "494108709"
       ],
-      "close_net_cash": -100.25,
+      "close_net_cash": 159.62,
       "close_legs": [
         {
           "symbol": "QQQ   260911P00668000",
@@ -1751,13 +1752,21 @@
           "net_cash": -466.12,
           "fees": 0.12,
           "executed_at": "2026-08-10T15:29:30.189Z"
+        },
+        {
+          "symbol": "QQQ   260911P00677000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 2.6,
+          "net_cash": 259.87,
+          "fees": 0.13,
+          "executed_at": "2026-08-13T15:05:12.826Z"
         }
       ],
-      "closed_at": "2026-08-10",
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": 367.24,
-      "cost_to_close_mid": -259.5,
+      "closed_at": "2026-08-13",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": 267.36,
       "structure": "short_put_vertical",
       "short_strike": 677.0,
       "long_strike": 668.0,
@@ -1767,7 +1776,8 @@
       "width": 9.0,
       "max_profit_total": 110.0,
       "max_loss_total": 790.0,
-      "bpr_total": 790.0
+      "bpr_total": 790.0,
+      "close_debit_per_contract": 1.0
     },
     {
       "id": "ledger_028_qqq",
@@ -1795,14 +1805,25 @@
           "executed_at": "2026-08-12T16:12:57.160Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": 26.25,
-      "cost_to_close_mid": 77.5,
+      "close_orders": [
+        "494108709"
+      ],
+      "close_net_cash": -338.12,
+      "close_legs": [
+        {
+          "symbol": "QQQ   260911P00686000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 3.38,
+          "net_cash": -338.12,
+          "fees": 0.12,
+          "executed_at": "2026-08-13T15:05:12.826Z"
+        }
+      ],
+      "closed_at": "2026-08-13",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": -234.37,
       "structure": "short_put_vertical",
       "short_strike": 686.0,
       "long_strike": 677.0,
