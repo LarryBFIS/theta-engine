@@ -506,6 +506,22 @@ def build_iron_condor(underlying, expiry, dte, put_short, put_long, call_short, 
     }
 
 
+def _fmt_strikes(c):
+    """Structure-aware strike label — the ONE source of truth so the Pushover alert and
+    the dashboard/opportunities feed render a given setup identically. Iron condors show
+    all four legs; a call vertical gets a 'c'; a put vertical a 'p'. (Before this, the
+    alerter hard-coded '{short}/{long}p', so an iron condor printed its put-short and
+    call-short mashed together as one bogus put spread, e.g. '674/790p'.)"""
+    st = c.get("structure")
+    if st == "iron_condor":
+        return "{:g}/{:g}p + {:g}/{:g}c".format(
+            c.get("put_short_strike", 0), c.get("put_long_strike", 0),
+            c.get("call_short_strike", 0), c.get("call_long_strike", 0))
+    if st == "short_call_vertical":
+        return "{:g}/{:g}c".format(c.get("short_strike", 0), c.get("long_strike", 0))
+    return "{:g}/{:g}p".format(c.get("short_strike", 0), c.get("long_strike", 0))
+
+
 def reasoning_for(c, trend=None, book_bias=None):
     """Plain-English why-string for an opportunity (P5)."""
     st = c.get("structure")
@@ -516,15 +532,11 @@ def reasoning_for(c, trend=None, book_bias=None):
         why = "neutral — defined-risk both sides"
         if book_bias:
             why = "neutral (book bias {:+.0f} → balance)".format(book_bias)
-        strikes = "{:g}/{:g}p + {:g}/{:g}c".format(
-            c.get("put_short_strike", 0), c.get("put_long_strike", 0),
-            c.get("call_short_strike", 0), c.get("call_long_strike", 0))
     elif st == "short_call_vertical":
         why = "bearish lean" if trend == "bearish" else "book balance (reduce long delta)"
-        strikes = "{:g}/{:g}c".format(c.get("short_strike", 0), c.get("long_strike", 0))
     else:
         why = "bullish lean" if trend == "bullish" else "rich premium"
-        strikes = "{:g}/{:g}p".format(c.get("short_strike", 0), c.get("long_strike", 0))
+    strikes = _fmt_strikes(c)
     n = c.get("contracts", 1)
     return (
         "{name} {strikes} ×{n} — {why}. Edge: IV rank {ivr:.0%}, EV ${ev:+.0f}/ctr "
@@ -1432,8 +1444,8 @@ def _alert_new_opportunities(ranked):
             note = "LIVE — open + set GTC 50%"
         else:
             note = "paper (auto-tracked)"
-        lines.append("{} {:g}/{:g}p exp {} · ${:.2f} cr · POP {:.0%} · IVR {:.0%} · {}".format(
-            c["underlying"], c["short_strike"], c["long_strike"], c.get("expiry") or "?",
+        lines.append("{} {} exp {} · ${:.2f} cr · POP {:.0%} · IVR {:.0%} · {}".format(
+            c["underlying"], _fmt_strikes(c), c.get("expiry") or "?",
             c["credit"], c["pop"], c["iv_rank"], note))
     try:
         from monitor import notifier
