@@ -357,6 +357,12 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
     </div>
   </div>
 
+  <div class="panel reveal" id="manualpanel" style="animation-delay:.5s;display:none">
+    <div class="phead"><span class="t">🖐 MANUAL · OFF-STRATEGY</span><span class="meta" id="manualsum">—</span></div>
+    <div id="manualbody" style="padding:2px 0"></div>
+    <div style="padding:4px 16px 12px;font-size:10.5px;color:var(--dimmer)">Hand-opened trades the bot tracks from the broker ledger but keeps OUT of strategy P&amp;L / win-rate.</div>
+  </div>
+
   <div class="panel reveal" id="modelpanel" style="animation-delay:.52s">
     <div class="phead"><span class="t">🧠 MODEL BUILD · toward our own LLM</span><span class="meta" id="modelupd">—</span></div>
     <div style="padding:14px 16px">
@@ -509,6 +515,31 @@ function renderClosed(){
   const rs=$('realsum');
   rs.textContent=(DATA.realized>=0?'+$':'-$')+Math.abs(DATA.realized).toFixed(2);
   rs.classList.remove('up','down');rs.classList.add(DATA.realized>=0?'up':'down');
+}
+
+/* ---- render manual / off-strategy positions (never counted in strategy P&L) ---- */
+function renderManual(){
+  const panel=$('manualpanel'), box=$('manualbody'); if(!panel||!box) return;
+  const items=DATA.manual||[];
+  if(!items.length){ panel.style.display='none'; return; }
+  panel.style.display='';
+  box.innerHTML='';
+  let real=0, unreal=0;
+  items.forEach(m=>{
+    const pnl=(typeof m.pnl==='number')?m.pnl:null;
+    if(pnl!=null){ if(m.pnl_kind==='realized') real+=pnl; else unreal+=pnl; }
+    const cls=(pnl==null)?'':(pnl>=0?'up':'down');
+    const amt=(pnl==null)?'—':((pnl>=0?'+$':'-$')+Math.abs(pnl).toFixed(2));
+    const open=m.status!=='closed';
+    const badge=`<span class="struct" style="color:${open?'var(--cyan)':'var(--dim)'}">${open?'open':'closed'}</span>`;
+    const d=document.createElement('div');d.className='kv';
+    d.innerHTML=`<span class="k"><span class="sym">${m.sym||'—'}</span> <span class="struct">${m.label||''}</span> · ${badge}${m.sub?` <span style="color:var(--dimmer)">· ${m.sub}</span>`:''}</span><span class="v ${cls}">${amt}</span>`;
+    box.appendChild(d);
+  });
+  const bits=[];
+  if(Math.abs(real)>=0.005)   bits.push((real>=0?'+$':'-$')+Math.abs(real).toFixed(2)+' realized');
+  if(Math.abs(unreal)>=0.005) bits.push((unreal>=0?'+$':'-$')+Math.abs(unreal).toFixed(2)+' open');
+  $('manualsum').textContent = bits.join(' · ') || (items.length+' position'+(items.length>1?'s':''));
 }
 
 /* ---- header totals ---- */
@@ -684,6 +715,7 @@ const TRADES_URL = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/mai
 const SCAN_URL   = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/scan/opportunities.json';
 const NEWS_URL   = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/news/feed.json';
 const MODEL_URL  = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/memory/training_status.json';
+const OFF_URL    = 'https://raw.githubusercontent.com/LarryBFIS/theta-engine/main/ledger/off_strategy.json';
 const REFRESH_MS = 60000;
 
 /* ---- right rail: live opportunities feed (from the AI scanner) ---- */
@@ -863,9 +895,11 @@ function structOf(t){
 }
 
 async function loadLive(){
-  let gist=null, tj=null;
+  let gist=null, tj=null, off=null;
   try{ gist = await fetchJSON(GIST_URL); }catch(e){ console.warn('gist load failed', e); }
   try{ tj   = await fetchJSON(TRADES_URL); }catch(e){ console.warn('trades load failed', e); }
+  try{ off  = await fetchJSON(OFF_URL); }catch(e){ /* optional file — keep last good */ }
+  if(off && Array.isArray(off.positions)) DATA.manual = off.positions;
   if(!gist && !tj) return;                         // keep last good / seed
 
   if(tj && Array.isArray(tj.trades)){
@@ -948,7 +982,7 @@ async function loadLive(){
   if(DATA.netLiq) DATA.bprPct = +((DATA.bprUsed/DATA.netLiq)*100).toFixed(1);
 
   // re-render (functions read the global DATA; intervals for tape/liveFeel set once at init)
-  renderPositions(); renderClosed(); renderTotals(); renderSpark(); updateMissionLive();
+  renderPositions(); renderClosed(); renderManual(); renderTotals(); renderSpark(); updateMissionLive();
   markRefreshed();          // exact time the dashboard data was just refreshed
   updatePollAge();          // bot last-poll + live staleness
   loadFeed();               // right rail: opportunities
@@ -956,7 +990,7 @@ async function loadLive(){
 }
 
 /* ---- init: paint seed instantly, then go live ---- */
-renderMission(); renderPositions(); renderClosed(); renderTotals(); renderSpark();
+renderMission(); renderPositions(); renderClosed(); renderManual(); renderTotals(); renderSpark();
 loadLive().finally(()=>{ renderTape(); liveFeel(); });
 loadFeed(); loadNews(); loadModel();
 setInterval(loadLive, REFRESH_MS);

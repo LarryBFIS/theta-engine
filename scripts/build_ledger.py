@@ -409,6 +409,67 @@ def build_summary_md(trades: list[dict], recon: dict) -> str:
     return "\n".join(lines)
 
 
+def _off_label(t):
+    """Short human label for an off-strategy trade. A vertical shows 'short/long p|c';
+    a single-leg trade (e.g. a hand-bought long call) is parsed from its OCC leg."""
+    st = t.get("structure") or ""
+    if t.get("short_strike") is not None and t.get("long_strike") is not None:
+        right = "c" if "call" in st else "p"
+        return "{:g}/{:g}{}".format(t["short_strike"], t["long_strike"], right)
+    legs = t.get("open_legs") or []
+    if len(legs) == 1:
+        p = parse_occ(legs[0].get("symbol") or "")
+        if p:
+            lng = "buy" in (legs[0].get("action") or "").lower()
+            return "{} {:g}{}".format("long" if lng else "short", p["strike"], p["type"])
+    return "{}-leg".format(len(legs)) if legs else "manual"
+
+
+def _off_sub(t):
+    """Caption: expiry + the open/close date, for the dashboard's manual section."""
+    exp = t.get("expiry")
+    legs = t.get("open_legs") or []
+    if not exp and len(legs) == 1:
+        p = parse_occ(legs[0].get("symbol") or "")
+        exp = p["expiry"] if p else None
+    when = str(t.get("closed_at") or t.get("opened_at") or "")[:10]
+    bits = []
+    if exp:
+        bits.append("exp " + str(exp)[:10])
+    bits.append(("closed " if t.get("status") == "closed" else "opened ") + when)
+    return " · ".join(b for b in bits if b.strip())
+
+
+def _off_strategy_view(trades):
+    """Positions the strategy book (trades.json) deliberately excludes — hand-opened
+    off-strategy trades (ignored order ids) and non-vertical structures like a lone long
+    call. Emitted read-only so the dashboard can SHOW manual trades without ever letting
+    them into the strategy P&L / win-rate. Mirrors sync_trades' exclusion test; skips
+    pre-window close-only phantoms (no open order id)."""
+    try:
+        from scripts.sync_trades import IGNORE_ORDER_IDS
+    except Exception:  # noqa: BLE001 — never fail the ledger on an import hiccup
+        IGNORE_ORDER_IDS = set()
+    out = []
+    for t in trades:
+        oid = str(t.get("open_order_id") or "")
+        if not oid:
+            continue  # close-only / pre-window phantom — not a real tracked position
+        if not (oid in IGNORE_ORDER_IDS or t.get("short_strike") is None):
+            continue  # this one IS in the strategy book — leave it there
+        closed = t.get("status") == "closed"
+        pnl = t.get("realized_pnl") if closed else t.get("unrealized_pnl")
+        out.append({
+            "sym": t.get("underlying"),
+            "label": _off_label(t),
+            "status": t.get("status"),
+            "pnl": round(pnl, 2) if isinstance(pnl, (int, float)) else None,
+            "pnl_kind": "realized" if closed else "unrealized",
+            "sub": _off_sub(t),
+        })
+    return out
+
+
 def write_ledger(transactions, trades, recon, summary_md) -> None:
     LEDGER_DIR.mkdir(parents=True, exist_ok=True)
     (LEDGER_DIR / "transactions.json").write_text(
@@ -424,6 +485,12 @@ def write_ledger(transactions, trades, recon, summary_md) -> None:
     )
     (LEDGER_DIR / "reconciliation.json").write_text(
         json.dumps(recon, indent=2, default=str) + "\n"
+    )
+    # Off-strategy / manual positions — surfaced read-only on the dashboard so hand-opened
+    # trades (e.g. the SLV call + 61/60 spread) are visible without touching strategy P&L.
+    (LEDGER_DIR / "off_strategy.json").write_text(
+        json.dumps({"schema_version": 1, "positions": _off_strategy_view(trades)},
+                   indent=2, default=str) + "\n"
     )
     (LEDGER_DIR / "summary.md").write_text(summary_md)
 
