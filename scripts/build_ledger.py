@@ -466,6 +466,7 @@ def _off_strategy_view(trades):
             "pnl": round(pnl, 2) if isinstance(pnl, (int, float)) else None,
             "pnl_kind": "realized" if closed else "unrealized",
             "sub": _off_sub(t),
+            "ts": str(t.get("closed_at") or t.get("opened_at") or "")[:10],  # sort key: newest first
         })
     return out
 

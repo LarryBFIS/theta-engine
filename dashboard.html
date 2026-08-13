@@ -520,7 +520,8 @@ function renderClosed(){
 /* ---- render manual / off-strategy positions (never counted in strategy P&L) ---- */
 function renderManual(){
   const panel=$('manualpanel'), box=$('manualbody'); if(!panel||!box) return;
-  const items=DATA.manual||[];
+  const items=(DATA.manual||[]).slice()   // newest activity (close, else open) first
+    .sort((a,b)=> String(b.ts||'').localeCompare(String(a.ts||'')));
   if(!items.length){ panel.style.display='none'; return; }
   panel.style.display='';
   box.innerHTML='';
@@ -949,6 +950,10 @@ async function loadLive(){
     });
     DATA.realized = DATA.closed.reduce((a,c)=>a+c.pnl, 0);   // bottom-up, no USO
 
+    // Always newest-opened first, so a freshly opened position sits at the top of Open
+    // (matches the newest-first order of the Closed list). Tie-break by order id.
+    open.sort((a,b) => String(b.opened_at||'').localeCompare(String(a.opened_at||''))
+                    || ((+b.open_order_id||0)-(+a.open_order_id||0)));
     DATA.positions = open.map(t => {
       const s = structOf(t), g = gById.get(t.id) || gBySig.get(_sig(t)), m = (g&&g.metrics)||{}, rec = (g&&g.recommendation)||{};
       const cc = m.cost_to_close || {};
