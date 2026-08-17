@@ -429,8 +429,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -20.25,
-      "cost_to_close_mid": 68.0,
+      "unrealized_pnl": -20.75,
+      "cost_to_close_mid": 68.5,
       "structure": "short_put_vertical",
       "short_strike": 61.0,
       "long_strike": 60.0,
@@ -1834,6 +1834,51 @@
       "max_profit_total": 106.0,
       "max_loss_total": 794.0,
       "bpr_total": 794.0
+    },
+    {
+      "id": "ledger_029_qqq",
+      "underlying": "QQQ",
+      "opened_at": "2026-08-17",
+      "open_order_id": "495670063",
+      "open_net_cash": 100.74,
+      "open_legs": [
+        {
+          "symbol": "QQQ   260918P00681000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 3.89,
+          "net_cash": -390.12,
+          "fees": 1.12,
+          "executed_at": "2026-08-17T18:41:02.256Z"
+        },
+        {
+          "symbol": "QQQ   260918P00690000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 4.92,
+          "net_cash": 490.86,
+          "fees": 1.14,
+          "executed_at": "2026-08-17T18:41:02.256Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -1.76,
+      "cost_to_close_mid": 102.5,
+      "structure": "short_put_vertical",
+      "short_strike": 690.0,
+      "long_strike": 681.0,
+      "expiry": "2026-09-18",
+      "contracts": 1,
+      "credit_per_contract": 1.03,
+      "width": 9.0,
+      "max_profit_total": 103.0,
+      "max_loss_total": 797.0,
+      "bpr_total": 797.0
     }
   ]
 }
