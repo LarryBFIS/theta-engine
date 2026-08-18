@@ -429,8 +429,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -45.75,
-      "cost_to_close_mid": 93.5,
+      "unrealized_pnl": -44.75,
+      "cost_to_close_mid": 92.5,
       "structure": "short_put_vertical",
       "short_strike": 61.0,
       "long_strike": 60.0,
@@ -1867,8 +1867,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -53.76,
-      "cost_to_close_mid": 154.5,
+      "unrealized_pnl": -56.76,
+      "cost_to_close_mid": 157.5,
       "structure": "short_put_vertical",
       "short_strike": 690.0,
       "long_strike": 681.0,
@@ -1879,6 +1879,51 @@
       "max_profit_total": 103.0,
       "max_loss_total": 797.0,
       "bpr_total": 797.0
+    },
+    {
+      "id": "ledger_030_qqq",
+      "underlying": "QQQ",
+      "opened_at": "2026-08-18",
+      "open_order_id": "496408216",
+      "open_net_cash": 104.74,
+      "open_legs": [
+        {
+          "symbol": "QQQ   260918P00677000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 5.21,
+          "net_cash": 519.86,
+          "fees": 1.14,
+          "executed_at": "2026-08-18T19:52:58.933Z"
+        },
+        {
+          "symbol": "QQQ   260918P00668000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 4.14,
+          "net_cash": -415.12,
+          "fees": 1.12,
+          "executed_at": "2026-08-18T19:52:58.933Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -3.76,
+      "cost_to_close_mid": 108.5,
+      "structure": "short_put_vertical",
+      "short_strike": 677.0,
+      "long_strike": 668.0,
+      "expiry": "2026-09-18",
+      "contracts": 1,
+      "credit_per_contract": 1.07,
+      "width": 9.0,
+      "max_profit_total": 107.0,
+      "max_loss_total": 793.0,
+      "bpr_total": 793.0
     }
   ]
 }
