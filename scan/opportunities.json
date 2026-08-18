@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-18T17:42:44.262439+00:00",
+  "generated_at": "2026-08-18T17:57:39.389029+00:00",
   "regime": {
-    "vix": 15.72,
-    "vix_day_change_pct": 0.0349,
+    "vix": 15.7,
+    "vix_day_change_pct": 0.0336,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (+3% day)"
@@ -33,15 +33,15 @@
       "fees_est": 3.0,
       "bpr": 809.0,
       "max_loss": 809.0,
-      "pop": 0.8,
-      "short_delta": 0.188,
+      "pop": 0.799,
+      "short_delta": 0.189,
       "short_spread_pct": 0.002,
       "credit_to_bpr": 0.112,
-      "ev_per_contract": 6.05,
-      "ev_on_bpr": 0.0075,
+      "ev_per_contract": 5.85,
+      "ev_on_bpr": 0.0072,
       "iv": 0.159,
-      "iv_rank": 0.328,
-      "underlying_price": 768.15,
+      "iv_rank": 0.329,
+      "underlying_price": 767.99,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -51,16 +51,14 @@
       "bpr_total": 809.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 738/729p \u00d71 \u2014 bullish lean. Edge: IV rank 33%, EV $+6/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.91 \u00b7 max loss $809 \u00b7 BPR $809 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 738/729p \u00d71 \u2014 bullish lean. Edge: IV rank 33%, EV $+6/ctr (+0.7% on BPR). POP 80% \u00b7 credit $0.91 \u00b7 max loss $809 \u00b7 BPR $809 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.6,
       "learn_notes": [
         "asset_class=index_etf \u00d71.44",
         "structure=short_put_vertical \u00d71.30"
       ],
-      "rank_score": 0.012,
-      "agent_action": "approve",
-      "agent_reason": "Veto: SPY already has 1 open position; adding a second violates max_per_name cap of 1.",
-      "agent_reviewed": true,
+      "rank_score": 0.01152,
+      "agent_reviewed": false,
       "news_risk": {
         "level": "clear",
         "hits": []
@@ -92,7 +90,7 @@
         "credit_total": 91.0,
         "max_loss_total": 809.0,
         "bpr_total": 809.0,
-        "pop": 0.8,
+        "pop": 0.799,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -106,64 +104,66 @@
         "fit_note": "\u26a0 max loss $809 > 10% live cap ($695) \u2014 narrow to ~7-wide for live, or keep on paper.",
         "text": "SPY VP \u00d71 \u2014 SELL 738P / BUY 729P (2026-09-18) @ $0.91 net credit. Max loss $809. After fill: GTC buy-to-close @ $0.46 (50%). \u26a0 max loss $809 > 10% live cap ($695) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-18T17:42:44.262439+00:00"
+      "posted_at": "2026-08-18T17:57:39.389029+00:00"
     },
     {
       "underlying": "QQQ",
       "structure": "short_put_vertical",
       "expiry": "2026-09-18",
       "dte": 31,
-      "short_strike": 678.0,
-      "long_strike": 669.0,
-      "short_symbol": "QQQ   260918P00678000",
-      "long_symbol": "QQQ   260918P00669000",
+      "short_strike": 677.0,
+      "long_strike": 668.0,
+      "short_symbol": "QQQ   260918P00677000",
+      "long_symbol": "QQQ   260918P00668000",
       "width": 9.0,
-      "credit": 1.02,
-      "mid_credit": 1.06,
+      "credit": 1.01,
+      "mid_credit": 1.05,
       "fees_est": 3.0,
-      "bpr": 798.0,
-      "max_loss": 798.0,
-      "pop": 0.799,
-      "short_delta": 0.183,
+      "bpr": 799.0,
+      "max_loss": 799.0,
+      "pop": 0.802,
+      "short_delta": 0.18,
       "short_spread_pct": 0.008,
-      "credit_to_bpr": 0.128,
-      "ev_per_contract": 6.91,
-      "ev_on_bpr": 0.0087,
-      "iv": 0.2269,
-      "iv_rank": 0.492,
-      "underlying_price": 718.13,
+      "credit_to_bpr": 0.126,
+      "ev_per_contract": 7.59,
+      "ev_on_bpr": 0.0095,
+      "iv": 0.2266,
+      "iv_rank": 0.493,
+      "underlying_price": 717.68,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 798.0,
-      "bpr_total": 798.0,
+      "max_loss_total": 799.0,
+      "bpr_total": 799.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short put vertical 678/669p \u00d71 \u2014 rich premium. Edge: IV rank 49%, EV $+7/ctr (+0.9% on BPR). POP 80% \u00b7 credit $1.02 \u00b7 max loss $798 \u00b7 BPR $798 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 677/668p \u00d71 \u2014 rich premium. Edge: IV rank 49%, EV $+8/ctr (+0.9% on BPR). POP 80% \u00b7 credit $1.01 \u00b7 max loss $799 \u00b7 BPR $799 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.698,
       "learn_notes": [
         "asset_class=single_name \u00d70.69",
         "cluster=us_tech \u00d70.78",
         "structure=short_put_vertical \u00d71.30"
       ],
-      "rank_score": 0.006073,
-      "agent_action": "guarded",
-      "agent_reason": "Veto: QQQ is single_name with realized negative expectancy (28% wr vs 36% baseline); cluster us_tech also shows neg expectancy. Tape is ripping after +3% move, vol is low (15.72 VIX), and timing to add short vol is poor. Wait for consolidat",
-      "guarded_warn": true,
-      "demoted": "guarded \u2014 surfaced with a caution, paper only",
-      "agent_reviewed": true,
+      "rank_score": 0.006631,
+      "agent_reviewed": false,
       "news_risk": {
-        "level": "clear",
-        "hits": []
+        "level": "veto",
+        "hits": [
+          {
+            "title": "Stock Market Today: Nasdaq Weighed Down By Chip Names; Credo Plunges With Micron, Sandisk (Live Coverage)",
+            "severity": 3,
+            "keyword": "plunge"
+          }
+        ]
       },
       "net_liq": 6953.097,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
         "order_type": "Net Credit",
-        "limit": 1.02,
+        "limit": 1.01,
         "contracts": 1,
         "expiry": "2026-09-18",
         "legs": [
@@ -171,35 +171,35 @@
             "action": "SELL",
             "qty": 1,
             "expiry": "2026-09-18",
-            "strike": 678.0,
+            "strike": 677.0,
             "type": "P"
           },
           {
             "action": "BUY",
             "qty": 1,
             "expiry": "2026-09-18",
-            "strike": 669.0,
+            "strike": 668.0,
             "type": "P"
           }
         ],
-        "credit_total": 102.0,
-        "max_loss_total": 798.0,
-        "bpr_total": 798.0,
-        "pop": 0.799,
+        "credit_total": 101.0,
+        "max_loss_total": 799.0,
+        "bpr_total": 799.0,
+        "pop": 0.802,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
           "close_debit": 0.51,
-          "stop_debit": 2.55,
+          "stop_debit": 2.52,
           "exit_dte": 21
         },
         "fits_live_cap": false,
         "live_cap": 695.31,
         "suggested_width": 7,
-        "fit_note": "\u26a0 max loss $798 > 10% live cap ($695) \u2014 narrow to ~7-wide for live, or keep on paper.",
-        "text": "QQQ VP \u00d71 \u2014 SELL 678P / BUY 669P (2026-09-18) @ $1.02 net credit. Max loss $798. After fill: GTC buy-to-close @ $0.51 (50%). \u26a0 max loss $798 > 10% live cap ($695) \u2014 narrow to ~7-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $799 > 10% live cap ($695) \u2014 narrow to ~7-wide for live, or keep on paper.",
+        "text": "QQQ VP \u00d71 \u2014 SELL 677P / BUY 668P (2026-09-18) @ $1.01 net credit. Max loss $799. After fill: GTC buy-to-close @ $0.51 (50%). \u26a0 max loss $799 > 10% live cap ($695) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-18T17:42:44.262439+00:00"
+      "posted_at": "2026-08-18T17:57:39.389029+00:00"
     }
   ],
   "long_vol": [],
@@ -251,27 +251,7 @@
       }
     ]
   },
-  "agent": {
-    "generated_at": "2026-08-18T17:42:43.677064+00:00",
-    "model": "claude-haiku-4-5",
-    "market_view": "VIX 15.72 in normal regime after +3% rally; tape is bid and complacent. This is poor timing to add short premium into a rip\u2014we're selling volatility after the market just ran, which means we're catching the vol _after_ the move, not ahead of it. Better to wait for a pullback or sideways consolidation.",
-    "portfolio_note": "Book is flat-to-negative (-$90 unrealized) with 3 open across broad index ETFs (QQQ, SPY, DIA). Adding more short premium now concentrates us into a euphoric tape when vol is already low; limited edge.",
-    "reviewed": 2,
-    "vetoed": 1,
-    "downsized": 0,
-    "decisions": [
-      {
-        "id": "SPY|short_put_vertical|738/729",
-        "action": "approve",
-        "reason": "Veto: SPY already has 1 open position; adding a second violates max_per_name cap of 1."
-      },
-      {
-        "id": "QQQ|short_put_vertical|678/669",
-        "action": "veto",
-        "reason": "Veto: QQQ is single_name with realized negative expectancy (28% wr vs 36% baseline); cluster us_tech also shows neg expectancy. Tape is ripping after +3% move, vol is low (15.72 VIX), and timing to add short vol is poor. Wait for consolidat"
-      }
-    ]
-  },
+  "agent": null,
   "all_candidates": [
     {
       "underlying": "SPY",
@@ -288,15 +268,15 @@
       "fees_est": 3.0,
       "bpr": 809.0,
       "max_loss": 809.0,
-      "pop": 0.8,
-      "short_delta": 0.188,
+      "pop": 0.799,
+      "short_delta": 0.189,
       "short_spread_pct": 0.002,
       "credit_to_bpr": 0.112,
-      "ev_per_contract": 6.05,
-      "ev_on_bpr": 0.0075,
+      "ev_per_contract": 5.85,
+      "ev_on_bpr": 0.0072,
       "iv": 0.159,
-      "iv_rank": 0.328,
-      "underlying_price": 768.15,
+      "iv_rank": 0.329,
+      "underlying_price": 767.99,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -306,16 +286,14 @@
       "bpr_total": 809.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 738/729p \u00d71 \u2014 bullish lean. Edge: IV rank 33%, EV $+6/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.91 \u00b7 max loss $809 \u00b7 BPR $809 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 738/729p \u00d71 \u2014 bullish lean. Edge: IV rank 33%, EV $+6/ctr (+0.7% on BPR). POP 80% \u00b7 credit $0.91 \u00b7 max loss $809 \u00b7 BPR $809 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.6,
       "learn_notes": [
         "asset_class=index_etf \u00d71.44",
         "structure=short_put_vertical \u00d71.30"
       ],
-      "rank_score": 0.012,
-      "agent_action": "approve",
-      "agent_reason": "Veto: SPY already has 1 open position; adding a second violates max_per_name cap of 1.",
-      "agent_reviewed": true,
+      "rank_score": 0.01152,
+      "agent_reviewed": false,
       "news_risk": {
         "level": "clear",
         "hits": []
@@ -347,7 +325,7 @@
         "credit_total": 91.0,
         "max_loss_total": 809.0,
         "bpr_total": 809.0,
-        "pop": 0.8,
+        "pop": 0.799,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -361,64 +339,66 @@
         "fit_note": "\u26a0 max loss $809 > 10% live cap ($695) \u2014 narrow to ~7-wide for live, or keep on paper.",
         "text": "SPY VP \u00d71 \u2014 SELL 738P / BUY 729P (2026-09-18) @ $0.91 net credit. Max loss $809. After fill: GTC buy-to-close @ $0.46 (50%). \u26a0 max loss $809 > 10% live cap ($695) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-18T17:42:44.262439+00:00"
+      "posted_at": "2026-08-18T17:57:39.389029+00:00"
     },
     {
       "underlying": "QQQ",
       "structure": "short_put_vertical",
       "expiry": "2026-09-18",
       "dte": 31,
-      "short_strike": 678.0,
-      "long_strike": 669.0,
-      "short_symbol": "QQQ   260918P00678000",
-      "long_symbol": "QQQ   260918P00669000",
+      "short_strike": 677.0,
+      "long_strike": 668.0,
+      "short_symbol": "QQQ   260918P00677000",
+      "long_symbol": "QQQ   260918P00668000",
       "width": 9.0,
-      "credit": 1.02,
-      "mid_credit": 1.06,
+      "credit": 1.01,
+      "mid_credit": 1.05,
       "fees_est": 3.0,
-      "bpr": 798.0,
-      "max_loss": 798.0,
-      "pop": 0.799,
-      "short_delta": 0.183,
+      "bpr": 799.0,
+      "max_loss": 799.0,
+      "pop": 0.802,
+      "short_delta": 0.18,
       "short_spread_pct": 0.008,
-      "credit_to_bpr": 0.128,
-      "ev_per_contract": 6.91,
-      "ev_on_bpr": 0.0087,
-      "iv": 0.2269,
-      "iv_rank": 0.492,
-      "underlying_price": 718.13,
+      "credit_to_bpr": 0.126,
+      "ev_per_contract": 7.59,
+      "ev_on_bpr": 0.0095,
+      "iv": 0.2266,
+      "iv_rank": 0.493,
+      "underlying_price": 717.68,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 798.0,
-      "bpr_total": 798.0,
+      "max_loss_total": 799.0,
+      "bpr_total": 799.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short put vertical 678/669p \u00d71 \u2014 rich premium. Edge: IV rank 49%, EV $+7/ctr (+0.9% on BPR). POP 80% \u00b7 credit $1.02 \u00b7 max loss $798 \u00b7 BPR $798 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 677/668p \u00d71 \u2014 rich premium. Edge: IV rank 49%, EV $+8/ctr (+0.9% on BPR). POP 80% \u00b7 credit $1.01 \u00b7 max loss $799 \u00b7 BPR $799 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.698,
       "learn_notes": [
         "asset_class=single_name \u00d70.69",
         "cluster=us_tech \u00d70.78",
         "structure=short_put_vertical \u00d71.30"
       ],
-      "rank_score": 0.006073,
-      "agent_action": "guarded",
-      "agent_reason": "Veto: QQQ is single_name with realized negative expectancy (28% wr vs 36% baseline); cluster us_tech also shows neg expectancy. Tape is ripping after +3% move, vol is low (15.72 VIX), and timing to add short vol is poor. Wait for consolidat",
-      "guarded_warn": true,
-      "demoted": "guarded \u2014 surfaced with a caution, paper only",
-      "agent_reviewed": true,
+      "rank_score": 0.006631,
+      "agent_reviewed": false,
       "news_risk": {
-        "level": "clear",
-        "hits": []
+        "level": "veto",
+        "hits": [
+          {
+            "title": "Stock Market Today: Nasdaq Weighed Down By Chip Names; Credo Plunges With Micron, Sandisk (Live Coverage)",
+            "severity": 3,
+            "keyword": "plunge"
+          }
+        ]
       },
       "net_liq": 6953.097,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
         "order_type": "Net Credit",
-        "limit": 1.02,
+        "limit": 1.01,
         "contracts": 1,
         "expiry": "2026-09-18",
         "legs": [
@@ -426,35 +406,35 @@
             "action": "SELL",
             "qty": 1,
             "expiry": "2026-09-18",
-            "strike": 678.0,
+            "strike": 677.0,
             "type": "P"
           },
           {
             "action": "BUY",
             "qty": 1,
             "expiry": "2026-09-18",
-            "strike": 669.0,
+            "strike": 668.0,
             "type": "P"
           }
         ],
-        "credit_total": 102.0,
-        "max_loss_total": 798.0,
-        "bpr_total": 798.0,
-        "pop": 0.799,
+        "credit_total": 101.0,
+        "max_loss_total": 799.0,
+        "bpr_total": 799.0,
+        "pop": 0.802,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
           "close_debit": 0.51,
-          "stop_debit": 2.55,
+          "stop_debit": 2.52,
           "exit_dte": 21
         },
         "fits_live_cap": false,
         "live_cap": 695.31,
         "suggested_width": 7,
-        "fit_note": "\u26a0 max loss $798 > 10% live cap ($695) \u2014 narrow to ~7-wide for live, or keep on paper.",
-        "text": "QQQ VP \u00d71 \u2014 SELL 678P / BUY 669P (2026-09-18) @ $1.02 net credit. Max loss $798. After fill: GTC buy-to-close @ $0.51 (50%). \u26a0 max loss $798 > 10% live cap ($695) \u2014 narrow to ~7-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $799 > 10% live cap ($695) \u2014 narrow to ~7-wide for live, or keep on paper.",
+        "text": "QQQ VP \u00d71 \u2014 SELL 677P / BUY 668P (2026-09-18) @ $1.01 net credit. Max loss $799. After fill: GTC buy-to-close @ $0.51 (50%). \u26a0 max loss $799 > 10% live cap ($695) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-18T17:42:44.262439+00:00"
+      "posted_at": "2026-08-18T17:57:39.389029+00:00"
     }
   ],
   "skipped": {
