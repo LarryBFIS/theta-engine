@@ -1,10 +1,10 @@
 {
-  "last_run": "2026-08-18T14:34:39.093037+00:00",
-  "market_view": "QQQ down -1.56% with VIX spiking +10.67% \u2014 tech selloff continues with no reversal signal. Stop rule was triggered last cycle and remains violated.",
+  "last_run": "2026-08-18T14:54:56.732038+00:00",
+  "market_view": "QQQ down -1.9% today with VIX spiking +9.75% \u2014 tech selloff accelerating with XLK -2.7%. Stop rule breach persists and position is deteriorating further toward max loss.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-18T14:34:30Z",
-    "reasoning": "Hard stop is 1.545 (1.03 \u00d7 1.5) \u2014 current mid is 1.455 but worst-case fill is 1.51, and this position has been flagged CRITICAL for 14+ minutes with no close executed. VIX +10.67% and QQQ continuing lower increases gamma risk; every additional minute of delay worsens expected fill and violates the stop rule."
+    "timestamp": "2026-08-18T14:54:48Z",
+    "reasoning": "Current mid 1.565 and worst-case fill 1.63 both exceed the hard stop of 1.545 (1.03 \u00d7 1.5). This stop was breached last cycle and has not been closed \u2014 every minute of delay in a -1.9% QQQ tape increases gamma exposure and worsens expected fill price."
   }
 }
