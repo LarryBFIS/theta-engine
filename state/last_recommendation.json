@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-19T20:51:16.874847+00:00",
-  "market_view": "QQQ down 0.2% today and -1.25% on the week with XLK -2.9% five-day; VIX crushed to 14.89 means no vol-mean-reversion rescue \u2014 directional drift lower in tech is the dominant risk.",
+  "last_run": "2026-08-19T21:02:08.902679+00:00",
+  "market_view": "QQQ -1.25% on the week with XLK -2.9% five-day and VIX at 14.89 \u2014 low vol environment offers no cushion against continued tech drift lower; both positions are same underlying, compounding concentration risk.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-19T20:51:04Z",
-    "reasoning": "Worst-case cost 1.67 is 1.62x the 1.03 credit \u2014 hard stop at 1.5x (1.545) was breached last cycle and remains breached; this was flagged CRITICAL 14 minutes ago and has not been closed \u2014 this is a rule violation in progress."
+    "timestamp": "2026-08-19T21:01:58Z",
+    "reasoning": "Worst-case cost 1.67 is 1.62x the 1.03 credit \u2014 hard stop at 1.5x (1.545) has been breached for 10+ minutes with no close executed; this is an active rule violation, not a judgment call."
   },
   "QQQ 677/668p": {
     "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-08-19T20:51:04Z",
-    "reasoning": "Mid cost 1.05 is essentially flat versus 1.07 credit \u2014 no profit, no stop breach, but concentrated QQQ exposure with tech under pressure; once 690/681p is closed, evaluate whether to hold or flatten this too given single-underlying concentration."
+    "confidence": 0.75,
+    "timestamp": "2026-08-19T21:01:58Z",
+    "reasoning": "Mid 1.05 vs 1.07 credit is near breakeven \u2014 no stop breach yet, but once the 690/681p is closed you have 100% QQQ concentration in a deteriorating tech tape with 29 DTE remaining."
   }
 }
