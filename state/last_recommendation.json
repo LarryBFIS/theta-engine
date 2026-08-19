@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-19T16:14:33.050948+00:00",
-  "market_view": "QQQ +0.22% today but XLK down 2.26% over 5 days confirms persistent tech sector weakness as the dominant risk factor. VIX at 15.18 is low but the 5-day +3.41% VIX trend means vol is quietly being bid \u2014 not a safe environment to hold a losing QQQ spread.",
+  "last_run": "2026-08-19T16:26:48.816046+00:00",
+  "market_view": "QQQ flat +0.15% today but XLK still bleeding -2.32% over 5 days and VIX 5d trend still +2.66% \u2014 tech sector pressure has not resolved. The 690/681p is a live playbook violation that must be closed immediately.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-19T16:14:20.819250+00:00",
-    "reasoning": "Mid at 1.41 is 1.37x credit received \u2014 this was flagged CRITICAL last cycle and no close was executed, which is a direct playbook violation. Worst-case 1.46 is one tick away from the 1.5x hard cut trigger of 1.545; any further QQQ weakness will blow through that level instantly."
+    "timestamp": "2026-08-19T16:26:36.098658+00:00",
+    "reasoning": "Mid at 1.43 is 1.39x credit received \u2014 this has been CRITICAL for two consecutive cycles with no action taken, which is a direct playbook breach. Worst-case 1.48 is 96% of the 1.545 hard cut trigger and any tick lower in QQQ closes that gap instantly."
   },
   "QQQ 677/668p": {
     "action": "WATCH",
-    "confidence": 0.8,
-    "timestamp": "2026-08-19T16:14:20.819250+00:00",
-    "reasoning": "Mid at 0.95 vs 1.07 credit is an 11% gain with short strike 677 at 5.9% OTM \u2014 not in danger yet, but two concurrent QQQ put spreads on the same expiry is dangerously concentrated after closing the 690/681p. Profit target is ~0.535 mid."
+    "confidence": 0.78,
+    "timestamp": "2026-08-19T16:26:36.098658+00:00",
+    "reasoning": "Mid at 0.95 vs 1.07 credit is an 11% gain, short strike 677 sits 5.8% OTM and is not in immediate danger, but two QQQ spreads same expiry is unacceptable concentration \u2014 after closing the 690/681p, this is the only remaining position."
   }
 }
