@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-19T13:40:52.420990+00:00",
-  "market_view": "QQQ stabilizing slightly (+0.03% today) but still -1.02% on the week with XLK -2.26% 5d \u2014 tech remains under pressure. VIX dropping -4.29% today is mild relief but the 5d trend is still elevated.",
+  "last_run": "2026-08-19T13:59:15.281339+00:00",
+  "market_view": "QQQ -0.22% today and -1.27% on the week with XLK down 2.74% 5d \u2014 tech pressure persists. VIX at 15.32 dropping -3.28% today is modest relief but does not offset the deterioration in the 690/681p spread.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-19T13:40:39Z",
-    "reasoning": "Mid at 1.55 vs 1.03 credit = 1.50x loss \u2014 this is exactly at the 1.5x cut-loser threshold and was flagged CRITICAL last cycle. If this position is still open, it is a rule violation that must be resolved immediately."
+    "timestamp": "2026-08-19T13:59:02Z",
+    "reasoning": "Mid at 1.615 vs 1.03 credit = 1.57x loss, breaching the 1.5x cut-loser rule \u2014 this was flagged CRITICAL last cycle and remains unresolved. Close immediately, no discretion."
   },
   "QQQ 677/668p": {
     "action": "WATCH",
-    "confidence": 0.82,
-    "timestamp": "2026-08-19T13:40:39Z",
-    "reasoning": "Mid at 1.055 vs 1.07 credit means this is essentially flat \u2014 not a loser yet and short strike at 677 is 5.6% OTM with QQQ at 717.49. VIX dropping today gives marginal tailwind but XLK weakness is the risk to monitor."
+    "confidence": 0.78,
+    "timestamp": "2026-08-19T13:59:02Z",
+    "reasoning": "Mid at 1.095 vs 1.07 credit is essentially breakeven \u2014 short strike at 677 is 5.4% OTM with QQQ at 715.89, not actionable yet but XLK weakness and two QQQ spreads in same expiry is concentrated risk."
   }
 }
