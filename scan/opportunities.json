@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-19T14:55:23.247017+00:00",
+  "generated_at": "2026-08-19T15:00:19.889173+00:00",
   "regime": {
-    "vix": 15.2,
-    "vix_day_change_pct": -0.0404,
+    "vix": 15.21,
+    "vix_day_change_pct": -0.0398,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (-4% day)"
@@ -36,42 +36,38 @@
         "call_long": "QQQ   260918C00785000"
       },
       "width": 10.0,
-      "credit": 1.05,
-      "put_credit": 0.64,
+      "credit": 1.04,
+      "put_credit": 0.63,
       "call_credit": 0.41,
       "fees_est": 3.0,
-      "bpr": 895.0,
-      "max_loss": 895.0,
+      "bpr": 896.0,
+      "max_loss": 896.0,
       "pop": 0.769,
-      "put_short_delta": 0.107,
-      "call_short_delta": 0.124,
-      "credit_to_bpr": 0.117,
-      "ev_per_contract": 0.99,
+      "put_short_delta": 0.106,
+      "call_short_delta": 0.125,
+      "credit_to_bpr": 0.116,
+      "ev_per_contract": 0.96,
       "ev_on_bpr": 0.0011,
       "iv": 0.225,
       "iv_rank": 0.488,
-      "underlying_price": 717.93,
+      "underlying_price": 718.16,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 895.0,
-      "bpr_total": 895.0,
+      "max_loss_total": 896.0,
+      "bpr_total": 896.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). iron condor 664/655p + 775/785c \u00d71 \u2014 neutral (book bias +2 \u2192 balance). Edge: IV rank 49%, EV $+1/ctr (+0.1% on BPR). POP 77% \u00b7 credit $1.05 \u00b7 max loss $895 \u00b7 BPR $895 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "iron condor 664/655p + 775/785c \u00d71 \u2014 neutral (book bias +2 \u2192 balance). Edge: IV rank 49%, EV $+1/ctr (+0.1% on BPR). POP 77% \u00b7 credit $1.04 \u00b7 max loss $896 \u00b7 BPR $896 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.538,
       "learn_notes": [
         "asset_class=single_name \u00d70.69",
         "cluster=us_tech \u00d70.78"
       ],
       "rank_score": 0.000592,
-      "agent_action": "guarded",
-      "agent_reason": "QQQ already has 1 open position (at cap); adding violates max_per_name=1. Additionally, us_tech cluster sits at 1/3 cap but is our largest drag (-$65 unrealized); historical win rate on us_tech is 28% (vs. 36% portfolio avg)\u2014concentration a",
-      "guarded_warn": true,
-      "demoted": "guarded \u2014 surfaced with a caution, paper only",
-      "agent_reviewed": true,
+      "agent_reviewed": false,
       "news_risk": {
         "level": "caution",
         "hits": [
@@ -87,7 +83,7 @@
         "underlying": "QQQ",
         "code": "IC",
         "order_type": "Net Credit",
-        "limit": 1.05,
+        "limit": 1.04,
         "contracts": 1,
         "expiry": "2026-09-18",
         "legs": [
@@ -120,24 +116,24 @@
             "type": "C"
           }
         ],
-        "credit_total": 105.0,
-        "max_loss_total": 895.0,
-        "bpr_total": 895.0,
+        "credit_total": 104.0,
+        "max_loss_total": 896.0,
+        "bpr_total": 896.0,
         "pop": 0.769,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
-          "close_debit": 0.53,
-          "stop_debit": 2.62,
+          "close_debit": 0.52,
+          "stop_debit": 2.6,
           "exit_dte": 21
         },
         "fits_live_cap": false,
         "live_cap": 709.76,
         "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $895 > 10% live cap ($710) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ IC \u00d71 \u2014 SELL 664P / BUY 655P / SELL 775C / BUY 785C (2026-09-18) @ $1.05 net credit. Max loss $895. After fill: GTC buy-to-close @ $0.53 (50%). \u26a0 max loss $895 > 10% live cap ($710) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $896 > 10% live cap ($710) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "QQQ IC \u00d71 \u2014 SELL 664P / BUY 655P / SELL 775C / BUY 785C (2026-09-18) @ $1.04 net credit. Max loss $896. After fill: GTC buy-to-close @ $0.52 (50%). \u26a0 max loss $896 > 10% live cap ($710) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-19T14:55:23.247017+00:00"
+      "posted_at": "2026-08-19T15:00:19.889173+00:00"
     }
   ],
   "long_vol": [],
@@ -189,22 +185,7 @@
       }
     ]
   },
-  "agent": {
-    "generated_at": "2026-08-19T14:55:23.001510+00:00",
-    "model": "claude-haiku-4-5",
-    "market_view": "Market down 4% in normal regime, VIX 15.2\u2014tape is directionally weak but not panicked; short premium is tactically acceptable. However, we're already underwater -$65 on an open book heavily weighted to tech (QQQ + SPY/DIA cluster overlap).",
-    "portfolio_note": "Book is 3/3 open, all index/tech correlated; adding QQQ iron condor doubles down on us_tech cluster (would be 2/3 cap) and QQQ position (would exceed max_per_name=1).",
-    "reviewed": 1,
-    "vetoed": 1,
-    "downsized": 0,
-    "decisions": [
-      {
-        "id": "QQQ|iron_condor|664/775",
-        "action": "veto",
-        "reason": "QQQ already has 1 open position (at cap); adding violates max_per_name=1. Additionally, us_tech cluster sits at 1/3 cap but is our largest drag (-$65 unrealized); historical win rate on us_tech is 28% (vs. 36% portfolio avg)\u2014concentration a"
-      }
-    ]
-  },
+  "agent": null,
   "all_candidates": [
     {
       "underlying": "QQQ",
@@ -224,42 +205,38 @@
         "call_long": "QQQ   260918C00785000"
       },
       "width": 10.0,
-      "credit": 1.05,
-      "put_credit": 0.64,
+      "credit": 1.04,
+      "put_credit": 0.63,
       "call_credit": 0.41,
       "fees_est": 3.0,
-      "bpr": 895.0,
-      "max_loss": 895.0,
+      "bpr": 896.0,
+      "max_loss": 896.0,
       "pop": 0.769,
-      "put_short_delta": 0.107,
-      "call_short_delta": 0.124,
-      "credit_to_bpr": 0.117,
-      "ev_per_contract": 0.99,
+      "put_short_delta": 0.106,
+      "call_short_delta": 0.125,
+      "credit_to_bpr": 0.116,
+      "ev_per_contract": 0.96,
       "ev_on_bpr": 0.0011,
       "iv": 0.225,
       "iv_rank": 0.488,
-      "underlying_price": 717.93,
+      "underlying_price": 718.16,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 895.0,
-      "bpr_total": 895.0,
+      "max_loss_total": 896.0,
+      "bpr_total": 896.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). iron condor 664/655p + 775/785c \u00d71 \u2014 neutral (book bias +2 \u2192 balance). Edge: IV rank 49%, EV $+1/ctr (+0.1% on BPR). POP 77% \u00b7 credit $1.05 \u00b7 max loss $895 \u00b7 BPR $895 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "iron condor 664/655p + 775/785c \u00d71 \u2014 neutral (book bias +2 \u2192 balance). Edge: IV rank 49%, EV $+1/ctr (+0.1% on BPR). POP 77% \u00b7 credit $1.04 \u00b7 max loss $896 \u00b7 BPR $896 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.538,
       "learn_notes": [
         "asset_class=single_name \u00d70.69",
         "cluster=us_tech \u00d70.78"
       ],
       "rank_score": 0.000592,
-      "agent_action": "guarded",
-      "agent_reason": "QQQ already has 1 open position (at cap); adding violates max_per_name=1. Additionally, us_tech cluster sits at 1/3 cap but is our largest drag (-$65 unrealized); historical win rate on us_tech is 28% (vs. 36% portfolio avg)\u2014concentration a",
-      "guarded_warn": true,
-      "demoted": "guarded \u2014 surfaced with a caution, paper only",
-      "agent_reviewed": true,
+      "agent_reviewed": false,
       "news_risk": {
         "level": "caution",
         "hits": [
@@ -275,7 +252,7 @@
         "underlying": "QQQ",
         "code": "IC",
         "order_type": "Net Credit",
-        "limit": 1.05,
+        "limit": 1.04,
         "contracts": 1,
         "expiry": "2026-09-18",
         "legs": [
@@ -308,24 +285,24 @@
             "type": "C"
           }
         ],
-        "credit_total": 105.0,
-        "max_loss_total": 895.0,
-        "bpr_total": 895.0,
+        "credit_total": 104.0,
+        "max_loss_total": 896.0,
+        "bpr_total": 896.0,
         "pop": 0.769,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
-          "close_debit": 0.53,
-          "stop_debit": 2.62,
+          "close_debit": 0.52,
+          "stop_debit": 2.6,
           "exit_dte": 21
         },
         "fits_live_cap": false,
         "live_cap": 709.76,
         "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $895 > 10% live cap ($710) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ IC \u00d71 \u2014 SELL 664P / BUY 655P / SELL 775C / BUY 785C (2026-09-18) @ $1.05 net credit. Max loss $895. After fill: GTC buy-to-close @ $0.53 (50%). \u26a0 max loss $895 > 10% live cap ($710) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $896 > 10% live cap ($710) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "QQQ IC \u00d71 \u2014 SELL 664P / BUY 655P / SELL 775C / BUY 785C (2026-09-18) @ $1.04 net credit. Max loss $896. After fill: GTC buy-to-close @ $0.52 (50%). \u26a0 max loss $896 > 10% live cap ($710) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-19T14:55:23.247017+00:00"
+      "posted_at": "2026-08-19T15:00:19.889173+00:00"
     }
   ],
   "skipped": {
