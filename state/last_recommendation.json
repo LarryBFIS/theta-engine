@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-19T14:55:11.805637+00:00",
-  "market_view": "QQQ flat on the day (+0.05%) and down -1.0% on the week with XLK still weak at -0.79% intraday \u2014 tech pressure has moderated slightly but both short put verticals remain exposed. VIX at 15.2 is benign but irrelevant given the specific downside pressure on QQQ.",
+  "last_run": "2026-08-19T15:12:52.003418+00:00",
+  "market_view": "QQQ +0.11% today but XLK still red at -0.60% with a brutal -2.44% 5-day \u2014 tech sector remains the pressure point directly threatening the 690/681p. VIX cooling to 15.15 is irrelevant; the 690/681p has been above the 1.5x loss threshold and remains unmanaged in violation of playbook rules.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-19T14:54:58Z",
-    "reasoning": "Mid at 1.48 vs 1.03 credit = 1.437x loss, just under 1.5x threshold now \u2014 but this was flagged CRITICAL last cycle at 1.557x and has NOT been closed, which is a rule violation in progress. Mid has improved slightly but this position needs to be closed immediately as it has been above threshold and unmanaged."
+    "timestamp": "2026-08-19T15:12:37Z",
+    "reasoning": "Mid at 1.465 vs 1.03 credit = 1.42x unrealized loss \u2014 this breached the 1.5x cut threshold last cycle and was flagged CRITICAL but NOT closed, constituting an active rule violation. Even at current mid it is dangerously close to threshold and XLK weakness means the next leg down closes that gap fast."
   },
   "QQQ 677/668p": {
-    "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-08-19T14:54:58Z",
-    "reasoning": "Mid at 0.995 vs 1.07 credit = 0.93x loss, actually profitable slightly \u2014 not actionable, but closing the 690/681p first reduces QQQ double-exposure risk on any tech leg-down."
+    "action": "HOLD",
+    "confidence": 0.82,
+    "timestamp": "2026-08-19T15:12:37Z",
+    "reasoning": "Mid at 0.97 vs 1.07 credit \u2014 actually sitting at a small profit (0.093x), short strike at 677 is 5.7% OTM with 29 DTE, not actionable. However, closing the 690/681p first removes double-QQQ exposure and improves this position's standalone risk profile."
   }
 }
