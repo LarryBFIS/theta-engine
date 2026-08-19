@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-19T17:00:06.534989+00:00",
-  "market_view": "QQQ flat on the day but XLK down 2.63% over 5 days signals sustained tech selling pressure; VIX dropped 4.23% today to 15.17 but 5d trend still +3.34%, no meaningful vol relief for the losing 690/681p spread.",
+  "last_run": "2026-08-19T17:11:37.498430+00:00",
+  "market_view": "QQQ -0.1% today with XLK down 2.67% over 5 days \u2014 sustained tech weakness not reversing. VIX at 15.25 with a 5d uptick of +3.88% confirms elevated risk; both QQQ spreads remain under pressure with no catalyst for relief.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-19T16:59:53Z",
-    "reasoning": "Mid at 1.505 is 1.46x credit, worst-case 1.55 is 1.50x \u2014 the 1.5x cut rule is triggered right now at worst-case and mid is 1 tick away; this spread has been flagged CRITICAL for multiple cycles with no action taken, every 15-minute delay worsens the fill."
+    "timestamp": "2026-08-19T17:11:24Z",
+    "reasoning": "Mid at 1.51 is 1.47x credit, worst-case 1.56 is exactly 1.515x \u2014 1.5x cut rule is fully triggered at worst-case and mid is at the breach line. This has been flagged CRITICAL for multiple consecutive cycles with no action; every additional 15 minutes of inaction increases slippage risk and potential for further loss."
   },
   "QQQ 677/668p": {
     "action": "ACTION",
-    "confidence": 0.82,
-    "timestamp": "2026-08-19T16:59:53Z",
-    "reasoning": "Mid at 1.005 vs 1.07 credit is only ~6% profit, but with two QQQ put spreads on same expiry creating dangerous concentration, close this immediately after the 690/681p to eliminate all QQQ exposure and free BPR for uncorrelated setups."
+    "confidence": 0.88,
+    "timestamp": "2026-08-19T17:11:24Z",
+    "reasoning": "Mid at 1.015 vs 1.07 credit is only ~5% profit, barely moving in your favor, and holding two put spreads on the same underlying and expiry creates dangerous unhedged QQQ concentration that violates diversification rules. Close this immediately after the 690/681p."
   }
 }
