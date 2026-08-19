@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-19T19:14:18.825611+00:00",
-  "market_view": "QQQ -0.11% today, -1.17% on the week with XLK -0.92% and -2.76% 5d \u2014 tech sector weakness continues to grind both positions toward max loss. VIX at 15.03 (-5.11% today) offers no tailwind for premium sellers with QQQ directionally weak.",
+  "last_run": "2026-08-19T19:20:37.715965+00:00",
+  "market_view": "QQQ -0.05% today but -1.1% on the week with XLK -2.68% 5d \u2014 tech weakness persists. VIX at 14.99 (-5.37% today) compressing premium but QQQ directional drift remains the primary threat to both short put verticals.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-19T19:14:04.129484+00:00",
-    "reasoning": "Worst-case cost 1.58 is 1.53x the 1.03 credit \u2014 1.5x stop rule breach persists and this CRITICAL alert has been live for 10+ minutes with no action taken. Every minute of inaction compounds the loss in a downtrending underlying."
+    "timestamp": "2026-08-19T19:20:24.835892+00:00",
+    "reasoning": "Worst-case cost 1.56 is 1.51x the 1.03 credit \u2014 1.5x stop rule is breached. CRITICAL alert has been live for 6+ minutes with no action; this position must be closed now."
   },
   "QQQ 677/668p": {
-    "action": "ACTION",
-    "confidence": 0.88,
-    "timestamp": "2026-08-19T19:14:04.129484+00:00",
-    "reasoning": "Mid cost 1.03 vs 1.07 credit means this spread is nearly breakeven and manageable in isolation, but two QQQ short put verticals in the same expiry violates the uncorrelated-underlyings rule \u2014 after closing the 690/681p, evaluate this position as the sole QQQ exposure with 29 DTE still providing room."
+    "action": "WATCH",
+    "confidence": 0.82,
+    "timestamp": "2026-08-19T19:20:24.835892+00:00",
+    "reasoning": "Mid cost 1.015 vs 1.07 credit \u2014 95% of credit spent, not yet at 1.5x but deteriorating fast with same underlying pressure; after closing the 690/681p, this becomes the only QQQ exposure and warrants tight monitoring."
   }
 }
