@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-19T15:15:41.334811+00:00",
-  "market_view": "QQQ flat on the day +0.08% but XLK -0.58% with a -2.43% 5-day drag \u2014 tech sector weakness remains the primary threat to the 690/681p short strike. VIX at 15.13 is benign but provides no relief when the underlying sector is persistently leaking.",
+  "last_run": "2026-08-19T15:27:02.269008+00:00",
+  "market_view": "QQQ barely green +0.08% while XLK bleeds -0.64% on the day and -2.48% over 5 days \u2014 tech sector rotation out continues and is the live threat to the 690/681p short strike. VIX at 15.14 is calm but that means no IV-based relief coming; price is the only variable that matters here.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-19T15:15:30Z",
-    "reasoning": "Mid at 1.45 vs 1.03 credit = 1.41x unrealized loss, sitting at the doorstep of the 1.5x cut rule (threshold is 1.545) \u2014 this was flagged CRITICAL last cycle and still has NOT been closed, which is an active playbook violation. One more leg down in XLK closes that gap in minutes."
+    "timestamp": "2026-08-19T15:26:48Z",
+    "reasoning": "Mid at 1.455 vs 1.03 credit = 1.41x unrealized loss, worst-case at 1.5x is exactly at the cut threshold \u2014 this has been flagged CRITICAL for two consecutive cycles with no action taken, which is an active playbook violation. Close this now; one tick lower on QQQ triggers the hard stop and slippage gets worse."
   },
   "QQQ 677/668p": {
-    "action": "HOLD",
-    "confidence": 0.82,
-    "timestamp": "2026-08-19T15:15:30Z",
-    "reasoning": "Mid at 0.97 vs 1.07 credit \u2014 sitting at a small unrealized gain (~9%), short strike 677 is 5.7% OTM with 29 DTE, no breach risk. Once the 690/681p is closed this position's standalone risk is manageable."
+    "action": "WATCH",
+    "confidence": 0.8,
+    "timestamp": "2026-08-19T15:26:48Z",
+    "reasoning": "Mid at 0.985 vs 1.07 credit \u2014 sitting at a ~8% unrealized gain, short strike 677 is 5.7% OTM with 29 DTE, no immediate breach risk. However, two QQQ put spreads in the same expiry creates concentrated directional exposure that violates diversification intent once the 690/681p is closed this becomes the sole QQQ position."
   }
 }
