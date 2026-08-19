@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-19T17:52:47.647057+00:00",
-  "market_view": "QQQ flat to slightly down today (-0.09%) with XLK still bleeding -0.9% \u2014 tech sector headwind remains. Both QQQ short put spreads remain live with the 690/681p past its hard stop rule.",
+  "last_run": "2026-08-19T18:01:59.425691+00:00",
+  "market_view": "QQQ flat today but XLK -0.83% with a -2.67% 5d trend \u2014 tech headwind persists and VIX 5d +3.61% shows creeping fear. Both QQQ spreads remain open despite active stop and rule violations flagged last cycle.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-19T17:52:36Z",
-    "reasoning": "Worst-case cost 1.57 is 1.52x the 1.03 credit \u2014 1.5x stop rule is breached and this has been flagged CRITICAL for multiple cycles with no close executed. This is a rule violation in progress."
+    "timestamp": "2026-08-19T18:01:47Z",
+    "reasoning": "Worst-case cost 1.58 is 1.53x the 1.03 credit \u2014 hard stop rule (1.5x) is breached and has been flagged CRITICAL for multiple cycles with no close executed. Every minute of delay is a rule violation compounding risk."
   },
   "QQQ 677/668p": {
     "action": "ACTION",
     "confidence": 0.88,
-    "timestamp": "2026-08-19T17:52:36Z",
-    "reasoning": "Cost 1.025 vs 1.07 credit is near breakeven and holding two concurrent QQQ spreads violates the uncorrelated underlyings rule. Close simultaneously with the 690/681p to reset cleanly."
+    "timestamp": "2026-08-19T18:01:47Z",
+    "reasoning": "Two concurrent QQQ spreads violates the uncorrelated underlyings rule and this position is near breakeven \u2014 close simultaneously with the 690/681p to eliminate doubled QQQ exposure and reset the book cleanly."
   }
 }
