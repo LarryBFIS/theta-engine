@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-19T15:27:02.269008+00:00",
-  "market_view": "QQQ barely green +0.08% while XLK bleeds -0.64% on the day and -2.48% over 5 days \u2014 tech sector rotation out continues and is the live threat to the 690/681p short strike. VIX at 15.14 is calm but that means no IV-based relief coming; price is the only variable that matters here.",
+  "last_run": "2026-08-19T15:44:18.595932+00:00",
+  "market_view": "QQQ flat on the day but XLK -0.78% and -2.62% on the week signals continued tech weakness as the live directional threat. VIX at 15.18 and dropping (-4.17%) gives zero IV relief \u2014 price movement is the only risk variable that matters for the short put spreads.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-19T15:26:48Z",
-    "reasoning": "Mid at 1.455 vs 1.03 credit = 1.41x unrealized loss, worst-case at 1.5x is exactly at the cut threshold \u2014 this has been flagged CRITICAL for two consecutive cycles with no action taken, which is an active playbook violation. Close this now; one tick lower on QQQ triggers the hard stop and slippage gets worse."
+    "timestamp": "2026-08-19T15:44:05Z",
+    "reasoning": "Mid at 1.50 vs 1.03 credit = 1.456x unrealized loss, worst-case at 1.55 = 1.505x \u2014 worst-case has crossed the 1.5x hard cut threshold. This was flagged CRITICAL last cycle and no action was taken; continuing to hold is an active playbook violation with slippage risk increasing every tick."
   },
   "QQQ 677/668p": {
-    "action": "WATCH",
-    "confidence": 0.8,
-    "timestamp": "2026-08-19T15:26:48Z",
-    "reasoning": "Mid at 0.985 vs 1.07 credit \u2014 sitting at a ~8% unrealized gain, short strike 677 is 5.7% OTM with 29 DTE, no immediate breach risk. However, two QQQ put spreads in the same expiry creates concentrated directional exposure that violates diversification intent once the 690/681p is closed this becomes the sole QQQ position."
+    "action": "HOLD",
+    "confidence": 0.82,
+    "timestamp": "2026-08-19T15:44:05Z",
+    "reasoning": "Mid at 1.01 vs 1.07 credit = ~6% unrealized gain, short strike 677 is 5.6% OTM with 29 DTE and no breach risk. Once 690/681p is closed this becomes a single manageable QQQ position; hold and manage at 50% profit (~0.535 mid)."
   }
 }
