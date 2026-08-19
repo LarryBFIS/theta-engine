@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-19T16:44:33.520968+00:00",
-  "market_view": "QQQ +0.11% today but XLK -2.37% over 5 days signals continued tech weakness; VIX 5d still +3.2% with today's drop to 15.15 providing no meaningful relief for the losing spread. Market regime neutral but tech sector internals remain bearish.",
+  "last_run": "2026-08-19T17:00:06.534989+00:00",
+  "market_view": "QQQ flat on the day but XLK down 2.63% over 5 days signals sustained tech selling pressure; VIX dropped 4.23% today to 15.17 but 5d trend still +3.34%, no meaningful vol relief for the losing 690/681p spread.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-19T16:44:21.857368+00:00",
-    "reasoning": "Mid at 1.445 is 1.40x credit received \u2014 this has now breached the 1.5x cut trigger on worst-case (1.5 = exactly 1.457x credit, and mid is already 1.40x with worst at 1.46x). This is the third consecutive cycle flagged CRITICAL with no action; every 15-minute delay increases assignment risk as QQQ slides."
+    "timestamp": "2026-08-19T16:59:53Z",
+    "reasoning": "Mid at 1.505 is 1.46x credit, worst-case 1.55 is 1.50x \u2014 the 1.5x cut rule is triggered right now at worst-case and mid is 1 tick away; this spread has been flagged CRITICAL for multiple cycles with no action taken, every 15-minute delay worsens the fill."
   },
   "QQQ 677/668p": {
-    "action": "WATCH",
-    "confidence": 0.8,
-    "timestamp": "2026-08-19T16:44:21.857368+00:00",
-    "reasoning": "Mid at 0.96 vs 1.07 credit is approximately 10% profit, short strike 677 is 5.75% OTM with 29 DTE \u2014 no immediate threat, but two QQQ spreads same expiry is dangerous concentration that must be resolved by closing the 690/681p first."
+    "action": "ACTION",
+    "confidence": 0.82,
+    "timestamp": "2026-08-19T16:59:53Z",
+    "reasoning": "Mid at 1.005 vs 1.07 credit is only ~6% profit, but with two QQQ put spreads on same expiry creating dangerous concentration, close this immediately after the 690/681p to eliminate all QQQ exposure and free BPR for uncorrelated setups."
   }
 }
