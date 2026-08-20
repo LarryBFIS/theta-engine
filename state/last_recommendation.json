@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-20T16:04:34.353140+00:00",
-  "market_view": "QQQ down -0.63% today and -2.98% over 5 days with VIX spiking +6.92% intraday \u2014 tech selloff continues with zero stabilization signal. Both QQQ spreads flagged CRITICAL last cycle are still open, compounding playbook violations.",
+  "last_run": "2026-08-20T16:15:42.939408+00:00",
+  "market_view": "QQQ -0.69% today, -3.03% over 5 days, VIX +6.65% intraday to 15.88 \u2014 tech selling pressure persists with no stabilization signal. All three positions flagged CRITICAL last cycle remain open, which is an active playbook emergency requiring immediate action.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-20T16:04:17Z",
-    "reasoning": "Mid-cost 1.80 is 1.75x the 1.03 credit \u2014 hard stop at 1.5x (1.545) was breached multiple cycles ago and position remains open. This is an active playbook violation with QQQ in continued downtrend, not a close call."
+    "timestamp": "2026-08-20T16:15:27Z",
+    "reasoning": "Mid-cost 1.83 is 1.78x the 1.03 credit \u2014 hard stop at 1.5x (1.545) breached multiple cycles ago, position still open. This is now a compounding playbook violation with QQQ in an unbroken downtrend."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
-    "confidence": 0.95,
-    "timestamp": "2026-08-20T16:04:17Z",
-    "reasoning": "Mid-cost 1.245 is 1.16x credit and tracking toward the 1.5x stop (1.605) as QQQ grinds lower with no bid \u2014 double QQQ exposure totaling $1,590 BPR on one correlated name in an active downtrend is a single-underlying concentration risk violation."
+    "confidence": 0.96,
+    "timestamp": "2026-08-20T16:15:27Z",
+    "reasoning": "Mid-cost 1.255 is 1.17x credit and tracking toward the 1.5x stop (1.605) as QQQ grinds lower \u2014 double QQQ concentration totaling $1,590 BPR on a single correlated name is an active rules violation that must be resolved today."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
-    "confidence": 0.88,
-    "timestamp": "2026-08-20T16:04:17Z",
-    "reasoning": "SLV spot 61.747 with short strike at 61.5 is only 0.40% OTM \u2014 this is essentially at-the-money, opened today, with a 132 DTE position that violates both the near-term strike discipline and offers negligible buffer on a $45 max profit/$55 max loss structure where the math is inverted (max loss exceeds max profit)."
+    "confidence": 0.92,
+    "timestamp": "2026-08-20T16:15:27Z",
+    "reasoning": "SLV spot 61.51 with short strike at 61.5 is essentially at-the-money (0.016% OTM) \u2014 this is a near-breached short strike on a position where max loss ($45) exceeds max profit ($55 worst-case) and was flagged the same day it was opened."
   }
 }
