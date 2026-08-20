@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-20T15:17:31.278545+00:00",
-  "market_view": "QQQ -0.54% today, -2.89% over 5 days, VIX +4.77% \u2014 tech selling pressure unabated with no reversal catalyst. Both QQQ put spreads remain in active rule violation territory with the 690/681p now at 1.69x credit, well past the 1.5x hard stop.",
+  "last_run": "2026-08-20T15:34:41.306489+00:00",
+  "market_view": "QQQ now -0.71% today and -3.06% over 5 days with VIX up 5.37% intraday \u2014 tech pressure is accelerating, not reversing. Both QQQ short put spreads remain open despite the 690/681p being a hard-stop violation since multiple cycles ago.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-20T15:17:17Z",
-    "reasoning": "Mid-cost 1.745 is 1.69x the 1.03 credit \u2014 hard stop at 1.5x (1.545) was breached multiple cycles ago and loss is accelerating, not stabilizing. This is an active playbook violation that must be closed immediately."
+    "timestamp": "2026-08-20T15:34:28Z",
+    "reasoning": "Mid-cost 1.815 is 1.76x the 1.03 credit \u2014 hard stop at 1.5x (1.545) was breached cycles ago and the position is still open. This is an unambiguous playbook violation that is now losing further ground as QQQ continues lower."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
-    "confidence": 0.93,
-    "timestamp": "2026-08-20T15:17:17Z",
-    "reasoning": "Mid-cost 1.21 is 1.13x the 1.07 credit and trending toward the 1.5x hard stop (1.605) \u2014 holding double QQQ short put exposure in a directionally lower underlying with expanding VIX is compounding risk on a single correlated name consuming $1,590 combined BPR."
+    "confidence": 0.95,
+    "timestamp": "2026-08-20T15:34:28Z",
+    "reasoning": "Mid-cost 1.275 is 1.19x the 1.07 credit and trending toward the 1.5x stop (1.605) in an accelerating downtrend \u2014 double QQQ exposure with $1,590 combined BPR on a single correlated name while the underlying is in active freefall is unacceptable portfolio risk."
   },
   "SLV 61.5/60.5p": {
-    "action": "HOLD",
-    "confidence": 0.85,
-    "timestamp": "2026-08-20T15:17:17Z",
-    "reasoning": "Opened today at 0.55 credit, current mid at parity, SLV underlying at 62.23 with short strike 1.17% OTM \u2014 no breach, 132 DTE, no action warranted. BPR is only $45, minimal capital at risk."
+    "action": "WATCH",
+    "confidence": 0.8,
+    "timestamp": "2026-08-20T15:34:28Z",
+    "reasoning": "Opened today at 0.55 credit, current mid at parity at 0.55, SLV underlying 61.94 with short strike 0.71% OTM \u2014 no breach but the short strike distance is tight and any SLV weakness warrants close monitoring."
   }
 }
