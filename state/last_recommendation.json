@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-20T17:25:26.560917+00:00",
-  "market_view": "QQQ -3.03% over 5 days with VIX up 7.17% \u2014 tech downtrend intact, no catalyst for reversal. All three positions remain in rules-violation status from prior cycles; immediate broker execution required.",
+  "last_run": "2026-08-20T17:43:41.948072+00:00",
+  "market_view": "QQQ down 3.12% over 5 days with VIX +8.2% \u2014 tech downtrend continuing, no reversal catalyst. Both QQQ verticals remain loss-rule violations and SLV short strike is breached ATM; all three positions require immediate closure.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-20T17:25:13Z",
-    "reasoning": "Mid-cost 1.75 is 1.70x the 1.03 credit \u2014 hard stop at 1.5x (1.545) was breached multiple cycles ago and is not recovering. QQQ still grinding lower with no support signal."
+    "timestamp": "2026-08-20T17:43:30Z",
+    "reasoning": "Mid-cost 1.84 is 1.79x the 1.03 credit \u2014 hard stop at 1.5x (1.545) was breached multiple cycles ago, position has not recovered, and QQQ continues lower with no support."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-08-20T17:25:13Z",
-    "reasoning": "Mid-cost 1.235 is 1.15x credit and trending toward the 1.5x hard stop (1.605) with QQQ still declining \u2014 two correlated QQQ verticals is a concentration and diversification violation compounding daily."
+    "timestamp": "2026-08-20T17:43:30Z",
+    "reasoning": "Mid-cost 1.28 is 1.20x credit and trending toward the 1.5x hard stop (1.605) with QQQ still in downtrend; two correlated QQQ verticals is a concentration and diversification rule violation compounding losses."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-08-20T17:25:13Z",
-    "reasoning": "Short strike 61.5 breached with SLV at 61.48 \u2014 position opened today and is already inverted ATM, mid-cost 0.575 exceeds the 0.55 credit received meaning negative edge with full $45 max loss exposure and 132 DTE of gamma risk."
+    "timestamp": "2026-08-20T17:43:30Z",
+    "reasoning": "Short strike 61.5 is breached with SLV at 61.56 (essentially ATM), mid-cost 0.55 equals credit received meaning zero edge remaining with 132 DTE of gamma risk and full $45 max loss exposure."
   }
 }
