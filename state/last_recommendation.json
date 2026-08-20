@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-20T13:22:58.177760+00:00",
-  "market_view": "QQQ -1.25% on the week with XLK -2.9% five-day and VIX now 15.75 (+5.78% today, +7.58% five-day) signals accelerating vol expansion in tech \u2014 both QQQ positions are under pressure in a deteriorating tape. Concentration risk is critical: 100% of open positions are in the same underlying.",
+  "last_run": "2026-08-20T13:26:46.661028+00:00",
+  "market_view": "QQQ -0.20% today with XLK -1.07% and VIX +6.25% to 15.82 \u2014 tech selling is continuing and vol is expanding further. Both QQQ positions remain under pressure with no relief catalyst visible.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-20T13:22:45Z",
-    "reasoning": "Worst-case cost 1.67 is 1.62x the 1.03 credit \u2014 the 1.5x hard stop (1.545) has been breached since last cycle and this position was flagged CRITICAL 16+ hours ago with no close executed; this is an active rule violation compounding daily. Mid-cost 1.565 confirms the breach is not a wide/stale quote artifact."
+    "timestamp": "2026-08-20T13:26:36Z",
+    "reasoning": "Worst-case cost 1.67 is 1.62x the 1.03 credit \u2014 hard stop at 1.5x (1.545) has been breached and was flagged CRITICAL last cycle with no close executed. This is an active rule violation that has now persisted through multiple review cycles."
   },
   "QQQ 677/668p": {
     "action": "WATCH",
-    "confidence": 0.82,
-    "timestamp": "2026-08-20T13:22:45Z",
-    "reasoning": "Mid 1.05 vs 1.07 credit is effectively breakeven \u2014 no stop breach yet, but VIX expanding +5.78% today increases probability of a downside move that closes the remaining gap to the 1.5x stop (1.605 worst-case threshold); with 28 DTE and QQQ in a weak trend, this position is fragile."
+    "confidence": 0.83,
+    "timestamp": "2026-08-20T13:26:36Z",
+    "reasoning": "Mid 1.05 vs 1.07 credit is nearly breakeven and worst-case 1.15 is approaching the 1.5x stop threshold of 1.605 \u2014 with VIX expanding and QQQ weak, this position is one bad hour away from a stop trigger."
   }
 }
