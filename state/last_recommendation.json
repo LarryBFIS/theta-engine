@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-20T13:42:11.714234+00:00",
-  "market_view": "QQQ -0.26% today with VIX +6.58% to 15.87 and 5-day down -2.61% \u2014 tech and broad market selling continues with vol expanding. Both QQQ put spreads remain under pressure with no bounce catalyst.",
+  "last_run": "2026-08-20T14:01:21.942603+00:00",
+  "market_view": "QQQ now -0.47% today and -2.82% over 5 days with VIX still elevated at 15.54 (+4.37%) \u2014 tech selling continues with no reversal catalyst. Both QQQ put spreads are deep in loss territory and the 690/681p has been a confirmed stop violation for multiple cycles.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-20T13:41:57Z",
-    "reasoning": "Worst-case cost 1.76 is 1.71x the 1.03 credit \u2014 hard stop at 1.5x (1.545) was breached last cycle and position was not closed. This is an active rule violation now multiple cycles deep; further delay only increases max loss exposure."
+    "timestamp": "2026-08-20T14:00:51Z",
+    "reasoning": "Worst-case cost 1.83 is 1.78x the 1.03 credit \u2014 hard stop at 1.5x (1.545) was breached multiple cycles ago and this position was never closed. Every minute of delay is adding realized loss on a confirmed rule violation."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
-    "confidence": 0.92,
-    "timestamp": "2026-08-20T13:41:57Z",
-    "reasoning": "Worst-case cost 1.22 is 1.14x credit and mid 1.15 is 1.075x \u2014 stop threshold not breached yet, but with QQQ continuing lower and the 690/681p being closed at a loss, the correlated risk on this second QQQ position is unacceptable given account concentration."
+    "confidence": 0.93,
+    "timestamp": "2026-08-20T14:00:51Z",
+    "reasoning": "Worst-case cost 1.26 is now 1.18x the 1.07 credit and mid 1.195 is 1.12x \u2014 stop breach is imminent with QQQ continuing lower and zero reason to hold a second correlated QQQ put spread while the account is already bleeding on the 690/681p."
   }
 }
