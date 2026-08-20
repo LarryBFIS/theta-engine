@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-19T21:02:08.902679+00:00",
-  "market_view": "QQQ -1.25% on the week with XLK -2.9% five-day and VIX at 14.89 \u2014 low vol environment offers no cushion against continued tech drift lower; both positions are same underlying, compounding concentration risk.",
+  "last_run": "2026-08-20T13:22:58.177760+00:00",
+  "market_view": "QQQ -1.25% on the week with XLK -2.9% five-day and VIX now 15.75 (+5.78% today, +7.58% five-day) signals accelerating vol expansion in tech \u2014 both QQQ positions are under pressure in a deteriorating tape. Concentration risk is critical: 100% of open positions are in the same underlying.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-19T21:01:58Z",
-    "reasoning": "Worst-case cost 1.67 is 1.62x the 1.03 credit \u2014 hard stop at 1.5x (1.545) has been breached for 10+ minutes with no close executed; this is an active rule violation, not a judgment call."
+    "timestamp": "2026-08-20T13:22:45Z",
+    "reasoning": "Worst-case cost 1.67 is 1.62x the 1.03 credit \u2014 the 1.5x hard stop (1.545) has been breached since last cycle and this position was flagged CRITICAL 16+ hours ago with no close executed; this is an active rule violation compounding daily. Mid-cost 1.565 confirms the breach is not a wide/stale quote artifact."
   },
   "QQQ 677/668p": {
     "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-08-19T21:01:58Z",
-    "reasoning": "Mid 1.05 vs 1.07 credit is near breakeven \u2014 no stop breach yet, but once the 690/681p is closed you have 100% QQQ concentration in a deteriorating tech tape with 29 DTE remaining."
+    "confidence": 0.82,
+    "timestamp": "2026-08-20T13:22:45Z",
+    "reasoning": "Mid 1.05 vs 1.07 credit is effectively breakeven \u2014 no stop breach yet, but VIX expanding +5.78% today increases probability of a downside move that closes the remaining gap to the 1.5x stop (1.605 worst-case threshold); with 28 DTE and QQQ in a weak trend, this position is fragile."
   }
 }
