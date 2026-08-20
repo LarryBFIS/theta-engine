@@ -1,16 +1,22 @@
 {
-  "last_run": "2026-08-20T15:14:42.835579+00:00",
-  "market_view": "QQQ -0.49% today and -2.84% over 5 days with VIX +5.37% \u2014 tech selling pressure continues unabated, no reversal catalyst present. Both QQQ put spreads remain in loss territory with the 690/681p in hard-stop violation for multiple consecutive cycles.",
+  "last_run": "2026-08-20T15:17:31.278545+00:00",
+  "market_view": "QQQ -0.54% today, -2.89% over 5 days, VIX +4.77% \u2014 tech selling pressure unabated with no reversal catalyst. Both QQQ put spreads remain in active rule violation territory with the 690/681p now at 1.69x credit, well past the 1.5x hard stop.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-20T15:14:31Z",
-    "reasoning": "Mid-cost 1.72 is 1.67x the 1.03 credit \u2014 1.5x hard stop (1.545) has been breached for multiple cycles and this is an active rule violation that is worsening, not stabilizing. QQQ directional drift lower with VIX expanding means max loss exposure is live."
+    "timestamp": "2026-08-20T15:17:17Z",
+    "reasoning": "Mid-cost 1.745 is 1.69x the 1.03 credit \u2014 hard stop at 1.5x (1.545) was breached multiple cycles ago and loss is accelerating, not stabilizing. This is an active playbook violation that must be closed immediately."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
-    "confidence": 0.92,
-    "timestamp": "2026-08-20T15:14:31Z",
-    "reasoning": "Mid-cost 1.195 is 1.12x the 1.07 credit and accelerating toward the 1.5x hard stop (1.605) \u2014 holding this while the 690/681p burns is double concentrated QQQ risk consuming $1,590 combined BPR in a trending-lower underlying with rising VIX. This must come off simultaneously with the 690/681p."
+    "confidence": 0.93,
+    "timestamp": "2026-08-20T15:17:17Z",
+    "reasoning": "Mid-cost 1.21 is 1.13x the 1.07 credit and trending toward the 1.5x hard stop (1.605) \u2014 holding double QQQ short put exposure in a directionally lower underlying with expanding VIX is compounding risk on a single correlated name consuming $1,590 combined BPR."
+  },
+  "SLV 61.5/60.5p": {
+    "action": "HOLD",
+    "confidence": 0.85,
+    "timestamp": "2026-08-20T15:17:17Z",
+    "reasoning": "Opened today at 0.55 credit, current mid at parity, SLV underlying at 62.23 with short strike 1.17% OTM \u2014 no breach, 132 DTE, no action warranted. BPR is only $45, minimal capital at risk."
   }
 }
