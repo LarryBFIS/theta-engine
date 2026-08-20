@@ -423,14 +423,34 @@
           "executed_at": "2026-06-08T14:04:07.082Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": 18.75,
-      "cost_to_close_mid": 29.0,
+      "close_orders": [
+        "474056359"
+      ],
+      "close_net_cash": -25.25,
+      "close_legs": [
+        {
+          "symbol": "SLV   260821P00060000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 0.13,
+          "net_cash": 12.87,
+          "fees": 0.13,
+          "executed_at": "2026-08-20T15:01:27.410Z"
+        },
+        {
+          "symbol": "SLV   260821P00061000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 0.38,
+          "net_cash": -38.12,
+          "fees": 0.12,
+          "executed_at": "2026-08-20T15:01:27.410Z"
+        }
+      ],
+      "closed_at": "2026-08-20",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": 22.5,
       "structure": "short_put_vertical",
       "short_strike": 61.0,
       "long_strike": 60.0,
@@ -440,7 +460,8 @@
       "width": 1.0,
       "max_profit_total": 50.0,
       "max_loss_total": 50.0,
-      "bpr_total": 50.0
+      "bpr_total": 50.0,
+      "close_debit_per_contract": 0.25
     },
     {
       "id": "ledger_008_iwm",
@@ -1867,8 +1888,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -72.26,
-      "cost_to_close_mid": 173.0,
+      "unrealized_pnl": -71.26,
+      "cost_to_close_mid": 172.0,
       "structure": "short_put_vertical",
       "short_strike": 690.0,
       "long_strike": 681.0,
@@ -1912,8 +1933,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -13.76,
-      "cost_to_close_mid": 118.5,
+      "unrealized_pnl": -15.76,
+      "cost_to_close_mid": 120.5,
       "structure": "short_put_vertical",
       "short_strike": 677.0,
       "long_strike": 668.0,
@@ -1924,6 +1945,88 @@
       "max_profit_total": 107.0,
       "max_loss_total": 793.0,
       "bpr_total": 793.0
+    },
+    {
+      "id": "ledger_031_slv",
+      "underlying": "SLV",
+      "opened_at": "2026-08-20",
+      "open_order_id": "497506185",
+      "open_net_cash": -203.12,
+      "open_legs": [
+        {
+          "symbol": "SLV   260904C00063000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 2.02,
+          "net_cash": -203.12,
+          "fees": 1.12,
+          "executed_at": "2026-08-20T15:04:30.636Z"
+        }
+      ],
+      "close_orders": [
+        "497508174"
+      ],
+      "close_net_cash": 188.87,
+      "close_legs": [
+        {
+          "symbol": "SLV   260904C00063000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 1.89,
+          "net_cash": 188.87,
+          "fees": 0.13,
+          "executed_at": "2026-08-20T15:05:22.284Z"
+        }
+      ],
+      "closed_at": "2026-08-20",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": -14.25
+    },
+    {
+      "id": "ledger_032_slv",
+      "underlying": "SLV",
+      "opened_at": "2026-08-20",
+      "open_order_id": "497513485",
+      "open_net_cash": 52.74,
+      "open_legs": [
+        {
+          "symbol": "SLV   261231P00061500",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 6.17,
+          "net_cash": 615.86,
+          "fees": 1.14,
+          "executed_at": "2026-08-20T15:07:46.332Z"
+        },
+        {
+          "symbol": "SLV   261231P00060500",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 5.62,
+          "net_cash": -563.12,
+          "fees": 1.12,
+          "executed_at": "2026-08-20T15:07:46.332Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": 0.24,
+      "cost_to_close_mid": 52.5,
+      "structure": "short_put_vertical",
+      "short_strike": 61.5,
+      "long_strike": 60.5,
+      "expiry": "2026-12-31",
+      "contracts": 1,
+      "credit_per_contract": 0.55,
+      "width": 1.0,
+      "max_profit_total": 55.0,
+      "max_loss_total": 45.0,
+      "bpr_total": 45.0
     }
   ]
 }
