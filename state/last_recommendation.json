@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-20T16:39:05.820369+00:00",
-  "market_view": "QQQ -0.55% today, -2.9% over 5 days with VIX up 6.38% to 15.84 \u2014 tech downtrend continues unabated, no stabilization signal. All three flagged positions remain open despite multiple CRITICAL alerts; these are active rules violations requiring immediate execution.",
+  "last_run": "2026-08-20T16:55:08.619504+00:00",
+  "market_view": "QQQ -0.5% today, -2.85% over 5 days with VIX up 5.44% to 15.7 \u2014 tech remains in a clear downtrend with no stabilization. All three positions remain open despite multiple consecutive CRITICAL alerts; this is a rules execution failure requiring immediate action.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-20T16:38:52Z",
-    "reasoning": "Mid-cost 1.74 is 1.69x the 1.03 credit \u2014 hard stop at 1.5x (1.545) was breached multiple cycles ago. Position opened 2026-08-17, now at 28 DTE; QQQ downtrend shows zero reversal, loss is compounding every cycle this stays open."
+    "timestamp": "2026-08-20T16:54:54Z",
+    "reasoning": "Mid-cost 1.715 is 1.66x the 1.03 credit \u2014 1.5x hard stop (1.545) was blown through multiple cycles ago and loss continues compounding with QQQ grinding lower. This position has been CRITICAL across at least 3 consecutive review cycles with zero action taken."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-08-20T16:38:52Z",
-    "reasoning": "Mid-cost 1.195 is 1.12x credit and accelerating toward the 1.5x hard stop (1.605) with QQQ still grinding lower \u2014 double QQQ concentration ($1,590 combined BPR) is a compounding diversification violation that has been flagged for multiple consecutive cycles with no action taken."
+    "timestamp": "2026-08-20T16:54:54Z",
+    "reasoning": "Mid-cost 1.165 is 1.09x credit and accelerating toward the 1.5x hard stop (1.605) with QQQ still declining \u2014 combined $1,590 BPR in two correlated QQQ puts is a double rules violation (concentration + diversification) that has been flagged for multiple cycles without execution."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
-    "confidence": 0.96,
-    "timestamp": "2026-08-20T16:38:52Z",
-    "reasoning": "Short strike 61.5 is breached with SLV at 61.47 \u2014 this has been CRITICAL since the day it was opened on 2026-08-20 and remains unresolved; max loss $45 vs max profit $55 with short strike ITM makes this an indefensible hold at any DTE."
+    "confidence": 0.97,
+    "timestamp": "2026-08-20T16:54:54Z",
+    "reasoning": "Short strike 61.5 remains breached with SLV at 61.65 \u2014 the position is sitting at breakeven (mid-cost equals credit) but short strike ITM with 132 DTE means theta is minimal defense and delta risk dominates. This has been CRITICAL since open on 2026-08-20."
   }
 }
