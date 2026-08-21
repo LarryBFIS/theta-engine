@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-21T19:57:10.646517+00:00",
-  "market_view": "VIX -5.43% to 15.14 with broad green today but QQQ still -2.67% on the week \u2014 the 690/681p stop violation has been confirmed across multiple cycles with mid at 1.66, well above the 1.545 mechanical hard stop. Market close approaching, this must be closed today.",
+  "last_run": "2026-08-21T20:09:00.195461+00:00",
+  "market_view": "VIX down another 4.93% today to 15.22 \u2014 IV environment is compressing, market bouncing green across the board but QQQ still -2.66% on the week with tech lagging. Day is essentially over (20:08 UTC = after close), any open orders need to be placed for next session if not already filled.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-21T19:56:59Z",
-    "reasoning": "Mid at 1.66 is 1.61x the 1.03 credit \u2014 hard stop is 1.5x (1.545), confirmed breach across five consecutive cycles with zero recovery. Market closes imminently and this cannot be held into tomorrow with an active stop violation."
+    "timestamp": "2026-08-21T20:08:46.937469+00:00",
+    "reasoning": "Mid at 1.66 is 1.61x the 1.03 credit \u2014 hard stop at 1.5x (1.545) has been breached and confirmed across six consecutive cycles with zero recovery. Market is now closed; this must be the first order at open tomorrow 9:30 ET, no exceptions."
   },
   "QQQ 677/668p": {
     "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-08-21T19:56:59Z",
-    "reasoning": "Mid at 1.09 vs 1.07 credit is essentially breakeven, no stop violation \u2014 but after closing the 690/681p, reassess whether running two QQQ put verticals in the same expiry cycle is acceptable given the 5d weakness in tech."
+    "confidence": 0.78,
+    "timestamp": "2026-08-21T20:08:46.937469+00:00",
+    "reasoning": "Mid at 1.10 vs 1.07 credit is marginally above breakeven, no stop violation, but running two QQQ put verticals same expiry with 5d tech weakness creates concentrated directional risk \u2014 reassess after closing the 690/681p tomorrow."
   },
   "SLV 61.5/60.5p": {
     "action": "HOLD",
     "confidence": 0.93,
-    "timestamp": "2026-08-21T19:56:59Z",
-    "reasoning": "Mid flat at 0.55 matching entry, short strike 1.94% OTM, 131 DTE, uncorrelated to QQQ exposure \u2014 position is functioning exactly as designed."
+    "timestamp": "2026-08-21T20:08:46.937469+00:00",
+    "reasoning": "Mid flat at 0.55 matching entry credit, short strike 1.94% OTM, 131 DTE \u2014 position is functioning as designed with SLV uncorrelated to tech exposure."
   }
 }
