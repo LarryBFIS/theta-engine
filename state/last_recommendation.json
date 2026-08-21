@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-21T14:00:02.700745+00:00",
-  "market_view": "Market is flat-to-slightly-green intraday but QQQ remains down 2.95% on the week and XLK down 4.06% \u2014 tech continues to underperform, no regime shift. VIX at 15.47 and falling but all three positions remain in stop/action territory from last cycle with no material price improvement.",
+  "last_run": "2026-08-21T14:17:13.735617+00:00",
+  "market_view": "QQQ flat intraday but down 3.05% on the week with XLK -4.33% \u2014 tech selling pressure unresolved, VIX declining slightly but still elevated on 5d basis. All three positions flagged CRITICAL last cycle with no material improvement; this is an execution problem, not an analysis problem.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-21T13:59:49Z",
-    "reasoning": "Mid-cost 1.805 is 1.75x the 1.03 credit \u2014 1.5x hard stop (1.545) was breached long ago and position is still open, this is an active rule violation. No improvement from last cycle; close immediately at market."
+    "timestamp": "2026-08-21T14:17:01Z",
+    "reasoning": "Mid-cost 1.84 is 1.79x the 1.03 credit \u2014 hard stop at 1.5x (1.545) was breached cycles ago and position remains open. This is an active rule violation entering its second hour."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
-    "confidence": 0.95,
-    "timestamp": "2026-08-21T13:59:49Z",
-    "reasoning": "Mid-cost 1.245 is 1.16x credit and worst-cost 1.30 is 1.22x \u2014 approaching 1.5x stop at 1.605, and holding two correlated QQQ put verticals simultaneously in a risk-off tech tape violates concentration rules regardless of individual stop levels."
+    "confidence": 0.92,
+    "timestamp": "2026-08-21T14:17:01Z",
+    "reasoning": "Mid-cost 1.25 is 1.17x credit with worst-cost 1.30 at 1.22x \u2014 stop trigger at 1.605 is approaching fast in a weak tech tape, and holding two correlated QQQ verticals simultaneously is a hard concentration rule violation."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-08-21T13:59:49Z",
-    "reasoning": "Worst-cost 0.70 already exceeds the 0.55 credit received and short strike 61.5 is only 1.9% OTM with SLV at 62.705 \u2014 zero edge remaining, 131 DTE of risk, worst-cost is 1.27x credit and approaching hard stop fast."
+    "confidence": 0.95,
+    "timestamp": "2026-08-21T14:17:01Z",
+    "reasoning": "Worst-cost 0.65 is 1.18x the 0.55 credit with short strike only 1.99% OTM and 131 DTE of tail risk remaining \u2014 no edge, asymmetric downside, and this was flagged CRITICAL last cycle with no action taken."
   }
 }
