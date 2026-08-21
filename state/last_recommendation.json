@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-21T18:27:10.324967+00:00",
-  "market_view": "VIX at 15.3 (-4.43% today) with indices mildly green but QQQ still -2.74% on the week \u2014 IV compression not enough to rescue the underwater QQQ 690/681p which remains a hard playbook violation. No new catalysts.",
+  "last_run": "2026-08-21T18:48:21.479224+00:00",
+  "market_view": "VIX continues lower at 15.32 (-4.31% today) with broad market mildly green, but QQQ still -2.73% on the week \u2014 IV compression not rescuing the underwater QQQ 690/681p which remains a confirmed hard stop violation unchanged from last cycle.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-21T18:26:57Z",
-    "reasoning": "Mid at 1.685 is 1.64x the 1.03 credit \u2014 hard stop trigger is 1.545 (1.5x). This has been a confirmed playbook violation for multiple cycles with no recovery; every minute held compounds the loss."
+    "timestamp": "2026-08-21T18:48:06Z",
+    "reasoning": "Mid at 1.685 is 1.64x the 1.03 credit \u2014 hard stop is 1.545 (1.5x credit), this has been a confirmed violation for multiple cycles with zero recovery. No change in market structure justifies holding."
   },
   "QQQ 677/668p": {
     "action": "ACTION",
     "confidence": 0.93,
-    "timestamp": "2026-08-21T18:26:57Z",
-    "reasoning": "Mid at 1.125 vs 1.07 entry is a loser, and holding two QQQ put verticals on the same expiry creates unacceptable concentration \u2014 playbook requires uncorrelated underlyings, not two losing legs on the same underlying and date."
+    "timestamp": "2026-08-21T18:48:06Z",
+    "reasoning": "Mid at 1.11 vs 1.07 credit is a small loser, but holding two QQQ put verticals same expiry is a direct concentration violation \u2014 if 690/681p is closed this becomes the only QQQ leg but it remains a losing position in a weakened underlying."
   },
   "SLV 61.5/60.5p": {
     "action": "HOLD",
     "confidence": 0.92,
-    "timestamp": "2026-08-21T18:26:57Z",
-    "reasoning": "Mid flat at 0.55 equals entry credit, short strike 2.4% OTM, 131 DTE \u2014 uncorrelated anchor position, no action warranted."
+    "timestamp": "2026-08-21T18:48:06Z",
+    "reasoning": "Mid at 0.50 is slightly below the 0.55 credit entry but within noise, short strike 2.2% OTM with 131 DTE \u2014 uncorrelated anchor position with ample time, no action warranted."
   }
 }
