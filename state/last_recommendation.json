@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-21T13:26:06.162256+00:00",
-  "market_view": "Risk-off regime continues with QQQ down 3.07% on the week and broad market selling \u2014 VIX at 15.48 is slightly lower on the day but 5d trend is up, confirming deteriorating conditions for short put exposure.",
+  "last_run": "2026-08-21T13:41:33.475429+00:00",
+  "market_view": "Market is stabilizing intraday with QQQ +0.17% and VIX -3.31% on the day, but the 5d trend remains risk-off with QQQ down 2.84% on the week \u2014 no material change from last cycle to alter the CRITICAL calls on all three positions.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-21T13:25:53Z",
-    "reasoning": "Mid-cost 1.90 is 1.84x the 1.03 credit \u2014 hard stop at 1.5x (1.545) was breached multiple cycles ago and position remains open. This is a rule violation; every minute this stays on in a risk-off tape increases loss."
+    "timestamp": "2026-08-21T13:41:20Z",
+    "reasoning": "Mid-cost 1.79 is 1.74x the 1.03 credit \u2014 1.5x hard stop (1.545) was breached long ago and position is still open, this is a rule violation that must be resolved immediately."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-08-21T13:25:53Z",
-    "reasoning": "Worst-cost 1.43 is 1.34x the 1.07 credit and the 1.5x stop trigger is at 1.605 \u2014 with QQQ down 3.07% on the week and a second QQQ leg already on, correlated concentration in risk-off tape must be eliminated simultaneously with the 690/681p."
+    "confidence": 0.95,
+    "timestamp": "2026-08-21T13:41:20Z",
+    "reasoning": "Mid-cost 1.225 is 1.14x credit and worst-cost 1.29 is 1.21x \u2014 approaching 1.5x stop at 1.605, two correlated QQQ legs simultaneously on in a still risk-off tape is unacceptable concentration."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
-    "confidence": 0.99,
-    "timestamp": "2026-08-21T13:25:53Z",
-    "reasoning": "Short strike 61.5 is 0.26% OTM with SLV at 61.66 \u2014 worst-cost 0.70 exceeds the 0.55 credit received, max profit equals max loss scenario, and any intraday dip in metals triggers breach and assignment risk on a 131 DTE position with zero edge remaining."
+    "confidence": 0.97,
+    "timestamp": "2026-08-21T13:41:20Z",
+    "reasoning": "Short strike 61.5 is only 2.18% OTM with SLV at 62.87 \u2014 current mid-cost 0.50 is near breakeven on premium received and worst-cost 0.65 already exceeds the 0.55 credit, leaving zero edge with 131 DTE of risk remaining."
   }
 }
