@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-21T19:15:50.331481+00:00",
-  "market_view": "VIX now 15.26 (-4.68% today) with QQQ bouncing mildly +0.32% intraday but still -2.69% on the week \u2014 IV compression is not helping the underwater 690/681p which remains in hard stop territory. No new catalysts to change the picture.",
+  "last_run": "2026-08-21T19:20:52.760718+00:00",
+  "market_view": "VIX -4.62% today at 15.27 with modest green across indices, but QQQ still -2.68% on the week and the 690/681p remains a confirmed mechanical stop violation that has been live for multiple cycles. No new catalysts \u2014 the stop rule stands.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-21T19:15:37Z",
-    "reasoning": "Mid at 1.675 is 1.63x the 1.03 credit \u2014 hard stop is 1.545 (1.5x credit), this has been a confirmed rule violation for multiple consecutive cycles with zero recovery. Every minute held is discretionary override of a mechanical rule."
+    "timestamp": "2026-08-21T19:20:41Z",
+    "reasoning": "Mid at 1.665 is 1.62x the 1.03 credit \u2014 hard stop triggered at 1.5x (1.545). This has been a confirmed rule breach for consecutive cycles and has not recovered. Holding is a discretionary override of a mechanical rule."
   },
   "QQQ 677/668p": {
     "action": "WATCH",
-    "confidence": 0.82,
-    "timestamp": "2026-08-21T19:15:37Z",
-    "reasoning": "Mid at 1.105 vs 1.07 credit is essentially at breakeven and not a stop violation, but two QQQ put verticals in the same expiry is dangerous concentration \u2014 once 690/681p is closed, evaluate whether to hold or exit this one too given the tech-heavy week."
+    "confidence": 0.8,
+    "timestamp": "2026-08-21T19:20:41Z",
+    "reasoning": "Mid at 1.095 vs 1.07 credit is essentially breakeven, not a stop violation \u2014 but running two QQQ put verticals in the same expiry after closing the 690/681p still represents dangerous single-underlying concentration. Monitor closely post-close of the upper spread."
   },
   "SLV 61.5/60.5p": {
     "action": "HOLD",
     "confidence": 0.93,
-    "timestamp": "2026-08-21T19:15:37Z",
-    "reasoning": "Mid at 0.55 matches entry credit exactly, short strike 2.1% OTM with 131 DTE \u2014 uncorrelated anchor functioning as intended, no action warranted."
+    "timestamp": "2026-08-21T19:20:41Z",
+    "reasoning": "Mid at 0.55 matches entry credit exactly, short strike 2.07% OTM, 131 DTE \u2014 uncorrelated anchor is functioning as intended with no deterioration."
   }
 }
