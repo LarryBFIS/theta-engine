@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-21T17:43:29.063392+00:00",
-  "market_view": "VIX down 4.3% intraday to 15.32 and indices modestly green, but QQQ 690/681p remains in hard-stop territory at 1.655 mid vs 1.545 threshold \u2014 intraday strength does not override rules-based exits. QQQ -2.66% on the week remains the dominant regime concern for both put verticals.",
+  "last_run": "2026-08-21T17:56:35.873570+00:00",
+  "market_view": "VIX down 4.5% intraday to 15.29 and indices modestly green, but this does not change the rules-based hard stop on QQQ 690/681p which has been in breach for multiple cycles. QQQ -2.69% on the week remains the dominant regime risk for both put verticals.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-21T17:43:13Z",
-    "reasoning": "Mid-cost 1.655 is 1.607x the 1.03 credit \u2014 hard stop triggers at 1.5x (1.545). This breach has persisted across multiple cycles; the loss has not recovered to below threshold despite intraday green. Rules are rules."
+    "timestamp": "2026-08-21T17:56:22Z",
+    "reasoning": "Mid-cost 1.665 is 1.616x the 1.03 credit \u2014 hard stop triggers at 1.5x (1.545). This breach has now persisted across multiple review cycles with no recovery below threshold; the rule has been triggered and must be executed."
   },
   "QQQ 677/668p": {
     "action": "ACTION",
-    "confidence": 0.87,
-    "timestamp": "2026-08-21T17:43:13Z",
-    "reasoning": "Mid-cost 1.10 is above the 1.07 credit entry (currently a loser), and two QQQ put verticals on the same expiry represent unacceptable single-underlying concentration regardless of strike separation. After closing the 690/681p, this position must also close to eliminate the double QQQ exposure."
+    "confidence": 0.88,
+    "timestamp": "2026-08-21T17:56:22Z",
+    "reasoning": "Mid-cost 1.10 is above the 1.07 credit entry (slight loser), and carrying two QQQ put verticals on the same expiry creates unacceptable single-underlying concentration \u2014 this must close after or simultaneously with the 690/681p."
   },
   "SLV 61.5/60.5p": {
     "action": "HOLD",
-    "confidence": 0.9,
-    "timestamp": "2026-08-21T17:43:13Z",
-    "reasoning": "Mid-cost 0.50 is now slightly below the 0.55 credit entry (profitable), short strike 2.3% OTM, 131 DTE with no time pressure, and fully uncorrelated to the QQQ book being unwound."
+    "confidence": 0.91,
+    "timestamp": "2026-08-21T17:56:22Z",
+    "reasoning": "Mid-cost 0.55 is flat to entry, short strike 2.1% OTM, 131 DTE with zero time pressure, and fully uncorrelated to the QQQ book being closed."
   }
 }
