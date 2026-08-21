@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-21T14:55:45.740403+00:00",
-  "market_view": "QQQ flat on the day but still -3% on the week with XLK -4.45% \u2014 tech pressure unresolved and two QQQ short put verticals remain open in violation of the 1.5x stop rule. VIX 5d trend still elevated despite today's modest fade.",
+  "last_run": "2026-08-21T15:14:10.871830+00:00",
+  "market_view": "QQQ bouncing +0.23% today but still down 2.78% on the week with XLK -4.07% \u2014 tech pressure ongoing and VIX 5d trend still elevated at +2.07%. Both QQQ short put verticals flagged CRITICAL last cycle remain open and unactioned.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-21T14:55:33Z",
-    "reasoning": "Mid-cost 1.795 is 1.74x the 1.03 credit \u2014 1.5x stop triggered at 1.545 multiple cycles ago. This is an unexecuted hard rule violation actively compounding losses."
+    "timestamp": "2026-08-21T15:13:58+00:00",
+    "reasoning": "Mid-cost 1.71 is 1.66x the 1.03 credit received \u2014 hard stop at 1.5x (1.545) has been breached for multiple cycles with no action taken. Every minute this stays open compounds the loss against a hard rule."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
     "confidence": 0.95,
-    "timestamp": "2026-08-21T14:55:33Z",
-    "reasoning": "Mid-cost 1.215 is 1.14x credit and trending toward the 1.5x stop at 1.605; two correlated QQQ short put verticals in same expiry is a concentration rule violation independent of individual stop status."
+    "timestamp": "2026-08-21T15:13:58+00:00",
+    "reasoning": "Mid-cost 1.155 is 1.08x credit and still trending toward the 1.5x stop at 1.605; independent of stop status, running two correlated QQQ short put verticals in the same expiry is a concentration rule violation that must be resolved."
   },
   "SLV 61.5/60.5p": {
-    "action": "CRITICAL",
-    "confidence": 0.88,
-    "timestamp": "2026-08-21T14:55:33Z",
-    "reasoning": "Worst-cost 0.65 exceeds the 0.55 credit received \u2014 position is currently a loser on worst-fill basis with only 1.32% OTM cushion and 131 DTE of unhedged downside in a metal with elevated vol correlation to risk-off moves."
+    "action": "WATCH",
+    "confidence": 0.72,
+    "timestamp": "2026-08-21T15:13:58+00:00",
+    "reasoning": "Mid-cost flat at 0.55 (breakeven) and worst-cost 0.70 is above credit received, but SLV at 62.56 is 1.69% above short strike \u2014 no immediate threat while QQQ positions are still live and consuming priority attention."
   }
 }
