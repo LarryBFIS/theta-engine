@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-21T16:04:25.061120+00:00",
-  "market_view": "VIX -4.12% today at 15.35 and indices modestly green, but QQQ still -2.55% on the week. Intraday bounce does not change the math on the 690/681p hard-stop violation \u2014 rules are rules.",
+  "last_run": "2026-08-21T16:15:13.271233+00:00",
+  "market_view": "VIX -3.94% today at 15.38 and indices modestly green, but QQQ still -2.66% on the week \u2014 the intraday bounce changes nothing on the hard-stop math for the 690/681p. Both QQQ verticals remain account-rules violations that are unresolved from prior cycles.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-21T16:04:13Z",
-    "reasoning": "Mid-cost 1.63 is 1.58x the 1.03 credit \u2014 hard stop triggers at 1.5x (1.545). This has been flagged CRITICAL for multiple consecutive cycles with no action taken; continuing to hold is an active account rules violation that compounds risk."
+    "timestamp": "2026-08-21T16:15:01Z",
+    "reasoning": "Mid-cost 1.675 is 1.63x the 1.03 credit \u2014 hard stop triggers at 1.5x (1.545). This has been flagged CRITICAL for multiple consecutive cycles with zero action taken; every minute held is an active rules violation compounding realized risk."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-08-21T16:04:13Z",
-    "reasoning": "Two correlated QQQ short put verticals in the same expiry is a hard concentration violation per account rules (max 3-4 uncorrelated positions); this must be closed alongside the 690/681p to restore a legal book regardless of its P&L."
+    "timestamp": "2026-08-21T16:15:01Z",
+    "reasoning": "Two correlated QQQ short put verticals in the same expiry is a hard concentration violation \u2014 these are not independent positions under account rules. This must close alongside the 690/681p to restore a legal, uncorrelated book."
   },
   "SLV 61.5/60.5p": {
     "action": "WATCH",
     "confidence": 0.72,
-    "timestamp": "2026-08-21T16:04:13Z",
-    "reasoning": "Mid-cost 0.50 is below the 0.55 credit so position is marginally profitable, but worst-cost 0.65 exceeds credit and 131 DTE leaves significant time and event risk on the table."
+    "timestamp": "2026-08-21T16:15:01Z",
+    "reasoning": "Mid-cost 0.525 is just below the 0.55 credit so position is fractionally profitable, but worst-case 0.65 exceeds credit and 131 DTE leaves enormous time and event risk with no 21 DTE pressure yet."
   }
 }
