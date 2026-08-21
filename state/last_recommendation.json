@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-21T16:21:29.119414+00:00",
-  "market_view": "VIX down 3.81% to 15.4 and indices modestly green intraday, but QQQ still -2.54% on the week \u2014 the bounce is noise, the hard-stop math on the 690/681p is unchanged. No new news to alter the picture.",
+  "last_run": "2026-08-21T16:38:23.411983+00:00",
+  "market_view": "VIX -4.37% to 15.31 and indices mildly green intraday, but QQQ is still -2.63% on the week and the 690/681p stop-loss breach is unchanged \u2014 the intraday bounce does not fix the math. Rules violations on the QQQ book remain active.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-21T16:21:17Z",
-    "reasoning": "Mid-cost 1.63 is 1.58x the 1.03 credit \u2014 hard stop triggers at 1.5x (1.545). This has been flagged CRITICAL for multiple consecutive cycles with zero action; every cycle held is an active rules violation."
+    "timestamp": "2026-08-21T16:38:11Z",
+    "reasoning": "Mid-cost 1.66 is 1.61x the 1.03 credit \u2014 hard stop triggers at 1.5x (1.545). This is now multiple cycles of confirmed rules violation with no action taken; every minute held is an unauthorized risk position."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-08-21T16:21:17Z",
-    "reasoning": "Two correlated QQQ short put verticals in the same expiry is a hard concentration and correlation violation; this cannot remain open while the book has a rules-violating twin position in the same underlying and cycle."
+    "timestamp": "2026-08-21T16:38:11Z",
+    "reasoning": "Two correlated QQQ short put verticals in the same expiry is a hard concentration and correlation violation; this position cannot remain open while the book holds a rules-violating twin in the same underlying and cycle."
   },
   "SLV 61.5/60.5p": {
     "action": "WATCH",
     "confidence": 0.72,
-    "timestamp": "2026-08-21T16:21:17Z",
-    "reasoning": "Mid-cost 0.60 is slightly above the 0.55 credit so the position is fractionally underwater on mid; 131 DTE means no time pressure but also no urgency \u2014 short strike is 2.28% OTM and unthreatened."
+    "timestamp": "2026-08-21T16:38:11Z",
+    "reasoning": "Mid-cost 0.55 is flat to credit so position is breakeven on mid; 131 DTE with short strike 2.36% OTM and no news \u2014 no action warranted but worth monitoring as silver can gap on macro."
   }
 }
