@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-21T16:55:07.957559+00:00",
-  "market_view": "VIX down 4.43% intraday to 15.3 and indices mildly green, but QQQ still -2.68% on the week \u2014 the intraday bounce is noise, not relief. The QQQ 690/681p stop-loss violation is now multiple cycles unresolved and must be closed immediately regardless of intraday price action.",
+  "last_run": "2026-08-21T17:12:04.405383+00:00",
+  "market_view": "VIX -4.25% intraday to 15.33 with indices mildly green, but QQQ still -2.63% on the week and the intraday bounce does not resolve the 690/681p stop-loss violation that has been flagged for multiple cycles. No new catalysts to change posture.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-21T16:54:56Z",
-    "reasoning": "Mid-cost 1.695 is 1.65x the 1.03 credit \u2014 hard stop triggers at 1.5x (1.545). This position has been in rules violation for multiple consecutive cycles; holding is not authorized under the playbook."
+    "timestamp": "2026-08-21T17:11:52Z",
+    "reasoning": "Mid-cost 1.665 is 1.62x the 1.03 credit \u2014 hard stop triggers at 1.5x (1.545). This position has been in rules violation for multiple consecutive cycles and remains unauthorized under the playbook regardless of intraday green."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
-    "confidence": 0.95,
-    "timestamp": "2026-08-21T16:54:56Z",
-    "reasoning": "Mid-cost 1.125 vs 1.07 credit is only 1.05x, not yet at hard stop, but two correlated QQQ short put verticals in the same expiry is a hard concentration violation \u2014 this cannot stay open while the book is already overweight one underlying and expiry cycle."
+    "confidence": 0.93,
+    "timestamp": "2026-08-21T17:11:52Z",
+    "reasoning": "Mid-cost 1.11 vs 1.07 credit is 1.04x, not at hard stop, but holding two correlated QQQ short put verticals in the same expiry with the 690/681p still open is an unresolved concentration violation \u2014 close 690/681p first, then reassess this position within the same session."
   },
   "SLV 61.5/60.5p": {
-    "action": "WATCH",
-    "confidence": 0.72,
-    "timestamp": "2026-08-21T16:54:56Z",
-    "reasoning": "Mid-cost flat to credit at 0.55, short strike 2.64% OTM, 131 DTE with no news \u2014 no action required but silver is macro-sensitive and worth monitoring."
+    "action": "HOLD",
+    "confidence": 0.82,
+    "timestamp": "2026-08-21T17:11:52Z",
+    "reasoning": "Mid-cost 0.525 is slightly below the 0.55 credit entry, short strike 2.6% OTM, 131 DTE \u2014 position is fine and SLV is uncorrelated to QQQ book."
   }
 }
