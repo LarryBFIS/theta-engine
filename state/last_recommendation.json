@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-21T15:34:28.758150+00:00",
-  "market_view": "QQQ +0.35% today but still down 2.66% on the week with VIX -4.25% on the day \u2014 tech bounce is mild and does not rescue the 690/681p which has been in hard-stop breach for multiple cycles. Rules are being violated with zero action taken.",
+  "last_run": "2026-08-21T15:53:20.143184+00:00",
+  "market_view": "VIX -4.68% today at 15.26 and broad indices green +0.6-0.7% \u2014 IV is compressing intraday but QQQ still down 2.38% on the week. The bounce does not undo the damage to the 690/681p position which has been in hard-stop violation for multiple consecutive cycles.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-21T15:34:14Z",
-    "reasoning": "Mid-cost 1.67 is 1.62x the 1.03 credit \u2014 the 1.5x hard stop (1.545) has been breached across multiple consecutive cycles with no action. This is an active rules violation bleeding capital with 27 DTE still remaining."
+    "timestamp": "2026-08-21T15:53:08Z",
+    "reasoning": "Mid-cost 1.59 is 1.54x the 1.03 credit \u2014 hard stop at 1.5x (1.545) remains breached. This has been flagged CRITICAL for multiple consecutive cycles with zero action taken, which is an active rules violation. Close immediately."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
-    "confidence": 0.92,
-    "timestamp": "2026-08-21T15:34:14Z",
-    "reasoning": "Two correlated QQQ short put verticals in the same expiry is a hard concentration violation \u2014 this must be closed regardless of P&L, as the 677/668p mid-cost 1.12 is already above the 1.07 credit and trending against."
+    "confidence": 0.95,
+    "timestamp": "2026-08-21T15:53:08Z",
+    "reasoning": "Two correlated QQQ short put verticals in the same expiry with 27 DTE is a hard concentration violation regardless of current P&L \u2014 this must be closed immediately alongside the 690/681p to restore position limits and uncorrelated book structure."
   },
   "SLV 61.5/60.5p": {
     "action": "WATCH",
     "confidence": 0.72,
-    "timestamp": "2026-08-21T15:34:14Z",
-    "reasoning": "Mid-cost 0.525 is slightly below the 0.55 credit with SLV 2% above short strike at 62.75 \u2014 no stop triggered but worst-cost 0.65 exceeds credit, and 131 DTE means slow theta burn."
+    "timestamp": "2026-08-21T15:53:08Z",
+    "reasoning": "Mid-cost 0.50 is below the 0.55 credit \u2014 marginally profitable but worst-cost 0.65 exceeds credit and 131 DTE means this is a slow-theta grind with significant time risk ahead."
   }
 }
