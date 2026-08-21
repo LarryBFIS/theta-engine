@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-21T17:15:14.287465+00:00",
-  "market_view": "VIX down 4.37% intraday to 15.31 with indices modestly green, but QQQ still -2.62% on the week and the intraday recovery does not cure the 690/681p hard-stop violation that has persisted across multiple cycles. No new catalysts.",
+  "last_run": "2026-08-21T17:25:28.888593+00:00",
+  "market_view": "VIX at 15.29 down 4.5% intraday, indices modestly green, but QQQ still -2.7% on the week. The 690/681p hard-stop breach was confirmed multiple cycles ago and the rules-based exit obligation stands regardless of intraday drift.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-21T17:15:03Z",
-    "reasoning": "Mid-cost 1.61 is 1.56x the 1.03 credit \u2014 hard stop is 1.5x (1.545). This violation is confirmed across multiple consecutive cycles; intraday green does not change the rules-based exit obligation."
+    "timestamp": "2026-08-21T17:25:14Z",
+    "reasoning": "Mid-cost 1.69 is 1.64x the 1.03 credit \u2014 hard stop threshold is 1.5x (1.545). This breach has now persisted across multiple cycles with the loss worsening, not improving. No intraday green justifies holding a rules-violation."
   },
   "QQQ 677/668p": {
-    "action": "WATCH",
-    "confidence": 0.85,
-    "timestamp": "2026-08-21T17:15:03Z",
-    "reasoning": "Mid-cost 1.055 is essentially flat to the 1.07 credit entry, no hard stop triggered, but this position creates unacceptable QQQ concentration alongside the 690/681p \u2014 reassess and likely close this too once 690/681p is shut."
+    "action": "ACTION",
+    "confidence": 0.88,
+    "timestamp": "2026-08-21T17:25:14Z",
+    "reasoning": "Mid-cost 1.12 is now above the 1.07 credit entry (losing), and closing the 690/681p does not resolve the unacceptable QQQ concentration \u2014 two put verticals on the same underlying with 27 DTE is a single correlated risk, not two positions."
   },
   "SLV 61.5/60.5p": {
     "action": "HOLD",
-    "confidence": 0.85,
-    "timestamp": "2026-08-21T17:15:03Z",
-    "reasoning": "Mid-cost 0.55 flat to credit, short strike 2.4% OTM, uncorrelated to QQQ book \u2014 nothing to do here."
+    "confidence": 0.87,
+    "timestamp": "2026-08-21T17:25:14Z",
+    "reasoning": "Mid-cost 0.525 is essentially flat to the 0.55 credit, short strike 2.1% OTM, uncorrelated to QQQ, 131 DTE means no time pressure \u2014 nothing to manage."
   }
 }
