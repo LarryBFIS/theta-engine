@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-21T15:16:35.692089+00:00",
-  "market_view": "QQQ +0.20% today but down 2.81% on the week with XLK -4.11% \u2014 tech remains under pressure and VIX 5d trend still elevated. Both QQQ verticals remain open and unactioned despite CRITICAL alerts across multiple cycles.",
+  "last_run": "2026-08-21T15:34:28.758150+00:00",
+  "market_view": "QQQ +0.35% today but still down 2.66% on the week with VIX -4.25% on the day \u2014 tech bounce is mild and does not rescue the 690/681p which has been in hard-stop breach for multiple cycles. Rules are being violated with zero action taken.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-21T15:16:24Z",
-    "reasoning": "Mid-cost 1.71 is 1.66x the 1.03 credit \u2014 the 1.5x hard stop at 1.545 was breached multiple cycles ago with zero action taken. This is a rules violation that is actively bleeding capital."
+    "timestamp": "2026-08-21T15:34:14Z",
+    "reasoning": "Mid-cost 1.67 is 1.62x the 1.03 credit \u2014 the 1.5x hard stop (1.545) has been breached across multiple consecutive cycles with no action. This is an active rules violation bleeding capital with 27 DTE still remaining."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
     "confidence": 0.92,
-    "timestamp": "2026-08-21T15:16:24Z",
-    "reasoning": "Running two correlated QQQ short put verticals in the same expiry violates concentration rules regardless of P&L status \u2014 this position must be closed to restore account rule compliance."
+    "timestamp": "2026-08-21T15:34:14Z",
+    "reasoning": "Two correlated QQQ short put verticals in the same expiry is a hard concentration violation \u2014 this must be closed regardless of P&L, as the 677/668p mid-cost 1.12 is already above the 1.07 credit and trending against."
   },
   "SLV 61.5/60.5p": {
     "action": "WATCH",
-    "confidence": 0.7,
-    "timestamp": "2026-08-21T15:16:24Z",
-    "reasoning": "Mid-cost flat at 0.55 equals credit received with 131 DTE \u2014 no stop triggered and short strike 1.78% OTM, but worst-cost 0.70 exceeds credit, so monitor for any SLV weakness."
+    "confidence": 0.72,
+    "timestamp": "2026-08-21T15:34:14Z",
+    "reasoning": "Mid-cost 0.525 is slightly below the 0.55 credit with SLV 2% above short strike at 62.75 \u2014 no stop triggered but worst-cost 0.65 exceeds credit, and 131 DTE means slow theta burn."
   }
 }
