@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-21T19:33:44.824315+00:00",
-  "market_view": "VIX down another -4.87% today at 15.23 with broad green \u2014 constructive tape but QQQ still -2.62% on the week. The mechanical stop on QQQ 690/681p remains in force regardless of intraday recovery.",
+  "last_run": "2026-08-21T19:44:23.278347+00:00",
+  "market_view": "VIX -5.18% to 15.18 with broad green today but QQQ still -2.63% on the week \u2014 intraday recovery does not erase the mechanical stop violation on the 690/681p that has been confirmed multiple cycles. Close of day approaching, no new news to change the calculus.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-21T19:33:32Z",
-    "reasoning": "Mid at 1.645 is 1.60x the 1.03 credit \u2014 hard stop triggers at 1.5x (1.545). This is the third consecutive cycle this violation has been confirmed with no recovery below the threshold. Mechanical rule is unambiguous."
+    "timestamp": "2026-08-21T19:44:12Z",
+    "reasoning": "Mid at 1.645 is 1.60x the 1.03 credit \u2014 hard stop triggers at 1.5x (1.545). Four consecutive cycles confirmed above threshold with zero recovery below. Mechanical rule is unambiguous and overrides any intraday tape improvement."
   },
   "QQQ 677/668p": {
     "action": "WATCH",
     "confidence": 0.78,
-    "timestamp": "2026-08-21T19:33:32Z",
-    "reasoning": "Mid at 1.085 vs 1.07 credit is essentially flat \u2014 no stop violation, but running double QQQ put exposure in the same expiry post-close of the 690/681p is still heavy single-name concentration. No action required yet."
+    "timestamp": "2026-08-21T19:44:12Z",
+    "reasoning": "Mid at 1.08 vs 1.07 credit is essentially flat, no stop violation \u2014 but closing the 690/681p is the priority first, then reassess whether double QQQ put exposure in same expiry is acceptable post-close."
   },
   "SLV 61.5/60.5p": {
     "action": "HOLD",
     "confidence": 0.93,
-    "timestamp": "2026-08-21T19:33:32Z",
-    "reasoning": "Mid unchanged at 0.55 matching entry credit, short strike 1.92% OTM, 131 DTE \u2014 uncorrelated anchor holding steady with zero deterioration."
+    "timestamp": "2026-08-21T19:44:12Z",
+    "reasoning": "Mid at 0.50 slightly below entry credit of 0.55 \u2014 at 9% of max profit captured, short strike 1.80% OTM, 131 DTE, zero deterioration, uncorrelated anchor working as intended."
   }
 }
