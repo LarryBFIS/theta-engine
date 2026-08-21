@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-21T20:09:00.195461+00:00",
-  "market_view": "VIX down another 4.93% today to 15.22 \u2014 IV environment is compressing, market bouncing green across the board but QQQ still -2.66% on the week with tech lagging. Day is essentially over (20:08 UTC = after close), any open orders need to be placed for next session if not already filled.",
+  "last_run": "2026-08-21T20:12:41.852859+00:00",
+  "market_view": "Market closed, VIX at 15.18 down 5.18% on the day \u2014 IV continues to compress but QQQ still -2.66% on the week with tech lagging all other sectors. Primary task for tomorrow open is executing the queued QQQ 690/681p close order.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-21T20:08:46.937469+00:00",
-    "reasoning": "Mid at 1.66 is 1.61x the 1.03 credit \u2014 hard stop at 1.5x (1.545) has been breached and confirmed across six consecutive cycles with zero recovery. Market is now closed; this must be the first order at open tomorrow 9:30 ET, no exceptions."
+    "timestamp": "2026-08-21T20:12:28Z",
+    "reasoning": "Mid at 1.675 is 1.63x the 1.03 credit \u2014 hard stop at 1.5x (1.545) remains breached, market is closed, this order must be the first execution at 9:30 ET open tomorrow with no exceptions."
   },
   "QQQ 677/668p": {
     "action": "WATCH",
     "confidence": 0.78,
-    "timestamp": "2026-08-21T20:08:46.937469+00:00",
-    "reasoning": "Mid at 1.10 vs 1.07 credit is marginally above breakeven, no stop violation, but running two QQQ put verticals same expiry with 5d tech weakness creates concentrated directional risk \u2014 reassess after closing the 690/681p tomorrow."
+    "timestamp": "2026-08-21T20:12:28Z",
+    "reasoning": "Mid at 1.105 is essentially flat to the 1.07 credit \u2014 no stop violation, but two QQQ put verticals same expiry creates unacceptable concentration risk; reassess after 690/681p is closed tomorrow."
   },
   "SLV 61.5/60.5p": {
     "action": "HOLD",
     "confidence": 0.93,
-    "timestamp": "2026-08-21T20:08:46.937469+00:00",
-    "reasoning": "Mid flat at 0.55 matching entry credit, short strike 1.94% OTM, 131 DTE \u2014 position is functioning as designed with SLV uncorrelated to tech exposure."
+    "timestamp": "2026-08-21T20:12:28Z",
+    "reasoning": "Mid at 0.525 is nearly flat to 0.55 credit with short strike 1.94% OTM and 131 DTE \u2014 position is functioning correctly and provides uncorrelated exposure to the QQQ-heavy book."
   }
 }
