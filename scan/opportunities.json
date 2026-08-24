@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-24T13:08:17.776538+00:00",
+  "generated_at": "2026-08-24T13:29:28.641739+00:00",
   "regime": {
-    "vix": 15.91,
-    "vix_day_change_pct": 0.0516,
+    "vix": 15.84,
+    "vix_day_change_pct": 0.0469,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (+5% day)"
@@ -33,15 +33,15 @@
       "fees_est": 3.0,
       "bpr": 743.0,
       "max_loss": 743.0,
-      "pop": 0.798,
-      "short_delta": 0.221,
+      "pop": 0.797,
+      "short_delta": 0.222,
       "short_spread_pct": 0.026,
       "credit_to_bpr": 0.211,
-      "ev_per_contract": 12.01,
-      "ev_on_bpr": 0.0162,
+      "ev_per_contract": 11.82,
+      "ev_on_bpr": 0.0159,
       "iv": 0.2211,
       "iv_rank": 0.468,
-      "underlying_price": 708.83,
+      "underlying_price": 708.93,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -57,9 +57,9 @@
         "asset_class=single_name \u00d70.68",
         "cluster=us_tech \u00d70.77"
       ],
-      "rank_score": 0.008537,
+      "rank_score": 0.008379,
       "agent_action": "guarded",
-      "agent_reason": "us_tech cluster and single_name class are both realized losers we avoid, QQQ is already at its per-name cap, and selling calls into a +5% momentum day is precisely the poorly-timed trade the mandate warns against.",
+      "agent_reason": "Selling calls into a +5% rip is fighting momentum, and both single_name and us_tech are on the engine's avoid list with negative expectancy; QQQ is also already open (per-name cap).",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -67,7 +67,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7089.001,
+      "net_liq": 7086.69,
       "ticket": {
         "underlying": "QQQ",
         "code": "VC",
@@ -94,7 +94,7 @@
         "credit_total": 157.0,
         "max_loss_total": 743.0,
         "bpr_total": 743.0,
-        "pop": 0.798,
+        "pop": 0.797,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -103,12 +103,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 708.9,
+        "live_cap": 708.67,
         "suggested_width": 8,
         "fit_note": "\u26a0 max loss $743 > 10% live cap ($709) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ VC \u00d71 \u2014 SELL 747C / BUY 756C (2026-09-25) @ $1.57 net credit. Max loss $743. After fill: GTC buy-to-close @ $0.79 (50%). \u26a0 max loss $743 > 10% live cap ($709) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-24T13:08:17.776538+00:00"
+      "posted_at": "2026-08-24T13:29:28.641739+00:00"
     }
   ],
   "long_vol": [],
@@ -161,10 +161,10 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-08-24T13:08:17.511914+00:00",
+    "generated_at": "2026-08-24T13:29:28.439620+00:00",
     "model": "kimi-k3",
-    "market_view": "VIX 15.91 on a +5% rip day is a complacent, low-vol tape with thin premium (SPY IV rank 0.3) \u2014 we are not being paid much to sell vol here. Momentum is sharply up, so selling calls fights the tape and selling puts after a vertical move carries mean-reversion risk with little compensation.",
-    "portfolio_note": "The open book is already one concentrated US-equity short-vol bet spread across SPY/DIA/QQQ, sitting slightly underwater; both candidates stack onto names we already hold, adding correlation rather than diversification.",
+    "market_view": "VIX 15.84 in a normal regime but the tape just ripped +5% on the day \u2014 strong upside momentum with mediocre implied vol. That makes short call spreads poorly timed (selling calls into a rip) and short puts thin at IV rank 0.30 after the market has already run away from the strikes.",
+    "portfolio_note": "Book is already one correlated US equity beta bet across SPY/DIA/QQQ with unrealized -83; both candidates duplicate names already on the sheet, adding concentration, not diversification.",
     "reviewed": 2,
     "vetoed": 2,
     "downsized": 0,
@@ -172,12 +172,12 @@
       {
         "id": "SPY|short_put_vertical|735/726",
         "action": "veto",
-        "reason": "Already hold 1 SPY (per-name cap reached), IV rank 0.3 pays almost nothing (EV/BPR 0.0075), and it adds correlated index long-delta right after a +5% rip with mean-reversion risk."
+        "reason": "SPY is already open (per-name cap) and this would stack a third us_index position on the same bet; EV of 0.75% on BPR at IV rank 0.30 is too thin to justify adding correlated risk after a +5% rally."
       },
       {
         "id": "QQQ|short_call_vertical|747/756",
         "action": "veto",
-        "reason": "us_tech cluster and single_name class are both realized losers we avoid, QQQ is already at its per-name cap, and selling calls into a +5% momentum day is precisely the poorly-timed trade the mandate warns against."
+        "reason": "Selling calls into a +5% rip is fighting momentum, and both single_name and us_tech are on the engine's avoid list with negative expectancy; QQQ is also already open (per-name cap)."
       }
     ]
   },
@@ -201,11 +201,11 @@
       "short_delta": 0.188,
       "short_spread_pct": 0.01,
       "credit_to_bpr": 0.114,
-      "ev_per_contract": 6.07,
+      "ev_per_contract": 6.02,
       "ev_on_bpr": 0.0075,
       "iv": 0.1533,
       "iv_rank": 0.3,
-      "underlying_price": 764.33,
+      "underlying_price": 764.29,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -223,7 +223,7 @@
       ],
       "rank_score": 0.012,
       "agent_action": "veto",
-      "agent_reason": "Already hold 1 SPY (per-name cap reached), IV rank 0.3 pays almost nothing (EV/BPR 0.0075), and it adds correlated index long-delta right after a +5% rip with mean-reversion risk."
+      "agent_reason": "SPY is already open (per-name cap) and this would stack a third us_index position on the same bet; EV of 0.75% on BPR at IV rank 0.30 is too thin to justify adding correlated risk after a +5% rally."
     },
     {
       "underlying": "QQQ",
@@ -240,15 +240,15 @@
       "fees_est": 3.0,
       "bpr": 743.0,
       "max_loss": 743.0,
-      "pop": 0.798,
-      "short_delta": 0.221,
+      "pop": 0.797,
+      "short_delta": 0.222,
       "short_spread_pct": 0.026,
       "credit_to_bpr": 0.211,
-      "ev_per_contract": 12.01,
-      "ev_on_bpr": 0.0162,
+      "ev_per_contract": 11.82,
+      "ev_on_bpr": 0.0159,
       "iv": 0.2211,
       "iv_rank": 0.468,
-      "underlying_price": 708.83,
+      "underlying_price": 708.93,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -264,9 +264,9 @@
         "asset_class=single_name \u00d70.68",
         "cluster=us_tech \u00d70.77"
       ],
-      "rank_score": 0.008537,
+      "rank_score": 0.008379,
       "agent_action": "guarded",
-      "agent_reason": "us_tech cluster and single_name class are both realized losers we avoid, QQQ is already at its per-name cap, and selling calls into a +5% momentum day is precisely the poorly-timed trade the mandate warns against.",
+      "agent_reason": "Selling calls into a +5% rip is fighting momentum, and both single_name and us_tech are on the engine's avoid list with negative expectancy; QQQ is also already open (per-name cap).",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -274,7 +274,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7089.001,
+      "net_liq": 7086.69,
       "ticket": {
         "underlying": "QQQ",
         "code": "VC",
@@ -301,7 +301,7 @@
         "credit_total": 157.0,
         "max_loss_total": 743.0,
         "bpr_total": 743.0,
-        "pop": 0.798,
+        "pop": 0.797,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -310,12 +310,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 708.9,
+        "live_cap": 708.67,
         "suggested_width": 8,
         "fit_note": "\u26a0 max loss $743 > 10% live cap ($709) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ VC \u00d71 \u2014 SELL 747C / BUY 756C (2026-09-25) @ $1.57 net credit. Max loss $743. After fill: GTC buy-to-close @ $0.79 (50%). \u26a0 max loss $743 > 10% live cap ($709) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-24T13:08:17.776538+00:00"
+      "posted_at": "2026-08-24T13:29:28.641739+00:00"
     }
   ],
   "skipped": {

@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-24T13:24:54.309492+00:00",
-  "market_view": "Market bouncing modestly today (+0.35-0.77% across indices) but QQQ is down 2.66% over 5 days with tech lagging badly (-3.92% XLK 5d), keeping downside pressure on the QQQ put verticals. VIX up 4.82% today signals the bounce is not a vol-crush event \u2014 no relief there.",
+  "last_run": "2026-08-24T13:27:55.519392+00:00",
+  "market_view": "Market holding modest gains today but QQQ -2.66% over 5 days and VIX +4.69% confirms this is not a vol-crush recovery \u2014 downside risk in tech remains elevated. Both QQQ put verticals flagged for closure last cycle; if not yet executed, they must be closed now.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-08-24T13:24:37Z",
-    "reasoning": "Mid at 1.68 is 1.63x the 1.03 credit \u2014 hard stop at 1.545 (1.5x) has been breached since last Thursday. Market is open now; this must be closed immediately, no waiting for further decay."
+    "confidence": 0.98,
+    "timestamp": "2026-08-24T13:27:39Z",
+    "reasoning": "Mid at 1.68 is 1.63x the 1.03 credit \u2014 hard stop at 1.545 (1.5x) breached, CRITICAL alert already issued 3 minutes ago. If not closed, close now \u2014 no re-analysis needed."
   },
   "QQQ 677/668p": {
     "action": "ACTION",
-    "confidence": 0.82,
-    "timestamp": "2026-08-24T13:24:37Z",
-    "reasoning": "Mid at 1.11 vs 1.07 credit is essentially breakeven and with 24 DTE this hits the 21 DTE exit rule in 3 days \u2014 and closing 690/681p above means no justification for holding a second QQQ put vertical in a weak tech tape."
+    "confidence": 0.85,
+    "timestamp": "2026-08-24T13:27:39Z",
+    "reasoning": "Mid at 1.11 vs 1.07 credit is a loser in a weak tech tape with 24 DTE \u2014 closing the 690/681p above removes any justification for holding a second QQQ exposure, and 21 DTE rule triggers in 3 days anyway."
   },
   "SLV 61.5/60.5p": {
     "action": "HOLD",
     "confidence": 0.92,
-    "timestamp": "2026-08-24T13:24:37Z",
-    "reasoning": "Mid at 0.50 below the 0.55 credit, SLV trading at 62.72 with 1.94% cushion above short strike \u2014 no stress at 128 DTE, this is the only clean uncorrelated position in the book."
+    "timestamp": "2026-08-24T13:27:39Z",
+    "reasoning": "Mid at 0.50 below the 0.55 credit, SLV at 62.72 with 1.94% cushion above short strike \u2014 clean uncorrelated position with 128 DTE, no action needed."
   }
 }
