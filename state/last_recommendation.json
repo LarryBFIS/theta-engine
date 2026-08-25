@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-25T18:35:30.125430+00:00",
-  "market_view": "VIX 15.55 compressing slightly, QQQ +0.51% today but still -1.45% on the week with XLK -2.67% 5d \u2014 tech under pressure persists. Market closing shortly; all three positions are rule-violated and must be actioned at tomorrow's open without exception.",
+  "last_run": "2026-08-25T18:57:05.704209+00:00",
+  "market_view": "VIX 15.48 continues to compress (-2.33% today), QQQ +0.57% on the session but -1.4% on the week \u2014 tech still under 5d pressure. Market is near close; all three positions carry rule violations that are not resolved and must be closed at tomorrow's open.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-25T18:35:17Z",
-    "reasoning": "Mid 1.73 vs 1.03 credit = 1.68x loss ratio, 1.5x stop rule has been breached for multiple cycles with no action taken; 21 DTE hard exit triggers in 2 days. This position is indefensible."
+    "timestamp": "2026-08-25T18:56:53Z",
+    "reasoning": "Mid 1.715 vs 1.03 credit = 1.66x loss ratio, hard stop rule (1.5x) blown through multiple cycles with no action; 21 DTE exit rule triggers in 2 days. This has been CRITICAL for multiple review cycles \u2014 inaction is the trade."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
     "confidence": 0.95,
-    "timestamp": "2026-08-25T18:35:17Z",
-    "reasoning": "21 DTE hard exit triggers in 2 days; two correlated QQQ spreads in the same expiry is a rule violation, and mid 1.095 vs 1.07 credit means you are holding $2.50 in net remaining premium with full gap-down risk overnight."
+    "timestamp": "2026-08-25T18:56:53Z",
+    "reasoning": "21 DTE hard exit triggers in 2 days; two correlated QQQ spreads same expiry is a direct rule violation, and holding $2.17 net remaining premium with overnight gap-down risk is indefensible regardless of today's green close."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.93,
-    "timestamp": "2026-08-25T18:35:17Z",
-    "reasoning": "Short strike 61.5 is only 1.13% OTM with 127 DTE of tail risk; worst fill 0.70 exceeds 0.55 credit received and max profit equals max loss \u2014 this is a structurally broken trade that should never have been opened."
+    "timestamp": "2026-08-25T18:56:53Z",
+    "reasoning": "Short strike 61.5 is 1.17% OTM with 127 DTE of tail risk; max profit equals max loss structurally, worst fill 0.70 already exceeds the 0.55 credit collected \u2014 this position has negative expected value at current pricing."
   }
 }
