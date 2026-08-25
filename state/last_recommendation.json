@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-25T20:12:44.103343+00:00",
-  "market_view": "Market is closed. VIX at 15.43 and falling (-2.65% today), QQQ +0.62% on the day but -1.34% on the week \u2014 IV crush environment doesn't help losing positions that need to be closed. All three positions carry rule violations that have now been flagged for multiple consecutive cycles with zero action taken; tomorrow's 9:30 ET open is a hard execution deadline.",
+  "last_run": "2026-08-25T20:13:00.103451+00:00",
+  "market_view": "Market closed, VIX 15.44 and falling \u2014 IV environment is contracting, which only accelerates losses on the QQQ spreads. Tomorrow 9:30 ET open is execution time, no more holding.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-25T20:12:30Z",
-    "reasoning": "Mid at 1.685 vs 1.03 credit = 1.64x loss ratio, 1.5x hard stop has been violated for multiple cycles with no action. 21 DTE exit rule fires in 2 days \u2014 this is a mandatory close, not discretionary."
+    "timestamp": "2026-08-25T20:12:48Z",
+    "reasoning": "Mid 1.685 vs 1.03 credit = 1.64x loss ratio, stop rule was 1.5x \u2014 this has been flagged CRITICAL for multiple consecutive cycles with zero execution. 21 DTE hard exit fires in 2 days, mandatory close."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-08-25T20:12:30Z",
-    "reasoning": "Mid at 1.045 vs 1.07 credit = essentially breakeven with 23 DTE, and this position doubles directional QQQ exposure in direct violation of the uncorrelated-underlyings rule \u2014 two QQQ spreads in the same expiry is a concentrated, correlated book."
+    "timestamp": "2026-08-25T20:12:48Z",
+    "reasoning": "Mid 1.045 vs 1.07 credit \u2014 effectively at breakeven with 23 DTE, and this position doubles directional QQQ exposure in direct violation of the uncorrelated-underlyings rule. Two QQQ puts in the same expiry is a single concentrated bet."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.93,
-    "timestamp": "2026-08-25T20:12:30Z",
-    "reasoning": "Worst-case fill at 0.70 exceeds the 0.55 credit received \u2014 this is a structurally broken trade with negative EV on fills, $55 max profit vs $45 max loss on a $1-wide spread with 127 DTE of uncompensated tail risk."
+    "timestamp": "2026-08-25T20:12:48Z",
+    "reasoning": "Worst-case fill 0.70 exceeds 0.55 credit received \u2014 this trade is structurally broken at entry, negative EV with 127 DTE of uncompensated tail risk on a $1-wide spread earning only $55 max against $45 max loss."
   }
 }

@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-25T19:58:02.858246+00:00",
+  "generated_at": "2026-08-25T20:15:26.071932+00:00",
   "regime": {
-    "vix": 15.43,
-    "vix_day_change_pct": -0.0265,
+    "vix": 15.45,
+    "vix_day_change_pct": -0.0252,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (-3% day)"
@@ -37,11 +37,11 @@
       "short_delta": 0.19,
       "short_spread_pct": 0.008,
       "credit_to_bpr": 0.115,
-      "ev_per_contract": 5.92,
+      "ev_per_contract": 5.89,
       "ev_on_bpr": 0.0073,
-      "iv": 0.1543,
-      "iv_rank": 0.305,
-      "underlying_price": 765.95,
+      "iv": 0.1541,
+      "iv_rank": 0.302,
+      "underlying_price": 765.89,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -63,7 +63,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7141.79,
+      "net_liq": 7139.024,
       "ticket": {
         "underlying": "SPY",
         "code": "VP",
@@ -99,12 +99,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 714.18,
+        "live_cap": 713.9,
         "suggested_width": 8,
         "fit_note": "\u26a0 max loss $807 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "SPY VP \u00d71 \u2014 SELL 737P / BUY 728P (2026-09-25) @ $0.93 net credit. Max loss $807. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $807 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-25T19:58:02.858246+00:00"
+      "posted_at": "2026-08-25T20:15:26.071932+00:00"
     },
     {
       "underlying": "QQQ",
@@ -116,47 +116,47 @@
       "short_symbol": "QQQ   260925C00748000",
       "long_symbol": "QQQ   260925C00757000",
       "width": 9.0,
-      "credit": 1.15,
-      "mid_credit": 1.23,
+      "credit": 1.14,
+      "mid_credit": 1.24,
       "fees_est": 3.0,
-      "bpr": 785.0,
-      "max_loss": 785.0,
-      "pop": 0.8,
-      "short_delta": 0.218,
-      "short_spread_pct": 0.027,
-      "credit_to_bpr": 0.146,
-      "ev_per_contract": 8.53,
-      "ev_on_bpr": 0.0109,
+      "bpr": 786.0,
+      "max_loss": 786.0,
+      "pop": 0.798,
+      "short_delta": 0.22,
+      "short_spread_pct": 0.04,
+      "credit_to_bpr": 0.145,
+      "ev_per_contract": 8.05,
+      "ev_on_bpr": 0.0102,
       "iv": 0.2163,
       "iv_rank": 0.446,
-      "underlying_price": 710.73,
+      "underlying_price": 711.0,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 785.0,
-      "bpr_total": 785.0,
+      "max_loss_total": 786.0,
+      "bpr_total": 786.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short call vertical 748/757c \u00d71 \u2014 bearish lean. Edge: IV rank 45%, EV $+9/ctr (+1.1% on BPR). POP 80% \u00b7 credit $1.15 \u00b7 max loss $785 \u00b7 BPR $785 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short call vertical 748/757c \u00d71 \u2014 bearish lean. Edge: IV rank 45%, EV $+8/ctr (+1.0% on BPR). POP 80% \u00b7 credit $1.14 \u00b7 max loss $786 \u00b7 BPR $786 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.527,
       "learn_notes": [
         "asset_class=single_name \u00d70.68",
         "cluster=us_tech \u00d70.77"
       ],
-      "rank_score": 0.005744,
+      "rank_score": 0.005375,
       "agent_reviewed": false,
       "news_risk": {
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7141.79,
+      "net_liq": 7139.024,
       "ticket": {
         "underlying": "QQQ",
         "code": "VC",
         "order_type": "Net Credit",
-        "limit": 1.15,
+        "limit": 1.14,
         "contracts": 1,
         "expiry": "2026-09-25",
         "legs": [
@@ -175,24 +175,24 @@
             "type": "C"
           }
         ],
-        "credit_total": 115.0,
-        "max_loss_total": 785.0,
-        "bpr_total": 785.0,
-        "pop": 0.8,
+        "credit_total": 114.0,
+        "max_loss_total": 786.0,
+        "bpr_total": 786.0,
+        "pop": 0.798,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
           "close_debit": 0.57,
-          "stop_debit": 2.88,
+          "stop_debit": 2.85,
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 714.18,
+        "live_cap": 713.9,
         "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $785 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ VC \u00d71 \u2014 SELL 748C / BUY 757C (2026-09-25) @ $1.15 net credit. Max loss $785. After fill: GTC buy-to-close @ $0.57 (50%). \u26a0 max loss $785 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $786 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "QQQ VC \u00d71 \u2014 SELL 748C / BUY 757C (2026-09-25) @ $1.14 net credit. Max loss $786. After fill: GTC buy-to-close @ $0.57 (50%). \u26a0 max loss $786 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-25T19:58:02.858246+00:00"
+      "posted_at": "2026-08-25T20:15:26.071932+00:00"
     }
   ],
   "long_vol": [],
@@ -265,11 +265,11 @@
       "short_delta": 0.19,
       "short_spread_pct": 0.008,
       "credit_to_bpr": 0.115,
-      "ev_per_contract": 5.92,
+      "ev_per_contract": 5.89,
       "ev_on_bpr": 0.0073,
-      "iv": 0.1543,
-      "iv_rank": 0.305,
-      "underlying_price": 765.95,
+      "iv": 0.1541,
+      "iv_rank": 0.302,
+      "underlying_price": 765.89,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -291,7 +291,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7141.79,
+      "net_liq": 7139.024,
       "ticket": {
         "underlying": "SPY",
         "code": "VP",
@@ -327,12 +327,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 714.18,
+        "live_cap": 713.9,
         "suggested_width": 8,
         "fit_note": "\u26a0 max loss $807 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "SPY VP \u00d71 \u2014 SELL 737P / BUY 728P (2026-09-25) @ $0.93 net credit. Max loss $807. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $807 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-25T19:58:02.858246+00:00"
+      "posted_at": "2026-08-25T20:15:26.071932+00:00"
     },
     {
       "underlying": "QQQ",
@@ -344,47 +344,47 @@
       "short_symbol": "QQQ   260925C00748000",
       "long_symbol": "QQQ   260925C00757000",
       "width": 9.0,
-      "credit": 1.15,
-      "mid_credit": 1.23,
+      "credit": 1.14,
+      "mid_credit": 1.24,
       "fees_est": 3.0,
-      "bpr": 785.0,
-      "max_loss": 785.0,
-      "pop": 0.8,
-      "short_delta": 0.218,
-      "short_spread_pct": 0.027,
-      "credit_to_bpr": 0.146,
-      "ev_per_contract": 8.53,
-      "ev_on_bpr": 0.0109,
+      "bpr": 786.0,
+      "max_loss": 786.0,
+      "pop": 0.798,
+      "short_delta": 0.22,
+      "short_spread_pct": 0.04,
+      "credit_to_bpr": 0.145,
+      "ev_per_contract": 8.05,
+      "ev_on_bpr": 0.0102,
       "iv": 0.2163,
       "iv_rank": 0.446,
-      "underlying_price": 710.73,
+      "underlying_price": 711.0,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 785.0,
-      "bpr_total": 785.0,
+      "max_loss_total": 786.0,
+      "bpr_total": 786.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short call vertical 748/757c \u00d71 \u2014 bearish lean. Edge: IV rank 45%, EV $+9/ctr (+1.1% on BPR). POP 80% \u00b7 credit $1.15 \u00b7 max loss $785 \u00b7 BPR $785 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short call vertical 748/757c \u00d71 \u2014 bearish lean. Edge: IV rank 45%, EV $+8/ctr (+1.0% on BPR). POP 80% \u00b7 credit $1.14 \u00b7 max loss $786 \u00b7 BPR $786 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.527,
       "learn_notes": [
         "asset_class=single_name \u00d70.68",
         "cluster=us_tech \u00d70.77"
       ],
-      "rank_score": 0.005744,
+      "rank_score": 0.005375,
       "agent_reviewed": false,
       "news_risk": {
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7141.79,
+      "net_liq": 7139.024,
       "ticket": {
         "underlying": "QQQ",
         "code": "VC",
         "order_type": "Net Credit",
-        "limit": 1.15,
+        "limit": 1.14,
         "contracts": 1,
         "expiry": "2026-09-25",
         "legs": [
@@ -403,31 +403,31 @@
             "type": "C"
           }
         ],
-        "credit_total": 115.0,
-        "max_loss_total": 785.0,
-        "bpr_total": 785.0,
-        "pop": 0.8,
+        "credit_total": 114.0,
+        "max_loss_total": 786.0,
+        "bpr_total": 786.0,
+        "pop": 0.798,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
           "close_debit": 0.57,
-          "stop_debit": 2.88,
+          "stop_debit": 2.85,
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 714.18,
+        "live_cap": 713.9,
         "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $785 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ VC \u00d71 \u2014 SELL 748C / BUY 757C (2026-09-25) @ $1.15 net credit. Max loss $785. After fill: GTC buy-to-close @ $0.57 (50%). \u26a0 max loss $785 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $786 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "QQQ VC \u00d71 \u2014 SELL 748C / BUY 757C (2026-09-25) @ $1.14 net credit. Max loss $786. After fill: GTC buy-to-close @ $0.57 (50%). \u26a0 max loss $786 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-08-25T19:58:02.858246+00:00"
+      "posted_at": "2026-08-25T20:15:26.071932+00:00"
     }
   ],
   "skipped": {
     "IWM": "iv_rank 16% (floor 22%)",
-    "DIA": "failed: pv: credit/width 0.09 < 0.10",
-    "XLE": "failed: pv: spread short 42%/long 169%",
-    "XLF": "failed: pv: spread short 21%/long 120%",
+    "DIA": "failed: pv: credit/width 0.08 < 0.10",
+    "XLE": "failed: pv: no/invalid leg quote",
+    "XLF": "failed: pv: no/invalid leg quote",
     "SLV": "iv_rank 27% (floor 30%)"
   }
 }
