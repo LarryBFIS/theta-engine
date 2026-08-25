@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-25T19:18:01.961634+00:00",
-  "market_view": "Market is effectively at/past close \u2014 VIX 15.45 continuing to compress, QQQ +0.45% today but -1.51% on the week with tech the weakest sector. All three CRITICAL violations from prior cycles remain unresolved; no new catalysts change the calculus \u2014 these must close at tomorrow's open without exception.",
+  "last_run": "2026-08-25T19:34:21.061307+00:00",
+  "market_view": "VIX 15.5 continuing to compress, QQQ +0.44% today but still -1.52% on the week with tech lagging. Market is effectively at/past close \u2014 all three CRITICAL violations from prior cycles remain unresolved and must be actioned at tomorrow's open without exception.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-25T19:17:50Z",
-    "reasoning": "Mid at 1.765 vs 1.03 credit = 1.71x loss ratio, hard stop rule (1.5x) has been breached for multiple consecutive cycles with zero action taken. 21 DTE exit rule triggers in 2 days making this a mandatory close regardless of loss magnitude."
+    "timestamp": "2026-08-25T19:34:09Z",
+    "reasoning": "Mid at 1.77 vs 1.03 credit = 1.72x loss ratio, hard stop rule (1.5x) has been breached for multiple consecutive cycles with zero action taken. 21 DTE exit rule fires in 2 days making this a mandatory close regardless of P&L."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-08-25T19:17:50Z",
-    "reasoning": "21 DTE hard exit triggers in 2 days and two correlated QQQ spreads on the same expiry violates the uncorrelated underlyings rule \u2014 compounded directional QQQ risk into a week where QQQ is already -1.51% is unacceptable."
+    "timestamp": "2026-08-25T19:34:09Z",
+    "reasoning": "Two correlated QQQ spreads on the same expiry is a direct violation of the uncorrelated underlyings rule, and 21 DTE hard exit triggers in 2 days \u2014 compounded directional QQQ risk into a week where QQQ is already -1.52% is unacceptable."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.93,
-    "timestamp": "2026-08-25T19:17:50Z",
-    "reasoning": "Worst-case fill at 0.65 nearly matches the 0.55 credit collected making this negative EV on a $1-wide spread with 127 DTE of uncompensated tail risk; structurally this spread has max profit nearly equal to max loss and should never have been held this long."
+    "timestamp": "2026-08-25T19:34:09Z",
+    "reasoning": "Worst-case fill at 0.70 exceeds the 0.55 credit collected making this net negative EV; a $1-wide spread with max profit of $55 against max loss of $45 and 127 DTE of uncompensated tail risk is structurally broken."
   }
 }
