@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-25T15:28:03.282482+00:00",
-  "market_view": "QQQ bouncing +0.58% today but 5d still -1.38%; VIX 15.72 and fading \u2014 no vol event to rescue underwater puts. Today's rally is constructive but insufficient to move the needle on the 690/681p loss.",
+  "last_run": "2026-08-25T15:50:26.190185+00:00",
+  "market_view": "QQQ +0.47% today but still -1.49% on the week with VIX at 15.6 and fading \u2014 low vol environment provides no rescue for underwater put spreads. Market regime neutral with no catalyst to compress the 690/681p loss meaningfully.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-25T15:27:50Z",
-    "reasoning": "Mid at 1.73 is 1.68x the 1.03 credit \u2014 1.5x stop breached multiple cycles ago with zero recovery; 21 DTE rule triggers in 2 days and today's bounce only moved mid from 1.77 to 1.73, not meaningful. This position is bleeding toward max loss."
+    "timestamp": "2026-08-25T15:50:11Z",
+    "reasoning": "Mid 1.73 is 1.68x the 1.03 credit \u2014 1.5x stop was breached cycles ago with no recovery; 21 DTE rule triggers in 2 days and today's QQQ bounce from 710.34 to 709.66 is actually slightly negative, confirming no meaningful relief."
   },
   "QQQ 677/668p": {
-    "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-08-25T15:27:50Z",
-    "reasoning": "Mid at 1.115 is 1.04x the 1.07 credit \u2014 not at stop yet, short at 677 is 4.7% OTM with QQQ 710.34; 21 DTE triggers in 2 days so this needs a close decision at next cycle if no improvement."
+    "action": "CRITICAL",
+    "confidence": 0.88,
+    "timestamp": "2026-08-25T15:50:11Z",
+    "reasoning": "Mid 1.115 is 1.04x credit and not at 1.5x stop yet, but 21 DTE rule triggers in 2 days \u2014 with QQQ weak on the week and two QQQ spreads open simultaneously violating diversification, this needs to close alongside the 690/681p."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.95,
-    "timestamp": "2026-08-25T15:27:50Z",
-    "reasoning": "SLV 61.74 keeps the 61.5 short strike essentially ATM \u2014 worst fill 0.70 vs 0.55 credit is 1.27x loss with 127 DTE and zero theta cushion working in Jay's favor at this duration; position has been flagged CRITICAL multiple cycles with no action taken."
+    "timestamp": "2026-08-25T15:50:11Z",
+    "reasoning": "SLV 61.74 keeps the 61.5 short strike essentially ATM at 0.4% OTM; worst fill 0.70 vs 0.55 credit is 1.27x loss with 127 DTE and theta negligible at this point \u2014 position flagged CRITICAL multiple consecutive cycles with no action taken."
   }
 }
