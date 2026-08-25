@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-25T20:26:08.864727+00:00",
-  "market_view": "Market closed, VIX 15.49 and declining \u2014 IV contraction accelerates losses on short premium positions that are already underwater. No fresh news catalyst, but the QQQ spreads remain structurally broken and the 21 DTE hard exit fires at open tomorrow for QQQ 690/681p.",
+  "last_run": "2026-08-25T20:43:46.908333+00:00",
+  "market_view": "Market closed, VIX 15.45 still declining \u2014 IV contraction continues to work against underwater short premium positions. All three CRITICAL flags from prior cycle remain unexecuted; 21 DTE hard exit on QQQ 690/681p fires at tomorrow's open with zero discretion remaining.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-25T20:25:55Z",
-    "reasoning": "Mid 1.685 vs 1.03 credit is 1.64x loss ratio \u2014 stop rule was 1.5x, flagged CRITICAL multiple cycles with zero execution. 21 DTE hard exit fires tomorrow at open, this is a mandatory close with no discretion remaining."
+    "timestamp": "2026-08-25T20:43:34Z",
+    "reasoning": "Mid 1.685 vs 1.03 credit = 1.64x loss ratio, stop rule was 1.5x and has been breached multiple cycles. 21 DTE hard exit fires at tomorrow's open \u2014 this is a mandatory close, no discretion."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-08-25T20:25:55Z",
-    "reasoning": "Mid 1.05 vs 1.07 credit is breakeven with 23 DTE, and holding two QQQ put spreads in the same expiry is a single concentrated directional bet in direct violation of the uncorrelated-underlyings account rule."
+    "timestamp": "2026-08-25T20:43:34Z",
+    "reasoning": "Two QQQ put spreads in the same expiry is a single concentrated directional bet violating the uncorrelated-underlyings account rule \u2014 this position should not exist alongside the 690/681p. Mid 1.05 vs 1.07 credit is near breakeven with 23 DTE and no edge remaining."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.93,
-    "timestamp": "2026-08-25T20:25:55Z",
-    "reasoning": "Worst-case fill 0.70 exceeds the 0.55 credit received \u2014 structurally negative EV at entry with 127 DTE of uncompensated tail risk on a $1-wide spread that earns only $55 max against $45 max loss."
+    "timestamp": "2026-08-25T20:43:34Z",
+    "reasoning": "Worst-case fill 0.70 exceeds 0.55 credit \u2014 this spread was structurally negative EV at entry and holds 127 DTE of uncompensated tail risk on a $1-wide spread with only $55 max profit vs $45 max loss."
   }
 }
