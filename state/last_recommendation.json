@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-25T17:16:55.295246+00:00",
-  "market_view": "VIX 15.46 and falling, market closed for the day \u2014 QQQ +0.52% today but -1.44% on the week. All three CRITICAL flags from last cycle remain unactioned; tomorrow 9:30 ET open is the hard deadline, no more delays.",
+  "last_run": "2026-08-25T17:34:16.769854+00:00",
+  "market_view": "VIX 15.53 and falling, market effectively closed \u2014 QQQ +0.47% today but -1.49% on the week with XLK -2.76% 5d showing tech under pressure. All three CRITICAL positions from prior cycles remain unactioned; tomorrow 9:30 ET open is the absolute hard deadline.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-25T17:16:41Z",
-    "reasoning": "Mid 1.72 vs 1.03 credit = 1.67x cost, 1.5x stop-loss rule breached multiple cycles ago, 21 DTE hard exit triggers in 2 days \u2014 this is a rules violation that compounds every hour it stays open."
+    "timestamp": "2026-08-25T17:34:04Z",
+    "reasoning": "Mid 1.745 vs 1.03 credit = 1.69x cost, 1.5x stop-loss rule has been breached for multiple cycles, and 21 DTE hard exit triggers in 2 days \u2014 every hour this stays open is a compounding rules violation with no market hours to act until tomorrow open."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
     "confidence": 0.95,
-    "timestamp": "2026-08-25T17:16:41Z",
-    "reasoning": "21 DTE hard exit triggers in 2 days, running two concurrent QQQ spreads violates uncorrelated-underlying rules, and mid at 1.095 is nearly scratch (1.07 credit) \u2014 cheap exit now vs painful if QQQ gaps down overnight."
+    "timestamp": "2026-08-25T17:34:04Z",
+    "reasoning": "21 DTE hard exit triggers in 2 days, running two correlated QQQ spreads in the same expiry violates uncorrelated-underlying rules, and mid 1.10 vs 1.07 credit is nearly scratch \u2014 close this cheap now before any overnight QQQ gap down makes it a loser too."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.93,
-    "timestamp": "2026-08-25T17:16:41Z",
-    "reasoning": "Short strike 61.5 is only 0.96% OTM with 127 DTE, worst fill 0.70 already exceeds 0.55 credit at 1.27x and deteriorating, and overnight precious metals moves can breach this strike with zero time cushion to recover."
+    "timestamp": "2026-08-25T17:34:04Z",
+    "reasoning": "Short strike 61.5 is only 1.03% OTM with 127 DTE, worst fill 0.65 already exceeds 0.55 credit at 1.18x and deteriorating toward the 1.5x stop \u2014 overnight precious metals volatility can breach this strike with no time cushion to recover."
   }
 }
