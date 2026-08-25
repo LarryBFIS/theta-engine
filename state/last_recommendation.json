@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-25T15:09:40.778167+00:00",
-  "market_view": "QQQ bouncing +0.40% today but still -1.56% on the week; VIX at 15.73 is benign but provides no urgency to hold losers. The 690/681p remains well beyond the 1.5x stop and SLV short strike is still essentially ATM \u2014 both CRITICAL flags from prior cycle are unchanged.",
+  "last_run": "2026-08-25T15:24:09.407474+00:00",
+  "market_view": "QQQ +0.47% today but still -1.49% on the week; VIX 15.74 benign and drifting lower, no catalyst to rescue the 690/681p spread which remains a hard stop breach. SLV short strike still essentially ATM at 61.79 vs 61.5 short \u2014 no relief.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-25T15:09:26Z",
-    "reasoning": "Mid at 1.815 is 1.76x the 1.03 credit \u2014 hard 1.5x stop was blown through multiple cycles ago with zero recovery; 21 DTE rule triggers in 2 days regardless. Today's bounce has not compressed this spread materially."
+    "timestamp": "2026-08-25T15:23:54Z",
+    "reasoning": "Mid at 1.77 is 1.72x the 1.03 credit \u2014 1.5x stop at 1.545 was blown through multiple cycles ago with no recovery; 21 DTE rule triggers in 2 days and today's bounce has not compressed this meaningfully. This has been flagged CRITICAL repeatedly with no action taken \u2014 max loss is now the trajectory."
   },
   "QQQ 677/668p": {
     "action": "WATCH",
-    "confidence": 0.72,
-    "timestamp": "2026-08-25T15:09:26Z",
-    "reasoning": "Mid at 1.17 is 1.09x the 1.07 credit \u2014 1.5x stop at 1.605 not breached; short at 677 is 4.5% OTM with QQQ at 709. Position is essentially breakeven and today's bounce is mildly constructive."
+    "confidence": 0.75,
+    "timestamp": "2026-08-25T15:23:54Z",
+    "reasoning": "Mid at 1.135 is 1.06x the 1.07 credit \u2014 1.5x stop at 1.605 not breached; short at 677 is 4.6% OTM with QQQ at 709.72 and today's move is mildly constructive. No action needed yet but this approaches 21 DTE in 2 days."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.95,
-    "timestamp": "2026-08-25T15:09:26Z",
-    "reasoning": "SLV at 61.55 keeps the short strike at 61.5 essentially ATM for multiple cycles with zero recovery; worst-case fill 0.75 vs 0.55 credit already at 1.36x and delta exposure is enormous with 127 DTE remaining \u2014 this drag compounds daily."
+    "timestamp": "2026-08-25T15:23:54Z",
+    "reasoning": "SLV at 61.79 keeps short strike 61.5 effectively ATM \u2014 worst fill 0.75 vs 0.55 credit is 1.36x loss already and with 127 DTE this delta exposure compounds daily with zero theta cushion. This has been CRITICAL for multiple cycles with no action."
   }
 }
