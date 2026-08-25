@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-25T16:39:42.424431+00:00",
-  "market_view": "VIX 15.5 and still compressing, QQQ +0.68% today but -1.29% on the week \u2014 low-vol regime provides no IV rescue for losing spreads. 21 DTE hard exit on both QQQ positions is NOW (23 DTE means close TODAY before tomorrow's session drops them to 22, with Friday settlement mechanics).",
+  "last_run": "2026-08-25T16:57:48.795041+00:00",
+  "market_view": "VIX 15.46 continuing to compress, QQQ +0.58% today but -1.38% on the week \u2014 low-vol environment provides no IV rescue for underwater spreads. Market is open right now with 3 minutes left in the session; these positions need to close TODAY.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-25T16:39:28Z",
-    "reasoning": "Mid at 1.665 vs 1.03 credit = 1.62x cost, 1.5x stop was breached long ago, 21 DTE hard exit rule triggers in 2 days \u2014 this has been flagged CRITICAL for multiple cycles with zero action taken, slippage worsens every minute. Market is open right now."
+    "timestamp": "2026-08-25T16:57:34.986666Z",
+    "reasoning": "Mid at 1.695 vs 1.03 credit = 1.645x cost, hard 1.5x stop was breached long ago, 21 DTE hard exit triggers in 2 days \u2014 this has been flagged CRITICAL for multiple cycles with no action taken. Market closes in minutes; every second of inaction is a rules violation."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-08-25T16:39:28Z",
-    "reasoning": "Mid 1.06 vs 1.07 credit is effectively a scratch, 21 DTE hard exit triggers in 2 days, and running two QQQ put spreads simultaneously is a concentration violation \u2014 close both QQQ positions in the same session."
+    "timestamp": "2026-08-25T16:57:34.986666Z",
+    "reasoning": "Mid 1.075 vs 1.07 credit is a near-scratch, 21 DTE hard exit triggers in 2 days, and holding two concurrent QQQ spreads is a concentration violation that has persisted all day with no correction."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.95,
-    "timestamp": "2026-08-25T16:39:28Z",
-    "reasoning": "SLV at 62.12 puts the 61.5 short strike only 1.0% OTM with 127 DTE and near-zero daily theta \u2014 worst fill 0.70 already exceeds the 0.55 credit at 1.27x cost, and any SLV pullback breaches the short strike with no time buffer to recover."
+    "timestamp": "2026-08-25T16:57:34.986666Z",
+    "reasoning": "SLV 62.11 puts the 61.5 short strike only 0.98% OTM with 127 DTE and negligible daily theta \u2014 worst fill 0.65 already exceeds the 0.55 credit at 1.18x cost, and any SLV pullback breaches the short strike with zero time buffer to recover."
   }
 }
