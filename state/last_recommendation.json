@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-25T16:18:54.255325+00:00",
-  "market_view": "VIX at 15.52 and falling, QQQ bouncing +0.66% today but still -1.3% on the week \u2014 low vol environment means no IV expansion to bail out losers, and today's green does not compress the 690/681p spread meaningfully. 21 DTE clock hits in 2 days on both QQQ positions; waiting costs money.",
+  "last_run": "2026-08-25T16:22:21.633765+00:00",
+  "market_view": "VIX 15.52 and compressing, QQQ +0.68% today but still -1.29% on the week \u2014 low vol regime means no IV rescue incoming, and today's green has not meaningfully closed the 690/681p spread. 21 DTE clock on both QQQ positions hits in 2 days; these must be closed today.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-25T16:18:41Z",
-    "reasoning": "Mid 1.695 vs 1.03 credit = 1.645x cost, 1.5x stop was breached long ago and has been flagged CRITICAL for multiple consecutive cycles with zero action \u2014 21 DTE hard exit hits in 2 days and QQQ at 711 has done nothing to close this spread. Every minute of delay increases slippage risk."
+    "timestamp": "2026-08-25T16:22:07Z",
+    "reasoning": "Mid 1.69 vs 1.03 credit = 1.64x cost, 1.5x stop was breached long ago, 21 DTE hard exit triggers in 2 days, and this has been flagged CRITICAL for multiple consecutive cycles with zero action taken \u2014 every additional minute adds slippage risk."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
-    "confidence": 0.95,
-    "timestamp": "2026-08-25T16:18:41Z",
-    "reasoning": "Mid 1.08 vs 1.03 credit = essentially flat, 21 DTE hard exit triggers in 2 days, and running two QQQ put spreads simultaneously is a concentration violation that must be resolved today \u2014 this position has been flagged CRITICAL multiple cycles with no action."
+    "confidence": 0.97,
+    "timestamp": "2026-08-25T16:22:07Z",
+    "reasoning": "Mid 1.07 equals the original 1.07 credit \u2014 this position is a scratch at best and 21 DTE hard exit hits in 2 days; running two QQQ put spreads is a concentration violation that has persisted multiple cycles with no resolution."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.95,
-    "timestamp": "2026-08-25T16:18:41Z",
-    "reasoning": "SLV at 62.10 keeps the 61.5 short strike only 0.97% OTM with 127 DTE \u2014 worst fill 0.70 vs 0.55 credit is already a loser at 1.27x cost, theta is near zero at this DTE, and this has been flagged CRITICAL multiple consecutive cycles with no action taken."
+    "timestamp": "2026-08-25T16:22:07Z",
+    "reasoning": "SLV at 61.95 puts the 61.5 short strike only 0.73% OTM with worst fill 0.70 already exceeding the 0.55 credit at 1.27x cost \u2014 127 DTE means near-zero daily theta decay and any SLV dip breaches the short strike with no time cushion to recover."
   }
 }
