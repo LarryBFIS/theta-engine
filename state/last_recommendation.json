@@ -1,28 +1,28 @@
 {
-  "last_run": "2026-08-26T20:57:31.237184+00:00",
-  "market_view": "Market essentially flat on the day, VIX 15.21 down slightly but +2% on the week \u2014 low-vol drift, no fresh catalysts. After-hours with no news; overnight gap risk remains the primary concern for the two QQQ positions and SLV that were flagged CRITICAL/ACTION 47 minutes ago and still require closure at tomorrow's open.",
+  "last_run": "2026-08-26T21:03:22.254106+00:00",
+  "market_view": "Market flat after-hours, VIX 15.21, no fresh catalysts. Three positions flagged CRITICAL/ACTION 6 minutes ago \u2014 no status change, same closures required at tomorrow's open.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-26T20:57:17Z",
-    "reasoning": "Mid 1.485 is 1.44x the 1.03 credit and worst fill 1.63 is 1.58x \u2014 1.5x stop essentially breached at worst, and tomorrow is the mandatory 21 DTE hard exit day. Two rules force closure; overnight gap risk adds zero justification to hold."
+    "timestamp": "2026-08-26T21:03:06Z",
+    "reasoning": "Mid 1.485 is 1.44x credit, worst fill 1.63 is 1.58x \u2014 1.5x stop breached at worst fill, and tomorrow is the 21 DTE hard exit day. Two rules force closure, no new information changes this."
   },
   "QQQ 677/668p": {
     "action": "ACTION",
     "confidence": 0.97,
-    "timestamp": "2026-08-26T20:57:17Z",
-    "reasoning": "22 DTE today makes tomorrow the mandatory 21 DTE hard exit \u2014 non-negotiable rule. Mid 0.915 vs 1.07 credit is a small winner; close alongside the 690/681p at the open."
+    "timestamp": "2026-08-26T21:03:06Z",
+    "reasoning": "22 DTE today means tomorrow hits the 21 DTE mandatory hard exit rule \u2014 non-negotiable. Mid 0.915 vs 1.07 credit is a small winner; close alongside the 690/681p."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-08-26T20:57:17Z",
-    "reasoning": "SLV 61.59 is 0.15% above the 61.5 short strike \u2014 essentially at-the-money with 126 DTE; worst fill 0.75 is 1.36x credit and any overnight weakness breaches both the 1.5x stop and the short strike simultaneously. Risk/reward is completely unacceptable for this account size."
+    "confidence": 0.98,
+    "timestamp": "2026-08-26T21:03:06Z",
+    "reasoning": "SLV 61.59 sits 0.15% above the 61.5 short strike \u2014 essentially ATM with 126 DTE; any overnight weakness breaches the short strike and worst fill 0.75 is already 1.36x credit with delta exposure fully live. Risk/reward is unacceptable."
   },
   "SPY 738/728p": {
     "action": "HOLD",
     "confidence": 0.93,
-    "timestamp": "2026-08-26T20:57:17Z",
-    "reasoning": "SPY 766.08 is 3.67% above the 738 short strike, mid 1.02 near flat to 1.05 credit, 29 DTE with all rules clean. Theta is working, no rules triggered."
+    "timestamp": "2026-08-26T21:03:06Z",
+    "reasoning": "SPY 766.08 is 3.67% above the 738 short strike, mid 1.02 near flat to 1.05 credit, 29 DTE with all rules clean. Theta working, no rules triggered."
   }
 }
