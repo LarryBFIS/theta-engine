@@ -1,28 +1,28 @@
 {
-  "last_run": "2026-08-26T18:00:59.142368+00:00",
-  "market_view": "Market nearly flat on the day, VIX ticking down to 15.39 but still +3.22% on the week \u2014 low-grade vol expansion persisting. Three positions have active rule violations that were flagged last cycle and still unresolved; market close is imminent, these must be closed today.",
+  "last_run": "2026-08-26T18:03:02.778660+00:00",
+  "market_view": "Market near flat, VIX 15.41 with +3.35% weekly drift \u2014 residual vol expansion but not escalating. Market closes in minutes; three flagged positions from last cycle remain unresolved and must be actioned before close.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-26T18:00:43.507375+00:00",
-    "reasoning": "Mid at 1.61 is 1.56x the 1.03 credit \u2014 1.5x stop rule breached, and at 22 DTE the 21 DTE hard exit triggers at tomorrow's open. This position has been flagged CRITICAL for multiple cycles with no confirmed close; market closes in minutes."
+    "timestamp": "2026-08-26T18:02:50Z",
+    "reasoning": "Mid 1.61 is 1.56x the 1.03 credit \u2014 1.5x stop rule hard breached, and 22 DTE means 21 DTE exit rule fires at tomorrow's open. This has been CRITICAL for multiple cycles with no confirmed close; market closes in minutes."
   },
   "QQQ 677/668p": {
     "action": "ACTION",
     "confidence": 0.97,
-    "timestamp": "2026-08-26T18:00:43.507375+00:00",
-    "reasoning": "22 DTE today means the 21 DTE hard exit rule fires at tomorrow's open \u2014 mid 1.00 vs 1.07 credit is a slight winner ($7 net) but holding overnight to get forced out tomorrow gains nothing and risks deterioration."
+    "timestamp": "2026-08-26T18:02:50Z",
+    "reasoning": "22 DTE today means 21 DTE hard exit triggers at tomorrow's open; mid 0.99 vs 1.07 credit is a $8 winner but holding overnight for a forced close gains nothing and adds overnight gap risk."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-08-26T18:00:43.507375+00:00",
-    "reasoning": "Short strike 61.5 remains breached with SLV at 61.445 \u2014 ITM with worst fill 0.70 now 27% above the 0.55 credit and 126 DTE gives this ample time to move further against you; the stop rule is violated."
+    "timestamp": "2026-08-26T18:02:50Z",
+    "reasoning": "SLV at 61.534 means short strike 61.5 is at the money with worst fill 0.70 now 27% above the 0.55 credit \u2014 stop rule violated, 126 DTE gives maximum time for further ITM movement."
   },
   "SPY 738/728p": {
     "action": "HOLD",
     "confidence": 0.92,
-    "timestamp": "2026-08-26T18:00:43.507375+00:00",
-    "reasoning": "SPY at 765.58 is 3.6% above the 738 short strike, mid 1.08 vs 1.05 credit is essentially flat, 29 DTE \u2014 no rules triggered, buffer healthy, theta working."
+    "timestamp": "2026-08-26T18:02:50Z",
+    "reasoning": "SPY at 765.54 is 3.6% above the 738 short strike, mid 1.085 vs 1.05 credit is flat, 29 DTE \u2014 no rules triggered, buffer healthy, theta working."
   }
 }
