@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-26T13:50:54.744744+00:00",
-  "market_view": "Market flat to slightly red, VIX ticking up to 15.62 (+4.76% on the week) in a neutral regime \u2014 no catalyst today but the upward VIX drift is a headwind for short premium. Both QQQ positions were flagged CRITICAL 21 minutes ago and remain unclosed; this is now urgent.",
+  "last_run": "2026-08-26T14:09:38.798423+00:00",
+  "market_view": "Market grinding flat, VIX at 15.48 still elevated on the week (+3.82% 5d) in a neutral regime with no fresh catalyst. Both QQQ positions remain open despite two consecutive CRITICAL alerts \u2014 closing these is non-negotiable.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-26T13:50:41Z",
-    "reasoning": "21 DTE hard exit rule fired today AND current mid 1.69 is 1.64x the 1.03 credit \u2014 both the DTE rule AND the 1.5x stop-loss rule are simultaneously breached. This position was flagged CRITICAL 21 minutes ago and is still open \u2014 every minute of delay compounds the loss."
+    "timestamp": "2026-08-26T14:09:24Z",
+    "reasoning": "21 DTE hard exit rule has fired AND mid at 1.665 is 1.62x the 1.03 credit breaching the 1.5x stop-loss rule simultaneously \u2014 this position has now been flagged CRITICAL twice with no action, bleeding further every minute. Close immediately at market."
   },
   "QQQ 677/668p": {
-    "action": "CRITICAL",
+    "action": "ACTION",
     "confidence": 0.97,
-    "timestamp": "2026-08-26T13:50:41Z",
-    "reasoning": "21 DTE hard exit rule fires today \u2014 close is mandatory per the rulebook regardless of P&L, and this was already flagged CRITICAL 21 minutes ago with no action taken."
+    "timestamp": "2026-08-26T14:09:24Z",
+    "reasoning": "21 DTE hard exit rule fires today \u2014 mandatory close per rulebook regardless of P&L, and mid at 1.035 is essentially flat to the 1.07 credit meaning there is still near-full credit to capture if closed now."
   },
   "SLV 61.5/60.5p": {
     "action": "WATCH",
-    "confidence": 0.72,
-    "timestamp": "2026-08-26T13:50:41Z",
-    "reasoning": "SLV at 61.76 with short strike 61.5 just 0.4% OTM \u2014 gap between underlying and short strike is dangerously thin on a 126 DTE position, and worst-case fill at 0.75 already exceeds the 0.55 credit. No trigger yet but proximity is deteriorating."
+    "confidence": 0.75,
+    "timestamp": "2026-08-26T14:09:24Z",
+    "reasoning": "SLV at 61.65 with short strike 61.5 only 0.24% OTM \u2014 gap has tightened further from last check, worst-case fill at 0.70 already exceeds the 0.55 credit, but short strike not yet breached and DTE is 126 so no rule triggers yet."
   }
 }
