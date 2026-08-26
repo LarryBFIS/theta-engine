@@ -1,28 +1,28 @@
 {
-  "last_run": "2026-08-26T14:49:36.772982+00:00",
-  "market_view": "Market essentially flat with VIX 15.52 (+0.45%), no directional catalyst \u2014 orderly tape but QQQ has underperformed on the week. SLV short strike nearly at-the-money remains the acute single-name risk.",
+  "last_run": "2026-08-26T15:50:34.931348+00:00",
+  "market_view": "Market flat/neutral with VIX 15.53, no fresh catalysts \u2014 tape is orderly but QQQ has lagged on the week. QQQ 690/681p remains in critical rule breach territory with no confirmed close action yet.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-26T14:49:22Z",
-    "reasoning": "Mid at 1.725 is 1.67x the 1.03 credit \u2014 1.5x stop (1.545) remains breached, AND 21 DTE hard exit rule is live. This is the third consecutive CRITICAL flag with no action \u2014 every minute of inaction is an unrule-justified hold."
+    "timestamp": "2026-08-26T15:50:21Z",
+    "reasoning": "Mid at 1.63 is 1.58x the 1.03 credit \u2014 1.5x stop rule (1.545) still breached, AND 22 DTE is at the hard exit threshold. This position has been flagged CRITICAL repeatedly with no close \u2014 every additional minute is an unauthorized rule violation."
   },
   "QQQ 677/668p": {
     "action": "ACTION",
     "confidence": 0.95,
-    "timestamp": "2026-08-26T14:49:22Z",
-    "reasoning": "22 DTE \u2014 one day from the hard 21 DTE exit rule with mid at 1.065 essentially at breakeven on the 1.07 credit; this is the cheapest clean exit available before the rule forces action tomorrow."
+    "timestamp": "2026-08-26T15:50:21Z",
+    "reasoning": "22 DTE with mid at 1.01 vs 1.07 credit \u2014 tomorrow this hits the hard 21 DTE exit rule; at near-breakeven, closing today avoids a forced exit tomorrow with potentially worse fills and removes concentrated QQQ exposure."
   },
   "SLV 61.5/60.5p": {
     "action": "WATCH",
-    "confidence": 0.85,
-    "timestamp": "2026-08-26T14:49:22Z",
-    "reasoning": "SLV at 61.51 with short strike 61.5 \u2014 essentially at-the-money, worst fill 0.70 already exceeds 0.55 credit, but 126 DTE means no DTE rule and no formal breach yet; any downward tick breaches the short strike."
+    "confidence": 0.88,
+    "timestamp": "2026-08-26T15:50:21Z",
+    "reasoning": "SLV at 61.51 with short strike at 61.5 \u2014 essentially pinned at-the-money, worst fill 0.70 already exceeds the 0.55 credit taken in; any downward tick breaches the short strike but 126 DTE means no DTE rule pressure yet."
   },
   "SPY 738/728p": {
     "action": "HOLD",
-    "confidence": 0.91,
-    "timestamp": "2026-08-26T14:49:22Z",
-    "reasoning": "SPY at 765.46 is 3.6% above the 738 short strike, mid at 1.10 vs 1.05 credit \u2014 no rules triggered and distance remains healthy at 29 DTE."
+    "confidence": 0.92,
+    "timestamp": "2026-08-26T15:50:21Z",
+    "reasoning": "SPY at 766.19 is 3.7% above the 738 short strike, mid at 1.065 essentially flat to credit \u2014 no rules triggered, distance healthy at 29 DTE."
   }
 }
