@@ -1,28 +1,28 @@
 {
-  "last_run": "2026-08-26T18:46:42.007418+00:00",
-  "market_view": "Market flat on the day, VIX 15.45 unchanged \u2014 low-vol drift into close. No fresh catalysts but week-over-week VIX +3.62% keeps residual vol concern alive heading into tomorrow's open.",
+  "last_run": "2026-08-26T19:24:53.310296+00:00",
+  "market_view": "Market closing flat to slightly green, VIX 15.35 drifting lower on the day but still +2.95% on the week \u2014 benign close but overnight gap risk remains real. Both QQQ verticals hit their exit rules today (21 DTE tomorrow + 1.5x stop on 690/681p) and must be actioned at tomorrow's open without exception.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-26T18:46:27Z",
-    "reasoning": "Mid 1.56 is 1.51x the 1.03 credit \u2014 1.5x stop rule hard breached and confirmed across multiple consecutive cycles. Tomorrow is 21 DTE hard exit day with no exceptions; this position must be closed at market open."
+    "timestamp": "2026-08-26T19:24:37Z",
+    "reasoning": "Mid 1.525 is 1.48x the 1.03 credit \u2014 effectively at the 1.5x stop rule, and tomorrow is the 21 DTE hard exit day. Both rules demand closure; overnight hold adds gap risk with zero justification."
   },
   "QQQ 677/668p": {
     "action": "ACTION",
     "confidence": 0.97,
-    "timestamp": "2026-08-26T18:46:27Z",
-    "reasoning": "Tomorrow hits 21 DTE hard exit rule \u2014 no exceptions per playbook. Mid 0.96 vs 1.07 credit is a small winner; hold overnight gains nothing and adds gap risk."
+    "timestamp": "2026-08-26T19:24:37Z",
+    "reasoning": "22 DTE today means tomorrow is 21 DTE \u2014 hard exit rule triggers at open with no exceptions. Mid 0.94 vs 1.07 credit is a small winner; close it and bank the gain."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
-    "confidence": 0.98,
-    "timestamp": "2026-08-26T18:46:27Z",
-    "reasoning": "SLV 61.645 with short strike 61.5 \u2014 underlying sitting 0.24% above short strike, worst fill 0.70 is 1.27x credit and delta exposure is near-ATM with 126 DTE remaining, maximum time for further blowout. 1.5x stop rule approaching on worst fill basis and directional risk is fully alive."
+    "confidence": 0.97,
+    "timestamp": "2026-08-26T19:24:37Z",
+    "reasoning": "SLV 61.59 with short strike 61.5 \u2014 underlying is 0.15% above the short strike, essentially ATM with 126 DTE of theta bleed remaining. Worst fill 0.70 is 1.27x credit and any morning weakness puts worst fill through 1.5x stop; near-ATM short with this much DTE is an unacceptable directional bet for this account size."
   },
   "SPY 738/728p": {
     "action": "HOLD",
-    "confidence": 0.92,
-    "timestamp": "2026-08-26T18:46:27Z",
-    "reasoning": "SPY 766.15 is 3.67% above the 738 short strike, mid 1.055 essentially flat to credit, 29 DTE with all rules clean \u2014 no action needed."
+    "confidence": 0.93,
+    "timestamp": "2026-08-26T19:24:37Z",
+    "reasoning": "SPY 767.05 is 3.79% above the 738 short strike, mid 1.005 essentially flat to the 1.05 credit, 29 DTE with all rules clean. No action needed."
   }
 }
