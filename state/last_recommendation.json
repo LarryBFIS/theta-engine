@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-26T13:26:13.699650+00:00",
-  "market_view": "QQQ bouncing +0.62% today but still -1.34% on the week with VIX creeping higher (+1.88% today, +5.57% 5d) \u2014 not a safe environment to sit on losing short-put spreads. 21 DTE hard exit rule fires today on both QQQ positions; these are mandatory closes, not discretionary.",
+  "last_run": "2026-08-26T13:29:09.380098+00:00",
+  "market_view": "QQQ +0.62% today but -1.34% on the week with VIX still elevated at 15.71 and grinding higher \u2014 the intraday bounce does not change the mandatory close mandate. Both QQQ positions hit 21 DTE today; rules are rules.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-26T13:26:00Z",
-    "reasoning": "21 DTE hard exit rule fires today \u2014 this position MUST be closed regardless of P&L. Mid at 1.685 vs 1.03 credit is also 1.64x loss ratio, already beyond the 1.5x stop. Two separate rules mandate closure now."
+    "timestamp": "2026-08-26T13:28:55Z",
+    "reasoning": "21 DTE hard exit fires today AND mid at 1.685 is 1.64x the 1.03 credit \u2014 both the DTE rule and the 1.5x stop-loss rule mandate immediate closure. This is not discretionary."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-08-26T13:26:00Z",
-    "reasoning": "21 DTE hard exit rule fires today \u2014 close mandatory. Mid 1.05 vs 1.07 credit is essentially breakeven; closing now preserves capital and eliminates concentrated double-QQQ exposure that violates diversification rules."
+    "timestamp": "2026-08-26T13:28:55Z",
+    "reasoning": "21 DTE hard exit fires today \u2014 close is mandatory regardless of P&L. Mid at 1.05 vs 1.07 credit is near breakeven; closing now eliminates concentrated double-QQQ exposure and frees BPR."
   },
   "SLV 61.5/60.5p": {
     "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-08-26T13:26:00Z",
-    "reasoning": "SLV still 126 DTE, short strike 1.3% OTM, and mid equals credit collected \u2014 no profit, no defined trigger yet, but worst-case fill at 0.70 still exceeds credit on a $1-wide spread with asymmetric risk. Monitoring for a closing opportunity if SLV rallies and mid drops toward 0.275."
+    "confidence": 0.75,
+    "timestamp": "2026-08-26T13:28:55Z",
+    "reasoning": "126 DTE, no profit, short strike 1.3% OTM \u2014 no trigger to act yet, but worst-case fill at 0.70 exceeds credit on a $1-wide spread showing asymmetric risk. Hold and monitor for SLV rally to close near 0.275 debit."
   }
 }
