@@ -1,28 +1,28 @@
 {
-  "last_run": "2026-08-26T14:22:12.097964+00:00",
-  "market_view": "Market effectively flat on the day with VIX at 15.46, up 3.69% on the week \u2014 low-vol grind with no fresh catalyst. QQQ underperforming SPY slightly, consistent with the week's mild tech weakness.",
+  "last_run": "2026-08-26T14:27:37.754911+00:00",
+  "market_view": "Market grinding flat with VIX 15.46, no fresh news catalyst \u2014 orderly low-vol tape. QQQ mild underperformance on the week is consistent with open put spread risk but no acute directional threat today.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-26T14:21:57Z",
-    "reasoning": "Mid at 1.755 is 1.70x the 1.03 credit \u2014 stop-loss rule (1.5x = 1.545) was breached long ago AND 21 DTE hard exit rule is live. This position has been CRITICAL for multiple cycles with zero action taken \u2014 every minute open is additional unrecoverable loss."
+    "timestamp": "2026-08-26T14:27:23Z",
+    "reasoning": "Mid at 1.825 is 1.77x the 1.03 credit \u2014 1.5x stop (1.545) breached, AND 21 DTE hard exit rule is live NOW. This has been flagged CRITICAL for multiple consecutive cycles with no action taken \u2014 continued inaction compounds the realized loss with zero rule basis to hold."
   },
   "QQQ 677/668p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-08-26T14:21:57Z",
-    "reasoning": "21 DTE hard exit rule is live \u2014 this is day 22 DTE and the rulebook says close or roll with no exceptions. Mid at 1.095 is essentially flat to the 1.07 credit, so there is still near-zero net loss if closed now \u2014 waiting further risks the mid moving against you."
+    "timestamp": "2026-08-26T14:27:23Z",
+    "reasoning": "22 DTE \u2014 the 21 DTE hard exit rule is live with no exceptions per playbook. Mid at 1.14 is only slightly above the 1.07 credit, meaning closing now costs ~$7 net \u2014 this is the cheapest this exit gets if QQQ drifts lower."
   },
   "SLV 61.5/60.5p": {
     "action": "WATCH",
     "confidence": 0.82,
-    "timestamp": "2026-08-26T14:21:57Z",
-    "reasoning": "SLV at 61.88 with short strike 61.5 only 0.61% OTM \u2014 still not breached but uncomfortably close, and worst-case fill at 0.70 already exceeds the 0.55 credit collected. 126 DTE means no rule triggers, but this needs daily monitoring given the tight proximity."
+    "timestamp": "2026-08-26T14:27:23Z",
+    "reasoning": "SLV at 61.67 with short strike 61.5 only 0.28% OTM \u2014 still not breached but dangerously close, and worst-case fill at 0.70 already exceeds the 0.55 credit. No rule trigger yet at 126 DTE but a down-tick in silver breaches the short strike."
   },
   "SPY 738/728p": {
     "action": "HOLD",
-    "confidence": 0.9,
-    "timestamp": "2026-08-26T14:21:57Z",
-    "reasoning": "Opened today at 29 DTE, SPY at 765.86 is 3.6% above the 738 short strike, mid essentially flat to credit at 1.09 vs 1.05 \u2014 no rules triggered, position well-positioned with VIX stable."
+    "confidence": 0.91,
+    "timestamp": "2026-08-26T14:27:23Z",
+    "reasoning": "SPY at 765.07 is 3.5% above the 738 short strike, 29 DTE, mid at 1.135 vs 1.05 credit \u2014 no rules triggered and position has healthy distance with stable VIX."
   }
 }
