@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-27T16:49:58.837790+00:00",
+  "generated_at": "2026-08-27T20:10:07.474597+00:00",
   "regime": {
-    "vix": 14.44,
-    "vix_day_change_pct": -0.0506,
+    "vix": 14.45,
+    "vix_day_change_pct": -0.05,
     "level": "calm",
     "stand_down": false,
     "note": "calm regime (-5% day)"
@@ -17,117 +17,7 @@
     "longvol_max_iv_rank": 0.3,
     "longvol_catalyst_days": 14
   },
-  "top": [
-    {
-      "underlying": "QQQ",
-      "structure": "short_put_vertical",
-      "expiry": "2026-09-30",
-      "dte": 34,
-      "short_strike": 682.0,
-      "long_strike": 673.0,
-      "short_symbol": "QQQ   260930P00682000",
-      "long_symbol": "QQQ   260930P00673000",
-      "width": 9.0,
-      "credit": 1.03,
-      "mid_credit": 1.08,
-      "fees_est": 3.0,
-      "bpr": 797.0,
-      "max_loss": 797.0,
-      "pop": 0.802,
-      "short_delta": 0.182,
-      "short_spread_pct": 0.01,
-      "credit_to_bpr": 0.129,
-      "ev_per_contract": 7.63,
-      "ev_on_bpr": 0.0096,
-      "iv": 0.2021,
-      "iv_rank": 0.382,
-      "underlying_price": 719.97,
-      "liquidity": 4,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 1,
-      "max_loss_total": 797.0,
-      "bpr_total": 797.0,
-      "trend": "bullish",
-      "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short put vertical 682/673p \u00d71 \u2014 bullish lean. Edge: IV rank 38%, EV $+8/ctr (+1.0% on BPR). POP 80% \u00b7 credit $1.03 \u00b7 max loss $797 \u00b7 BPR $797 \u00b7 34 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 0.681,
-      "learn_notes": [
-        "asset_class=single_name \u00d70.68",
-        "cluster=us_tech \u00d70.77",
-        "structure=short_put_vertical \u00d71.29"
-      ],
-      "rank_score": 0.006538,
-      "agent_action": "guarded",
-      "agent_reason": "Already 1 QQQ open plus correlated SPY/DIA, so this doubles the same us_tech short-vol bet our engine shows at 27% WR negative expectancy \u2014 and selling puts into a -5% tape at 14 VIX for only 0.96% EV/BPR is poorly timed, thin premium.",
-      "guarded_warn": true,
-      "demoted": "guarded \u2014 surfaced with a caution, paper only",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "veto",
-        "hits": [
-          {
-            "title": "Salesforce Soars 14% as Claudeforce and a Guidance Raise End the Slump, ServiceNow Climbs 5%, Adobe Advances 3%",
-            "severity": 2,
-            "keyword": "guidance"
-          },
-          {
-            "title": "QQQI\u2019s 14% Yield Hides a Negative SEC Yield: The Fund Earns Nothing Before It Sells Options",
-            "severity": 3,
-            "keyword": "sec "
-          },
-          {
-            "title": "NVIDIA Surges 6% as a 70% Growth Forecast Overrides a Memory Margin Warning, AMD and Intel Tick Up",
-            "severity": 2,
-            "keyword": "warning"
-          }
-        ]
-      },
-      "net_liq": 7264.442,
-      "ticket": {
-        "underlying": "QQQ",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 1.03,
-        "contracts": 1,
-        "expiry": "2026-09-30",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 1,
-            "expiry": "2026-09-30",
-            "strike": 682.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 1,
-            "expiry": "2026-09-30",
-            "strike": 673.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 103.0,
-        "max_loss_total": 797.0,
-        "bpr_total": 797.0,
-        "pop": 0.802,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.52,
-          "stop_debit": 2.58,
-          "exit_dte": 21
-        },
-        "fits_live_cap": false,
-        "live_cap": 726.44,
-        "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $797 > 10% live cap ($726) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ VP \u00d71 \u2014 SELL 682P / BUY 673P (2026-09-30) @ $1.03 net credit. Max loss $797. After fill: GTC buy-to-close @ $0.52 (50%). \u26a0 max loss $797 > 10% live cap ($726) \u2014 narrow to ~8-wide for live, or keep on paper."
-      },
-      "posted_at": "2026-08-27T16:49:58.837790+00:00"
-    }
-  ],
+  "top": [],
   "long_vol": [],
   "events": [],
   "learnings": {
@@ -177,139 +67,15 @@
       }
     ]
   },
-  "agent": {
-    "generated_at": "2026-08-27T16:49:58.614781+00:00",
-    "model": "kimi-k3",
-    "market_view": "VIX 14.44 reads calm, but the -5% day note flags a falling tape with thin premium \u2014 selling put spreads here is catching a knife for ~1% EV on buying power. Low vol means we're paid little to absorb gap risk, so timing argues for doing less, not more.",
-    "portfolio_note": "The book is already one correlated long-delta/short-vol bet spread across SPY, DIA, and an open QQQ. A second QQQ put vertical doesn't diversify \u2014 it doubles the same tech exposure our own results flag as a loser.",
-    "reviewed": 1,
-    "vetoed": 1,
-    "downsized": 0,
-    "decisions": [
-      {
-        "id": "QQQ|short_put_vertical|682/673",
-        "action": "veto",
-        "reason": "Already 1 QQQ open plus correlated SPY/DIA, so this doubles the same us_tech short-vol bet our engine shows at 27% WR negative expectancy \u2014 and selling puts into a -5% tape at 14 VIX for only 0.96% EV/BPR is poorly timed, thin premium."
-      }
-    ]
-  },
-  "all_candidates": [
-    {
-      "underlying": "QQQ",
-      "structure": "short_put_vertical",
-      "expiry": "2026-09-30",
-      "dte": 34,
-      "short_strike": 682.0,
-      "long_strike": 673.0,
-      "short_symbol": "QQQ   260930P00682000",
-      "long_symbol": "QQQ   260930P00673000",
-      "width": 9.0,
-      "credit": 1.03,
-      "mid_credit": 1.08,
-      "fees_est": 3.0,
-      "bpr": 797.0,
-      "max_loss": 797.0,
-      "pop": 0.802,
-      "short_delta": 0.182,
-      "short_spread_pct": 0.01,
-      "credit_to_bpr": 0.129,
-      "ev_per_contract": 7.63,
-      "ev_on_bpr": 0.0096,
-      "iv": 0.2021,
-      "iv_rank": 0.382,
-      "underlying_price": 719.97,
-      "liquidity": 4,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 1,
-      "max_loss_total": 797.0,
-      "bpr_total": 797.0,
-      "trend": "bullish",
-      "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short put vertical 682/673p \u00d71 \u2014 bullish lean. Edge: IV rank 38%, EV $+8/ctr (+1.0% on BPR). POP 80% \u00b7 credit $1.03 \u00b7 max loss $797 \u00b7 BPR $797 \u00b7 34 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 0.681,
-      "learn_notes": [
-        "asset_class=single_name \u00d70.68",
-        "cluster=us_tech \u00d70.77",
-        "structure=short_put_vertical \u00d71.29"
-      ],
-      "rank_score": 0.006538,
-      "agent_action": "guarded",
-      "agent_reason": "Already 1 QQQ open plus correlated SPY/DIA, so this doubles the same us_tech short-vol bet our engine shows at 27% WR negative expectancy \u2014 and selling puts into a -5% tape at 14 VIX for only 0.96% EV/BPR is poorly timed, thin premium.",
-      "guarded_warn": true,
-      "demoted": "guarded \u2014 surfaced with a caution, paper only",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "veto",
-        "hits": [
-          {
-            "title": "Salesforce Soars 14% as Claudeforce and a Guidance Raise End the Slump, ServiceNow Climbs 5%, Adobe Advances 3%",
-            "severity": 2,
-            "keyword": "guidance"
-          },
-          {
-            "title": "QQQI\u2019s 14% Yield Hides a Negative SEC Yield: The Fund Earns Nothing Before It Sells Options",
-            "severity": 3,
-            "keyword": "sec "
-          },
-          {
-            "title": "NVIDIA Surges 6% as a 70% Growth Forecast Overrides a Memory Margin Warning, AMD and Intel Tick Up",
-            "severity": 2,
-            "keyword": "warning"
-          }
-        ]
-      },
-      "net_liq": 7264.442,
-      "ticket": {
-        "underlying": "QQQ",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 1.03,
-        "contracts": 1,
-        "expiry": "2026-09-30",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 1,
-            "expiry": "2026-09-30",
-            "strike": 682.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 1,
-            "expiry": "2026-09-30",
-            "strike": 673.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 103.0,
-        "max_loss_total": 797.0,
-        "bpr_total": 797.0,
-        "pop": 0.802,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.52,
-          "stop_debit": 2.58,
-          "exit_dte": 21
-        },
-        "fits_live_cap": false,
-        "live_cap": 726.44,
-        "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $797 > 10% live cap ($726) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ VP \u00d71 \u2014 SELL 682P / BUY 673P (2026-09-30) @ $1.03 net credit. Max loss $797. After fill: GTC buy-to-close @ $0.52 (50%). \u26a0 max loss $797 > 10% live cap ($726) \u2014 narrow to ~8-wide for live, or keep on paper."
-      },
-      "posted_at": "2026-08-27T16:49:58.837790+00:00"
-    }
-  ],
+  "agent": null,
+  "all_candidates": [],
   "skipped": {
     "SPY": "iv_rank 21% (floor 22%)",
-    "IWM": "iv_rank 11% (floor 22%)",
+    "IWM": "iv_rank 12% (floor 22%)",
     "DIA": "iv_rank 12% (floor 22%)",
-    "XLE": "failed: pv: spread short 21%/long 133%",
-    "XLF": "failed: pv: credit/width 0.05 < 0.10",
+    "QQQ": "failed: pv: credit/width 0.09 < 0.10",
+    "XLE": "failed: pv: spread short 46%/long 133%",
+    "XLF": "failed: pv: no/invalid leg quote",
     "SLV": "iv_rank 27% (floor 30%)"
   }
 }
