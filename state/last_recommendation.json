@@ -1,28 +1,28 @@
 {
-  "last_run": "2026-08-27T15:30:36.303066+00:00",
-  "market_view": "Market grinding higher with tech leading (XLK +2.44%), VIX crushed to 14.46 (-4.93%) \u2014 IV environment favoring short premium but low VIX means thin credits on new setups. QQQ +0.96% and SPY +0.55% moving all short put positions further OTM.",
+  "last_run": "2026-08-27T16:46:39.849322+00:00",
+  "market_view": "Market still grinding higher, tech-led (XLK +2.88%), VIX now 14.45 and falling \u2014 short premium positions moving further OTM but QQQ positions have now hit their 21 DTE mandatory exit rule and remain open from prior alert cycle.",
   "QQQ 690/681p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-27T15:30:17Z",
-    "reasoning": "21 DTE hard exit rule triggered today \u2014 this is a mandatory close regardless of P&L. Mid 1.10 vs 1.03 credit is a small loser but the rule is non-negotiable."
+    "timestamp": "2026-08-27T16:46:25Z",
+    "reasoning": "21 DTE hard exit rule is triggered \u2014 this was flagged CRITICAL last cycle and position is still open, now over an hour past the alert. Mid 1.03 flat to credit is a near-scratch, close it now."
   },
   "QQQ 677/668p": {
-    "action": "ACTION",
-    "confidence": 0.97,
-    "timestamp": "2026-08-27T15:30:17Z",
-    "reasoning": "21 DTE hard exit rule triggered today \u2014 close alongside the 690/681p. Mid 0.65 vs 1.07 credit is a 39% winner, close to but not quite 50% profit target; 21 DTE rule overrides, close it."
+    "action": "CRITICAL",
+    "confidence": 0.99,
+    "timestamp": "2026-08-27T16:46:25Z",
+    "reasoning": "21 DTE hard exit rule triggered \u2014 also flagged last cycle and still open. Mid 0.60 vs 1.07 credit is a 44% winner, close to 50% target, but 21 DTE override applies regardless."
   },
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
-    "confidence": 0.98,
-    "timestamp": "2026-08-27T15:30:17Z",
-    "reasoning": "SLV 62.03 gives only 0.85% cushion above the 61.5 short strike with 125 DTE \u2014 delta exposure is live for months and mid 0.55 is flat to credit with zero profit to show for the risk. This position was flagged CRITICAL yesterday and has not been closed."
+    "confidence": 0.97,
+    "timestamp": "2026-08-27T16:46:25Z",
+    "reasoning": "SLV 62.81 gives only 2.1% cushion above the 61.5 short strike with 125 DTE remaining \u2014 mid 0.55 is flat to credit with zero P&L to show for the risk, and this has been flagged CRITICAL two consecutive cycles without action."
   },
   "SPY 738/728p": {
     "action": "HOLD",
     "confidence": 0.92,
-    "timestamp": "2026-08-27T15:30:17Z",
-    "reasoning": "SPY 770.29 is 4.37% above the 738 short strike, mid 0.80 vs 1.05 credit is 24% profit at 28 DTE \u2014 theta working cleanly, no rules triggered, VIX crush continues to help."
+    "timestamp": "2026-08-27T16:46:25Z",
+    "reasoning": "SPY 771.84 is 4.59% above the 738 short strike, mid 0.745 vs 1.05 credit is 29% profit at 28 DTE \u2014 theta working, no rules triggered, VIX compression continuing to help."
   }
 }
