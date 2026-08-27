@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-27T20:31:52.663763+00:00",
-  "market_view": "Market closed with SPY +0.66% and VIX down to 14.51 \u2014 low-vol, risk-on day led by tech. Short premium book benefits from continued IV compression but the SLV position remains structurally flawed and must be actioned.",
+  "last_run": "2026-08-27T23:34:51.054431+00:00",
+  "market_view": "Market closed with SPY +0.66%, VIX crushed to 14.51 (-4.6% today, -8.28% 5d) \u2014 low-vol risk-on regime led by tech (+3.16% XLK). Short premium environment is favorable but position structuring remains the priority.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
-    "confidence": 0.98,
-    "timestamp": "2026-08-27T20:31:40Z",
-    "reasoning": "SLV 62.77 sits only 2.02% above the 61.5 short strike with 125 DTE \u2014 max profit $55 vs max loss $45 is an inverted risk/reward that should never have been held this long, and this is now the fifth consecutive cycle flagged without execution."
+    "confidence": 0.99,
+    "timestamp": "2026-08-27T23:34:36Z",
+    "reasoning": "SLV sits 2.02% above the 61.5 short strike with 125 DTE \u2014 $55 max profit vs $45 max loss is negative risk/reward that violates core position sizing discipline, and this is now the sixth consecutive cycle flagged without execution. Market is closed now but this must be the first order at open tomorrow."
   },
   "SPY 738/728p": {
-    "action": "HOLD",
-    "confidence": 0.92,
-    "timestamp": "2026-08-27T20:31:40Z",
-    "reasoning": "SPY 771.10 is 4.29% above the 738 short strike at 28 DTE, mid 0.78 vs 1.05 credit puts us at 26% profit \u2014 theta and IV compression working in our favor, no rules triggered, continue grinding toward the 50% target (~$0.525 mid)."
+    "action": "ACTION",
+    "confidence": 0.87,
+    "timestamp": "2026-08-27T23:34:36Z",
+    "reasoning": "Mid 0.525 vs 1.05 credit = exactly 50% profit target hit \u2014 SPY is 4.29% above short strike, VIX compression is working, rule says close at 50% mechanically."
   }
 }
