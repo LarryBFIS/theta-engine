@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-31T16:20:57.901198+00:00",
-  "market_view": "Month-end close with VIX +5.75% intraday and broad risk-off \u2014 SLV has shown zero recovery through the session and remains deeply ITM through the 61.5 short strike. SPY holds 3.6% above its short strike with no structural threat.",
+  "last_run": "2026-08-31T16:22:43.015062+00:00",
+  "market_view": "Month-end close, VIX +5.75% on the day with broad risk-off across small caps and cyclicals \u2014 SLV has not recovered and remains deeply ITM through the 61.5 short strike into EOD liquidity thinning.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-31T16:20:45Z",
-    "reasoning": "SLV at 59.95 is 2.5% through the 61.5 short strike with worst-case fill at 0.75 \u2014 that is 1.36x the 0.55 credit and within one adverse tick of the 1.5x hard stop at 0.825; 121 DTE means zero theta defense and this has been CRITICAL all session with no recovery. Market close is imminent and liquidity thins into EOD."
+    "timestamp": "2026-08-31T16:22:32Z",
+    "reasoning": "SLV at 59.92 is 2.6% through the 61.5 short strike; worst-case fill 0.75 is 1.36x the 0.55 credit and one adverse tick from the 1.5x hard stop at 0.825 \u2014 with EOD liquidity thinning and 121 DTE providing zero theta cushion, this cannot be held into close."
   },
   "SPY 738/728p": {
     "action": "WATCH",
-    "confidence": 0.85,
-    "timestamp": "2026-08-31T16:20:45Z",
-    "reasoning": "SPY at 765.62 is 3.6% above the 738 short strike with no breach risk; 21 DTE hard exit triggers at Thursday Sept 3 open and mid at 0.91 is only ~13% profit \u2014 not at 50% target yet."
+    "confidence": 0.82,
+    "timestamp": "2026-08-31T16:22:32Z",
+    "reasoning": "SPY at 765.31 sits 3.57% above the 738 short strike with no breach risk; mid at 0.935 is 11% profit vs the 50% target needed, but 21 DTE hard exit triggers at the Sept 3 open \u2014 flag now to close at open Thursday regardless of profit level."
   }
 }
