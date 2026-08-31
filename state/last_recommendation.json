@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-31T17:26:33.631459+00:00",
-  "market_view": "Month-end risk-off tone persists with VIX +4.92% on the day and broad sector weakness led by Industrials (-1.26%) and IWM (-1.02%); SPY/QQQ short strikes remain well OTM but SLV continues to deteriorate with no action taken on prior CRITICAL alert.",
+  "last_run": "2026-08-31T17:38:37.412124+00:00",
+  "market_view": "Month-end session closing with VIX +4.78% and broad risk-off across Industrials, Healthcare, and small caps (IWM -0.97%) while Energy outperforms; SLV remains under pressure with the 61.5 short strike deep ITM and no close executed despite two consecutive CRITICAL alerts.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-31T17:26:20Z",
-    "reasoning": "SLV at 59.83 leaves the 61.5 short strike 2.8% ITM; worst-case fill 0.75 is 1.36x the 0.55 credit and one tick from the 1.5x hard stop at 0.825 \u2014 this CRITICAL has now been flagged twice with no close executed, and holding into September overnight gap risk is unacceptable."
+    "timestamp": "2026-08-31T17:38:23Z",
+    "reasoning": "SLV at 59.875 keeps the 61.5 short strike 2.7% ITM; worst-case fill 0.70 is 1.27x credit with the 1.5x hard stop at 0.825 \u2014 this is the third consecutive CRITICAL alert with no close executed, and carrying this into overnight September 1 gap risk on a breached short strike is a rule violation."
   },
   "SPY 738/728p": {
     "action": "ACTION",
-    "confidence": 0.88,
-    "timestamp": "2026-08-31T17:26:20Z",
-    "reasoning": "DTE hits 21 on Thursday September 3 triggering the hard exit rule \u2014 this must be closed or rolled by Wednesday EOD with no exceptions; at current mid 0.92 vs 1.05 credit the position is not at 50% profit so rolling to October for net credit is the preferred path."
+    "confidence": 0.9,
+    "timestamp": "2026-08-31T17:38:23Z",
+    "reasoning": "DTE hits 21 on Thursday September 3 triggering the hard exit rule; current mid 0.905 vs 1.05 credit is only 14% profit, well below the 50% target, so rolling to October for net credit is the correct path rather than closing for a small win."
   },
   "QQQ 679/670p": {
     "action": "HOLD",
-    "confidence": 0.91,
-    "timestamp": "2026-08-31T17:26:20Z",
-    "reasoning": "QQQ at 714.34 is 5.1% above the 679 short strike with 29 DTE, opened today, P&L essentially flat \u2014 no rule triggered and position is healthy."
+    "confidence": 0.92,
+    "timestamp": "2026-08-31T17:38:23Z",
+    "reasoning": "QQQ at 714.45 sits 5.1% above the 679 short strike with 29 DTE and P&L essentially flat on an opening-day position \u2014 no rule triggered, structure is healthy."
   }
 }
