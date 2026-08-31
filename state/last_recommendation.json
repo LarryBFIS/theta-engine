@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-31T20:38:42.466953+00:00",
-  "market_view": "Month-end close with VIX at 14.92 (+3.4%) on a mixed tape \u2014 tech holding (XLK +0.44%) while cyclicals bleed (XLI -1.13%, IWM -0.62%). No systemic risk but SLV continues ITM with no action taken.",
+  "last_run": "2026-08-31T20:44:52.105656+00:00",
+  "market_view": "Month-end close, mixed tape with VIX up 3.4% to 14.92 \u2014 tech bid but cyclicals and small caps leaking. SLV remains ITM and is the only urgent issue on the book.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-31T20:38:31.121029+00:00",
-    "reasoning": "Short strike is 2.28% ITM with worst-case fill at 0.75 (1.36x credit, approaching 1.5x stop), flagged CRITICAL across multiple consecutive cycles with zero execution \u2014 every minute of delay compounds assignment risk on a spread that is already a net loser beyond max profit."
+    "timestamp": "2026-08-31T20:44:40.846984+00:00",
+    "reasoning": "Short strike 2.28% ITM, worst-case fill at 0.75 is 1.36x credit and climbing toward the 1.5x stop \u2014 this has been flagged CRITICAL for multiple consecutive cycles with zero execution, compounding assignment risk and P&L damage on every tick."
   },
   "SPY 738/728p": {
     "action": "WATCH",
     "confidence": 0.85,
-    "timestamp": "2026-08-31T20:38:31.121029+00:00",
-    "reasoning": "DTE is 24 \u2014 21 DTE hard exit rule triggers at Thursday September 3 open; SPY is 3.79% above the short strike so no breach risk, but profit at mid (21%) is well short of 50% target and the clock is running."
+    "timestamp": "2026-08-31T20:44:40.846984+00:00",
+    "reasoning": "DTE hits 21 at Thursday September 3 open triggering the hard exit rule \u2014 SPY is 3.79% above the short strike so no breach risk, but profit at mid is only 21% with the clock about to force closure."
   },
   "QQQ 679/670p": {
     "action": "HOLD",
     "confidence": 0.93,
-    "timestamp": "2026-08-31T20:38:31.121029+00:00",
-    "reasoning": "Opened today, 29 DTE, QQQ 5.27% above the 679 short strike \u2014 no rules triggered and no actionable deterioration."
+    "timestamp": "2026-08-31T20:44:40.846984+00:00",
+    "reasoning": "Opened today, 29 DTE, QQQ 5.27% above short strike, no rules triggered \u2014 let theta work."
   }
 }
