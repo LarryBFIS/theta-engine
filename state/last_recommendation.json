@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-31T16:30:53.528052+00:00",
-  "market_view": "Month-end close with VIX +5.27% intraday and broad risk-off across cyclicals and small caps \u2014 SLV remains ITM through the short strike with EOD liquidity thinning, making this the final window to exit at a manageable loss before close.",
+  "last_run": "2026-08-31T16:39:24.495226+00:00",
+  "market_view": "Month-end close, VIX +5.54% intraday with broad risk-off rotation \u2014 SLV remains ITM and EOD is imminent with liquidity deteriorating, this is the last actionable window before close.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-31T16:30:41Z",
-    "reasoning": "SLV at 60.04 is still 2.4% through the 61.5 short strike; worst-case fill 0.75 is 1.36x the 0.55 credit and one adverse tick from the 1.5x hard stop at 0.825 \u2014 this was flagged CRITICAL 8 minutes ago and has not been closed, EOD is NOW."
+    "timestamp": "2026-08-31T16:39:14Z",
+    "reasoning": "SLV at 59.88 is 2.7% through the 61.5 short strike, worst-case fill 0.75 is already 1.36x the 0.55 credit and one tick from the 1.5x hard stop at 0.825 \u2014 this was flagged CRITICAL 8 minutes ago and is still open with market close seconds away."
   },
   "SPY 738/728p": {
     "action": "ACTION",
-    "confidence": 0.88,
-    "timestamp": "2026-08-31T16:30:41Z",
-    "reasoning": "SPY at 765.83 is 3.6% above the 738 short strike with no breach risk, but 24 DTE hits the 21 DTE hard exit rule at Thursday's open \u2014 close at open Sept 3 regardless of profit level, mid at 0.90 represents ~14% profit which is below 50% target but the rule is non-negotiable."
+    "confidence": 0.92,
+    "timestamp": "2026-08-31T16:39:14Z",
+    "reasoning": "SPY at 765.45 is 3.6% above the 738 short strike with no breach risk, but 24 DTE means the 21 DTE hard exit rule triggers at Thursday September 3 open \u2014 close then regardless of P&L."
   }
 }

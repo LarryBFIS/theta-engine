@@ -2057,8 +2057,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -9.76,
-      "cost_to_close_mid": 62.5,
+      "unrealized_pnl": -7.26,
+      "cost_to_close_mid": 60.0,
       "structure": "short_put_vertical",
       "short_strike": 61.5,
       "long_strike": 60.5,
@@ -2102,8 +2102,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 11.75,
-      "cost_to_close_mid": 91.0,
+      "unrealized_pnl": 9.75,
+      "cost_to_close_mid": 93.0,
       "structure": "short_put_vertical",
       "short_strike": 738.0,
       "long_strike": 728.0,
@@ -2114,6 +2114,51 @@
       "max_profit_total": 105.0,
       "max_loss_total": 895.0,
       "bpr_total": 895.0
+    },
+    {
+      "id": "ledger_034_qqq",
+      "underlying": "QQQ",
+      "opened_at": "2026-08-31",
+      "open_order_id": "500859812",
+      "open_net_cash": 98.75,
+      "open_legs": [
+        {
+          "symbol": "QQQ   260930P00670000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 3.42,
+          "net_cash": -343.12,
+          "fees": 1.12,
+          "executed_at": "2026-08-31T16:37:52.444Z"
+        },
+        {
+          "symbol": "QQQ   260930P00679000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 4.43,
+          "net_cash": 441.87,
+          "fees": 1.13,
+          "executed_at": "2026-08-31T16:37:52.444Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -2.25,
+      "cost_to_close_mid": 101.0,
+      "structure": "short_put_vertical",
+      "short_strike": 679.0,
+      "long_strike": 670.0,
+      "expiry": "2026-09-30",
+      "contracts": 1,
+      "credit_per_contract": 1.01,
+      "width": 9.0,
+      "max_profit_total": 101.0,
+      "max_loss_total": 799.0,
+      "bpr_total": 799.0
     }
   ]
 }
