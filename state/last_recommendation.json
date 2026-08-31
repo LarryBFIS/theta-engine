@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-31T15:39:45.246316+00:00",
-  "market_view": "VIX +5.13% intraday with broad risk-off \u2014 IWM -0.90% and Industrials -1.12% leading weakness, SLV continues trading below the 61.5 short strike with no recovery catalyst. Neutral regime but breadth is clearly deteriorating into month-end.",
+  "last_run": "2026-08-31T15:45:51.716839+00:00",
+  "market_view": "VIX +5.27% intraday with broad risk-off continuing into month-end \u2014 SLV remains well below the 61.5 short strike with no recovery and IWM -0.85% confirms small-cap/metals pressure persisting. SPY holding 27+ points above its short strike despite mild equity weakness.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-31T15:39:35.081928+00:00",
-    "reasoning": "Short strike breached \u2014 SLV at 59.81 is 2.8% ITM on the 61.5 short put, worst cost 0.75 is at 1.36x credit, and mid 0.60 is already at 1.09x. This was flagged CRITICAL last cycle with no recovery; worst-case fill risk is at or through the 1.5x hard stop (0.825). No catalyst for reversal, 121 DTE offers zero theta relief."
+    "timestamp": "2026-08-31T15:45:40.443103+00:00",
+    "reasoning": "SLV at 59.82 is 2.8% ITM on the 61.5 short put \u2014 worst cost 0.75 is already at 1.36x credit and mid 0.60 is 1.09x; this has been CRITICAL for two consecutive cycles with zero recovery, and worst-case fill is within a tick of the 1.5x hard stop (0.825). 121 DTE means theta is not bailing you out."
   },
   "SPY 738/728p": {
     "action": "WATCH",
-    "confidence": 0.85,
-    "timestamp": "2026-08-31T15:39:35.081928+00:00",
-    "reasoning": "SPY at 765.55 is 3.6% above the 738 short strike with no breach risk; mid at 0.91 is only 13% profit vs 50% target needed, and 21 DTE hard exit triggers at Thursday open (Sept 3)."
+    "confidence": 0.82,
+    "timestamp": "2026-08-31T15:45:40.443103+00:00",
+    "reasoning": "SPY at 765.87 is 3.6% above the 738 short strike with no breach risk; mid at 0.90 is 14% profit vs 50% target, but at 24 DTE the 21 DTE hard exit rule triggers at Thursday's open (Sept 3) \u2014 no action today but close or roll Thursday morning regardless of P&L."
   }
 }
