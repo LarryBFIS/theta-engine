@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-31T13:21:42.870632+00:00",
-  "market_view": "VIX spiked 6.65% today to 15.39 while SPY holds near flat \u2014 small-caps leading weakness with IWM -1.35% and tech -1.55%, rotation into defensives and XLY. No systemic risk but vol expansion is a headwind for short premium.",
+  "last_run": "2026-08-31T13:23:29.919686+00:00",
+  "market_view": "VIX up 6.58% to 15.38 with IWM -1.35% and tech -1.55% \u2014 rotation into defensives but no systemic break. Short premium headwind continues, SLV situation unchanged and deteriorating.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-31T13:21:29Z",
-    "reasoning": "Short strike 61.5 remains breached with SLV at 60.02, worst-case cost 0.75 is 1.36x credit \u2014 1.5x hard cut triggers at 0.825 and with 121 DTE silver has full runway to push this to max loss. This has been flagged CRITICAL across multiple cycles with no close executed \u2014 this is account bleed."
+    "timestamp": "2026-08-31T13:23:18Z",
+    "reasoning": "Short strike 61.5 remains breached with SLV at 60.02 \u2014 worst-case cost 0.75 is already 1.36x credit and 1.5x hard cut triggers at 0.825. This has been flagged CRITICAL multiple cycles with no close \u2014 every minute of inaction at 121 DTE with silver below short strike is account bleed with max loss exposure of $45."
   },
   "SPY 738/728p": {
     "action": "ACTION",
-    "confidence": 0.82,
-    "timestamp": "2026-08-31T13:21:29Z",
-    "reasoning": "SPY 738/728p is now at 24 DTE \u2014 the 21 DTE hard exit rule triggers September 3rd (next trading day after Labor Day weekend), and mid at 0.785 is ~25% profit which will not reach 50% target before the rule fires."
+    "confidence": 0.88,
+    "timestamp": "2026-08-31T13:23:18Z",
+    "reasoning": "24 DTE means the 21 DTE hard exit rule fires September 3rd \u2014 SPY is 4% above short strike with no breach risk but the rule is the rule, and 25% profit at mid (0.785) is not reaching 50% target before forced exit."
   }
 }
