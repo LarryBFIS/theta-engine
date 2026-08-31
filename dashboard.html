@@ -392,7 +392,7 @@ footer{display:flex;align-items:center;gap:14px;padding:12px 4px;font-size:11px;
   <div id="feedbody"><div class="fitem" style="color:var(--dim)">loading scanner…</div></div>
   <div class="phead"><span class="t">🌊 LONG-VOL WATCH</span><span class="meta"><span id="lvtime">—</span></span></div>
   <div id="lvbody"><div class="fitem" style="color:var(--dim)">loading…</div></div>
-  <div class="phead"><span class="t">📰 POSITION NEWS</span><span class="meta"><span id="newstime">—</span></span></div>
+  <div class="phead"><span class="t">📰 POSITION &amp; WATCH NEWS</span><span class="meta"><span id="newstime">—</span></span></div>
   <div id="newsbody"><div class="fitem" style="color:var(--dim)">loading news…</div></div>
 </aside>
 
@@ -839,7 +839,7 @@ async function loadNews(){
   else box.innerHTML=items.slice(0,18).map((n,i)=>{
     const t=n.title||''; const url=n.link||'#';
     return `<div class="fitem ${n.material?'live':'paper'} reveal" style="animation-delay:${(0.03*i).toFixed(2)}s">
-      <div class="fhead"><span class="sym">${n.symbol||''}</span>${n.material?'<span class="ftag live">MATERIAL</span>':''}</div>
+      <div class="fhead"><span class="sym">${n.symbol||''}</span>${n.watch?'<span class="ftag paper">WATCH</span>':''}${n.material?'<span class="ftag live">MATERIAL</span>':''}</div>
       <a class="fmeta" href="${url}" target="_blank" rel="noopener" style="color:var(--dim);text-decoration:none;display:block">${t}</a>
     </div>`;
   }).join('');

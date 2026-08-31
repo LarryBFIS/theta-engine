@@ -24,6 +24,15 @@ STATE_FILE = REPO_ROOT / "state" / "position_news_seen.json"
 TRADES_FILE = REPO_ROOT / "trades.json"
 NEWS_FEED_FILE = REPO_ROOT / "news" / "feed.json"
 
+# Core tickers whose news we ALWAYS surface on the dashboard rail — even when we hold
+# no position in them — so our bread-and-butter names (QQQ, SPY) are visible at all
+# times. Override with NEWS_CORE_SYMBOLS="A,B,C". These are feed-only when not held:
+# they never trigger Pushover (that stays position-driven), just dashboard visibility.
+CORE_SYMBOLS = [s.strip().upper() for s in
+                (os.getenv("NEWS_CORE_SYMBOLS") or "QQQ,SPY").split(",") if s.strip()]
+FEED_MAX = int(os.getenv("NEWS_FEED_MAX") or "40")          # headlines kept in the feed
+CORE_FEED_KEEP = int(os.getenv("NEWS_CORE_KEEP") or "10")   # core headlines guaranteed to survive the cap
+
 PUSHOVER_USER = os.environ.get("PUSHOVER_USER_KEY")
 PUSHOVER_TOKEN = os.environ.get("PUSHOVER_APP_TOKEN")
 
@@ -106,11 +115,22 @@ def load_position_symbols():
 
 
 def write_feed(all_items):
-    """Write a recent-headlines feed (newest first) for the dashboard right rail."""
-    items = sorted(all_items, key=lambda x: x.get("ts", 0), reverse=True)[:40]
+    """Write a recent-headlines feed (newest first) for the dashboard right rail.
+    Core-watchlist ('watch') headlines are guaranteed to survive the size cap, so our
+    core tickers stay visible even on a busy news day for the held names."""
+    ordered = sorted(all_items, key=lambda x: x.get("ts", 0), reverse=True)
+    kept = [it for it in ordered if it.get("watch")][:CORE_FEED_KEEP]  # pin core first
+    seen = {id(it) for it in kept}
+    for it in ordered:                      # then fill remaining slots, newest-first
+        if len(kept) >= FEED_MAX:
+            break
+        if id(it) not in seen:
+            kept.append(it)
+            seen.add(id(it))
+    kept.sort(key=lambda x: x.get("ts", 0), reverse=True)   # final display order
     NEWS_FEED_FILE.parent.mkdir(parents=True, exist_ok=True)
     NEWS_FEED_FILE.write_text(json.dumps(
-        {"generated_at": datetime.now(timezone.utc).isoformat(), "items": items},
+        {"generated_at": datetime.now(timezone.utc).isoformat(), "items": kept},
         indent=2,
     ) + "\n")
 
@@ -170,12 +190,16 @@ def push_alert(symbol, items, triggering_keyword):
 
 
 def main():
-    symbols = load_position_symbols()
+    position_set = set(load_position_symbols())
+    core_set = set(CORE_SYMBOLS)
+    symbols = sorted(position_set | core_set)   # held names + core watchlist, always
     if not symbols:
-        print("No positions found in trades.json - nothing to scan.")
+        print("No positions or core symbols - nothing to scan.")
         return
 
-    print(f"Scanning news for {len(symbols)} positions: {', '.join(symbols)}\n")
+    watch_only = sorted(core_set - position_set)
+    print("Scanning news for {} symbols (held: {} · watch: {})\n".format(
+        len(symbols), ", ".join(sorted(position_set)) or "—", ", ".join(watch_only) or "—"))
 
     state = load_seen()
     state = prune_old(state)
@@ -188,6 +212,8 @@ def main():
             print(f"  [{symbol}] no news in feed")
             continue
 
+        held = symbol in position_set
+        is_watch = not held                      # core-only ticker: feed visibility, no alert
         new_material = []
         triggering = None
 
@@ -200,7 +226,12 @@ def main():
                 "published": item["published"],
                 "ts": item.get("ts", 0),
                 "material": bool(keyword),
+                "watch": is_watch,
             })
+            # Pushover only for names we actually HOLD — the core watchlist is
+            # dashboard-feed-only, so it never adds alert noise for unheld tickers.
+            if not held:
+                continue
             h = hash_headline(item["title"], item["link"])
             if h in state["items"]:
                 continue
@@ -218,6 +249,8 @@ def main():
         if new_material:
             push_alert(symbol, new_material, triggering)
             alerts_pushed += 1
+        elif is_watch:
+            print(f"  [{symbol}] watch — headlines added to feed (no alert)")
         else:
             print(f"  [{symbol}] no new material news")
 
