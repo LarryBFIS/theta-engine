@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-31T19:38:45.511468+00:00",
-  "market_view": "Month-end close with broad defensive rotation \u2014 IWM -2% and Industrials -2% signal small-cap/cyclical weakness while VIX ticks up 3.2% to 15; SLV short strike remains deep ITM and has not been closed despite multiple CRITICAL alerts.",
+  "last_run": "2026-08-31T19:44:57.226066+00:00",
+  "market_view": "Month-end close with defensive rotation intact \u2014 IWM -2% and Industrials -2% confirm small-cap/cyclical weakness while VIX +3.4% signals rising hedging demand; SLV continues bleeding ITM with no execution on multiple CRITICAL alerts, which is the only urgent issue.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-31T19:38:26Z",
-    "reasoning": "Short strike 2.3% ITM at 60.10, worst-case fill 0.75 is 1.36x the 0.55 credit and approaching the 1.5x stop at 0.825 \u2014 this has been CRITICAL for multiple cycles with no execution; every tick lower accelerates toward max loss on a $45 BPR position."
+    "timestamp": "2026-08-31T19:44:41Z",
+    "reasoning": "Short strike 2.4% ITM at 60.06, worst-case fill 0.75 is 1.36x credit and the position has been CRITICAL for multiple consecutive cycles with zero execution \u2014 max loss on this spread is $45 BPR but the opportunity cost of inaction is compounding as SLV stays pinned below 61.5."
   },
   "SPY 738/728p": {
     "action": "ACTION",
-    "confidence": 0.9,
-    "timestamp": "2026-08-31T19:38:26Z",
-    "reasoning": "At 24 DTE the 21 DTE hard exit rule triggers at Thursday open (Sep 3) \u2014 current mid 0.855 is only 19% profit vs 50% target, so rolling before Thursday is mandatory per playbook."
+    "confidence": 0.88,
+    "timestamp": "2026-08-31T19:44:41Z",
+    "reasoning": "24 DTE triggers the 21 DTE hard exit rule at Thursday open (Sep 3) \u2014 current mid 0.83 is 21% profit vs 50% target, so this will not hit the profit target before the DTE wall; rolling is the only playbook-compliant path."
   },
   "QQQ 679/670p": {
     "action": "HOLD",
-    "confidence": 0.92,
-    "timestamp": "2026-08-31T19:38:26Z",
-    "reasoning": "QQQ at 715.57 sits 5.1% above the 679 short strike with 29 DTE \u2014 opened today, mid 0.96 is essentially flat to credit, no rules triggered and structure intact despite today's -0.78% move."
+    "confidence": 0.91,
+    "timestamp": "2026-08-31T19:44:41Z",
+    "reasoning": "QQQ at 716.07 sits 5.2% above the 679 short strike with 29 DTE \u2014 opened today, mid 0.95 is near flat to credit, no rules triggered and the structure has comfortable cushion despite today's -0.7% move."
   }
 }
