@@ -503,13 +503,22 @@ function renderPositions(){
   $('poscount').textContent=DATA.positions.length+' working';
 }
 
-/* ---- render closed ---- */
+/* format an ISO date (YYYY-MM-DD…) as "Aug 27" without timezone drift */
+function _mdy(iso){
+  if(!iso) return '';
+  const p=String(iso).slice(0,10).split('-'); if(p.length<3) return '';
+  const mo=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+p[1]];
+  return mo?`${mo} ${+p[2]}`:String(iso).slice(0,10);
+}
+
+/* ---- render closed (newest exit first) ---- */
 function renderClosed(){
   const box=$('closedbody');box.innerHTML='';
   DATA.closed.forEach(c=>{
     const d=document.createElement('div');d.className='kv';
     const cls=c.pnl>=0?'up':'down', amt=(c.pnl>=0?'+$':'-$')+Math.abs(c.pnl).toFixed(2);
-    d.innerHTML=`<span class="k"><span class="sym">${c.sym}</span> <span class="struct">${c.code?c.code+' · ':''}${c.struct}</span> · ${c.days}d</span><span class="v ${cls}">${amt}</span>`;
+    const exit=_mdy(c.exit);
+    d.innerHTML=`<span class="k"><span class="sym">${c.sym}</span> <span class="struct">${c.code?c.code+' · ':''}${c.struct}</span> · ${c.days}d${exit?` · <span style="color:var(--dimmer)">exit ${exit}</span>`:''}</span><span class="v ${cls}">${amt}</span>`;
     box.appendChild(d);
   });
   const rs=$('realsum');
@@ -941,12 +950,16 @@ async function loadLive(){
     DATA.brokerClosing = _openBefore - open.length;   // closed at broker, ledger still syncing P&L
     // Newest close first, so a trade you just closed shows at the TOP of the list
     // instead of being buried at the bottom in file order.
+    // Realized trades: newest EXIT (close date) first; tie-break same-day exits by
+    // open date so the order is deterministic rather than trades.json file order.
+    const _exit = t => String(t.closed_at || t.opened_at || '');
     const closed = tj.trades.filter(t => t.status === 'closed')
-      .sort((a,b) => String(b.closed_at||b.opened_at||'').localeCompare(String(a.closed_at||a.opened_at||'')));
+      .sort((a,b) => _exit(b).localeCompare(_exit(a))
+                  || String(b.opened_at||'').localeCompare(String(a.opened_at||'')));
 
     DATA.closed = closed.map(t => {
       const s = structOf(t);
-      return { sym:t.underlying, struct:s.str, code:s.code, pnl:+(t.realized_pnl||0), days:t.days_held||0 };
+      return { sym:t.underlying, struct:s.str, code:s.code, pnl:+(t.realized_pnl||0), days:t.days_held||0, exit:_exit(t) };
     });
     DATA.realized = DATA.closed.reduce((a,c)=>a+c.pnl, 0);   // bottom-up, no USO
 
