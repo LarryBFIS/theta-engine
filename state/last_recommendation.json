@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-31T18:42:14.583509+00:00",
-  "market_view": "Month-end close with VIX +4.3% and broad defensive rotation \u2014 IWM -0.96% and industrials leading weakness while tech holds flat. SLV ITM emergency persists; SPY/QQQ verticals structurally intact.",
+  "last_run": "2026-08-31T18:48:36.710761+00:00",
+  "market_view": "Month-end with VIX +4.3% and broad defensive rotation persisting \u2014 SLV ITM crisis is the only urgent matter, SPY/QQQ verticals remain structurally intact with adequate distance to short strikes.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-31T18:42:01Z",
-    "reasoning": "Short strike 61.5 remains deep ITM with SLV at 59.72 \u2014 worst-case fill 0.75 is 1.36x the 0.55 credit, one tick from the 1.5x hard stop at 0.825, and multiple consecutive CRITICAL alerts have been generated with no close executed. This position violates short strike breach, ITM exposure, and playbook rules simultaneously."
+    "timestamp": "2026-08-31T18:48:25Z",
+    "reasoning": "Short strike 61.5 remains deep ITM with SLV at 59.76 \u2014 worst-case fill 0.75 is 1.36x the 0.55 credit, one tick from the 1.5x hard stop, and this has been flagged CRITICAL for multiple consecutive cycles with no close executed. Playbook requires immediate action."
   },
   "SPY 738/728p": {
-    "action": "ACTION",
-    "confidence": 0.88,
-    "timestamp": "2026-08-31T18:42:01Z",
-    "reasoning": "DTE is 24 and the 21 DTE hard exit rule triggers Thursday September 3 \u2014 current mid 0.925 vs 1.05 credit is only 12% profit, not at 50% target, so a roll to October expiry is required before Thursday rather than closing for a small winner."
+    "action": "WATCH",
+    "confidence": 0.82,
+    "timestamp": "2026-08-31T18:48:25Z",
+    "reasoning": "DTE is 24 \u2014 the 21 DTE hard exit rule triggers Thursday September 3; current mid 0.93 vs 1.05 credit is only 11% profit, nowhere near 50% target, so a roll to October will be required by Thursday. No action needed today but flag for Thursday morning."
   },
   "QQQ 679/670p": {
     "action": "HOLD",
     "confidence": 0.93,
-    "timestamp": "2026-08-31T18:42:01Z",
-    "reasoning": "QQQ at 714.03 sits 5.1% above the 679 short strike with 29 DTE \u2014 opened today, P&L flat (-2% unrealized at mid), structure healthy, no rules triggered."
+    "timestamp": "2026-08-31T18:48:25Z",
+    "reasoning": "QQQ at 714.06 sits 5.1% above the 679 short strike with 29 DTE \u2014 opened today, P&L essentially flat at mid, structure healthy, no rules triggered."
   }
 }
