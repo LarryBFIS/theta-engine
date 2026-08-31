@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-08-31T14:55:07.631189+00:00",
-  "market_view": "VIX +5.61% today with IWM -0.87% and industrials -1.03% confirming ongoing risk-off \u2014 SLV continues to bleed with underlying at 59.89, now 2.7% below the 61.5 short strike. SPY holding well above strikes at 765.83.",
+  "last_run": "2026-08-31T15:19:57.429765+00:00",
+  "market_view": "VIX +5.2% on the day with IWM -0.91% and industrials -1.16% \u2014 risk-off tone persists. SLV at 59.775 is now 2.88% below the 61.5 short strike with no recovery, worst cost 0.80 is 1.45x credit and one tick from the 1.5x hard stop.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-31T14:54:56Z",
-    "reasoning": "SLV at 59.895 is 1.605 points BELOW the 61.5 short strike with worst cost 0.75 already at 1.36x credit \u2014 one more tick of spread widening hits the 1.5x hard stop at 0.825, and this was flagged CRITICAL last cycle with zero recovery. Close immediately."
+    "timestamp": "2026-08-31T15:19:46Z",
+    "reasoning": "Short strike breached, underlying at 59.775 is 1.725 points below 61.5, worst cost 0.80 is 1.45x the 0.55 credit \u2014 one tick away from the 1.5x hard stop at 0.825. This was flagged CRITICAL last cycle with zero recovery and is continuing to deteriorate."
   },
   "SPY 738/728p": {
     "action": "WATCH",
-    "confidence": 0.85,
-    "timestamp": "2026-08-31T14:54:56Z",
-    "reasoning": "SPY at 765.83 is 3.6% above the 738 short strike with no breach risk, but mid cost 0.91 vs 1.05 credit is only ~13% profit \u2014 50% target not hit and 21 DTE hard exit fires Thursday September 3rd regardless of profit level."
+    "confidence": 0.82,
+    "timestamp": "2026-08-31T15:19:46Z",
+    "reasoning": "SPY at 765.62 is 3.6% above the 738 short strike \u2014 no breach risk. Mid cost 0.915 vs 1.05 credit is 13% profit, well short of 50% target, but 21 DTE hard exit triggers at open on September 3rd (Thursday)."
   }
 }
