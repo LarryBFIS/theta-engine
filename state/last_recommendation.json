@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-01T19:51:06.665069+00:00",
-  "market_view": "VIX +9.52% to 16.34, broad risk-off persists with QQQ -1.27%, IWM -1.24%, XLY -1.80% \u2014 tape is not recovering and no positive catalyst exists intraday. All three positions were flagged CRITICAL 5 minutes ago with no market improvement since; these are not hold situations.",
+  "last_run": "2026-09-01T19:55:20.674753+00:00",
+  "market_view": "VIX +10% to 16.41, broad risk-off with no intraday recovery \u2014 QQQ -1.28%, IWM -1.25%, XLY -1.75% all confirming continued selling pressure. These CRITICAL alerts have been live for multiple cycles with zero improvement; further delay is capital destruction.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-01T19:50:52Z",
-    "reasoning": "Short strike 61.5 remains 6.17% ITM, worst-case fill 0.80 is 1.455x credit \u2014 one uptick in IV or one leg down in SLV triggers the hard 1.5x stop and this has 120 DTE with zero recovery argument. This should have been closed last cycle."
+    "timestamp": "2026-09-01T19:55:06Z",
+    "reasoning": "Short strike 61.5 is 6.13% ITM with worst-case fill at 0.80 \u2014 that's 1.455x credit and one volatility tick away from the hard 1.5x stop. 120 DTE means no time-decay rescue argument; this is a broken trade."
   },
   "SPY 738/728p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-09-01T19:50:52Z",
-    "reasoning": "23 DTE breaches the hard 21 DTE exit rule with no exceptions \u2014 this rule has been violated for multiple consecutive cycles and the position is a loser at mid 1.245 vs 1.05 credit in a deteriorating tape."
+    "timestamp": "2026-09-01T19:55:06Z",
+    "reasoning": "23 DTE violates the hard 21 DTE exit rule and this position is a loser at mid 1.28 vs 1.05 credit with tape still deteriorating \u2014 this rule has been broken for multiple consecutive cycles."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-09-01T19:50:52Z",
-    "reasoning": "QQQ is the weakest index at -1.27% today, worst-case cost 1.45 is 1.436x credit with the hard 1.5x stop at 1.515 \u2014 a single continuation bar closes that gap instantly and QQQ has shown zero stabilization all session."
+    "confidence": 0.98,
+    "timestamp": "2026-09-01T19:55:06Z",
+    "reasoning": "QQQ is the weakest index at -1.28% with worst-case cost 1.48 sitting at 1.465x credit \u2014 the hard 1.5x stop at 1.515 is one continuation bar away and QQQ has shown zero stabilization all session."
   }
 }
