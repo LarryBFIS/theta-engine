@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-01T13:30:26.478540+00:00",
-  "market_view": "VIX +7% intraday at 16 with IWM -2% and industrials -2% confirming risk-off in cyclicals/small caps while large-cap indices hold. SLV remains the only burning position \u2014 no change in macro regime, no new catalysts.",
+  "last_run": "2026-09-01T13:40:17.659560+00:00",
+  "market_view": "VIX +6.6% intraday at 15.91 with QQQ leading declines at -1.42% and tech sector -1.76% \u2014 risk-off rotation into defensives (XLV +1.1%, XLP +0.9%, XLE +1%) confirms the regime. SLV remains the only catastrophic position; SPY 21 DTE clock ticking toward Thursday.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-01T13:30:05Z",
-    "reasoning": "Short strike is 5.3% ITM, worst-case fill at 0.75 is 1.36x credit \u2014 assignment risk is live and this has been flagged CRITICAL for multiple consecutive cycles with no execution. Max loss is $45 on a $45 BPR position; closing now at worst-case costs $75 debit vs. $55 credit received, a $20 realized loss \u2014 catastrophically better than full assignment or blow-through."
+    "timestamp": "2026-09-01T13:40:00Z",
+    "reasoning": "Short strike 5.15% ITM with SLV at 58.49, worst-case debit 0.75 vs. 0.55 credit \u2014 this is a $20 realized loss vs. $45 max loss and has been flagged CRITICAL for multiple consecutive cycles with no execution. Every minute of delay risks the spread blowing through the long strike at 60.50."
   },
   "SPY 738/728p": {
-    "action": "WATCH",
-    "confidence": 0.85,
-    "timestamp": "2026-09-01T13:30:05Z",
-    "reasoning": "SPY is 3.16% above short strike at 762 vs. 738 short put, 23 DTE \u2014 the hard 21 DTE exit rule triggers at September 3 open, two trading days away. Mid-cost at 0.825 represents only 21% profit, nowhere near the 50% target, so no early action warranted."
+    "action": "ACTION",
+    "confidence": 0.88,
+    "timestamp": "2026-09-01T13:40:00Z",
+    "reasoning": "At 23 DTE the hard 21 DTE exit rule triggers at Thursday September 3 open \u2014 with SPY -0.68% today and VIX spiking, there is directional risk into that deadline and mid-cost at 1.145 shows no profit target hit."
   },
   "QQQ 679/670p": {
-    "action": "HOLD",
-    "confidence": 0.92,
-    "timestamp": "2026-09-01T13:30:05Z",
-    "reasoning": "28 DTE, QQQ 4.02% above short strike at 707.36 vs. 679, mid-cost at 0.905 is 10% profit \u2014 theta is working, no rules triggered, underlying is stable."
+    "action": "WATCH",
+    "confidence": 0.82,
+    "timestamp": "2026-09-01T13:40:00Z",
+    "reasoning": "QQQ -1.42% today with mid-cost at 1.37 now showing a 36% unrealized loss (credit 1.01 vs. current 1.37) \u2014 not yet at the 1.5x stop trigger of 1.515 but deteriorating faster than SPY given tech weakness today."
   }
 }
