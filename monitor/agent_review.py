@@ -257,13 +257,32 @@ def run(candidates, ctx):
     try:
         text = _call_claude(system, user)
     except Exception as e:  # noqa: BLE001 — never break the scan on the agent
-        log.warning("agent review call failed (candidates pass unchanged): %s", e)
-        return candidates, None
+        log.warning("agent review call failed: %s", e)
+        text = ""
     parsed = parse_decisions(text)
+    used_model = llm.active_model(DEFAULT_MODEL)
+    # Kimi (a reasoning model) sometimes returns empty/unparseable content — the call
+    # succeeds but yields no market_view and no decisions, which would leave the whole
+    # feed "not AI-reviewed". Fall back to Claude so the review still completes; Kimi
+    # stays primary and Claude only covers a Kimi miss (the model field then reads
+    # claude-* so the dashboard is honest about who actually reviewed).
+    if (llm.provider() != llm.CLAUDE and os.getenv("ANTHROPIC_API_KEY")
+            and not parsed.get("market_view") and not parsed.get("decisions")):
+        log.warning("primary review (%s) returned nothing usable — falling back to Claude",
+                    llm.provider())
+        try:
+            fb = parse_decisions(llm.chat(system, user, model=DEFAULT_MODEL,
+                                          max_tokens=MAX_TOKENS, force_claude=True))
+            if fb.get("market_view") or fb.get("decisions"):
+                parsed, used_model = fb, DEFAULT_MODEL
+        except Exception as e:  # noqa: BLE001
+            log.warning("Claude fallback also failed: %s", e)
+    if not parsed.get("market_view") and not parsed.get("decisions"):
+        return candidates, None   # nothing usable from either provider — pass through
     kept, decision_log = apply_decisions(candidates, parsed)
     summary = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "model": llm.active_model(DEFAULT_MODEL),
+        "model": used_model,
         "market_view": parsed.get("market_view", ""),
         "portfolio_note": parsed.get("portfolio_note", ""),
         "reviewed": len(candidates), "vetoed": sum(1 for d in decision_log if d["action"] == "veto"),

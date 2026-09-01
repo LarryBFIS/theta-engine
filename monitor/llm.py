@@ -42,23 +42,24 @@ def active_model(claude_default: str) -> str:
 
 
 def chat(system: str, user: str, model: str = None, max_tokens: int = 1024,
-         timeout: int = None) -> str:
+         timeout: int = None, force_claude: bool = False) -> str:
     """One system+user turn against the active provider. Returns the reply text.
-    Raises on a missing key or API error (callers already guard/catch)."""
+    force_claude routes THIS call to Claude regardless of AI_PROVIDER — used as a
+    fallback when the primary provider (Kimi) returns nothing usable, so the review
+    still completes. Raises on a missing key or API error (callers already guard/catch)."""
+    active = CLAUDE if force_claude else provider()
     # kimi-k3 is a large reasoning model and can take well over 45s on a busy day. With
     # the old 45s timeout AND the client's silent 2 retries, a slow Moonshot response
-    # burned ~2.5 min and then timed out — dropping the whole review (agent=None, so the
-    # feed showed "not AI-reviewed"). Give Kimi a longer timeout and cap retries at 1 so
-    # one slow call can't cascade into a multi-minute failure. Both are env-tunable.
+    # burned ~2.5 min and then timed out — dropping the review. Give Kimi a longer
+    # timeout and cap retries at 1 so one slow call can't cascade. Both are env-tunable.
     if timeout is None:
-        timeout = int(os.getenv("LLM_TIMEOUT") or ("90" if provider() == KIMI else "45"))
+        timeout = int(os.getenv("LLM_TIMEOUT") or ("90" if active == KIMI else "45"))
     max_retries = int(os.getenv("LLM_MAX_RETRIES") or "1")
-    # Loud, unmissable line so a misconfig is obvious in the logs instead of silently
-    # falling back to Claude (which is exactly what bit us setting this up).
+    key_ok = bool(os.getenv("MOONSHOT_API_KEY") if active == KIMI else os.getenv("ANTHROPIC_API_KEY"))
     log.info("llm call · provider=%s · model=%s · key=%s · timeout=%ss · retries=%s",
-             provider(), model or active_model("(caller default)"),
-             "present" if api_key_present() else "MISSING", timeout, max_retries)
-    if provider() == KIMI:
+             active, model or active_model("(caller default)"),
+             "present" if key_ok else "MISSING", timeout, max_retries)
+    if active == KIMI:
         # Moonshot speaks the OpenAI Chat Completions dialect — lazy import so the
         # openai package is only needed when actually running on Kimi.
         from openai import OpenAI
