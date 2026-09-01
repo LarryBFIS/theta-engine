@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-01T17:19:43.226497+00:00",
-  "market_view": "VIX now +7.17% on the day, broad risk-off with tech, industrials, and discretionary all down 1.5%+ \u2014 no reversal catalyst into close and overnight gap risk is elevated. SLV and SPY positions were flagged CRITICAL last cycle and remain open, which is a rule violation.",
+  "last_run": "2026-09-01T17:27:09.382913+00:00",
+  "market_view": "VIX +7.64% today, broad risk-off into close with tech and industrials leading lower \u2014 no reversal catalyst visible and SLV/SPY positions flagged CRITICAL last cycle remain open, which is an active rule violation requiring immediate action.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-01T17:19:30Z",
-    "reasoning": "Short strike is 5.07% ITM, worst-case 0.80 is 1.45x credit and within pennies of the 1.5x hard stop at 0.825 \u2014 this was CRITICAL last cycle, it is still open, and every additional minute held is a compounding rule violation with no recovery path at 120 DTE."
+    "timestamp": "2026-09-01T17:26:57Z",
+    "reasoning": "Short strike is 5.08% ITM, worst-case 0.80 is already 1.45x the 0.55 credit with the 1.5x hard stop at 0.825 \u2014 this was CRITICAL last cycle, it is still open 7 minutes later, and continued holding is a compounding rule violation with zero recovery path at 120 DTE and underlying at 58.52."
   },
   "SPY 738/728p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-09-01T17:19:30Z",
-    "reasoning": "23 DTE means this hits the 21 DTE hard exit rule at tomorrow's open, mid 1.20 is already above entry credit 1.05 making this a net loser today, and holding overnight into a risk-off tape with VIX spiking creates gap-down breach risk on the 738 short put."
+    "timestamp": "2026-09-01T17:26:57Z",
+    "reasoning": "At 23 DTE this breaches the 21 DTE hard exit rule at tomorrow's open, mid 1.215 is already a net loser above the 1.05 credit, and holding overnight with VIX spiking in a risk-off tape creates gap-down breach risk on the 738 short put."
   },
   "QQQ 679/670p": {
     "action": "WATCH",
     "confidence": 0.82,
-    "timestamp": "2026-09-01T17:19:30Z",
-    "reasoning": "Worst-case 1.37 is 1.36x credit, still below the 1.5x hard stop at 1.515, and short strike 679 is 4.09% OTM with 28 DTE \u2014 not at the cut threshold yet but QQQ -1.22% today means one more down day of similar magnitude triggers the stop."
+    "timestamp": "2026-09-01T17:26:57Z",
+    "reasoning": "Worst-case 1.44 is 1.43x the 1.01 credit, still below the 1.5x hard stop at 1.515, and short strike 679 is 4.03% OTM with 28 DTE \u2014 not actionable yet but QQQ -1.28% today means one more comparable down day hits the 1.5x cut threshold."
   }
 }
