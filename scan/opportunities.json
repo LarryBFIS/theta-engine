@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-01T18:24:31.889396+00:00",
+  "generated_at": "2026-09-01T18:30:13.956033+00:00",
   "regime": {
-    "vix": 16.03,
-    "vix_day_change_pct": 0.0744,
+    "vix": 16.09,
+    "vix_day_change_pct": 0.0784,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (+7% day)"
+    "note": "normal regime (+8% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -17,98 +17,7 @@
     "longvol_max_iv_rank": 0.3,
     "longvol_catalyst_days": 14
   },
-  "top": [
-    {
-      "underlying": "IWM",
-      "structure": "short_put_vertical",
-      "expiry": "2026-10-02",
-      "dte": 31,
-      "short_strike": 276.0,
-      "long_strike": 271.0,
-      "short_symbol": "IWM   261002P00276000",
-      "long_symbol": "IWM   261002P00271000",
-      "width": 5.0,
-      "credit": 0.58,
-      "mid_credit": 0.63,
-      "fees_est": 3.0,
-      "bpr": 442.0,
-      "max_loss": 442.0,
-      "pop": 0.794,
-      "short_delta": 0.189,
-      "short_spread_pct": 0.028,
-      "credit_to_bpr": 0.131,
-      "ev_per_contract": 2.14,
-      "ev_on_bpr": 0.0048,
-      "iv": 0.2077,
-      "iv_rank": 0.226,
-      "underlying_price": 290.61,
-      "liquidity": 4,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "live",
-      "contracts": 1,
-      "max_loss_total": 442.0,
-      "bpr_total": 442.0,
-      "trend": "mixed",
-      "sized_capped": true,
-      "reasoning": "short put vertical 276/271p \u00d71 \u2014 rich premium. Edge: IV rank 23%, EV $+2/ctr (+0.5% on BPR). POP 79% \u00b7 credit $0.58 \u00b7 max loss $442 \u00b7 BPR $442 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 1.6,
-      "learn_notes": [
-        "asset_class=index_etf \u00d71.47",
-        "structure=short_put_vertical \u00d71.29"
-      ],
-      "rank_score": 0.00768,
-      "agent_action": "approve",
-      "agent_reason": "IWM is new (improves diversification), but pairing it with SPY candidate would still stack us 3-deep into us_index; in a strong directional day with low IV rank (0.226), this is a margin call waiting to happen. Veto this candidate to avoid ",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "clear",
-        "hits": []
-      },
-      "net_liq": 7198.682,
-      "ticket": {
-        "underlying": "IWM",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 0.58,
-        "contracts": 1,
-        "expiry": "2026-10-02",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 1,
-            "expiry": "2026-10-02",
-            "strike": 276.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 1,
-            "expiry": "2026-10-02",
-            "strike": 271.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 58.0,
-        "max_loss_total": 442.0,
-        "bpr_total": 442.0,
-        "pop": 0.794,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.29,
-          "stop_debit": 1.45,
-          "exit_dte": 21
-        },
-        "fits_live_cap": true,
-        "live_cap": 719.87,
-        "suggested_width": null,
-        "fit_note": "",
-        "text": "IWM VP \u00d71 \u2014 SELL 276P / BUY 271P (2026-10-02) @ $0.58 net credit. Max loss $442. After fill: GTC buy-to-close @ $0.29 (50%)."
-      },
-      "posted_at": "2026-09-01T18:24:31.889396+00:00"
-    }
-  ],
+  "top": [],
   "long_vol": [],
   "events": [],
   "learnings": {
@@ -159,23 +68,23 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-09-01T18:24:31.622972+00:00",
-    "model": "claude-haiku-4-5",
-    "market_view": "Market ripping +7% in normal regime with VIX 16.03; this is a strong directional day, NOT ideal for adding short premium into momentum. Premium sellers want choppy/sideways; we're in a one-way up tape that can reverse hard, making short puts poorly timed.",
-    "portfolio_note": "Book currently 2 open (QQQ + SPY), both index, unrealized -$21. Adding two more index positions (SPY + IWM, same cluster) concentrates us into ONE directional bet disguised as diversification \u2014 classic trap.",
+    "generated_at": "2026-09-01T18:30:13.953351+00:00",
+    "model": "kimi-k3",
+    "market_view": "VIX 16.09 in a 'normal' regime but the tape just ripped +8% on the day \u2014 that is a vertical relief rally, and IV ranks of 0.33/0.23 confirm premium has already been crushed. Selling fresh put spreads here is chasing thin, poorly compensated premium after the move has already happened.",
+    "portfolio_note": "The book already runs one position each in QQQ/SPY/IWM \u2014 effectively a single correlated long-US-equity-beta short-vol bet. Both candidates duplicate existing names, breaching the 1-per-name cap and pushing us_index to/over its cluster limit; that is one bet sized up, not diversification.",
     "reviewed": 2,
-    "vetoed": 1,
+    "vetoed": 2,
     "downsized": 0,
     "decisions": [
       {
-        "id": "SPY|short_put_vertical|732/723",
+        "id": "SPY|short_put_vertical|731/722",
         "action": "veto",
-        "reason": "Already long QQQ + SPY in us_index cluster; adding SPY again would breach concentration risk. Plus, selling puts into a +7% rip is poor timing \u2014 premium is cheap relative to directional tail risk right now."
+        "reason": "Already one SPY position open \u2014 a second spread doubles the same name past the per-name cap, and IVR 0.33 after an +8% day means thin premium for the risk."
       },
       {
         "id": "IWM|short_put_vertical|276/271",
-        "action": "approve",
-        "reason": "IWM is new (improves diversification), but pairing it with SPY candidate would still stack us 3-deep into us_index; in a strong directional day with low IV rank (0.226), this is a margin call waiting to happen. Veto this candidate to avoid "
+        "action": "veto",
+        "reason": "Duplicates an existing IWM position and pushes us_index concentration higher; IVR 0.226 is too thin to justify adding correlated short-vol into a post-spike tape."
       }
     ]
   },
@@ -185,43 +94,43 @@
       "structure": "short_put_vertical",
       "expiry": "2026-10-02",
       "dte": 31,
-      "short_strike": 732.0,
-      "long_strike": 723.0,
-      "short_symbol": "SPY   261002P00732000",
-      "long_symbol": "SPY   261002P00723000",
+      "short_strike": 731.0,
+      "long_strike": 722.0,
+      "short_symbol": "SPY   261002P00731000",
+      "long_symbol": "SPY   261002P00722000",
       "width": 9.0,
-      "credit": 0.97,
-      "mid_credit": 1.0,
+      "credit": 0.94,
+      "mid_credit": 0.97,
       "fees_est": 3.0,
-      "bpr": 803.0,
-      "max_loss": 803.0,
-      "pop": 0.799,
-      "short_delta": 0.189,
+      "bpr": 806.0,
+      "max_loss": 806.0,
+      "pop": 0.803,
+      "short_delta": 0.184,
       "short_spread_pct": 0.007,
-      "credit_to_bpr": 0.121,
-      "ev_per_contract": 6.45,
-      "ev_on_bpr": 0.008,
-      "iv": 0.1581,
-      "iv_rank": 0.324,
-      "underlying_price": 761.59,
+      "credit_to_bpr": 0.117,
+      "ev_per_contract": 7.01,
+      "ev_on_bpr": 0.0087,
+      "iv": 0.159,
+      "iv_rank": 0.33,
+      "underlying_price": 761.29,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 803.0,
-      "bpr_total": 803.0,
+      "max_loss_total": 806.0,
+      "bpr_total": 806.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "short put vertical 732/723p \u00d71 \u2014 rich premium. Edge: IV rank 32%, EV $+6/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.97 \u00b7 max loss $803 \u00b7 BPR $803 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 731/722p \u00d71 \u2014 rich premium. Edge: IV rank 33%, EV $+7/ctr (+0.9% on BPR). POP 80% \u00b7 credit $0.94 \u00b7 max loss $806 \u00b7 BPR $806 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.6,
       "learn_notes": [
         "asset_class=index_etf \u00d71.47",
         "structure=short_put_vertical \u00d71.29"
       ],
-      "rank_score": 0.0128,
+      "rank_score": 0.01392,
       "agent_action": "veto",
-      "agent_reason": "Already long QQQ + SPY in us_index cluster; adding SPY again would breach concentration risk. Plus, selling puts into a +7% rip is poor timing \u2014 premium is cheap relative to directional tail risk right now."
+      "agent_reason": "Already one SPY position open \u2014 a second spread doubles the same name past the per-name cap, and IVR 0.33 after an +8% day means thin premium for the risk."
     },
     {
       "underlying": "IWM",
@@ -233,85 +142,38 @@
       "short_symbol": "IWM   261002P00276000",
       "long_symbol": "IWM   261002P00271000",
       "width": 5.0,
-      "credit": 0.58,
+      "credit": 0.57,
       "mid_credit": 0.63,
       "fees_est": 3.0,
-      "bpr": 442.0,
-      "max_loss": 442.0,
+      "bpr": 443.0,
+      "max_loss": 443.0,
       "pop": 0.794,
       "short_delta": 0.189,
       "short_spread_pct": 0.028,
-      "credit_to_bpr": 0.131,
-      "ev_per_contract": 2.14,
-      "ev_on_bpr": 0.0048,
+      "credit_to_bpr": 0.129,
+      "ev_per_contract": 2.04,
+      "ev_on_bpr": 0.0046,
       "iv": 0.2077,
       "iv_rank": 0.226,
-      "underlying_price": 290.61,
+      "underlying_price": 290.6,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "live",
       "contracts": 1,
-      "max_loss_total": 442.0,
-      "bpr_total": 442.0,
+      "max_loss_total": 443.0,
+      "bpr_total": 443.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "short put vertical 276/271p \u00d71 \u2014 rich premium. Edge: IV rank 23%, EV $+2/ctr (+0.5% on BPR). POP 79% \u00b7 credit $0.58 \u00b7 max loss $442 \u00b7 BPR $442 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 276/271p \u00d71 \u2014 rich premium. Edge: IV rank 23%, EV $+2/ctr (+0.5% on BPR). POP 79% \u00b7 credit $0.57 \u00b7 max loss $443 \u00b7 BPR $443 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.6,
       "learn_notes": [
         "asset_class=index_etf \u00d71.47",
         "structure=short_put_vertical \u00d71.29"
       ],
-      "rank_score": 0.00768,
-      "agent_action": "approve",
-      "agent_reason": "IWM is new (improves diversification), but pairing it with SPY candidate would still stack us 3-deep into us_index; in a strong directional day with low IV rank (0.226), this is a margin call waiting to happen. Veto this candidate to avoid ",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "clear",
-        "hits": []
-      },
-      "net_liq": 7198.682,
-      "ticket": {
-        "underlying": "IWM",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 0.58,
-        "contracts": 1,
-        "expiry": "2026-10-02",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 1,
-            "expiry": "2026-10-02",
-            "strike": 276.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 1,
-            "expiry": "2026-10-02",
-            "strike": 271.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 58.0,
-        "max_loss_total": 442.0,
-        "bpr_total": 442.0,
-        "pop": 0.794,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.29,
-          "stop_debit": 1.45,
-          "exit_dte": 21
-        },
-        "fits_live_cap": true,
-        "live_cap": 719.87,
-        "suggested_width": null,
-        "fit_note": "",
-        "text": "IWM VP \u00d71 \u2014 SELL 276P / BUY 271P (2026-10-02) @ $0.58 net credit. Max loss $442. After fill: GTC buy-to-close @ $0.29 (50%)."
-      },
-      "posted_at": "2026-09-01T18:24:31.889396+00:00"
+      "rank_score": 0.00736,
+      "agent_action": "veto",
+      "agent_reason": "Duplicates an existing IWM position and pushes us_index concentration higher; IVR 0.226 is too thin to justify adding correlated short-vol into a post-spike tape."
     }
   ],
   "skipped": {
