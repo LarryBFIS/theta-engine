@@ -82,8 +82,14 @@ jobs:
           PUSHOVER_USER_KEY: ${{ secrets.PUSHOVER_USER_KEY }}
           PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Keep the reviewer on Kimi + always-on here too — this is the THIRD path that
+          # runs the scanner (backstop when the board is stale). Without AI_PROVIDER/
+          # MOONSHOT_API_KEY it silently reviewed on Claude, making the reviewer
+          # flip-flop kimi-k3 ↔ claude-haiku across scans. (Missed when wiring 0103/0111.)
+          AI_PROVIDER: kimi
+          MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
           AGENT_MODEL: ${{ vars.AGENT_MODEL }}
-          AGENT_REVIEW_MODE: ${{ vars.AGENT_REVIEW_MODE }}
+          AGENT_REVIEW_MODE: always
           SCAN_MAX_AGE_MIN: '25'
         run: python -m scripts.scan_if_stale
 
