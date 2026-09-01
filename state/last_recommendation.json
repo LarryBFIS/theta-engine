@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-01T20:21:19.834332+00:00",
-  "market_view": "VIX +10% at 16.42 with broad risk-off \u2014 QQQ -1.27%, IWM -1.14%, XLY -1.72%, no reversal signal. All three positions remain in critical breach with market closed for the day; these are carry-over CRITICAL alerts requiring immediate action at open tomorrow if not acted upon today.",
+  "last_run": "2026-09-01T20:21:37.410253+00:00",
+  "market_view": "VIX +10% at 16.43 with broad risk-off across tech, discretionary, and industrials \u2014 no reversal signal and market still deteriorating into close. All three positions are at or beyond rule-based exit triggers with no ameliorating factors.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-01T20:21:05Z",
-    "reasoning": "Short strike 61.5 is 6.18% ITM, worst-case fill 0.80 is at 1.455x credit \u2014 one tick from hard 1.5x stop (0.825), 120 DTE means zero theta rescue, and metals remain bid as safe haven in risk-off regime. This has been flagged CRITICAL for multiple cycles with no close executed."
+    "timestamp": "2026-09-01T20:21:21Z",
+    "reasoning": "Short strike 61.5 is 6.18% ITM, worst-case fill 0.80 is at 1.455x credit with hard stop at 1.5x (0.825) \u2014 one adverse tick triggers max-stop, 120 DTE means zero theta rescue, and metals remain bid as safe haven in risk-off. This has been CRITICAL for multiple cycles with no action taken \u2014 rule violation compounds every minute."
   },
   "SPY 738/728p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-09-01T20:21:05Z",
-    "reasoning": "At 23 DTE this is past the hard 21 DTE exit rule and is a loser at mid 1.215 vs 1.05 credit with VIX elevated \u2014 the rule violation has persisted across multiple cycles with no action taken."
+    "confidence": 0.98,
+    "timestamp": "2026-09-01T20:21:21Z",
+    "reasoning": "At 23 DTE this violates the hard 21 DTE exit rule and is a net loser at mid 1.215 vs 1.05 credit \u2014 rule breach has persisted across multiple cycles with VIX accelerating, leaving no justification to hold."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-09-01T20:21:05Z",
-    "reasoning": "QQQ was the weakest index today at -1.27% and worst-case cost 1.47 is at 1.455x credit \u2014 hard 1.5x stop triggers at worst-case 1.5075 (1.5 x 1.01 credit), leaving essentially zero buffer with VIX still elevated and no stabilization signal."
+    "confidence": 0.98,
+    "timestamp": "2026-09-01T20:21:21Z",
+    "reasoning": "QQQ is the weakest index today at -1.27% with worst-case cost 1.47 at 1.455x credit \u2014 hard 1.5x stop triggers at 1.515 worst-case with only a 0.045 buffer remaining and no stabilization signal."
   }
 }
