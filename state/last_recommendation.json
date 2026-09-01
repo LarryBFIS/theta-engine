@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-01T17:17:13.093356+00:00",
-  "market_view": "VIX +6.37% on the day with broad cyclical, tech, and small-cap selling \u2014 risk-off tape into close with no reversal catalyst. SLV continues to bleed ITM and both equity short put verticals are under pressure heading into overnight gap risk.",
+  "last_run": "2026-09-01T17:19:43.226497+00:00",
+  "market_view": "VIX now +7.17% on the day, broad risk-off with tech, industrials, and discretionary all down 1.5%+ \u2014 no reversal catalyst into close and overnight gap risk is elevated. SLV and SPY positions were flagged CRITICAL last cycle and remain open, which is a rule violation.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-01T17:17:00Z",
-    "reasoning": "Short strike is 5.07% ITM at 120 DTE, worst-case 0.80 is 1.45x credit and approaching the 1.5x hard stop \u2014 this was CRITICAL last cycle and still open, every minute held is a rule violation with no structural recovery catalyst."
+    "timestamp": "2026-09-01T17:19:30Z",
+    "reasoning": "Short strike is 5.07% ITM, worst-case 0.80 is 1.45x credit and within pennies of the 1.5x hard stop at 0.825 \u2014 this was CRITICAL last cycle, it is still open, and every additional minute held is a compounding rule violation with no recovery path at 120 DTE."
   },
   "SPY 738/728p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-09-01T17:17:00Z",
-    "reasoning": "At 23 DTE this position crosses the 21 DTE hard exit rule at tomorrow's open, mid 1.19 is already above entry credit 1.05 making this a net loser, and holding overnight in a risk-off tape with elevated VIX creates gap-down assignment risk."
+    "timestamp": "2026-09-01T17:19:30Z",
+    "reasoning": "23 DTE means this hits the 21 DTE hard exit rule at tomorrow's open, mid 1.20 is already above entry credit 1.05 making this a net loser today, and holding overnight into a risk-off tape with VIX spiking creates gap-down breach risk on the 738 short put."
   },
   "QQQ 679/670p": {
     "action": "WATCH",
-    "confidence": 0.8,
-    "timestamp": "2026-09-01T17:17:00Z",
-    "reasoning": "Worst-case 1.37 is 1.36x credit, still below the 1.5x hard stop at 1.515, and short strike is 4.08% OTM with 28 DTE \u2014 not at the cut threshold yet but QQQ down 1.24% today with another down day tomorrow puts this at the stop."
+    "confidence": 0.82,
+    "timestamp": "2026-09-01T17:19:30Z",
+    "reasoning": "Worst-case 1.37 is 1.36x credit, still below the 1.5x hard stop at 1.515, and short strike 679 is 4.09% OTM with 28 DTE \u2014 not at the cut threshold yet but QQQ -1.22% today means one more down day of similar magnitude triggers the stop."
   }
 }
