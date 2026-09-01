@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-01T14:31:48.044488+00:00",
-  "market_view": "VIX +4.22% to 15.55 with tech -1.44% and discretionary -0.87% still leading lower while defensives (XLP +1.33%, XLV +0.69%) and energy (+0.58%) bid \u2014 risk-off rotation intact. SLV short strike remains deeply ITM and SPY is 2 days from hard 21 DTE exit with near-zero edge remaining.",
+  "last_run": "2026-09-01T14:43:09.154158+00:00",
+  "market_view": "VIX +3.42% with tech -1.35% and discretionary -0.93% continuing risk-off rotation while defensives and energy hold bid \u2014 same regime as last cycle, no improvement for short-put book. SLV ITM problem and SPY 21 DTE clock are both unresolved from last alert cycle.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-01T14:31:32.552106+00:00",
-    "reasoning": "Short strike 4.76% ITM, worst-case cost 0.80 is 1.45x the 0.55 credit and within $0.025 of the 1.5x stop trigger (0.825 debit) \u2014 this has been flagged CRITICAL for multiple consecutive cycles with no execution and is bleeding toward full $45 max loss with 120 DTE offering no near-term relief."
+    "timestamp": "2026-09-01T14:42:52Z",
+    "reasoning": "Short strike 4.9% ITM, worst-case cost 0.80 is 1.45x the 0.55 credit and within a tick of the 1.5x hard stop at 0.825 \u2014 this was flagged CRITICAL last cycle and still has not been closed, bleeding toward full $45 max loss with 120 DTE offering zero near-term recovery path."
   },
   "SPY 738/728p": {
     "action": "ACTION",
     "confidence": 0.95,
-    "timestamp": "2026-09-01T14:31:32.552106+00:00",
-    "reasoning": "23 DTE means the hard 21 DTE exit triggers in 2 days, mid cost 0.975 vs. 1.05 credit = only $7.50 profit remaining per spread with SPY down today \u2014 no edge justifies holding to the wire."
+    "timestamp": "2026-09-01T14:42:52Z",
+    "reasoning": "23 DTE means hard 21 DTE exit triggers in 2 days, mid cost 0.985 vs 1.05 credit leaves only $6.50 net profit per spread \u2014 risk/reward of holding 2 more days in a down-tape risk-off environment is negative."
   },
   "QQQ 679/670p": {
     "action": "WATCH",
     "confidence": 0.82,
-    "timestamp": "2026-09-01T14:31:32.552106+00:00",
-    "reasoning": "Mid cost 1.21 vs. 1.01 credit = 19.8% unrealized loss with QQQ -1.01% and XLK -1.44% applying continued pressure \u2014 1.5x stop is 1.515 debit and worst-case 1.28 is not there yet, but directional headwind is intensifying."
+    "timestamp": "2026-09-01T14:42:52Z",
+    "reasoning": "Mid cost 1.165 vs 1.01 credit = 15.3% unrealized loss with QQQ -0.96% and XLK -1.35% still pressing \u2014 worst-case 1.23 is approaching but not yet at the 1.515 hard stop, and 28 DTE provides some runway."
   }
 }
