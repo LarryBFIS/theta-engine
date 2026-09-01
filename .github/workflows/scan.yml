@@ -38,7 +38,7 @@ jobs:
           # runs exactly as before (agent disabled, candidates pass unchanged).
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           AGENT_MODEL: ${{ vars.AGENT_MODEL }}
-          AGENT_REVIEW_MODE: ${{ vars.AGENT_REVIEW_MODE }}
+          AGENT_REVIEW_MODE: always   # review EVERY scan — was vars.AGENT_REVIEW_MODE (live_or_event), which skipped paper-only scans and left opportunities "not AI-reviewed"
         run: python -m scripts.scan_opportunities
 
       - name: Track paper trades

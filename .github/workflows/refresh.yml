@@ -98,7 +98,7 @@ jobs:
           PUSHOVER_APP_TOKEN: ${{ secrets.PUSHOVER_APP_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           AGENT_MODEL: ${{ vars.AGENT_MODEL }}
-          AGENT_REVIEW_MODE: ${{ vars.AGENT_REVIEW_MODE }}
+          AGENT_REVIEW_MODE: always   # review EVERY scan — was vars.AGENT_REVIEW_MODE (live_or_event), which skipped paper-only scans and left opportunities "not AI-reviewed"
           MOONSHOT_MODEL: ${{ vars.MOONSHOT_MODEL }}
           # AI_PROVIDER + MOONSHOT_API_KEY are inherited from the job-level env above.
         run: python -m scripts.scan_opportunities
