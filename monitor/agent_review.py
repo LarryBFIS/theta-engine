@@ -220,10 +220,11 @@ def apply_decisions(candidates, parsed):
     return kept, decision_log
 
 
-def _call_claude(system, user, model=None, max_tokens=MAX_TOKENS, timeout=45):
+def _call_claude(system, user, model=None, max_tokens=MAX_TOKENS, timeout=None):
     """One chat call to the ACTIVE provider (Claude or Kimi); returns the text.
     Routed through monitor.llm so AI_PROVIDER=kimi moves this call to Moonshot with
-    no other change. Raises on missing key/error (run() catches)."""
+    no other change. timeout=None lets llm.chat pick a provider-aware default (Kimi
+    needs longer than Claude). Raises on missing key/error (run() catches)."""
     from monitor import llm
     return llm.chat(system, user, model=model or llm.active_model(DEFAULT_MODEL),
                     max_tokens=max_tokens, timeout=timeout)
