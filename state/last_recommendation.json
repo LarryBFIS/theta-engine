@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-01T18:27:50.170984+00:00",
-  "market_view": "VIX at 16.08 (+7.77%) with broad risk-off selling \u2014 tech -1.67%, discretionary -1.63%, industrials -1.46% while defensives and energy hold. SLV ITM blow-through and SPY 21 DTE rule are both mandatory closes that have been flagged repeatedly with no action taken.",
+  "last_run": "2026-09-01T18:42:39.149305+00:00",
+  "market_view": "VIX +8% to 16.12 with broad risk-off accelerating \u2014 tech -1.92%, discretionary -1.78%, QQQ -1.55% on the day while energy and defensives rotate in. SLV remains deeply ITM and two positions have been flagged CRITICAL repeatedly with no action taken \u2014 this is a rule-violation emergency, not a watch situation.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-01T18:27:29.829067+00:00",
-    "reasoning": "Short strike 61.5 is 5.5% ITM with SLV at 58.28, worst-case 0.80 is 1.45x credit but mid 0.65 is already 1.18x \u2014 position is past the 1.5x stop on worst-case basis and has been flagged CRITICAL multiple times with zero action. Every minute held risks full $45 max loss on a $55 max profit position."
+    "timestamp": "2026-09-01T18:42:23Z",
+    "reasoning": "Short strike 61.5 is 6% ITM with SLV at 58.02, worst-case 0.80 is 1.45x the 0.55 credit and approaching full max loss on a $45 BPR position \u2014 this has been CRITICAL for multiple cycles with zero action, every additional minute risks pinning at full $45 loss on what was a $55 max profit trade."
   },
   "SPY 738/728p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-09-01T18:27:29.829067+00:00",
-    "reasoning": "23 DTE today means the 21 DTE hard exit rule fires at tomorrow's open \u2014 this is a mandatory close today per playbook, and with VIX spiking and SPY down -0.74% the overnight gap-down risk on a losing position makes waiting to tomorrow an active rule violation."
+    "timestamp": "2026-09-01T18:42:23Z",
+    "reasoning": "DTE is 23 and the 21 DTE hard exit rule mandates closure \u2014 this has been flagged CRITICAL for multiple cycles with no action, and holding overnight into a VIX-spiking, risk-off tape on a position already losing money is an active playbook violation."
   },
   "QQQ 679/670p": {
     "action": "WATCH",
-    "confidence": 0.8,
-    "timestamp": "2026-09-01T18:27:29.829067+00:00",
-    "reasoning": "Worst-case 1.40 is 1.39x the 1.01 credit, still below the 1.5x hard stop at 1.515, and short strike 679 is 4.0% OTM with 28 DTE \u2014 not actionable yet, but QQQ down -1.34% today and VIX continuing to rise is eroding cushion fast."
+    "confidence": 0.78,
+    "timestamp": "2026-09-01T18:42:23Z",
+    "reasoning": "Worst-case 1.51 is 1.495x the 1.01 credit, within a hair of the 1.5x hard stop at 1.515, with QQQ down -1.55% and VIX +8% continuing to pressure \u2014 not technically triggered yet but one more tick and this becomes an ACTION."
   }
 }
