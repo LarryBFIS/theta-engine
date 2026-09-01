@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-08-31T20:55:04.533811+00:00",
-  "market_view": "Month-end close with VIX ticking up 2.83% to 14.92 \u2014 IWM and industrials leading the bleed while energy bids. SLV remains the only live fire on the book.",
+  "last_run": "2026-09-01T13:20:33.224725+00:00",
+  "market_view": "VIX spiking 7% intraday to 15.96 with IWM -2% and industrials -2% signals a small-cap/cyclical bleed while large-cap tech holds. SLV short strike remains ITM \u2014 this is the only fire that matters right now.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-08-31T20:54:52Z",
-    "reasoning": "Short strike 2.28% ITM, worst-case fill at 0.75 is 1.36x credit and approaching the 1.5x stop \u2014 this has been CRITICAL for multiple consecutive cycles with zero execution, which is compounding loss and assignment risk every minute."
+    "timestamp": "2026-09-01T13:20:04Z",
+    "reasoning": "Short strike 2.28% ITM, worst-case fill 0.75 is 1.36x credit and assignment risk is live \u2014 this position has been flagged CRITICAL across multiple consecutive cycles with no execution, every minute of delay increases loss and assignment exposure. Close immediately at market."
   },
   "SPY 738/728p": {
-    "action": "WATCH",
-    "confidence": 0.85,
-    "timestamp": "2026-08-31T20:54:52Z",
-    "reasoning": "24 DTE, SPY 3.79% above short strike \u2014 21 DTE hard exit triggers Thursday September 3 open and mid-profit is only 21%, well short of the 50% target."
+    "action": "ACTION",
+    "confidence": 0.88,
+    "timestamp": "2026-09-01T13:20:04Z",
+    "reasoning": "23 DTE \u2014 hard 21 DTE exit rule triggers in 2 days at the September 3 open, and mid-cost at 0.825 is only 21% of max profit, well short of 50% target. VIX spike today is actually helping theta decay but the rule is the rule."
   },
   "QQQ 679/670p": {
     "action": "HOLD",
-    "confidence": 0.93,
-    "timestamp": "2026-08-31T20:54:52Z",
-    "reasoning": "Opened today, 29 DTE, QQQ 5.27% above short strike, no rules triggered \u2014 theta doing its job."
+    "confidence": 0.91,
+    "timestamp": "2026-09-01T13:20:04Z",
+    "reasoning": "28 DTE, QQQ 5.27% above short strike, mid-cost at 0.905 is only 10% profit \u2014 no rules triggered, theta working, VIX expansion slightly improving future premium decay."
   }
 }
