@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-02T19:45:10.558513+00:00",
-  "market_view": "VIX down 7% to 15.19, market broadly green with IWM +1.26% leading \u2014 constructive tape but SLV remains deeply ITM with no recovery. Both SLV and SPY flags from last cycle are still unactioned and remain urgent.",
+  "last_run": "2026-09-02T19:55:12.567406+00:00",
+  "market_view": "VIX crushed to 15.26 (-6.6% today), broad market green with IWM leading at +1.15% \u2014 constructive tape but SLV continues to bleed with no recovery; SPY 21 DTE hard rule is now a mandatory close that has been flagged two consecutive cycles without execution.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-02T19:44:57.696580+00:00",
-    "reasoning": "Short strike 61.5 is breached with SLV at 58.99 \u2014 4.2% ITM, worst-case fill 0.75 is 1.36x credit but mid 0.65 is already 1.18x and the position is near max loss territory with 119 DTE remaining; this has been flagged CRITICAL multiple cycles with no close executed."
+    "timestamp": "2026-09-02T19:54:57Z",
+    "reasoning": "Short strike 61.5 is breached with SLV at 58.985 \u2014 4.26% ITM, mid cost 0.65 is already 1.18x credit and worst-case 0.75 is 1.36x; this position has been flagged CRITICAL for multiple consecutive cycles with no close executed, which is a rule violation."
   },
   "SPY 738/728p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-09-02T19:44:57.696580+00:00",
-    "reasoning": "22 DTE today means the 21 DTE hard exit rule triggers at tomorrow's open \u2014 this is a rules-based mandatory close, and the mid at 0.91 locks a $14 winner; every additional hour adds overnight gap risk into the Friday session."
+    "confidence": 0.98,
+    "timestamp": "2026-09-02T19:54:57Z",
+    "reasoning": "22 DTE today means the 21 DTE hard exit rule triggers now \u2014 this is a mandatory rules-based close, mid at 0.925 locks a $12.50 winner, and this has been flagged CRITICAL last cycle with no action taken."
   },
   "QQQ 679/670p": {
     "action": "WATCH",
-    "confidence": 0.71,
-    "timestamp": "2026-09-02T19:44:57.696580+00:00",
-    "reasoning": "Mid 1.235 is 1.22x credit and worst-case 1.29 is 1.28x \u2014 both below the 1.5x hard stop at 1.515; short 679 is 4.2% OTM with 27 DTE, no trigger yet but QQQ is the weakest index on the 5-day at -1.12%."
+    "confidence": 0.72,
+    "timestamp": "2026-09-02T19:54:57Z",
+    "reasoning": "Mid 1.22 is 1.21x credit, below the 1.5x hard stop at 1.515; short 679 is 4.27% OTM with 27 DTE and QQQ is weakest on 5-day at -1.05%, but no trigger breached yet."
   }
 }
