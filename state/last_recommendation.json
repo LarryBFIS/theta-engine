@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-02T17:19:29.058325+00:00",
-  "market_view": "VIX -6.2% to 15.32, SPY +0.36% in neutral regime \u2014 risk-on tone continues but SLV remains structurally broken and SPY hits 21 DTE hard exit rule at tomorrow's open. Both closures are non-negotiable first orders.",
+  "last_run": "2026-09-02T17:27:37.714686+00:00",
+  "market_view": "VIX -5.6% to 15.43, SPY +0.37% in neutral regime \u2014 risk-on today but 5d weakness in QQQ/IWM/XLI signals underlying fragility. SLV structural breakdown and SPY 21 DTE rule are both non-negotiable closures that have gone unexecuted for multiple cycles.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-02T17:19:17.067756+00:00",
-    "reasoning": "Short strike 61.5 breached with SLV at 58.56 \u2014 5.0% ITM, worst-case fill 0.75 is 1.36x credit and approaching 1.5x hard stop fast, 119 DTE means months of theta working against us. This has been CRITICAL for multiple consecutive cycles with zero confirmed execution \u2014 unacceptable."
+    "timestamp": "2026-09-02T17:27:22.754751+00:00",
+    "reasoning": "Short strike 61.5 is breached with SLV at 58.61 \u2014 4.9% ITM, worst-case fill 0.80 is 1.45x credit and sitting just below the 1.5x hard stop at 0.825; 119 DTE means this bleeds premium daily against us with no mechanical relief coming. This is the third-plus consecutive cycle flagged CRITICAL with zero confirmed execution \u2014 every minute of delay increases assignment and max-loss risk."
   },
   "SPY 738/728p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-02T17:19:17.067756+00:00",
-    "reasoning": "SPY hits 21 DTE tomorrow \u2014 the hard exit rule is non-negotiable, no exceptions; mid 0.97 still locks a small profit relative to 1.05 credit. This has been flagged CRITICAL multiple cycles with zero confirmed execution."
+    "timestamp": "2026-09-02T17:27:22.754751+00:00",
+    "reasoning": "SPY expires 2026-09-25 at 22 DTE \u2014 the 21 DTE hard exit rule triggers at tomorrow's open and this has been flagged for multiple cycles with zero execution; mid at 0.965 still locks a small net profit versus 1.05 credit entry. Close today, not tomorrow."
   },
   "QQQ 679/670p": {
     "action": "WATCH",
-    "confidence": 0.73,
-    "timestamp": "2026-09-02T17:19:17.067756+00:00",
-    "reasoning": "Mid 1.26 is 1.25x credit, worst-case 1.31 is 1.30x \u2014 still below 1.5x hard stop at 1.515, short strike 679 remains 4.1% OTM with 27 DTE and QQQ essentially flat today. No hard rule triggered yet but cost is creeping up."
+    "confidence": 0.72,
+    "timestamp": "2026-09-02T17:27:22.754751+00:00",
+    "reasoning": "Mid 1.235 is 1.22x credit, worst-case 1.29 is 1.28x \u2014 still below 1.5x hard stop at 1.515, short strike 679 is 4.1% OTM with 27 DTE; QQQ flat today but 5d down 1.23% and XLK weak, so cost creep is real but no hard rule triggered."
   }
 }
