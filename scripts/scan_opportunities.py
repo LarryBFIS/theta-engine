@@ -1312,6 +1312,14 @@ def main() -> int:
             c["ticket"] = trade_ticket.build_ticket(c)
     except Exception as e:  # noqa: BLE001 — never fail the scan on ticket rendering
         log.warning("ticket build failed: %s", e)
+    # Expected-move forecast + scoring loop: log the implied 1-sigma move for the core
+    # indices and grade any matured forecasts against realized moves — using this scan's
+    # own spots, so no extra fetch. Measures the vol risk premium and scores the AI's read.
+    try:
+        from monitor import forecast
+        forecast.tick(prices, metrics, agent_summary)
+    except Exception as e:  # noqa: BLE001 — forecasting must never break the scan
+        log.warning("forecast tick failed: %s", e)
     _write(ranked, candidates, skipped, regime, long_vol, events, learnings, agent_summary)
     _alert_new_opportunities(ranked)
     if regime.get("stand_down"):

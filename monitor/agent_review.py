@@ -115,6 +115,9 @@ def _constitution(learnings):
               '{"market_view": "<=2 sentences: your read on the tape RIGHT NOW —',
               '   direction bias + vol regime + what it means for TIMING these premium sells",',
               ' "portfolio_note": "<=2 sentences on overall book risk",',
+              ' "vol_verdict": "implied_rich|implied_cheap|fair — is the broad-index option',
+              '   market OVER- or UNDER-pricing the expected move right now? (rich = good to',
+              '   sell premium; cheap = do not)",',
               ' "decisions": [{"id": "<echo the candidate id>",',
               '   "action": "approve|downsize|veto",',
               '   "contracts": <int, only if downsize>,',
@@ -162,6 +165,19 @@ def _user_message(candidates, ctx):
             "each. Be conservative — veto anything that adds correlated risk, fights "
             "an upcoming event, or is a marginal single-name.\n\n"
             + json.dumps(payload, indent=2, default=str))
+
+
+def _norm_vol_verdict(s):
+    """Normalize the model's vol read to one of implied_rich / implied_cheap / fair / None,
+    tolerant of phrasing ('rich', 'implied rich', 'implied_rich')."""
+    s = (s or "").strip().lower()
+    if "rich" in s:
+        return "implied_rich"
+    if "cheap" in s:
+        return "implied_cheap"
+    if "fair" in s:
+        return "fair"
+    return None
 
 
 def parse_decisions(text):
@@ -285,6 +301,7 @@ def run(candidates, ctx):
         "model": used_model,
         "market_view": parsed.get("market_view", ""),
         "portfolio_note": parsed.get("portfolio_note", ""),
+        "vol_verdict": _norm_vol_verdict(parsed.get("vol_verdict")),
         "reviewed": len(candidates), "vetoed": sum(1 for d in decision_log if d["action"] == "veto"),
         "downsized": sum(1 for d in decision_log if d["action"] == "downsize"),
         "decisions": decision_log,
