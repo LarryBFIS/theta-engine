@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-02T14:20:17.269036+00:00",
-  "market_view": "Neutral regime, VIX pulling back to 15.71 (-3.86% today) but still +5.29% on the week \u2014 the risk-off drift has not reversed. SPY/QQQ green marginally today but weekly trend still down; no catalyst to rescue ITM/near-stop positions.",
+  "last_run": "2026-09-02T14:22:14.071831+00:00",
+  "market_view": "Neutral regime with VIX at 15.62 (-4.41% today) but still +4.69% on the week \u2014 today's green is a dead-cat bounce, not a trend reversal. SLV remains deeply ITM with no recovery in sight; SPY/QQQ positions flagged CRITICAL last cycle remain unresolved.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-02T14:20:01.269421+00:00",
-    "reasoning": "Short strike 61.5 remains breached with SLV at 59.04 \u2014 4.1% ITM, worst-case fill 0.80 is 1.45x credit at hard stop boundary, and this has been flagged CRITICAL for 25+ minutes with no close confirmed. Every minute ITM adds assignment and gap risk with 119 DTE to manage."
+    "timestamp": "2026-09-02T14:21:57.108373+00:00",
+    "reasoning": "Short strike 61.5 is breached with SLV at 59.125 \u2014 4.0% ITM, worst-case fill 0.75 is 1.36x credit and approaching the 1.5x hard stop; with 119 DTE the position has enormous time left to blow through max loss and this CRITICAL has been unresolved for multiple cycles."
   },
   "SPY 738/728p": {
     "action": "CRITICAL",
-    "confidence": 0.98,
-    "timestamp": "2026-09-02T14:20:01.269421+00:00",
-    "reasoning": "DTE is 22 \u2014 the 21 DTE hard exit rule is triggered with zero discretion; SPY is at 764.89 so the spread has some extrinsic left, but the rule is the rule and this has been unresolved for 25+ minutes."
+    "confidence": 0.99,
+    "timestamp": "2026-09-02T14:21:57.108373+00:00",
+    "reasoning": "DTE is 22 \u2014 the 21 DTE hard exit rule is triggered with zero discretion, and this has been flagged CRITICAL for two consecutive cycles with no close confirmed; rule is the rule."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-09-02T14:20:01.269421+00:00",
-    "reasoning": "Worst-case fill 1.31 is 1.297x credit and mid 1.255 is 1.243x \u2014 not yet at 1.5x stop but QQQ is still down 1.17% on the week with no stabilization; this was flagged at near-stop last cycle and remains unresolved. Close alongside the other two to free BPR and stop the bleeding."
+    "confidence": 0.95,
+    "timestamp": "2026-09-02T14:21:57.108373+00:00",
+    "reasoning": "Mid cost 1.25 is 1.24x credit and worst-case 1.31 is 1.30x \u2014 not yet at 1.5x hard stop but QQQ is -1.12% on the week with no stabilization, this was flagged near-stop last cycle and is still unresolved; with two other positions needing closure, freeing BPR and resetting exposure is the right move."
   }
 }
