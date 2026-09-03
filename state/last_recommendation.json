@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-03T13:55:29.975454+00:00",
-  "market_view": "VIX 15.05 in neutral regime, market modestly green today \u2014 benign macro tape but SLV remains deeply ITM and SPY is at the hard 21 DTE mandatory close rule, both flagged CRITICAL multiple consecutive cycles with zero execution recorded.",
+  "last_run": "2026-09-03T14:21:45.714852+00:00",
+  "market_view": "VIX 15.05, market modestly green today with neutral regime \u2014 benign tape but SLV remains short-strike-breached and SPY has hit the hard 21 DTE mandatory close rule, both requiring immediate execution that has not occurred across multiple consecutive cycles.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-03T13:55:17Z",
-    "reasoning": "Short strike 61.5 breached with SLV at 59.86 \u2014 2.7% ITM, worst-case cost 0.75 is 1.36x credit and approaching the 1.5x hard stop at 0.825; this has been flagged CRITICAL across multiple consecutive cycles with zero execution and cannot be ignored further."
+    "timestamp": "2026-09-03T14:21:31Z",
+    "reasoning": "Short strike 61.5 breached with SLV at 60.15 \u2014 still 2.2% ITM, worst-case cost 0.70 is 1.27x credit and trending toward the 1.5x hard stop at 0.825; this has been flagged CRITICAL for multiple consecutive cycles with zero execution recorded."
   },
   "SPY 738/728p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-03T13:55:17Z",
-    "reasoning": "SPY is at exactly 21 DTE \u2014 hard mandatory exit rule with zero discretion, mid at 0.705 locks in ~33% of max profit; this close has been flagged CRITICAL across multiple consecutive cycles with no execution recorded and rule compliance is non-negotiable."
+    "timestamp": "2026-09-03T14:21:31Z",
+    "reasoning": "SPY is at exactly 21 DTE \u2014 this is a hard mandatory exit rule with zero discretion; mid at 0.735 locks in 30% of max profit and the rule has been flagged CRITICAL across multiple consecutive cycles with zero execution."
   },
   "QQQ 679/670p": {
     "action": "WATCH",
     "confidence": 0.72,
-    "timestamp": "2026-09-03T13:55:17Z",
-    "reasoning": "Mid 1.035 is essentially flat to credit (1.02x entry cost), well below the 1.5x hard stop; short 679 is 4.8% OTM with 26 DTE \u2014 no rule breach yet, but QQQ is the weakest 5-day performer at -0.89% and cost is slightly inverted vs entry credit."
+    "timestamp": "2026-09-03T14:21:31Z",
+    "reasoning": "Mid 1.03 is essentially flat to entry credit (1.02x cost) with short 679 still 4.75% OTM at 26 DTE \u2014 no rule breach, but position is a slight loser and QQQ is the weakest 5-day performer at -0.96%."
   }
 }
