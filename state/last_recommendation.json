@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-03T18:55:22.661226+00:00",
-  "market_view": "VIX crushed to 14.49 on broad risk-on tape \u2014 irrelevant for SLV which is trading below the long strike and in max-loss territory. QQQ +1.31% continues to benefit the 679/670p spread.",
+  "last_run": "2026-09-03T19:14:57.826492+00:00",
+  "market_view": "VIX at 14.44 (-5% today) confirms low-fear risk-on regime; QQQ +1.2% is grinding higher but SLV remains below the long strike making this a max-loss scenario that demands immediate action.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-03T18:55:11Z",
-    "reasoning": "Underlying at 60.415 is BELOW the long strike of 60.5 \u2014 this spread is at near-max loss, worst cost 0.75 is 1.36x the 0.55 credit which exceeds the 1.5x stop rule, and this is the third consecutive CRITICAL alert with no action taken. 118 DTE means this loss compounds daily."
+    "timestamp": "2026-09-03T19:14:44Z",
+    "reasoning": "SLV at 60.40 is BELOW the long strike of 60.5 \u2014 spread is pinned at max loss, worst cost 0.75 is 1.36x the 0.55 credit breaching the 1.5x stop rule, and this is now the fourth consecutive CRITICAL alert with zero action taken. Every minute held is dead money with no recovery path at 118 DTE."
   },
   "QQQ 679/670p": {
-    "action": "HOLD",
-    "confidence": 0.88,
-    "timestamp": "2026-09-03T18:55:11Z",
-    "reasoning": "Mid at 0.815 is 19.3% profit, short strike 5.5% OTM with QQQ ripping \u2014 50% profit target at 0.505 mid not yet hit, theta grinding in our favor at 26 DTE."
+    "action": "WATCH",
+    "confidence": 0.82,
+    "timestamp": "2026-09-03T19:14:44Z",
+    "reasoning": "Mid at 0.835 is 17.3% profit, not yet at 50% target (0.505 mid), but 26 DTE triggers the 21 DTE exit rule in 5 days \u2014 set a GTC order at 0.505 mid and flag calendar for Sept 8 hard close if not filled."
   }
 }
