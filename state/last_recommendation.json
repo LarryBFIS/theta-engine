@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-03T19:16:35.996871+00:00",
-  "market_view": "VIX -5% to 14.44 in a risk-on tape with SPY +1.07% and QQQ +1.2%; metals lagging badly with SLV pinned below the long strike making the spread a max-loss scenario with zero recovery path.",
+  "last_run": "2026-09-03T19:25:53.606809+00:00",
+  "market_view": "VIX crushed -5% to 14.43 in a broad risk-on session with SPY +1.05% and QQQ +1.19%; metals continue to lag with SLV stuck below both strikes, confirming no recovery path for the spread.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-03T19:16:21.513319+00:00",
-    "reasoning": "SLV at 60.44 is BELOW the long strike 60.5 \u2014 spread is at effective max loss, worst cost 0.75 is 1.36x the 0.55 credit breaching the 1.5x stop rule, and this is an active CRITICAL that has gone unactioned for multiple cycles with zero recovery path at 118 DTE."
+    "timestamp": "2026-09-03T19:25:44.654189+00:00",
+    "reasoning": "SLV at 60.40 is BELOW the long strike 60.50 \u2014 spread is pinned at effective max loss, worst cost 0.75 is 1.36x the 0.55 credit and the 1.5x stop rule is imminent; this CRITICAL has been unactioned for multiple cycles with 118 DTE meaning zero theta salvation."
   },
   "QQQ 679/670p": {
     "action": "WATCH",
     "confidence": 0.82,
-    "timestamp": "2026-09-03T19:16:21.513319+00:00",
-    "reasoning": "Mid at 0.825 is 18.3% profit versus the 50% target at 0.505 mid; 26 DTE means the 21 DTE hard exit triggers in 5 calendar days on Sept 8."
+    "timestamp": "2026-09-03T19:25:44.654189+00:00",
+    "reasoning": "Mid at 0.82 is 18.8% profit vs 50% target at 0.505; QQQ +1.19% today is moving the spread favorably but 26 DTE means the 21 DTE hard exit triggers in 5 calendar days around Sept 8 \u2014 no action today but flag it for Monday open."
   }
 }
