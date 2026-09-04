@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-04T17:18:08.807273+00:00",
-  "market_view": "VIX at 14.1 and falling, market regime neutral with tech leading green and defensives/discretionary lagging \u2014 no catalyst for SLV recovery with silver still below 61.5 short strike and QQQ holding 5.5% above its short strike.",
+  "last_run": "2026-09-04T17:26:28.687600+00:00",
+  "market_view": "VIX at 14.08 continuing to compress, market regime neutral with no catalyst for silver recovery \u2014 SLV remains well below the 61.5 short strike with 117 DTE providing zero theta cushion.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-04T17:17:59Z",
-    "reasoning": "Short strike 61.5 remains breached with SLV at 59.75 \u2014 worst cost 0.70 is 1.27x the 0.55 credit and closing on the 1.5x stop trigger at $0.825, with 117 DTE meaning zero theta rescue and no recovery signal across multiple consecutive cycles."
+    "timestamp": "2026-09-04T17:26:19Z",
+    "reasoning": "Short strike still breached with SLV at 59.74, worst cost 0.75 is 1.36x the 0.55 credit and approaching the 1.5x stop at 0.825 \u2014 117 DTE means no time-based rescue and this has been flagged CRITICAL across multiple consecutive cycles with no recovery."
   },
   "QQQ 679/670p": {
-    "action": "HOLD",
-    "confidence": 0.85,
-    "timestamp": "2026-09-04T17:17:59Z",
-    "reasoning": "Mid at 0.755 vs 1.01 credit is 25% profit, not yet at 50% target \u2014 QQQ at 718.29 is 5.5% above the 679 short strike with VIX compressing and 25 DTE, hard exit trigger hits September 9."
+    "action": "WATCH",
+    "confidence": 0.82,
+    "timestamp": "2026-09-04T17:26:19Z",
+    "reasoning": "Mid at 0.775 vs 1.01 credit is 23% profit, not yet at 50% target \u2014 25 DTE means the hard 21 DTE exit rule triggers September 9, so this needs a close-or-roll decision in 4 trading days."
   }
 }
