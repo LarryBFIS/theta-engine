@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-04T13:40:18.059457+00:00",
-  "market_view": "VIX 14.03 continuing to compress (-7.9% 5d), equities mixed with tech leading but metals/energy/consumer discretionary under pressure \u2014 SLV directional weakness persists with short strike breached, no reversal catalyst in sight.",
+  "last_run": "2026-09-04T13:45:53.750843+00:00",
+  "market_view": "VIX at 14.03 (-2% today, -7.9% 5d) signals continued low-vol compression with equities mixed \u2014 tech green but metals, energy, and consumer discretionary under pressure. SLV weakness persists with no reversal catalyst; QQQ holding well but 21 DTE clock is ticking.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-04T13:40:06.416151+00:00",
-    "reasoning": "Short strike 61.5 breached with SLV at 59.19, worst cost 0.80 is 1.45x credit and sitting at the hard stop threshold of 1.5x (0.825) \u2014 next tick could trigger mandatory exit. 117 DTE provides zero theta cushion and metals are diverging from risk-on equities with no reversal signal."
+    "timestamp": "2026-09-04T13:45:39.077437+00:00",
+    "reasoning": "Short strike 61.5 remains breached with SLV at 59.40, worst cost 0.75 is 1.36x credit and approaching the 1.5x hard stop at 0.825 \u2014 this trade is a loser with 117 DTE providing zero theta acceleration to recover. CRITICAL was already fired 5 minutes ago and position is still open."
   },
   "QQQ 679/670p": {
-    "action": "CRITICAL",
-    "confidence": 0.95,
-    "timestamp": "2026-09-04T13:40:06.416151+00:00",
-    "reasoning": "25 DTE today means the 21 DTE hard exit rule triggers at Monday Sep 8 open, and weekend gap risk on a Friday makes closing now superior to a forced Monday close \u2014 current mid 0.715 captures ~29% of max profit now vs risking adverse open."
+    "action": "ACTION",
+    "confidence": 0.92,
+    "timestamp": "2026-09-04T13:45:39.077437+00:00",
+    "reasoning": "QQQ at 719.59 keeps short strike 679 5.6% OTM and mid cost 0.74 represents 27% profit on the credit \u2014 not at 50% yet, but 25 DTE means Monday Sep 8 hits the 21 DTE hard exit rule and weekend gap risk makes closing today cleaner than a forced Monday market open."
   }
 }
