@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-04T20:18:36.085067+00:00",
-  "market_view": "VIX ticking up slightly to 14.54 but still low regime; SLV/commodities remain under pressure with XLE -0.87% and no reversal catalyst \u2014 the ITM SLV position is deteriorating toward hard stop.",
+  "last_run": "2026-09-04T20:20:28.065539+00:00",
+  "market_view": "VIX at 14.55 (+1.61%) with neutral regime; SLV still pinned below the 61.5 short strike at 59.82 with no commodity catalyst in sight. QQQ holding fine at 718.96 but 21 DTE rule forces weekend action.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-04T20:18:24Z",
-    "reasoning": "Short strike breached 2.8% deep, worst cost 0.80 is 1.45x credit \u2014 one tick from the 1.5x hard stop at 0.825, and with 117 DTE there is zero theta working for you; SLV at 59.82 shows no reversal with commodity sectors weak."
+    "timestamp": "2026-09-04T20:20:11Z",
+    "reasoning": "Short strike breached 2.8% deep, worst cost 0.80 is 1.45x credit \u2014 one tick from the 1.5x hard stop at 0.8250, 117 DTE means zero theta rescue, and this alert was raised last cycle with no action taken yet."
   },
   "QQQ 679/670p": {
-    "action": "ACTION",
-    "confidence": 0.92,
-    "timestamp": "2026-09-04T20:18:24Z",
-    "reasoning": "25 DTE today means the 21 DTE hard exit rule triggers Monday Sept 7 (Labor Day) or Tuesday Sept 8 at open \u2014 close this before weekend."
+    "action": "CRITICAL",
+    "confidence": 0.95,
+    "timestamp": "2026-09-04T20:20:11Z",
+    "reasoning": "25 DTE today means the 21 DTE hard exit rule triggers on Tuesday Sept 8 open (Monday is Labor Day); carrying this over a 3-day weekend with no ability to act violates the rule \u2014 close today."
   }
 }
