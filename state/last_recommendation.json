@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-04T20:38:18.123983+00:00",
-  "market_view": "VIX 14.53 in neutral regime, no material change from last cycle. SLV and QQQ both remain in critical breach/rule-violation territory with no action taken in last 10 minutes.",
+  "last_run": "2026-09-04T20:44:47.124778+00:00",
+  "market_view": "VIX at 14.53 in neutral regime with mixed sector action \u2014 no macro catalyst, but both positions remain in rule-violation territory with no action confirmed since last cycle.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-04T20:38:06Z",
-    "reasoning": "Short strike breached, SLV at 59.82 is 2.8% through the 61.5 short strike, worst cost 0.80 is within pennies of the 1.5x hard stop (0.825), and 117 DTE means zero theta rescue. This has been CRITICAL for two consecutive cycles with no close executed."
+    "timestamp": "2026-09-04T20:44:35Z",
+    "reasoning": "Short strike breached with SLV at 59.82 \u2014 2.8% through the 61.5 short strike, worst cost 0.80 is within pennies of the 1.5x hard stop at 0.825 (1.5 \u00d7 0.55 credit), and 117 DTE provides zero theta rescue. This position is past the loss threshold and has been flagged CRITICAL for multiple consecutive cycles with no close executed."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-09-04T20:38:06Z",
-    "reasoning": "25 DTE today with Labor Day Monday means 21 DTE hard exit rule fires Tuesday open \u2014 you cannot manage pre-market and will be forced into an illiquid open. QQQ is 5.5% above the short strike so the spread has value to capture now at 0.78 mid."
+    "timestamp": "2026-09-04T20:44:35Z",
+    "reasoning": "QQQ is at 25 DTE and the 21 DTE hard exit rule fires at Tuesday open \u2014 with no action this cycle you risk being forced to close in illiquid pre-market conditions; current mid 0.78 vs 1.01 credit is 77% of max profit, well past the 50% manage target."
   }
 }
