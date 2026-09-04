@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-04T17:54:54.243486+00:00",
-  "market_view": "VIX at 14.21 in neutral regime with broad market soft but orderly \u2014 SLV continues to trade below short strike at 59.55 with no recovery catalyst, QQQ holding well above 679 but 21 DTE clock is ticking with exit required by September 9.",
+  "last_run": "2026-09-04T18:22:00.866695+00:00",
+  "market_view": "VIX at 14.21 in a neutral, low-volatility regime with broad market slightly soft but orderly \u2014 SLV continues to trade at 59.56, well below the 61.5 short strike with no recovery catalyst, while QQQ holds firm 5.4% above the 679 short strike.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-04T17:54:41Z",
-    "reasoning": "Short strike remains breached with SLV at 59.55, worst cost 0.75 is 1.36x the 0.55 credit and closing in on the 1.5x hard stop at 0.825 \u2014 117 DTE provides zero time-decay rescue and position has been in breach across multiple review cycles with no recovery signal."
+    "timestamp": "2026-09-04T18:21:50Z",
+    "reasoning": "Short strike has been continuously breached across multiple review cycles with SLV at 59.56 \u2014 worst cost 0.75 is already 1.36x the 0.55 credit and the 1.5x hard stop at 0.825 is imminent with 117 DTE providing zero theta rescue and no news-driven recovery catalyst in sight."
   },
   "QQQ 679/670p": {
-    "action": "ACTION",
-    "confidence": 0.92,
-    "timestamp": "2026-09-04T17:54:41Z",
-    "reasoning": "QQQ at 716.94 keeps short strike 5.3% OTM and mid cost at 0.81 represents 20% profit \u2014 21 DTE hard exit triggers September 9 which is now 3 trading days away, this must be closed before that date per the non-negotiable exit rule."
+    "action": "CRITICAL",
+    "confidence": 0.97,
+    "timestamp": "2026-09-04T18:21:50Z",
+    "reasoning": "21 DTE hard exit rule triggers September 9 \u2014 this is now effectively the last actionable session to close given the non-negotiable exit rule, and mid at 0.77 already represents 24% profit with QQQ 5.4% above the short strike."
   }
 }
