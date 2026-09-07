@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-07T15:28:58.426805+00:00",
-  "market_view": "VIX +5% intraday signals risk-off pressure continuing; SLV remains ITM with short strike breached and QQQ at 22 DTE \u2014 both positions flagged for 30+ minutes with zero action taken, which is a rule violation.",
+  "last_run": "2026-09-07T15:38:34.509165+00:00",
+  "market_view": "VIX +5.37% intraday with broad risk-off rotation (XLY -1.33%, XLV -1.04%, XLF -0.79%) confirms continued selling pressure. SLV remains ITM and QQQ hits 21 DTE hard exit \u2014 both positions are rule violations that have been open 10+ minutes past last alert.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-07T15:28:48.967033+00:00",
-    "reasoning": "Short strike 2.8% ITM at 59.82, worst cost 0.80 is at 1.45x original credit \u2014 one tick from hard stop, 114 DTE means zero theta rescue, and this CRITICAL has been live for 30+ minutes with no close. This is now a rule violation."
+    "timestamp": "2026-09-07T15:38:23.199251+00:00",
+    "reasoning": "Short strike breached at 2.8% ITM, worst cost 0.80 is 1.45x original credit of 0.55 \u2014 at the hard stop threshold with 114 DTE and zero theta defense. This CRITICAL has been flagged for 40+ minutes with no close executed, which is a compounding rule violation."
   },
   "QQQ 679/670p": {
-    "action": "ACTION",
+    "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-07T15:28:48.967033+00:00",
-    "reasoning": "22 DTE breaches the 21 DTE hard exit rule with no exceptions; mid at 0.78 vs 1.01 credit is 77% of max profit captured \u2014 this has been flagged ACTION for 30+ minutes and remains open, which is a rule violation."
+    "timestamp": "2026-09-07T15:38:23.199251+00:00",
+    "reasoning": "22 DTE crossed the 21 DTE hard exit rule \u2014 no exceptions per account rules \u2014 and mid at 0.78 vs 1.01 credit means 77% of max profit is already captured. This has been flagged ACTION/CRITICAL for 40+ minutes with no action, which is a rule violation."
   }
 }
