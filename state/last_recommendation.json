@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-07T19:38:33.968576+00:00",
-  "market_view": "VIX +5.3% intraday in a neutral regime with defensive sector rotation confirms risk-off undercurrent \u2014 SLV ITM position has no recovery path and QQQ 679/670p is at 22 DTE with a 23% winner sitting uncaptured.",
+  "last_run": "2026-09-07T19:45:04.436725+00:00",
+  "market_view": "VIX +5.3% intraday with defensive sector rotation (XLV -1.04%, XLY -1.33%, XLP -0.80%) confirms risk-off pressure persisting \u2014 SLV ITM with no catalyst and QQQ 679/670p at 22 DTE are both requiring immediate action, not analysis.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-07T19:38:22Z",
-    "reasoning": "Short strike is 2.8% ITM at $59.82, worst-case fill $0.80 is at the 1.5x hard stop threshold ($0.825), position is a full max-loss threat with zero recovery catalyst \u2014 this has been flagged CRITICAL repeatedly with no action, playbook breach is severe."
+    "timestamp": "2026-09-07T19:44:54.741172+00:00",
+    "reasoning": "Short strike 2.8% ITM at $59.82, worst-case fill $0.80 is within pennies of the 1.5x hard stop ($0.825), and this CRITICAL flag has been issued multiple consecutive cycles with zero action taken \u2014 playbook breach is severe and deepening."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-09-07T19:38:22Z",
-    "reasoning": "At 22 DTE the 21 DTE hard exit rule is breached \u2014 mid at $0.78 vs $1.01 credit is a 23% winner and every additional cycle risks giving it back into a rising VIX environment."
+    "timestamp": "2026-09-07T19:44:54.741172+00:00",
+    "reasoning": "21 DTE hard exit rule is breached at 22 DTE \u2014 this flag has been issued last cycle with no action, mid at $0.78 vs $1.01 credit is a 23% winner that risks evaporating into a rising VIX environment."
   }
 }
