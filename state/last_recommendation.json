@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-07T18:22:56.709455+00:00",
-  "market_view": "VIX +5.3% intraday with broad risk-off rotation in XLY, XLV, XLP, XLF, XLE confirms defensive market tone; neutral regime but deteriorating intraday. Both positions have been flagged CRITICAL for multiple cycles with no action \u2014 this is now a discipline and account-integrity issue.",
+  "last_run": "2026-09-07T18:24:55.162581+00:00",
+  "market_view": "VIX +5.3% intraday with broad defensive rotation persisting \u2014 XLY, XLV, XLF all red while tech holds. SLV is deep ITM and QQQ is at 21 DTE hard stop; both positions require immediate closure this cycle \u2014 no further delay is acceptable.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-07T18:22:43Z",
-    "reasoning": "Short strike is 2.8% ITM at $59.82, worst-case fill $0.80 is at 1.45x the original $0.55 credit \u2014 one adverse tick triggers the 1.5x hard stop at $0.825. This position has breached strike and the stop is imminent; holding further risks max loss on a $45 BPR position that should have been closed cycles ago."
+    "timestamp": "2026-09-07T18:24:42Z",
+    "reasoning": "Short strike is 2.8% ITM at $59.82, worst-case fill $0.80 is 1.45x the $0.55 credit \u2014 one adverse tick hits the 1.5x hard stop at $0.825 and this position risks full $45 max loss. This has been flagged CRITICAL for multiple consecutive cycles with no action taken; failure to close now is a discipline failure with real capital consequences."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-09-07T18:22:43Z",
-    "reasoning": "At 22 DTE this position is at or past the hard 21 DTE exit rule with no exceptions \u2014 this rule exists to prevent gamma risk from compressing into expiration, and QQQ at 718.96 is 5.8% above the short strike with a favorable mid of $0.78 vs $1.01 credit (23% of max profit captured). The 21 DTE rule is not negotiable."
+    "confidence": 0.98,
+    "timestamp": "2026-09-07T18:24:42Z",
+    "reasoning": "22 DTE breaches the hard 21 DTE exit rule \u2014 no exceptions per playbook \u2014 and mid at $0.78 vs $1.01 credit represents 23% profit capture which is acceptable given mandatory rule-based exit. This has been flagged CRITICAL multiple cycles; continued inaction violates account rules."
   }
 }
