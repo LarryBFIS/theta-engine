@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-07T20:20:26.742280+00:00",
-  "market_view": "VIX +5.3% intraday with risk-off rotation into defensives failing and consumer discretionary bleeding \u2014 SLV ITM breach is an active max-loss scenario and QQQ 21 DTE rule has been violated for multiple consecutive cycles with zero action taken.",
+  "last_run": "2026-09-07T20:28:41.229335+00:00",
+  "market_view": "VIX +5.3% intraday in a neutral regime with defensive rotation failing and XLY/XLP selling off \u2014 SLV remains 2.8% ITM and QQQ is at 22 DTE, both requiring immediate closure with no further delay.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-07T20:20:13Z",
-    "reasoning": "Short strike 2.8% ITM, worst-case fill $0.80 is within $0.025 of the 1.5x stop trigger ($0.825), position has been CRITICAL for multiple cycles with no action \u2014 every minute held risks sliding to full $45 max loss on a $55 max profit trade."
+    "timestamp": "2026-09-07T20:28:30Z",
+    "reasoning": "Short strike is 2.8% ITM, worst-case fill $0.80 is nearly at the 1.5x stop trigger ($0.825), and this CRITICAL alert has been ignored for multiple consecutive cycles \u2014 holding further risks the full $45 max loss on a trade that collected $55 credit."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-09-07T20:20:13Z",
-    "reasoning": "22 DTE breaches the 21 DTE hard exit rule \u2014 this is not discretionary, rule says close or roll with no exceptions, and rising VIX can erase the current 23% winner instantly."
+    "confidence": 0.98,
+    "timestamp": "2026-09-07T20:28:30Z",
+    "reasoning": "At 22 DTE the 21 DTE hard exit rule is violated \u2014 this rule has no exceptions and rising VIX can erase the current $23 unrealized profit on the $101 max instantly."
   }
 }
