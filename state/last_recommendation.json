@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-07T13:21:03.947881+00:00",
-  "market_view": "VIX ticking up 4.47% to 15.18 in a neutral regime with defensive sectors (XLV, XLP, XLY) all red \u2014 modest risk-off rotation that does not help SLV at all. QQQ holding green at +0.18% today but 22 DTE means the 21 DTE hard exit rule fires at tomorrow's open at the latest.",
+  "last_run": "2026-09-07T13:23:18.815650+00:00",
+  "market_view": "VIX up 4.47% to 15.18 with defensive sectors bleeding red \u2014 risk-off rotation actively working against the ITM SLV short put. QQQ green +0.18% but 21 DTE hard exit rule is live right now at 22 DTE.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-07T13:20:51Z",
-    "reasoning": "Short strike remains breached with SLV at 59.82 (-2.8% ITM), worst cost 0.80 is at 1.45x credit (hard stop is 1.5x = 0.825) \u2014 this is the third consecutive CRITICAL cycle with no close executed, one tick of further SLV weakness triggers max-loss blowthrough on a 114 DTE position with zero theta rescue."
+    "timestamp": "2026-09-07T13:23:04.811891+00:00",
+    "reasoning": "Short strike breached with SLV at 59.82 \u2014 2.8% ITM \u2014 worst cost 0.80 is at 1.45x credit with stop at 1.5x (0.825); one tick lower on SLV triggers max-loss blowthrough on a 114 DTE position with zero gamma rescue in sight. This is the fourth consecutive CRITICAL cycle with no close \u2014 the trade must be closed NOW."
   },
   "QQQ 679/670p": {
     "action": "ACTION",
     "confidence": 0.97,
-    "timestamp": "2026-09-07T13:20:51Z",
-    "reasoning": "22 DTE triggers the 21 DTE hard exit rule at tomorrow's open, and mid cost of 0.78 vs 1.01 credit means 22.8% of value remaining \u2014 well past the 50% profit target manage rule, both exit triggers are active simultaneously."
+    "timestamp": "2026-09-07T13:23:04.811891+00:00",
+    "reasoning": "22 DTE fires the 21 DTE hard exit rule at today's close at the latest, and mid cost 0.78 vs 1.01 credit means 77% of max profit captured \u2014 both the 50% profit target and the 21 DTE rule are simultaneously active."
   }
 }
