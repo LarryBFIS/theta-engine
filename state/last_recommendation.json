@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-07T15:19:00.014086+00:00",
-  "market_view": "VIX up nearly 5% intraday with persistent risk-off rotation in XLY, XLV, XLF, XLE \u2014 metals bid as defensive play is not helping SLV short puts given SLV is already 2.8% ITM. QQQ holding +0.18% but the 21 DTE rule is absolute.",
+  "last_run": "2026-09-07T15:20:17.014514+00:00",
+  "market_view": "VIX up 5% intraday with risk-off rotation in XLY, XLF, XLE, XLV \u2014 SLV remains ITM and both positions have been flagged for 25+ minutes without action, which is unacceptable.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-07T15:18:47.770210+00:00",
-    "reasoning": "Short strike breached, SLV at 59.82 is 2.8% ITM, worst cost 0.80 is at 1.45x credit \u2014 1.5x stop threshold is 0.825 and we are one tick away. This was flagged CRITICAL 23 minutes ago and the position is still open."
+    "timestamp": "2026-09-07T15:20:07.958400+00:00",
+    "reasoning": "Short strike 2.8% ITM at 59.82, worst cost 0.80 is at 1.45x the original credit \u2014 one tick from the 1.5x stop, 114 DTE means no theta rescue, and this has been flagged CRITICAL for 25 minutes with no close executed."
   },
   "QQQ 679/670p": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-09-07T15:18:47.770210+00:00",
-    "reasoning": "22 DTE breaches the 21 DTE hard exit rule with zero exceptions per playbook \u2014 mid at 0.78 vs 1.01 credit is 22.7% of max profit remaining, you have locked 77% of max profit and there is nothing left to manage."
+    "timestamp": "2026-09-07T15:20:07.958400+00:00",
+    "reasoning": "22 DTE breaches the 21 DTE hard exit rule with no exceptions, and mid at 0.78 vs 1.01 credit is 77% of max profit captured \u2014 this was flagged 25 minutes ago and is still open."
   }
 }
