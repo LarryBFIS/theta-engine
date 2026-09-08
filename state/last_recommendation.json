@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-08T16:55:10.704493+00:00",
-  "market_view": "Neutral regime, VIX 15.28 and drifting lower \u2014 no macro tailwind to rescue either position. Both positions remain in hard-rule violation for the fifth consecutive cycle; playbook integrity is being destroyed by inaction.",
+  "last_run": "2026-09-08T17:18:30.489488+00:00",
+  "market_view": "Neutral regime with VIX at 15.26 and drifting lower \u2014 no volatility expansion coming to help either position. Both positions remain in hard-rule violation; playbook is being actively violated every cycle these stay open.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T16:54:59Z",
-    "reasoning": "Short strike remains breached with SLV at $59.92, 2.65% ITM; worst fill $0.75 is 1.36x credit and closing toward the 1.5x hard stop ($0.825). 113 DTE means zero theta rescue \u2014 this position gets worse, not better, through time."
+    "timestamp": "2026-09-08T17:18:20.928873+00:00",
+    "reasoning": "Short strike breached with SLV at $59.99, 2.52% ITM; worst fill $0.70 is 1.27x credit and accelerating toward the 1.5x hard stop at $0.825. 113 DTE means theta is not working \u2014 this position bleeds deeper the longer it stays open."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T16:54:59Z",
-    "reasoning": "21 DTE hard exit rule is active \u2014 no exceptions, no conditions. Mid at $0.705 locks a $30.50 realized loss against $799 max loss; this is trivially cheap to close and the rule is absolute."
+    "timestamp": "2026-09-08T17:18:20.928873+00:00",
+    "reasoning": "21 DTE hard exit rule is triggered \u2014 no exceptions, ever. Mid at $0.675 locks a $32.50 realized loss against $799 max loss; the rule exists precisely to prevent holding through expiration risk."
   }
 }
