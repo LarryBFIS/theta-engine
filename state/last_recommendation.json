@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-08T19:54:59.709130+00:00",
-  "market_view": "Mild broad selling with XLV -2.46% and XLF -1.36% leading weakness; VIX at 15.46 is benign but SLV is now $2.12 below the short strike with no recovery catalyst and markets closing in ~6 minutes.",
+  "last_run": "2026-09-08T20:18:23.217096+00:00",
+  "market_view": "Market closed \u2014 after-hours session. Both positions flagged CRITICAL last cycle remain unactioned; SLV short strike still breached and QQQ hit 21 DTE hard exit rule, both requiring immediate close at open tomorrow or via after-hours if liquidity exists.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T19:54:48Z",
-    "reasoning": "Short strike breached with underlying at $59.38, now 3.56% through the 61.5 short \u2014 worst fill $0.75 is 1.36x credit, dangerously close to the 1.5x hard stop of $0.825 with market close imminent and no bid recovery in sight. This has been flagged CRITICAL for 30+ minutes \u2014 closing NOW prevents overnight gap risk through max loss on this $45 BPR position."
+    "timestamp": "2026-09-08T20:18:12Z",
+    "reasoning": "Short strike remains breached at $59.37, worst fill $0.80 is 1.45x credit \u2014 one tick from the 1.5x hard stop of $0.825, and overnight gap risk in metals is real with no recovery catalyst. This position has been CRITICAL for 45+ minutes with no close executed."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T19:54:48Z",
-    "reasoning": "21 DTE hard exit rule has been triggered for 30+ minutes with no action \u2014 playbook states close or roll, no exceptions, and mid at $0.82 vs $1.01 credit is 19% profit capture with the rule firing regardless of P&L."
+    "timestamp": "2026-09-08T20:18:12Z",
+    "reasoning": "21 DTE hard exit rule triggered \u2014 playbook states close or roll, no exceptions, and this has been flagged for 45+ minutes with no action taken."
   }
 }
