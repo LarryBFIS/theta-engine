@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-08T17:28:13.634931+00:00",
-  "market_view": "VIX at 15.29 and flat \u2014 no volatility rescue coming for SLV. Both positions remain in hard-rule violation and have not been closed since last alert 8 minutes ago.",
+  "last_run": "2026-09-08T17:37:44.537684+00:00",
+  "market_view": "VIX at 15.3, flat and low \u2014 no IV expansion bail-out coming for ITM positions. SLV continues to trade below short strike with 113 DTE, full delta exposure intact.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T17:28:01.934007+00:00",
-    "reasoning": "Short strike breached, SLV at $59.97 \u2014 2.55% ITM and deepening. Worst fill $0.70 is 1.27x credit, fast approaching the 1.5x hard stop at $0.825 with 113 DTE giving delta full runway to wreck this further."
+    "timestamp": "2026-09-08T17:37:33.618411+00:00",
+    "reasoning": "Short strike still breached at $59.97, 2.55% ITM, worst fill $0.70 is 1.27x credit \u2014 hard stop at 1.5x ($0.825) is close and 113 DTE gives this position full room to blow through max loss. This has been flagged critical for two consecutive cycles with no close executed."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T17:28:01.934007+00:00",
-    "reasoning": "21 DTE hard exit rule triggered \u2014 this is the mandatory close day, no exceptions. Mid at $0.685 is a trivial debit on a position with zero assignment risk at 5.72% OTM."
+    "timestamp": "2026-09-08T17:37:33.618411+00:00",
+    "reasoning": "21 DTE hard exit rule is triggered today \u2014 this is a non-negotiable mechanical close, no exceptions per the playbook. Mid at $0.695 is a 31% debit on a position that is 5.76% OTM with no assignment risk."
   }
 }
