@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-08T13:47:58.565975+00:00",
-  "market_view": "Neutral regime, VIX 15.36, minor broad-market softness with healthcare and consumer names dragging \u2014 no catalyst driving silver lower but SLV is already 3.1% through the short strike with assignment risk live. Both positions remain in hard rule violation requiring immediate closure.",
+  "last_run": "2026-09-08T13:55:02.139675+00:00",
+  "market_view": "Neutral regime, VIX 15.52 ticking up slightly, broad market soft but no catalyst \u2014 SLV continues to bleed lower with short strike deeply breached, both positions remain in hard rule violation that has gone unactioned for multiple cycles.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T13:47:46Z",
-    "reasoning": "Short strike 61.5 is breached with SLV at 59.64 \u2014 over 3% ITM, worst-case fill $0.75 is already at the 1.5x stop trigger on $0.55 credit, and this has been flagged CRITICAL across multiple consecutive cycles with zero action taken. Assignment risk is live and deteriorating."
+    "timestamp": "2026-09-08T13:54:50Z",
+    "reasoning": "SLV at 59.85 means short strike 61.5 is breached by 2.75% ITM \u2014 worst-case fill $0.70 is 1.27x credit, approaching 1.5x stop, assignment risk is live, and this is the third-plus consecutive CRITICAL cycle with zero action taken."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T13:47:46Z",
-    "reasoning": "QQQ 679/670p hit 21 DTE today \u2014 hard exit rule with zero exceptions overrides everything, position is profitable at $0.82 mid vs $1.01 credit and closing locks in a realized gain. This has been flagged CRITICAL for multiple consecutive cycles with no action taken."
+    "timestamp": "2026-09-08T13:54:50Z",
+    "reasoning": "QQQ 679/670p is at exactly 21 DTE today \u2014 hard exit rule, no exceptions, position is profitable at $0.855 mid vs $1.01 credit locking in ~15% of max profit, and this has been flagged CRITICAL for multiple consecutive cycles with no action taken."
   }
 }
