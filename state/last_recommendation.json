@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-08T14:21:23.668198+00:00",
-  "market_view": "Neutral regime, VIX 15.65 ticking higher (+2.29%), broad market mildly red with Healthcare and Consumer sectors leading weakness \u2014 no fresh catalyst but SLV continuing to drift lower with short strike deeply breached.",
+  "last_run": "2026-09-08T14:23:30.277945+00:00",
+  "market_view": "Neutral regime, VIX 15.68 up 2.5% intraday, broad tape soft with healthcare and financials leading lower. No fresh catalyst but both positions have been in hard rule violation for multiple consecutive cycles \u2014 this is now an execution failure risk.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T14:21:12.984252+00:00",
-    "reasoning": "SLV at 59.67 means short strike 61.5 is breached by 3.1% ITM, worst-case fill $0.70 is 1.27x credit and trending toward 1.5x stop \u2014 this position has been flagged CRITICAL for multiple consecutive cycles with zero action, assignment risk is live on a put spread with 113 DTE that should never have been held this long ITM."
+    "timestamp": "2026-09-08T14:23:18Z",
+    "reasoning": "SLV at 59.65 means short strike 61.5 is breached by 3.1% ITM \u2014 worst-case fill $0.70 is 1.27x credit and climbing, assignment risk is live, and this position has been flagged CRITICAL across 4+ consecutive cycles with zero action taken. Rule says cut at 1.5x credit loss; you are not far from that threshold."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T14:21:12.984252+00:00",
-    "reasoning": "QQQ 679/670p is at 21 DTE today \u2014 hard exit rule with zero exceptions per playbook \u2014 position is profitable at $0.81 mid vs $1.01 credit, locking in ~20% of max profit, and this has been flagged CRITICAL for multiple consecutive cycles with no action taken."
+    "timestamp": "2026-09-08T14:23:18Z",
+    "reasoning": "QQQ 679/670p is AT 21 DTE today \u2014 this is the hard exit rule, no exceptions per playbook, and this has been flagged CRITICAL for multiple cycles with no action taken. Position is profitable at $0.80 mid vs $1.01 credit."
   }
 }
