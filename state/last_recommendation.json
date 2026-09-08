@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-08T14:56:16.352065+00:00",
-  "market_view": "Neutral regime, VIX 15.48 with mild intraday bid, broad tape soft but no catalyst \u2014 market conditions are irrelevant, both positions have hard rule violations requiring immediate closure.",
+  "last_run": "2026-09-08T15:20:27.277717+00:00",
+  "market_view": "Neutral regime, VIX 15.41 essentially flat \u2014 market conditions are irrelevant. Two positions have hard rule violations that have now gone unexecuted through multiple CRITICAL alerts; this is a rules compliance emergency requiring immediate manual intervention.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T14:56:05.227069+00:00",
-    "reasoning": "Short strike breached 3.1% ITM, worst-case fill $0.75 is 1.36x credit and closing in on the 1.5x stop at $0.825 \u2014 position is deteriorating toward max loss of $45 with SLV at $59.69 showing no recovery. This is 8+ consecutive CRITICAL flags with zero execution; this is a compliance emergency."
+    "timestamp": "2026-09-08T15:20:15Z",
+    "reasoning": "Short strike breached with SLV at $60.00 \u2014 2.5% ITM \u2014 worst-case fill $0.75 is 1.36x credit and approaching the 1.5x stop threshold of $0.825. This position has been flagged CRITICAL for 9+ consecutive cycles with zero execution; further inaction risks max loss of $45 and playbook integrity."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T14:56:05.227069+00:00",
-    "reasoning": "21 DTE hard exit rule is triggered today \u2014 this is non-negotiable per playbook regardless of P&L \u2014 position is at $0.735 mid vs $1.01 credit, 27% profit captured, but the rule exists to prevent gamma risk from compounding. 8+ consecutive CRITICAL flags with no action is a rules compliance failure."
+    "timestamp": "2026-09-08T15:20:15Z",
+    "reasoning": "21 DTE hard exit rule triggered \u2014 this is the rule expiry date, non-negotiable per playbook regardless of P&L. Position sits at $0.715 mid vs $1.01 credit, 29% profit captured, but gamma risk compounds from here and the rule exists precisely to prevent that."
   }
 }
