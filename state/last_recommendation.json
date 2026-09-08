@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-08T15:42:24.368782+00:00",
-  "market_view": "Neutral regime, VIX 15.41 \u2014 no macro catalyst, mixed sector action with healthcare lagging hard. Both positions flagged CRITICAL last cycle remain unexecuted \u2014 these are rules violations requiring immediate action.",
+  "last_run": "2026-09-08T15:49:00.483191+00:00",
+  "market_view": "Neutral regime, VIX 15.39 \u2014 no macro catalyst. Both positions flagged CRITICAL last cycle remain unexecuted; these are active rules violations that must be closed immediately.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T15:42:12Z",
-    "reasoning": "Short strike breached with SLV at $59.88, now 2.7% ITM on the 61.5 short put. Worst-case fill $0.75 is 1.36x credit \u2014 dangerously close to the 1.5x hard stop at $0.825, and with 113 DTE there is no time-decay rescue coming."
+    "timestamp": "2026-09-08T15:48:50Z",
+    "reasoning": "Short strike breached, SLV at $59.90 \u2014 61.5 short put is 2.7% ITM with 113 DTE and zero time-decay rescue. Worst fill $0.75 is 1.36x credit, approaching the 1.5x hard stop at $0.825; this is a losing trade that must be cut now before it crosses the hard stop."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T15:42:12Z",
-    "reasoning": "21 DTE hard exit rule is active today \u2014 this is the mandatory close date per playbook with no exceptions; mid at $0.695 captures ~31% of max profit and gamma risk is now elevated."
+    "timestamp": "2026-09-08T15:48:50Z",
+    "reasoning": "21 DTE hard exit rule is triggered today with no exceptions per playbook \u2014 mid at $0.70 captures ~31% profit and gamma risk is now elevated with QQQ at $720."
   }
 }

@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-08T15:49:54.956808+00:00",
+  "generated_at": "2026-09-08T15:50:04.688840+00:00",
   "regime": {
-    "vix": 15.39,
-    "vix_day_change_pct": 0.0059,
+    "vix": 15.38,
+    "vix_day_change_pct": 0.0052,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (+1% day)"
@@ -37,11 +37,11 @@
       "short_delta": 0.191,
       "short_spread_pct": 0.008,
       "credit_to_bpr": 0.117,
-      "ev_per_contract": 5.76,
-      "ev_on_bpr": 0.0071,
+      "ev_per_contract": 5.8,
+      "ev_on_bpr": 0.0072,
       "iv": 0.1527,
       "iv_rank": 0.3,
-      "underlying_price": 767.54,
+      "underlying_price": 767.57,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -57,9 +57,9 @@
         "asset_class=index_etf \u00d71.45",
         "structure=short_put_vertical \u00d71.28"
       ],
-      "rank_score": 0.01136,
+      "rank_score": 0.01152,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, favorable short_put_vertical structure, calm tape, low IV rank offsets tight credit (0.94); solid pop (79.7%) compensates. Under cluster cap (2/3) and name cap (1/1). Good timing in normal regime.",
+      "agent_reason": "Index ETF, short_put_vertical structure (proven profitable), 31 DTE, 79.7% PoP, modest size (1 contract, max loss $806). Book is small and timing is neutral in normal regime.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
@@ -106,7 +106,7 @@
         "fit_note": "\u26a0 max loss $806 > 10% live cap ($718) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "SPY VP \u00d71 \u2014 SELL 739P / BUY 730P (2026-10-09) @ $0.94 net credit. Max loss $806. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $806 > 10% live cap ($718) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-08T15:49:54.956808+00:00"
+      "posted_at": "2026-09-08T15:50:04.688840+00:00"
     },
     {
       "underlying": "QQQ",
@@ -127,11 +127,11 @@
       "short_delta": 0.181,
       "short_spread_pct": 0.012,
       "credit_to_bpr": 0.124,
-      "ev_per_contract": 5.02,
+      "ev_per_contract": 5.03,
       "ev_on_bpr": 0.0081,
       "iv": 0.2122,
       "iv_rank": 0.426,
-      "underlying_price": 720.15,
+      "underlying_price": 720.16,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -150,7 +150,7 @@
       ],
       "rank_score": 0.0055,
       "agent_action": "guarded",
-      "agent_reason": "Single-name QQQ in us_tech cluster has proven negative expectancy (26% wr vs 38% portfolio baseline); cluster already at 1/3 cap; adding one more is redundant directional bet. Lean credit (0.77) does not compensate for known unfavorable edg",
+      "agent_reason": "Single-name asset class with negative realized edge (26% wr vs. 38% baseline); us_tech cluster already has 1 open position with 29% cluster win rate. Adding a second us_tech short-premium bet compounds correlated idiosyncratic risk without ",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -205,7 +205,7 @@
         "fit_note": "",
         "text": "QQQ VP \u00d71 \u2014 SELL 682P / BUY 675P (2026-10-09) @ $0.77 net credit. Max loss $623. After fill: GTC buy-to-close @ $0.39 (50%)."
       },
-      "posted_at": "2026-09-08T15:49:54.956808+00:00"
+      "posted_at": "2026-09-08T15:50:04.688840+00:00"
     }
   ],
   "long_vol": [],
@@ -258,11 +258,11 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-09-08T15:49:54.628924+00:00",
+    "generated_at": "2026-09-08T15:50:04.329314+00:00",
     "model": "claude-haiku-4-5",
-    "market_view": "Normal regime, +1% day, VIX 15.39\u2014tape is calm and constructive, favoring premium-sell timing. No macro events; conditions are benign for short-vol strategies.",
-    "portfolio_note": "Book is small (3 open, +$39 unrealized) with light correlation: SPY/IWM in us_index, one QQQ in us_tech. Adding either candidate keeps us under caps.",
-    "vol_verdict": "implied_cheap",
+    "market_view": "Normal regime, +1% day, VIX 15.38 \u2014 calm tape with slight bid. Implied vol is not rich; IV ranks (0.3, 0.426) are moderate-to-low. Timing is neutral-to-cautious for adding short premium into a rally day.",
+    "portfolio_note": "Book is small (3 open, +$39 unrealized) with balanced index/tech split. Adding either candidate keeps us well under caps but increases us_tech cluster to 2 and us_index cluster to 2; still diversified.",
+    "vol_verdict": "implied_rich",
     "reviewed": 2,
     "vetoed": 1,
     "downsized": 0,
@@ -270,12 +270,12 @@
       {
         "id": "SPY|short_put_vertical|739/730",
         "action": "approve",
-        "reason": "Index ETF, favorable short_put_vertical structure, calm tape, low IV rank offsets tight credit (0.94); solid pop (79.7%) compensates. Under cluster cap (2/3) and name cap (1/1). Good timing in normal regime."
+        "reason": "Index ETF, short_put_vertical structure (proven profitable), 31 DTE, 79.7% PoP, modest size (1 contract, max loss $806). Book is small and timing is neutral in normal regime."
       },
       {
         "id": "QQQ|short_put_vertical|682/675",
         "action": "veto",
-        "reason": "Single-name QQQ in us_tech cluster has proven negative expectancy (26% wr vs 38% portfolio baseline); cluster already at 1/3 cap; adding one more is redundant directional bet. Lean credit (0.77) does not compensate for known unfavorable edg"
+        "reason": "Single-name asset class with negative realized edge (26% wr vs. 38% baseline); us_tech cluster already has 1 open position with 29% cluster win rate. Adding a second us_tech short-premium bet compounds correlated idiosyncratic risk without "
       }
     ]
   },
@@ -299,11 +299,11 @@
       "short_delta": 0.191,
       "short_spread_pct": 0.008,
       "credit_to_bpr": 0.117,
-      "ev_per_contract": 5.76,
-      "ev_on_bpr": 0.0071,
+      "ev_per_contract": 5.8,
+      "ev_on_bpr": 0.0072,
       "iv": 0.1527,
       "iv_rank": 0.3,
-      "underlying_price": 767.54,
+      "underlying_price": 767.57,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -319,9 +319,9 @@
         "asset_class=index_etf \u00d71.45",
         "structure=short_put_vertical \u00d71.28"
       ],
-      "rank_score": 0.01136,
+      "rank_score": 0.01152,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, favorable short_put_vertical structure, calm tape, low IV rank offsets tight credit (0.94); solid pop (79.7%) compensates. Under cluster cap (2/3) and name cap (1/1). Good timing in normal regime.",
+      "agent_reason": "Index ETF, short_put_vertical structure (proven profitable), 31 DTE, 79.7% PoP, modest size (1 contract, max loss $806). Book is small and timing is neutral in normal regime.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
@@ -368,7 +368,7 @@
         "fit_note": "\u26a0 max loss $806 > 10% live cap ($718) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "SPY VP \u00d71 \u2014 SELL 739P / BUY 730P (2026-10-09) @ $0.94 net credit. Max loss $806. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $806 > 10% live cap ($718) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-08T15:49:54.956808+00:00"
+      "posted_at": "2026-09-08T15:50:04.688840+00:00"
     },
     {
       "underlying": "QQQ",
@@ -389,11 +389,11 @@
       "short_delta": 0.181,
       "short_spread_pct": 0.012,
       "credit_to_bpr": 0.124,
-      "ev_per_contract": 5.02,
+      "ev_per_contract": 5.03,
       "ev_on_bpr": 0.0081,
       "iv": 0.2122,
       "iv_rank": 0.426,
-      "underlying_price": 720.15,
+      "underlying_price": 720.16,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -412,7 +412,7 @@
       ],
       "rank_score": 0.0055,
       "agent_action": "guarded",
-      "agent_reason": "Single-name QQQ in us_tech cluster has proven negative expectancy (26% wr vs 38% portfolio baseline); cluster already at 1/3 cap; adding one more is redundant directional bet. Lean credit (0.77) does not compensate for known unfavorable edg",
+      "agent_reason": "Single-name asset class with negative realized edge (26% wr vs. 38% baseline); us_tech cluster already has 1 open position with 29% cluster win rate. Adding a second us_tech short-premium bet compounds correlated idiosyncratic risk without ",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -467,7 +467,7 @@
         "fit_note": "",
         "text": "QQQ VP \u00d71 \u2014 SELL 682P / BUY 675P (2026-10-09) @ $0.77 net credit. Max loss $623. After fill: GTC buy-to-close @ $0.39 (50%)."
       },
-      "posted_at": "2026-09-08T15:49:54.956808+00:00"
+      "posted_at": "2026-09-08T15:50:04.688840+00:00"
     }
   ],
   "skipped": {
