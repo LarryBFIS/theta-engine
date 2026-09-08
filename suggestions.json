@@ -35715,24 +35715,24 @@
       "decided_at": null
     },
     {
-      "id": "sug_20260908T131815_trade_031_slv_61_60",
+      "id": "sug_20260908T131938_trade_031_slv_61_60",
       "trade_id": "trade_031_slv_61_60",
-      "timestamp": "2026-09-08T13:18:16.321713-04:00",
+      "timestamp": "2026-09-08T13:19:38.279878-04:00",
       "action": "URGENT_CLOSE",
       "urgency": "high",
       "reasoning": [
-        "\u26a0\ufe0f SLV @ $59.99 is BELOW short strike $62 (ITM).",
-        "Max loss exposure increasing. Current close: $0.60 mid / $0.70 worst.",
+        "\u26a0\ufe0f SLV @ $60.01 is BELOW short strike $62 (ITM).",
+        "Max loss exposure increasing. Current close: $0.60 mid / $0.75 worst.",
         "113 DTE remaining; negative delta hurts daily."
       ],
       "metrics_snapshot": {
-        "cost_to_close_mid": 0.5999999999999996,
-        "cost_to_close_worst": 0.7000000000000002,
-        "profit_if_closed_mid": -4.99999999999996,
-        "profit_if_closed_worst": -15.000000000000014,
-        "pct_max_profit_captured_mid": -0.09090909090909018,
+        "cost_to_close_mid": 0.6000000000000005,
+        "cost_to_close_worst": 0.75,
+        "profit_if_closed_mid": -5.000000000000049,
+        "profit_if_closed_worst": -19.999999999999996,
+        "pct_max_profit_captured_mid": -0.09090909090909179,
         "dte": 113,
-        "underlying_price": 59.9900016784668,
+        "underlying_price": 60.01499938964844,
         "short_strike_breached": true,
         "has_live_quotes": true,
         "net_liq": 7178.91,
@@ -35743,23 +35743,23 @@
       "decided_at": null
     },
     {
-      "id": "sug_20260908T131816_trade_033_qqq_679_670",
+      "id": "sug_20260908T131938_trade_033_qqq_679_670",
       "trade_id": "trade_033_qqq_679_670",
-      "timestamp": "2026-09-08T13:18:16.683885-04:00",
+      "timestamp": "2026-09-08T13:19:38.625253-04:00",
       "action": "CLOSE",
       "urgency": "normal",
       "reasoning": [
         "\u23f0 21 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
-        "Currently 33% captured ($34 mid)."
+        "Currently 34% captured ($34 mid)."
       ],
       "metrics_snapshot": {
-        "cost_to_close_mid": 0.6749999999999998,
+        "cost_to_close_mid": 0.6699999999999999,
         "cost_to_close_worst": 0.71,
-        "profit_if_closed_mid": 33.50000000000002,
+        "profit_if_closed_mid": 34.00000000000001,
         "profit_if_closed_worst": 30.000000000000004,
-        "pct_max_profit_captured_mid": 0.33168316831683187,
+        "pct_max_profit_captured_mid": 0.3366336633663367,
         "dte": 21,
-        "underlying_price": 720.5493774414062,
+        "underlying_price": 720.5999755859375,
         "short_strike_breached": false,
         "has_live_quotes": true,
         "net_liq": 7178.91,
