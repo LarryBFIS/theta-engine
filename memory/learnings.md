@@ -1,6 +1,6 @@
 # Engine learnings — realized edge by bucket
 
-_Generated 2026-09-08T12:54:23.908742+00:00 · from the outcomes ledger. Buckets act on the scanner only at n ≥ 20 closes (shrunk toward the global prior). Below that they're shown but inert (×1.00)._
+_Generated 2026-09-08T13:22:30.468126+00:00 · from the outcomes ledger. Buckets act on the scanner only at n ≥ 20 closes (shrunk toward the global prior). Below that they're shown but inert (×1.00)._
 
 **Global: 71 closed · win rate 38% · realized $-9198.00**
 
