@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-08T20:45:23.443637+00:00",
-  "market_view": "Market is closed, after-hours. VIX 15.72, neutral regime \u2014 irrelevant. Two positions are in hard rule violation with no action taken across five consecutive CRITICAL cycles. Tomorrow open is the absolute last chance before these become unmanageable.",
+  "last_run": "2026-09-08T20:55:11.930263+00:00",
+  "market_view": "Market closed, after-hours. Both positions are in hard rule violation \u2014 SLV short strike breached with worst fill at 1.45x credit, QQQ at exactly 21 DTE. Seven consecutive CRITICAL cycles with zero action is a full playbook breakdown; tomorrow open is non-negotiable.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T20:45:10.371631+00:00",
-    "reasoning": "Short strike breached ($59.37 vs $61.5 short put), worst fill $0.80 is 1.45x credit \u2014 one tick from the 1.5x hard stop, overnight metals gap risk is real. Six consecutive CRITICAL flags with zero action is now a playbook integrity failure."
+    "timestamp": "2026-09-08T20:55:00Z",
+    "reasoning": "Short strike breached ($59.37 vs $61.5), worst fill $0.80 = 1.45x credit \u2014 one tick from the 1.5x hard stop trigger, and overnight metals gap risk could blow through max loss before market open. Seven consecutive CRITICAL flags with no action is a playbook integrity failure that is now compounding P&L risk."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T20:45:10.371631+00:00",
-    "reasoning": "21 DTE hard exit rule triggered \u2014 six consecutive CRITICAL flags with no action taken; this is no longer a trade management decision, it is a rule violation compounding every cycle."
+    "timestamp": "2026-09-08T20:55:00Z",
+    "reasoning": "21 DTE hard exit rule is breached \u2014 this is no longer discretionary, holding past the rule means the rule doesn't exist. Mid at $0.79 = 22% of max profit captured; close it and move on."
   }
 }
