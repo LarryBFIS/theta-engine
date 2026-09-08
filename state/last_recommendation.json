@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-08T19:38:45.138057+00:00",
-  "market_view": "VIX 15.63 ticking higher, mild broad selling with XLV and XLF leading weakness; SLV remains under pressure with underlying at $59.54, firmly through the 61.5 short strike. Both positions were flagged CRITICAL 11 minutes ago \u2014 no change in conditions, both closures remain unexecuted and urgent.",
+  "last_run": "2026-09-08T19:45:12.359395+00:00",
+  "market_view": "VIX at 15.57 nudging higher, broad mild selling with XLV -2.25% and XLF -1.15% leading weakness; SLV remains pinned below 61.5 with no relief catalyst in sight.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T19:38:25Z",
-    "reasoning": "Short strike still breached at 113 DTE, worst fill $0.75 is 1.36x credit and approaching the 1.5x hard stop of $0.825 \u2014 with SLV continuing to trade below 61.5, every tick risks pushing the fill past the automatic cut threshold. This position has been flagged for 11 minutes with no close executed."
+    "timestamp": "2026-09-08T19:45:00Z",
+    "reasoning": "Short strike breached, underlying at $59.54 is 3.3% through the 61.5 short \u2014 worst fill $0.70 is 1.27x credit and accelerating toward the 1.5x hard stop of $0.825. This has been flagged CRITICAL for 18+ minutes with no close executed \u2014 every minute of inaction increases risk of blowing through max loss on a $45 BPR position."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T19:38:25Z",
-    "reasoning": "21 DTE hard exit rule triggered \u2014 playbook states close or roll, no exceptions, and this has been flagged for 11 minutes without action. Mid $0.76 represents ~25% profit capture; the rule fires regardless of P&L target."
+    "timestamp": "2026-09-08T19:45:00Z",
+    "reasoning": "21 DTE hard exit rule triggered \u2014 playbook states close or roll, no exceptions, and this has been flagged for 18+ minutes without action. Mid at $0.755 vs $1.01 credit is 25% profit capture; rule fires regardless of P&L."
   }
 }
