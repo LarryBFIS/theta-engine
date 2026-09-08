@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-08T15:20:27.277717+00:00",
-  "market_view": "Neutral regime, VIX 15.41 essentially flat \u2014 market conditions are irrelevant. Two positions have hard rule violations that have now gone unexecuted through multiple CRITICAL alerts; this is a rules compliance emergency requiring immediate manual intervention.",
+  "last_run": "2026-09-08T15:22:27.562097+00:00",
+  "market_view": "Neutral regime, VIX 15.4 benign \u2014 market conditions are irrelevant to today's decisions. Both positions have hard rule violations that remain unexecuted after multiple CRITICAL alerts; this is a rules compliance emergency.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T15:20:15Z",
-    "reasoning": "Short strike breached with SLV at $60.00 \u2014 2.5% ITM \u2014 worst-case fill $0.75 is 1.36x credit and approaching the 1.5x stop threshold of $0.825. This position has been flagged CRITICAL for 9+ consecutive cycles with zero execution; further inaction risks max loss of $45 and playbook integrity."
+    "timestamp": "2026-09-08T15:22:15Z",
+    "reasoning": "Short strike breached \u2014 SLV at $59.88 is 2.7% ITM on the 61.5 short put. Worst-case fill $0.75 is 1.36x the $0.55 credit, approaching the 1.5x stop at $0.825. This has been flagged CRITICAL across 10+ consecutive cycles with zero execution \u2014 further inaction risks full max loss of $45 and playbook breakdown."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-08T15:20:15Z",
-    "reasoning": "21 DTE hard exit rule triggered \u2014 this is the rule expiry date, non-negotiable per playbook regardless of P&L. Position sits at $0.715 mid vs $1.01 credit, 29% profit captured, but gamma risk compounds from here and the rule exists precisely to prevent that."
+    "timestamp": "2026-09-08T15:22:15Z",
+    "reasoning": "21 DTE hard exit rule is triggered today \u2014 this is non-negotiable per playbook regardless of P&L. Mid at $0.745 vs $1.01 credit captures ~26% profit but gamma accelerates from here and the rule exists precisely to prevent that exposure."
   }
 }
