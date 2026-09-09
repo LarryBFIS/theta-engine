@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-09T19:55:05.619170+00:00",
-  "market_view": "VIX +4.13% today and +7.34% on the week with IWM -1.38% and cyclicals/staples/industrials all selling hard \u2014 risk-off is real but large-cap indices stable. SLV breach is the only fire requiring immediate action.",
+  "last_run": "2026-09-09T20:19:17.326707+00:00",
+  "market_view": "Market closed with VIX +4.83% on the day and +8.07% on the week \u2014 risk-off rotation into close with IWM -1.36% and cyclicals/staples/discretionary all down hard while large-cap tech held. SLV breach remains the only live fire.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-09T19:54:51Z",
-    "reasoning": "Short strike remains breached at $60.75, worst fill $0.70 is 1.27x credit and SLV is pinned below $61.50 with 112 DTE providing zero theta cushion \u2014 this has been CRITICAL for multiple cycles with no close executed, and continued drift lower puts 1.5x stop ($0.825) in immediate range."
+    "timestamp": "2026-09-09T20:19:02Z",
+    "reasoning": "Short strike still breached at $60.72 with worst fill $0.75 now at 1.36x credit \u2014 one more leg lower in SLV puts this at the 1.5x stop ($0.825) and this position has been flagged CRITICAL for multiple cycles with no close executed."
   },
   "SPY 731/722p": {
     "action": "HOLD",
     "confidence": 0.87,
-    "timestamp": "2026-09-09T19:54:51Z",
-    "reasoning": "SPY $762.47 sits 4.1% above $731 short strike, mid $0.925 essentially flat to $0.93 entry \u2014 no breach risk, no profit target hit, 29 DTE outside exit window."
+    "timestamp": "2026-09-09T20:19:02Z",
+    "reasoning": "SPY $762.40 is 4.1% above $731 short strike with mid flat at $0.93 vs $0.93 entry \u2014 no breach risk, no profit target, and VIX uptick hasn't moved this position materially."
   },
   "QQQ 680/670p": {
-    "action": "HOLD",
-    "confidence": 0.85,
-    "timestamp": "2026-09-09T19:54:51Z",
-    "reasoning": "QQQ $716.06 is 5.0% above $680 short strike and XLK -0.02% showing tech resilience relative to broad selloff \u2014 no actionable trigger at 29 DTE with mid only marginally above entry."
+    "action": "WATCH",
+    "confidence": 0.82,
+    "timestamp": "2026-09-09T20:19:02Z",
+    "reasoning": "QQQ $716.31 is 5.1% above $680 short strike but mid crept to $1.29 vs $1.25 entry \u2014 slightly underwater on mark-to-market with VIX trending higher, not actionable but watch for further deterioration."
   }
 }
