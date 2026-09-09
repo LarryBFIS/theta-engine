@@ -2057,8 +2057,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -4.76,
-      "cost_to_close_mid": 57.5,
+      "unrealized_pnl": -2.26,
+      "cost_to_close_mid": 55.0,
       "structure": "short_put_vertical",
       "short_strike": 61.5,
       "long_strike": 60.5,
@@ -2234,8 +2234,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -1.25,
-      "cost_to_close_mid": 92.0,
+      "unrealized_pnl": 0.75,
+      "cost_to_close_mid": 90.0,
       "structure": "short_put_vertical",
       "short_strike": 731.0,
       "long_strike": 722.0,
@@ -2246,6 +2246,51 @@
       "max_profit_total": 93.0,
       "max_loss_total": 807.0,
       "bpr_total": 807.0
+    },
+    {
+      "id": "ledger_036_qqq",
+      "underlying": "QQQ",
+      "opened_at": "2026-09-09",
+      "open_order_id": "504076345",
+      "open_net_cash": 122.74,
+      "open_legs": [
+        {
+          "symbol": "QQQ   261009P00680000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 5.43,
+          "net_cash": 541.86,
+          "fees": 1.14,
+          "executed_at": "2026-09-09T17:12:44.286Z"
+        },
+        {
+          "symbol": "QQQ   261009P00670000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 4.18,
+          "net_cash": -419.12,
+          "fees": 1.12,
+          "executed_at": "2026-09-09T17:12:44.286Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -1.76,
+      "cost_to_close_mid": 124.5,
+      "structure": "short_put_vertical",
+      "short_strike": 680.0,
+      "long_strike": 670.0,
+      "expiry": "2026-10-09",
+      "contracts": 1,
+      "credit_per_contract": 1.25,
+      "width": 10.0,
+      "max_profit_total": 125.0,
+      "max_loss_total": 875.0,
+      "bpr_total": 875.0
     }
   ]
 }
