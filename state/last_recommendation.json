@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-09T17:44:57.698054+00:00",
-  "market_view": "VIX up 3.5% to 16.27 with broad risk-off \u2014 IWM -1.25%, industrials and staples weak, tech barely green. SLV short strike remains breached for at least four consecutive cycles with zero execution \u2014 this is now a discipline failure.",
+  "last_run": "2026-09-09T17:55:07.189430+00:00",
+  "market_view": "VIX up another tick to 16.34 (+3.94% today, +7.15% 5d) with broad risk-off rotation \u2014 IWM -1.23%, industrials and staples weak, small caps getting hit hardest. SLV short strike remains breached for five+ consecutive cycles with zero execution \u2014 this is now a serious discipline failure with real loss accumulation risk.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-09T17:44:46Z",
-    "reasoning": "SLV at $61.34 is 16 cents BELOW the $61.50 short strike with worst fill at $0.70 \u2014 that's 1.27x credit and climbing toward the 1.5x ($0.825) hard stop. This is the fourth consecutive CRITICAL alert with no action; the position is ITM with 112 DTE meaning theta is not bailing you out."
+    "timestamp": "2026-09-09T17:54:51Z",
+    "reasoning": "SLV at $61.35 is 15 cents BELOW the $61.50 short strike, worst fill $0.70 = 1.27x credit and climbing toward the 1.5x hard stop ($0.825). Five consecutive CRITICAL alerts with zero execution \u2014 112 DTE means theta is not helping and this is an ITM short put vertical that needs to be closed NOW."
   },
   "SPY 731/722p": {
     "action": "HOLD",
-    "confidence": 0.9,
-    "timestamp": "2026-09-09T17:44:46Z",
-    "reasoning": "SPY at $762.92 is 4.2% above the $731 short strike with 29 DTE, mid cost $0.905 is essentially flat to credit \u2014 no threat."
+    "confidence": 0.88,
+    "timestamp": "2026-09-09T17:54:51Z",
+    "reasoning": "SPY at $763.23 is 4.4% above the $731 short strike, mid cost $0.89 essentially flat to $0.93 credit \u2014 no P&L concern at 29 DTE."
   },
   "QQQ 680/670p": {
     "action": "HOLD",
-    "confidence": 0.9,
-    "timestamp": "2026-09-09T17:44:46Z",
-    "reasoning": "QQQ at $716.39 is 5.1% above the $680 short strike with 29 DTE, tech outperforming on the week \u2014 position healthy, no action needed."
+    "confidence": 0.88,
+    "timestamp": "2026-09-09T17:54:51Z",
+    "reasoning": "QQQ at $716.93 is 5.4% above the $680 short strike, tech outperforming all week, mid cost $1.235 nearly flat to $1.25 credit \u2014 healthy position."
   }
 }
