@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-09T13:18:51.120982+00:00",
-  "market_view": "Market is in a mild risk-off session with VIX up 2.93% on the day and elevated 5d trend (+6.1%), broad indices soft but not crashing. SLV and metals remain under pressure with SLV spot at $59.37, well below the short strike.",
+  "last_run": "2026-09-09T13:21:06.522054+00:00",
+  "market_view": "Market is mildly risk-off with VIX up 3% on the day and +6.2% on the week \u2014 not a crisis but elevated vol trend is unfavorable for short premium. SLV remains the urgent problem with spot at $59.37, deep through the $61.5 short strike.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-09T13:18:37Z",
-    "reasoning": "Short strike breached ($59.37 vs $61.5 short), worst fill $0.80 = 1.45x credit \u2014 one tick from the 1.5x hard stop, and this is the EIGHTH consecutive CRITICAL flag with zero action. SLV is 3.6% through the short strike with 112 DTE remaining and no mean-reversion catalyst visible; max loss is $45 but ongoing slide could pin this deep ITM."
+    "timestamp": "2026-09-09T13:20:52Z",
+    "reasoning": "Short strike breached by 3.6%, worst fill $0.80 is at the 1.45x credit threshold \u2014 one tick from the 1.5x hard stop, 112 DTE remaining with no recovery catalyst. This position has been flagged CRITICAL repeatedly with zero action; continued inaction turns a manageable loss into a max loss."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-09T13:18:37Z",
-    "reasoning": "At 20 DTE, this position has crossed the 21 DTE hard exit rule \u2014 the rule is already breached and every additional minute held is a rule violation compounding gamma risk. Mid at $0.79 means you've captured 22% of max profit, not the 50% target, but the DTE rule is unconditional."
+    "timestamp": "2026-09-09T13:20:52Z",
+    "reasoning": "At 20 DTE, this position has crossed the 21 DTE hard exit rule \u2014 the rule is unconditional and has already been violated. QQQ is $39 above the short strike so this can be closed cleanly at $0.79 mid."
   }
 }
