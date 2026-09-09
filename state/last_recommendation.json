@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-09T19:45:02.114393+00:00",
-  "market_view": "VIX +3.69% today and +6.89% on the week with IWM -1.44% and cyclicals/staples leading the selloff \u2014 risk-off bias persists but large-cap indices holding. SLV is the only critical exposure with short strike breached and no execution yet.",
+  "last_run": "2026-09-09T19:55:05.619170+00:00",
+  "market_view": "VIX +4.13% today and +7.34% on the week with IWM -1.38% and cyclicals/staples/industrials all selling hard \u2014 risk-off is real but large-cap indices stable. SLV breach is the only fire requiring immediate action.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-09T19:44:47Z",
-    "reasoning": "Short strike breached at $60.78, worst fill $0.70 is 1.27x the $0.55 credit with 112 DTE \u2014 zero theta help, and this has been CRITICAL for multiple consecutive cycles with no close executed. The 1.5x loss threshold ($0.825) is close if SLV continues down."
+    "timestamp": "2026-09-09T19:54:51Z",
+    "reasoning": "Short strike remains breached at $60.75, worst fill $0.70 is 1.27x credit and SLV is pinned below $61.50 with 112 DTE providing zero theta cushion \u2014 this has been CRITICAL for multiple cycles with no close executed, and continued drift lower puts 1.5x stop ($0.825) in immediate range."
   },
   "SPY 731/722p": {
     "action": "HOLD",
-    "confidence": 0.88,
-    "timestamp": "2026-09-09T19:44:47Z",
-    "reasoning": "SPY $762.80 sits 4.2% above $731 short strike, mid cost $0.91 is essentially flat to $0.93 entry \u2014 no breach risk, no profit target, 29 DTE still outside the 21 DTE exit window."
+    "confidence": 0.87,
+    "timestamp": "2026-09-09T19:54:51Z",
+    "reasoning": "SPY $762.47 sits 4.1% above $731 short strike, mid $0.925 essentially flat to $0.93 entry \u2014 no breach risk, no profit target hit, 29 DTE outside exit window."
   },
   "QQQ 680/670p": {
     "action": "HOLD",
     "confidence": 0.85,
-    "timestamp": "2026-09-09T19:44:47Z",
-    "reasoning": "QQQ $716.11 is 5.0% above $680 short strike, mid $1.28 is marginally above entry but within noise \u2014 XLK only -0.02% showing tech resilience, no actionable trigger at 29 DTE."
+    "timestamp": "2026-09-09T19:54:51Z",
+    "reasoning": "QQQ $716.06 is 5.0% above $680 short strike and XLK -0.02% showing tech resilience relative to broad selloff \u2014 no actionable trigger at 29 DTE with mid only marginally above entry."
   }
 }
