@@ -13,7 +13,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.19 in normal regime post\u20137% down day suggests volatility is fairly priced; the tape is not panicked, but direction is weak. Premium selling is tactically acceptable, but avoid adding correlated short-vol into a directionally uncertain market.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-09",
+      "actual_price": 763.41,
+      "realized_move_pct": 0.0027,
+      "realized_move_signed": -0.0027,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "278dbf52bf2b",
@@ -28,7 +34,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.19 in normal regime post\u20137% down day suggests volatility is fairly priced; the tape is not panicked, but direction is weak. Premium selling is tactically acceptable, but avoid adding correlated short-vol into a directionally uncertain market.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-09",
+      "actual_price": 714.77,
+      "realized_move_pct": 0.0081,
+      "realized_move_signed": 0.0081,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "182a9324d065",
@@ -43,7 +55,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.19 in normal regime post\u20137% down day suggests volatility is fairly priced; the tape is not panicked, but direction is weak. Premium selling is tactically acceptable, but avoid adding correlated short-vol into a directionally uncertain market.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-09",
+      "actual_price": 293.07,
+      "realized_move_pct": 0.004,
+      "realized_move_signed": -0.004,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "917197e2b6c3",
@@ -58,7 +76,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.19 in normal regime post\u20137% down day suggests volatility is fairly priced; the tape is not panicked, but direction is weak. Premium selling is tactically acceptable, but avoid adding correlated short-vol into a directionally uncertain market.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-09",
+      "actual_price": 525.11,
+      "realized_move_pct": 0.0109,
+      "realized_move_signed": -0.0109,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "07986e6f3ab5",
@@ -298,6 +322,66 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.54 in normal regime after +2% day; tape is constructive and volatility fairly priced. Good environment for premium sells, but timing favors index over single-name exposure given the tech cluster headwinds in our learnings.",
+      "resolved": false
+    },
+    {
+      "id": "d83b7e1f3b17",
+      "index": "SPY",
+      "forecast_date": "2026-09-09",
+      "target_date": "2026-09-16",
+      "horizon_days": 7,
+      "spot_at_forecast": 763.41,
+      "iv": 0.155,
+      "implied_move_pct": 0.0215,
+      "implied_move_abs": 16.39,
+      "model": null,
+      "vol_verdict": null,
+      "market_view": "",
+      "resolved": false
+    },
+    {
+      "id": "aaddecd8a74f",
+      "index": "QQQ",
+      "forecast_date": "2026-09-09",
+      "target_date": "2026-09-16",
+      "horizon_days": 7,
+      "spot_at_forecast": 714.77,
+      "iv": 0.2155,
+      "implied_move_pct": 0.0298,
+      "implied_move_abs": 21.34,
+      "model": null,
+      "vol_verdict": null,
+      "market_view": "",
+      "resolved": false
+    },
+    {
+      "id": "8254d08dbb88",
+      "index": "IWM",
+      "forecast_date": "2026-09-09",
+      "target_date": "2026-09-16",
+      "horizon_days": 7,
+      "spot_at_forecast": 293.07,
+      "iv": 0.1991,
+      "implied_move_pct": 0.0276,
+      "implied_move_abs": 8.08,
+      "model": null,
+      "vol_verdict": null,
+      "market_view": "",
+      "resolved": false
+    },
+    {
+      "id": "b8a48218dc93",
+      "index": "DIA",
+      "forecast_date": "2026-09-09",
+      "target_date": "2026-09-16",
+      "horizon_days": 7,
+      "spot_at_forecast": 525.11,
+      "iv": 0.1436,
+      "implied_move_pct": 0.0199,
+      "implied_move_abs": 10.44,
+      "model": null,
+      "vol_verdict": null,
+      "market_view": "",
       "resolved": false
     }
   ]
