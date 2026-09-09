@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-09T16:23:10.139172+00:00",
+  "generated_at": "2026-09-09T16:24:50.134278+00:00",
   "regime": {
-    "vix": 16.35,
-    "vix_day_change_pct": 0.0401,
+    "vix": 16.43,
+    "vix_day_change_pct": 0.0452,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (+4% day)"
@@ -29,19 +29,19 @@
       "long_symbol": "SPY   261009P00722000",
       "width": 9.0,
       "credit": 0.96,
-      "mid_credit": 0.98,
+      "mid_credit": 0.99,
       "fees_est": 3.0,
       "bpr": 804.0,
       "max_loss": 804.0,
       "pop": 0.804,
-      "short_delta": 0.183,
-      "short_spread_pct": 0.005,
+      "short_delta": 0.184,
+      "short_spread_pct": 0.007,
       "credit_to_bpr": 0.119,
-      "ev_per_contract": 7.38,
-      "ev_on_bpr": 0.0092,
+      "ev_per_contract": 7.34,
+      "ev_on_bpr": 0.0091,
       "iv": 0.1618,
       "iv_rank": 0.339,
-      "underlying_price": 761.44,
+      "underlying_price": 761.41,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -58,9 +58,9 @@
         "cluster=us_index \u00d71.50",
         "structure=short_put_vertical \u00d71.28"
       ],
-      "rank_score": 0.01472,
+      "rank_score": 0.01456,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, favored structure, +4% tape is ideal for short-put entry; dte 30 and ev_on_bpr 0.92% support approval. Book already has 2 SPY; this respects cap.",
+      "agent_reason": "Index ETF, favorable structure, tight vertical, acceptable ev-on-bpr in a risk-on tape; us_index cluster at 3/3 cap but this keeps us at edge.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "caution",
@@ -72,7 +72,7 @@
           }
         ]
       },
-      "net_liq": 7138.105,
+      "net_liq": 7125.18,
       "ticket": {
         "underlying": "SPY",
         "code": "VP",
@@ -108,103 +108,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 713.81,
+        "live_cap": 712.52,
         "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $804 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d71 \u2014 SELL 731P / BUY 722P (2026-10-09) @ $0.96 net credit. Max loss $804. After fill: GTC buy-to-close @ $0.48 (50%). \u26a0 max loss $804 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $804 > 10% live cap ($713) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "SPY VP \u00d71 \u2014 SELL 731P / BUY 722P (2026-10-09) @ $0.96 net credit. Max loss $804. After fill: GTC buy-to-close @ $0.48 (50%). \u26a0 max loss $804 > 10% live cap ($713) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-09T16:23:10.139172+00:00"
-    },
-    {
-      "underlying": "IWM",
-      "structure": "short_put_vertical",
-      "expiry": "2026-10-09",
-      "dte": 30,
-      "short_strike": 276.0,
-      "long_strike": 271.0,
-      "short_symbol": "IWM   261009P00276000",
-      "long_symbol": "IWM   261009P00271000",
-      "width": 5.0,
-      "credit": 0.58,
-      "mid_credit": 0.63,
-      "fees_est": 3.0,
-      "bpr": 442.0,
-      "max_loss": 442.0,
-      "pop": 0.797,
-      "short_delta": 0.187,
-      "short_spread_pct": 0.024,
-      "credit_to_bpr": 0.131,
-      "ev_per_contract": 2.4,
-      "ev_on_bpr": 0.0054,
-      "iv": 0.2094,
-      "iv_rank": 0.228,
-      "underlying_price": 290.62,
-      "liquidity": 4,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "live",
-      "contracts": 1,
-      "max_loss_total": 442.0,
-      "bpr_total": 442.0,
-      "trend": "mixed",
-      "sized_capped": true,
-      "reasoning": "short put vertical 276/271p \u00d71 \u2014 rich premium. Edge: IV rank 23%, EV $+2/ctr (+0.5% on BPR). POP 80% \u00b7 credit $0.58 \u00b7 max loss $442 \u00b7 BPR $442 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 1.6,
-      "learn_notes": [
-        "asset_class=index_etf \u00d71.45",
-        "cluster=us_index \u00d71.50",
-        "structure=short_put_vertical \u00d71.28"
-      ],
-      "rank_score": 0.00864,
-      "agent_action": "approve",
-      "agent_reason": "Already 1 IWM open; IV rank 22.8% is lean, ev_on_bpr 0.54% is marginal, and book is us_index-heavy (3/4 open). Downsizing respects diversification.",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "clear",
-        "hits": []
-      },
-      "net_liq": 7138.105,
-      "ticket": {
-        "underlying": "IWM",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 0.58,
-        "contracts": 1,
-        "expiry": "2026-10-09",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 1,
-            "expiry": "2026-10-09",
-            "strike": 276.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 1,
-            "expiry": "2026-10-09",
-            "strike": 271.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 58.0,
-        "max_loss_total": 442.0,
-        "bpr_total": 442.0,
-        "pop": 0.797,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.29,
-          "stop_debit": 1.45,
-          "exit_dte": 21
-        },
-        "fits_live_cap": true,
-        "live_cap": 713.81,
-        "suggested_width": null,
-        "fit_note": "",
-        "text": "IWM VP \u00d71 \u2014 SELL 276P / BUY 271P (2026-10-09) @ $0.58 net credit. Max loss $442. After fill: GTC buy-to-close @ $0.29 (50%)."
-      },
-      "posted_at": "2026-09-09T16:23:10.139172+00:00"
+      "posted_at": "2026-09-09T16:24:50.134278+00:00"
     },
     {
       "underlying": "QQQ",
@@ -231,14 +140,14 @@
       "bpr": 887.0,
       "max_loss": 887.0,
       "pop": 0.776,
-      "put_short_delta": 0.097,
-      "call_short_delta": 0.128,
+      "put_short_delta": 0.098,
+      "call_short_delta": 0.127,
       "credit_to_bpr": 0.127,
-      "ev_per_contract": 2.93,
+      "ev_per_contract": 2.94,
       "ev_on_bpr": 0.0033,
       "iv": 0.2209,
       "iv_rank": 0.468,
-      "underlying_price": 715.09,
+      "underlying_price": 714.96,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -256,7 +165,7 @@
       ],
       "rank_score": 0.00169,
       "agent_action": "guarded",
-      "agent_reason": "Single-name asset class with realized wr 26%, confirmed loss driver; us_tech cluster also underperforms. Do not compound book weakness.",
+      "agent_reason": "us_tech cluster already underwater with QQQ open; engine learnings show us_tech negative expectancy (30% wr); do not compound a losing cluster.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -264,7 +173,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7138.105,
+      "net_liq": 7125.18,
       "ticket": {
         "underlying": "QQQ",
         "code": "IC",
@@ -314,12 +223,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 713.81,
+        "live_cap": 712.52,
         "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $887 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ IC \u00d71 \u2014 SELL 660P / BUY 650P / SELL 770C / BUY 780C (2026-10-09) @ $1.13 net credit. Max loss $887. After fill: GTC buy-to-close @ $0.56 (50%). \u26a0 max loss $887 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $887 > 10% live cap ($713) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "QQQ IC \u00d71 \u2014 SELL 660P / BUY 650P / SELL 770C / BUY 780C (2026-10-09) @ $1.13 net credit. Max loss $887. After fill: GTC buy-to-close @ $0.56 (50%). \u26a0 max loss $887 > 10% live cap ($713) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-09T16:23:10.139172+00:00"
+      "posted_at": "2026-09-09T16:24:50.134278+00:00"
     }
   ],
   "long_vol": [],
@@ -379,29 +288,29 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-09-09T16:23:09.588642+00:00",
+    "generated_at": "2026-09-09T16:24:49.770688+00:00",
     "model": "claude-haiku-4-5",
-    "market_view": "VIX 16.35, regime normal, +4% day: tape is risk-on and calm. Premium selling is well-timed into strength; volatility is fairly priced (not rich), so we should be selective on sizing.",
-    "portfolio_note": "Book is 4 open (3 us_index, 1 us_tech), slightly underwater (-$34 unrealized). Adding more us_index is acceptable; us_tech is a known weakness (30% wr) and should be avoided.",
-    "vol_verdict": "implied_rich",
+    "market_view": "Normal regime, +5% day, VIX 16.43\u2014tape is risk-on and complacent. This is decent timing to sell premium into strength, but avoid adding to concentrated short-vol in a single rip; vol is fairly priced, not rich.",
+    "portfolio_note": "Book is long 4 positions (3 us_index, 1 us_tech) with -$34 unrealized. Adding more index premium is acceptable; us_tech is already a drag and should not be extended.",
+    "vol_verdict": "fair",
     "reviewed": 3,
-    "vetoed": 1,
+    "vetoed": 2,
     "downsized": 0,
     "decisions": [
       {
         "id": "SPY|short_put_vertical|731/722",
         "action": "approve",
-        "reason": "Index ETF, favored structure, +4% tape is ideal for short-put entry; dte 30 and ev_on_bpr 0.92% support approval. Book already has 2 SPY; this respects cap."
+        "reason": "Index ETF, favorable structure, tight vertical, acceptable ev-on-bpr in a risk-on tape; us_index cluster at 3/3 cap but this keeps us at edge."
       },
       {
         "id": "IWM|short_put_vertical|276/271",
-        "action": "approve",
-        "reason": "Already 1 IWM open; IV rank 22.8% is lean, ev_on_bpr 0.54% is marginal, and book is us_index-heavy (3/4 open). Downsizing respects diversification."
+        "action": "veto",
+        "reason": "Already 1 IWM open + SPY approval puts us at 2 us_index names; adding IWM again adds single-name concentration risk; defer this trade."
       },
       {
         "id": "QQQ|iron_condor|660/770",
         "action": "veto",
-        "reason": "Single-name asset class with realized wr 26%, confirmed loss driver; us_tech cluster also underperforms. Do not compound book weakness."
+        "reason": "us_tech cluster already underwater with QQQ open; engine learnings show us_tech negative expectancy (30% wr); do not compound a losing cluster."
       }
     ]
   },
@@ -417,19 +326,19 @@
       "long_symbol": "SPY   261009P00722000",
       "width": 9.0,
       "credit": 0.96,
-      "mid_credit": 0.98,
+      "mid_credit": 0.99,
       "fees_est": 3.0,
       "bpr": 804.0,
       "max_loss": 804.0,
       "pop": 0.804,
-      "short_delta": 0.183,
-      "short_spread_pct": 0.005,
+      "short_delta": 0.184,
+      "short_spread_pct": 0.007,
       "credit_to_bpr": 0.119,
-      "ev_per_contract": 7.38,
-      "ev_on_bpr": 0.0092,
+      "ev_per_contract": 7.34,
+      "ev_on_bpr": 0.0091,
       "iv": 0.1618,
       "iv_rank": 0.339,
-      "underlying_price": 761.44,
+      "underlying_price": 761.41,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -446,9 +355,9 @@
         "cluster=us_index \u00d71.50",
         "structure=short_put_vertical \u00d71.28"
       ],
-      "rank_score": 0.01472,
+      "rank_score": 0.01456,
       "agent_action": "approve",
-      "agent_reason": "Index ETF, favored structure, +4% tape is ideal for short-put entry; dte 30 and ev_on_bpr 0.92% support approval. Book already has 2 SPY; this respects cap.",
+      "agent_reason": "Index ETF, favorable structure, tight vertical, acceptable ev-on-bpr in a risk-on tape; us_index cluster at 3/3 cap but this keeps us at edge.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "caution",
@@ -460,7 +369,7 @@
           }
         ]
       },
-      "net_liq": 7138.105,
+      "net_liq": 7125.18,
       "ticket": {
         "underlying": "SPY",
         "code": "VP",
@@ -496,12 +405,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 713.81,
+        "live_cap": 712.52,
         "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $804 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d71 \u2014 SELL 731P / BUY 722P (2026-10-09) @ $0.96 net credit. Max loss $804. After fill: GTC buy-to-close @ $0.48 (50%). \u26a0 max loss $804 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $804 > 10% live cap ($713) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "SPY VP \u00d71 \u2014 SELL 731P / BUY 722P (2026-10-09) @ $0.96 net credit. Max loss $804. After fill: GTC buy-to-close @ $0.48 (50%). \u26a0 max loss $804 > 10% live cap ($713) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-09T16:23:10.139172+00:00"
+      "posted_at": "2026-09-09T16:24:50.134278+00:00"
     },
     {
       "underlying": "IWM",
@@ -513,86 +422,39 @@
       "short_symbol": "IWM   261009P00276000",
       "long_symbol": "IWM   261009P00271000",
       "width": 5.0,
-      "credit": 0.58,
-      "mid_credit": 0.63,
+      "credit": 0.59,
+      "mid_credit": 0.64,
       "fees_est": 3.0,
-      "bpr": 442.0,
-      "max_loss": 442.0,
-      "pop": 0.797,
-      "short_delta": 0.187,
+      "bpr": 441.0,
+      "max_loss": 441.0,
+      "pop": 0.795,
+      "short_delta": 0.188,
       "short_spread_pct": 0.024,
-      "credit_to_bpr": 0.131,
-      "ev_per_contract": 2.4,
-      "ev_on_bpr": 0.0054,
-      "iv": 0.2094,
-      "iv_rank": 0.228,
-      "underlying_price": 290.62,
+      "credit_to_bpr": 0.134,
+      "ev_per_contract": 2.28,
+      "ev_on_bpr": 0.0052,
+      "iv": 0.2115,
+      "iv_rank": 0.238,
+      "underlying_price": 290.66,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "live",
       "contracts": 1,
-      "max_loss_total": 442.0,
-      "bpr_total": 442.0,
+      "max_loss_total": 441.0,
+      "bpr_total": 441.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "short put vertical 276/271p \u00d71 \u2014 rich premium. Edge: IV rank 23%, EV $+2/ctr (+0.5% on BPR). POP 80% \u00b7 credit $0.58 \u00b7 max loss $442 \u00b7 BPR $442 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 276/271p \u00d71 \u2014 rich premium. Edge: IV rank 24%, EV $+2/ctr (+0.5% on BPR). POP 80% \u00b7 credit $0.59 \u00b7 max loss $441 \u00b7 BPR $441 \u00b7 30 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.6,
       "learn_notes": [
         "asset_class=index_etf \u00d71.45",
         "cluster=us_index \u00d71.50",
         "structure=short_put_vertical \u00d71.28"
       ],
-      "rank_score": 0.00864,
-      "agent_action": "approve",
-      "agent_reason": "Already 1 IWM open; IV rank 22.8% is lean, ev_on_bpr 0.54% is marginal, and book is us_index-heavy (3/4 open). Downsizing respects diversification.",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "clear",
-        "hits": []
-      },
-      "net_liq": 7138.105,
-      "ticket": {
-        "underlying": "IWM",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 0.58,
-        "contracts": 1,
-        "expiry": "2026-10-09",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 1,
-            "expiry": "2026-10-09",
-            "strike": 276.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 1,
-            "expiry": "2026-10-09",
-            "strike": 271.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 58.0,
-        "max_loss_total": 442.0,
-        "bpr_total": 442.0,
-        "pop": 0.797,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.29,
-          "stop_debit": 1.45,
-          "exit_dte": 21
-        },
-        "fits_live_cap": true,
-        "live_cap": 713.81,
-        "suggested_width": null,
-        "fit_note": "",
-        "text": "IWM VP \u00d71 \u2014 SELL 276P / BUY 271P (2026-10-09) @ $0.58 net credit. Max loss $442. After fill: GTC buy-to-close @ $0.29 (50%)."
-      },
-      "posted_at": "2026-09-09T16:23:10.139172+00:00"
+      "rank_score": 0.00832,
+      "agent_action": "veto",
+      "agent_reason": "Already 1 IWM open + SPY approval puts us at 2 us_index names; adding IWM again adds single-name concentration risk; defer this trade."
     },
     {
       "underlying": "QQQ",
@@ -619,14 +481,14 @@
       "bpr": 887.0,
       "max_loss": 887.0,
       "pop": 0.776,
-      "put_short_delta": 0.097,
-      "call_short_delta": 0.128,
+      "put_short_delta": 0.098,
+      "call_short_delta": 0.127,
       "credit_to_bpr": 0.127,
-      "ev_per_contract": 2.93,
+      "ev_per_contract": 2.94,
       "ev_on_bpr": 0.0033,
       "iv": 0.2209,
       "iv_rank": 0.468,
-      "underlying_price": 715.09,
+      "underlying_price": 714.96,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -644,7 +506,7 @@
       ],
       "rank_score": 0.00169,
       "agent_action": "guarded",
-      "agent_reason": "Single-name asset class with realized wr 26%, confirmed loss driver; us_tech cluster also underperforms. Do not compound book weakness.",
+      "agent_reason": "us_tech cluster already underwater with QQQ open; engine learnings show us_tech negative expectancy (30% wr); do not compound a losing cluster.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -652,7 +514,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7138.105,
+      "net_liq": 7125.18,
       "ticket": {
         "underlying": "QQQ",
         "code": "IC",
@@ -702,12 +564,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 713.81,
+        "live_cap": 712.52,
         "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $887 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ IC \u00d71 \u2014 SELL 660P / BUY 650P / SELL 770C / BUY 780C (2026-10-09) @ $1.13 net credit. Max loss $887. After fill: GTC buy-to-close @ $0.56 (50%). \u26a0 max loss $887 > 10% live cap ($714) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $887 > 10% live cap ($713) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "QQQ IC \u00d71 \u2014 SELL 660P / BUY 650P / SELL 770C / BUY 780C (2026-10-09) @ $1.13 net credit. Max loss $887. After fill: GTC buy-to-close @ $0.56 (50%). \u26a0 max loss $887 > 10% live cap ($713) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-09T16:23:10.139172+00:00"
+      "posted_at": "2026-09-09T16:24:50.134278+00:00"
     }
   ],
   "skipped": {
