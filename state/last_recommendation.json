@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-09T13:21:06.522054+00:00",
-  "market_view": "Market is mildly risk-off with VIX up 3% on the day and +6.2% on the week \u2014 not a crisis but elevated vol trend is unfavorable for short premium. SLV remains the urgent problem with spot at $59.37, deep through the $61.5 short strike.",
+  "last_run": "2026-09-09T13:30:33.261230+00:00",
+  "market_view": "Market is mildly risk-off, VIX +2.86% today and +6% on the week with broad sector weakness. SLV underlying has recovered sharply from the last read ($59.37 to $61.19), but the short strike remains breached \u2014 this changes urgency on SLV but does not eliminate it.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
-    "confidence": 0.99,
-    "timestamp": "2026-09-09T13:20:52Z",
-    "reasoning": "Short strike breached by 3.6%, worst fill $0.80 is at the 1.45x credit threshold \u2014 one tick from the 1.5x hard stop, 112 DTE remaining with no recovery catalyst. This position has been flagged CRITICAL repeatedly with zero action; continued inaction turns a manageable loss into a max loss."
+    "confidence": 0.95,
+    "timestamp": "2026-09-09T13:30:14Z",
+    "reasoning": "Short strike still breached with spot at $61.19 vs $61.50 short \u2014 0.5% ITM, 112 DTE, and worst-case fill $0.75 is 1.36x credit ($0.55), approaching the 1.5x stop. SLV bounced but remains through the strike with no reason to carry this 112 days."
   },
   "QQQ 679/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-09T13:20:52Z",
-    "reasoning": "At 20 DTE, this position has crossed the 21 DTE hard exit rule \u2014 the rule is unconditional and has already been violated. QQQ is $39 above the short strike so this can be closed cleanly at $0.79 mid."
+    "timestamp": "2026-09-09T13:30:14Z",
+    "reasoning": "21 DTE hard exit rule triggered \u2014 position is at 20 DTE and this rule is unconditional per the playbook. QQQ is $37 above the short strike; close at mid $0.835 locks in 17% of max profit cleanly."
   }
 }
