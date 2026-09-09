@@ -37145,51 +37145,51 @@
       "decided_at": null
     },
     {
-      "id": "sug_20260909T101859_trade_031_slv_61_60",
+      "id": "sug_20260909T102050_trade_031_slv_61_60",
       "trade_id": "trade_031_slv_61_60",
-      "timestamp": "2026-09-09T10:18:59.382791-04:00",
+      "timestamp": "2026-09-09T10:20:50.361157-04:00",
       "action": "URGENT_CLOSE",
       "urgency": "high",
       "reasoning": [
-        "\u26a0\ufe0f SLV @ $61.24 is BELOW short strike $62 (ITM).",
-        "Max loss exposure increasing. Current close: $0.58 mid / $0.70 worst.",
+        "\u26a0\ufe0f SLV @ $61.15 is BELOW short strike $62 (ITM).",
+        "Max loss exposure increasing. Current close: $0.57 mid / $0.70 worst.",
         "112 DTE remaining; negative delta hurts daily."
       ],
       "metrics_snapshot": {
-        "cost_to_close_mid": 0.5750000000000002,
+        "cost_to_close_mid": 0.5749999999999993,
         "cost_to_close_worst": 0.7000000000000002,
-        "profit_if_closed_mid": -2.5000000000000133,
+        "profit_if_closed_mid": -2.4999999999999245,
         "profit_if_closed_worst": -15.000000000000014,
-        "pct_max_profit_captured_mid": -0.04545454545454569,
+        "pct_max_profit_captured_mid": -0.045454545454544075,
         "dte": 112,
-        "underlying_price": 61.244998931884766,
+        "underlying_price": 61.154998779296875,
         "short_strike_breached": true,
         "has_live_quotes": true,
         "net_liq": 7152.167,
         "day_pnl": 0.0
       },
-      "alternative": "Hold and hope. Risk: up to $45 max loss (currently $3 unrealized).",
+      "alternative": "Hold and hope. Risk: up to $45 max loss (currently $2 unrealized).",
       "status": "pending",
       "decided_at": null
     },
     {
-      "id": "sug_20260909T101859_trade_033_qqq_679_670",
+      "id": "sug_20260909T102050_trade_033_qqq_679_670",
       "trade_id": "trade_033_qqq_679_670",
-      "timestamp": "2026-09-09T10:18:59.696213-04:00",
+      "timestamp": "2026-09-09T10:20:50.908966-04:00",
       "action": "CLOSE",
       "urgency": "normal",
       "reasoning": [
         "\u23f0 20 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
-        "Currently 19% captured ($19 mid)."
+        "Currently 18% captured ($18 mid)."
       ],
       "metrics_snapshot": {
-        "cost_to_close_mid": 0.8199999999999998,
+        "cost_to_close_mid": 0.8299999999999996,
         "cost_to_close_worst": 0.8700000000000001,
-        "profit_if_closed_mid": 19.000000000000018,
+        "profit_if_closed_mid": 18.00000000000004,
         "profit_if_closed_worst": 13.99999999999999,
-        "pct_max_profit_captured_mid": 0.18811881188118829,
+        "pct_max_profit_captured_mid": 0.1782178217821786,
         "dte": 20,
-        "underlying_price": 717.5698852539062,
+        "underlying_price": 717.3900146484375,
         "short_strike_breached": false,
         "has_live_quotes": true,
         "net_liq": 7152.167,
