@@ -1,16 +1,10 @@
 {
-  "last_run": "2026-09-09T16:33:17.848452+00:00",
-  "market_view": "VIX +5.47% today to 16.58 with broad risk-off rotation continuing \u2014 IWM -1.26%, XLY -1.45%, XLP -1.08% confirm defensive pressure accelerating. Both positions are in active rule-breach territory for a third consecutive cycle with no execution confirmed.",
+  "last_run": "2026-09-09T16:43:21.809851+00:00",
+  "market_view": "VIX +5.09% today to 16.52 with broad risk-off continuing \u2014 IWM -1.21%, XLP -1.24%, XLY -1.36% confirm defensive rotation persisting. SLV is trading below the short strike with no relief bid visible and metals have no catalyst to reverse intraday.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-09T16:33:06Z",
-    "reasoning": "Short strike $61.50 remains breached with SLV at $60.98 \u2014 position is ITM, worst fill $0.70 is 1.27x the $0.55 credit received, and at 112 DTE there is zero theta working in your favor. This CRITICAL has persisted three cycles without execution \u2014 every minute of delay risks SLV sliding further into the $60.50 long strike and approaching max loss."
-  },
-  "QQQ 679/670p": {
-    "action": "CRITICAL",
-    "confidence": 0.99,
-    "timestamp": "2026-09-09T16:33:06Z",
-    "reasoning": "At 20 DTE the 21 DTE hard exit rule is breached \u2014 no exceptions per the playbook. Mid at $0.91 still shows a $10 profit window that gamma acceleration in a rising VIX regime is actively consuming."
+    "timestamp": "2026-09-09T16:43:07.921622+00:00",
+    "reasoning": "Short strike $61.50 is breached \u2014 SLV at $61.03 is ITM, worst fill $0.70 is 1.27x the $0.55 credit, 112 DTE means zero theta support, and this CRITICAL has persisted multiple cycles with no execution. Every cycle of inaction increases assignment and max-loss risk as SLV drifts toward the $60.50 long strike."
   }
 }
