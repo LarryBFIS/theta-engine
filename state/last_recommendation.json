@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-09T20:39:26.384659+00:00",
-  "market_view": "Market closed risk-off with VIX +4.71% today and +7.93% on the week; cyclical weakness broad but large-cap tech holding. SLV breach is the live critical risk \u2014 market is closed, action required at tomorrow's open.",
+  "last_run": "2026-09-09T20:45:35.357197+00:00",
+  "market_view": "Market closed risk-off: VIX +4.71% today, +7.93% on the week, with broad cyclical weakness and IWM -1.37% leading the selloff. SLV breach remains the sole critical risk \u2014 market is closed, action is locked until tomorrow's open.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-09T20:39:15Z",
-    "reasoning": "Short strike breached at $60.72, worst fill $0.75 is 1.36x credit \u2014 one tick lower in SLV tomorrow morning hits the 1.5x hard stop at $0.825, and this has been flagged CRITICAL for multiple cycles with no close executed. This is order #1 at the open, no delay."
+    "timestamp": "2026-09-09T20:45:22Z",
+    "reasoning": "Short strike breached, worst fill $0.75 is already 1.36x credit and one gap-down tick at tomorrow's open hits the 1.5x hard stop at $0.825. This has been CRITICAL for multiple consecutive cycles with no close executed \u2014 this is order #1 at 9:30 AM, no exceptions, no waiting for a better fill."
   },
   "SPY 731/722p": {
     "action": "HOLD",
     "confidence": 0.85,
-    "timestamp": "2026-09-09T20:39:15Z",
-    "reasoning": "SPY $762.40 sits 4.1% above the $731 short strike, mid flat at $0.93 vs $0.93 entry \u2014 no breach risk, no profit target hit, 29 DTE still outside the 21 DTE exit trigger."
+    "timestamp": "2026-09-09T20:45:22Z",
+    "reasoning": "SPY $762.40 is 4.1% above the $731 short strike, mid flat at $0.93 vs $0.93 entry, 29 DTE \u2014 no breach risk, no profit target, outside 21 DTE trigger."
   },
   "QQQ 680/670p": {
     "action": "WATCH",
     "confidence": 0.8,
-    "timestamp": "2026-09-09T20:39:15Z",
-    "reasoning": "QQQ $716.31 is 5.1% above $680 short strike but mid $1.29 vs $1.25 entry is slightly underwater; SPY+QQQ correlation 0.85-0.95 means this book carries concentrated equity index risk once SLV is closed."
+    "timestamp": "2026-09-09T20:45:22Z",
+    "reasoning": "QQQ $716.31 is 5.1% above $680 short strike but mid $1.29 is slightly underwater vs $1.25 entry; with SPY+QQQ correlation above 0.90 this book carries concentrated equity index risk and combined BPR of $1,682 is heavy relative to account once SLV is resolved."
   }
 }
