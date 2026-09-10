@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-10T12:55:27.510676+00:00",
+  "generated_at": "2026-09-10T13:21:13.512676+00:00",
   "regime": {
-    "vix": 17.5,
-    "vix_day_change_pct": 0.0632,
+    "vix": 17.56,
+    "vix_day_change_pct": 0.0668,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (+6% day)"
+    "note": "normal regime (+7% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -18,6 +18,125 @@
     "longvol_catalyst_days": 14
   },
   "top": [
+    {
+      "underlying": "SPY",
+      "structure": "iron_condor",
+      "expiry": "2026-09-11",
+      "dte": 1,
+      "put_short_strike": 751.0,
+      "put_long_strike": 749.0,
+      "call_short_strike": 765.0,
+      "call_long_strike": 767.0,
+      "short_strike": 751.0,
+      "long_strike": 765.0,
+      "symbols": {
+        "put_short": "SPY   260911P00751000",
+        "put_long": "SPY   260911P00749000",
+        "call_short": "SPY   260911C00765000",
+        "call_long": "SPY   260911C00767000"
+      },
+      "width": 2.0,
+      "credit": 0.94,
+      "put_credit": 0.15,
+      "call_credit": 0.79,
+      "fees_est": 3.0,
+      "bpr": 106.0,
+      "max_loss": 106.0,
+      "pop": 0.722,
+      "put_short_delta": 0.131,
+      "call_short_delta": 0.148,
+      "credit_to_bpr": 0.887,
+      "ev_per_contract": 1.44,
+      "ev_on_bpr": 0.0136,
+      "iv": 0.1626,
+      "iv_rank": 0.347,
+      "underlying_price": 758.19,
+      "liquidity": null,
+      "earnings_date": null,
+      "tag": "paper",
+      "sized_for": "paper",
+      "day_trade": true,
+      "close_after_et": "15:30",
+      "contracts": 1,
+      "max_loss_total": 106.0,
+      "bpr_total": 106.0,
+      "reasoning": "DAY TRADE (paper): SPY 0-1DTE iron condor, shorts ~14\u0394 (751p/765c), credit $0.94 x3, max loss $106. Opened before 12:00 ET, force-closed by 15:30 ET \u2014 intraday theta harvest. NOTE: marked every 10 min; intraday spikes between marks aren't seen.",
+      "learn_multiplier": 1.6,
+      "learn_notes": [
+        "asset_class=index_etf \u00d71.45",
+        "cluster=us_index \u00d71.50"
+      ],
+      "rank_score": 0.02176,
+      "agent_action": "downsize",
+      "agent_reason": "SPY is favored (index_etf), structure is solid (iron_condor), but DTE=1 + already 2 open SPY contracts + max_per_cluster=3 (us_index at 3/3 with IWM+QQQ+2\u00d7SPY) means we'd hit cluster cap. Downsize to 1 to stay under cap and reduce timing ri",
+      "agent_reviewed": true,
+      "news_risk": {
+        "level": "caution",
+        "hits": [
+          {
+            "title": "Labor Market Red Flags: June Layoffs Revised Up by 19,000 While Hires Sink by 16,000",
+            "severity": 2,
+            "keyword": "layoff"
+          }
+        ]
+      },
+      "net_liq": 7107.736,
+      "ticket": {
+        "underlying": "SPY",
+        "code": "IC",
+        "order_type": "Net Credit",
+        "limit": 0.94,
+        "contracts": 1,
+        "expiry": "2026-09-11",
+        "legs": [
+          {
+            "action": "SELL",
+            "qty": 1,
+            "expiry": "2026-09-11",
+            "strike": 751.0,
+            "type": "P"
+          },
+          {
+            "action": "BUY",
+            "qty": 1,
+            "expiry": "2026-09-11",
+            "strike": 749.0,
+            "type": "P"
+          },
+          {
+            "action": "SELL",
+            "qty": 1,
+            "expiry": "2026-09-11",
+            "strike": 765.0,
+            "type": "C"
+          },
+          {
+            "action": "BUY",
+            "qty": 1,
+            "expiry": "2026-09-11",
+            "strike": 767.0,
+            "type": "C"
+          }
+        ],
+        "credit_total": 94.0,
+        "max_loss_total": 106.0,
+        "bpr_total": 106.0,
+        "pop": 0.722,
+        "tag": "paper",
+        "manage": {
+          "profit_target_pct": 50,
+          "close_debit": 0.47,
+          "stop_debit": 2.35,
+          "exit_dte": 21
+        },
+        "fits_live_cap": true,
+        "live_cap": 710.77,
+        "suggested_width": null,
+        "fit_note": "",
+        "text": "SPY IC \u00d71 \u2014 SELL 751P / BUY 749P / SELL 765C / BUY 767C (2026-09-11) @ $0.94 net credit. Max loss $106. After fill: GTC buy-to-close @ $0.47 (50%)."
+      },
+      "posted_at": "2026-09-10T13:21:13.512676+00:00"
+    },
     {
       "underlying": "XLE",
       "structure": "short_put_vertical",
@@ -33,15 +152,15 @@
       "fees_est": 3.0,
       "bpr": 450.0,
       "max_loss": 450.0,
-      "pop": 0.814,
-      "short_delta": 0.163,
+      "pop": 0.817,
+      "short_delta": 0.161,
       "short_spread_pct": 0.102,
       "credit_to_bpr": 0.111,
-      "ev_per_contract": 3.45,
-      "ev_on_bpr": 0.0077,
+      "ev_per_contract": 3.66,
+      "ev_on_bpr": 0.0081,
       "iv": 0.2812,
       "iv_rank": 0.703,
-      "underlying_price": 66.27,
+      "underlying_price": 66.32,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -51,20 +170,20 @@
       "bpr_total": 450.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 61/56p \u00d71 \u2014 bullish lean. Edge: IV rank 70%, EV $+3/ctr (+0.8% on BPR). POP 81% \u00b7 credit $0.50 \u00b7 max loss $450 \u00b7 BPR $450 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 61/56p \u00d71 \u2014 bullish lean. Edge: IV rank 70%, EV $+4/ctr (+0.8% on BPR). POP 82% \u00b7 credit $0.50 \u00b7 max loss $450 \u00b7 BPR $450 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.281,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.28"
       ],
-      "rank_score": 0.009864,
+      "rank_score": 0.010376,
       "agent_action": "approve",
-      "agent_reason": "Diversifies into a new energy cluster with a favored structure at rich IV rank 0.70 and minimal 1-contract size; EV is thin but positive and selling puts after an up day is acceptable timing.",
+      "agent_reason": "Favored structure (short_put_vertical), sector diversification (energy), 36 DTE provides cushion, IV rank 0.703 is rich, and 1 contract keeps position small. No macro event or correlated cluster overlap; good premium harvest.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7121.541,
+      "net_liq": 7107.736,
       "ticket": {
         "underlying": "XLE",
         "code": "VP",
@@ -91,7 +210,7 @@
         "credit_total": 50.0,
         "max_loss_total": 450.0,
         "bpr_total": 450.0,
-        "pop": 0.814,
+        "pop": 0.817,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -100,12 +219,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": true,
-        "live_cap": 712.15,
+        "live_cap": 710.77,
         "suggested_width": null,
         "fit_note": "",
         "text": "XLE VP \u00d71 \u2014 SELL 61P / BUY 56P (2026-10-16) @ $0.50 net credit. Max loss $450. After fill: GTC buy-to-close @ $0.25 (50%)."
       },
-      "posted_at": "2026-09-10T12:55:27.510676+00:00"
+      "posted_at": "2026-09-10T13:21:13.512676+00:00"
     },
     {
       "underlying": "QQQ",
@@ -132,14 +251,14 @@
       "bpr": 87.0,
       "max_loss": 87.0,
       "pop": 0.728,
-      "put_short_delta": 0.128,
-      "call_short_delta": 0.144,
+      "put_short_delta": 0.133,
+      "call_short_delta": 0.139,
       "credit_to_bpr": 1.299,
-      "ev_per_contract": 14.45,
-      "ev_on_bpr": 0.1661,
+      "ev_per_contract": 14.47,
+      "ev_on_bpr": 0.1663,
       "iv": 0.2214,
       "iv_rank": 0.467,
-      "underlying_price": 707.2,
+      "underlying_price": 707.01,
       "liquidity": null,
       "earnings_date": null,
       "tag": "paper",
@@ -155,9 +274,9 @@
         "asset_class=single_name \u00d70.67",
         "cluster=us_tech \u00d70.76"
       ],
-      "rank_score": 0.085043,
+      "rank_score": 0.085146,
       "agent_action": "guarded",
-      "agent_reason": "us_tech cluster is a proven loser for us (30% WR), QQQ is already at its 1-position cap, and selling a 1-DTE call side at max size (3 contracts) into a +6% momentum day is badly timed, correlated risk.",
+      "agent_reason": "Single-name tech (us_tech cluster) with 26% realized win rate in our data; we already carry QQQ+1 open. Adding 3 more contracts into a +7% rip violates diversification and fights our edge (index_etf > single_name).",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -165,7 +284,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7121.541,
+      "net_liq": 7107.736,
       "ticket": {
         "underlying": "QQQ",
         "code": "IC",
@@ -215,12 +334,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": true,
-        "live_cap": 712.15,
+        "live_cap": 710.77,
         "suggested_width": null,
         "fit_note": "",
         "text": "QQQ IC \u00d73 \u2014 SELL 698P / BUY 696P / SELL 716C / BUY 718C (2026-09-11) @ $1.13 net credit. Max loss $261. After fill: GTC buy-to-close @ $0.56 (50%)."
       },
-      "posted_at": "2026-09-10T12:55:27.510676+00:00"
+      "posted_at": "2026-09-10T13:21:13.512676+00:00"
     }
   ],
   "long_vol": [],
@@ -280,24 +399,31 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-09-10T12:55:26.934634+00:00",
-    "model": "kimi-k3",
-    "market_view": "Normal regime at VIX 17.5 but the tape just ripped +6% \u2014 upside momentum is hot, so selling the call side (condors/call spreads) is poorly timed right now, while selling downside puts into strength is comparatively safer. No scheduled events, so event risk is not the constraint; momentum is.",
-    "portfolio_note": "Book is already 3/4 us_index plus a QQQ position, so equity-index correlation is the dominant exposure; adding another QQQ/us_tech trade concentrates exactly the cluster with proven negative expectancy, while a new energy-cluster position genuinely diversifies.",
-    "vol_verdict": "fair",
-    "reviewed": 2,
+    "generated_at": "2026-09-10T13:21:12.795049+00:00",
+    "model": "claude-haiku-4-5",
+    "market_view": "Market ripped +7% in normal regime; VIX 17.56 is fair-to-low. This is a risk-on tape where short premium is well-timed, but we must avoid adding correlated tech exposure into an already-stretched move.",
+    "portfolio_note": "Book is 5 open, unrealized -$49; we're underwater on a tech-heavy setup (QQQ+1, SPY+2). Adding more QQQ into a rally risks compounding directional drag.",
+    "vol_verdict": "implied_rich",
+    "reviewed": 3,
     "vetoed": 1,
-    "downsized": 0,
+    "downsized": 1,
     "decisions": [
       {
         "id": "QQQ|iron_condor|698/716",
         "action": "veto",
-        "reason": "us_tech cluster is a proven loser for us (30% WR), QQQ is already at its 1-position cap, and selling a 1-DTE call side at max size (3 contracts) into a +6% momentum day is badly timed, correlated risk."
+        "reason": "Single-name tech (us_tech cluster) with 26% realized win rate in our data; we already carry QQQ+1 open. Adding 3 more contracts into a +7% rip violates diversification and fights our edge (index_etf > single_name)."
+      },
+      {
+        "id": "SPY|iron_condor|751/765",
+        "action": "downsize",
+        "from": 3,
+        "to": 1,
+        "reason": "SPY is favored (index_etf), structure is solid (iron_condor), but DTE=1 + already 2 open SPY contracts + max_per_cluster=3 (us_index at 3/3 with IWM+QQQ+2\u00d7SPY) means we'd hit cluster cap. Downsize to 1 to stay under cap and reduce timing ri"
       },
       {
         "id": "XLE|short_put_vertical|61/56",
         "action": "approve",
-        "reason": "Diversifies into a new energy cluster with a favored structure at rich IV rank 0.70 and minimal 1-contract size; EV is thin but positive and selling puts after an up day is acceptable timing."
+        "reason": "Favored structure (short_put_vertical), sector diversification (energy), 36 DTE provides cushion, IV rank 0.703 is rich, and 1 contract keeps position small. No macro event or correlated cluster overlap; good premium harvest."
       }
     ]
   },
@@ -317,15 +443,15 @@
       "fees_est": 3.0,
       "bpr": 450.0,
       "max_loss": 450.0,
-      "pop": 0.814,
-      "short_delta": 0.163,
+      "pop": 0.817,
+      "short_delta": 0.161,
       "short_spread_pct": 0.102,
       "credit_to_bpr": 0.111,
-      "ev_per_contract": 3.45,
-      "ev_on_bpr": 0.0077,
+      "ev_per_contract": 3.66,
+      "ev_on_bpr": 0.0081,
       "iv": 0.2812,
       "iv_rank": 0.703,
-      "underlying_price": 66.27,
+      "underlying_price": 66.32,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -335,20 +461,20 @@
       "bpr_total": 450.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "short put vertical 61/56p \u00d71 \u2014 bullish lean. Edge: IV rank 70%, EV $+3/ctr (+0.8% on BPR). POP 81% \u00b7 credit $0.50 \u00b7 max loss $450 \u00b7 BPR $450 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 61/56p \u00d71 \u2014 bullish lean. Edge: IV rank 70%, EV $+4/ctr (+0.8% on BPR). POP 82% \u00b7 credit $0.50 \u00b7 max loss $450 \u00b7 BPR $450 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.281,
       "learn_notes": [
         "structure=short_put_vertical \u00d71.28"
       ],
-      "rank_score": 0.009864,
+      "rank_score": 0.010376,
       "agent_action": "approve",
-      "agent_reason": "Diversifies into a new energy cluster with a favored structure at rich IV rank 0.70 and minimal 1-contract size; EV is thin but positive and selling puts after an up day is acceptable timing.",
+      "agent_reason": "Favored structure (short_put_vertical), sector diversification (energy), 36 DTE provides cushion, IV rank 0.703 is rich, and 1 contract keeps position small. No macro event or correlated cluster overlap; good premium harvest.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7121.541,
+      "net_liq": 7107.736,
       "ticket": {
         "underlying": "XLE",
         "code": "VP",
@@ -375,7 +501,7 @@
         "credit_total": 50.0,
         "max_loss_total": 450.0,
         "bpr_total": 450.0,
-        "pop": 0.814,
+        "pop": 0.817,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -384,12 +510,131 @@
           "exit_dte": 21
         },
         "fits_live_cap": true,
-        "live_cap": 712.15,
+        "live_cap": 710.77,
         "suggested_width": null,
         "fit_note": "",
         "text": "XLE VP \u00d71 \u2014 SELL 61P / BUY 56P (2026-10-16) @ $0.50 net credit. Max loss $450. After fill: GTC buy-to-close @ $0.25 (50%)."
       },
-      "posted_at": "2026-09-10T12:55:27.510676+00:00"
+      "posted_at": "2026-09-10T13:21:13.512676+00:00"
+    },
+    {
+      "underlying": "SPY",
+      "structure": "iron_condor",
+      "expiry": "2026-09-11",
+      "dte": 1,
+      "put_short_strike": 751.0,
+      "put_long_strike": 749.0,
+      "call_short_strike": 765.0,
+      "call_long_strike": 767.0,
+      "short_strike": 751.0,
+      "long_strike": 765.0,
+      "symbols": {
+        "put_short": "SPY   260911P00751000",
+        "put_long": "SPY   260911P00749000",
+        "call_short": "SPY   260911C00765000",
+        "call_long": "SPY   260911C00767000"
+      },
+      "width": 2.0,
+      "credit": 0.94,
+      "put_credit": 0.15,
+      "call_credit": 0.79,
+      "fees_est": 3.0,
+      "bpr": 106.0,
+      "max_loss": 106.0,
+      "pop": 0.722,
+      "put_short_delta": 0.131,
+      "call_short_delta": 0.148,
+      "credit_to_bpr": 0.887,
+      "ev_per_contract": 1.44,
+      "ev_on_bpr": 0.0136,
+      "iv": 0.1626,
+      "iv_rank": 0.347,
+      "underlying_price": 758.19,
+      "liquidity": null,
+      "earnings_date": null,
+      "tag": "paper",
+      "sized_for": "paper",
+      "day_trade": true,
+      "close_after_et": "15:30",
+      "contracts": 1,
+      "max_loss_total": 106.0,
+      "bpr_total": 106.0,
+      "reasoning": "DAY TRADE (paper): SPY 0-1DTE iron condor, shorts ~14\u0394 (751p/765c), credit $0.94 x3, max loss $106. Opened before 12:00 ET, force-closed by 15:30 ET \u2014 intraday theta harvest. NOTE: marked every 10 min; intraday spikes between marks aren't seen.",
+      "learn_multiplier": 1.6,
+      "learn_notes": [
+        "asset_class=index_etf \u00d71.45",
+        "cluster=us_index \u00d71.50"
+      ],
+      "rank_score": 0.02176,
+      "agent_action": "downsize",
+      "agent_reason": "SPY is favored (index_etf), structure is solid (iron_condor), but DTE=1 + already 2 open SPY contracts + max_per_cluster=3 (us_index at 3/3 with IWM+QQQ+2\u00d7SPY) means we'd hit cluster cap. Downsize to 1 to stay under cap and reduce timing ri",
+      "agent_reviewed": true,
+      "news_risk": {
+        "level": "caution",
+        "hits": [
+          {
+            "title": "Labor Market Red Flags: June Layoffs Revised Up by 19,000 While Hires Sink by 16,000",
+            "severity": 2,
+            "keyword": "layoff"
+          }
+        ]
+      },
+      "net_liq": 7107.736,
+      "ticket": {
+        "underlying": "SPY",
+        "code": "IC",
+        "order_type": "Net Credit",
+        "limit": 0.94,
+        "contracts": 1,
+        "expiry": "2026-09-11",
+        "legs": [
+          {
+            "action": "SELL",
+            "qty": 1,
+            "expiry": "2026-09-11",
+            "strike": 751.0,
+            "type": "P"
+          },
+          {
+            "action": "BUY",
+            "qty": 1,
+            "expiry": "2026-09-11",
+            "strike": 749.0,
+            "type": "P"
+          },
+          {
+            "action": "SELL",
+            "qty": 1,
+            "expiry": "2026-09-11",
+            "strike": 765.0,
+            "type": "C"
+          },
+          {
+            "action": "BUY",
+            "qty": 1,
+            "expiry": "2026-09-11",
+            "strike": 767.0,
+            "type": "C"
+          }
+        ],
+        "credit_total": 94.0,
+        "max_loss_total": 106.0,
+        "bpr_total": 106.0,
+        "pop": 0.722,
+        "tag": "paper",
+        "manage": {
+          "profit_target_pct": 50,
+          "close_debit": 0.47,
+          "stop_debit": 2.35,
+          "exit_dte": 21
+        },
+        "fits_live_cap": true,
+        "live_cap": 710.77,
+        "suggested_width": null,
+        "fit_note": "",
+        "text": "SPY IC \u00d71 \u2014 SELL 751P / BUY 749P / SELL 765C / BUY 767C (2026-09-11) @ $0.94 net credit. Max loss $106. After fill: GTC buy-to-close @ $0.47 (50%)."
+      },
+      "posted_at": "2026-09-10T13:21:13.512676+00:00"
     },
     {
       "underlying": "QQQ",
@@ -416,14 +661,14 @@
       "bpr": 87.0,
       "max_loss": 87.0,
       "pop": 0.728,
-      "put_short_delta": 0.128,
-      "call_short_delta": 0.144,
+      "put_short_delta": 0.133,
+      "call_short_delta": 0.139,
       "credit_to_bpr": 1.299,
-      "ev_per_contract": 14.45,
-      "ev_on_bpr": 0.1661,
+      "ev_per_contract": 14.47,
+      "ev_on_bpr": 0.1663,
       "iv": 0.2214,
       "iv_rank": 0.467,
-      "underlying_price": 707.2,
+      "underlying_price": 707.01,
       "liquidity": null,
       "earnings_date": null,
       "tag": "paper",
@@ -439,9 +684,9 @@
         "asset_class=single_name \u00d70.67",
         "cluster=us_tech \u00d70.76"
       ],
-      "rank_score": 0.085043,
+      "rank_score": 0.085146,
       "agent_action": "guarded",
-      "agent_reason": "us_tech cluster is a proven loser for us (30% WR), QQQ is already at its 1-position cap, and selling a 1-DTE call side at max size (3 contracts) into a +6% momentum day is badly timed, correlated risk.",
+      "agent_reason": "Single-name tech (us_tech cluster) with 26% realized win rate in our data; we already carry QQQ+1 open. Adding 3 more contracts into a +7% rip violates diversification and fights our edge (index_etf > single_name).",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -449,7 +694,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7121.541,
+      "net_liq": 7107.736,
       "ticket": {
         "underlying": "QQQ",
         "code": "IC",
@@ -499,16 +744,16 @@
           "exit_dte": 21
         },
         "fits_live_cap": true,
-        "live_cap": 712.15,
+        "live_cap": 710.77,
         "suggested_width": null,
         "fit_note": "",
         "text": "QQQ IC \u00d73 \u2014 SELL 698P / BUY 696P / SELL 716C / BUY 718C (2026-09-11) @ $1.13 net credit. Max loss $261. After fill: GTC buy-to-close @ $0.56 (50%)."
       },
-      "posted_at": "2026-09-10T12:55:27.510676+00:00"
+      "posted_at": "2026-09-10T13:21:13.512676+00:00"
     }
   ],
   "skipped": {
-    "SPY": "failed: pv: credit/width 0.10 < 0.10",
+    "SPY": "failed: pv: credit/width 0.09 < 0.10",
     "IWM": "failed: pv: credit/width 0.10 < 0.10",
     "DIA": "failed: pv: credit/width 0.05 < 0.10",
     "QQQ": "failed: pv: credit/width 0.09 < 0.10",
