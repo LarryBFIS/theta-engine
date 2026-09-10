@@ -1,19 +1,19 @@
 # Ledger Summary
 
-_Generated 2026-09-10T18:33:33.774700+00:00 from tastytrade transaction history._
+_Generated 2026-09-10T18:44:17.439572+00:00 from tastytrade transaction history._
 
 ## Reconciliation
 
 | Item | Amount |
 |---|---:|
 | Starting capital | $3,389.91 |
-| Net liq (now) | $7,076.51 |
+| Net liq (now) | $7,072.75 |
 | Strategy realized (closed) | $+317.29 |
-| Strategy unrealized (open) | $-81.27 |
-| **Strategy P&L** | **$+236.02** |
+| Strategy unrealized (open) | $-77.27 |
+| **Strategy P&L** | **$+240.02** |
 | Money movement | $+2,999.59 |
-| Non-strategy activity | $+450.99 |
-| **Account P&L** | **$+3,686.60** |
+| Non-strategy activity | $+443.23 |
+| **Account P&L** | **$+3,682.84** |
 
 _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger positions closed in-window). Total fees paid: $95.22._
 
@@ -61,5 +61,5 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 | ledger_032_slv | SLV | 2026-08-20 | — | open | — | $-12.26 |
 | ledger_033_spy | SPY | 2026-08-26 | 2026-09-03 | closed | $+44.50 | — |
 | ledger_034_qqq | QQQ | 2026-08-31 | 2026-09-09 | closed | $+9.50 | — |
-| ledger_035_spy | SPY | 2026-09-09 | — | open | — | $-29.25 |
-| ledger_036_qqq | QQQ | 2026-09-09 | — | open | — | $-39.76 |
+| ledger_035_spy | SPY | 2026-09-09 | — | open | — | $-27.75 |
+| ledger_036_qqq | QQQ | 2026-09-09 | — | open | — | $-37.26 |
