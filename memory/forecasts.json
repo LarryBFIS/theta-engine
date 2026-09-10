@@ -97,7 +97,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-10",
+      "actual_price": 758.55,
+      "realized_move_pct": 0.0115,
+      "realized_move_signed": -0.0115,
+      "stayed_in_range": true
     },
     {
       "id": "d90e25bbedfc",
@@ -112,7 +117,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-10",
+      "actual_price": 707.2,
+      "realized_move_pct": 0.0047,
+      "realized_move_signed": -0.0047,
+      "stayed_in_range": true
     },
     {
       "id": "29d215d87381",
@@ -127,7 +137,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-10",
+      "actual_price": 288.51,
+      "realized_move_pct": 0.0241,
+      "realized_move_signed": -0.0241,
+      "stayed_in_range": true
     },
     {
       "id": "af6241c72699",
@@ -142,7 +157,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-10",
+      "actual_price": 522.98,
+      "realized_move_pct": 0.0201,
+      "realized_move_signed": -0.0201,
+      "stayed_in_range": false
     },
     {
       "id": "3e8a833fe974",
@@ -382,6 +402,66 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
+      "resolved": false
+    },
+    {
+      "id": "b1d2b61b24ee",
+      "index": "SPY",
+      "forecast_date": "2026-09-10",
+      "target_date": "2026-09-17",
+      "horizon_days": 7,
+      "spot_at_forecast": 758.55,
+      "iv": 0.1626,
+      "implied_move_pct": 0.0225,
+      "implied_move_abs": 17.08,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Normal regime at VIX 17.5 but the tape just ripped +6% \u2014 upside momentum is hot, so selling the call side (condors/call spreads) is poorly timed right now, while selling downside puts into strength is comparatively safer. No scheduled events, so event risk is not the constraint; ",
+      "resolved": false
+    },
+    {
+      "id": "239bb412cdf6",
+      "index": "QQQ",
+      "forecast_date": "2026-09-10",
+      "target_date": "2026-09-17",
+      "horizon_days": 7,
+      "spot_at_forecast": 707.2,
+      "iv": 0.2214,
+      "implied_move_pct": 0.0307,
+      "implied_move_abs": 21.68,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Normal regime at VIX 17.5 but the tape just ripped +6% \u2014 upside momentum is hot, so selling the call side (condors/call spreads) is poorly timed right now, while selling downside puts into strength is comparatively safer. No scheduled events, so event risk is not the constraint; ",
+      "resolved": false
+    },
+    {
+      "id": "62612a5512d9",
+      "index": "IWM",
+      "forecast_date": "2026-09-10",
+      "target_date": "2026-09-17",
+      "horizon_days": 7,
+      "spot_at_forecast": 288.51,
+      "iv": 0.211,
+      "implied_move_pct": 0.0292,
+      "implied_move_abs": 8.43,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Normal regime at VIX 17.5 but the tape just ripped +6% \u2014 upside momentum is hot, so selling the call side (condors/call spreads) is poorly timed right now, while selling downside puts into strength is comparatively safer. No scheduled events, so event risk is not the constraint; ",
+      "resolved": false
+    },
+    {
+      "id": "025b1c06096e",
+      "index": "DIA",
+      "forecast_date": "2026-09-10",
+      "target_date": "2026-09-17",
+      "horizon_days": 7,
+      "spot_at_forecast": 522.98,
+      "iv": 0.1554,
+      "implied_move_pct": 0.0215,
+      "implied_move_abs": 11.26,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Normal regime at VIX 17.5 but the tape just ripped +6% \u2014 upside momentum is hot, so selling the call side (condors/call spreads) is poorly timed right now, while selling downside puts into strength is comparatively safer. No scheduled events, so event risk is not the constraint; ",
       "resolved": false
     }
   ]
