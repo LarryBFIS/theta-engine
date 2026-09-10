@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-10T19:38:41.737783+00:00",
-  "market_view": "VIX ripping to 18.15 (+10.27% today, +28.27% on 5d) with broad-based selling across all indices \u2014 this is a vol expansion regime, not a dip. SLV short strike remains deeply ITM and the 1.5x stop has been breached for multiple consecutive cycles with zero close executed; that inaction is the primary capital risk right now.",
+  "last_run": "2026-09-10T19:45:13.799476+00:00",
+  "market_view": "VIX at 18.0 (+9.36% today, +27.21% on 5d) with broad selling across all indices confirms vol expansion regime persisting \u2014 SPY -0.58%, QQQ -1.0%, IWM -1.03% on the day. SLV short strike remains deeply ITM and the 1.5x stop rule has been violated for multiple cycles; continued inaction is active capital destruction.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-10T19:38:28.817371+00:00",
-    "reasoning": "Short strike 61.5 is $4.04 ITM with SLV at 57.47 \u2014 worst cost $0.85 is 1.545x the $0.55 credit, hard stop rule has been breached for multiple cycles, spread is near max loss with 111 DTE and zero theta rescue path. Every cycle of inaction here is a capital destruction decision."
+    "timestamp": "2026-09-10T19:44:53Z",
+    "reasoning": "Short strike 61.5 is $4.05 ITM with SLV at 57.46 \u2014 worst cost $0.85 is 1.545x the $0.55 credit, 1.5x stop hard rule has been violated for multiple consecutive cycles, spread is near max loss with 111 DTE and no theta rescue path. This is a third consecutive CRITICAL alert with zero close executed; every additional minute is compounding a defined-risk breach."
   },
   "SPY 731/722p": {
     "action": "WATCH",
     "confidence": 0.78,
-    "timestamp": "2026-09-10T19:38:28.817371+00:00",
-    "reasoning": "SPY at 757.78 keeps the 731 short strike 3.53% OTM \u2014 mid $1.18 is 26.9% unrealized loss, hard stop triggers at $1.395 (1.5x credit), not yet breached; 21 DTE exit fires Sep 18 which is 8 days out."
+    "timestamp": "2026-09-10T19:44:53Z",
+    "reasoning": "SPY at 757.99 keeps the 731 short strike 3.57% OTM \u2014 mid $1.17 is 25.8% unrealized loss, hard stop triggers at $1.395, not yet breached; 21 DTE exit rule fires Sep 18 (8 days out), VIX expansion is compressing cushion but no immediate action required."
   },
   "QQQ 680/670p": {
     "action": "WATCH",
     "confidence": 0.78,
-    "timestamp": "2026-09-10T19:38:28.817371+00:00",
-    "reasoning": "QQQ at 709.04 keeps the 680 short strike 4.09% OTM \u2014 mid $1.625 is 30% unrealized loss, hard stop triggers at $1.875, not yet breached; XLK -1.31% today and VIX surge are compressing cushion, 21 DTE exit fires Sep 18."
+    "timestamp": "2026-09-10T19:44:53Z",
+    "reasoning": "QQQ at 709.12 keeps the 680 short strike 4.12% OTM \u2014 mid $1.615 is 29.2% unrealized loss, hard stop triggers at $1.875, not yet breached; XLK -1.29% and sustained VIX bid are eroding cushion but stop not hit, 21 DTE exit fires Sep 18."
   }
 }
