@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-10T20:39:04.655018+00:00",
-  "market_view": "VIX +8.38% today and +26.08% on 5d confirms sustained vol expansion \u2014 broad equity weakness across all sectors with tech leading lower; SLV ITM situation remains unresolved and is the only actionable emergency.",
+  "last_run": "2026-09-10T20:45:11.180759+00:00",
+  "market_view": "VIX +8.38% today and +26.08% over 5 days signals sustained vol expansion with broad equity weakness; SLV remains the only emergency requiring immediate action \u2014 all other positions are holding their strikes with room.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-10T20:38:51.856949+00:00",
-    "reasoning": "Short strike 61.5 is $4.00 ITM with worst cost $0.90 = 1.636x credit, hard stop at 1.5x violated; flagged CRITICAL last cycle 11 minutes ago with no action taken \u2014 this is assignment risk territory with 111 DTE providing zero theta rescue."
+    "timestamp": "2026-09-10T20:44:59.723692+00:00",
+    "reasoning": "Short strike 61.5 is $4.00 ITM, worst cost $0.90 = 1.636x credit which blew through the 1.5x hard stop \u2014 this was flagged CRITICAL last cycle 5 minutes ago and remains unactioned; 111 DTE provides zero theta rescue path and assignment risk is real."
   },
   "SPY 731/722p": {
     "action": "WATCH",
     "confidence": 0.78,
-    "timestamp": "2026-09-10T20:38:51.856949+00:00",
-    "reasoning": "SPY 757.83 holds 731 short strike 3.54% OTM; mid $1.145 is 23% unrealized loss vs 1.5x stop at $1.395 \u2014 no deterioration vs last cycle, 21 DTE exit fires September 18 in 8 days."
+    "timestamp": "2026-09-10T20:44:59.723692+00:00",
+    "reasoning": "SPY 757.83 keeps 731 short strike 3.54% OTM; mid $1.145 is 23% unrealized loss vs 1.5x stop at $1.395 \u2014 no deterioration from last cycle, 21 DTE exit rule fires September 18 in 8 days."
   },
   "QQQ 680/670p": {
     "action": "WATCH",
     "confidence": 0.78,
-    "timestamp": "2026-09-10T20:38:51.856949+00:00",
-    "reasoning": "QQQ 708.69 holds 680 short strike 4.05% OTM; mid $1.615 is 29.2% unrealized loss vs 1.5x stop at $1.875 \u2014 XLK pressure ongoing but stop not triggered, 21 DTE exit fires September 18."
+    "timestamp": "2026-09-10T20:44:59.723692+00:00",
+    "reasoning": "QQQ 708.69 keeps 680 short strike 4.05% OTM; mid $1.615 is 29.2% unrealized loss vs 1.5x stop at $1.875 \u2014 XLK -1.41% is pressure but stop not triggered yet, monitor for further tech selloff."
   }
 }
