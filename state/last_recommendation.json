@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-10T13:28:06.441387+00:00",
-  "market_view": "VIX +7.05% today and +24.52% on the 5-day with IWM -1.37% and cyclicals broadly weak signals sustained vol expansion; tech holding flat is the only buffer preventing broader index damage, but SLV breach remains the critical unresolved position requiring immediate execution.",
+  "last_run": "2026-09-10T13:38:37.603773+00:00",
+  "market_view": "VIX now +7.41% today and +24.95% on the 5-day with broad index weakness accelerating \u2014 QQQ -1.09% is the standout laggard and SLV continues trading below the 61.5 short strike at 58.31, meaning the SLV position is deep in the breach and has been unactioned through multiple CRITICAL alerts, which is a hard rule violation.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-10T13:27:55Z",
-    "reasoning": "Short strike remains breached at $60.72 vs $61.50 short strike, worst fill $0.75 is 1.36x the $0.55 credit and one tick from the 1.5x hard stop \u2014 this position has been CRITICAL for multiple consecutive cycles with no close executed, which is an active rule violation compounding risk."
+    "timestamp": "2026-09-10T13:38:23Z",
+    "reasoning": "SLV at 58.31 is $3.19 below the 61.5 short strike \u2014 the spread is deep ITM, worst fill $0.85 is 1.55x the $0.55 credit which has already crossed the 1.5x hard stop, and this CRITICAL has been fired for multiple consecutive cycles with no close recorded. This is an active rule violation accumulating max loss exposure on a $45 max loss position."
   },
   "SPY 731/722p": {
     "action": "WATCH",
-    "confidence": 0.8,
-    "timestamp": "2026-09-10T13:27:55Z",
-    "reasoning": "SPY $762.40 sits 4.1% above $731 short strike with mid flat at entry cost $0.93 \u2014 21 DTE exit trigger hits September 18, one week out, no price threat but VIX expansion warrants daily monitoring."
+    "confidence": 0.78,
+    "timestamp": "2026-09-10T13:38:23Z",
+    "reasoning": "SPY at 758.23 is 3.7% above the 731 short strike \u2014 mid $1.16 is 25% loss vs $0.93 credit entry, not at stop but VIX expansion and 28 DTE means the 21 DTE rule fires September 18, one week out."
   },
   "QQQ 680/670p": {
     "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-09-10T13:27:55Z",
-    "reasoning": "QQQ $716.31 is 5.1% above $680 short strike but mid $1.29 is marginally underwater vs $1.25 entry \u2014 SPY+QQQ combined $1,682 BPR in highly correlated underlyings is concentrated risk if VIX continues expanding into next week."
+    "confidence": 0.8,
+    "timestamp": "2026-09-10T13:38:23Z",
+    "reasoning": "QQQ -1.09% today with mid $1.665 now 33% loss vs $1.25 credit \u2014 still 4.0% above short strike but deteriorating faster than SPY; SPY+QQQ combined $1,682 BPR in correlated underlyings is concentrated risk if VIX sustains above 17."
   }
 }
