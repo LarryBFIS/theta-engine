@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-10T15:55:17.935171+00:00",
-  "market_view": "VIX +4.74% today, +21.84% on 5d \u2014 broad risk-off with tech leading lower; SLV CRITICAL remains unactioned across multiple cycles, this is now an emergency close situation.",
+  "last_run": "2026-09-10T16:19:43.742183+00:00",
+  "market_view": "VIX +6.26% today, +23.6% on 5d \u2014 broad risk-off accelerating into close with tech and small caps leading lower; SLV CRITICAL has been unactioned for multiple cycles and is now a bleeding position requiring immediate close.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-10T15:55:06Z",
-    "reasoning": "SLV at 58.10 is $3.40 below the 61.5 short strike \u2014 worst cost $0.80 is 1.45x credit, AT the 1.5x stop trigger, and this CRITICAL has fired multiple consecutive cycles with zero action taken. 111 DTE means zero theta rescue; holding risks full $45 max loss on a $55 max profit trade."
+    "timestamp": "2026-09-10T16:19:31Z",
+    "reasoning": "SLV at 57.90 is $3.60 below the 61.5 short strike \u2014 worst cost $0.85 is 1.545x original credit, breaching the 1.5x stop rule; this CRITICAL has fired multiple consecutive cycles with zero action, every minute of inaction increases realized loss on a 111 DTE position with zero theta support."
   },
   "SPY 731/722p": {
     "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-09-10T15:55:06Z",
-    "reasoning": "SPY at 758.58 keeps 731 short strike 3.64% OTM \u2014 mid $1.14 is 22.6% unrealized loss, 1.5x stop triggers at $1.395 mid, not yet breached; 21 DTE hard exit fires Sep 17, one week out, accelerating market weakness warrants close monitoring into close."
+    "confidence": 0.75,
+    "timestamp": "2026-09-10T16:19:31Z",
+    "reasoning": "SPY at 758.11 keeps 731 short strike 3.57% OTM \u2014 mid $1.18 is 26.9% unrealized loss, 1.5x stop triggers at $1.395 mid; with VIX spiking and market selling into close, this is approaching actionable territory but has not breached the stop yet."
   },
   "QQQ 680/670p": {
     "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-09-10T15:55:06Z",
-    "reasoning": "QQQ at 710.37 keeps 680 short strike 4.28% OTM \u2014 mid $1.55 is 24% unrealized loss, 1.5x stop at $1.875 not yet breached; QQQ down 0.83% today and accelerating faster than SPY, stop trigger is closer than it looks if selling continues into the close."
+    "confidence": 0.77,
+    "timestamp": "2026-09-10T16:19:31Z",
+    "reasoning": "QQQ at 709.73 keeps 680 short strike 4.19% OTM \u2014 mid $1.60 is 28% unrealized loss, 1.5x stop triggers at $1.875 mid; QQQ down 0.91% today and outpacing SPY weakness, stop breach is within one bad 30-min candle."
   }
 }
