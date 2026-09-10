@@ -1,6 +1,6 @@
 # Ledger Summary
 
-_Generated 2026-09-10T17:45:13.860851+00:00 from tastytrade transaction history._
+_Generated 2026-09-10T17:55:02.701673+00:00 from tastytrade transaction history._
 
 ## Reconciliation
 
@@ -61,5 +61,5 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 | ledger_032_slv | SLV | 2026-08-20 | — | open | — | $-12.26 |
 | ledger_033_spy | SPY | 2026-08-26 | 2026-09-03 | closed | $+44.50 | — |
 | ledger_034_qqq | QQQ | 2026-08-31 | 2026-09-09 | closed | $+9.50 | — |
-| ledger_035_spy | SPY | 2026-09-09 | — | open | — | $-24.25 |
-| ledger_036_qqq | QQQ | 2026-09-09 | — | open | — | $-31.26 |
+| ledger_035_spy | SPY | 2026-09-09 | — | open | — | $-23.25 |
+| ledger_036_qqq | QQQ | 2026-09-09 | — | open | — | $-32.26 |
