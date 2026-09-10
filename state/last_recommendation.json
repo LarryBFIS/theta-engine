@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-09T20:55:08.122245+00:00",
-  "market_view": "Market is closed. VIX +4.71% today and +7.93% on the week signals building pressure \u2014 broad cyclical weakness with IWM -1.37% and defensives soft. SLV breach is the only actionable item and it cannot be worked until tomorrow's open.",
+  "last_run": "2026-09-10T13:18:20.924997+00:00",
+  "market_view": "VIX +7.17% today and +24.66% on the 5-day is a significant volatility expansion \u2014 small caps and cyclicals are leading the selloff while tech holds flat, suggesting rotational rather than systemic risk. SLV breach remains the single most urgent issue with the market now open.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-09T20:54:56Z",
-    "reasoning": "Short strike breached, worst fill $0.75 is 1.36x the $0.55 credit \u2014 one gap-down tick tomorrow crosses the 1.5x hard stop at $0.825. This has been flagged CRITICAL multiple consecutive cycles with no close executed."
+    "timestamp": "2026-09-10T13:18:04.311477+00:00",
+    "reasoning": "Short strike remains breached at $60.72 vs $61.50 short strike, worst fill $0.75 is already 1.36x the $0.55 credit \u2014 one adverse tick pushes through the 1.5x hard stop at $0.825, and this has been flagged CRITICAL across multiple cycles with no close executed. This is overdue."
   },
   "SPY 731/722p": {
-    "action": "HOLD",
-    "confidence": 0.85,
-    "timestamp": "2026-09-09T20:54:56Z",
-    "reasoning": "SPY $762.40 is 4.1% above the $731 short strike, mid flat at $0.93 vs $0.93 entry, 29 DTE \u2014 no breach, no profit target hit, outside 21 DTE trigger."
+    "action": "WATCH",
+    "confidence": 0.82,
+    "timestamp": "2026-09-10T13:18:04.311477+00:00",
+    "reasoning": "SPY $762.40 is 4.1% above $731 short strike and mid is flat at $0.93 vs $0.93 entry, but VIX +24.66% on the week with IWM -1.37% today means delta pressure could build \u2014 28 DTE puts this 7 DTE outside the 21 DTE exit trigger."
   },
   "QQQ 680/670p": {
     "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-09-09T20:54:56Z",
-    "reasoning": "QQQ $716.31 sits 5.1% above $680 short strike but mid $1.29 is slightly underwater vs $1.25 entry; SPY+QQQ correlation above 0.90 means combined equity index BPR of $1,682 is concentrated \u2014 monitor for further VIX expansion at open."
+    "confidence": 0.75,
+    "timestamp": "2026-09-10T13:18:04.311477+00:00",
+    "reasoning": "QQQ $716.31 is 5.1% above $680 short strike but mid $1.29 is marginally underwater vs $1.25 entry \u2014 VIX expansion and high SPY/QQQ correlation means both equity index positions move together; combined BPR of $1,682 on a $7,107 account is concentrated risk if vol continues to spike."
   }
 }
