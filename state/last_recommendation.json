@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-11T20:20:55.417405+00:00",
-  "market_view": "VIX collapsed another -11% to 15.87 in a broad risk-on session \u2014 short put verticals on SPY and QQQ are working as expected. SLV remains the sole problem with short strike deeply ITM and loss-cut rule breached for multiple consecutive cycles.",
+  "last_run": "2026-09-11T20:29:31.695459+00:00",
+  "market_view": "VIX crushed -11% to 15.85 in a risk-on session with SPY +0.85% and QQQ +0.87%; short put verticals on SPY/QQQ are healthy. SLV remains deeply ITM with loss-cut and breach rules both violated \u2014 this position must be closed immediately.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-11T20:20:43.868836+00:00",
-    "reasoning": "Short strike 61.5 is 5.82% ITM with SLV at $58.12; worst cost $0.85 is 1.545x the $0.55 credit \u2014 both short strike breach and 1.5x loss-cut rules are simultaneously violated. This has been CRITICAL for multiple cycles with no logged execution; every additional minute of inaction deepens assignment risk and realized loss beyond playbook limits."
+    "timestamp": "2026-09-11T20:29:20Z",
+    "reasoning": "Short strike 61.5 is 5.82% ITM with SLV at $58.12; worst cost $0.85 is 1.545x the $0.55 credit \u2014 both the short strike breach and 1.5x loss-cut rules are violated simultaneously and have been for multiple cycles. Every minute of continued inaction is outside playbook and deepens assignment risk."
   },
   "SPY 731/722p": {
     "action": "HOLD",
     "confidence": 0.93,
-    "timestamp": "2026-09-11T20:20:43.868836+00:00",
-    "reasoning": "SPY at $764.29 keeps short strike 731 at 4.36% OTM with 27 DTE; mid cost $0.75 is 19.4% profit \u2014 50% target at $0.465 still needs more theta decay and IV compression."
+    "timestamp": "2026-09-11T20:29:20Z",
+    "reasoning": "SPY at $764.29 keeps short strike 731 at 4.36% OTM with 27 DTE; mid cost $0.75 is 19.4% profit and 50% target at $0.465 requires more theta burn."
   },
   "QQQ 680/670p": {
     "action": "HOLD",
     "confidence": 0.88,
-    "timestamp": "2026-09-11T20:20:43.868836+00:00",
-    "reasoning": "QQQ at $714.88 keeps short strike 680 at 4.88% OTM with 27 DTE; mid cost $1.135 is 9.2% profit \u2014 structure healthy but 50% target at $0.625 needs more time."
+    "timestamp": "2026-09-11T20:29:20Z",
+    "reasoning": "QQQ at $714.88 keeps short strike 680 at 4.88% OTM with 27 DTE; mid cost $1.135 is 9.2% profit and 50% target at $0.625 needs more time and IV decay."
   }
 }
