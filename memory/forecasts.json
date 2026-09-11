@@ -177,7 +177,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 14.19, calm regime, -1% day: subdued tape with no macro events. Premium selling is well-timed on low vol; however, we are already long QQQ (us_tech cluster) with 1 open position, and single-name tech has shown negative realized expectancy (26% vs. 38% prior).",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-11",
+      "actual_price": 764.82,
+      "realized_move_pct": 0.0089,
+      "realized_move_signed": -0.0089,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "6df505b5a1d7",
@@ -192,7 +198,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 14.19, calm regime, -1% day: subdued tape with no macro events. Premium selling is well-timed on low vol; however, we are already long QQQ (us_tech cluster) with 1 open position, and single-name tech has shown negative realized expectancy (26% vs. 38% prior).",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-11",
+      "actual_price": 716.02,
+      "realized_move_pct": 0.0032,
+      "realized_move_signed": -0.0032,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "f0f8e0605c58",
@@ -207,7 +219,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 14.19, calm regime, -1% day: subdued tape with no macro events. Premium selling is well-timed on low vol; however, we are already long QQQ (us_tech cluster) with 1 open position, and single-name tech has shown negative realized expectancy (26% vs. 38% prior).",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-11",
+      "actual_price": 290.64,
+      "realized_move_pct": 0.011,
+      "realized_move_signed": -0.011,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "d75771c8c759",
@@ -222,7 +240,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 14.19, calm regime, -1% day: subdued tape with no macro events. Premium selling is well-timed on low vol; however, we are already long QQQ (us_tech cluster) with 1 open position, and single-name tech has shown negative realized expectancy (26% vs. 38% prior).",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-11",
+      "actual_price": 525.74,
+      "realized_move_pct": 0.0184,
+      "realized_move_signed": -0.0184,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "38597a6a35aa",
@@ -462,6 +486,66 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Normal regime at VIX 17.5 but the tape just ripped +6% \u2014 upside momentum is hot, so selling the call side (condors/call spreads) is poorly timed right now, while selling downside puts into strength is comparatively safer. No scheduled events, so event risk is not the constraint; ",
+      "resolved": false
+    },
+    {
+      "id": "005b8b3db67c",
+      "index": "SPY",
+      "forecast_date": "2026-09-11",
+      "target_date": "2026-09-18",
+      "horizon_days": 7,
+      "spot_at_forecast": 764.82,
+      "iv": 0.1788,
+      "implied_move_pct": 0.0248,
+      "implied_move_abs": 18.93,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 16.73, normal regime post -6% sell-off. Tape is cooling; short-premium is well-timed here as volatility has expanded but not spiked into panic. No macro events on calendar\u2014low event risk.",
+      "resolved": false
+    },
+    {
+      "id": "a22c194ccbd8",
+      "index": "QQQ",
+      "forecast_date": "2026-09-11",
+      "target_date": "2026-09-18",
+      "horizon_days": 7,
+      "spot_at_forecast": 716.02,
+      "iv": 0.2332,
+      "implied_move_pct": 0.0323,
+      "implied_move_abs": 23.12,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 16.73, normal regime post -6% sell-off. Tape is cooling; short-premium is well-timed here as volatility has expanded but not spiked into panic. No macro events on calendar\u2014low event risk.",
+      "resolved": false
+    },
+    {
+      "id": "c0b87dac80f4",
+      "index": "IWM",
+      "forecast_date": "2026-09-11",
+      "target_date": "2026-09-18",
+      "horizon_days": 7,
+      "spot_at_forecast": 290.64,
+      "iv": 0.231,
+      "implied_move_pct": 0.032,
+      "implied_move_abs": 9.3,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 16.73, normal regime post -6% sell-off. Tape is cooling; short-premium is well-timed here as volatility has expanded but not spiked into panic. No macro events on calendar\u2014low event risk.",
+      "resolved": false
+    },
+    {
+      "id": "0fd4a64b175a",
+      "index": "DIA",
+      "forecast_date": "2026-09-11",
+      "target_date": "2026-09-18",
+      "horizon_days": 7,
+      "spot_at_forecast": 525.74,
+      "iv": 0.1678,
+      "implied_move_pct": 0.0232,
+      "implied_move_abs": 12.22,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 16.73, normal regime post -6% sell-off. Tape is cooling; short-premium is well-timed here as volatility has expanded but not spiked into panic. No macro events on calendar\u2014low event risk.",
       "resolved": false
     }
   ]
