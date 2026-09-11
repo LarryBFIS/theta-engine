@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-11T14:22:10.545178+00:00",
-  "market_view": "VIX down 10.5% intraday, broad equity risk-on with SPY +1.06% and XLK leading +1.59% \u2014 put verticals on SPY/QQQ are in great shape. SLV remains completely unresponsive to equity rally, still deeply ITM with worst cost at 1.55x credit \u2014 hard stop triggered.",
+  "last_run": "2026-09-11T14:31:20.847229+00:00",
+  "market_view": "VIX crushed another 10.5% intraday, equities broad risk-on with XLK +1.63% leading \u2014 put verticals on SPY/QQQ continue to decay favorably. SLV remains deeply ITM at $58.42 with short strike 61.5 breached by 5.3%, stop rule was triggered last cycle and position still open \u2014 this is the priority.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-11T14:21:58.978791+00:00",
-    "reasoning": "Short strike 61.5 is 4.87% ITM at SLV $58.64, worst cost $0.85 is 1.55x the $0.55 credit \u2014 hard 1.5x stop rule is breached. This CRITICAL was flagged last cycle and no close was executed; every minute of delay compounds the loss with 110 DTE and zero theta defense."
+    "timestamp": "2026-09-11T14:31:01.035105+00:00",
+    "reasoning": "Short strike 61.5 remains 5.3% ITM at SLV $58.42, worst cost $0.80 is 1.45x credit but mid $0.65 is already 1.18x \u2014 position is a max-loss scenario with 110 DTE providing zero theta salvation, and this CRITICAL has now been flagged two consecutive cycles without execution. Every additional minute risks further SLV deterioration as metals can gap."
   },
   "SPY 731/722p": {
     "action": "HOLD",
-    "confidence": 0.9,
-    "timestamp": "2026-09-11T14:21:58.978791+00:00",
-    "reasoning": "SPY $765.88 keeps short strike 731 a healthy 4.5% OTM, mid cost $0.73 is 21.5% profit \u2014 not at 50% target yet, VIX crush and rally are working in our favor."
+    "confidence": 0.91,
+    "timestamp": "2026-09-11T14:31:01.035105+00:00",
+    "reasoning": "SPY $765.46 keeps short strike 731 at 4.5% OTM, mid cost $0.75 is 19% profit \u2014 not at 50% target ($0.465) yet, but VIX crush and upside momentum are working. 27 DTE is fine."
   },
   "QQQ 680/670p": {
     "action": "HOLD",
-    "confidence": 0.87,
-    "timestamp": "2026-09-11T14:21:58.978791+00:00",
-    "reasoning": "QQQ $716.50 holds short strike 680 at 5.1% OTM, mid cost $1.11 is only 11% profit \u2014 XLK leading the tape is constructive, 27 DTE, let theta work."
+    "confidence": 0.88,
+    "timestamp": "2026-09-11T14:31:01.035105+00:00",
+    "reasoning": "QQQ $716.18 holds short strike 680 at 5.1% OTM, mid $1.125 is only 10% profit \u2014 XLK leading tape is constructive, theta needs more time at 27 DTE."
   }
 }
