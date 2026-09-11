@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-11T14:20:31.732985+00:00",
-  "market_view": "VIX down -10.65% intraday with broad risk-on across equities; SLV continues to diverge completely from this rally, remaining deeply ITM with no relief.",
+  "last_run": "2026-09-11T14:22:10.545178+00:00",
+  "market_view": "VIX down 10.5% intraday, broad equity risk-on with SPY +1.06% and XLK leading +1.59% \u2014 put verticals on SPY/QQQ are in great shape. SLV remains completely unresponsive to equity rally, still deeply ITM with worst cost at 1.55x credit \u2014 hard stop triggered.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-11T14:20:21Z",
-    "reasoning": "Short strike 61.5 is still 4.9% ITM at SLV $58.63, worst cost $0.85 is 1.55x the $0.55 credit \u2014 hard stop at 1.5x has been breached, equity rally has not moved SLV and 110 DTE gives zero theta rescue. CRITICAL flagged last cycle with no close executed."
+    "timestamp": "2026-09-11T14:21:58.978791+00:00",
+    "reasoning": "Short strike 61.5 is 4.87% ITM at SLV $58.64, worst cost $0.85 is 1.55x the $0.55 credit \u2014 hard 1.5x stop rule is breached. This CRITICAL was flagged last cycle and no close was executed; every minute of delay compounds the loss with 110 DTE and zero theta defense."
   },
   "SPY 731/722p": {
     "action": "HOLD",
-    "confidence": 0.88,
-    "timestamp": "2026-09-11T14:20:21Z",
-    "reasoning": "SPY $765.68 keeps short strike 731 a healthy 4.5% OTM, mid cost $0.735 is 21% profit \u2014 VIX crush and rally both working in direction, 27 DTE still too early to manage."
+    "confidence": 0.9,
+    "timestamp": "2026-09-11T14:21:58.978791+00:00",
+    "reasoning": "SPY $765.88 keeps short strike 731 a healthy 4.5% OTM, mid cost $0.73 is 21.5% profit \u2014 not at 50% target yet, VIX crush and rally are working in our favor."
   },
   "QQQ 680/670p": {
     "action": "HOLD",
-    "confidence": 0.85,
-    "timestamp": "2026-09-11T14:20:21Z",
-    "reasoning": "QQQ $716.11 holds short strike 680 at 5.0% OTM, mid cost $1.125 is 10% profit \u2014 XLK leading +1.48% is constructive, 27 DTE too early, let theta work."
+    "confidence": 0.87,
+    "timestamp": "2026-09-11T14:21:58.978791+00:00",
+    "reasoning": "QQQ $716.50 holds short strike 680 at 5.1% OTM, mid cost $1.11 is only 11% profit \u2014 XLK leading the tape is constructive, 27 DTE, let theta work."
   }
 }
