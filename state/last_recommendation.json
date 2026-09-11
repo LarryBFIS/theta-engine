@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-11T16:32:05.943279+00:00",
-  "market_view": "VIX down 11.8% to 15.7 with SPY +0.96% and broad equity strength \u2014 short put verticals on SPY/QQQ remain comfortable with strikes well OTM. SLV continues to trade deeply ITM through the short strike and remains the only critical issue in the book.",
+  "last_run": "2026-09-11T16:41:50.481569+00:00",
+  "market_view": "VIX crushed 11.7% to 15.75 with broad equity strength (+0.97% SPY/QQQ) \u2014 short put verticals on SPY/QQQ are comfortable and benefiting from IV contraction. SLV short strike remains deeply ITM and the 1.5x cut rule has been at or above trigger for multiple cycles with no action taken \u2014 this is a playbook violation that must be closed now.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-11T16:31:43Z",
-    "reasoning": "Short strike 61.5 is 5.9% ITM with SLV at $58.08, worst cost $0.80 is 1.45x credit \u2014 this is a $55 max profit trade hemorrhaging toward $45 max loss, and the 1.5x cut rule at $0.825 is essentially here. This position has been flagged CRITICAL for multiple cycles with no action taken, which is a playbook breach."
+    "timestamp": "2026-09-11T16:41:36Z",
+    "reasoning": "Short strike 61.5 is 5.7% ITM with SLV at $58.19, worst cost $0.80 = 1.45x credit and mid $0.65 = 1.18x \u2014 this has been CRITICAL for multiple consecutive cycles with no close executed, which is a hard playbook breach. Max profit is $55, max loss $45, and this spread is directionally wrong with 110 DTE remaining \u2014 no reason to hold."
   },
   "SPY 731/722p": {
     "action": "HOLD",
     "confidence": 0.93,
-    "timestamp": "2026-09-11T16:31:43Z",
-    "reasoning": "SPY $765.09 keeps short strike 731 at 4.5% OTM, mid cost $0.755 is 18.8% profit \u2014 need decay to $0.465 to trigger 50% manage rule, 27 DTE with constructive tape and VIX compression supporting theta."
+    "timestamp": "2026-09-11T16:41:36Z",
+    "reasoning": "SPY $765.19 keeps short strike 731 at 4.5% OTM, mid cost $0.75 = 19.4% profit \u2014 need decay to $0.465 for 50% manage trigger, VIX compression and bullish tape are theta tailwinds with 27 DTE."
   },
   "QQQ 680/670p": {
     "action": "HOLD",
     "confidence": 0.92,
-    "timestamp": "2026-09-11T16:31:43Z",
-    "reasoning": "QQQ $715.48 keeps short strike 680 at 4.96% OTM, mid cost $1.14 is 8.8% profit \u2014 XLK +1.41% is constructive, need decay to $0.625 to manage; 27 DTE with time and direction both working."
+    "timestamp": "2026-09-11T16:41:36Z",
+    "reasoning": "QQQ $715.55 keeps short strike 680 at 4.97% OTM, mid cost $1.11 = 11.2% profit \u2014 XLK +1.39% and VIX down are constructive; need decay to $0.625 to manage, 27 DTE with time and direction working."
   }
 }
