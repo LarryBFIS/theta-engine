@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-14T19:16:07.076495+00:00",
-  "market_view": "Market is closed \u2014 all three CRITICAL alerts from 20 minutes ago remain live with no change in position or price data. VIX +6% today confirms risk-off heading into the weekend with zero ability to act until Monday open.",
+  "last_run": "2026-09-14T19:18:01.399817+00:00",
+  "market_view": "Market is closed \u2014 all three CRITICAL alerts from prior cycle remain live and unresolved with identical position data. Monday open is the first action window; VIX +6% today and risk-off rotation into defensives (XLV, XLP) confirm elevated gap risk heading into the weekend.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-14T19:15:54Z",
-    "reasoning": "Short strike 61.5 breached with SLV at 57.39 \u2014 worst cost $0.85 is 1.55x credit, triggering the 1.5x cut-loss rule; position is in max loss territory with weekend gap risk in metals locked until Monday. This alert was already fired 20 minutes ago and remains unresolved."
+    "timestamp": "2026-09-14T19:17:48Z",
+    "reasoning": "Short strike 61.5 remains breached with SLV at 57.36 \u2014 worst cost $0.85 is 1.55x the $0.55 credit, triggering the 1.5x cut-loss rule; market is closed so Monday open is the only exit window with metals gap risk unhedged over the weekend."
   },
   "SPY 731/722p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-09-14T19:15:54Z",
-    "reasoning": "Monday open is 21 DTE \u2014 hard exit rule triggers with no exceptions; VIX elevation and risk-off weekend conditions increase gap-down probability at open."
+    "timestamp": "2026-09-14T19:17:48Z",
+    "reasoning": "DTE hits 21 on Monday September 17 \u2014 hard exit rule triggers with no exceptions; SPY down 0.93% on the week with VIX expanding and risk-off tone increases gap-down probability at open."
   },
   "QQQ 680/670p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-09-14T19:15:54Z",
-    "reasoning": "21 DTE hard exit triggers Monday Sep 17; mid at $1.26 is already above the $1.25 credit (slight loss) with QQQ the weakest major this week \u2014 any gap down Monday turns this into a forced loser at worse fills."
+    "timestamp": "2026-09-14T19:17:48Z",
+    "reasoning": "21 DTE hard exit triggers Monday Sep 17; mid cost $1.265 already exceeds the $1.25 credit received, QQQ is the weakest major this week at -1.36% and any Monday gap down forces worse fills on a position already at a small loss."
   }
 }
