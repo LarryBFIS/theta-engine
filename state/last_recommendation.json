@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-14T13:43:06.413639+00:00",
-  "market_view": "Risk-off rotation persists with VIX up 11.4% to 17.65 and tech down 2.73% \u2014 no change in regime since last cycle, all three positions remain in violation of playbook rules and have not been closed.",
+  "last_run": "2026-09-14T13:49:19.595299+00:00",
+  "market_view": "Risk-off persists: VIX +11.4% to 17.65, tech -2.17% today, QQQ -1.21% \u2014 no regime change since last cycle. All three positions remain open in violation of playbook rules.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-14T13:42:51Z",
-    "reasoning": "Short strike 61.5 breached, worst cost $0.85 is 1.545x the $0.55 credit \u2014 1.5x loss-cut rule violated. This is the third consecutive CRITICAL flag; position must be closed immediately."
+    "timestamp": "2026-09-14T13:49:07Z",
+    "reasoning": "Short strike 61.5 breached with SLV at 56.93, worst cost $0.85 is 1.545x the $0.55 credit \u2014 1.5x loss-cut AND short strike breach rules both violated. This position has been flagged CRITICAL for multiple consecutive cycles and remains open."
   },
   "SPY 731/722p": {
     "action": "ACTION",
-    "confidence": 0.92,
-    "timestamp": "2026-09-14T13:42:51Z",
-    "reasoning": "21 DTE hard exit triggers Thursday Sept 17 \u2014 mid cost $0.995 is already a loss vs $0.93 credit with SPY down 0.67% and VIX elevated, no realistic path to 50% profit in 3 days."
+    "confidence": 0.95,
+    "timestamp": "2026-09-14T13:49:07Z",
+    "reasoning": "21 DTE hard exit triggers Thursday Sept 17 \u2014 mid cost $0.955 is already a loss vs $0.93 credit with SPY down 0.53% and VIX elevated; no recovery path in 3 days."
   },
   "QQQ 680/670p": {
     "action": "ACTION",
-    "confidence": 0.93,
-    "timestamp": "2026-09-14T13:42:51Z",
-    "reasoning": "21 DTE hard exit triggers Thursday Sept 17 \u2014 mid cost $1.70 is a $45 loss vs $1.25 credit with QQQ down 1.56% today, tech sector leading the selloff, and zero path to recovery before forced exit."
+    "confidence": 0.97,
+    "timestamp": "2026-09-14T13:49:07Z",
+    "reasoning": "Mid cost $1.56 is a $31 unrealized loss vs $1.25 credit, QQQ -1.21% today with tech leading the selloff, and 21 DTE hard exit triggers Thursday Sept 17 \u2014 zero recovery path."
   }
 }
