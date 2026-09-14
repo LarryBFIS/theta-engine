@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-14T17:18:56.521894+00:00",
+  "generated_at": "2026-09-14T17:46:14.400886+00:00",
   "regime": {
-    "vix": 16.67,
-    "vix_day_change_pct": 0.0524,
+    "vix": 16.73,
+    "vix_day_change_pct": 0.0562,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (+5% day)"
+    "note": "normal regime (+6% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -23,160 +23,57 @@
       "structure": "short_put_vertical",
       "expiry": "2026-10-16",
       "dte": 32,
-      "short_strike": 730.0,
-      "long_strike": 721.0,
-      "short_symbol": "SPY   261016P00730000",
-      "long_symbol": "SPY   261016P00721000",
-      "width": 9.0,
-      "credit": 0.92,
-      "mid_credit": 0.94,
-      "fees_est": 3.0,
-      "bpr": 808.0,
-      "max_loss": 808.0,
-      "pop": 0.801,
-      "short_delta": 0.185,
-      "short_spread_pct": 0.005,
-      "credit_to_bpr": 0.114,
-      "ev_per_contract": 6.4,
-      "ev_on_bpr": 0.0079,
-      "iv": 0.1673,
-      "iv_rank": 0.37,
-      "underlying_price": 762.15,
-      "liquidity": 4,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 1,
-      "max_loss_total": 808.0,
-      "bpr_total": 808.0,
-      "trend": "mixed",
-      "sized_capped": true,
-      "reasoning": "short put vertical 730/721p \u00d71 \u2014 rich premium. Edge: IV rank 37%, EV $+6/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.92 \u00b7 max loss $808 \u00b7 BPR $808 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 1.6,
-      "learn_notes": [
-        "asset_class=index_etf \u00d71.41",
-        "cluster=us_index \u00d71.50",
-        "structure=short_put_vertical \u00d71.27"
-      ],
-      "rank_score": 0.01264,
-      "agent_action": "approve",
-      "agent_reason": "Timing poor: selling into +5% day and hot tape is uncompensated. VIX 16.66 is low; wait for pullback. Also, SPY already 2-open; adding 1 more hits cluster max (3 us_index). Veto on timing and concentration.",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "caution",
-        "hits": [
-          {
-            "title": "Cybersecurity Stocks Surge as AI Safety Warnings Spark Security Bid: CrowdStrike and Zscaler Jump 12%, Palo Alto Rallies 11%",
-            "severity": 2,
-            "keyword": "warning"
-          }
-        ]
-      },
-      "net_liq": 7268.667,
-      "ticket": {
-        "underlying": "SPY",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 0.92,
-        "contracts": 1,
-        "expiry": "2026-10-16",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 1,
-            "expiry": "2026-10-16",
-            "strike": 730.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 1,
-            "expiry": "2026-10-16",
-            "strike": 721.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 92.0,
-        "max_loss_total": 808.0,
-        "bpr_total": 808.0,
-        "pop": 0.801,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.46,
-          "stop_debit": 2.3,
-          "exit_dte": 21
-        },
-        "fits_live_cap": false,
-        "live_cap": 726.87,
-        "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $808 > 10% live cap ($727) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "SPY VP \u00d71 \u2014 SELL 730P / BUY 721P (2026-10-16) @ $0.92 net credit. Max loss $808. After fill: GTC buy-to-close @ $0.46 (50%). \u26a0 max loss $808 > 10% live cap ($727) \u2014 narrow to ~8-wide for live, or keep on paper."
-      },
-      "posted_at": "2026-09-14T17:17:26.981573+00:00"
-    },
-    {
-      "underlying": "QQQ",
-      "structure": "short_put_vertical",
-      "expiry": "2026-10-16",
-      "dte": 32,
       "short_strike": 673.0,
       "long_strike": 664.0,
       "short_symbol": "QQQ   261016P00673000",
       "long_symbol": "QQQ   261016P00664000",
       "width": 9.0,
-      "credit": 1.04,
-      "mid_credit": 1.07,
+      "credit": 0.99,
+      "mid_credit": 1.04,
       "fees_est": 3.0,
-      "bpr": 796.0,
-      "max_loss": 796.0,
-      "pop": 0.801,
-      "short_delta": 0.182,
-      "short_spread_pct": 0.006,
-      "credit_to_bpr": 0.131,
-      "ev_per_contract": 7.6,
-      "ev_on_bpr": 0.0095,
-      "iv": 0.2161,
-      "iv_rank": 0.448,
-      "underlying_price": 711.84,
+      "bpr": 801.0,
+      "max_loss": 801.0,
+      "pop": 0.803,
+      "short_delta": 0.18,
+      "short_spread_pct": 0.01,
+      "credit_to_bpr": 0.124,
+      "ev_per_contract": 7.46,
+      "ev_on_bpr": 0.0093,
+      "iv": 0.2175,
+      "iv_rank": 0.449,
+      "underlying_price": 712.42,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 796.0,
-      "bpr_total": 796.0,
+      "max_loss_total": 801.0,
+      "bpr_total": 801.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short put vertical 673/664p \u00d71 \u2014 rich premium. Edge: IV rank 45%, EV $+8/ctr (+0.9% on BPR). POP 80% \u00b7 credit $1.04 \u00b7 max loss $796 \u00b7 BPR $796 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short put vertical 673/664p \u00d71 \u2014 rich premium. Edge: IV rank 45%, EV $+7/ctr (+0.9% on BPR). POP 80% \u00b7 credit $0.99 \u00b7 max loss $801 \u00b7 BPR $801 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.676,
       "learn_notes": [
         "asset_class=single_name \u00d70.69",
         "cluster=us_tech \u00d70.78",
         "structure=short_put_vertical \u00d71.27"
       ],
-      "rank_score": 0.006422,
+      "rank_score": 0.006287,
       "agent_action": "guarded",
-      "agent_reason": "Engine learnings show negative expectancy for both us_tech cluster (wr 29%) and its single_name classification, and it adds a second correlated QQQ position on top of existing exposure.",
+      "agent_reason": "Single-name QQQ cluster shows 29% win rate vs 38% baseline; us_tech itself is flagged avoid. Selling puts after +6% rally into tech strength is poor timing; VIX is cheap, not rich.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
       "news_risk": {
-        "level": "caution",
-        "hits": [
-          {
-            "title": "Oracle Slides 5% as Layoff Costs Outweigh Ellison\u2019s Canceled $7.5B Stock Sale; Nebius and CoreWeave Fall 5%",
-            "severity": 2,
-            "keyword": "layoff"
-          }
-        ]
+        "level": "clear",
+        "hits": []
       },
-      "net_liq": 7268.667,
+      "net_liq": 7275.92,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
         "order_type": "Net Credit",
-        "limit": 1.04,
+        "limit": 0.99,
         "contracts": 1,
         "expiry": "2026-10-16",
         "legs": [
@@ -195,24 +92,24 @@
             "type": "P"
           }
         ],
-        "credit_total": 104.0,
-        "max_loss_total": 796.0,
-        "bpr_total": 796.0,
-        "pop": 0.801,
+        "credit_total": 99.0,
+        "max_loss_total": 801.0,
+        "bpr_total": 801.0,
+        "pop": 0.803,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
-          "close_debit": 0.52,
-          "stop_debit": 2.6,
+          "close_debit": 0.49,
+          "stop_debit": 2.48,
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 726.87,
+        "live_cap": 727.59,
         "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $796 > 10% live cap ($727) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ VP \u00d71 \u2014 SELL 673P / BUY 664P (2026-10-16) @ $1.04 net credit. Max loss $796. After fill: GTC buy-to-close @ $0.52 (50%). \u26a0 max loss $796 > 10% live cap ($727) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $801 > 10% live cap ($728) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "QQQ VP \u00d71 \u2014 SELL 673P / BUY 664P (2026-10-16) @ $0.99 net credit. Max loss $801. After fill: GTC buy-to-close @ $0.49 (50%). \u26a0 max loss $801 > 10% live cap ($728) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-14T17:18:56.521894+00:00"
+      "posted_at": "2026-09-14T17:46:14.400886+00:00"
     }
   ],
   "long_vol": [],
@@ -279,71 +176,70 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-09-14T17:18:56.275029+00:00",
-    "model": "kimi-k3",
-    "market_view": "Sharp relief-rip tape (+5% day) with VIX at 16.67 \u2014 vol has come off but isn't rich, and after a one-day 5% spike the risk of a near-term pullback is elevated. Chasing bullish short-put spreads into strength with only middling IV rank is mediocre timing; I'd rather sell puts into weakness, not after it.",
-    "portfolio_note": "The book is already one concentrated long-delta short-put bet: SPY x2 plus IWM in us_index (3 positions), plus QQQ in tech. Adding more index/tech short puts doesn't diversify \u2014 it sizes up the same trade.",
-    "vol_verdict": "fair",
+    "generated_at": "2026-09-14T17:46:14.111462+00:00",
+    "model": "claude-haiku-4-5",
+    "market_view": "VIX 16.73 in normal regime post +6% rally; tape is strong and complacent. This is a POOR window to add short premium into tech/growth\u2014we want to sell vol when it spikes, not after a rip. Short-vol into momentum is uncompensated timing risk.",
+    "portfolio_note": "Book is long 5 contracts, net +$2 unrealized. Already 3 open in us_index cluster (at cap); adding another IWM call vertical would saturate the cluster and double down on a correlated directional bet into a rally.",
+    "vol_verdict": "implied_rich",
     "reviewed": 2,
     "vetoed": 2,
     "downsized": 0,
     "decisions": [
       {
-        "id": "SPY|short_put_vertical|730/721",
+        "id": "IWM|short_call_vertical|304/309",
         "action": "veto",
-        "reason": "Would be the 3rd SPY and 4th us_index position \u2014 pure correlated sizing-up of an existing bet, and poorly timed chasing puts after a +5% rip with IV rank only 0.37."
+        "reason": "IWM would be second us_index trade; cluster already at 3-open cap. Adding it saturates correlation risk and fights the strong rally tape\u2014we'd be selling calls into momentum."
       },
       {
         "id": "QQQ|short_put_vertical|673/664",
         "action": "veto",
-        "reason": "Engine learnings show negative expectancy for both us_tech cluster (wr 29%) and its single_name classification, and it adds a second correlated QQQ position on top of existing exposure."
+        "reason": "Single-name QQQ cluster shows 29% win rate vs 38% baseline; us_tech itself is flagged avoid. Selling puts after +6% rally into tech strength is poor timing; VIX is cheap, not rich."
       }
     ]
   },
   "all_candidates": [
     {
-      "underlying": "SPY",
-      "structure": "short_put_vertical",
+      "underlying": "IWM",
+      "structure": "short_call_vertical",
       "expiry": "2026-10-16",
       "dte": 32,
-      "short_strike": 730.0,
-      "long_strike": 721.0,
-      "short_symbol": "SPY   261016P00730000",
-      "long_symbol": "SPY   261016P00721000",
-      "width": 9.0,
-      "credit": 0.93,
-      "mid_credit": 0.94,
+      "short_strike": 304.0,
+      "long_strike": 309.0,
+      "short_symbol": "IWM   261016C00304000",
+      "long_symbol": "IWM   261016C00309000",
+      "width": 5.0,
+      "credit": 0.51,
+      "mid_credit": 0.52,
       "fees_est": 3.0,
-      "bpr": 807.0,
-      "max_loss": 807.0,
-      "pop": 0.801,
-      "short_delta": 0.185,
-      "short_spread_pct": 0.002,
-      "credit_to_bpr": 0.115,
-      "ev_per_contract": 6.52,
-      "ev_on_bpr": 0.0081,
-      "iv": 0.1673,
-      "iv_rank": 0.37,
-      "underlying_price": 762.16,
+      "bpr": 449.0,
+      "max_loss": 449.0,
+      "pop": 0.805,
+      "short_delta": 0.212,
+      "short_spread_pct": 0.011,
+      "credit_to_bpr": 0.114,
+      "ev_per_contract": 2.62,
+      "ev_on_bpr": 0.0058,
+      "iv": 0.2087,
+      "iv_rank": 0.222,
+      "underlying_price": 288.81,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
-      "sized_for": "paper",
+      "sized_for": "live",
       "contracts": 1,
-      "max_loss_total": 807.0,
-      "bpr_total": 807.0,
-      "trend": "mixed",
+      "max_loss_total": 449.0,
+      "bpr_total": 449.0,
+      "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short put vertical 730/721p \u00d71 \u2014 rich premium. Edge: IV rank 37%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.93 \u00b7 max loss $807 \u00b7 BPR $807 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short call vertical 304/309c \u00d71 \u2014 bearish lean. Edge: IV rank 22%, EV $+3/ctr (+0.6% on BPR). POP 80% \u00b7 credit $0.51 \u00b7 max loss $449 \u00b7 BPR $449 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.6,
       "learn_notes": [
         "asset_class=index_etf \u00d71.41",
-        "cluster=us_index \u00d71.50",
-        "structure=short_put_vertical \u00d71.27"
+        "cluster=us_index \u00d71.50"
       ],
-      "rank_score": 0.01296,
+      "rank_score": 0.00928,
       "agent_action": "veto",
-      "agent_reason": "Would be the 3rd SPY and 4th us_index position \u2014 pure correlated sizing-up of an existing bet, and poorly timed chasing puts after a +5% rip with IV rank only 0.37."
+      "agent_reason": "IWM would be second us_index trade; cluster already at 3-open cap. Adding it saturates correlation risk and fights the strong rally tape\u2014we'd be selling calls into momentum."
     },
     {
       "underlying": "QQQ",
@@ -355,58 +251,52 @@
       "short_symbol": "QQQ   261016P00673000",
       "long_symbol": "QQQ   261016P00664000",
       "width": 9.0,
-      "credit": 1.04,
-      "mid_credit": 1.07,
+      "credit": 0.99,
+      "mid_credit": 1.04,
       "fees_est": 3.0,
-      "bpr": 796.0,
-      "max_loss": 796.0,
-      "pop": 0.801,
-      "short_delta": 0.182,
-      "short_spread_pct": 0.006,
-      "credit_to_bpr": 0.131,
-      "ev_per_contract": 7.6,
-      "ev_on_bpr": 0.0095,
-      "iv": 0.2161,
-      "iv_rank": 0.448,
-      "underlying_price": 711.84,
+      "bpr": 801.0,
+      "max_loss": 801.0,
+      "pop": 0.803,
+      "short_delta": 0.18,
+      "short_spread_pct": 0.01,
+      "credit_to_bpr": 0.124,
+      "ev_per_contract": 7.46,
+      "ev_on_bpr": 0.0093,
+      "iv": 0.2175,
+      "iv_rank": 0.449,
+      "underlying_price": 712.42,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 796.0,
-      "bpr_total": 796.0,
+      "max_loss_total": 801.0,
+      "bpr_total": 801.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short put vertical 673/664p \u00d71 \u2014 rich premium. Edge: IV rank 45%, EV $+8/ctr (+0.9% on BPR). POP 80% \u00b7 credit $1.04 \u00b7 max loss $796 \u00b7 BPR $796 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short put vertical 673/664p \u00d71 \u2014 rich premium. Edge: IV rank 45%, EV $+7/ctr (+0.9% on BPR). POP 80% \u00b7 credit $0.99 \u00b7 max loss $801 \u00b7 BPR $801 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.676,
       "learn_notes": [
         "asset_class=single_name \u00d70.69",
         "cluster=us_tech \u00d70.78",
         "structure=short_put_vertical \u00d71.27"
       ],
-      "rank_score": 0.006422,
+      "rank_score": 0.006287,
       "agent_action": "guarded",
-      "agent_reason": "Engine learnings show negative expectancy for both us_tech cluster (wr 29%) and its single_name classification, and it adds a second correlated QQQ position on top of existing exposure.",
+      "agent_reason": "Single-name QQQ cluster shows 29% win rate vs 38% baseline; us_tech itself is flagged avoid. Selling puts after +6% rally into tech strength is poor timing; VIX is cheap, not rich.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
       "news_risk": {
-        "level": "caution",
-        "hits": [
-          {
-            "title": "Oracle Slides 5% as Layoff Costs Outweigh Ellison\u2019s Canceled $7.5B Stock Sale; Nebius and CoreWeave Fall 5%",
-            "severity": 2,
-            "keyword": "layoff"
-          }
-        ]
+        "level": "clear",
+        "hits": []
       },
-      "net_liq": 7268.667,
+      "net_liq": 7275.92,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
         "order_type": "Net Credit",
-        "limit": 1.04,
+        "limit": 0.99,
         "contracts": 1,
         "expiry": "2026-10-16",
         "legs": [
@@ -425,30 +315,30 @@
             "type": "P"
           }
         ],
-        "credit_total": 104.0,
-        "max_loss_total": 796.0,
-        "bpr_total": 796.0,
-        "pop": 0.801,
+        "credit_total": 99.0,
+        "max_loss_total": 801.0,
+        "bpr_total": 801.0,
+        "pop": 0.803,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
-          "close_debit": 0.52,
-          "stop_debit": 2.6,
+          "close_debit": 0.49,
+          "stop_debit": 2.48,
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 726.87,
+        "live_cap": 727.59,
         "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $796 > 10% live cap ($727) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ VP \u00d71 \u2014 SELL 673P / BUY 664P (2026-10-16) @ $1.04 net credit. Max loss $796. After fill: GTC buy-to-close @ $0.52 (50%). \u26a0 max loss $796 > 10% live cap ($727) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $801 > 10% live cap ($728) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "QQQ VP \u00d71 \u2014 SELL 673P / BUY 664P (2026-10-16) @ $0.99 net credit. Max loss $801. After fill: GTC buy-to-close @ $0.49 (50%). \u26a0 max loss $801 > 10% live cap ($728) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-14T17:18:56.521894+00:00"
+      "posted_at": "2026-09-14T17:46:14.400886+00:00"
     }
   ],
   "skipped": {
-    "IWM": "iv_rank 22% (floor 22%)",
+    "SPY": "failed: pv: credit/width 0.10 < 0.10",
     "DIA": "failed: pv: credit/width 0.08 < 0.10",
-    "XLE": "failed: pv: credit/width 0.09 < 0.10",
+    "XLE": "failed: pv: credit/width 0.08 < 0.10",
     "XLF": "failed: pv: credit/width 0.04 < 0.10",
     "SLV": "iv_rank 22% (floor 30%)"
   }
