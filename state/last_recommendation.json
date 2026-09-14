@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-14T15:20:24.140967+00:00",
-  "market_view": "VIX +10.86% at 17.56 with broad risk-off rotation \u2014 tech and industrials leading lower, defensives (XLP, XLV) bidding. No reversal catalyst present; bearish tape persists into week-end.",
+  "last_run": "2026-09-14T15:22:18.648344+00:00",
+  "market_view": "VIX +9.15% at 17.29 with tech -1.94% and industrials -1.87% \u2014 risk-off rotation into defensives (XLP +1.28%, XLV +1.22%) confirms bearish tape with no reversal catalyst. All three positions remain in rules-violation territory for multiple consecutive cycles.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-14T15:20:06.607892+00:00",
-    "reasoning": "Short strike 61.5 remains breached with SLV at 56.97 \u2014 worst cost $0.80 is 1.45x credit, within one tick of the 1.5x hard cut rule at $0.825, and mid $0.65 confirms no recovery. This has been flagged CRITICAL for multiple consecutive cycles with zero execution \u2014 every minute of inaction is a rule violation compounding risk."
+    "timestamp": "2026-09-14T15:22:03.708989+00:00",
+    "reasoning": "Short strike 61.5 breached with SLV at 56.95 \u2014 worst cost $0.80 is 1.45x credit and mid $0.65 is 1.18x, but breach itself is an unambiguous rule violation requiring immediate closure. Multiple cycles flagged CRITICAL with zero execution \u2014 this must close now."
   },
   "SPY 731/722p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-09-14T15:20:06.607892+00:00",
-    "reasoning": "21 DTE hard exit triggers Thursday Sept 17 \u2014 that is 3 calendar days away including weekend, making today effectively the last actionable trading session before the rule is violated. Position is a loser at mid $0.99 vs $0.93 credit with bearish tape providing zero recovery path."
+    "confidence": 0.98,
+    "timestamp": "2026-09-14T15:22:03.708989+00:00",
+    "reasoning": "21 DTE hard exit triggers September 17 \u2014 that is 3 calendar days away, market is closed weekends, meaning Tuesday open IS the deadline. Position is a loser at mid $0.985 vs $0.93 credit with bearish tape and no recovery path before the rule-mandated exit."
   },
   "QQQ 680/670p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-09-14T15:20:06.607892+00:00",
-    "reasoning": "Mid $1.485 is 1.19x credit and worst $1.56 is 1.25x \u2014 QQQ -1.1% today with tech -1.94% as the primary driver, 21 DTE hard exit hits Thursday Sept 17, and the 1.5x loss-cut at $1.875 mid is approaching fast with no tailwind. Same last-tradeable-session logic as SPY applies."
+    "timestamp": "2026-09-14T15:22:03.708989+00:00",
+    "reasoning": "Mid cost $1.485 is 1.19x credit and worst cost $1.56 is 1.25x \u2014 21 DTE hard exit hits September 17 same as SPY, and QQQ -1.10% today with tech -1.94% is the primary headwind with zero reversal signal. Loss-cut at $1.875 worst-case is within one bad session."
   }
 }
