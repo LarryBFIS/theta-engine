@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-14T17:17:47.880034+00:00",
-  "market_view": "Market close imminent on a risk-off Friday \u2014 VIX +5.3% today, +7.2% on the week with tech and industrials leading the selloff. All three positions have been flagged CRITICAL for multiple consecutive cycles with zero execution; weekend gap risk is now locked in if not closed in the next minutes.",
+  "last_run": "2026-09-14T17:27:34.202762+00:00",
+  "market_view": "Market closing in minutes on a risk-off Friday \u2014 VIX +5.5% today, +7.4% on the week with tech and industrials leading the selloff. Weekend gap risk is locked in on all three positions if not closed in the next 3 minutes.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-14T17:17:33.036225+00:00",
-    "reasoning": "Short strike 61.5 remains breached with SLV at 57.53 \u2014 worst cost $0.85 is 1.545x the $0.55 credit, a hard rule violation. Three consecutive CRITICAL cycles with no action means full max loss ($45) is now the weekend base case."
+    "timestamp": "2026-09-14T17:27:14.762109+00:00",
+    "reasoning": "Short strike 61.5 breached with SLV at 57.51 \u2014 worst cost $0.85 is 1.545x the $0.55 credit, a hard 1.5x rule violation. Four consecutive CRITICAL cycles with zero execution; max loss $45 is now the base case after market close in minutes."
   },
   "SPY 731/722p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-09-14T17:17:33.036225+00:00",
-    "reasoning": "21 DTE hard exit triggers Thursday Sep 17 \u2014 today is the last liquid session before a gap-risk weekend and the position is currently profitable at mid $0.835 vs $0.93 credit (~10% profit, not 50%). Holding forces a worse mandatory Tuesday close into potential Monday gap."
+    "timestamp": "2026-09-14T17:27:14.762109+00:00",
+    "reasoning": "21 DTE hard exit triggers Sep 17 \u2014 this is the last liquid close before a weekend gap with VIX elevated. Mid $0.84 is only ~10% profit, not 50%, but the mandatory rule exit in 3 days forces a Tuesday open into potential Monday gap down."
   },
   "QQQ 680/670p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-09-14T17:17:33.036225+00:00",
-    "reasoning": "21 DTE hard exit triggers Sep 17, QQQ is the week's weakest index at -1.25% with XLK -1.76% \u2014 mid $1.23 is near breakeven and a tech-gap Monday converts a flat trade into a loser with a forced Tuesday close at worse fills."
+    "timestamp": "2026-09-14T17:27:14.762109+00:00",
+    "reasoning": "21 DTE hard exit triggers Sep 17, QQQ is the week's weakest index at -1.25% with XLK -1.23% today \u2014 mid $1.22 is near breakeven and a tech-gap Monday converts a flat trade into a loser with a forced Tuesday close at degraded fills."
   }
 }
