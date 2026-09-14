@@ -261,7 +261,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.24, +5% day in normal regime\u2014tape is risk-on and calm; short-premium setups are well-timed. Broad index vol is not under-priced, and macro calendar is clear.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-14",
+      "actual_price": 758.61,
+      "realized_move_pct": 0.0142,
+      "realized_move_signed": -0.0142,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "f62619550a67",
@@ -276,7 +282,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.24, +5% day in normal regime\u2014tape is risk-on and calm; short-premium setups are well-timed. Broad index vol is not under-priced, and macro calendar is clear.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-14",
+      "actual_price": 702.27,
+      "realized_move_pct": 0.0212,
+      "realized_move_signed": -0.0212,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "ad0edde69647",
@@ -291,7 +303,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.24, +5% day in normal regime\u2014tape is risk-on and calm; short-premium setups are well-timed. Broad index vol is not under-priced, and macro calendar is clear.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-14",
+      "actual_price": 287.2,
+      "realized_move_pct": 0.0293,
+      "realized_move_signed": -0.0293,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "09207b3aeebf",
@@ -306,7 +324,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.24, +5% day in normal regime\u2014tape is risk-on and calm; short-premium setups are well-timed. Broad index vol is not under-priced, and macro calendar is clear.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-14",
+      "actual_price": 523.71,
+      "realized_move_pct": 0.0182,
+      "realized_move_signed": -0.0182,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "991bddd23d0c",
@@ -546,6 +570,66 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 16.73, normal regime post -6% sell-off. Tape is cooling; short-premium is well-timed here as volatility has expanded but not spiked into panic. No macro events on calendar\u2014low event risk.",
+      "resolved": false
+    },
+    {
+      "id": "18e16d9b6160",
+      "index": "SPY",
+      "forecast_date": "2026-09-14",
+      "target_date": "2026-09-21",
+      "horizon_days": 7,
+      "spot_at_forecast": 758.61,
+      "iv": 0.1579,
+      "implied_move_pct": 0.0219,
+      "implied_move_abs": 16.59,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Regime is normal with a +12% day (strong rally); VIX at 17.8 is comfortably low. This is a GOOD tape for selling premium\u2014the market is bid and vol is not cheap, reducing the tail risk of a sharp reversal into short options. Timing favors index/broad short-premium here.",
+      "resolved": false
+    },
+    {
+      "id": "995b78f56087",
+      "index": "QQQ",
+      "forecast_date": "2026-09-14",
+      "target_date": "2026-09-21",
+      "horizon_days": 7,
+      "spot_at_forecast": 702.27,
+      "iv": 0.2092,
+      "implied_move_pct": 0.029,
+      "implied_move_abs": 20.35,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Regime is normal with a +12% day (strong rally); VIX at 17.8 is comfortably low. This is a GOOD tape for selling premium\u2014the market is bid and vol is not cheap, reducing the tail risk of a sharp reversal into short options. Timing favors index/broad short-premium here.",
+      "resolved": false
+    },
+    {
+      "id": "32a1c18fc21f",
+      "index": "IWM",
+      "forecast_date": "2026-09-14",
+      "target_date": "2026-09-21",
+      "horizon_days": 7,
+      "spot_at_forecast": 287.2,
+      "iv": 0.2069,
+      "implied_move_pct": 0.0287,
+      "implied_move_abs": 8.23,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Regime is normal with a +12% day (strong rally); VIX at 17.8 is comfortably low. This is a GOOD tape for selling premium\u2014the market is bid and vol is not cheap, reducing the tail risk of a sharp reversal into short options. Timing favors index/broad short-premium here.",
+      "resolved": false
+    },
+    {
+      "id": "3dcfaf867946",
+      "index": "DIA",
+      "forecast_date": "2026-09-14",
+      "target_date": "2026-09-21",
+      "horizon_days": 7,
+      "spot_at_forecast": 523.71,
+      "iv": 0.1488,
+      "implied_move_pct": 0.0206,
+      "implied_move_abs": 10.79,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Regime is normal with a +12% day (strong rally); VIX at 17.8 is comfortably low. This is a GOOD tape for selling premium\u2014the market is bid and vol is not cheap, reducing the tail risk of a sharp reversal into short options. Timing favors index/broad short-premium here.",
       "resolved": false
     }
   ]
