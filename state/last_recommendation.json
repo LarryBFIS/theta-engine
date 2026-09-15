@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-14T20:55:43.721916+00:00",
-  "market_view": "Market closed Friday risk-off: VIX 17.1 (+7.95% day, +9.9% week), XLK -1.81%, defensive rotation into XLV/XLP. No new information since last cycle \u2014 all three position alerts remain unchanged and actionable at Monday 9:30 ET open only.",
+  "last_run": "2026-09-15T13:20:18.844023+00:00",
+  "market_view": "Market opened mildly risk-off with VIX at 16.88 (-1.29% today but +7.86% 5d), defensive rotation intact (XLV +1.45%, XLP +1.25%), tech leading losses (XLK -1.81%). All three positions flagged CRITICAL last cycle remain actionable \u2014 market open confirms: close all three now.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-14T20:55:32.808078+00:00",
-    "reasoning": "Short strike 61.5 breached with SLV at 56.84 (-8.2% ITM); worst-cost $0.85 is 1.55x the $0.55 credit, hard stop rule triggered. Weekend gap risk in metals could worsen fill at Monday open."
+    "timestamp": "2026-09-15T13:20:03Z",
+    "reasoning": "Short strike 61.5 is breached with SLV at 56.84 (-8.2% ITM); worst-cost $0.85 is 1.55x the $0.55 credit, hard stop rule triggered last Friday and still in force. Close immediately \u2014 every minute adds assignment and gap risk."
   },
   "SPY 731/722p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-09-14T20:55:32.808078+00:00",
-    "reasoning": "DTE hits 21 Monday Sep 17, triggering the hard 21-DTE exit rule with zero exceptions; VIX expansion and SPY -1.06% 5d increase gap-down risk toward 731 short strike."
+    "timestamp": "2026-09-15T13:20:03Z",
+    "reasoning": "DTE is 23 today but hits 21 DTE on Sep 17 \u2014 two sessions away, and with SPY -1.06% 5d and VIX elevated, holding through expiration week pinch is unnecessary risk. Mid-cost $0.895 vs $0.93 credit is near breakeven; close now for a near-scratch before theta reverses."
   },
   "QQQ 680/670p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-09-14T20:55:32.808078+00:00",
-    "reasoning": "DTE hits 21 Monday triggering hard exit rule; mid-cost $1.36 already exceeds $1.25 credit making this an active loser with QQQ -1.63% 5d and XLK -1.81% day adding gap-through-680 risk."
+    "timestamp": "2026-09-15T13:20:03Z",
+    "reasoning": "Mid-cost $1.36 already exceeds the $1.25 credit (active loser, -8.8% beyond credit), DTE hits 21 in two sessions, and QQQ -1.63% 5d with XLK -1.81% today makes short strike 680 directionally threatened. Loss will compound at open."
   }
 }
