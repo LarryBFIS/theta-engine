@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-15T13:20:18.844023+00:00",
-  "market_view": "Market opened mildly risk-off with VIX at 16.88 (-1.29% today but +7.86% 5d), defensive rotation intact (XLV +1.45%, XLP +1.25%), tech leading losses (XLK -1.81%). All three positions flagged CRITICAL last cycle remain actionable \u2014 market open confirms: close all three now.",
+  "last_run": "2026-09-15T13:22:46.855268+00:00",
+  "market_view": "Market remains risk-off with tech leading losses (XLK -1.81%) and defensive rotation confirming (XLV +1.45%, XLP +1.25%); VIX +7.86% 5d signals elevated vol regime that hurts short-premium positions. All three positions flagged CRITICAL last cycle \u2014 no change in market conditions, close all three immediately.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-15T13:20:03Z",
-    "reasoning": "Short strike 61.5 is breached with SLV at 56.84 (-8.2% ITM); worst-cost $0.85 is 1.55x the $0.55 credit, hard stop rule triggered last Friday and still in force. Close immediately \u2014 every minute adds assignment and gap risk."
+    "timestamp": "2026-09-15T13:22:28Z",
+    "reasoning": "Short strike 61.5 is breached with SLV at 56.84 (-8.2% through strike); worst-cost $0.85 is 1.55x the $0.55 credit, hard 1.5x stop rule is triggered and this position has been in violation since last cycle. Two minutes elapsed since last alert \u2014 this is not a duplicate, this is an unexecuted critical close."
   },
   "SPY 731/722p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-09-15T13:20:03Z",
-    "reasoning": "DTE is 23 today but hits 21 DTE on Sep 17 \u2014 two sessions away, and with SPY -1.06% 5d and VIX elevated, holding through expiration week pinch is unnecessary risk. Mid-cost $0.895 vs $0.93 credit is near breakeven; close now for a near-scratch before theta reverses."
+    "confidence": 0.95,
+    "timestamp": "2026-09-15T13:22:28Z",
+    "reasoning": "21 DTE hard exit triggers Thursday Sep 17 \u2014 two sessions away \u2014 and mid-cost $0.895 vs $0.93 credit is near-scratch now; SPY -0.45% today with risk-off tone means any continued drift threatens the 731 short strike with no meaningful premium left to defend. Close for near-zero P&L rather than risk a 21 DTE forced close into a down tape."
   },
   "QQQ 680/670p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-09-15T13:20:03Z",
-    "reasoning": "Mid-cost $1.36 already exceeds the $1.25 credit (active loser, -8.8% beyond credit), DTE hits 21 in two sessions, and QQQ -1.63% 5d with XLK -1.81% today makes short strike 680 directionally threatened. Loss will compound at open."
+    "timestamp": "2026-09-15T13:22:28Z",
+    "reasoning": "Mid-cost $1.36 exceeds the $1.25 credit \u2014 this is an active loser at -8.8% beyond collected premium \u2014 and QQQ -0.80% today with XLK -1.81% makes further directional pressure likely; 21 DTE rule triggers Thursday with no path to recovery at current trajectory."
   }
 }
