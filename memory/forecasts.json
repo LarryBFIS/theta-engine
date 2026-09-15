@@ -345,7 +345,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.54 in normal regime after +2% day; tape is constructive and volatility fairly priced. Good environment for premium sells, but timing favors index over single-name exposure given the tech cluster headwinds in our learnings.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-15",
+      "actual_price": 761.3,
+      "realized_move_pct": 0.0102,
+      "realized_move_signed": -0.0102,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "3792b654b968",
@@ -360,7 +366,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.54 in normal regime after +2% day; tape is constructive and volatility fairly priced. Good environment for premium sells, but timing favors index over single-name exposure given the tech cluster headwinds in our learnings.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-15",
+      "actual_price": 710.03,
+      "realized_move_pct": 0.0146,
+      "realized_move_signed": -0.0146,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "877bd3410f79",
@@ -375,7 +387,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.54 in normal regime after +2% day; tape is constructive and volatility fairly priced. Good environment for premium sells, but timing favors index over single-name exposure given the tech cluster headwinds in our learnings.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-15",
+      "actual_price": 287.17,
+      "realized_move_pct": 0.0286,
+      "realized_move_signed": -0.0286,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "8d7cd3103c94",
@@ -390,7 +408,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.54 in normal regime after +2% day; tape is constructive and volatility fairly priced. Good environment for premium sells, but timing favors index over single-name exposure given the tech cluster headwinds in our learnings.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-15",
+      "actual_price": 524.19,
+      "realized_move_pct": 0.0123,
+      "realized_move_signed": -0.0123,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "d83b7e1f3b17",
@@ -630,6 +654,66 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Regime is normal with a +12% day (strong rally); VIX at 17.8 is comfortably low. This is a GOOD tape for selling premium\u2014the market is bid and vol is not cheap, reducing the tail risk of a sharp reversal into short options. Timing favors index/broad short-premium here.",
+      "resolved": false
+    },
+    {
+      "id": "98f2a6dff47b",
+      "index": "SPY",
+      "forecast_date": "2026-09-15",
+      "target_date": "2026-09-22",
+      "horizon_days": 7,
+      "spot_at_forecast": 761.3,
+      "iv": 0.1708,
+      "implied_move_pct": 0.0237,
+      "implied_move_abs": 18.01,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 16.99, normal regime, -1% tape \u2014 a mild pullback with no structural stress. This is a reasonable environment for premium selling, but we're not in a vol spike; timing is neutral-to-slightly-defensive.",
+      "resolved": false
+    },
+    {
+      "id": "6a8fadefbae3",
+      "index": "QQQ",
+      "forecast_date": "2026-09-15",
+      "target_date": "2026-09-22",
+      "horizon_days": 7,
+      "spot_at_forecast": 710.03,
+      "iv": 0.2191,
+      "implied_move_pct": 0.0303,
+      "implied_move_abs": 21.55,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 16.99, normal regime, -1% tape \u2014 a mild pullback with no structural stress. This is a reasonable environment for premium selling, but we're not in a vol spike; timing is neutral-to-slightly-defensive.",
+      "resolved": false
+    },
+    {
+      "id": "6a0c63e4860b",
+      "index": "IWM",
+      "forecast_date": "2026-09-15",
+      "target_date": "2026-09-22",
+      "horizon_days": 7,
+      "spot_at_forecast": 287.17,
+      "iv": 0.211,
+      "implied_move_pct": 0.0292,
+      "implied_move_abs": 8.39,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 16.99, normal regime, -1% tape \u2014 a mild pullback with no structural stress. This is a reasonable environment for premium selling, but we're not in a vol spike; timing is neutral-to-slightly-defensive.",
+      "resolved": false
+    },
+    {
+      "id": "14effd9390f2",
+      "index": "DIA",
+      "forecast_date": "2026-09-15",
+      "target_date": "2026-09-22",
+      "horizon_days": 7,
+      "spot_at_forecast": 524.19,
+      "iv": 0.1552,
+      "implied_move_pct": 0.0215,
+      "implied_move_abs": 11.27,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 16.99, normal regime, -1% tape \u2014 a mild pullback with no structural stress. This is a reasonable environment for premium selling, but we're not in a vol spike; timing is neutral-to-slightly-defensive.",
       "resolved": false
     }
   ]
