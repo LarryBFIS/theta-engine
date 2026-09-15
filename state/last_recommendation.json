@@ -1,34 +1,34 @@
 {
-  "last_run": "2026-09-15T18:33:58.073629+00:00",
-  "market_view": "VIX +11.69% 5d with broad risk-off persisting \u2014 IWM -2.76% 5d is the weakest index, XLY leading sector declines at -1.71% 5d. Neutral regime but vol expansion trend continues; three positions remain in critical rule-violation territory requiring immediate closure.",
+  "last_run": "2026-09-15T18:48:31.351135+00:00",
+  "market_view": "VIX +11.88% 5d with broad risk-off continuing \u2014 IWM -2.84% 5d remains weakest, XLY -1.76% 5d flagging consumer stress. Neutral regime but vol expansion trend is intact; three positions remain in critical rule-violation territory with no action taken across multiple cycles.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-15T18:33:41Z",
-    "reasoning": "Short strike 61.5 hard-breached with SLV at 57.52 \u2014 worst-cost $0.75 is 1.36x credit and mid $0.65 is 1.18x; short strike is 6.9% ITM and position has been flagged CRITICAL repeatedly with zero action taken. Playbook demands closure."
+    "timestamp": "2026-09-15T18:48:17Z",
+    "reasoning": "Short strike 61.5 is hard-breached with SLV at 57.66 \u2014 6.66% ITM, worst-cost $0.85 is 1.55x credit triggering the 1.5x stop rule simultaneously. This has been flagged CRITICAL six consecutive cycles with zero execution."
   },
   "SPY 731/722p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-15T18:33:41Z",
-    "reasoning": "23 DTE breaches the 21 DTE hard exit rule \u2014 mid $1.065 is already a loser vs $0.93 credit and worst-cost $1.09 is 1.17x credit with VIX still expanding. This rule is non-negotiable and has been violated for multiple cycles."
+    "timestamp": "2026-09-15T18:48:17Z",
+    "reasoning": "23 DTE is past the 21 DTE hard exit rule and worst-cost $1.10 is 1.18x credit with VIX still expanding \u2014 this rule breach has been flagged repeatedly with no close executed."
   },
   "QQQ 680/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-15T18:33:41Z",
-    "reasoning": "23 DTE hard exit rule violated \u2014 worst-cost $1.62 is 1.30x credit and QQQ -1.6% 5d with VIX expanding means this spread is trending toward the 1.5x stop as well. Fifth consecutive CRITICAL flag with no close executed."
+    "timestamp": "2026-09-15T18:48:17Z",
+    "reasoning": "23 DTE hard exit rule violated and worst-cost $1.66 is 1.33x credit trending toward 1.5x stop with QQQ -1.67% today and VIX expanding \u2014 sixth consecutive CRITICAL flag, no action taken."
   },
   "SPY 724/715p": {
     "action": "HOLD",
     "confidence": 0.85,
-    "timestamp": "2026-09-15T18:33:41Z",
-    "reasoning": "30 DTE, 4.39% OTM buffer with mid $0.95 at scratch vs $0.95 credit \u2014 opened today, no rules triggered, short strikes well clear of current price."
+    "timestamp": "2026-09-15T18:48:17Z",
+    "reasoning": "30 DTE, short strike 4.35% OTM, mid $0.955 essentially at scratch vs $0.95 credit \u2014 opened today, no rules triggered, adequate buffer."
   },
   "IWM 300/305c": {
     "action": "HOLD",
-    "confidence": 0.83,
-    "timestamp": "2026-09-15T18:33:41Z",
-    "reasoning": "30 DTE, short call 300 with IWM at 285.35 giving 5.13% buffer \u2014 IWM -2.76% 5d works in favor of this short call; mid $0.67 is near scratch, no rules triggered."
+    "confidence": 0.84,
+    "timestamp": "2026-09-15T18:48:17Z",
+    "reasoning": "30 DTE, short call 300 with IWM at 285.13 giving 5.21% buffer \u2014 IWM weakness works in favor of this short call, mid $0.65 near scratch, no rules triggered."
   }
 }
