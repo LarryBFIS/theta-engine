@@ -52,6 +52,8 @@ def _no(reason):
 DEFAULT_UNIVERSE = [
     "SPY", "IWM", "DIA",           # broad index ETFs — the proven core
     "QQQ", "XLE", "XLF",           # + Nasdaq index / energy / financials (equity ETFs)
+    "XLV", "XLI",                  # + healthcare / industrials (liquid sector ETFs, new
+                                   # clusters; 2026-09-15) — full inclusion like XLE/XLF.
     "SLV",                         # silver — VIEW-ONLY in the feed: gated at the 0.30
                                    # rich-premium floor like any sector name (surfaces only
                                    # when IV is genuinely rich), excluded from the index-only

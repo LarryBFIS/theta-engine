@@ -50,7 +50,7 @@ MAX_OPEN = int(os.getenv("PAPER_MAX_OPEN", "8"))             # total open positi
 # here can still show in the opportunities feed for viewing. Override with
 # PAPER_TRADE_UNIVERSE="A,B,C".
 TRADE_UNIVERSE = set(
-    (os.getenv("PAPER_TRADE_UNIVERSE") or "SPY,IWM,DIA,QQQ,XLE,XLF,TSLA")
+    (os.getenv("PAPER_TRADE_UNIVERSE") or "SPY,IWM,DIA,QQQ,XLE,XLF,XLV,XLI,TSLA")
     .replace(" ", "").upper().split(","))
 
 # Correlation clusters — names that move together count against one ceiling.
@@ -62,9 +62,9 @@ _CLUSTER_MEMBERS = {
     "energy": ("XOM", "CVX", "XLE"),
     "metals": ("GLD", "SLV"),
     "bonds": ("TLT",),
-    "healthcare": ("PFE", "MRK"),
+    "healthcare": ("PFE", "MRK", "XLV"),
     "consumer": ("DIS", "KO", "PEP", "WMT", "COST"),
-    "industrials": ("BA", "CAT"),
+    "industrials": ("BA", "CAT", "XLI"),
 }
 CLUSTERS = {sym: cl for cl, syms in _CLUSTER_MEMBERS.items() for sym in syms}
 # Broad-market index ETFs ONLY — the proven sweet spot (SPY/IWM 9/9, +$746).
@@ -73,7 +73,7 @@ CLUSTERS = {sym: cl for cl, syms in _CLUSTER_MEMBERS.items() for sym in syms}
 # a broad-index diversifier let the agent wrongly approve it; it now buckets as a
 # single_name/us_tech name so the learner's index edge stays pure SPY/IWM.
 INDEX_ETFS = {"SPY", "IWM", "DIA"}
-SECTOR_ETFS = {"GLD", "SLV", "TLT", "XLF", "XLE", "XLK"}
+SECTOR_ETFS = {"GLD", "SLV", "TLT", "XLF", "XLE", "XLK", "XLV", "XLI"}
 
 log = logging.getLogger("paper")
 
