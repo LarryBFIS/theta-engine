@@ -57,6 +57,15 @@ DEFAULT_UNIVERSE = [
                                    # when IV is genuinely rich), excluded from the index-only
                                    # short-term pass, and NOT in the paper TRADE_UNIVERSE — so
                                    # it shows for eyeballing but the bot won't auto-paper it.
+    "TSLA",                        # single stock (2026-09-15, by request). FULL inclusion:
+                                   # scanned + AI-reviewed + forecast + auto-paper. Buckets as
+                                   # single_name/us_tech, so it gates at the 0.30 IV floor,
+                                   # counts against the us_tech concentration cap (shares it
+                                   # with QQQ), and is shielded by the earnings/news gate — the
+                                   # guardrails against exactly the single-name gap risk this
+                                   # reintroduces. Premium selling expresses "bullish" as a
+                                   # SHORT PUT SPREAD under TSLA, not upside; for pure upside
+                                   # (shares/long calls) trade it by hand, off-engine.
 ]
 # Index ETFs (SPY/IWM/DIA) are liquid and a proven edge, so they clear at a lower IV
 # floor than the 0.30 rich-premium bar used for sector names — otherwise a quiet-vol

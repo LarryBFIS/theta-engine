@@ -42,11 +42,15 @@ MAX_PER_CLUSTER = int(os.getenv("PAPER_MAX_PER_CLUSTER", "3"))  # correlated nam
 MAX_OPEN = int(os.getenv("PAPER_MAX_OPEN", "8"))             # total open positions
 
 # The bot only paper-TRADES these — index core + equity-ETF baskets (2026-07-14:
-# added QQQ, XLE, XLF). Single stocks and cross-asset (GLD/SLV/TLT) are excluded for
-# now: single names gap/trend (the cohort that bled). Anything not here can still show
-# in the opportunities feed for viewing. Override with PAPER_TRADE_UNIVERSE="A,B,C".
+# added QQQ, XLE, XLF). Most single stocks and cross-asset (GLD/SLV/TLT) stay excluded:
+# single names gap/trend (the cohort that bled). EXCEPTION (2026-09-15, by request):
+# TSLA is included as a deliberate single-name bet — it will auto-paper-trade and its
+# outcomes DO enter the tracked book / win-rate, so its gap risk is on the books. Its
+# us_tech concentration cap + the earnings/news gate are the guardrails. Anything not
+# here can still show in the opportunities feed for viewing. Override with
+# PAPER_TRADE_UNIVERSE="A,B,C".
 TRADE_UNIVERSE = set(
-    (os.getenv("PAPER_TRADE_UNIVERSE") or "SPY,IWM,DIA,QQQ,XLE,XLF")
+    (os.getenv("PAPER_TRADE_UNIVERSE") or "SPY,IWM,DIA,QQQ,XLE,XLF,TSLA")
     .replace(" ", "").upper().split(","))
 
 # Correlation clusters — names that move together count against one ceiling.

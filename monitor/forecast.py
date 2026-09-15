@@ -25,7 +25,7 @@ SCORE_FILE = REPO_ROOT / "memory" / "forecast_scores.json"
 
 # Indices we forecast. Broad index ETFs by default (the names we actually trade).
 CORE = [s.strip().upper() for s in
-        (os.getenv("FORECAST_INDICES") or "SPY,QQQ,IWM,DIA").split(",") if s.strip()]
+        (os.getenv("FORECAST_INDICES") or "SPY,QQQ,IWM,DIA,TSLA").split(",") if s.strip()]
 # Window over which we measure the move. 7 calendar days ~= one trading week — long
 # enough to be meaningful, short enough to accumulate a real sample fast.
 HORIZON_DAYS = int(os.getenv("FORECAST_HORIZON_DAYS") or "7")

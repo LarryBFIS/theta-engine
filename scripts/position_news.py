@@ -29,7 +29,7 @@ NEWS_FEED_FILE = REPO_ROOT / "news" / "feed.json"
 # times. Override with NEWS_CORE_SYMBOLS="A,B,C". These are feed-only when not held:
 # they never trigger Pushover (that stays position-driven), just dashboard visibility.
 CORE_SYMBOLS = [s.strip().upper() for s in
-                (os.getenv("NEWS_CORE_SYMBOLS") or "QQQ,SPY").split(",") if s.strip()]
+                (os.getenv("NEWS_CORE_SYMBOLS") or "QQQ,SPY,TSLA").split(",") if s.strip()]
 FEED_MAX = int(os.getenv("NEWS_FEED_MAX") or "40")          # headlines kept in the feed
 CORE_FEED_KEEP = int(os.getenv("NEWS_CORE_KEEP") or "10")   # core headlines guaranteed to survive the cap
 
