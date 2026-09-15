@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-15T13:22:46.855268+00:00",
-  "market_view": "Market remains risk-off with tech leading losses (XLK -1.81%) and defensive rotation confirming (XLV +1.45%, XLP +1.25%); VIX +7.86% 5d signals elevated vol regime that hurts short-premium positions. All three positions flagged CRITICAL last cycle \u2014 no change in market conditions, close all three immediately.",
+  "last_run": "2026-09-15T13:31:47.591421+00:00",
+  "market_view": "Market mildly red but stable at open, VIX -1.4% today though 5d still elevated +7.73%; no new catalysts this cycle but all three positions remain in rule-triggered close territory from last cycle.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-15T13:22:28Z",
-    "reasoning": "Short strike 61.5 is breached with SLV at 56.84 (-8.2% through strike); worst-cost $0.85 is 1.55x the $0.55 credit, hard 1.5x stop rule is triggered and this position has been in violation since last cycle. Two minutes elapsed since last alert \u2014 this is not a duplicate, this is an unexecuted critical close."
+    "timestamp": "2026-09-15T13:31:35Z",
+    "reasoning": "Short strike 61.5 remains hard-breached with SLV at 57.47; worst-cost $0.85 is 1.55x the $0.55 credit, 1.5x stop rule is triggered and has been since last cycle \u2014 this position must be closed immediately."
   },
   "SPY 731/722p": {
-    "action": "CRITICAL",
-    "confidence": 0.95,
-    "timestamp": "2026-09-15T13:22:28Z",
-    "reasoning": "21 DTE hard exit triggers Thursday Sep 17 \u2014 two sessions away \u2014 and mid-cost $0.895 vs $0.93 credit is near-scratch now; SPY -0.45% today with risk-off tone means any continued drift threatens the 731 short strike with no meaningful premium left to defend. Close for near-zero P&L rather than risk a 21 DTE forced close into a down tape."
+    "action": "ACTION",
+    "confidence": 0.88,
+    "timestamp": "2026-09-15T13:31:35Z",
+    "reasoning": "23 DTE means 21 DTE hard exit triggers in 2 sessions; mid-cost $0.95 vs $0.93 credit means this is a near-scratch loser with zero premium cushion left \u2014 close now rather than absorb the forced 21 DTE close into continued soft tape."
   },
   "QQQ 680/670p": {
-    "action": "CRITICAL",
-    "confidence": 0.98,
-    "timestamp": "2026-09-15T13:22:28Z",
-    "reasoning": "Mid-cost $1.36 exceeds the $1.25 credit \u2014 this is an active loser at -8.8% beyond collected premium \u2014 and QQQ -0.80% today with XLK -1.81% makes further directional pressure likely; 21 DTE rule triggers Thursday with no path to recovery at current trajectory."
+    "action": "ACTION",
+    "confidence": 0.95,
+    "timestamp": "2026-09-15T13:31:35Z",
+    "reasoning": "Mid-cost $1.475 exceeds the $1.25 credit collected \u2014 this is an active loser at -18% beyond premium \u2014 and 21 DTE hard exit triggers in 2 sessions with no recovery path given QQQ's 5d trend."
   }
 }
