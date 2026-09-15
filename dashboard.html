@@ -558,7 +558,12 @@ function renderTotals(){
   const rEl=$('realized');
   rEl.className='val '+(DATA.realized>=0?'glow-g':'glow-r');
   countUp(rEl,DATA.realized,v=>(v>=0?'+':'')+money(v));
-  $('realsub').textContent=`${DATA.closed.length} closed`;
+  // Headline realized stays STRATEGY-only (it drives the goal/progress math); show the
+  // all-in total incl. manual/off-strategy trades (e.g. the SLV gains) in the sub-line.
+  const manualReal=(DATA.manual||[]).reduce((s,m)=>s+((m.pnl_kind==='realized'&&typeof m.pnl==='number')?m.pnl:0),0);
+  const _sd=n=>(n>=0?'+$':'-$')+Math.abs(n).toFixed(0);
+  $('realsub').textContent=`${DATA.closed.length} closed`
+    + (Math.abs(manualReal)>=0.005 ? ` · ${_sd(manualReal)} manual → ${_sd(DATA.realized+manualReal)} all-in` : '');
   const uEl=$('unreal');
   uEl.className='val '+(open>=0?'glow-g':'glow-r');
   countUp(uEl,open,v=>(v>=0?'+':'')+money(v));
