@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T13:51:01.035226+00:00",
+  "generated_at": "2026-09-15T13:51:03.367294+00:00",
   "regime": {
     "vix": 17.15,
     "vix_day_change_pct": 0.0029,
@@ -43,14 +43,14 @@
       "bpr": 990.0,
       "max_loss": 990.0,
       "pop": 0.766,
-      "put_short_delta": 0.108,
+      "put_short_delta": 0.109,
       "call_short_delta": 0.126,
       "credit_to_bpr": 0.111,
-      "ev_per_contract": 0.52,
+      "ev_per_contract": 0.51,
       "ev_on_bpr": 0.0005,
       "iv": 0.2216,
       "iv_rank": 0.465,
-      "underlying_price": 708.99,
+      "underlying_price": 708.88,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -68,7 +68,7 @@
       ],
       "rank_score": 0.000266,
       "agent_action": "guarded",
-      "agent_reason": "QQQ is single_name / us_tech cluster; our data shows us_tech 29% win rate (vs 38% overall) and negative realized expectancy. Additionally, max_per_name=1 cap already has 1 QQQ open. Reject on both edge grounds and cap grounds.",
+      "agent_reason": "QQQ is single_name in us_tech cluster with proven negative expectancy (26% wr << 38% portfolio wr); low ev_on_bpr (0.0005); already 1 QQQ open; avoid this cluster and asset class per engine learnings.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -131,7 +131,7 @@
         "fit_note": "\u26a0 max loss $990 > 10% live cap ($722) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ IC \u00d71 \u2014 SELL 656P / BUY 645P / SELL 765C / BUY 775C (2026-10-16) @ $1.10 net credit. Max loss $990. After fill: GTC buy-to-close @ $0.55 (50%). \u26a0 max loss $990 > 10% live cap ($722) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-15T13:51:01.035226+00:00"
+      "posted_at": "2026-09-15T13:51:03.367294+00:00"
     }
   ],
   "long_vol": [],
@@ -198,11 +198,11 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-09-15T13:51:00.842263+00:00",
+    "generated_at": "2026-09-15T13:51:03.117692+00:00",
     "model": "claude-haiku-4-5",
-    "market_view": "Normal regime, VIX 17.15, flat tape\u2014benign conditions for premium selling. No macro events; timing is neutral-to-favorable for low-vol harvesting.",
-    "portfolio_note": "5 open positions, book unrealized -$33, concentrated in us_index (3 of 5). Adding any us_index trade risks correlation clustering; already at cluster cap.",
-    "vol_verdict": "implied_rich",
+    "market_view": "VIX 17.15, flat tape, normal regime \u2014 no directional bias or event risk; a calm, neutral setup ideal for small premium-selling adds. Implied vol is fairly priced; no urgency but no headwind either.",
+    "portfolio_note": "Book is flat (+0% day) with modest unrealized loss (-$33). Cluster concentration: us_index at 3/3 cap; us_tech at 1 (room to add). All five open positions are paper; no capital at risk yet.",
+    "vol_verdict": "fair",
     "reviewed": 3,
     "vetoed": 3,
     "downsized": 0,
@@ -210,17 +210,17 @@
       {
         "id": "SPY|short_put_vertical|727/718",
         "action": "veto",
-        "reason": "Already 2 SPY positions open; adding a 3rd SPY trade breaches max_per_name=1 cap and deepens us_index cluster concentration (already 3/3, this would be 4/3)."
+        "reason": "us_index cluster already at cap (3/3); adding SPY would violate cluster rule and create correlated index bet with existing SPY\u00d72 + IWM positions."
       },
       {
         "id": "IWM|short_call_vertical|300/305",
         "action": "veto",
-        "reason": "Adding this IWM call to existing IWM put would breach max_per_name=1; also pushes us_index cluster to 4/3 cap."
+        "reason": "us_index cluster already at cap (3/3); IWM addition would breach cluster limit and double down on directional index correlation."
       },
       {
         "id": "QQQ|iron_condor|656/765",
         "action": "veto",
-        "reason": "QQQ is single_name / us_tech cluster; our data shows us_tech 29% win rate (vs 38% overall) and negative realized expectancy. Additionally, max_per_name=1 cap already has 1 QQQ open. Reject on both edge grounds and cap grounds."
+        "reason": "QQQ is single_name in us_tech cluster with proven negative expectancy (26% wr << 38% portfolio wr); low ev_on_bpr (0.0005); already 1 QQQ open; avoid this cluster and asset class per engine learnings."
       }
     ]
   },
@@ -241,14 +241,14 @@
       "bpr": 807.0,
       "max_loss": 807.0,
       "pop": 0.802,
-      "short_delta": 0.184,
+      "short_delta": 0.185,
       "short_spread_pct": 0.005,
       "credit_to_bpr": 0.115,
-      "ev_per_contract": 6.7,
-      "ev_on_bpr": 0.0083,
+      "ev_per_contract": 6.63,
+      "ev_on_bpr": 0.0082,
       "iv": 0.1708,
       "iv_rank": 0.38,
-      "underlying_price": 759.33,
+      "underlying_price": 759.28,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -265,9 +265,9 @@
         "cluster=us_index \u00d71.50",
         "structure=short_put_vertical \u00d71.27"
       ],
-      "rank_score": 0.01328,
+      "rank_score": 0.01312,
       "agent_action": "veto",
-      "agent_reason": "Already 2 SPY positions open; adding a 3rd SPY trade breaches max_per_name=1 cap and deepens us_index cluster concentration (already 3/3, this would be 4/3)."
+      "agent_reason": "us_index cluster already at cap (3/3); adding SPY would violate cluster rule and create correlated index bet with existing SPY\u00d72 + IWM positions."
     },
     {
       "underlying": "IWM",
@@ -288,11 +288,11 @@
       "short_delta": 0.221,
       "short_spread_pct": 0.035,
       "credit_to_bpr": 0.142,
-      "ev_per_contract": 2.85,
-      "ev_on_bpr": 0.0065,
+      "ev_per_contract": 2.87,
+      "ev_on_bpr": 0.0066,
       "iv": 0.2132,
       "iv_rank": 0.246,
-      "underlying_price": 285.44,
+      "underlying_price": 285.43,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -308,9 +308,9 @@
         "asset_class=index_etf \u00d71.41",
         "cluster=us_index \u00d71.50"
       ],
-      "rank_score": 0.0104,
+      "rank_score": 0.01056,
       "agent_action": "veto",
-      "agent_reason": "Adding this IWM call to existing IWM put would breach max_per_name=1; also pushes us_index cluster to 4/3 cap."
+      "agent_reason": "us_index cluster already at cap (3/3); IWM addition would breach cluster limit and double down on directional index correlation."
     },
     {
       "underlying": "QQQ",
@@ -337,14 +337,14 @@
       "bpr": 990.0,
       "max_loss": 990.0,
       "pop": 0.766,
-      "put_short_delta": 0.108,
+      "put_short_delta": 0.109,
       "call_short_delta": 0.126,
       "credit_to_bpr": 0.111,
-      "ev_per_contract": 0.52,
+      "ev_per_contract": 0.51,
       "ev_on_bpr": 0.0005,
       "iv": 0.2216,
       "iv_rank": 0.465,
-      "underlying_price": 708.99,
+      "underlying_price": 708.88,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -362,7 +362,7 @@
       ],
       "rank_score": 0.000266,
       "agent_action": "guarded",
-      "agent_reason": "QQQ is single_name / us_tech cluster; our data shows us_tech 29% win rate (vs 38% overall) and negative realized expectancy. Additionally, max_per_name=1 cap already has 1 QQQ open. Reject on both edge grounds and cap grounds.",
+      "agent_reason": "QQQ is single_name in us_tech cluster with proven negative expectancy (26% wr << 38% portfolio wr); low ev_on_bpr (0.0005); already 1 QQQ open; avoid this cluster and asset class per engine learnings.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -425,7 +425,7 @@
         "fit_note": "\u26a0 max loss $990 > 10% live cap ($722) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ IC \u00d71 \u2014 SELL 656P / BUY 645P / SELL 765C / BUY 775C (2026-10-16) @ $1.10 net credit. Max loss $990. After fill: GTC buy-to-close @ $0.55 (50%). \u26a0 max loss $990 > 10% live cap ($722) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-15T13:51:01.035226+00:00"
+      "posted_at": "2026-09-15T13:51:03.367294+00:00"
     }
   ],
   "skipped": {
