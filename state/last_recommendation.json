@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-15T15:30:03.236104+00:00",
-  "market_view": "VIX +13.74% 5d with broad risk-off accelerating \u2014 IWM -3.0% 5d, small caps leading the breakdown, energy the only bid. All three positions remain in active rulebook violation; repeated CRITICAL flags with zero execution is unacceptable and must be resolved before close today.",
+  "last_run": "2026-09-15T15:40:32.402981+00:00",
+  "market_view": "VIX +12.91% 5d with broad risk-off continuing \u2014 all three positions remain in active rulebook violation for multiple consecutive cycles with zero execution, which is unacceptable. Close all three before the session ends today.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-15T15:29:48.291089+00:00",
-    "reasoning": "Short strike 61.5 hard-breached with SLV at 57.06 \u2014 worst-cost $0.85 is 1.545x the $0.55 credit, exceeding the 1.5x stop rule. This position has been in violation for multiple consecutive cycles with no action taken."
+    "timestamp": "2026-09-15T15:40:17Z",
+    "reasoning": "Short strike 61.5 hard-breached with SLV at 57.10, worst-cost $0.80 is 1.45x the $0.55 credit and mid $0.65 is already 1.18x \u2014 this has been flagged CRITICAL for multiple cycles with no action. Close immediately before worst-cost pushes through the 1.5x stop."
   },
   "SPY 731/722p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-15T15:29:48.291089+00:00",
-    "reasoning": "23 DTE triggers the 21 DTE hard exit rule this session \u2014 mid $1.065 is a confirmed loser vs $0.93 credit with SPY -0.88% 5d and VIX still expanding, making further deterioration the base case."
+    "timestamp": "2026-09-15T15:40:17Z",
+    "reasoning": "23 DTE triggers the 21 DTE hard exit rule today \u2014 mid $1.065 is a confirmed loser vs $0.93 credit with no recovery catalyst and VIX still expanding. This rule has no exceptions."
   },
   "QQQ 680/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-15T15:29:48.291089+00:00",
-    "reasoning": "Mid $1.55 is 1.24x credit and worst-cost $1.62 is 1.296x \u2014 accelerating toward the 1.5x stop at $1.875 with QQQ -1.51% 5d, and 21 DTE hard exit also triggering this session."
+    "timestamp": "2026-09-15T15:40:17Z",
+    "reasoning": "23 DTE triggers hard exit rule today and worst-cost $1.62 is 1.296x credit, accelerating toward the 1.5x stop at $1.875 with QQQ -1.56% 5d and small caps leading the breakdown. Both exit rules are active simultaneously."
   }
 }
