@@ -1,34 +1,34 @@
 {
-  "last_run": "2026-09-16T20:19:46.488681+00:00",
-  "market_view": "Market is closed \u2014 VIX 17.56 (+2.09% today, +7.66% five-day) confirms ongoing risk-off pressure with energy and financials leading weakness. Three positions remain in hard-rule violation with no execution; tomorrow's open is the first action window.",
+  "last_run": "2026-09-16T20:21:53.998557+00:00",
+  "market_view": "Market closed with VIX 17.66 (+2.67% today, +8.28% five-day) \u2014 risk-off pressure persisting with energy -2.88% and financials -1.62% leading weakness. Three positions remain in hard-rule violation; tomorrow's open is the action window with no changes to priority order.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-16T20:19:31Z",
-    "reasoning": "Short strike 61.5 breached with SLV at 57.05 \u2014 worst cost $0.85 is 1.55x the $0.55 credit, through the 1.5x stop ($0.825), with 105 DTE providing zero time-decay rescue. This must be closed at tomorrow's open, no exceptions."
+    "timestamp": "2026-09-16T20:21:38Z",
+    "reasoning": "Short strike 61.5 breached with SLV at 57.05, worst cost $0.85 is 1.55x the $0.55 credit \u2014 through the 1.5x stop at $0.825 with 105 DTE providing zero time-decay rescue. Rule violation unchanged from last cycle."
   },
   "SPY 731/722p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-16T20:19:31Z",
-    "reasoning": "22 DTE hits the 21 DTE hard exit rule today \u2014 mid $1.215 is 1.31x credit with worst $1.24 at 1.33x, and any overnight weakness pushes through the 1.5x stop at $1.395. Hard exit rule triggered; close at open."
+    "timestamp": "2026-09-16T20:21:38Z",
+    "reasoning": "21 DTE hard exit rule is triggered \u2014 mid $1.215 is 1.31x credit and any overnight weakness in SPY (already -0.44% today) risks pushing worst cost through the 1.5x stop at $1.395 by open."
   },
   "QQQ 680/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-16T20:19:31Z",
-    "reasoning": "22 DTE hits the 21 DTE hard exit rule \u2014 mid $1.555 is 1.24x credit with worst $1.65 at 1.32x, QQQ down 0.4% five-day with VIX expanding, tomorrow's open likely pushes worst cost through the 1.5x stop at $1.875. Hard exit rule triggered; close at open."
+    "timestamp": "2026-09-16T20:21:38Z",
+    "reasoning": "21 DTE hard exit rule triggered \u2014 mid $1.555 is 1.24x credit with VIX expanding and QQQ flat on the day but -0.4% five-day, tomorrow's open likely widens the spread further."
   },
   "SPY 724/715p": {
     "action": "WATCH",
     "confidence": 0.75,
-    "timestamp": "2026-09-16T20:19:31Z",
-    "reasoning": "29 DTE, short strike 724 is 3.99% OTM with mid $1.055 at 1.11x credit \u2014 still inside the 1.5x stop at $1.425 but VIX expansion and SPY weekly weakness are headwinds. Reassess after the three CRITICAL closures free up capital and headspace tomorrow."
+    "timestamp": "2026-09-16T20:21:38Z",
+    "reasoning": "29 DTE, short strike 724 is 3.99% OTM, mid $1.055 is 1.11x credit \u2014 still inside 1.5x stop at $1.425 but VIX expansion and SPY weakness are headwinds. Reassess after the three CRITICAL positions are closed tomorrow."
   },
   "IWM 300/305c": {
     "action": "ACTION",
     "confidence": 0.88,
-    "timestamp": "2026-09-16T20:19:31Z",
-    "reasoning": "Mid $0.485 vs $0.62 credit is 21.8% profit \u2014 not yet at 50% target ($0.31 mid), but IWM -1.32% five-day continues working this call spread favorably. Set a GTC limit order to close at $0.31 mid for the 50% profit target."
+    "timestamp": "2026-09-16T20:21:38Z",
+    "reasoning": "Mid $0.485 vs $0.62 credit is 21.8% profit \u2014 IWM -1.32% five-day continues working this call spread favorably toward the 50% target. GTC limit order should already be working; confirm it is live."
   }
 }
