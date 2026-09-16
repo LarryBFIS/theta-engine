@@ -1,34 +1,34 @@
 {
-  "last_run": "2026-09-16T19:45:26.690634+00:00",
-  "market_view": "Market closed risk-off with VIX +7.09% today and +12.94% on the week at 18.42 \u2014 energy -3.11% and financials -2.12% leading weakness while IWM underperforms at -1.79% five-day. Three positions remain in hard-rules violation; market is closed and these are locked until tomorrow's open.",
+  "last_run": "2026-09-16T19:55:21.917217+00:00",
+  "market_view": "Market closed with VIX at 17.95 (+4.36% today, +10.06% five-day) in a broad risk-off tape \u2014 energy -2.82% and financials -1.64% leading weakness while IWM underperforms small-caps. Three positions remain in hard-rule violation; market is closed and execution is locked until tomorrow's open.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-16T19:45:06.588860+00:00",
-    "reasoning": "Short strike 61.5 breached with SLV at 56.82 \u2014 worst cost $0.90 is 1.64x credit ($0.55), blowing through the 1.5x stop at $0.825, and 105 DTE means no time-decay rescue. This has been flagged CRITICAL all session without execution \u2014 overnight precious metals vol compounds the damage."
+    "timestamp": "2026-09-16T19:55:03Z",
+    "reasoning": "Short strike 61.5 breached with SLV at 57.03 \u2014 worst cost $0.90 is 1.64x the $0.55 credit, well through the 1.5x stop at $0.825, with 105 DTE providing zero time-decay rescue. This has been flagged CRITICAL all session without execution; market is closed."
   },
   "SPY 731/722p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-16T19:45:06.588860+00:00",
-    "reasoning": "22 DTE triggers the 21 DTE hard exit rule and mid $1.32 vs $0.93 credit is 1.42x \u2014 one more down open pushes through the 1.5x stop at $1.395. This is a double hard-rule violation with no execution across multiple flagging cycles."
+    "timestamp": "2026-09-16T19:55:03Z",
+    "reasoning": "22 DTE equals the 21 DTE hard exit threshold and mid $1.215 vs $0.93 credit is 1.31x \u2014 one modest down gap tomorrow pushes worst cost through the 1.5x stop at $1.395. Double hard-rule violation flagged repeatedly with no execution."
   },
   "QQQ 680/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-16T19:45:06.588860+00:00",
-    "reasoning": "22 DTE is a hard exit rule breach and mid $1.675 vs $1.25 credit is 1.34x with worst $1.74 at 1.39x \u2014 QQQ is trending down weekly and another gap open tomorrow pushes through the 1.5x stop at $1.875. This closes tomorrow with zero discretion."
+    "timestamp": "2026-09-16T19:55:03Z",
+    "reasoning": "22 DTE equals the 21 DTE hard exit threshold and mid $1.565 vs $1.25 credit is 1.25x with worst $1.66 at 1.33x \u2014 QQQ trending down weekly with rising VIX, tomorrow's open likely pushes through the 1.5x stop at $1.875. Hard-rule breach with no execution."
   },
   "SPY 724/715p": {
     "action": "WATCH",
-    "confidence": 0.77,
-    "timestamp": "2026-09-16T19:45:06.588860+00:00",
-    "reasoning": "29 DTE, short strike 724 is 3.75% OTM with mid $1.145 at 1.21x credit \u2014 still inside the 1.5x stop at $1.425 but SPY -0.78% weekly with rising VIX is compressing the cushion. Reassess after the three CRITICAL positions are closed tomorrow."
+    "confidence": 0.75,
+    "timestamp": "2026-09-16T19:55:03Z",
+    "reasoning": "29 DTE, short strike 724 is 3.99% OTM with mid $1.055 at 1.11x credit \u2014 still inside the 1.5x stop at $1.425 but deteriorating with SPY down weekly and VIX expanding. Reassess after the three CRITICAL positions are closed tomorrow."
   },
   "IWM 300/305c": {
     "action": "ACTION",
-    "confidence": 0.92,
-    "timestamp": "2026-09-16T19:45:06.588860+00:00",
-    "reasoning": "Mid $0.40 vs $0.62 credit is 35.5% profit \u2014 approaching but not yet at the 50% target ($0.31 mid), and IWM -1.79% five-day with continued downside pressure is working this position favorably. Check at open; if mid hits $0.31 tomorrow, close immediately."
+    "confidence": 0.9,
+    "timestamp": "2026-09-16T19:55:03Z",
+    "reasoning": "Mid $0.48 vs $0.62 credit is 22.6% profit \u2014 not yet at 50% target ($0.31 mid), but IWM -1.42% five-day and -0.52% today continues working this call spread favorably. If mid hits $0.31 at open tomorrow, close immediately per 50% profit management rule."
   }
 }
