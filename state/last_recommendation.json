@@ -1,34 +1,34 @@
 {
-  "last_run": "2026-09-16T19:55:21.917217+00:00",
-  "market_view": "Market closed with VIX at 17.95 (+4.36% today, +10.06% five-day) in a broad risk-off tape \u2014 energy -2.82% and financials -1.64% leading weakness while IWM underperforms small-caps. Three positions remain in hard-rule violation; market is closed and execution is locked until tomorrow's open.",
+  "last_run": "2026-09-16T20:19:46.488681+00:00",
+  "market_view": "Market is closed \u2014 VIX 17.56 (+2.09% today, +7.66% five-day) confirms ongoing risk-off pressure with energy and financials leading weakness. Three positions remain in hard-rule violation with no execution; tomorrow's open is the first action window.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-16T19:55:03Z",
-    "reasoning": "Short strike 61.5 breached with SLV at 57.03 \u2014 worst cost $0.90 is 1.64x the $0.55 credit, well through the 1.5x stop at $0.825, with 105 DTE providing zero time-decay rescue. This has been flagged CRITICAL all session without execution; market is closed."
+    "timestamp": "2026-09-16T20:19:31Z",
+    "reasoning": "Short strike 61.5 breached with SLV at 57.05 \u2014 worst cost $0.85 is 1.55x the $0.55 credit, through the 1.5x stop ($0.825), with 105 DTE providing zero time-decay rescue. This must be closed at tomorrow's open, no exceptions."
   },
   "SPY 731/722p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-16T19:55:03Z",
-    "reasoning": "22 DTE equals the 21 DTE hard exit threshold and mid $1.215 vs $0.93 credit is 1.31x \u2014 one modest down gap tomorrow pushes worst cost through the 1.5x stop at $1.395. Double hard-rule violation flagged repeatedly with no execution."
+    "timestamp": "2026-09-16T20:19:31Z",
+    "reasoning": "22 DTE hits the 21 DTE hard exit rule today \u2014 mid $1.215 is 1.31x credit with worst $1.24 at 1.33x, and any overnight weakness pushes through the 1.5x stop at $1.395. Hard exit rule triggered; close at open."
   },
   "QQQ 680/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-16T19:55:03Z",
-    "reasoning": "22 DTE equals the 21 DTE hard exit threshold and mid $1.565 vs $1.25 credit is 1.25x with worst $1.66 at 1.33x \u2014 QQQ trending down weekly with rising VIX, tomorrow's open likely pushes through the 1.5x stop at $1.875. Hard-rule breach with no execution."
+    "timestamp": "2026-09-16T20:19:31Z",
+    "reasoning": "22 DTE hits the 21 DTE hard exit rule \u2014 mid $1.555 is 1.24x credit with worst $1.65 at 1.32x, QQQ down 0.4% five-day with VIX expanding, tomorrow's open likely pushes worst cost through the 1.5x stop at $1.875. Hard exit rule triggered; close at open."
   },
   "SPY 724/715p": {
     "action": "WATCH",
     "confidence": 0.75,
-    "timestamp": "2026-09-16T19:55:03Z",
-    "reasoning": "29 DTE, short strike 724 is 3.99% OTM with mid $1.055 at 1.11x credit \u2014 still inside the 1.5x stop at $1.425 but deteriorating with SPY down weekly and VIX expanding. Reassess after the three CRITICAL positions are closed tomorrow."
+    "timestamp": "2026-09-16T20:19:31Z",
+    "reasoning": "29 DTE, short strike 724 is 3.99% OTM with mid $1.055 at 1.11x credit \u2014 still inside the 1.5x stop at $1.425 but VIX expansion and SPY weekly weakness are headwinds. Reassess after the three CRITICAL closures free up capital and headspace tomorrow."
   },
   "IWM 300/305c": {
     "action": "ACTION",
-    "confidence": 0.9,
-    "timestamp": "2026-09-16T19:55:03Z",
-    "reasoning": "Mid $0.48 vs $0.62 credit is 22.6% profit \u2014 not yet at 50% target ($0.31 mid), but IWM -1.42% five-day and -0.52% today continues working this call spread favorably. If mid hits $0.31 at open tomorrow, close immediately per 50% profit management rule."
+    "confidence": 0.88,
+    "timestamp": "2026-09-16T20:19:31Z",
+    "reasoning": "Mid $0.485 vs $0.62 credit is 21.8% profit \u2014 not yet at 50% target ($0.31 mid), but IWM -1.32% five-day continues working this call spread favorably. Set a GTC limit order to close at $0.31 mid for the 50% profit target."
   }
 }
