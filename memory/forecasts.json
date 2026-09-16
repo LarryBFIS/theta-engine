@@ -429,7 +429,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-16",
+      "actual_price": 759.47,
+      "realized_move_pct": 0.0052,
+      "realized_move_signed": -0.0052,
+      "stayed_in_range": true
     },
     {
       "id": "aaddecd8a74f",
@@ -444,7 +449,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-16",
+      "actual_price": 707.83,
+      "realized_move_pct": 0.0097,
+      "realized_move_signed": -0.0097,
+      "stayed_in_range": true
     },
     {
       "id": "8254d08dbb88",
@@ -459,7 +469,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-16",
+      "actual_price": 285.69,
+      "realized_move_pct": 0.0252,
+      "realized_move_signed": -0.0252,
+      "stayed_in_range": true
     },
     {
       "id": "b8a48218dc93",
@@ -474,7 +489,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-16",
+      "actual_price": 522.22,
+      "realized_move_pct": 0.0055,
+      "realized_move_signed": -0.0055,
+      "stayed_in_range": true
     },
     {
       "id": "b1d2b61b24ee",
@@ -729,6 +749,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Normal regime, +2% day, VIX 17.5\u2014tape is calm and bid. This is a permissive environment for premium-selling, but we must respect existing concentration: 3 us_index + 1 us_tech already open.",
+      "resolved": false
+    },
+    {
+      "id": "849b8ba17953",
+      "index": "SPY",
+      "forecast_date": "2026-09-16",
+      "target_date": "2026-09-23",
+      "horizon_days": 7,
+      "spot_at_forecast": 759.47,
+      "iv": 0.1758,
+      "implied_move_pct": 0.0243,
+      "implied_move_abs": 18.49,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Normal regime, -2% day, VIX 16.89\u2014tape is calm and orderly. This is reasonable timing for short premium, but we're already carrying 5 open positions with -$63 unrealized; adding correlated index shorts risks compounding a drawdown.",
+      "resolved": false
+    },
+    {
+      "id": "23bf7dd4a106",
+      "index": "QQQ",
+      "forecast_date": "2026-09-16",
+      "target_date": "2026-09-23",
+      "horizon_days": 7,
+      "spot_at_forecast": 707.83,
+      "iv": 0.226,
+      "implied_move_pct": 0.0313,
+      "implied_move_abs": 22.15,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Normal regime, -2% day, VIX 16.89\u2014tape is calm and orderly. This is reasonable timing for short premium, but we're already carrying 5 open positions with -$63 unrealized; adding correlated index shorts risks compounding a drawdown.",
+      "resolved": false
+    },
+    {
+      "id": "2516caad2934",
+      "index": "IWM",
+      "forecast_date": "2026-09-16",
+      "target_date": "2026-09-23",
+      "horizon_days": 7,
+      "spot_at_forecast": 285.69,
+      "iv": 0.2218,
+      "implied_move_pct": 0.0307,
+      "implied_move_abs": 8.78,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Normal regime, -2% day, VIX 16.89\u2014tape is calm and orderly. This is reasonable timing for short premium, but we're already carrying 5 open positions with -$63 unrealized; adding correlated index shorts risks compounding a drawdown.",
+      "resolved": false
+    },
+    {
+      "id": "f73811a9335c",
+      "index": "DIA",
+      "forecast_date": "2026-09-16",
+      "target_date": "2026-09-23",
+      "horizon_days": 7,
+      "spot_at_forecast": 522.22,
+      "iv": 0.1627,
+      "implied_move_pct": 0.0225,
+      "implied_move_abs": 11.77,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Normal regime, -2% day, VIX 16.89\u2014tape is calm and orderly. This is reasonable timing for short premium, but we're already carrying 5 open positions with -$63 unrealized; adding correlated index shorts risks compounding a drawdown.",
+      "resolved": false
+    },
+    {
+      "id": "3c8decf77d96",
+      "index": "TSLA",
+      "forecast_date": "2026-09-16",
+      "target_date": "2026-09-23",
+      "horizon_days": 7,
+      "spot_at_forecast": 357.35,
+      "iv": 0.4638,
+      "implied_move_pct": 0.0642,
+      "implied_move_abs": 22.95,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Normal regime, -2% day, VIX 16.89\u2014tape is calm and orderly. This is reasonable timing for short premium, but we're already carrying 5 open positions with -$63 unrealized; adding correlated index shorts risks compounding a drawdown.",
       "resolved": false
     }
   ]
