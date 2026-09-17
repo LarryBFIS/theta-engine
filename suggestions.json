@@ -45283,6 +45283,88 @@
       "alternative": "ROLL: short strike is 4.9% OTM \u2014 candidate to roll to next monthly expiry for additional credit.",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20260917T111912_trade_031_slv_61_60",
+      "trade_id": "trade_031_slv_61_60",
+      "timestamp": "2026-09-17T11:19:12.779217-04:00",
+      "action": "URGENT_CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\u26a0\ufe0f SLV @ $59.46 is BELOW short strike $62 (ITM).",
+        "Max loss exposure increasing. Current close: $0.60 mid / $0.75 worst.",
+        "104 DTE remaining; negative delta hurts daily."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.6000000000000005,
+        "cost_to_close_worst": 0.75,
+        "profit_if_closed_mid": -5.000000000000049,
+        "profit_if_closed_worst": -19.999999999999996,
+        "pct_max_profit_captured_mid": -0.09090909090909179,
+        "dte": 104,
+        "underlying_price": 59.456199645996094,
+        "short_strike_breached": true,
+        "has_live_quotes": true,
+        "net_liq": 7283.678,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold and hope. Risk: up to $45 max loss (currently $5 unrealized).",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20260917T111913_trade_034_spy_731_722",
+      "trade_id": "trade_034_spy_731_722",
+      "timestamp": "2026-09-17T11:19:13.433204-04:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 21 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently 23% captured ($21 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.7199999999999998,
+        "cost_to_close_worst": 0.75,
+        "profit_if_closed_mid": 21.00000000000003,
+        "profit_if_closed_worst": 18.000000000000004,
+        "pct_max_profit_captured_mid": 0.22580645161290352,
+        "dte": 21,
+        "underlying_price": 761.3900146484375,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 7283.678,
+        "day_pnl": 0.0
+      },
+      "alternative": "ROLL: short strike is 4.0% OTM \u2014 candidate to roll to next monthly expiry for additional credit.",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20260917T111913_trade_035_qqq_680_670",
+      "trade_id": "trade_035_qqq_680_670",
+      "timestamp": "2026-09-17T11:19:13.944563-04:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 21 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently 28% captured ($35 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.9049999999999998,
+        "cost_to_close_worst": 0.94,
+        "profit_if_closed_mid": 34.50000000000002,
+        "profit_if_closed_worst": 31.000000000000007,
+        "pct_max_profit_captured_mid": 0.27600000000000013,
+        "dte": 21,
+        "underlying_price": 715.52001953125,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 7283.678,
+        "day_pnl": 0.0
+      },
+      "alternative": "ROLL: short strike is 5.0% OTM \u2014 candidate to roll to next monthly expiry for additional credit.",
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
