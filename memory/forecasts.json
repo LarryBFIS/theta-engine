@@ -509,7 +509,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Normal regime at VIX 17.5 but the tape just ripped +6% \u2014 upside momentum is hot, so selling the call side (condors/call spreads) is poorly timed right now, while selling downside puts into strength is comparatively safer. No scheduled events, so event risk is not the constraint; ",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-17",
+      "actual_price": 763.5,
+      "realized_move_pct": 0.0065,
+      "realized_move_signed": 0.0065,
+      "stayed_in_range": true
     },
     {
       "id": "239bb412cdf6",
@@ -524,7 +529,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Normal regime at VIX 17.5 but the tape just ripped +6% \u2014 upside momentum is hot, so selling the call side (condors/call spreads) is poorly timed right now, while selling downside puts into strength is comparatively safer. No scheduled events, so event risk is not the constraint; ",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-17",
+      "actual_price": 715.89,
+      "realized_move_pct": 0.0123,
+      "realized_move_signed": 0.0123,
+      "stayed_in_range": true
     },
     {
       "id": "62612a5512d9",
@@ -539,7 +549,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Normal regime at VIX 17.5 but the tape just ripped +6% \u2014 upside momentum is hot, so selling the call side (condors/call spreads) is poorly timed right now, while selling downside puts into strength is comparatively safer. No scheduled events, so event risk is not the constraint; ",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-17",
+      "actual_price": 287.89,
+      "realized_move_pct": 0.0021,
+      "realized_move_signed": -0.0021,
+      "stayed_in_range": true
     },
     {
       "id": "025b1c06096e",
@@ -554,7 +569,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Normal regime at VIX 17.5 but the tape just ripped +6% \u2014 upside momentum is hot, so selling the call side (condors/call spreads) is poorly timed right now, while selling downside puts into strength is comparatively safer. No scheduled events, so event risk is not the constraint; ",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-17",
+      "actual_price": 521.53,
+      "realized_move_pct": 0.0028,
+      "realized_move_signed": -0.0028,
+      "stayed_in_range": true
     },
     {
       "id": "005b8b3db67c",
@@ -824,6 +844,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_cheap",
       "market_view": "Normal regime, -2% day, VIX 16.89\u2014tape is calm and orderly. This is reasonable timing for short premium, but we're already carrying 5 open positions with -$63 unrealized; adding correlated index shorts risks compounding a drawdown.",
+      "resolved": false
+    },
+    {
+      "id": "f6cfe9c3efc9",
+      "index": "SPY",
+      "forecast_date": "2026-09-17",
+      "target_date": "2026-09-24",
+      "horizon_days": 7,
+      "spot_at_forecast": 763.5,
+      "iv": 0.1776,
+      "implied_move_pct": 0.0246,
+      "implied_move_abs": 18.78,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Down 13% today in normal regime; VIX 15.45 suggests volatility has spiked modestly off lows. Tape is risk-off but not panicked\u2014good environment for selling premium IF we avoid piling correlated short-vol into a directional selloff. Timing favors smaller, diversified index plays o",
+      "resolved": false
+    },
+    {
+      "id": "63bdefbe7c5c",
+      "index": "QQQ",
+      "forecast_date": "2026-09-17",
+      "target_date": "2026-09-24",
+      "horizon_days": 7,
+      "spot_at_forecast": 715.89,
+      "iv": 0.2257,
+      "implied_move_pct": 0.0313,
+      "implied_move_abs": 22.38,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Down 13% today in normal regime; VIX 15.45 suggests volatility has spiked modestly off lows. Tape is risk-off but not panicked\u2014good environment for selling premium IF we avoid piling correlated short-vol into a directional selloff. Timing favors smaller, diversified index plays o",
+      "resolved": false
+    },
+    {
+      "id": "7982576cb056",
+      "index": "IWM",
+      "forecast_date": "2026-09-17",
+      "target_date": "2026-09-24",
+      "horizon_days": 7,
+      "spot_at_forecast": 287.89,
+      "iv": 0.2236,
+      "implied_move_pct": 0.031,
+      "implied_move_abs": 8.92,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Down 13% today in normal regime; VIX 15.45 suggests volatility has spiked modestly off lows. Tape is risk-off but not panicked\u2014good environment for selling premium IF we avoid piling correlated short-vol into a directional selloff. Timing favors smaller, diversified index plays o",
+      "resolved": false
+    },
+    {
+      "id": "0c0e0ab591ee",
+      "index": "DIA",
+      "forecast_date": "2026-09-17",
+      "target_date": "2026-09-24",
+      "horizon_days": 7,
+      "spot_at_forecast": 521.53,
+      "iv": 0.1715,
+      "implied_move_pct": 0.0238,
+      "implied_move_abs": 12.39,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Down 13% today in normal regime; VIX 15.45 suggests volatility has spiked modestly off lows. Tape is risk-off but not panicked\u2014good environment for selling premium IF we avoid piling correlated short-vol into a directional selloff. Timing favors smaller, diversified index plays o",
+      "resolved": false
+    },
+    {
+      "id": "11ffd8ce3252",
+      "index": "TSLA",
+      "forecast_date": "2026-09-17",
+      "target_date": "2026-09-24",
+      "horizon_days": 7,
+      "spot_at_forecast": 364.56,
+      "iv": 0.4643,
+      "implied_move_pct": 0.0643,
+      "implied_move_abs": 23.44,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Down 13% today in normal regime; VIX 15.45 suggests volatility has spiked modestly off lows. Tape is risk-off but not panicked\u2014good environment for selling premium IF we avoid piling correlated short-vol into a directional selloff. Timing favors smaller, diversified index plays o",
       "resolved": false
     }
   ]
