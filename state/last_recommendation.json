@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-17T19:45:05.837964+00:00",
-  "market_view": "VIX at 15.5 (-12.48% today) with broad risk-on \u2014 tech leading (+2.37% XLK), equities firmly bid; SLV remains detached from risk-on regime with short strike still breached at $58.95 vs 61.5 short, this position needs to be closed immediately.",
+  "last_run": "2026-09-17T19:54:55.939490+00:00",
+  "market_view": "VIX crushed to 15.46 (-12.7% today) with equities firmly bid, tech leading +2.4% \u2014 risk-on regime continues but SLV remains detached and in violation territory with short strike breached for multiple consecutive cycles.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-17T19:44:48.114142+00:00",
-    "reasoning": "Short strike 61.5 breached with SLV at $58.955 \u2014 worst cost $0.80 is 1.45x the $0.55 credit, hard stop triggers at $0.825 and we are one tick away; this CRITICAL has fired multiple cycles with zero execution, which is a live rulebook violation compounding real losses."
+    "timestamp": "2026-09-17T19:54:44.827833+00:00",
+    "reasoning": "Short strike 61.5 breached with SLV at $58.997 \u2014 worst cost $0.80 is 1.45x the $0.55 credit and one tick from the 1.5x hard stop at $0.825; this CRITICAL has now fired across multiple cycles with no execution, which is a live rulebook violation compounding real losses in real time."
   },
   "QQQ 678/670p": {
     "action": "HOLD",
     "confidence": 0.9,
-    "timestamp": "2026-09-17T19:44:48.114142+00:00",
-    "reasoning": "Opened today at $0.97 credit, QQQ at $717.31, short strike 678 is 5.47% OTM with 35 DTE \u2014 mid cost $0.955 is essentially flat and tech bid with VIX crushed is supportive."
+    "timestamp": "2026-09-17T19:54:44.827833+00:00",
+    "reasoning": "Opened today at $0.97 credit, QQQ at $717.80, short strike 678 is 5.5% OTM with 35 DTE \u2014 mid cost $0.945 is essentially flat and tech bid with VIX crushed is fully supportive."
   },
   "SPY 722/731p": {
     "action": "WATCH",
     "confidence": 0.55,
-    "timestamp": "2026-09-17T19:44:48.114142+00:00",
-    "reasoning": "Negative credit (-$0.93) with short strike below long strike remains a structural data anomaly \u2014 no breach risk with SPY at $763, but this inverted structure must be manually confirmed in tastytrade to ensure it is not a debit spread masquerading as a credit."
+    "timestamp": "2026-09-17T19:54:44.827833+00:00",
+    "reasoning": "Negative credit (-$0.93) with short strike below long strike remains a structural data anomaly \u2014 no breach risk with SPY at $763, but inverted put spread structure requires immediate manual verification in tastytrade to confirm this is not an erroneously entered debit spread."
   }
 }
