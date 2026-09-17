@@ -1,34 +1,34 @@
 {
-  "last_run": "2026-09-17T15:19:34.028438+00:00",
-  "market_view": "VIX -10.33% to 15.88 with SPY +0.98% and QQQ +1.54% \u2014 IV environment remains favorable for exits but three positions are in active rule violation with zero improvement from last cycle. Every 15-minute delay on the three flagged positions is a compounding failure.",
+  "last_run": "2026-09-17T15:21:20.907298+00:00",
+  "market_view": "VIX -10% to 15.94 with SPY +0.96% and QQQ +1.52% \u2014 IV crush is fully on, best exit conditions of the day. Three rule-violating positions remain open and unclosed; every cycle of inaction is a compounding breach.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-17T15:19:20Z",
-    "reasoning": "Short strike 61.5 breached with SLV at $59.46 \u2014 3.44% ITM, mid $0.60 is 1.09x credit and worst $0.75 is 1.36x credit closing on the 1.5x hard stop of $0.825. 104 DTE provides zero time-decay rescue and SLV is trading below both strikes."
+    "timestamp": "2026-09-17T15:21:08Z",
+    "reasoning": "Short strike 61.5 breached with SLV at $59.44 \u2014 3.47% ITM, mid $0.60 is 1.09x credit and worst $0.75 is 1.36x credit closing in on the 1.5x hard stop of $0.825. 104 DTE means no time-decay\u6551 rescue; this position is ITM and structurally broken."
   },
   "SPY 731/722p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-17T15:19:20Z",
-    "reasoning": "21 DTE hard exit rule is triggered and has been unexecuted through multiple consecutive cycles \u2014 this is an ongoing rule violation. Mid $0.72 is 23% profit with SPY at all-time highs and VIX crushed; this is the best fill environment available today."
+    "timestamp": "2026-09-17T15:21:08Z",
+    "reasoning": "21 DTE hard exit rule triggered today and remains unexecuted across multiple consecutive cycles \u2014 this is an active, ongoing rule violation. Mid $0.725 is 22% profit with VIX crushed providing the best fill environment available."
   },
   "QQQ 680/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-17T15:19:20Z",
-    "reasoning": "21 DTE hard exit rule triggered today, unexecuted through multiple cycles with QQQ +1.54% and VIX at lows \u2014 peak exit window is now. Mid $0.905 is 28% profit; vol mean-reversion into close is the primary risk of further inaction."
+    "timestamp": "2026-09-17T15:21:08Z",
+    "reasoning": "21 DTE hard exit rule triggered today and remains unexecuted through multiple cycles \u2014 QQQ +1.52% and VIX crushed is peak exit window. Mid $0.925 is 26% profit; continued delay risks vol mean-reversion into close."
   },
   "SPY 724/715p": {
     "action": "WATCH",
     "confidence": 0.78,
-    "timestamp": "2026-09-17T15:19:20Z",
-    "reasoning": "28 DTE, short strike 5.0% OTM, mid $0.675 is 29% profit \u2014 approaching 50% target ($0.475) but no mechanical rule triggered yet. SPY strength continues to accelerate the path to target."
+    "timestamp": "2026-09-17T15:21:08Z",
+    "reasoning": "28 DTE, short strike 4.9% OTM, mid $0.68 is 28% profit \u2014 approaching 50% target ($0.475) but no mechanical rule triggered yet. SPY strength continues to accelerate path to target."
   },
   "IWM 300/305c": {
     "action": "WATCH",
-    "confidence": 0.7,
-    "timestamp": "2026-09-17T15:19:20Z",
-    "reasoning": "IWM +1.12% is a headwind on this short call spread but short strike 300 remains 4.5% OTM and mid $0.64 is 1.03x credit \u2014 well below the 1.5x stop at $0.93, no mechanical rule triggered."
+    "confidence": 0.72,
+    "timestamp": "2026-09-17T15:21:08Z",
+    "reasoning": "IWM +1.04% is a headwind on this short call spread but short strike 300 remains 4.6% OTM and mid $0.62 is exactly at credit \u2014 well below the 1.5x stop at $0.93, no mechanical rule triggered."
   }
 }
