@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-17T16:57:00.919532+00:00",
-  "market_view": "VIX crashed another -12% to 15.59 with broad risk-on \u2014 tech +2.22%, SPY +1.05%, QQQ +1.64%. IV crush environment is gift-wrapping exits; SLV and QQQ are in confirmed rulebook violation territory and must be closed this cycle.",
+  "last_run": "2026-09-17T17:16:23.935195+00:00",
+  "market_view": "VIX -11.9% to 15.6 with SPY +1.09% and QQQ +1.67% \u2014 broad risk-on IV crush environment. Both SLV and QQQ remain in active rulebook violation; today's favorable fills make this the optimal close window.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-17T16:56:44.187123+00:00",
-    "reasoning": "Short strike 61.5 is breached with SLV at $59.24 \u2014 position is deep ITM with 104 DTE and zero theta recovery path. Worst cost $0.75 is 1.36x credit; one adverse tick triggers the 1.5x hard stop. This is the sixth consecutive CRITICAL flag with no execution \u2014 this is now a discipline failure, not a market decision."
+    "timestamp": "2026-09-17T17:16:09.670809+00:00",
+    "reasoning": "Short strike 61.5 remains breached with SLV at $59.39 \u2014 position is deep ITM with worst cost $0.75 at 1.36x credit, one adverse tick from hard stop. This is the seventh consecutive CRITICAL flag with no execution; this is a discipline failure that is eroding account integrity."
   },
   "QQQ 680/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-17T16:56:44.187123+00:00",
-    "reasoning": "21 DTE hard exit rule triggered \u2014 today is the mechanical close date with no exceptions per rulebook. QQQ +1.64% and VIX at 15.59 means mid at $0.855 represents ~31% profit; this is the best fill environment of the cycle. Holding past 21 DTE is a confirmed rulebook violation for the sixth consecutive cycle."
+    "timestamp": "2026-09-17T17:16:09.670809+00:00",
+    "reasoning": "21 DTE hard exit rule is triggered \u2014 today is the mandatory close date per rulebook with zero exceptions. Mid at $0.85 represents 32% profit on the credit; QQQ +1.67% and VIX collapse make this the best fill of the cycle and every additional minute held is a confirmed rule violation."
   },
   "IWM 300/305c": {
     "action": "HOLD",
-    "confidence": 0.82,
-    "timestamp": "2026-09-17T16:56:44.187123+00:00",
-    "reasoning": "Short strike 300 is 4.65% OTM with IWM at $286.71 and mid $0.575 already below credit collected \u2014 no mechanical rule triggered at 28 DTE. IWM +0.98% today is a headwind but insufficient to threaten the position at current distance."
+    "confidence": 0.83,
+    "timestamp": "2026-09-17T17:16:09.670809+00:00",
+    "reasoning": "Short strike 300 is 4.67% OTM at 28 DTE with mid $0.57 \u2014 no mechanical rule triggered and IWM's +0.95% today is manageable at current distance. Position is tracking normally."
   }
 }
