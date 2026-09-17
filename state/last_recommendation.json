@@ -1,34 +1,34 @@
 {
-  "last_run": "2026-09-17T13:31:07.214618+00:00",
-  "market_view": "VIX down another tick to 15.44, broad indices ripping +1.2-1.6% \u2014 short premium environment is ideal but three positions require immediate mechanical action regardless of direction.",
+  "last_run": "2026-09-17T13:41:38.968218+00:00",
+  "market_view": "VIX -12.87% to 15.43 and indices up 0.93-1.33% intraday \u2014 theta decay accelerating on all short premium positions, but three positions still require mechanical action that has not been executed from last cycle.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-17T13:30:50.927204+00:00",
-    "reasoning": "Short strike 4.2% ITM, worst cost $0.85 exceeds 1.5x stop ($0.825), 104 DTE \u2014 flagged every cycle, still open, loss deepening with no time-decay rescue possible at this DTE."
+    "timestamp": "2026-09-17T13:41:21.611155+00:00",
+    "reasoning": "Short strike 4.1% ITM, worst cost $0.80 is 1.45x credit ($0.55) approaching 1.5x stop, 104 DTE means no time-decay rescue \u2014 this was CRITICAL last cycle and remains unexecuted."
   },
   "SPY 731/722p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-17T13:30:50.927204+00:00",
-    "reasoning": "21 DTE hard exit rule triggers today \u2014 this is mechanical and non-negotiable; mid at $0.675 is 27% profit, take it."
+    "timestamp": "2026-09-17T13:41:21.611155+00:00",
+    "reasoning": "21 DTE hard exit rule triggered today \u2014 this is a mechanical rule, non-negotiable, mid at $0.74 is 20% profit and SPY ripping higher means fills will be favorable right now."
   },
   "QQQ 680/670p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-09-17T13:30:50.927204+00:00",
-    "reasoning": "21 DTE hard exit rule triggers today \u2014 mid at $0.865 is 31% profit and VIX crush gives favorable fills right now."
+    "timestamp": "2026-09-17T13:41:21.611155+00:00",
+    "reasoning": "21 DTE hard exit rule triggered today \u2014 mid at $0.965 is 23% profit, QQQ up 1.33% and VIX crushed gives best possible exit conditions right now."
   },
   "SPY 724/715p": {
     "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-09-17T13:30:50.927204+00:00",
-    "reasoning": "28 DTE, short strike 5.1% OTM, mid $0.635 is 33% profit \u2014 inside all stops, SPY ripping higher accelerates theta decay toward 50% target."
+    "confidence": 0.78,
+    "timestamp": "2026-09-17T13:41:21.611155+00:00",
+    "reasoning": "28 DTE, short strike 4.87% OTM, mid $0.68 is 28% profit \u2014 SPY ripping accelerates path to 50% target but not there yet, all stops intact."
   },
   "IWM 300/305c": {
     "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-09-17T13:30:50.927204+00:00",
-    "reasoning": "IWM up 1.45% today is slight headwind for this call spread but short strike still 4.2% OTM at 288 vs 300 strike \u2014 mid $0.75 is a small loser at 1.21x credit but within stop tolerance; monitor for reversal."
+    "confidence": 0.72,
+    "timestamp": "2026-09-17T13:41:21.611155+00:00",
+    "reasoning": "IWM up 1.11% today is a headwind for this call spread, mid $0.665 is a small loser at 1.07x credit but below 1.5x stop threshold \u2014 short strike 300 still 4.5% OTM with 28 DTE."
   }
 }
