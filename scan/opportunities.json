@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-17T18:25:49.200926+00:00",
+  "generated_at": "2026-09-17T18:27:52.231999+00:00",
   "regime": {
-    "vix": 15.58,
-    "vix_day_change_pct": -0.1203,
+    "vix": 15.57,
+    "vix_day_change_pct": -0.1208,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (-12% day)"
@@ -31,17 +31,17 @@
       "credit": 0.88,
       "mid_credit": 0.95,
       "fees_est": 3.0,
-      "bpr": 712.0,
-      "max_loss": 712.0,
+      "bpr": 710.0,
+      "max_loss": 710.0,
       "pop": 0.8,
       "short_delta": 0.183,
-      "short_spread_pct": 0.015,
-      "credit_to_bpr": 0.124,
-      "ev_per_contract": 5.76,
-      "ev_on_bpr": 0.0081,
+      "short_spread_pct": 0.013,
+      "credit_to_bpr": 0.127,
+      "ev_per_contract": 5.93,
+      "ev_on_bpr": 0.0084,
       "iv": 0.2011,
       "iv_rank": 0.377,
-      "underlying_price": 716.4,
+      "underlying_price": 716.37,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -58,9 +58,9 @@
         "cluster=us_tech \u00d70.78",
         "structure=short_put_vertical \u00d71.26"
       ],
-      "rank_score": 0.005565,
+      "rank_score": 0.005771,
       "agent_action": "guarded",
-      "agent_reason": "QQQ is single_name (26% historical win rate vs 37% index avg), us_tech cluster is already at max cap (1 open), and a -12% day suggests directional instability\u2014poorly timed to add short premium into a repricing bounce.",
+      "agent_reason": "QQQ is flagged as single_name (asset_class) in a us_tech cluster with 26% realized win rate (below our 37% book average). Engine learning: avoid this combination. Even though timing is good, the realized edge does not justify the idiosyncra",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -92,9 +92,9 @@
             "type": "P"
           }
         ],
-        "credit_total": 88.0,
-        "max_loss_total": 712.0,
-        "bpr_total": 712.0,
+        "credit_total": 90.0,
+        "max_loss_total": 710.0,
+        "bpr_total": 710.0,
         "pop": 0.8,
         "tag": "paper",
         "manage": {
@@ -109,7 +109,7 @@
         "fit_note": "",
         "text": "QQQ VP \u00d71 \u2014 SELL 678P / BUY 670P (2026-10-23) @ $0.88 net credit. Max loss $712. After fill: GTC buy-to-close @ $0.44 (50%)."
       },
-      "posted_at": "2026-09-17T18:25:49.200926+00:00"
+      "posted_at": "2026-09-17T18:27:52.231999+00:00"
     }
   ],
   "long_vol": [],
@@ -176,10 +176,10 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-09-17T18:25:48.854707+00:00",
+    "generated_at": "2026-09-17T18:27:51.949297+00:00",
     "model": "claude-haiku-4-5",
-    "market_view": "VIX 15.58 in normal regime post -12% day; tape is repricing risk lower but not yet complacent. Premium is fair-to-rich; this is a reasonable window to sell puts, but we must respect that we already have concentrated long-index exposure (3 SPY/IWM, 1 QQQ).",
-    "portfolio_note": "Book is 5 open, +$70 unrealized, with 4 of 5 positions in us_index/us_tech clusters. Adding either candidate increases correlation risk and cluster concentration.",
+    "market_view": "VIX 15.57 in normal regime post -12% down day suggests volatility compression and potential capitulation bottom; tape is stabilizing. This is a GOOD window for short-premium harvesting \u2014 but only on high-quality, uncorrelated names.",
+    "portfolio_note": "Book has 5 open (QQQ 1, SPY 2, XLE 1, IWM 1); us_index cluster at 3/3 cap already. Both candidates risk cap breach or cluster concentration.",
     "vol_verdict": "implied_rich",
     "reviewed": 2,
     "vetoed": 2,
@@ -188,12 +188,12 @@
       {
         "id": "SPY|short_put_vertical|731/722",
         "action": "veto",
-        "reason": "SPY already has 2 open positions; adding a third breaches the spirit of diversification and creates outsized index-cluster risk. Tape does not justify the concentration; defer until SPY position reduces to \u22641."
+        "reason": "SPY is already 2/1 max_per_name; adding a 3rd breaches cap. us_index cluster is at 3/3 (SPY+IWM+another). Timing is favorable, but structure is allowed only because we already own concentration risk \u2014 do not compound."
       },
       {
         "id": "QQQ|short_put_vertical|678/670",
         "action": "veto",
-        "reason": "QQQ is single_name (26% historical win rate vs 37% index avg), us_tech cluster is already at max cap (1 open), and a -12% day suggests directional instability\u2014poorly timed to add short premium into a repricing bounce."
+        "reason": "QQQ is flagged as single_name (asset_class) in a us_tech cluster with 26% realized win rate (below our 37% book average). Engine learning: avoid this combination. Even though timing is good, the realized edge does not justify the idiosyncra"
       }
     ]
   },
@@ -214,14 +214,14 @@
       "bpr": 810.0,
       "max_loss": 810.0,
       "pop": 0.799,
-      "short_delta": 0.188,
-      "short_spread_pct": 0.007,
+      "short_delta": 0.187,
+      "short_spread_pct": 0.009,
       "credit_to_bpr": 0.111,
-      "ev_per_contract": 5.8,
+      "ev_per_contract": 5.84,
       "ev_on_bpr": 0.0072,
-      "iv": 0.1568,
-      "iv_rank": 0.317,
-      "underlying_price": 762.72,
+      "iv": 0.1564,
+      "iv_rank": 0.315,
+      "underlying_price": 762.65,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -240,7 +240,7 @@
       ],
       "rank_score": 0.01152,
       "agent_action": "veto",
-      "agent_reason": "SPY already has 2 open positions; adding a third breaches the spirit of diversification and creates outsized index-cluster risk. Tape does not justify the concentration; defer until SPY position reduces to \u22641."
+      "agent_reason": "SPY is already 2/1 max_per_name; adding a 3rd breaches cap. us_index cluster is at 3/3 (SPY+IWM+another). Timing is favorable, but structure is allowed only because we already own concentration risk \u2014 do not compound."
     },
     {
       "underlying": "QQQ",
@@ -255,17 +255,17 @@
       "credit": 0.88,
       "mid_credit": 0.95,
       "fees_est": 3.0,
-      "bpr": 712.0,
-      "max_loss": 712.0,
+      "bpr": 710.0,
+      "max_loss": 710.0,
       "pop": 0.8,
       "short_delta": 0.183,
-      "short_spread_pct": 0.015,
-      "credit_to_bpr": 0.124,
-      "ev_per_contract": 5.76,
-      "ev_on_bpr": 0.0081,
+      "short_spread_pct": 0.013,
+      "credit_to_bpr": 0.127,
+      "ev_per_contract": 5.93,
+      "ev_on_bpr": 0.0084,
       "iv": 0.2011,
       "iv_rank": 0.377,
-      "underlying_price": 716.4,
+      "underlying_price": 716.37,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -282,9 +282,9 @@
         "cluster=us_tech \u00d70.78",
         "structure=short_put_vertical \u00d71.26"
       ],
-      "rank_score": 0.005565,
+      "rank_score": 0.005771,
       "agent_action": "guarded",
-      "agent_reason": "QQQ is single_name (26% historical win rate vs 37% index avg), us_tech cluster is already at max cap (1 open), and a -12% day suggests directional instability\u2014poorly timed to add short premium into a repricing bounce.",
+      "agent_reason": "QQQ is flagged as single_name (asset_class) in a us_tech cluster with 26% realized win rate (below our 37% book average). Engine learning: avoid this combination. Even though timing is good, the realized edge does not justify the idiosyncra",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -316,9 +316,9 @@
             "type": "P"
           }
         ],
-        "credit_total": 88.0,
-        "max_loss_total": 712.0,
-        "bpr_total": 712.0,
+        "credit_total": 90.0,
+        "max_loss_total": 710.0,
+        "bpr_total": 710.0,
         "pop": 0.8,
         "tag": "paper",
         "manage": {
@@ -333,7 +333,7 @@
         "fit_note": "",
         "text": "QQQ VP \u00d71 \u2014 SELL 678P / BUY 670P (2026-10-23) @ $0.88 net credit. Max loss $712. After fill: GTC buy-to-close @ $0.44 (50%)."
       },
-      "posted_at": "2026-09-17T18:25:49.200926+00:00"
+      "posted_at": "2026-09-17T18:27:52.231999+00:00"
     }
   ],
   "skipped": {
@@ -344,6 +344,6 @@
     "XLV": "failed: pv: spread short 27%/long 104%",
     "XLI": "failed: pv: spread short 50%/long 69%",
     "SLV": "iv_rank 16% (floor 30%)",
-    "TSLA": "iv_rank 18% (floor 30%)"
+    "TSLA": "iv_rank 19% (floor 30%)"
   }
 }
