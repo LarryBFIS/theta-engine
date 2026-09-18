@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-18T13:54:57.347538+00:00",
-  "market_view": "VIX 15.27 continuing its 5-day -12.7% collapse in neutral regime \u2014 tech holding bid but small caps (IWM -0.73%) and financials (XLF -0.51%) leaking, confirming risk-off rotation at the margin. SLV weakness consistent with that tone.",
+  "last_run": "2026-09-18T14:20:05.161611+00:00",
+  "market_view": "VIX 15.51 ticking up marginally in a broad risk-off drift \u2014 IWM -0.78% and XLP/XLY underperforming confirm defensive rotation, but SPY/QQQ holding well above short strikes. SLV continues to bleed below both strikes with no catalyst for reversal.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-18T13:54:44.665743+00:00",
-    "reasoning": "SLV at $59.82 \u2014 underlying is below BOTH strikes, short 61.5 breached hard, worst cost $0.75 is at 1.36x credit and accelerating toward the 1.5x stop of $0.825. This CRITICAL has been unactioned for multiple cycles and every tick lower burns toward full $45 max loss."
+    "timestamp": "2026-09-18T14:19:52.527067+00:00",
+    "reasoning": "SLV at $59.69 \u2014 underlying is below BOTH strikes, worst cost $0.75 is 1.36x the $0.55 credit and the 1.5x stop trigger is $0.825. This CRITICAL has been flagged multiple cycles unactioned; position is bleeding toward full $45 max loss with no recovery catalyst visible."
   },
   "SPY 722/731p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-18T13:54:44.665743+00:00",
-    "reasoning": "Inverted put vertical (short 722 / long 731) with negative credit -$0.93 is a structural misleg \u2014 short strike is BELOW the long strike, this is not a standard defined-risk spread and has $993 BPR tied up on a broken position that has persisted unresolved for multiple cycles."
+    "timestamp": "2026-09-18T14:19:52.527067+00:00",
+    "reasoning": "This is a structurally mislegged inverted put vertical \u2014 short 722 below long 731 with a negative credit -$0.93, costing $993 BPR on a broken position that cannot profit as structured. This has been flagged CRITICAL multiple cycles with zero action taken."
   },
   "QQQ 678/670p": {
     "action": "HOLD",
-    "confidence": 0.91,
-    "timestamp": "2026-09-18T13:54:44.665743+00:00",
-    "reasoning": "Short 678 is 5.6% OTM with QQQ at $718.04, mid $0.895 showing slight unrealized loss but well within normal noise, 34 DTE outside the 21 DTE exit rule, and no strike breach."
+    "confidence": 0.88,
+    "timestamp": "2026-09-18T14:19:52.527067+00:00",
+    "reasoning": "Short 678 is 5.4% OTM with QQQ at $716.58, mid unchanged at $0.97 flat on credit with no unrealized loss, 34 DTE outside exit rule, and no strike breach \u2014 position is clean."
   }
 }
