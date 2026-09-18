@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-18T19:37:43.337469+00:00",
-  "market_view": "VIX at 14.99 (-2.91% today, -14.34% 5d) \u2014 IV compression regime intact, theta positions broadly favored. Two rulebook-violating positions (SLV breached short strike, SPY net-debit entry) remain open and require immediate closure \u2014 no market condition justifies holding either.",
+  "last_run": "2026-09-18T19:44:57.107578+00:00",
+  "market_view": "VIX at 15.0, down 14.29% over 5 days \u2014 sustained IV compression regime favors theta decay. Market internals mixed but no directional threat to existing short put positions.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-18T19:37:29.028014+00:00",
-    "reasoning": "Short strike 61.5 is breached with SLV at $60.00, now 2.5% ITM; worst-cost $0.75 is 1.36x the $0.55 credit and approaching the 1.5x hard stop at $0.825. This has been flagged CRITICAL for 10+ consecutive cycles \u2014 close immediately, no further delay is acceptable."
+    "timestamp": "2026-09-18T19:44:43.072065+00:00",
+    "reasoning": "Short strike 61.5 remains breached with SLV at $60.01, worst-cost $0.75 is 1.36x the $0.55 credit and approaching the 1.5x hard stop at $0.825. This has been flagged CRITICAL for multiple consecutive cycles with zero action taken \u2014 this is now a rulebook emergency."
   },
   "SPY 722/731p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-18T19:37:29.028014+00:00",
-    "reasoning": "This position was entered at a net debit (-$0.93 credit) \u2014 max profit is negative $93, meaning this trade cannot make money under any scenario and has consumed $993 BPR for 10+ cycles with zero action. This is an ongoing rulebook violation."
+    "timestamp": "2026-09-18T19:44:43.072065+00:00",
+    "reasoning": "This position was entered at a net debit (-$0.93) meaning max profit is -$93 and this trade cannot make money under any scenario \u2014 it has consumed $993 BPR for multiple cycles with zero corrective action, constituting an ongoing hard rulebook violation."
   },
   "QQQ 678/670p": {
     "action": "HOLD",
     "confidence": 0.9,
-    "timestamp": "2026-09-18T19:37:29.028014+00:00",
-    "reasoning": "Short 678 is 5.72% OTM with QQQ at $719.17, mid at $0.88 is 9.3% decayed toward the $0.485 manage target \u2014 VIX compression and 34 DTE keep this position in good shape with no action needed."
+    "timestamp": "2026-09-18T19:44:43.072065+00:00",
+    "reasoning": "Short 678 is 5.77% OTM with QQQ at $719.54, mid at $0.835 has decayed from $0.97 credit with 34 DTE remaining \u2014 VIX compression and QQQ up 2.3% over 5 days keeps this position structurally sound."
   }
 }
