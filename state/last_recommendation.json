@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-18T14:31:14.891603+00:00",
-  "market_view": "VIX 15.5, neutral regime with mild broad risk-off \u2014 IWM -0.73% leading weakness, financials/energy lagging on 5d. SLV continues to deteriorate with no recovery catalyst in sight.",
+  "last_run": "2026-09-18T14:41:30.209865+00:00",
+  "market_view": "VIX 15.52 in neutral regime, broad mild risk-off with IWM -0.8% leading weakness and financials lagging 5d \u2014 no fresh catalysts but SLV continues to trade below both strikes with no recovery.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-18T14:31:01.209726+00:00",
-    "reasoning": "SLV at $59.72 is below BOTH strikes \u2014 spread is fully ITM, worst cost $0.75 is 1.36x the $0.55 credit, approaching the $0.825 hard stop, and with 103 DTE there is no time-based justification to hold. This has been flagged CRITICAL multiple consecutive cycles with zero action \u2014 max loss of $45 is imminent."
+    "timestamp": "2026-09-18T14:41:17.833747+00:00",
+    "reasoning": "SLV at $59.92 is below BOTH strikes \u2014 spread is fully ITM, worst cost $0.75 is 1.36x the $0.55 credit and approaching the $0.825 hard stop, 103 DTE means zero time-decay rescue is coming. This has been flagged CRITICAL for multiple consecutive cycles with no action \u2014 close this now before worst cost ticks to max loss."
   },
   "SPY 722/731p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-18T14:31:01.209726+00:00",
-    "reasoning": "This is a structurally inverted put vertical \u2014 short 722 below long 731 with negative credit -$0.93 collected, meaning this is a debit spread or a misledged position that cannot generate profit as a short-premium trade; it is tying up $993 BPR with max loss exposure. Flagged CRITICAL multiple consecutive cycles, zero action taken."
+    "timestamp": "2026-09-18T14:41:17.833747+00:00",
+    "reasoning": "This is a structurally inverted put vertical \u2014 short 722 below long 731 with negative credit -$0.93 collected, meaning this is a net-debit long spread that cannot generate short-premium profit and is tying up $993 BPR with $993 max loss. Flagged CRITICAL multiple consecutive cycles with zero action."
   },
   "QQQ 678/670p": {
     "action": "HOLD",
     "confidence": 0.88,
-    "timestamp": "2026-09-18T14:31:01.209726+00:00",
-    "reasoning": "Short 678 strike is 5.4% OTM with QQQ at $716.67, mid cost $0.955 is essentially flat versus $0.97 credit, 34 DTE is outside the 21-DTE exit window, and no strike breach \u2014 position is clean and on track."
+    "timestamp": "2026-09-18T14:41:17.833747+00:00",
+    "reasoning": "Short 678 strike is 5.4% OTM with QQQ at $716.72, mid cost $0.955 is essentially flat to the $0.97 credit collected, 34 DTE is outside the 21-DTE window \u2014 position is clean, theta working, no action needed."
   }
 }
