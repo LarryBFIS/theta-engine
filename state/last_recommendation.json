@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-18T16:19:11.206559+00:00",
-  "market_view": "VIX 15.45, neutral regime, indices mildly red with no fresh catalysts. SLV continues to bleed below both strikes and the SPY long put vertical remains an open wound \u2014 both need to be closed NOW.",
+  "last_run": "2026-09-18T16:21:07.427860+00:00",
+  "market_view": "VIX 15.45 flat, neutral regime with mild broad weakness \u2014 no catalyst change from last cycle. Two broken positions still open and unaddressed; capital is at risk every minute these stay on.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-18T16:18:59Z",
-    "reasoning": "SLV at $59.89 is below BOTH strikes \u2014 spread fully ITM, mid $0.60 already exceeds the $0.55 credit received, worst-case $0.75 is at 1.36x loss and approaching the 1.5x hard stop of $0.825. 103 DTE means zero theta rescue and max loss of $45 is the trajectory."
+    "timestamp": "2026-09-18T16:20:55Z",
+    "reasoning": "SLV $59.94 is below both strikes \u2014 spread is fully ITM, mid $0.575 already exceeds credit, worst-case $0.70 is at 1.27x and approaching the 1.5x hard stop of $0.825. This has been flagged CRITICAL for multiple cycles with no action taken; every DTE at 103 means zero theta rescue."
   },
   "SPY 722/731p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-18T16:18:59Z",
-    "reasoning": "This was entered as a debit (negative credit -$0.93), making it a long put vertical directional bet with SPY at $759 \u2014 both strikes are 5%+ OTM and theta decay is destroying the position's value daily with zero path to profitability."
+    "timestamp": "2026-09-18T16:20:55Z",
+    "reasoning": "This is a long put vertical entered at a debit (-$0.93) in a short-premium account \u2014 it is a directional bet losing theta daily with SPY $759 and both strikes ~5% OTM; it has negative expected value and is burning $993 BPR for no short-premium purpose."
   },
   "QQQ 678/670p": {
     "action": "HOLD",
     "confidence": 0.87,
-    "timestamp": "2026-09-18T16:18:59Z",
-    "reasoning": "Short 678 strike is 5.4% OTM with QQQ at $716.48, mid cost $0.945 is essentially at breakeven on the $0.97 credit \u2014 theta is grinding, no strike threat, 34 DTE still has time to work."
+    "timestamp": "2026-09-18T16:20:55Z",
+    "reasoning": "Short 678 strike is 5.4% OTM with QQQ $716.43, mid cost $0.96 is essentially flat to entry credit \u2014 theta is working, no strike threat, 34 DTE still above exit threshold."
   }
 }
