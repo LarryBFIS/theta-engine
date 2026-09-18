@@ -589,7 +589,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 16.73, normal regime post -6% sell-off. Tape is cooling; short-premium is well-timed here as volatility has expanded but not spiked into panic. No macro events on calendar\u2014low event risk.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-18",
+      "actual_price": 760.42,
+      "realized_move_pct": 0.0058,
+      "realized_move_signed": -0.0058,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "a22c194ccbd8",
@@ -604,7 +610,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 16.73, normal regime post -6% sell-off. Tape is cooling; short-premium is well-timed here as volatility has expanded but not spiked into panic. No macro events on calendar\u2014low event risk.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-18",
+      "actual_price": 718.09,
+      "realized_move_pct": 0.0029,
+      "realized_move_signed": 0.0029,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "c0b87dac80f4",
@@ -619,7 +631,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 16.73, normal regime post -6% sell-off. Tape is cooling; short-premium is well-timed here as volatility has expanded but not spiked into panic. No macro events on calendar\u2014low event risk.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-18",
+      "actual_price": 284.44,
+      "realized_move_pct": 0.0213,
+      "realized_move_signed": -0.0213,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "0fd4a64b175a",
@@ -634,7 +652,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 16.73, normal regime post -6% sell-off. Tape is cooling; short-premium is well-timed here as volatility has expanded but not spiked into panic. No macro events on calendar\u2014low event risk.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-18",
+      "actual_price": 515.77,
+      "realized_move_pct": 0.019,
+      "realized_move_signed": -0.019,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "18e16d9b6160",
@@ -919,6 +943,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Down 13% today in normal regime; VIX 15.45 suggests volatility has spiked modestly off lows. Tape is risk-off but not panicked\u2014good environment for selling premium IF we avoid piling correlated short-vol into a directional selloff. Timing favors smaller, diversified index plays o",
+      "resolved": false
+    },
+    {
+      "id": "cd48cca5a424",
+      "index": "SPY",
+      "forecast_date": "2026-09-18",
+      "target_date": "2026-09-25",
+      "horizon_days": 7,
+      "spot_at_forecast": 760.42,
+      "iv": 0.1555,
+      "implied_move_pct": 0.0215,
+      "implied_move_abs": 16.38,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Calm tape on a +1% day with VIX at 15.52 in a normal regime \u2014 drift is mildly up but implied vol is not compensating sellers. Chasing put sales in big-cap tech after an up day with middling IV is thin-edge beta-chasing, not premium harvesting.",
+      "resolved": false
+    },
+    {
+      "id": "434bf9ed0e65",
+      "index": "QQQ",
+      "forecast_date": "2026-09-18",
+      "target_date": "2026-09-25",
+      "horizon_days": 7,
+      "spot_at_forecast": 718.09,
+      "iv": 0.2027,
+      "implied_move_pct": 0.0281,
+      "implied_move_abs": 20.15,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Calm tape on a +1% day with VIX at 15.52 in a normal regime \u2014 drift is mildly up but implied vol is not compensating sellers. Chasing put sales in big-cap tech after an up day with middling IV is thin-edge beta-chasing, not premium harvesting.",
+      "resolved": false
+    },
+    {
+      "id": "39b5a8c20fdd",
+      "index": "IWM",
+      "forecast_date": "2026-09-18",
+      "target_date": "2026-09-25",
+      "horizon_days": 7,
+      "spot_at_forecast": 284.44,
+      "iv": 0.1957,
+      "implied_move_pct": 0.0271,
+      "implied_move_abs": 7.71,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Calm tape on a +1% day with VIX at 15.52 in a normal regime \u2014 drift is mildly up but implied vol is not compensating sellers. Chasing put sales in big-cap tech after an up day with middling IV is thin-edge beta-chasing, not premium harvesting.",
+      "resolved": false
+    },
+    {
+      "id": "156f833fe386",
+      "index": "DIA",
+      "forecast_date": "2026-09-18",
+      "target_date": "2026-09-25",
+      "horizon_days": 7,
+      "spot_at_forecast": 515.77,
+      "iv": 0.1523,
+      "implied_move_pct": 0.0211,
+      "implied_move_abs": 10.88,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Calm tape on a +1% day with VIX at 15.52 in a normal regime \u2014 drift is mildly up but implied vol is not compensating sellers. Chasing put sales in big-cap tech after an up day with middling IV is thin-edge beta-chasing, not premium harvesting.",
+      "resolved": false
+    },
+    {
+      "id": "321e5e8fb23d",
+      "index": "TSLA",
+      "forecast_date": "2026-09-18",
+      "target_date": "2026-09-25",
+      "horizon_days": 7,
+      "spot_at_forecast": 367.64,
+      "iv": 0.4605,
+      "implied_move_pct": 0.0638,
+      "implied_move_abs": 23.45,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Calm tape on a +1% day with VIX at 15.52 in a normal regime \u2014 drift is mildly up but implied vol is not compensating sellers. Chasing put sales in big-cap tech after an up day with middling IV is thin-edge beta-chasing, not premium harvesting.",
       "resolved": false
     }
   ]
