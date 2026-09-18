@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-18T19:15:49.335447+00:00",
-  "market_view": "VIX at 14.99 continuing its grind lower (-14.34% 5d) in a neutral regime \u2014 theta environment is favorable but two structurally broken positions have been flagged CRITICAL across 7+ consecutive cycles with zero action, which is a direct rulebook violation compounding real dollar losses every minute.",
+  "last_run": "2026-09-18T19:17:39.306184+00:00",
+  "market_view": "VIX at 14.98 (-2.98% today, -14.4% 5d) confirms IV compression regime \u2014 theta positions are decaying well but two structurally broken positions are hemorrhaging BPR and violating rulebook for 8+ consecutive cycles with zero action taken.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-18T19:15:35Z",
-    "reasoning": "Short strike 61.5 remains breached with SLV at $60.09, worst-cost $0.70 is 1.27x the $0.55 credit and within $0.125 of the hard 1.5x stop at $0.825 \u2014 this position has been CRITICAL for 7+ cycles with zero close executed, which is a rulebook violation and the spread is ITM with 103 DTE leaving maximum pain runway."
+    "timestamp": "2026-09-18T19:17:24Z",
+    "reasoning": "Short strike 61.5 is breached with SLV at $60.09, worst-cost $0.70 is 1.27x credit and approaching the 1.5x hard stop at $0.825 \u2014 ITM with 103 DTE means this bleeds indefinitely with no mechanical recovery path, and this has been flagged CRITICAL for 8+ cycles with zero close executed, which is a direct rulebook violation."
   },
   "SPY 722/731p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-18T19:15:35Z",
-    "reasoning": "This position was entered at a net debit (-$0.93), meaning max profit is negative $93 and max loss is $993 \u2014 it is structurally impossible to profit on this trade and it has been flagged CRITICAL for 7+ consecutive cycles with zero action, consuming $993 BPR with no upside path."
+    "timestamp": "2026-09-18T19:17:24Z",
+    "reasoning": "This position was entered at a net debit (-$0.93 credit) making max profit mathematically negative (-$93) and max loss $993 \u2014 there is zero path to profit on this trade and it has consumed $993 BPR for 8+ cycles with no close, a clear rulebook violation."
   },
   "QQQ 678/670p": {
     "action": "HOLD",
-    "confidence": 0.88,
-    "timestamp": "2026-09-18T19:15:35Z",
-    "reasoning": "Short 678 is 5.72% OTM with QQQ at $719.17, mid at $0.865 is 10.8% decay toward the $0.485 manage target, 34 DTE with VIX declining \u2014 theta is working cleanly, no action needed."
+    "confidence": 0.9,
+    "timestamp": "2026-09-18T19:17:24Z",
+    "reasoning": "Short 678 is 5.73% OTM with QQQ at $719.25, mid at $0.865 represents 10.8% decay toward the $0.485 manage target \u2014 VIX compression is working in favor, 34 DTE is on schedule, no action needed."
   }
 }

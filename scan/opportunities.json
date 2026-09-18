@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-18T19:16:35.240868+00:00",
+  "generated_at": "2026-09-18T19:18:15.785753+00:00",
   "regime": {
-    "vix": 14.98,
-    "vix_day_change_pct": -0.0298,
+    "vix": 14.97,
+    "vix_day_change_pct": -0.0304,
     "level": "calm",
     "stand_down": false,
     "note": "calm regime (-3% day)"
@@ -37,11 +37,11 @@
       "short_delta": 0.182,
       "short_spread_pct": 0.014,
       "credit_to_bpr": 0.129,
-      "ev_per_contract": 5.24,
+      "ev_per_contract": 5.3,
       "ev_on_bpr": 0.0085,
       "iv": 0.1956,
       "iv_rank": 0.349,
-      "underlying_price": 719.23,
+      "underlying_price": 719.28,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -60,7 +60,7 @@
       ],
       "rank_score": 0.005941,
       "agent_action": "guarded",
-      "agent_reason": "QQQ is already held, engine learnings say avoid us_tech/single_name, and selling puts into an accelerating -3% sell-off with cheap implied vol is poorly timed, falling-knife risk.",
+      "agent_reason": "QQQ is already open (per-name cap), us_tech/single-name is on the avoid list, and selling a put vertical into a -3% down day is catching a falling knife \u2014 poorly timed short-vol.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -68,7 +68,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7246.971,
+      "net_liq": 7250.686,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
@@ -104,12 +104,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": true,
-        "live_cap": 724.7,
+        "live_cap": 725.07,
         "suggested_width": null,
         "fit_note": "",
         "text": "QQQ VP \u00d71 \u2014 SELL 682P / BUY 675P (2026-10-23) @ $0.80 net credit. Max loss $620. After fill: GTC buy-to-close @ $0.40 (50%)."
       },
-      "posted_at": "2026-09-18T19:16:35.240868+00:00"
+      "posted_at": "2026-09-18T19:18:15.785753+00:00"
     }
   ],
   "long_vol": [],
@@ -176,10 +176,10 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-09-18T19:16:35.044100+00:00",
+    "generated_at": "2026-09-18T19:18:15.443146+00:00",
     "model": "kimi-k3",
-    "market_view": "Tape just dropped -3% yet VIX sits at ~15 with low IV ranks (24-35%) \u2014 implied vol looks cheap relative to a market that is suddenly moving, so premium sales are thinly compensated right now. Direction bias is down and short puts risk catching a falling knife while short calls sold after the drop risk a mean-reversion bounce.",
-    "portfolio_note": "Book already holds 5 positions with both candidate names (DIA, QQQ) already open and us_index at its cluster cap of 3 \u2014 adding either doubles name concentration and stacks more correlated equity-index short-vol into a falling tape. Unrealized PnL is slightly negative; this is a moment to do less.",
+    "market_view": "VIX 14.97 with a -3% day is a stale-calm reading \u2014 realized tape is moving far faster than implied vol reflects, so premium is thin relative to current risk. This is a poor moment to add short-vol, especially short puts into a falling tape.",
+    "portfolio_note": "Book already holds 5 positions with 3 in us_index (at the cluster cap) and both candidates duplicate names already open, so either add stacks correlated index short-vol on top of existing exposure. Unrealized -61 is manageable; the risk is concentration, not drawdown.",
     "vol_verdict": "implied_cheap",
     "reviewed": 2,
     "vetoed": 2,
@@ -188,12 +188,12 @@
       {
         "id": "DIA|short_call_vertical|536/542",
         "action": "veto",
-        "reason": "DIA name and us_index cluster are already at cap, IV rank 24% pays almost nothing, and selling calls right after a -3% day is exposed to a sharp bounce."
+        "reason": "DIA already has an open position and us_index is at its 3/3 cluster cap, so this adds correlated index exposure beyond limits with only thin premium (IV rank 0.24) as compensation."
       },
       {
         "id": "QQQ|short_put_vertical|682/675",
         "action": "veto",
-        "reason": "QQQ is already held, engine learnings say avoid us_tech/single_name, and selling puts into an accelerating -3% sell-off with cheap implied vol is poorly timed, falling-knife risk."
+        "reason": "QQQ is already open (per-name cap), us_tech/single-name is on the avoid list, and selling a put vertical into a -3% down day is catching a falling knife \u2014 poorly timed short-vol."
       }
     ]
   },
@@ -214,14 +214,14 @@
       "bpr": 537.0,
       "max_loss": 537.0,
       "pop": 0.804,
-      "short_delta": 0.209,
-      "short_spread_pct": 0.103,
+      "short_delta": 0.208,
+      "short_spread_pct": 0.098,
       "credit_to_bpr": 0.117,
-      "ev_per_contract": 3.8,
-      "ev_on_bpr": 0.0071,
+      "ev_per_contract": 3.85,
+      "ev_on_bpr": 0.0072,
       "iv": 0.1456,
       "iv_rank": 0.244,
-      "underlying_price": 516.24,
+      "underlying_price": 516.2,
       "liquidity": 3,
       "earnings_date": null,
       "tag": "paper",
@@ -237,9 +237,9 @@
         "asset_class=index_etf \u00d71.41",
         "cluster=us_index \u00d71.50"
       ],
-      "rank_score": 0.01136,
+      "rank_score": 0.01152,
       "agent_action": "veto",
-      "agent_reason": "DIA name and us_index cluster are already at cap, IV rank 24% pays almost nothing, and selling calls right after a -3% day is exposed to a sharp bounce."
+      "agent_reason": "DIA already has an open position and us_index is at its 3/3 cluster cap, so this adds correlated index exposure beyond limits with only thin premium (IV rank 0.24) as compensation."
     },
     {
       "underlying": "QQQ",
@@ -260,11 +260,11 @@
       "short_delta": 0.182,
       "short_spread_pct": 0.014,
       "credit_to_bpr": 0.129,
-      "ev_per_contract": 5.24,
+      "ev_per_contract": 5.3,
       "ev_on_bpr": 0.0085,
       "iv": 0.1956,
       "iv_rank": 0.349,
-      "underlying_price": 719.23,
+      "underlying_price": 719.28,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -283,7 +283,7 @@
       ],
       "rank_score": 0.005941,
       "agent_action": "guarded",
-      "agent_reason": "QQQ is already held, engine learnings say avoid us_tech/single_name, and selling puts into an accelerating -3% sell-off with cheap implied vol is poorly timed, falling-knife risk.",
+      "agent_reason": "QQQ is already open (per-name cap), us_tech/single-name is on the avoid list, and selling a put vertical into a -3% down day is catching a falling knife \u2014 poorly timed short-vol.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -291,7 +291,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7246.971,
+      "net_liq": 7250.686,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
@@ -327,12 +327,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": true,
-        "live_cap": 724.7,
+        "live_cap": 725.07,
         "suggested_width": null,
         "fit_note": "",
         "text": "QQQ VP \u00d71 \u2014 SELL 682P / BUY 675P (2026-10-23) @ $0.80 net credit. Max loss $620. After fill: GTC buy-to-close @ $0.40 (50%)."
       },
-      "posted_at": "2026-09-18T19:16:35.240868+00:00"
+      "posted_at": "2026-09-18T19:18:15.785753+00:00"
     }
   ],
   "skipped": {
