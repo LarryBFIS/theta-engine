@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-18T15:46:16.060119+00:00",
-  "market_view": "VIX 15.21 in low-vol neutral regime with broad indices mildly red \u2014 no fresh catalysts. Two structurally broken positions have been flagged CRITICAL for 6+ consecutive cycles with zero action taken; this is the only thing that matters right now.",
+  "last_run": "2026-09-18T15:55:00.196215+00:00",
+  "market_view": "VIX 15.32 in low-vol neutral regime, broad indices mildly red with no fresh catalysts. Two critically broken positions remain unaddressed after 7+ consecutive CRITICAL cycles \u2014 this is a capital preservation emergency.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-18T15:46:03Z",
-    "reasoning": "SLV $59.90 is below BOTH strikes \u2014 spread fully ITM, mid cost $0.60 exceeds $0.55 credit collected (already at 1.09x), worst cost $0.75 is at 1.36x and approaching the 1.5x hard stop of $0.825. At 103 DTE there is zero theta rescue and this has been flagged CRITICAL with no action for 6+ cycles."
+    "timestamp": "2026-09-18T15:54:47Z",
+    "reasoning": "SLV $59.88 is below BOTH strikes \u2014 spread is fully ITM, mid cost $0.60 already exceeds the $0.55 credit (1.09x loss), worst-case $0.75 is at 1.36x and closing in on the 1.5x hard stop of $0.825. At 103 DTE theta provides zero rescue and every tick lower accelerates toward max loss of $45."
   },
   "SPY 722/731p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-18T15:46:03Z",
-    "reasoning": "This is a long put vertical entered at a net debit of $0.93 \u2014 a directional long bet that is structurally wrong for a short-premium account, burning $993 BPR with both strikes deep OTM at SPY $759.11 and time decay working against the position every day. Six-plus cycles of CRITICAL flags with zero action."
+    "timestamp": "2026-09-18T15:54:47Z",
+    "reasoning": "This position has a negative credit (-$0.93 debit) \u2014 it is a long put vertical directional bet in a short-premium account, burning $993 BPR with both strikes deep OTM at SPY $758.93 and time decay destroying value every single day. It cannot be managed, it can only be closed."
   },
   "QQQ 678/670p": {
     "action": "HOLD",
     "confidence": 0.87,
-    "timestamp": "2026-09-18T15:46:03Z",
-    "reasoning": "Short 678 strike remains 5.4% OTM with QQQ at $716.36, mid cost $0.97 essentially at breakeven on entry \u2014 theta working at 34 DTE with no strike threat and POP intact."
+    "timestamp": "2026-09-18T15:54:47Z",
+    "reasoning": "Short 678 strike is 5.3% OTM with QQQ at $716.31, mid cost $0.97 is at breakeven on entry \u2014 theta is working at 34 DTE with no strike threat, POP intact, and no news catalyst threatening."
   }
 }
