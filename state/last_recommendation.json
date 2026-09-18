@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-18T13:39:40.439282+00:00",
-  "market_view": "VIX at 15.4 (-12% 5d) with mixed tape \u2014 tech holding (QQQ +0.33%) but financials and energy leaking, neutral regime. SLV and SPY structural issues remain the only things that matter right now.",
+  "last_run": "2026-09-18T13:46:01.714488+00:00",
+  "market_view": "VIX at 15.43 (-12% 5d) in neutral regime with mixed tape \u2014 tech bid (QQQ +0.30%, XLK +0.28%) but financials, energy, and small caps leaking. SLV structural breach and SPY misleg remain the only actionable priorities.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-18T13:39:28Z",
-    "reasoning": "Short strike 61.5 breached with SLV at $60.03 \u2014 still through the short strike, worst cost $0.70 exceeds 1x credit ($0.55) and is approaching 1.5x stop ($0.825). This CRITICAL has fired multiple consecutive cycles with no confirmed close \u2014 max loss is $45 but continued inaction risks full loss."
+    "timestamp": "2026-09-18T13:45:45.966037+00:00",
+    "reasoning": "Short strike 61.5 still breached with SLV at $59.97 \u2014 underlying is below both strikes, worst cost $0.70 is at 1.27x credit and closing in on the 1.5x stop of $0.825. This has been CRITICAL for multiple cycles with no confirmed close \u2014 every tick lower increases loss toward full $45 max."
   },
   "QQQ 678/670p": {
     "action": "HOLD",
     "confidence": 0.92,
-    "timestamp": "2026-09-18T13:39:28Z",
-    "reasoning": "Short 678 is 5.7% OTM with QQQ at $719.27, mid at $0.87 shows slight profit but not at 50% target yet, 34 DTE well outside the 21 DTE exit rule."
+    "timestamp": "2026-09-18T13:45:45.966037+00:00",
+    "reasoning": "Short 678 is 5.7% OTM with QQQ at $719.05, mid at $0.88 showing slight unrealized profit but nowhere near 50% target ($0.485), 34 DTE well outside 21 DTE exit rule."
   },
   "SPY 722/731p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-18T13:39:28Z",
-    "reasoning": "Inverted put vertical (short 722 below long 731) with negative credit (-$0.93) and $993 BPR is a structurally broken position \u2014 this cannot be a valid short put vertical, indicating a misleg or data error with undefined real risk that has persisted unresolved across multiple cycles."
+    "timestamp": "2026-09-18T13:45:45.966037+00:00",
+    "reasoning": "This position has a negative credit (-$0.93) with short strike 722 below long strike 731 \u2014 an inverted put vertical is a structural misleg with undefined real risk profile; $993 BPR tied up on a broken position that has persisted unresolved for multiple cycles."
   }
 }
