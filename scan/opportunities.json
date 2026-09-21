@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-21T14:22:57.720557+00:00",
+  "generated_at": "2026-09-21T14:25:01.759846+00:00",
   "regime": {
-    "vix": 14.8,
-    "vix_day_change_pct": -0.0007,
+    "vix": 14.75,
+    "vix_day_change_pct": -0.0041,
     "level": "calm",
     "stand_down": false,
     "note": "calm regime (-0% day)"
@@ -33,15 +33,15 @@
       "fees_est": 3.0,
       "bpr": 802.0,
       "max_loss": 802.0,
-      "pop": 0.8,
-      "short_delta": 0.184,
+      "pop": 0.803,
+      "short_delta": 0.181,
       "short_spread_pct": 0.015,
       "credit_to_bpr": 0.122,
-      "ev_per_contract": 6.82,
-      "ev_on_bpr": 0.0085,
+      "ev_per_contract": 7.36,
+      "ev_on_bpr": 0.0092,
       "iv": 0.2013,
       "iv_rank": 0.374,
-      "underlying_price": 734.17,
+      "underlying_price": 734.6,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -58,9 +58,9 @@
         "cluster=us_tech \u00d70.80",
         "structure=short_put_vertical \u00d71.24"
       ],
-      "rank_score": 0.005941,
+      "rank_score": 0.006431,
       "agent_action": "guarded",
-      "agent_reason": "Duplicates an open QQQ position in the us_tech cluster our book has negative expectancy in (avoid per learnings), so it stacks correlated short-vol on a proven loser at mediocre IV rank.",
+      "agent_reason": "Duplicates our open QQQ position (per-name cap), and both us_tech and single_name are learned negative-expectancy buckets; at $802 max loss this doubles down on our worst-performing cluster with implied not rich enough to justify it.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -68,7 +68,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7291.09,
+      "net_liq": 7290.8,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
@@ -95,7 +95,7 @@
         "credit_total": 98.0,
         "max_loss_total": 802.0,
         "bpr_total": 802.0,
-        "pop": 0.8,
+        "pop": 0.803,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -104,12 +104,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 729.11,
+        "live_cap": 729.08,
         "suggested_width": 8,
         "fit_note": "\u26a0 max loss $802 > 10% live cap ($729) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ VP \u00d71 \u2014 SELL 697P / BUY 688P (2026-10-23) @ $0.98 net credit. Max loss $802. After fill: GTC buy-to-close @ $0.49 (50%). \u26a0 max loss $802 > 10% live cap ($729) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-21T14:22:57.720557+00:00"
+      "posted_at": "2026-09-21T14:25:01.759846+00:00"
     }
   ],
   "long_vol": [],
@@ -176,10 +176,10 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-09-21T14:22:57.469165+00:00",
+    "generated_at": "2026-09-21T14:25:01.475290+00:00",
     "model": "kimi-k3",
-    "market_view": "Calm tape, VIX 14.8, no scheduled events \u2014 a low-vol drift regime where implied premium is thin and there is no urgency to add risk. Selling premium here is acceptable only for the best setups; marginal or duplicative ones should be passed.",
-    "portfolio_note": "Book already holds 5 open positions including both DIA and QQQ, and us_index is at its cluster cap of 3 \u2014 both candidates would double an existing name and stack correlated index exposure on a small account. Keep powder dry; current unrealized is flat and the edge is unproven (39% wr, -$9.2k realized).",
+    "market_view": "Calm, flat tape with VIX at 14.75 and no scheduled events \u2014 directionally benign but implied premium is thin (candidate IV ranks 0.24-0.37), so the volatility risk premium is poorly compensated right now. This is a hold-and-harvest tape, not one for adding correlated index short-premium.",
+    "portfolio_note": "Book already holds 5 positions with us_index at its cap of 3 (IWM, SPY, DIA) plus an open QQQ \u2014 both candidates duplicate names we already own, which is one bet sized up, not diversification. With realized at -$9254 and a 39% win rate, concentration is the last thing this book needs.",
     "vol_verdict": "implied_cheap",
     "reviewed": 2,
     "vetoed": 2,
@@ -188,12 +188,12 @@
       {
         "id": "DIA|short_call_vertical|537/543",
         "action": "veto",
-        "reason": "Duplicates an open DIA name with us_index already at the 3-cluster cap, and a short call vertical at 0.24 IV rank in a cheap-vol calm tape is thin, poorly compensated upside-risk."
+        "reason": "We already hold DIA (per-name cap) and us_index is at its cluster cap of 3; selling calls at a 0.24 IV rank stacks correlated short-delta on existing index exposure for a 0.6% EV-on-BPR \u2014 unwise even where allowed."
       },
       {
         "id": "QQQ|short_put_vertical|697/688",
         "action": "veto",
-        "reason": "Duplicates an open QQQ position in the us_tech cluster our book has negative expectancy in (avoid per learnings), so it stacks correlated short-vol on a proven loser at mediocre IV rank."
+        "reason": "Duplicates our open QQQ position (per-name cap), and both us_tech and single_name are learned negative-expectancy buckets; at $802 max loss this doubles down on our worst-performing cluster with implied not rich enough to justify it."
       }
     ]
   },
@@ -208,38 +208,38 @@
       "short_symbol": "DIA   261023C00537000",
       "long_symbol": "DIA   261023C00543000",
       "width": 6.0,
-      "credit": 0.63,
-      "mid_credit": 0.82,
+      "credit": 0.65,
+      "mid_credit": 0.81,
       "fees_est": 3.0,
-      "bpr": 537.0,
-      "max_loss": 537.0,
-      "pop": 0.802,
-      "short_delta": 0.21,
-      "short_spread_pct": 0.114,
-      "credit_to_bpr": 0.117,
-      "ev_per_contract": 3.53,
-      "ev_on_bpr": 0.0066,
+      "bpr": 535.0,
+      "max_loss": 535.0,
+      "pop": 0.799,
+      "short_delta": 0.214,
+      "short_spread_pct": 0.08,
+      "credit_to_bpr": 0.121,
+      "ev_per_contract": 3.31,
+      "ev_on_bpr": 0.0062,
       "iv": 0.1452,
       "iv_rank": 0.244,
-      "underlying_price": 518.25,
+      "underlying_price": 518.51,
       "liquidity": 3,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "live",
       "contracts": 1,
-      "max_loss_total": 537.0,
-      "bpr_total": 537.0,
+      "max_loss_total": 535.0,
+      "bpr_total": 535.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short call vertical 537/543c \u00d71 \u2014 bearish lean. Edge: IV rank 24%, EV $+4/ctr (+0.7% on BPR). POP 80% \u00b7 credit $0.63 \u00b7 max loss $537 \u00b7 BPR $537 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short call vertical 537/543c \u00d71 \u2014 bearish lean. Edge: IV rank 24%, EV $+3/ctr (+0.6% on BPR). POP 80% \u00b7 credit $0.65 \u00b7 max loss $535 \u00b7 BPR $535 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.6,
       "learn_notes": [
         "asset_class=index_etf \u00d71.41",
         "cluster=us_index \u00d71.50"
       ],
-      "rank_score": 0.01056,
+      "rank_score": 0.00992,
       "agent_action": "veto",
-      "agent_reason": "Duplicates an open DIA name with us_index already at the 3-cluster cap, and a short call vertical at 0.24 IV rank in a cheap-vol calm tape is thin, poorly compensated upside-risk."
+      "agent_reason": "We already hold DIA (per-name cap) and us_index is at its cluster cap of 3; selling calls at a 0.24 IV rank stacks correlated short-delta on existing index exposure for a 0.6% EV-on-BPR \u2014 unwise even where allowed."
     },
     {
       "underlying": "QQQ",
@@ -256,15 +256,15 @@
       "fees_est": 3.0,
       "bpr": 802.0,
       "max_loss": 802.0,
-      "pop": 0.8,
-      "short_delta": 0.184,
+      "pop": 0.803,
+      "short_delta": 0.181,
       "short_spread_pct": 0.015,
       "credit_to_bpr": 0.122,
-      "ev_per_contract": 6.82,
-      "ev_on_bpr": 0.0085,
+      "ev_per_contract": 7.36,
+      "ev_on_bpr": 0.0092,
       "iv": 0.2013,
       "iv_rank": 0.374,
-      "underlying_price": 734.17,
+      "underlying_price": 734.6,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -281,9 +281,9 @@
         "cluster=us_tech \u00d70.80",
         "structure=short_put_vertical \u00d71.24"
       ],
-      "rank_score": 0.005941,
+      "rank_score": 0.006431,
       "agent_action": "guarded",
-      "agent_reason": "Duplicates an open QQQ position in the us_tech cluster our book has negative expectancy in (avoid per learnings), so it stacks correlated short-vol on a proven loser at mediocre IV rank.",
+      "agent_reason": "Duplicates our open QQQ position (per-name cap), and both us_tech and single_name are learned negative-expectancy buckets; at $802 max loss this doubles down on our worst-performing cluster with implied not rich enough to justify it.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -291,7 +291,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7291.09,
+      "net_liq": 7290.8,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
@@ -318,7 +318,7 @@
         "credit_total": 98.0,
         "max_loss_total": 802.0,
         "bpr_total": 802.0,
-        "pop": 0.8,
+        "pop": 0.803,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -327,22 +327,22 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 729.11,
+        "live_cap": 729.08,
         "suggested_width": 8,
         "fit_note": "\u26a0 max loss $802 > 10% live cap ($729) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ VP \u00d71 \u2014 SELL 697P / BUY 688P (2026-10-23) @ $0.98 net credit. Max loss $802. After fill: GTC buy-to-close @ $0.49 (50%). \u26a0 max loss $802 > 10% live cap ($729) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-21T14:22:57.720557+00:00"
+      "posted_at": "2026-09-21T14:25:01.759846+00:00"
     }
   ],
   "skipped": {
     "SPY": "failed: pv: credit/width 0.09 < 0.10",
-    "IWM": "iv_rank 16% (floor 22%)",
+    "IWM": "iv_rank 15% (floor 22%)",
     "XLE": "failed: pv: credit/width 0.06 < 0.10",
     "XLF": "failed: pv: credit/width 0.03 < 0.10",
     "XLV": "failed: pv: spread short 89%/long 106%",
-    "XLI": "failed: pv: spread short 47%/long 87%",
+    "XLI": "failed: pv: spread short 44%/long 83%",
     "SLV": "iv_rank 13% (floor 30%)",
-    "TSLA": "iv_rank 29% (floor 30%)"
+    "TSLA": "iv_rank 28% (floor 30%)"
   }
 }
