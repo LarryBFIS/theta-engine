@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-21T13:50:04.454156+00:00",
-  "market_view": "VIX 14.9, tech +1.4% leading with QQQ ripping \u2014 low-vol theta grind regime favors short premium but SLV metals weakness is accelerating. No new catalysts, same structural issues as last cycle persist.",
+  "last_run": "2026-09-21T13:56:25.200941+00:00",
+  "market_view": "VIX 14.9, tech ripping with QQQ +1.5% and XLK +1.46% \u2014 low-vol grind regime favors short premium but metals (SLV) continuing to bleed with no bid. Same structural problems from last cycle remain unresolved with zero new catalysts.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-21T13:49:47Z",
-    "reasoning": "SLV at $59.99 is through BOTH strikes with worst-cost $0.70 = 1.27x credit; the 1.5x stop trigger is $0.825 and this ITM spread has zero recovery path with 100 DTE of bleed ahead. This alert has fired multiple cycles with no action \u2014 position must close NOW."
+    "timestamp": "2026-09-21T13:56:08Z",
+    "reasoning": "SLV at $59.85 is through BOTH strikes, worst-cost $0.75 = 1.36x credit and approaching the 1.5x stop at $0.825 \u2014 this spread is fully ITM with 100 DTE of continued bleed ahead and zero recovery path. This alert has fired multiple cycles with no action taken; every minute of inaction increases realized loss."
   },
   "QQQ 678/670p": {
     "action": "ACTION",
-    "confidence": 0.92,
-    "timestamp": "2026-09-21T13:49:47Z",
-    "reasoning": "QQQ ripping +1.36% today to $731.27, mid now $0.56 vs $0.97 entry = 42% profit and closing fast on the 50% target at $0.485; with tech momentum sustained intraday this will print the target within the hour."
+    "confidence": 0.93,
+    "timestamp": "2026-09-21T13:56:08Z",
+    "reasoning": "QQQ ripping +1.5% to $732.24, mid now $0.55 vs $0.97 entry = 43% profit, one tick from the 50% target at $0.485 \u2014 tech momentum is sustained and this will print the target imminently."
   },
   "SPY 722/731p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-21T13:49:47Z",
-    "reasoning": "This entered as a net-debit (-$0.93 credit) long put vertical \u2014 structurally impossible to profit as a short-premium trade with SPY at $767 and both strikes 6%+ OTM; it is burning $993 BPR for 31 DTE with theta working against it every single day."
+    "timestamp": "2026-09-21T13:56:08Z",
+    "reasoning": "This position entered at a net debit (-$0.93) meaning it is a long put vertical, not a short-premium trade \u2014 it structurally cannot profit as theta decays value daily with SPY at $767 and both strikes 6%+ OTM, burning $993 BPR for 31 DTE with max loss risk. This is a misbooked trade eating capital with no edge."
   }
 }
