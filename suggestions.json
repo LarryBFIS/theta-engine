@@ -49603,6 +49603,80 @@
       "alternative": null,
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20260921T093200_trade_031_slv_61_60",
+      "trade_id": "trade_031_slv_61_60",
+      "timestamp": "2026-09-21T09:32:00.896712-04:00",
+      "action": "URGENT_CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\u26a0\ufe0f SLV @ $60.05 is BELOW short strike $62 (ITM).",
+        "Max loss exposure increasing. Current close: $0.60 mid / $0.75 worst.",
+        "100 DTE remaining; negative delta hurts daily."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.5999999999999996,
+        "cost_to_close_worst": 0.75,
+        "profit_if_closed_mid": -4.99999999999996,
+        "profit_if_closed_worst": -19.999999999999996,
+        "pct_max_profit_captured_mid": -0.09090909090909018,
+        "dte": 100,
+        "underlying_price": 60.04999923706055,
+        "short_strike_breached": true,
+        "has_live_quotes": true,
+        "net_liq": 7259.73,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold and hope. Risk: up to $45 max loss (currently $5 unrealized).",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20260921T093201_trade_038_qqq_678_670",
+      "trade_id": "trade_038_qqq_678_670",
+      "timestamp": "2026-09-21T09:32:01.352186-04:00",
+      "action": "PROTECT_PROFITS",
+      "urgency": "normal",
+      "reasoning": [
+        "captured 44% in 4d \u2014 front-loaded, little left to squeeze"
+      ],
+      "metrics_snapshot": {
+        "pct_captured": 0.44329896907216537,
+        "dte": 31,
+        "short_strike_breached": false
+      },
+      "alternative": null,
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20260921T093201_trade_039_spy_722_731",
+      "trade_id": "trade_039_spy_722_731",
+      "timestamp": "2026-09-21T09:32:01.745718-04:00",
+      "action": "CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\ud83d\udcc9 Unrealized loss is $26 \u2014 >1.5\u00d7 credit received.",
+        "Mechanical loss-cutting trigger to avoid the full $993 max loss.",
+        "Close cost: $-0.67 mid / $-0.64 worst."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": -0.665,
+        "cost_to_close_worst": -0.6400000000000001,
+        "profit_if_closed_mid": -26.5,
+        "profit_if_closed_worst": -28.999999999999993,
+        "pct_max_profit_captured_mid": 0.2849462365591398,
+        "dte": 31,
+        "underlying_price": 766.14501953125,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 7259.73,
+        "day_pnl": 0.0
+      },
+      "alternative": null,
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
