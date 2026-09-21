@@ -49677,6 +49677,62 @@
       "alternative": null,
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20260921T094241_trade_031_slv_61_60",
+      "trade_id": "trade_031_slv_61_60",
+      "timestamp": "2026-09-21T09:42:41.780939-04:00",
+      "action": "URGENT_CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\u26a0\ufe0f SLV @ $59.88 is BELOW short strike $62 (ITM).",
+        "Max loss exposure increasing. Current close: $0.60 mid / $0.75 worst.",
+        "100 DTE remaining; negative delta hurts daily."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.5999999999999996,
+        "cost_to_close_worst": 0.75,
+        "profit_if_closed_mid": -4.99999999999996,
+        "profit_if_closed_worst": -19.999999999999996,
+        "pct_max_profit_captured_mid": -0.09090909090909018,
+        "dte": 100,
+        "underlying_price": 59.8849983215332,
+        "short_strike_breached": true,
+        "has_live_quotes": true,
+        "net_liq": 7272.66,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold and hope. Risk: up to $45 max loss (currently $5 unrealized).",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20260921T094242_trade_039_spy_722_731",
+      "trade_id": "trade_039_spy_722_731",
+      "timestamp": "2026-09-21T09:42:42.251366-04:00",
+      "action": "CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\ud83d\udcc9 Unrealized loss is $27 \u2014 >1.5\u00d7 credit received.",
+        "Mechanical loss-cutting trigger to avoid the full $993 max loss.",
+        "Close cost: $-0.66 mid / $-0.63 worst."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": -0.6550000000000002,
+        "cost_to_close_worst": -0.6299999999999999,
+        "profit_if_closed_mid": -27.49999999999998,
+        "profit_if_closed_worst": -30.000000000000014,
+        "pct_max_profit_captured_mid": 0.2956989247311826,
+        "dte": 31,
+        "underlying_price": 766.530029296875,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 7272.66,
+        "day_pnl": 0.0
+      },
+      "alternative": null,
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
