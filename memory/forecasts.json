@@ -673,7 +673,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Regime is normal with a +12% day (strong rally); VIX at 17.8 is comfortably low. This is a GOOD tape for selling premium\u2014the market is bid and vol is not cheap, reducing the tail risk of a sharp reversal into short options. Timing favors index/broad short-premium here.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-21",
+      "actual_price": 766.55,
+      "realized_move_pct": 0.0105,
+      "realized_move_signed": 0.0105,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "995b78f56087",
@@ -688,7 +694,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Regime is normal with a +12% day (strong rally); VIX at 17.8 is comfortably low. This is a GOOD tape for selling premium\u2014the market is bid and vol is not cheap, reducing the tail risk of a sharp reversal into short options. Timing favors index/broad short-premium here.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-21",
+      "actual_price": 728.37,
+      "realized_move_pct": 0.0372,
+      "realized_move_signed": 0.0372,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "32a1c18fc21f",
@@ -703,7 +715,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Regime is normal with a +12% day (strong rally); VIX at 17.8 is comfortably low. This is a GOOD tape for selling premium\u2014the market is bid and vol is not cheap, reducing the tail risk of a sharp reversal into short options. Timing favors index/broad short-premium here.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-21",
+      "actual_price": 286.17,
+      "realized_move_pct": 0.0036,
+      "realized_move_signed": -0.0036,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "3dcfaf867946",
@@ -718,7 +736,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Regime is normal with a +12% day (strong rally); VIX at 17.8 is comfortably low. This is a GOOD tape for selling premium\u2014the market is bid and vol is not cheap, reducing the tail risk of a sharp reversal into short options. Timing favors index/broad short-premium here.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-21",
+      "actual_price": 520.17,
+      "realized_move_pct": 0.0068,
+      "realized_move_signed": -0.0068,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "98f2a6dff47b",
@@ -1018,6 +1042,81 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Calm tape on a +1% day with VIX at 15.52 in a normal regime \u2014 drift is mildly up but implied vol is not compensating sellers. Chasing put sales in big-cap tech after an up day with middling IV is thin-edge beta-chasing, not premium harvesting.",
+      "resolved": false
+    },
+    {
+      "id": "5d94f42daa66",
+      "index": "SPY",
+      "forecast_date": "2026-09-21",
+      "target_date": "2026-09-28",
+      "horizon_days": 7,
+      "spot_at_forecast": 766.55,
+      "iv": 0.1492,
+      "implied_move_pct": 0.0207,
+      "implied_move_abs": 15.84,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Calm, directionless tape with VIX 14.88 and a flat day \u2014 no event risk ahead, so timing isn't dangerous, but implied vol is low, meaning thin compensation for short premium. This is a tape for selectivity, not for adding marginal premium.",
+      "resolved": false
+    },
+    {
+      "id": "eb43eda9f690",
+      "index": "QQQ",
+      "forecast_date": "2026-09-21",
+      "target_date": "2026-09-28",
+      "horizon_days": 7,
+      "spot_at_forecast": 728.37,
+      "iv": 0.1943,
+      "implied_move_pct": 0.0269,
+      "implied_move_abs": 19.6,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Calm, directionless tape with VIX 14.88 and a flat day \u2014 no event risk ahead, so timing isn't dangerous, but implied vol is low, meaning thin compensation for short premium. This is a tape for selectivity, not for adding marginal premium.",
+      "resolved": false
+    },
+    {
+      "id": "cf841c24f152",
+      "index": "IWM",
+      "forecast_date": "2026-09-21",
+      "target_date": "2026-09-28",
+      "horizon_days": 7,
+      "spot_at_forecast": 286.17,
+      "iv": 0.1918,
+      "implied_move_pct": 0.0266,
+      "implied_move_abs": 7.6,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Calm, directionless tape with VIX 14.88 and a flat day \u2014 no event risk ahead, so timing isn't dangerous, but implied vol is low, meaning thin compensation for short premium. This is a tape for selectivity, not for adding marginal premium.",
+      "resolved": false
+    },
+    {
+      "id": "7aa9913c59bf",
+      "index": "DIA",
+      "forecast_date": "2026-09-21",
+      "target_date": "2026-09-28",
+      "horizon_days": 7,
+      "spot_at_forecast": 520.17,
+      "iv": 0.1449,
+      "implied_move_pct": 0.0201,
+      "implied_move_abs": 10.44,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Calm, directionless tape with VIX 14.88 and a flat day \u2014 no event risk ahead, so timing isn't dangerous, but implied vol is low, meaning thin compensation for short premium. This is a tape for selectivity, not for adding marginal premium.",
+      "resolved": false
+    },
+    {
+      "id": "2dbd7f0bf08d",
+      "index": "TSLA",
+      "forecast_date": "2026-09-21",
+      "target_date": "2026-09-28",
+      "horizon_days": 7,
+      "spot_at_forecast": 369.58,
+      "iv": 0.4572,
+      "implied_move_pct": 0.0633,
+      "implied_move_abs": 23.4,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Calm, directionless tape with VIX 14.88 and a flat day \u2014 no event risk ahead, so timing isn't dangerous, but implied vol is low, meaning thin compensation for short premium. This is a tape for selectivity, not for adding marginal premium.",
       "resolved": false
     }
   ]
