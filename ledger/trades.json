@@ -2492,14 +2492,34 @@
           "executed_at": "2026-09-17T18:47:34.548Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": 45.74,
-      "cost_to_close_mid": 49.0,
+      "close_orders": [
+        "507356791"
+      ],
+      "close_net_cash": -49.25,
+      "close_legs": [
+        {
+          "symbol": "QQQ   261023P00678000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 2.74,
+          "net_cash": -274.12,
+          "fees": 0.12,
+          "executed_at": "2026-09-21T15:03:39.469Z"
+        },
+        {
+          "symbol": "QQQ   261023P00670000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 2.25,
+          "net_cash": 224.87,
+          "fees": 0.13,
+          "executed_at": "2026-09-21T15:03:39.469Z"
+        }
+      ],
+      "closed_at": "2026-09-21",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": 45.49,
       "structure": "short_put_vertical",
       "short_strike": 678.0,
       "long_strike": 670.0,
@@ -2509,7 +2529,8 @@
       "width": 8.0,
       "max_profit_total": 97.0,
       "max_loss_total": 703.0,
-      "bpr_total": 703.0
+      "bpr_total": 703.0,
+      "close_debit_per_contract": 0.49
     },
     {
       "id": "ledger_040_spy",
@@ -2543,8 +2564,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -38.75,
-      "cost_to_close_mid": -56.5,
+      "unrealized_pnl": -40.25,
+      "cost_to_close_mid": -55.0,
       "structure": "short_put_vertical",
       "short_strike": 722.0,
       "long_strike": 731.0,
