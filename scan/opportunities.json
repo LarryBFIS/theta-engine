@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T18:27:00.953453+00:00",
+  "generated_at": "2026-09-22T18:28:42.309075+00:00",
   "regime": {
     "vix": 14.3,
     "vix_day_change_pct": -0.0383,
@@ -42,15 +42,15 @@
       "fees_est": 3.0,
       "bpr": 884.0,
       "max_loss": 884.0,
-      "pop": 0.765,
-      "put_short_delta": 0.109,
-      "call_short_delta": 0.127,
+      "pop": 0.764,
+      "put_short_delta": 0.11,
+      "call_short_delta": 0.126,
       "credit_to_bpr": 0.131,
       "ev_per_contract": 0.36,
       "ev_on_bpr": 0.0004,
       "iv": 0.2014,
       "iv_rank": 0.376,
-      "underlying_price": 746.81,
+      "underlying_price": 746.64,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -68,7 +68,7 @@
       ],
       "rank_score": 0.000219,
       "agent_action": "guarded",
-      "agent_reason": "Asset class is single_name (HistoricalWR 28% << 40%); cluster is us_tech (neg expectancy); EV on BPR is near-zero (0.0004); and IV rank 0.38 is cheap. Margin of safety is insufficient and tape timing is poor.",
+      "agent_reason": "Single-name cluster (us_tech) has negative realized edge (28% wr < 40% baseline); already 1 open QQQ position; IV rank 0.376 is cheap, not rich; ev_on_bpr 0.0004 is marginal; poorly timed entry after -4% down day into low-vol tape.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -76,7 +76,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7271.019,
+      "net_liq": 7270.132,
       "ticket": {
         "underlying": "QQQ",
         "code": "IC",
@@ -117,7 +117,7 @@
         "credit_total": 116.0,
         "max_loss_total": 884.0,
         "bpr_total": 884.0,
-        "pop": 0.765,
+        "pop": 0.764,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -126,12 +126,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 727.1,
+        "live_cap": 727.01,
         "suggested_width": 8,
         "fit_note": "\u26a0 max loss $884 > 10% live cap ($727) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ IC \u00d71 \u2014 SELL 696P / BUY 687P / SELL 800C / BUY 810C (2026-10-23) @ $1.16 net credit. Max loss $884. After fill: GTC buy-to-close @ $0.58 (50%). \u26a0 max loss $884 > 10% live cap ($727) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-22T18:27:00.953453+00:00"
+      "posted_at": "2026-09-22T18:28:42.309075+00:00"
     }
   ],
   "long_vol": [],
@@ -198,10 +198,10 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-09-22T18:27:00.646760+00:00",
+    "generated_at": "2026-09-22T18:28:41.998828+00:00",
     "model": "claude-haiku-4-5",
-    "market_view": "Calm regime, -4% down day, VIX 14.3\u2014tape is pulling back but not panicked. Short premium is fairly timed here (not into a rip or crash), but low vol rank (0.26\u20130.38) means IV is not rich; we're selling into a dip, not a spike.",
-    "portfolio_note": "Book is small (4 open, -$72 unrealized). Already have 2 us_index + 1 us_tech; adding either candidate would cluster us further. No macro events pending.",
+    "market_view": "Calm regime with VIX 14.27 and -4% daily move; soft tape favors premium selling but timing is neutral-to-slightly-defensive after a down day. No macro events, so event risk is low.",
+    "portfolio_note": "Book is -$72 unrealized across 4 open (energy 1, us_index 2, us_tech 1). Adding to us_index or us_tech increases cluster concentration and correlated loss risk.",
     "vol_verdict": "implied_rich",
     "reviewed": 2,
     "vetoed": 2,
@@ -210,12 +210,12 @@
       {
         "id": "DIA|short_call_vertical|537/543",
         "action": "veto",
-        "reason": "us_index cluster already at 2/3 cap; DIA would be third index position. IV rank 0.26 is cheap\u2014timing to sell calls into a calm -4% day with low vol is poor; wait for a rip or vol spike to harvest premium."
+        "reason": "us_index cluster already at 2/3 cap; adding a 3rd would concentrate correlated directional risk into an index after a -4% day; IV rank 0.26 is cheap, not rich\u2014poor timing to sell premium into low-vol environment."
       },
       {
         "id": "QQQ|iron_condor|696/800",
         "action": "veto",
-        "reason": "Asset class is single_name (HistoricalWR 28% << 40%); cluster is us_tech (neg expectancy); EV on BPR is near-zero (0.0004); and IV rank 0.38 is cheap. Margin of safety is insufficient and tape timing is poor."
+        "reason": "Single-name cluster (us_tech) has negative realized edge (28% wr < 40% baseline); already 1 open QQQ position; IV rank 0.376 is cheap, not rich; ev_on_bpr 0.0004 is marginal; poorly timed entry after -4% down day into low-vol tape."
       }
     ]
   },
@@ -235,15 +235,15 @@
       "fees_est": 3.0,
       "bpr": 535.0,
       "max_loss": 535.0,
-      "pop": 0.802,
-      "short_delta": 0.21,
-      "short_spread_pct": 0.1,
+      "pop": 0.803,
+      "short_delta": 0.209,
+      "short_spread_pct": 0.095,
       "credit_to_bpr": 0.121,
-      "ev_per_contract": 3.81,
-      "ev_on_bpr": 0.0071,
+      "ev_per_contract": 3.94,
+      "ev_on_bpr": 0.0074,
       "iv": 0.1483,
       "iv_rank": 0.26,
-      "underlying_price": 518.11,
+      "underlying_price": 518.03,
       "liquidity": 3,
       "earnings_date": null,
       "tag": "paper",
@@ -259,9 +259,9 @@
         "asset_class=index_etf \u00d71.41",
         "cluster=us_index \u00d71.50"
       ],
-      "rank_score": 0.01136,
+      "rank_score": 0.01184,
       "agent_action": "veto",
-      "agent_reason": "us_index cluster already at 2/3 cap; DIA would be third index position. IV rank 0.26 is cheap\u2014timing to sell calls into a calm -4% day with low vol is poor; wait for a rip or vol spike to harvest premium."
+      "agent_reason": "us_index cluster already at 2/3 cap; adding a 3rd would concentrate correlated directional risk into an index after a -4% day; IV rank 0.26 is cheap, not rich\u2014poor timing to sell premium into low-vol environment."
     },
     {
       "underlying": "QQQ",
@@ -287,15 +287,15 @@
       "fees_est": 3.0,
       "bpr": 884.0,
       "max_loss": 884.0,
-      "pop": 0.765,
-      "put_short_delta": 0.109,
-      "call_short_delta": 0.127,
+      "pop": 0.764,
+      "put_short_delta": 0.11,
+      "call_short_delta": 0.126,
       "credit_to_bpr": 0.131,
       "ev_per_contract": 0.36,
       "ev_on_bpr": 0.0004,
       "iv": 0.2014,
       "iv_rank": 0.376,
-      "underlying_price": 746.81,
+      "underlying_price": 746.64,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -313,7 +313,7 @@
       ],
       "rank_score": 0.000219,
       "agent_action": "guarded",
-      "agent_reason": "Asset class is single_name (HistoricalWR 28% << 40%); cluster is us_tech (neg expectancy); EV on BPR is near-zero (0.0004); and IV rank 0.38 is cheap. Margin of safety is insufficient and tape timing is poor.",
+      "agent_reason": "Single-name cluster (us_tech) has negative realized edge (28% wr < 40% baseline); already 1 open QQQ position; IV rank 0.376 is cheap, not rich; ev_on_bpr 0.0004 is marginal; poorly timed entry after -4% down day into low-vol tape.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -321,7 +321,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7271.019,
+      "net_liq": 7270.132,
       "ticket": {
         "underlying": "QQQ",
         "code": "IC",
@@ -362,7 +362,7 @@
         "credit_total": 116.0,
         "max_loss_total": 884.0,
         "bpr_total": 884.0,
-        "pop": 0.765,
+        "pop": 0.764,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -371,12 +371,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 727.1,
+        "live_cap": 727.01,
         "suggested_width": 8,
         "fit_note": "\u26a0 max loss $884 > 10% live cap ($727) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ IC \u00d71 \u2014 SELL 696P / BUY 687P / SELL 800C / BUY 810C (2026-10-23) @ $1.16 net credit. Max loss $884. After fill: GTC buy-to-close @ $0.58 (50%). \u26a0 max loss $884 > 10% live cap ($727) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-22T18:27:00.953453+00:00"
+      "posted_at": "2026-09-22T18:28:42.309075+00:00"
     }
   ],
   "skipped": {
@@ -386,7 +386,7 @@
     "XLF": "failed: pv: credit/width 0.03 < 0.10",
     "XLV": "failed: pv: spread short 45%/long 180%",
     "XLI": "failed: pv: spread short 34%/long 73%",
-    "SLV": "iv_rank 9% (floor 30%)",
-    "TSLA": "iv_rank 24% (floor 30%)"
+    "SLV": "iv_rank 12% (floor 30%)",
+    "TSLA": "iv_rank 25% (floor 30%)"
   }
 }
