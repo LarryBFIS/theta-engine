@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-22T12:55:56.066069+00:00",
+  "generated_at": "2026-09-22T13:23:25.029497+00:00",
   "regime": {
-    "vix": 14.68,
-    "vix_day_change_pct": -0.0128,
+    "vix": 14.63,
+    "vix_day_change_pct": -0.0161,
     "level": "calm",
     "stand_down": false,
-    "note": "calm regime (-1% day)"
+    "note": "calm regime (-2% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -43,14 +43,14 @@
       "bpr": 891.0,
       "max_loss": 891.0,
       "pop": 0.767,
-      "put_short_delta": 0.108,
-      "call_short_delta": 0.126,
+      "put_short_delta": 0.107,
+      "call_short_delta": 0.127,
       "credit_to_bpr": 0.122,
-      "ev_per_contract": 0.6,
+      "ev_per_contract": 0.61,
       "ev_on_bpr": 0.0007,
       "iv": 0.206,
       "iv_rank": 0.398,
-      "underlying_price": 740.75,
+      "underlying_price": 740.95,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -68,7 +68,7 @@
       ],
       "rank_score": 0.000384,
       "agent_action": "guarded",
-      "agent_reason": "Duplicates an already-open QQQ name in the us_tech cluster (negative realized expectancy, 31% win rate) with near-zero EV on BPR (0.0007) and thin premium in a sub-15 VIX tape \u2014 correlated, uncompensated risk.",
+      "agent_reason": "QQQ already has an open position (name cap 1) and us_tech is an AVOID cluster with negative realized expectancy in our book; EV-on-BPR ~0 with sub-15 VIX means near-zero edge for $891 of risk.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -76,7 +76,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7288.483,
+      "net_liq": 7294.328,
       "ticket": {
         "underlying": "QQQ",
         "code": "IC",
@@ -126,12 +126,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 728.85,
+        "live_cap": 729.43,
         "suggested_width": 8,
         "fit_note": "\u26a0 max loss $891 > 10% live cap ($729) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ IC \u00d71 \u2014 SELL 689P / BUY 680P / SELL 795C / BUY 805C (2026-10-23) @ $1.09 net credit. Max loss $891. After fill: GTC buy-to-close @ $0.55 (50%). \u26a0 max loss $891 > 10% live cap ($729) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-22T12:55:56.066069+00:00"
+      "posted_at": "2026-09-22T13:23:25.029497+00:00"
     }
   ],
   "long_vol": [],
@@ -198,10 +198,10 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-09-22T12:55:55.862116+00:00",
+    "generated_at": "2026-09-22T13:23:24.836084+00:00",
     "model": "kimi-k3",
-    "market_view": "Calm tape with VIX 14.68 after a -1% day and no scheduled macro events \u2014 directionally neutral but implied premium is thin at these levels, so short-vol trades are poorly compensated right now. Timing is acceptable for adding only high-quality index premium, not marginal structures.",
-    "portfolio_note": "Book holds 4 positions with small unrealized loss, already including 1 QQQ \u2014 adding another QQQ doubles exposure to the us_tech cluster, which has negative realized expectancy in our own book. Concentration, not diversification.",
+    "market_view": "The 'calm' label masks a -2% down day with VIX pinned at 14.6 \u2014 implied vol is low while the tape drifts lower, so short-premium compensation is thin with asymmetric risk if vol mean-reverts. Poor moment to add neutral short-vol in the tech cluster that typically leads a downside move.",
+    "portfolio_note": "Four open positions with a small unrealized loss; the QQQ/us_tech slot is already filled, so this condor doubles correlated tech exposure rather than diversifying the book.",
     "vol_verdict": "implied_cheap",
     "reviewed": 1,
     "vetoed": 1,
@@ -210,7 +210,7 @@
       {
         "id": "QQQ|iron_condor|689/795",
         "action": "veto",
-        "reason": "Duplicates an already-open QQQ name in the us_tech cluster (negative realized expectancy, 31% win rate) with near-zero EV on BPR (0.0007) and thin premium in a sub-15 VIX tape \u2014 correlated, uncompensated risk."
+        "reason": "QQQ already has an open position (name cap 1) and us_tech is an AVOID cluster with negative realized expectancy in our book; EV-on-BPR ~0 with sub-15 VIX means near-zero edge for $891 of risk."
       }
     ]
   },
@@ -240,14 +240,14 @@
       "bpr": 891.0,
       "max_loss": 891.0,
       "pop": 0.767,
-      "put_short_delta": 0.108,
-      "call_short_delta": 0.126,
+      "put_short_delta": 0.107,
+      "call_short_delta": 0.127,
       "credit_to_bpr": 0.122,
-      "ev_per_contract": 0.6,
+      "ev_per_contract": 0.61,
       "ev_on_bpr": 0.0007,
       "iv": 0.206,
       "iv_rank": 0.398,
-      "underlying_price": 740.75,
+      "underlying_price": 740.95,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -265,7 +265,7 @@
       ],
       "rank_score": 0.000384,
       "agent_action": "guarded",
-      "agent_reason": "Duplicates an already-open QQQ name in the us_tech cluster (negative realized expectancy, 31% win rate) with near-zero EV on BPR (0.0007) and thin premium in a sub-15 VIX tape \u2014 correlated, uncompensated risk.",
+      "agent_reason": "QQQ already has an open position (name cap 1) and us_tech is an AVOID cluster with negative realized expectancy in our book; EV-on-BPR ~0 with sub-15 VIX means near-zero edge for $891 of risk.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -273,7 +273,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7288.483,
+      "net_liq": 7294.328,
       "ticket": {
         "underlying": "QQQ",
         "code": "IC",
@@ -323,18 +323,18 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 728.85,
+        "live_cap": 729.43,
         "suggested_width": 8,
         "fit_note": "\u26a0 max loss $891 > 10% live cap ($729) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ IC \u00d71 \u2014 SELL 689P / BUY 680P / SELL 795C / BUY 805C (2026-10-23) @ $1.09 net credit. Max loss $891. After fill: GTC buy-to-close @ $0.55 (50%). \u26a0 max loss $891 > 10% live cap ($729) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-22T12:55:56.066069+00:00"
+      "posted_at": "2026-09-22T13:23:25.029497+00:00"
     }
   ],
   "skipped": {
     "SPY": "failed: pv: credit/width 0.10 < 0.10",
     "IWM": "iv_rank 15% (floor 22%)",
-    "DIA": "failed: pv: credit/width 0.07 < 0.10",
+    "DIA": "failed: pv: credit/width 0.08 < 0.10",
     "XLE": "failed: pv: spread short 56%/long 187%",
     "XLF": "failed: pv: spread short 157%/long 186%",
     "XLV": "failed: pv: no/invalid leg quote",
