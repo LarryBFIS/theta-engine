@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-22T17:17:18.704560+00:00",
-  "market_view": "VIX at 14.25 down another 4.2% intraday with a brutal -15.73% 5-day crush \u2014 pure low-vol grind higher with XLF weakness the only wrinkle. SLV continues to languish below the breached 61.5 strike with no recovery catalyst.",
+  "last_run": "2026-09-22T17:19:20.513093+00:00",
+  "market_view": "VIX down another 4% today at 14.25, -15.7% on the week \u2014 IV crush regime firmly in place with SPY flat and QQQ/IWM grinding higher. No reversal catalyst in sight, which is bad for the SLV breached short and irrelevant to the SPY debit vertical.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-22T17:17:04.734605+00:00",
-    "reasoning": "Short strike 61.5 remains breached with SLV at $59.73 \u2014 worst-case cost $0.75 is 1.36x the $0.55 credit and approaching the 1.5x stop; position has shown zero recovery across every cycle today with no bullish SLV catalyst and 99 DTE means no theta bail-out coming."
+    "timestamp": "2026-09-22T17:19:06.117429+00:00",
+    "reasoning": "Short strike 61.5 remains breached with SLV at $59.69 \u2014 this was flagged CRITICAL last cycle and nothing has changed; mid at $0.60 is 1.09x credit with worst-case $0.75 at 1.36x, and position has shown zero recovery across all cycles today."
   },
   "SPY 722/731p": {
     "action": "ACTION",
     "confidence": 0.95,
-    "timestamp": "2026-09-22T17:17:04.734605+00:00",
-    "reasoning": "This is a net-debit long put vertical opened for -$0.93 that is now recovering at -$0.435 mid \u2014 this is a losing structure with inverted strikes (722 short below 731 long on puts = this is a short put vertical that was entered as a debit, which is structurally broken) and SPY at $773 is 6.6% above the short strike with VIX crushed, making further recovery toward max loss the dominant path."
+    "timestamp": "2026-09-22T17:19:06.117429+00:00",
+    "reasoning": "This is a net-debit long put vertical opened at -$0.93 and now marked at -$0.435 mid \u2014 recovered ~53% of debit paid, crossing the 50% manage threshold; with SPY at $773 and VIX crushed, there is no path to profitability and holding bleeds further."
   }
 }
