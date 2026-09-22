@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-22T16:47:01.356949+00:00",
-  "market_view": "VIX at 14.26 down 4.1% on the day, -15.67% on the week \u2014 deep IV crush regime with no volatility catalyst in sight. Markets grinding higher with QQQ/IWM leading; SLV remains pinned well below the breached short strike.",
+  "last_run": "2026-09-22T16:55:04.880941+00:00",
+  "market_view": "VIX at 14.26 down 4.1% intraday and -15.67% on the week \u2014 sustained IV crush with no reversal catalyst. Markets broadly bid, SLV still pinned below the breached 61.5 strike with no recovery in sight.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-22T16:46:48.854919+00:00",
-    "reasoning": "Short strike 61.5 breached with SLV at $59.49 \u2014 position is at max loss territory, worst-case $0.75 is 1.36x the $0.55 credit and mid at $0.60 is already a 9% loss on max profit; CRITICAL flag has persisted multiple cycles with zero recovery and no catalyst to reverse."
+    "timestamp": "2026-09-22T16:54:54.586227+00:00",
+    "reasoning": "Short strike 61.5 remains breached with SLV at $59.69 \u2014 mid at $0.60 is 1.09x credit and worst-case $0.75 is 1.36x credit, triggering the 1.5x stop; position has shown zero recovery across multiple cycles with no bullish SLV catalyst present."
   },
   "SPY 722/731p": {
     "action": "ACTION",
     "confidence": 0.95,
-    "timestamp": "2026-09-22T16:46:48.854919+00:00",
-    "reasoning": "This is a net-debit long put vertical opened for -$0.93 now marked at -$0.435 mid \u2014 recovered ~53% of debit paid, crossing the 50% manage threshold; SPY at $773 is 6.6% above the 722 short strike with VIX crushed and no downside catalyst, this position has no path to profit."
+    "timestamp": "2026-09-22T16:54:54.586227+00:00",
+    "reasoning": "This net-debit long put vertical was opened for -$0.93 credit and is now marked at -$0.43 mid, recovering ~54% of debit paid and crossing the 50% manage threshold; SPY at $773 is 6.7% above the short strike with VIX crushed and no downside catalyst to drive this into profit."
   }
 }
