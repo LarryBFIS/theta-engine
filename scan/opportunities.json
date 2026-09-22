@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-22T16:50:11.506420+00:00",
+  "generated_at": "2026-09-22T17:18:32.404951+00:00",
   "regime": {
-    "vix": 14.25,
-    "vix_day_change_pct": -0.0417,
+    "vix": 14.27,
+    "vix_day_change_pct": -0.0403,
     "level": "calm",
     "stand_down": false,
     "note": "calm regime (-4% day)"
@@ -19,6 +19,96 @@
   },
   "top": [
     {
+      "underlying": "DIA",
+      "structure": "short_call_vertical",
+      "expiry": "2026-10-23",
+      "dte": 31,
+      "short_strike": 536.0,
+      "long_strike": 542.0,
+      "short_symbol": "DIA   261023C00536000",
+      "long_symbol": "DIA   261023C00542000",
+      "width": 6.0,
+      "credit": 0.66,
+      "mid_credit": 0.84,
+      "fees_est": 3.0,
+      "bpr": 534.0,
+      "max_loss": 534.0,
+      "pop": 0.805,
+      "short_delta": 0.207,
+      "short_spread_pct": 0.096,
+      "credit_to_bpr": 0.124,
+      "ev_per_contract": 4.23,
+      "ev_on_bpr": 0.0079,
+      "iv": 0.1458,
+      "iv_rank": 0.254,
+      "underlying_price": 517.26,
+      "liquidity": 3,
+      "earnings_date": null,
+      "tag": "paper",
+      "sized_for": "live",
+      "contracts": 1,
+      "max_loss_total": 534.0,
+      "bpr_total": 534.0,
+      "trend": "bearish",
+      "sized_capped": true,
+      "reasoning": "short call vertical 536/542c \u00d71 \u2014 bearish lean. Edge: IV rank 25%, EV $+4/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.66 \u00b7 max loss $534 \u00b7 BPR $534 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 1.6,
+      "learn_notes": [
+        "asset_class=index_etf \u00d71.41",
+        "cluster=us_index \u00d71.50"
+      ],
+      "rank_score": 0.01264,
+      "agent_action": "approve",
+      "agent_reason": "Index ETF, short-call vertical (favorable structure), us_index cluster capped at 2 (not breached). Selling calls into a -4% day is well-timed; DIA is already held, adding a call spread does not increase directional bet. Approve 1 contract.",
+      "agent_reviewed": true,
+      "news_risk": {
+        "level": "clear",
+        "hits": []
+      },
+      "net_liq": 7265.762,
+      "ticket": {
+        "underlying": "DIA",
+        "code": "VC",
+        "order_type": "Net Credit",
+        "limit": 0.66,
+        "contracts": 1,
+        "expiry": "2026-10-23",
+        "legs": [
+          {
+            "action": "SELL",
+            "qty": 1,
+            "expiry": "2026-10-23",
+            "strike": 536.0,
+            "type": "C"
+          },
+          {
+            "action": "BUY",
+            "qty": 1,
+            "expiry": "2026-10-23",
+            "strike": 542.0,
+            "type": "C"
+          }
+        ],
+        "credit_total": 66.0,
+        "max_loss_total": 534.0,
+        "bpr_total": 534.0,
+        "pop": 0.805,
+        "tag": "paper",
+        "manage": {
+          "profit_target_pct": 50,
+          "close_debit": 0.33,
+          "stop_debit": 1.65,
+          "exit_dte": 21
+        },
+        "fits_live_cap": true,
+        "live_cap": 726.58,
+        "suggested_width": null,
+        "fit_note": "",
+        "text": "DIA VC \u00d71 \u2014 SELL 536C / BUY 542C (2026-10-23) @ $0.66 net credit. Max loss $534. After fill: GTC buy-to-close @ $0.33 (50%)."
+      },
+      "posted_at": "2026-09-22T17:18:32.404951+00:00"
+    },
+    {
       "underlying": "QQQ",
       "structure": "short_put_vertical",
       "expiry": "2026-10-23",
@@ -29,19 +119,19 @@
       "long_symbol": "QQQ   261023P00699000",
       "width": 9.0,
       "credit": 0.95,
-      "mid_credit": 1.0,
+      "mid_credit": 0.99,
       "fees_est": 3.0,
       "bpr": 805.0,
       "max_loss": 805.0,
-      "pop": 0.8,
-      "short_delta": 0.184,
-      "short_spread_pct": 0.011,
+      "pop": 0.801,
+      "short_delta": 0.183,
+      "short_spread_pct": 0.009,
       "credit_to_bpr": 0.118,
-      "ev_per_contract": 6.53,
-      "ev_on_bpr": 0.0081,
-      "iv": 0.2005,
-      "iv_rank": 0.373,
-      "underlying_price": 744.99,
+      "ev_per_contract": 6.63,
+      "ev_on_bpr": 0.0082,
+      "iv": 0.2013,
+      "iv_rank": 0.378,
+      "underlying_price": 745.22,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -51,16 +141,16 @@
       "bpr_total": 805.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short put vertical 708/699p \u00d71 \u2014 bullish lean. Edge: IV rank 37%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.95 \u00b7 max loss $805 \u00b7 BPR $805 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short put vertical 708/699p \u00d71 \u2014 bullish lean. Edge: IV rank 38%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.95 \u00b7 max loss $805 \u00b7 BPR $805 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.678,
       "learn_notes": [
         "asset_class=single_name \u00d70.70",
         "cluster=us_tech \u00d70.79",
         "structure=short_put_vertical \u00d71.24"
       ],
-      "rank_score": 0.005492,
+      "rank_score": 0.00556,
       "agent_action": "guarded",
-      "agent_reason": "Veto: us_tech/single_name is on the engine's AVOID list (28-31% win rate), QQQ is already open in the book (correlated doubling, at the per-name cap), IV rank 0.373 with VIX 14.25 is not rich premium, and selling a put vertical into a -4% d",
+      "agent_reason": "Single-name QQQ is flagged (31% win rate, cluster neg expectancy); us_tech is already 1 open; tape is weak (dip risk), and selling puts intra-day downside is poorly timed despite acceptable caps. Veto to reduce concentration and avoid corre",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -68,7 +158,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7262.312,
+      "net_liq": 7265.762,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
@@ -95,7 +185,7 @@
         "credit_total": 95.0,
         "max_loss_total": 805.0,
         "bpr_total": 805.0,
-        "pop": 0.8,
+        "pop": 0.801,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -104,12 +194,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 726.23,
+        "live_cap": 726.58,
         "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $805 > 10% live cap ($726) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ VP \u00d71 \u2014 SELL 708P / BUY 699P (2026-10-23) @ $0.95 net credit. Max loss $805. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $805 > 10% live cap ($726) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $805 > 10% live cap ($727) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "QQQ VP \u00d71 \u2014 SELL 708P / BUY 699P (2026-10-23) @ $0.95 net credit. Max loss $805. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $805 > 10% live cap ($727) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-22T16:50:11.506420+00:00"
+      "posted_at": "2026-09-22T17:18:32.404951+00:00"
     }
   ],
   "long_vol": [],
@@ -176,23 +266,118 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-09-22T16:50:11.253247+00:00",
-    "model": "kimi-k3",
-    "market_view": "The tape just printed a -4% day while VIX sits at 14.25 in a 'calm' label \u2014 that mismatch reads like a regime breaking, not a calm tape, and low implied vol means put sellers are being paid thin premium to catch a falling knife. Selling downside put spreads on tech into an accelerating sell-off is exactly the poorly-timed trade the mandate warns against.",
-    "portfolio_note": "The book already holds one QQQ position plus two us_index positions, so equity-downside exposure is concentrated and this candidate would stack a second correlated short-delta tech bet on top of it. With unrealized PnL already slightly negative, the right move is to reduce correlated risk, not add to it.",
-    "vol_verdict": "implied_cheap",
-    "reviewed": 1,
+    "generated_at": "2026-09-22T17:18:31.928267+00:00",
+    "model": "claude-haiku-4-5",
+    "market_view": "Calm regime, VIX 14.27, down 4% intraday\u2014typical volatility crush conditions where premium selling is mechanically favorable. However, the tape is directionally weak; selling calls into a dip is reasonable, but selling puts into downward momentum requires conviction that the move is exhausted.",
+    "portfolio_note": "Book is small (4 open, -$60 unrealized). Cluster exposure is balanced (energy 1, us_index 2, us_tech 1); adding a second us_tech position would concentrate risk in a sector with demonstrated negative realized expectancy (31% win rate).",
+    "vol_verdict": "implied_rich",
+    "reviewed": 2,
     "vetoed": 1,
     "downsized": 0,
     "decisions": [
       {
+        "id": "DIA|short_call_vertical|536/542",
+        "action": "approve",
+        "reason": "Index ETF, short-call vertical (favorable structure), us_index cluster capped at 2 (not breached). Selling calls into a -4% day is well-timed; DIA is already held, adding a call spread does not increase directional bet. Approve 1 contract."
+      },
+      {
         "id": "QQQ|short_put_vertical|708/699",
         "action": "veto",
-        "reason": "Veto: us_tech/single_name is on the engine's AVOID list (28-31% win rate), QQQ is already open in the book (correlated doubling, at the per-name cap), IV rank 0.373 with VIX 14.25 is not rich premium, and selling a put vertical into a -4% d"
+        "reason": "Single-name QQQ is flagged (31% win rate, cluster neg expectancy); us_tech is already 1 open; tape is weak (dip risk), and selling puts intra-day downside is poorly timed despite acceptable caps. Veto to reduce concentration and avoid corre"
       }
     ]
   },
   "all_candidates": [
+    {
+      "underlying": "DIA",
+      "structure": "short_call_vertical",
+      "expiry": "2026-10-23",
+      "dte": 31,
+      "short_strike": 536.0,
+      "long_strike": 542.0,
+      "short_symbol": "DIA   261023C00536000",
+      "long_symbol": "DIA   261023C00542000",
+      "width": 6.0,
+      "credit": 0.66,
+      "mid_credit": 0.84,
+      "fees_est": 3.0,
+      "bpr": 534.0,
+      "max_loss": 534.0,
+      "pop": 0.805,
+      "short_delta": 0.207,
+      "short_spread_pct": 0.096,
+      "credit_to_bpr": 0.124,
+      "ev_per_contract": 4.23,
+      "ev_on_bpr": 0.0079,
+      "iv": 0.1458,
+      "iv_rank": 0.254,
+      "underlying_price": 517.26,
+      "liquidity": 3,
+      "earnings_date": null,
+      "tag": "paper",
+      "sized_for": "live",
+      "contracts": 1,
+      "max_loss_total": 534.0,
+      "bpr_total": 534.0,
+      "trend": "bearish",
+      "sized_capped": true,
+      "reasoning": "short call vertical 536/542c \u00d71 \u2014 bearish lean. Edge: IV rank 25%, EV $+4/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.66 \u00b7 max loss $534 \u00b7 BPR $534 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 1.6,
+      "learn_notes": [
+        "asset_class=index_etf \u00d71.41",
+        "cluster=us_index \u00d71.50"
+      ],
+      "rank_score": 0.01264,
+      "agent_action": "approve",
+      "agent_reason": "Index ETF, short-call vertical (favorable structure), us_index cluster capped at 2 (not breached). Selling calls into a -4% day is well-timed; DIA is already held, adding a call spread does not increase directional bet. Approve 1 contract.",
+      "agent_reviewed": true,
+      "news_risk": {
+        "level": "clear",
+        "hits": []
+      },
+      "net_liq": 7265.762,
+      "ticket": {
+        "underlying": "DIA",
+        "code": "VC",
+        "order_type": "Net Credit",
+        "limit": 0.66,
+        "contracts": 1,
+        "expiry": "2026-10-23",
+        "legs": [
+          {
+            "action": "SELL",
+            "qty": 1,
+            "expiry": "2026-10-23",
+            "strike": 536.0,
+            "type": "C"
+          },
+          {
+            "action": "BUY",
+            "qty": 1,
+            "expiry": "2026-10-23",
+            "strike": 542.0,
+            "type": "C"
+          }
+        ],
+        "credit_total": 66.0,
+        "max_loss_total": 534.0,
+        "bpr_total": 534.0,
+        "pop": 0.805,
+        "tag": "paper",
+        "manage": {
+          "profit_target_pct": 50,
+          "close_debit": 0.33,
+          "stop_debit": 1.65,
+          "exit_dte": 21
+        },
+        "fits_live_cap": true,
+        "live_cap": 726.58,
+        "suggested_width": null,
+        "fit_note": "",
+        "text": "DIA VC \u00d71 \u2014 SELL 536C / BUY 542C (2026-10-23) @ $0.66 net credit. Max loss $534. After fill: GTC buy-to-close @ $0.33 (50%)."
+      },
+      "posted_at": "2026-09-22T17:18:32.404951+00:00"
+    },
     {
       "underlying": "QQQ",
       "structure": "short_put_vertical",
@@ -204,19 +389,19 @@
       "long_symbol": "QQQ   261023P00699000",
       "width": 9.0,
       "credit": 0.95,
-      "mid_credit": 1.0,
+      "mid_credit": 0.99,
       "fees_est": 3.0,
       "bpr": 805.0,
       "max_loss": 805.0,
-      "pop": 0.8,
-      "short_delta": 0.184,
-      "short_spread_pct": 0.011,
+      "pop": 0.801,
+      "short_delta": 0.183,
+      "short_spread_pct": 0.009,
       "credit_to_bpr": 0.118,
-      "ev_per_contract": 6.53,
-      "ev_on_bpr": 0.0081,
-      "iv": 0.2005,
-      "iv_rank": 0.373,
-      "underlying_price": 744.99,
+      "ev_per_contract": 6.63,
+      "ev_on_bpr": 0.0082,
+      "iv": 0.2013,
+      "iv_rank": 0.378,
+      "underlying_price": 745.22,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -226,16 +411,16 @@
       "bpr_total": 805.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short put vertical 708/699p \u00d71 \u2014 bullish lean. Edge: IV rank 37%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.95 \u00b7 max loss $805 \u00b7 BPR $805 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short put vertical 708/699p \u00d71 \u2014 bullish lean. Edge: IV rank 38%, EV $+7/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.95 \u00b7 max loss $805 \u00b7 BPR $805 \u00b7 31 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.678,
       "learn_notes": [
         "asset_class=single_name \u00d70.70",
         "cluster=us_tech \u00d70.79",
         "structure=short_put_vertical \u00d71.24"
       ],
-      "rank_score": 0.005492,
+      "rank_score": 0.00556,
       "agent_action": "guarded",
-      "agent_reason": "Veto: us_tech/single_name is on the engine's AVOID list (28-31% win rate), QQQ is already open in the book (correlated doubling, at the per-name cap), IV rank 0.373 with VIX 14.25 is not rich premium, and selling a put vertical into a -4% d",
+      "agent_reason": "Single-name QQQ is flagged (31% win rate, cluster neg expectancy); us_tech is already 1 open; tape is weak (dip risk), and selling puts intra-day downside is poorly timed despite acceptable caps. Veto to reduce concentration and avoid corre",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -243,7 +428,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7262.312,
+      "net_liq": 7265.762,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
@@ -270,7 +455,7 @@
         "credit_total": 95.0,
         "max_loss_total": 805.0,
         "bpr_total": 805.0,
-        "pop": 0.8,
+        "pop": 0.801,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -279,22 +464,21 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 726.23,
+        "live_cap": 726.58,
         "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $805 > 10% live cap ($726) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ VP \u00d71 \u2014 SELL 708P / BUY 699P (2026-10-23) @ $0.95 net credit. Max loss $805. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $805 > 10% live cap ($726) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $805 > 10% live cap ($727) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "QQQ VP \u00d71 \u2014 SELL 708P / BUY 699P (2026-10-23) @ $0.95 net credit. Max loss $805. After fill: GTC buy-to-close @ $0.47 (50%). \u26a0 max loss $805 > 10% live cap ($727) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-09-22T16:50:11.506420+00:00"
+      "posted_at": "2026-09-22T17:18:32.404951+00:00"
     }
   ],
   "skipped": {
     "SPY": "failed: pv: credit/width 0.09 < 0.10",
-    "IWM": "iv_rank 13% (floor 22%)",
-    "DIA": "failed: pv: credit/width 0.06 < 0.10",
+    "IWM": "iv_rank 14% (floor 22%)",
     "XLE": "failed: pv: credit/width 0.06 < 0.10",
-    "XLF": "failed: pv: spread short 21%/long 55%",
-    "XLV": "failed: pv: spread short 25%/long 180%",
-    "XLI": "failed: pv: spread short 35%/long 73%",
+    "XLF": "failed: pv: credit/width 0.03 < 0.10",
+    "XLV": "failed: pv: spread short 51%/long 180%",
+    "XLI": "failed: pv: spread short 34%/long 121%",
     "SLV": "iv_rank 9% (floor 30%)",
     "TSLA": "iv_rank 23% (floor 30%)"
   }
