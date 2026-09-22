@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-22T16:21:24.882355+00:00",
-  "market_view": "VIX at 14.33 down 3.6% intraday, market regime neutral-to-bullish \u2014 SLV at 59.37 remains 3.6% below the 61.5 short strike with no recovery catalyst visible.",
+  "last_run": "2026-09-22T16:23:21.456426+00:00",
+  "market_view": "VIX 14.31 down another 3.77% today, XLF -1.9% is the only notable weakness \u2014 overall market is low-volatility drift with no downside catalyst. SLV continues to trade well below the 61.5 short strike with no signs of recovery.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-22T16:21:11Z",
-    "reasoning": "Short strike 61.5 remains breached with SLV at $59.37, current mid $0.625 exceeds the $0.55 credit received and worst-case $0.75 is approaching max loss of $1.00 \u2014 this was flagged CRITICAL last cycle with zero recovery and 99 DTE means no time-based relief is coming anytime soon."
+    "timestamp": "2026-09-22T16:23:07.041321+00:00",
+    "reasoning": "Short strike 61.5 remains breached with SLV at $59.33 \u2014 mid cost $0.625 already exceeds the $0.55 credit received, worst-case $0.75 is at 1.36x credit putting us within inches of the 1.5x stop-loss trigger, and this has been CRITICAL for at least two consecutive cycles with zero recovery."
   },
   "SPY 722/731p": {
-    "action": "WATCH",
-    "confidence": 0.82,
-    "timestamp": "2026-09-22T16:21:11Z",
-    "reasoning": "This net-debit long put vertical (paid $0.93, current mid -$0.435) is recovering but SPY is 6.6% above strikes and VIX is collapsing \u2014 the position is decaying in the wrong direction and the 21 DTE exit rule hits around Oct 2nd."
+    "action": "ACTION",
+    "confidence": 0.95,
+    "timestamp": "2026-09-22T16:23:07.041321+00:00",
+    "reasoning": "This is a net-debit long put vertical (paid $0.93) now marked at -$0.44 mid \u2014 SPY is 6.6% above the short strike, VIX crushed to 14.31, and the position has recovered approximately 53% of the debit paid which crosses the 50% manage threshold on a debit position."
   }
 }
