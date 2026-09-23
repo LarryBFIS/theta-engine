@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-23T15:21:17.091326+00:00",
-  "market_view": "VIX at 14.52 and falling (-9.42% 5d) signals continued low-vol neutral regime; financials and discretionary weakness is notable but SPY holds well above our short strikes. SLV shows zero recovery with spot at $58.48, now 5.2% below our short strike.",
+  "last_run": "2026-09-23T15:31:50.557499+00:00",
+  "market_view": "VIX at 14.6 and falling, SPY holding near highs \u2014 low-vol neutral regime continues. SLV remains crushed at $58.28, now 5.5% below our short strike with no recovery catalyst visible.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-23T15:21:06+00:00",
-    "reasoning": "Short strike breached, worst-case cost $0.80 is 1.45x the $0.55 credit \u2014 at the hard 1.5x stop, SLV has moved further ITM to $58.48 with 98 DTE and zero time decay working in our favor. This position has been flagged CRITICAL multiple cycles with no execution; continued inaction turns a managed loss into max loss."
+    "timestamp": "2026-09-23T15:31:38Z",
+    "reasoning": "Short strike breached, worst-case cost $0.80 is 1.45x credit \u2014 one tick from hard 1.5x stop, SLV has drifted further ITM to $58.28 with 98 DTE and time decay doing nothing for us. This has been flagged CRITICAL for multiple cycles with no execution; this is max loss risk, not a managed loss."
   },
   "SPY 722/731p": {
     "action": "WATCH",
-    "confidence": 0.8,
-    "timestamp": "2026-09-23T15:21:06+00:00",
-    "reasoning": "Mid cost -$0.54 vs -$0.93 credit is 42% profit captured, approaching but not yet at the 50% mechanical manage threshold; 21 DTE exit rule triggers Oct 2, only 9 days away."
+    "confidence": 0.85,
+    "timestamp": "2026-09-23T15:31:38Z",
+    "reasoning": "Mid cost -$0.56 vs -$0.93 credit is 40% profit captured, just under the 50% mechanical manage threshold; 21 DTE exit rule triggers Oct 2 \u2014 9 days away. SPY at $769 is 6.1% above short strike, structurally fine."
   }
 }
