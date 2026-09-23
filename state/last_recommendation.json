@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-23T20:20:05.627865+00:00",
-  "market_view": "Market soft with IWM -1.82% and VIX +2.08% in a risk-off tape \u2014 no silver recovery catalyst with SLV still 5.7% below short strike. Neutral regime with defensive rotation; metals remain offered.",
+  "last_run": "2026-09-23T20:22:13.391084+00:00",
+  "market_view": "Risk-off tape with IWM -1.82% and VIX +2.29% today \u2014 no silver recovery catalyst with SLV at $58.16, still 5.7% below the 61.5 short strike and trending lower. Defensive rotation (XLP +0.62%, XLK +0.25%) offers no help to metals.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-23T20:19:52Z",
-    "reasoning": "Short strike breached, worst-cost $0.80 is 1.45x the $0.55 credit and at the doorstep of the 1.5x stop ($0.825) \u2014 this is the fifth consecutive CRITICAL flag with zero execution, position is deep ITM with 98 DTE and no recovery path. Close immediately."
+    "timestamp": "2026-09-23T20:22:02Z",
+    "reasoning": "Short strike breached, worst-cost $0.80 is 1.45x the $0.55 credit and within pennies of the hard 1.5x stop at $0.825 \u2014 this is a repeated CRITICAL with no execution, 98 DTE means no time-decay bail, and SLV is moving further against the position in a risk-off tape."
   },
   "SPY 722/731p": {
     "action": "WATCH",
     "confidence": 0.75,
-    "timestamp": "2026-09-23T20:19:52Z",
-    "reasoning": "Inverted credit (-$0.93) and structure (short 722 / long 731 put) still reads as a long put vertical \u2014 SPY at $767.81 is 6% above short strike so no assignment risk, but the negative max-profit field needs platform confirmation. At 29 DTE, the 21 DTE hard exit rule triggers in 8 calendar days."
+    "timestamp": "2026-09-23T20:22:02Z",
+    "reasoning": "SPY at $767.81 is 6% above short strike 722 with no breach \u2014 the inverted credit structure (-$0.93 collected) still needs platform confirmation on whether this is a long or short put vertical, but no assignment risk today. Hard 21 DTE exit rule triggers in 8 calendar days (around Oct 2)."
   }
 }
