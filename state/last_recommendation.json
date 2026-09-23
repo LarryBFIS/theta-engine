@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-23T15:31:50.557499+00:00",
-  "market_view": "VIX at 14.6 and falling, SPY holding near highs \u2014 low-vol neutral regime continues. SLV remains crushed at $58.28, now 5.5% below our short strike with no recovery catalyst visible.",
+  "last_run": "2026-09-23T15:42:46.860669+00:00",
+  "market_view": "VIX at 14.62 and falling, SPY -0.6% today but 5-day trend still positive \u2014 low-vol neutral regime. XLF -2% is the notable stress point but no systemic risk visible.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-23T15:31:38Z",
-    "reasoning": "Short strike breached, worst-case cost $0.80 is 1.45x credit \u2014 one tick from hard 1.5x stop, SLV has drifted further ITM to $58.28 with 98 DTE and time decay doing nothing for us. This has been flagged CRITICAL for multiple cycles with no execution; this is max loss risk, not a managed loss."
+    "timestamp": "2026-09-23T15:42:36Z",
+    "reasoning": "Short strike breached, worst-case cost $0.80 is 1.45x the $0.55 credit \u2014 one tick from hard 1.5x stop trigger, SLV at $58.28 is 5.5% below short strike with 98 DTE providing zero near-term theta relief. This position has been flagged CRITICAL for multiple consecutive cycles with no execution \u2014 every minute held is uncompensated max-loss risk."
   },
   "SPY 722/731p": {
     "action": "WATCH",
     "confidence": 0.85,
-    "timestamp": "2026-09-23T15:31:38Z",
-    "reasoning": "Mid cost -$0.56 vs -$0.93 credit is 40% profit captured, just under the 50% mechanical manage threshold; 21 DTE exit rule triggers Oct 2 \u2014 9 days away. SPY at $769 is 6.1% above short strike, structurally fine."
+    "timestamp": "2026-09-23T15:42:36Z",
+    "reasoning": "Mid cost -$0.56 vs -$0.93 credit = 40% profit captured, just under the 50% mechanical manage threshold; 21 DTE exit rule triggers October 2 \u2014 9 days away. SPY at $768.95 sits 6.1% above short strike, structurally healthy."
   }
 }
