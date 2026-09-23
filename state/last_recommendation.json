@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-23T17:45:07.010728+00:00",
-  "market_view": "Market softening continues with SPY -0.65% and IWM -1.0%, VIX now 15.33 up 3.09% \u2014 financials and consumer discretionary leading weakness but no systemic break. SPY 722 short strike remains 6%+ OTM with 29 DTE, no structural threat.",
+  "last_run": "2026-09-23T17:54:57.877176+00:00",
+  "market_view": "Market softening with SPY -0.65%, IWM -0.98%, VIX up 3.23% to 15.35 \u2014 financials cratering -2.02% is notable but no systemic break; neutral regime holds. SLV continues to trade below 61.5 short strike with no relief catalyst visible.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-23T17:44:55Z",
-    "reasoning": "Short strike breached, mid-cost $0.675 exceeds entry credit $0.55 \u2014 stop rule at 1.5x credit ($0.825 worst-cost threshold being approached at $0.80 worst) and position is a confirmed loser with 98 DTE providing zero expiration help. This alert has fired multiple cycles with no execution \u2014 close it now."
+    "timestamp": "2026-09-23T17:54:46Z",
+    "reasoning": "Short strike breached, mid-cost $0.675 exceeds entry credit $0.55, worst-cost $0.80 is within 3 cents of the 1.5x stop trigger ($0.825) with 98 DTE providing zero theta help \u2014 this has been flagged multiple consecutive cycles with no execution, every minute of delay risks hitting max loss on a $1-wide spread. Close immediately."
   },
   "SPY 722/731p": {
     "action": "WATCH",
-    "confidence": 0.85,
-    "timestamp": "2026-09-23T17:44:55Z",
-    "reasoning": "Mid-cost -$0.595 vs credit -$0.93 means ~36% profit captured, below 50% target; SPY at $768 is 6%+ above 722 short strike with 29 DTE \u2014 21 DTE hard exit triggers around Oct 2, roughly 9 days out. Note: this position appears to be a put debit spread (negative credit/negative max profit) \u2014 verify structure in platform."
+    "confidence": 0.8,
+    "timestamp": "2026-09-23T17:54:46Z",
+    "reasoning": "Mid-cost -$0.59 vs credit -$0.93 is ~37% profit captured, below 50% target; SPY at $768 sits 6%+ above 722 short strike with 29 DTE \u2014 21 DTE hard exit triggers ~Oct 2, approximately 9 days out. Position structure (negative credit, negative max profit) still needs platform verification but no action required yet."
   }
 }
