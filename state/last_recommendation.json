@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-23T16:54:58.080460+00:00",
-  "market_view": "VIX 14.86 in neutral regime, broad market softness today but not alarming. SLV continues trading well below the short strike \u2014 silver weakness is the only critical book concern.",
+  "last_run": "2026-09-23T17:18:40.082750+00:00",
+  "market_view": "VIX at 15.27 (+2.69% today) in neutral regime with broad softness led by financials and consumer discretionary. SLV continues to be the only critical book concern \u2014 silver weakness is accelerating the bleed.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-23T16:54:45Z",
-    "reasoning": "Short strike breached with SLV at $58.21, 5.7% below short strike; worst-cost $0.85 is 1.55x the $0.55 credit, exceeding the 1.5x stop rule, and this has been flagged CRITICAL for multiple consecutive cycles with no execution \u2014 this is a max-loss bleed."
+    "timestamp": "2026-09-23T17:18:31Z",
+    "reasoning": "Short strike breached with SLV at $58.19, 5.7% through the short strike; worst-cost $0.80 is 1.45x credit but mid-cost $0.65 is already 1.18x and this position has been flagged CRITICAL for multiple cycles with no execution \u2014 every minute held is additional max-loss bleed with 98 DTE and no theta defense."
   },
   "SPY 722/731p": {
     "action": "WATCH",
-    "confidence": 0.83,
-    "timestamp": "2026-09-23T16:54:45Z",
-    "reasoning": "Mid-cost -$0.635 vs -$0.93 credit = ~31.7% profit captured, below the 50% mechanical trigger; SPY at $767 is 5.9% above short strike with 29 DTE, hitting 21 DTE exit window in 8 days \u2014 structure healthy, monitor for profit target or DTE breach."
+    "confidence": 0.82,
+    "timestamp": "2026-09-23T17:18:31Z",
+    "reasoning": "Mid-cost -$0.63 vs -$0.93 credit = ~32% profit captured, below the 50% mechanical trigger; SPY at $767 is 5.9% above short strike with 29 DTE, approaching the 21 DTE exit window in 8 days."
   }
 }
