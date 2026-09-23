@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-23T20:31:08.960138+00:00",
-  "market_view": "Risk-off tape persists with IWM -1.84% and VIX +2.08% \u2014 no silver recovery catalyst, SLV grinding lower with short strike already breached and worst-cost at 1.45x credit approaching the hard stop.",
+  "last_run": "2026-09-23T20:40:35.079090+00:00",
+  "market_view": "Risk-off continues with IWM -1.84% and VIX +2.08% \u2014 no silver recovery catalyst in sight, SLV grinding lower with short strike already breached and worst-cost at 1.45x credit sitting one tick from the hard stop.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-23T20:30:58Z",
-    "reasoning": "Short strike breached, worst-cost $0.80 is 1.45x the $0.55 credit \u2014 one tick from the 1.5x hard stop at $0.825, 98 DTE means zero theta bail-out, and this CRITICAL has been flagged for two consecutive cycles with no execution recorded."
+    "timestamp": "2026-09-23T20:40:23Z",
+    "reasoning": "Short strike breached, worst-cost $0.80 is 1.45x the $0.55 credit with hard stop at 1.5x ($0.825) \u2014 one adverse tick triggers forced close, 98 DTE provides zero theta recovery, and this CRITICAL has been flagged three consecutive cycles with no execution recorded."
   },
   "SPY 722/731p": {
     "action": "WATCH",
     "confidence": 0.75,
-    "timestamp": "2026-09-23T20:30:58Z",
-    "reasoning": "SPY at $767.81 is 5.97% above short strike 722 with no breach, but the inverted credit structure (-$0.93) and 29 DTE (8 days to 21 DTE exit rule) require platform verification of position direction before the Oct 2 hard exit."
+    "timestamp": "2026-09-23T20:40:23Z",
+    "reasoning": "SPY at $767.81 is 5.97% above the 722 short strike with no breach, but the inverted credit structure (-$0.93) and 29 DTE (8 days to the 21 DTE hard exit on Oct 2) require platform-level verification of position direction before the roll/close deadline."
   }
 }
