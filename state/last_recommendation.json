@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-23T19:54:56.261210+00:00",
-  "market_view": "Market soft with IWM -1.79% leading risk-off, VIX ticking up 1.82% \u2014 no recovery catalyst for silver, which remains 5.8% below SLV short strike. Neutral regime with defensive rotation persists; metals have no near-term bid.",
+  "last_run": "2026-09-23T20:20:05.627865+00:00",
+  "market_view": "Market soft with IWM -1.82% and VIX +2.08% in a risk-off tape \u2014 no silver recovery catalyst with SLV still 5.7% below short strike. Neutral regime with defensive rotation; metals remain offered.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-23T19:54:45Z",
-    "reasoning": "Short strike breached with SLV at $58.12, worst-cost $0.75 is 1.36x the $0.55 credit \u2014 already past the 1.5x stop rule of $0.825, position is deep ITM with zero recovery path and 98 DTE means no time-value rescue. This is the fourth consecutive CRITICAL flag with no execution \u2014 close this now."
+    "timestamp": "2026-09-23T20:19:52Z",
+    "reasoning": "Short strike breached, worst-cost $0.80 is 1.45x the $0.55 credit and at the doorstep of the 1.5x stop ($0.825) \u2014 this is the fifth consecutive CRITICAL flag with zero execution, position is deep ITM with 98 DTE and no recovery path. Close immediately."
   },
   "SPY 722/731p": {
     "action": "WATCH",
     "confidence": 0.75,
-    "timestamp": "2026-09-23T19:54:45Z",
-    "reasoning": "Negative credit (-$0.93) with inverted structure strongly suggests this is a long put vertical, not short \u2014 SPY at $767 is 6% above the 722 strike so no directional risk, but position identity and P&L logic must be confirmed on platform before any action. 21 DTE exit rule triggers at 8 DTE from now (approx Oct 2)."
+    "timestamp": "2026-09-23T20:19:52Z",
+    "reasoning": "Inverted credit (-$0.93) and structure (short 722 / long 731 put) still reads as a long put vertical \u2014 SPY at $767.81 is 6% above short strike so no assignment risk, but the negative max-profit field needs platform confirmation. At 29 DTE, the 21 DTE hard exit rule triggers in 8 calendar days."
   }
 }
