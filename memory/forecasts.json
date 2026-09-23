@@ -862,7 +862,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_cheap",
       "market_view": "Normal regime, -2% day, VIX 16.89\u2014tape is calm and orderly. This is reasonable timing for short premium, but we're already carrying 5 open positions with -$63 unrealized; adding correlated index shorts risks compounding a drawdown.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-23",
+      "actual_price": 772.47,
+      "realized_move_pct": 0.0171,
+      "realized_move_signed": 0.0171,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "23bf7dd4a106",
@@ -877,7 +883,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_cheap",
       "market_view": "Normal regime, -2% day, VIX 16.89\u2014tape is calm and orderly. This is reasonable timing for short premium, but we're already carrying 5 open positions with -$63 unrealized; adding correlated index shorts risks compounding a drawdown.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-23",
+      "actual_price": 745.62,
+      "realized_move_pct": 0.0534,
+      "realized_move_signed": 0.0534,
+      "stayed_in_range": false,
+      "vol_call_correct": true
     },
     {
       "id": "2516caad2934",
@@ -892,7 +904,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_cheap",
       "market_view": "Normal regime, -2% day, VIX 16.89\u2014tape is calm and orderly. This is reasonable timing for short premium, but we're already carrying 5 open positions with -$63 unrealized; adding correlated index shorts risks compounding a drawdown.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-23",
+      "actual_price": 285.77,
+      "realized_move_pct": 0.0003,
+      "realized_move_signed": 0.0003,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "f73811a9335c",
@@ -907,7 +925,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_cheap",
       "market_view": "Normal regime, -2% day, VIX 16.89\u2014tape is calm and orderly. This is reasonable timing for short premium, but we're already carrying 5 open positions with -$63 unrealized; adding correlated index shorts risks compounding a drawdown.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-23",
+      "actual_price": 516.37,
+      "realized_move_pct": 0.0112,
+      "realized_move_signed": -0.0112,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "3c8decf77d96",
@@ -922,7 +946,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_cheap",
       "market_view": "Normal regime, -2% day, VIX 16.89\u2014tape is calm and orderly. This is reasonable timing for short premium, but we're already carrying 5 open positions with -$63 unrealized; adding correlated index shorts risks compounding a drawdown.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-23",
+      "actual_price": 377.6,
+      "realized_move_pct": 0.0567,
+      "realized_move_signed": 0.0567,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "f6cfe9c3efc9",
@@ -1222,6 +1252,81 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Calm tape with VIX 14.68 after a -1% day and no scheduled macro events \u2014 directionally neutral but implied premium is thin at these levels, so short-vol trades are poorly compensated right now. Timing is acceptable for adding only high-quality index premium, not marginal structur",
+      "resolved": false
+    },
+    {
+      "id": "67b42c89382c",
+      "index": "SPY",
+      "forecast_date": "2026-09-23",
+      "target_date": "2026-09-30",
+      "horizon_days": 7,
+      "spot_at_forecast": 772.47,
+      "iv": 0.142,
+      "implied_move_pct": 0.0197,
+      "implied_move_abs": 15.19,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "The 'calm' label conflicts with a -4% day \u2014 that is a fast, directional tape, and VIX 14.29 says implied vol has not caught up to the move that just printed. This is a poor moment to add short premium in either direction: puts risk catching a continuing sell-off, calls risk an ov",
+      "resolved": false
+    },
+    {
+      "id": "67c784289ef2",
+      "index": "QQQ",
+      "forecast_date": "2026-09-23",
+      "target_date": "2026-09-30",
+      "horizon_days": 7,
+      "spot_at_forecast": 745.62,
+      "iv": 0.2034,
+      "implied_move_pct": 0.0282,
+      "implied_move_abs": 21.01,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "The 'calm' label conflicts with a -4% day \u2014 that is a fast, directional tape, and VIX 14.29 says implied vol has not caught up to the move that just printed. This is a poor moment to add short premium in either direction: puts risk catching a continuing sell-off, calls risk an ov",
+      "resolved": false
+    },
+    {
+      "id": "42a80045ac4b",
+      "index": "IWM",
+      "forecast_date": "2026-09-23",
+      "target_date": "2026-09-30",
+      "horizon_days": 7,
+      "spot_at_forecast": 285.77,
+      "iv": 0.1918,
+      "implied_move_pct": 0.0266,
+      "implied_move_abs": 7.59,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "The 'calm' label conflicts with a -4% day \u2014 that is a fast, directional tape, and VIX 14.29 says implied vol has not caught up to the move that just printed. This is a poor moment to add short premium in either direction: puts risk catching a continuing sell-off, calls risk an ov",
+      "resolved": false
+    },
+    {
+      "id": "07f14ffd7ef1",
+      "index": "DIA",
+      "forecast_date": "2026-09-23",
+      "target_date": "2026-09-30",
+      "horizon_days": 7,
+      "spot_at_forecast": 516.37,
+      "iv": 0.1491,
+      "implied_move_pct": 0.0206,
+      "implied_move_abs": 10.66,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "The 'calm' label conflicts with a -4% day \u2014 that is a fast, directional tape, and VIX 14.29 says implied vol has not caught up to the move that just printed. This is a poor moment to add short premium in either direction: puts risk catching a continuing sell-off, calls risk an ov",
+      "resolved": false
+    },
+    {
+      "id": "bf6000b23488",
+      "index": "TSLA",
+      "forecast_date": "2026-09-23",
+      "target_date": "2026-09-30",
+      "horizon_days": 7,
+      "spot_at_forecast": 377.6,
+      "iv": 0.4814,
+      "implied_move_pct": 0.0667,
+      "implied_move_abs": 25.17,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "The 'calm' label conflicts with a -4% day \u2014 that is a fast, directional tape, and VIX 14.29 says implied vol has not caught up to the move that just printed. This is a poor moment to add short premium in either direction: puts risk catching a continuing sell-off, calls risk an ov",
       "resolved": false
     }
   ]
