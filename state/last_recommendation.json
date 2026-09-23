@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-23T17:18:40.082750+00:00",
-  "market_view": "VIX at 15.27 (+2.69% today) in neutral regime with broad softness led by financials and consumer discretionary. SLV continues to be the only critical book concern \u2014 silver weakness is accelerating the bleed.",
+  "last_run": "2026-09-23T17:20:14.037091+00:00",
+  "market_view": "VIX ticked up 3.16% to 15.34 with broad market softness today \u2014 financials and consumer discretionary leading losses. SLV remains the only critical book threat; SPY structure is healthy.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-23T17:18:31Z",
-    "reasoning": "Short strike breached with SLV at $58.19, 5.7% through the short strike; worst-cost $0.80 is 1.45x credit but mid-cost $0.65 is already 1.18x and this position has been flagged CRITICAL for multiple cycles with no execution \u2014 every minute held is additional max-loss bleed with 98 DTE and no theta defense."
+    "timestamp": "2026-09-23T17:20:03Z",
+    "reasoning": "Short strike breached, SLV at $58.21 is 5.7% below short strike, worst-cost $0.80 is 1.45x credit but mid-cost $0.65 already represents a full loss on the $0.45 max-profit side \u2014 this position has been flagged CRITICAL for multiple cycles with no execution and is bleeding toward max loss on a $45 max-loss position. Stop rule triggered, no edge remaining."
   },
   "SPY 722/731p": {
     "action": "WATCH",
-    "confidence": 0.82,
-    "timestamp": "2026-09-23T17:18:31Z",
-    "reasoning": "Mid-cost -$0.63 vs -$0.93 credit = ~32% profit captured, below the 50% mechanical trigger; SPY at $767 is 5.9% above short strike with 29 DTE, approaching the 21 DTE exit window in 8 days."
+    "confidence": 0.85,
+    "timestamp": "2026-09-23T17:20:03Z",
+    "reasoning": "Mid-cost -$0.62 vs -$0.93 credit = ~33% profit captured, below 50% mechanical trigger; SPY at $767 is 5.97% above short strike with 29 DTE \u2014 21 DTE exit triggers in 8 days on Oct 2."
   }
 }
