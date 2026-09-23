@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-23T14:33:27.170286+00:00",
-  "market_view": "VIX 14.65 in low-vol neutral regime, SPY -0.55% today but +1.05% on 5d; defensive rotation (XLV, XLP outperforming) with financials and discretionary lagging. SLV thesis is completely broken with no catalyst for recovery visible.",
+  "last_run": "2026-09-23T14:44:52.742278+00:00",
+  "market_view": "VIX 14.79 in low-vol neutral regime, defensive rotation persisting (XLP +1%, XLV +0.48%) while financials and discretionary continue lagging. SLV remains deeply ITM with no recovery catalyst.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-23T14:33:15Z",
-    "reasoning": "SLV at $58.42 is 5.3% below short strike 61.5 \u2014 deeply ITM, worst-case cost $0.80 is 1.45x the $0.55 credit and sitting at the 1.5x stop threshold. This CRITICAL alert has fired multiple cycles with no execution \u2014 position is at near-max loss with zero recovery signal and 98 DTE means no time decay rescue."
+    "timestamp": "2026-09-23T14:44:41Z",
+    "reasoning": "SLV $58.38 is 5.3% below short strike 61.5, worst-case cost $0.80 is 1.45x the $0.55 credit \u2014 at the 1.5x stop threshold with 98 DTE and zero time decay rescue available. This CRITICAL has fired multiple cycles with no execution; near-max loss and no recovery signal."
   },
   "SPY 722/731p": {
     "action": "WATCH",
     "confidence": 0.75,
-    "timestamp": "2026-09-23T14:33:15Z",
-    "reasoning": "Mid cost -$0.545 vs -$0.93 credit represents ~41% profit captured, approaching but not yet at the 50% mechanical manage threshold; anomalous negative-credit structure still flags a data integrity concern but position is directionally working with SPY at $769 well above strikes. 29 DTE means 21 DTE exit rule triggers in 8 days."
+    "timestamp": "2026-09-23T14:44:41Z",
+    "reasoning": "Mid cost -$0.555 vs -$0.93 credit is ~40% profit captured, just under the 50% mechanical manage threshold; SPY at $769 is 6.1% above short strike with 29 DTE \u2014 21 DTE exit rule triggers in 8 days on Oct 2."
   }
 }
