@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-24T19:50:31.627175+00:00",
+  "generated_at": "2026-09-24T20:23:14.594664+00:00",
   "regime": {
-    "vix": 15.52,
-    "vix_day_change_pct": 0.0224,
+    "vix": 15.62,
+    "vix_day_change_pct": 0.029,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (+2% day)"
+    "note": "normal regime (+3% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -81,77 +81,18 @@
       }
     ]
   },
-  "agent": {
-    "generated_at": "2026-09-24T19:50:31.619135+00:00",
-    "model": "kimi-k3",
-    "market_view": "Tape just ripped +2% on a normal-regime day with VIX at 15.52 \u2014 momentum is pointed up, which is the wrong backdrop to sell call spreads. Vol is on the cheap side, so premium is thin compensation for fighting a strong up tape.",
-    "portfolio_note": "Book already holds 4 positions including an open DIA and 2 us_index names; a second DIA would double single-name exposure and push us_index to its cluster cap. Unrealized PnL is only -70, so no pressure to force new risk.",
-    "vol_verdict": "implied_cheap",
-    "reviewed": 1,
-    "vetoed": 1,
-    "downsized": 0,
-    "decisions": [
-      {
-        "id": "DIA|short_call_vertical|533/539",
-        "action": "veto",
-        "reason": "Duplicate of an already-open DIA name, and selling calls into a +2% momentum day at IV rank 0.245 is poorly timed, thinly compensated short-vol."
-      }
-    ]
-  },
-  "all_candidates": [
-    {
-      "underlying": "DIA",
-      "structure": "short_call_vertical",
-      "expiry": "2026-10-30",
-      "dte": 36,
-      "short_strike": 533.0,
-      "long_strike": 539.0,
-      "short_symbol": "DIA   261030C00533000",
-      "long_symbol": "DIA   261030C00539000",
-      "width": 6.0,
-      "credit": 0.71,
-      "mid_credit": 0.91,
-      "fees_est": 3.0,
-      "bpr": 529.0,
-      "max_loss": 529.0,
-      "pop": 0.795,
-      "short_delta": 0.219,
-      "short_spread_pct": 0.087,
-      "credit_to_bpr": 0.134,
-      "ev_per_contract": 3.37,
-      "ev_on_bpr": 0.0064,
-      "iv": 0.1537,
-      "iv_rank": 0.245,
-      "underlying_price": 512.83,
-      "liquidity": 3,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "live",
-      "contracts": 1,
-      "max_loss_total": 529.0,
-      "bpr_total": 529.0,
-      "trend": "bearish",
-      "sized_capped": true,
-      "reasoning": "short call vertical 533/539c \u00d71 \u2014 bearish lean. Edge: IV rank 24%, EV $+3/ctr (+0.6% on BPR). POP 80% \u00b7 credit $0.71 \u00b7 max loss $529 \u00b7 BPR $529 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 1.6,
-      "learn_notes": [
-        "asset_class=index_etf \u00d71.41",
-        "cluster=us_index \u00d71.50"
-      ],
-      "rank_score": 0.01024,
-      "agent_action": "veto",
-      "agent_reason": "Duplicate of an already-open DIA name, and selling calls into a +2% momentum day at IV rank 0.245 is poorly timed, thinly compensated short-vol."
-    }
-  ],
+  "agent": null,
+  "all_candidates": [],
   "skipped": {
     "SPY": "iv_rank 20% (floor 22%)",
     "IWM": "iv_rank 9% (floor 22%)",
+    "DIA": "failed: pv: credit/width 0.05 < 0.10",
     "QQQ": "iv_rank 6% (floor 30%)",
-    "XLE": "failed: pv: spread short 6%/long 148%",
-    "XLF": "failed: pv: credit/width 0.04 < 0.10",
-    "XLV": "failed: pv: spread short 78%/long 188%",
+    "XLE": "failed: pv: no/invalid leg quote",
+    "XLF": "failed: pv: spread short 129%/long 67%",
+    "XLV": "failed: pv: no/invalid leg quote",
     "XLI": "iv_rank 29% (floor 30%)",
     "SLV": "iv_rank 1% (floor 30%)",
-    "TSLA": "iv_rank 7% (floor 30%)"
+    "TSLA": "iv_rank 8% (floor 30%)"
   }
 }
