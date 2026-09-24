@@ -967,7 +967,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Down 13% today in normal regime; VIX 15.45 suggests volatility has spiked modestly off lows. Tape is risk-off but not panicked\u2014good environment for selling premium IF we avoid piling correlated short-vol into a directional selloff. Timing favors smaller, diversified index plays o",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-24",
+      "actual_price": 764.15,
+      "realized_move_pct": 0.0009,
+      "realized_move_signed": 0.0009,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "63bdefbe7c5c",
@@ -982,7 +988,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Down 13% today in normal regime; VIX 15.45 suggests volatility has spiked modestly off lows. Tape is risk-off but not panicked\u2014good environment for selling premium IF we avoid piling correlated short-vol into a directional selloff. Timing favors smaller, diversified index plays o",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-24",
+      "actual_price": 734.35,
+      "realized_move_pct": 0.0258,
+      "realized_move_signed": 0.0258,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "7982576cb056",
@@ -997,7 +1009,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Down 13% today in normal regime; VIX 15.45 suggests volatility has spiked modestly off lows. Tape is risk-off but not panicked\u2014good environment for selling premium IF we avoid piling correlated short-vol into a directional selloff. Timing favors smaller, diversified index plays o",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-24",
+      "actual_price": 281.05,
+      "realized_move_pct": 0.0238,
+      "realized_move_signed": -0.0238,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "0c0e0ab591ee",
@@ -1012,7 +1030,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Down 13% today in normal regime; VIX 15.45 suggests volatility has spiked modestly off lows. Tape is risk-off but not panicked\u2014good environment for selling premium IF we avoid piling correlated short-vol into a directional selloff. Timing favors smaller, diversified index plays o",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-24",
+      "actual_price": 513.09,
+      "realized_move_pct": 0.0162,
+      "realized_move_signed": -0.0162,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "11ffd8ce3252",
@@ -1027,7 +1051,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Down 13% today in normal regime; VIX 15.45 suggests volatility has spiked modestly off lows. Tape is risk-off but not panicked\u2014good environment for selling premium IF we avoid piling correlated short-vol into a directional selloff. Timing favors smaller, diversified index plays o",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-24",
+      "actual_price": 376.9,
+      "realized_move_pct": 0.0338,
+      "realized_move_signed": 0.0338,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "cd48cca5a424",
@@ -1327,6 +1357,81 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "The 'calm' label conflicts with a -4% day \u2014 that is a fast, directional tape, and VIX 14.29 says implied vol has not caught up to the move that just printed. This is a poor moment to add short premium in either direction: puts risk catching a continuing sell-off, calls risk an ov",
+      "resolved": false
+    },
+    {
+      "id": "eaddad0bcb0a",
+      "index": "SPY",
+      "forecast_date": "2026-09-24",
+      "target_date": "2026-10-01",
+      "horizon_days": 7,
+      "spot_at_forecast": 764.15,
+      "iv": 0.1511,
+      "implied_move_pct": 0.0209,
+      "implied_move_abs": 15.99,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Strong +5% up day with VIX at 16.01 in a normal regime \u2014 momentum is firmly to the upside, so selling call spreads right now is fading a rip, not harvesting calm premium. Better to wait for the rally to stall or vol to re-price richer before adding short-call exposure.",
+      "resolved": false
+    },
+    {
+      "id": "3e23e4eb4d5c",
+      "index": "QQQ",
+      "forecast_date": "2026-09-24",
+      "target_date": "2026-10-01",
+      "horizon_days": 7,
+      "spot_at_forecast": 734.35,
+      "iv": 0.2095,
+      "implied_move_pct": 0.029,
+      "implied_move_abs": 21.3,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Strong +5% up day with VIX at 16.01 in a normal regime \u2014 momentum is firmly to the upside, so selling call spreads right now is fading a rip, not harvesting calm premium. Better to wait for the rally to stall or vol to re-price richer before adding short-call exposure.",
+      "resolved": false
+    },
+    {
+      "id": "7221ba3820c5",
+      "index": "IWM",
+      "forecast_date": "2026-09-24",
+      "target_date": "2026-10-01",
+      "horizon_days": 7,
+      "spot_at_forecast": 281.05,
+      "iv": 0.2048,
+      "implied_move_pct": 0.0284,
+      "implied_move_abs": 7.97,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Strong +5% up day with VIX at 16.01 in a normal regime \u2014 momentum is firmly to the upside, so selling call spreads right now is fading a rip, not harvesting calm premium. Better to wait for the rally to stall or vol to re-price richer before adding short-call exposure.",
+      "resolved": false
+    },
+    {
+      "id": "70858ec71003",
+      "index": "DIA",
+      "forecast_date": "2026-09-24",
+      "target_date": "2026-10-01",
+      "horizon_days": 7,
+      "spot_at_forecast": 513.09,
+      "iv": 0.1513,
+      "implied_move_pct": 0.021,
+      "implied_move_abs": 10.75,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Strong +5% up day with VIX at 16.01 in a normal regime \u2014 momentum is firmly to the upside, so selling call spreads right now is fading a rip, not harvesting calm premium. Better to wait for the rally to stall or vol to re-price richer before adding short-call exposure.",
+      "resolved": false
+    },
+    {
+      "id": "2783d917d0f1",
+      "index": "TSLA",
+      "forecast_date": "2026-09-24",
+      "target_date": "2026-10-01",
+      "horizon_days": 7,
+      "spot_at_forecast": 376.9,
+      "iv": 0.4829,
+      "implied_move_pct": 0.0669,
+      "implied_move_abs": 25.21,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Strong +5% up day with VIX at 16.01 in a normal regime \u2014 momentum is firmly to the upside, so selling call spreads right now is fading a rip, not harvesting calm premium. Better to wait for the rally to stall or vol to re-price richer before adding short-call exposure.",
       "resolved": false
     }
   ]
