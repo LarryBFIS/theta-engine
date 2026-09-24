@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-24T16:25:00.548971+00:00",
-  "market_view": "Market is flat-to-slightly-red with VIX +6.4% on the day and +7.2% on the week \u2014 low-grade risk-off grind with no catalyst, metals elevated. Post-market hours now; SLV crisis unresolved overnight.",
+  "last_run": "2026-09-24T16:35:07.422254+00:00",
+  "market_view": "Market is effectively flat post-close with VIX at 15.64 (+3% today, +3.8% 5d) \u2014 mild risk-off drift, no catalyst. SLV/metals crisis from last cycle unresolved, positions unchanged from prior poll.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-24T16:24:48.739387+00:00",
-    "reasoning": "Short strike at 61.5 is 6.77% ITM with underlying at 57.60 \u2014 worst-cost $0.85 is 1.545x the $0.55 credit, hard 1.5x stop is blown through. Position is deep ITM going into overnight with 97 DTE remaining, full max-loss of $45 at risk if SLV gaps lower."
+    "timestamp": "2026-09-24T16:34:55Z",
+    "reasoning": "Short strike 61.5 is 6.84% ITM with underlying at 57.56 \u2014 worst-cost $0.80 is 1.45x credit but mid-cost $0.675 is 1.227x and position is deep ITM with full $45 max loss at risk. 1.5x stop triggered at worst fill; this was flagged CRITICAL last cycle and has not been closed."
   },
   "SPY 722/731p": {
     "action": "ACTION",
     "confidence": 0.95,
-    "timestamp": "2026-09-24T16:24:48.739387+00:00",
-    "reasoning": "This is a debit spread entered at -$0.93 credit \u2014 it is structurally a long premium trade, not a short premium trade, tying up $993 BPR with no short-premium edge; current mid -$0.635 shows ~$29.50 unrealized gain and 28 DTE is inside the exit window."
+    "timestamp": "2026-09-24T16:34:55Z",
+    "reasoning": "This is a long debit spread (negative credit -$0.93) \u2014 not a short-premium trade \u2014 tying up $993 BPR with 28 DTE now entering the 21 DTE danger zone next week; current mid -$0.655 shows ~$27.50 gain, close it and free the capital."
   }
 }
