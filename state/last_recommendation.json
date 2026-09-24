@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-24T13:19:12.153944+00:00",
-  "market_view": "VIX +4.94% to 15.93 with IWM -1.84% signals continued risk-off rotation into small caps and consumer discretionary weakness \u2014 SLV pressure persists with metals under broad commodity stress. No catalyst for relief on the short SLV position.",
+  "last_run": "2026-09-24T13:22:06.821974+00:00",
+  "market_view": "VIX +5.14% to 15.96 with IWM -1.84% and small-cap/consumer discretionary weakness confirms risk-off \u2014 SLV remains under pressure with no commodity relief catalyst in sight.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-24T13:19:01+00:00",
-    "reasoning": "Short strike breached, underlying at $58.16 is 5.74% through the 61.5 short put, worst-cost $0.80 is at 1.45x the $0.55 credit \u2014 one tick from the 1.5x hard stop at $0.825, and this CRITICAL has been flagged multiple cycles with zero execution recorded."
+    "timestamp": "2026-09-24T13:21:56Z",
+    "reasoning": "Short strike breached at $58.16 (5.74% through 61.5 short put), worst-cost $0.80 is at 1.45x the $0.55 credit \u2014 one tick from the 1.5x hard stop at $0.825, and this CRITICAL has been flagged multiple consecutive cycles with zero execution recorded. Close immediately."
   },
   "SPY 722/731p": {
     "action": "WATCH",
-    "confidence": 0.7,
-    "timestamp": "2026-09-24T13:19:01+00:00",
-    "reasoning": "SPY at $767.81 sits 5.97% above the 722 short strike with no breach, but the inverted structure (negative credit entry of -$0.93, negative max profit) is a critical data anomaly \u2014 this position needs platform verification before the 21 DTE hard exit window approaches around Oct 2."
+    "confidence": 0.75,
+    "timestamp": "2026-09-24T13:21:56Z",
+    "reasoning": "SPY at $767.81 is 5.97% above the 722 short strike with no breach, but the inverted structure (negative credit -$0.93, negative max profit -$93) is an anomalous data entry \u2014 this position requires immediate platform verification on tastytrade to confirm actual structure and P&L."
   }
 }
