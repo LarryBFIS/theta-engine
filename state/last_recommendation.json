@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-24T13:43:27.669916+00:00",
-  "market_view": "VIX +4.55% to 15.87 with tech soft and defensives bid \u2014 mild risk-off, but no acute acceleration. SLV short strike remains breached with worst-cost at $0.85 exceeding the 1.5x hard stop; this position requires immediate closure.",
+  "last_run": "2026-09-24T13:50:42.908790+00:00",
+  "market_view": "VIX +3.89% to 15.77 with tech leading lower (-1.04%) and defensives/energy bid \u2014 mild risk-off persisting but no acute breakdown. SLV continues to trade well below the breached 61.5 short strike.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-24T13:43:16Z",
-    "reasoning": "Short strike breached at 61.5 with underlying at $57.28 \u2014 7.4% through the strike. Worst-cost $0.85 is 1.55x the $0.55 credit, exceeding the 1.5x hard stop rule of $0.825. This has been flagged CRITICAL multiple consecutive cycles with no execution confirmed \u2014 close NOW."
+    "timestamp": "2026-09-24T13:50:34Z",
+    "reasoning": "Short strike breached, underlying at $57.19 \u2014 7.5% through the 61.5 short strike. Worst-cost $0.85 is 1.55x the $0.55 credit, exceeding the 1.5x hard stop. This is the third consecutive CRITICAL flag with no execution confirmed."
   },
   "SPY 722/731p": {
     "action": "WATCH",
-    "confidence": 0.65,
-    "timestamp": "2026-09-24T13:43:16Z",
-    "reasoning": "SPY at $764.49 is 5.6% above the 722 short strike with no breach \u2014 structurally safe, but the inverted credit/max-profit data (-$0.93 credit, -$93 max profit) is anomalous and suggests this may be a debit spread or data error. Position must be verified on the tastytrade platform to confirm actual structure and P&L direction."
+    "confidence": 0.6,
+    "timestamp": "2026-09-24T13:50:34Z",
+    "reasoning": "SPY at $765 is 5.9% above the 722 short strike \u2014 structurally safe with 28 DTE. The inverted credit data (-$0.93 credit, -$93 max profit) remains anomalous and must be verified on the platform to confirm this is not a debit spread."
   }
 }
