@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-24T16:26:02.335554+00:00",
+  "generated_at": "2026-09-24T16:51:02.753871+00:00",
   "regime": {
-    "vix": 16.15,
-    "vix_day_change_pct": 0.0639,
+    "vix": 15.65,
+    "vix_day_change_pct": 0.031,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (+6% day)"
+    "note": "normal regime (+3% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -82,10 +82,10 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-09-24T16:26:02.327605+00:00",
+    "generated_at": "2026-09-24T16:51:02.745819+00:00",
     "model": "kimi-k3",
-    "market_view": "VIX 16.15 reads calm, but the tape just ripped +6% on the day \u2014 that is powerful upside momentum, and selling a call spread into it is fighting the tape, not harvesting premium. With IV rank at 25%, compensation for taking the other side of that momentum is thin.",
-    "portfolio_note": "Book already carries 4 positions including DIA itself and 2 us_index names; adding a second DIA position would breach the per-name cap and stack more correlated index exposure on a slightly underwater book.",
+    "market_view": "VIX 15.65 in a normal regime, but a +3% day means the tape is ripping upward with momentum \u2014 the worst backdrop to sell call spreads, since we'd be shorting upside into strength. With implieds at modest levels on a fast-moving day, premium sellers are not being paid to stand in front of this move.",
+    "portfolio_note": "Book is small (4 open, -$84 unrealized) but already holds DIA, so this adds a second same-name position and stacks short-upside exposure in us_index right after a big rally. Correlated, poorly timed risk rather than diversification.",
     "vol_verdict": "implied_cheap",
     "reviewed": 1,
     "vetoed": 1,
@@ -94,7 +94,7 @@
       {
         "id": "DIA|short_call_vertical|534/540",
         "action": "veto",
-        "reason": "Doubles up DIA (already held, per-name cap = 1) and sells calls into a +6% rip with IV rank only 25% and near-zero EV \u2014 poorly timed, correlated, and undercompensated."
+        "reason": "Selling calls into a +3% rip on a name we already hold, with IV rank only 0.25 \u2014 thin compensation for doubling same-name, short-upside exposure against strong momentum."
       }
     ]
   },
@@ -110,19 +110,19 @@
       "long_symbol": "DIA   261030C00540000",
       "width": 6.0,
       "credit": 0.67,
-      "mid_credit": 0.91,
+      "mid_credit": 0.88,
       "fees_est": 3.0,
       "bpr": 533.0,
       "max_loss": 533.0,
-      "pop": 0.802,
-      "short_delta": 0.212,
-      "short_spread_pct": 0.12,
+      "pop": 0.795,
+      "short_delta": 0.219,
+      "short_spread_pct": 0.082,
       "credit_to_bpr": 0.126,
-      "ev_per_contract": 3.91,
-      "ev_on_bpr": 0.0073,
+      "ev_per_contract": 3.07,
+      "ev_on_bpr": 0.0058,
       "iv": 0.1541,
       "iv_rank": 0.25,
-      "underlying_price": 513.15,
+      "underlying_price": 513.7,
       "liquidity": 3,
       "earnings_date": null,
       "tag": "paper",
@@ -132,26 +132,26 @@
       "bpr_total": 533.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short call vertical 534/540c \u00d71 \u2014 bearish lean. Edge: IV rank 25%, EV $+4/ctr (+0.7% on BPR). POP 80% \u00b7 credit $0.67 \u00b7 max loss $533 \u00b7 BPR $533 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short call vertical 534/540c \u00d71 \u2014 bearish lean. Edge: IV rank 25%, EV $+3/ctr (+0.6% on BPR). POP 80% \u00b7 credit $0.67 \u00b7 max loss $533 \u00b7 BPR $533 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.6,
       "learn_notes": [
         "asset_class=index_etf \u00d71.41",
         "cluster=us_index \u00d71.50"
       ],
-      "rank_score": 0.01168,
+      "rank_score": 0.00928,
       "agent_action": "veto",
-      "agent_reason": "Doubles up DIA (already held, per-name cap = 1) and sells calls into a +6% rip with IV rank only 25% and near-zero EV \u2014 poorly timed, correlated, and undercompensated."
+      "agent_reason": "Selling calls into a +3% rip on a name we already hold, with IV rank only 0.25 \u2014 thin compensation for doubling same-name, short-upside exposure against strong momentum."
     }
   ],
   "skipped": {
-    "SPY": "iv_rank 21% (floor 22%)",
+    "SPY": "iv_rank 20% (floor 22%)",
     "IWM": "iv_rank 9% (floor 22%)",
-    "QQQ": "iv_rank 7% (floor 30%)",
-    "XLE": "failed: pv: spread short 20%/long 169%",
-    "XLF": "iv_rank 29% (floor 30%)",
-    "XLV": "failed: pv: spread short 80%/long 187%",
-    "XLI": "failed: pv: spread short 44%/long 198%",
+    "QQQ": "iv_rank 6% (floor 30%)",
+    "XLE": "failed: pv: spread short 17%/long 156%",
+    "XLF": "iv_rank 27% (floor 30%)",
+    "XLV": "failed: pv: spread short 46%/long 94%",
+    "XLI": "failed: pv: spread short 86%/long 131%",
     "SLV": "iv_rank 2% (floor 30%)",
-    "TSLA": "iv_rank 7% (floor 30%)"
+    "TSLA": "iv_rank 8% (floor 30%)"
   }
 }
