@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-25T12:56:50.932625+00:00",
+  "generated_at": "2026-09-25T13:21:51.431346+00:00",
   "regime": {
-    "vix": 15.18,
-    "vix_day_change_pct": -0.0313,
+    "vix": 15.19,
+    "vix_day_change_pct": -0.0306,
     "level": "normal",
     "stand_down": false,
     "note": "normal regime (-3% day)"
@@ -22,62 +22,62 @@
   "events": [],
   "learnings": {
     "global": {
-      "closed": 78,
+      "closed": 80,
       "wins": 31,
-      "losses": 47,
-      "win_rate": 0.397,
-      "total_pnl": -9211.0
+      "losses": 49,
+      "win_rate": 0.388,
+      "total_pnl": -9311.0
     },
     "min_sample": 20,
     "actionable": [
       {
         "dim": "asset_class",
         "value": "index_etf",
-        "multiplier": 1.41,
+        "multiplier": 1.406,
         "recommendation": "favor",
-        "n": 31
+        "n": 32
       },
       {
         "dim": "asset_class",
         "value": "single_name",
-        "multiplier": 0.698,
-        "recommendation": "AVOID (neg expectancy; wr 28% < prior 40%)",
+        "multiplier": 0.711,
+        "recommendation": "AVOID (neg expectancy; wr 28% < prior 39%)",
         "n": 44
       },
       {
         "dim": "structure",
         "value": "short_put_vertical",
-        "multiplier": 1.238,
+        "multiplier": 1.228,
         "recommendation": "favor",
-        "n": 55
+        "n": 57
       },
       {
         "dim": "cluster",
         "value": "us_index",
         "multiplier": 1.5,
         "recommendation": "favor",
-        "n": 24
+        "n": 25
       },
       {
         "dim": "cluster",
         "value": "us_tech",
-        "multiplier": 0.785,
-        "recommendation": "AVOID (neg expectancy; wr 31% < prior 40%)",
+        "multiplier": 0.8,
+        "recommendation": "AVOID (neg expectancy; wr 31% < prior 39%)",
         "n": 38
       },
       {
         "dim": "size",
         "value": "2x",
-        "multiplier": 0.989,
-        "recommendation": "AVOID (neg expectancy; wr 39% < prior 40%)",
+        "multiplier": 1.007,
+        "recommendation": "neutral",
         "n": 23
       },
       {
         "dim": "size",
         "value": "1x",
-        "multiplier": 1.404,
+        "multiplier": 1.353,
         "recommendation": "favor",
-        "n": 24
+        "n": 26
       }
     ]
   },
