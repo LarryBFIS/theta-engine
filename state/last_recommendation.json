@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-25T14:21:43.072422+00:00",
-  "market_view": "VIX ticking up to 15.9 (+1.47%) with a 6.28% 5-day rip \u2014 vol expansion starting, but SPY flat on the day. Small-cap and energy weakness signals mild risk-off rotation, not yet a trend.",
+  "last_run": "2026-09-25T14:23:54.064057+00:00",
+  "market_view": "SPY flat, VIX at 15.72 with 5-day vol expansion of +5% \u2014 neutral regime but vol creep warrants urgency on problem positions. No news catalyst this cycle.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-25T14:21:28.834254+00:00",
-    "reasoning": "Short strike 61.5 is 6.7% ITM with SLV at $57.62, mid cost $0.675 vs $0.55 credit \u2014 you are past max loss on a $45 max-loss spread with 96 DTE left, meaning this position will sit as dead BPR for months with zero recovery path. Close it now and redeploy."
+    "timestamp": "2026-09-25T14:23:43.734106+00:00",
+    "reasoning": "Short strike 61.5 is 6.6% ITM with SLV at $57.67, position is past max loss on a $45 max-loss spread with 96 DTE \u2014 this was flagged CRITICAL 2 minutes ago and has not been closed. Every minute of inaction is dead BPR with zero recovery path."
   },
   "SPY 722/731p": {
     "action": "ACTION",
     "confidence": 1.0,
-    "timestamp": "2026-09-25T14:21:28.834254+00:00",
-    "reasoning": "This is a net-debit long put vertical (paid $0.93), not a short-premium trade \u2014 it does not belong in this account, and with SPY at $767 and 27 DTE the 21 DTE hard exit triggers in 6 days; current mid -$0.62 means ~$31 unrealized gain that decays further as SPY holds elevated levels."
+    "timestamp": "2026-09-25T14:23:43.734106+00:00",
+    "reasoning": "This is a net-debit long put vertical \u2014 wrong structure for a short-premium account \u2014 with 27 DTE triggering 21 DTE hard exit in 6 days; current mid -$0.615 shows ~$31 unrealized gain that erodes as SPY holds $767. This was flagged 2 minutes ago and has not been closed."
   }
 }
