@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-25T15:48:06.677102+00:00",
-  "market_view": "SPY flat +0.12% with VIX at 15.24 in neutral regime \u2014 no catalyst, no news. SLV remains deeply ITM with zero recovery path.",
+  "last_run": "2026-09-25T15:54:54.766453+00:00",
+  "market_view": "SPY flat +0.11% with VIX at 15.41 in neutral regime \u2014 no news catalyst, slow tape. SLV continues to bleed deeper ITM with no recovery path.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-25T15:47:55Z",
-    "reasoning": "Short strike 61.5 is 6.4% ITM with SLV at $57.78 \u2014 mid at $0.675 is 1.23x credit but worst-case fill $0.80 is 1.45x, effectively at loss threshold with 96 DTE and zero theta rescue possible. This has been flagged eight consecutive cycles with no action; holding is realizing max loss in slow motion."
+    "timestamp": "2026-09-25T15:54:45Z",
+    "reasoning": "Short strike 61.5 is 6.3% ITM with SLV at $57.83, mid at $0.675 is 1.23x credit and worst-case $0.85 is 1.55x \u2014 exceeding the 1.5x loss cut rule. 96 DTE means zero theta rescue; this is realizing max loss in slow motion and has been flagged repeatedly with no action taken."
   },
   "SPY 722/731p": {
     "action": "ACTION",
     "confidence": 0.95,
-    "timestamp": "2026-09-25T15:47:55Z",
-    "reasoning": "Long put vertical entered at -$0.93 debit, mid now -$0.58 \u2014 ~$35 gain per spread realized, SPY at $768 is 6% above the 722 short strike with 27 DTE hitting the 21 DTE hard exit rule in 6 days and no realistic path to additional profit."
+    "timestamp": "2026-09-25T15:54:45Z",
+    "reasoning": "Long put vertical entered at -$0.93 debit, mid now -$0.585 \u2014 ~$34.50 gain realized, SPY is 6% above the 722 short strike with 27 DTE and the 21 DTE hard exit rule triggers in 6 days with no incremental profit path."
   }
 }
