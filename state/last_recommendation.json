@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-25T16:55:32.080167+00:00",
-  "market_view": "SPY +0.48% with VIX at 14.98 (-4.4%) confirms benign equity tape, but SLV remains buried at $58.04 with short strike 6% ITM \u2014 no macro catalyst to rescue the metals position. Both mandatory actions from prior cycle remain unexecuted.",
+  "last_run": "2026-09-25T17:17:18.827364+00:00",
+  "market_view": "SPY +0.50% with VIX at 15.04 (-4.02%) \u2014 equity tape remains bullish/neutral, no catalyst to rescue SLV which is still buried 5.8% ITM on the short strike. Both positions flagged in prior cycle remain unexecuted and require immediate action.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-25T16:55:21Z",
-    "reasoning": "Short strike 61.5 remains 6.1% ITM at $58.04, worst-case cost $0.85 is 1.55x the $0.55 credit \u2014 1.5x stop rule breached, 96 DTE gives zero theta rescue path, position is bleeding to full $45 max loss with each tick down."
+    "timestamp": "2026-09-25T17:17:06Z",
+    "reasoning": "Short strike 61.5 is 5.8% ITM at $58.13, worst-case cost $0.80 is 1.45x credit and mid $0.675 is 1.23x \u2014 1.5x stop near breach, 96 DTE provides zero theta rescue, max loss $45 is imminent with SLV trending lower. This was flagged CRITICAL last cycle and is still open."
   },
   "SPY 722/731p": {
     "action": "ACTION",
     "confidence": 0.95,
-    "timestamp": "2026-09-25T16:55:21Z",
-    "reasoning": "Long put vertical entered at -$0.93 debit now mid at -$0.49, recovered ~$44 of the debit with 27 DTE and the 21 DTE hard exit rule triggering in 6 days \u2014 theta decay is accelerating against the long put leg with SPY 6.3% above short strike."
+    "timestamp": "2026-09-25T17:17:06Z",
+    "reasoning": "Long put vertical entered at -$0.93 debit now mid at -$0.49, recovered ~$44 of debit cost with SPY 6.4% above short strike \u2014 21 DTE hard exit triggers in 6 days and theta decay is accelerating against the long put leg. This was flagged ACTION last cycle and is still open."
   }
 }
