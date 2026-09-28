@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-28T19:47:47.457880+00:00",
-  "market_view": "VIX +7.67% today, +9.36% on the week \u2014 quarter-end risk-off persists with cyclicals and financials leading the bleed; no catalyst for reversal visible intraday.",
+  "last_run": "2026-09-28T19:55:05.581486+00:00",
+  "market_view": "VIX +8.74% today, +10.45% on the week \u2014 quarter-end risk-off rotation continues with cyclicals, financials, and discretionary bleeding hardest; defensive sectors (XLV, XLP, XLE) holding, confirming broad de-risking not sector rotation.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-28T19:47:36.988648+00:00",
-    "reasoning": "Short strike 11.7% ITM, worst-cost $0.95 is 1.73x credit \u2014 stop rule was breached, CRITICAL fired 18 minutes ago, position still open. This is a max-loss scenario in progress with 93 DTE and zero recovery path."
+    "timestamp": "2026-09-28T19:54:52.574458+00:00",
+    "reasoning": "Short strike is 11.9% ITM, worst-cost $1.00 is 1.82x the $0.55 credit \u2014 stop rule at 1.5x was breached long ago, this is a full max-loss position with 93 DTE and zero recovery path. Two CRITICAL alerts have fired with no action taken."
   },
   "SPY 722/731p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-28T19:47:36.988648+00:00",
-    "reasoning": "This bear put spread was entered at a net debit \u2014 negative credit of -$0.93 means this position has no profitable structure as a short-premium trade; SPY at $765 is 5.7% above short strike with 24 DTE hitting the 21-DTE exit rule in 3 days. CRITICAL fired 18 minutes ago with zero action."
+    "timestamp": "2026-09-28T19:54:52.574458+00:00",
+    "reasoning": "This position was entered at a net debit (-$0.93 credit) making it structurally a long put spread, not a short-premium trade \u2014 it has no place in this playbook and hits the 21-DTE exit rule in 3 days; SPY is 5.8% above the short strike at $765."
   }
 }
