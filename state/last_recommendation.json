@@ -1,10 +1,22 @@
 {
-  "last_run": "2026-09-29T19:49:33.957146+00:00",
-  "market_view": "VIX +13% on the week with broad risk-off into quarter-end; SLV at 55.38 is now 11.04% below the 61.5 short strike with no recovery catalyst and 92 DTE.",
+  "last_run": "2026-09-29T19:55:56.534696+00:00",
+  "market_view": "VIX +13% on the week into quarter-end with broad risk-off; SLV remains deeply breached with no recovery catalyst and the 1.5x stop was violated last cycle. IWM and QQQ verticals opened today are far OTM with acceptable POP.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-29T19:49:27Z",
-    "reasoning": "Short strike breached, worst-cost $0.95 is 1.73x the $0.55 credit \u2014 1.5x hard stop was breached last cycle and position remains open. At 92 DTE and 11% through the short strike, there is zero statistical edge remaining and every minute of inaction is additional capital destruction."
+    "timestamp": "2026-09-29T19:55:43Z",
+    "reasoning": "Short strike breached, worst-cost $0.95 is 1.73x the $0.55 credit \u2014 hard stop at 1.5x has been violated for multiple cycles with no action taken. SLV at $55.43 is 11% through the short strike with 92 DTE; this position has no statistical edge and is actively destroying capital."
+  },
+  "IWM 294/299c": {
+    "action": "HOLD",
+    "confidence": 0.88,
+    "timestamp": "2026-09-29T19:55:43Z",
+    "reasoning": "IWM at $278.91 is 5.4% below the 294 short call with 30 DTE; risk-off tape and IWM underperforming (-2.48% 5d) is directionally favorable for this call credit spread."
+  },
+  "QQQ 698/689p": {
+    "action": "HOLD",
+    "confidence": 0.82,
+    "timestamp": "2026-09-29T19:55:43Z",
+    "reasoning": "QQQ at $737.82 is 5.4% above the 698 short put with 30 DTE; current mid $1.125 is essentially flat to entry credit $1.11 \u2014 no action warranted yet."
   }
 }
