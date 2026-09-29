@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-09-29T13:27:34.000364+00:00",
-  "market_view": "Quarter-end risk-off continues with defensive sectors outperforming and VIX still elevated on a 5-day basis despite today's minor dip. No reversal catalyst present \u2014 broad selling in financials, discretionary, and tech confirms distribution.",
+  "last_run": "2026-09-29T13:45:51.745432+00:00",
+  "market_view": "Quarter-end tape is flat to mildly risk-off with VIX still elevated on a 5-day basis despite today's slight pullback. No catalyst for reversal in silver or broad equities intraday.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-29T13:27:22Z",
-    "reasoning": "Short strike 11.9% ITM, worst-cost $1.00 is 1.82x credit received \u2014 stop-loss at 1.5x ($0.825) was breached long ago. This position is at max loss with 92 DTE and zero recovery path. Close immediately."
+    "timestamp": "2026-09-29T13:45:40Z",
+    "reasoning": "Short strike is 11.9% ITM, worst-cost $0.90 is 1.64x credit \u2014 stop-loss at 1.5x ($0.825) breached, position is at near-max loss with 92 DTE and no recovery path. This alert was flagged last cycle and the position is still open \u2014 close now."
   },
   "SPY 722/731p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-29T13:27:22Z",
-    "reasoning": "This is a net-debit long put spread (negative credit -$0.93) \u2014 it is not a short-premium trade and has no place in this account. At 23 DTE it triggers the 21-DTE hard exit rule in 2 days and current mid at -$0.625 means the spread has lost value from entry."
+    "timestamp": "2026-09-29T13:45:40Z",
+    "reasoning": "This is a net-debit long put spread (negative credit -$0.93) that is not a short-premium trade \u2014 it has no place in this playbook and hits the 21-DTE hard exit rule in 2 days. This was flagged last cycle and is still open."
   }
 }
