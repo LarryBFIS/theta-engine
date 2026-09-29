@@ -1277,7 +1277,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Calm tape with VIX 14.68 after a -1% day and no scheduled macro events \u2014 directionally neutral but implied premium is thin at these levels, so short-vol trades are poorly compensated right now. Timing is acceptable for adding only high-quality index premium, not marginal structur",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-29",
+      "actual_price": 766.34,
+      "realized_move_pct": 0.0099,
+      "realized_move_signed": -0.0099,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "f8bd9be67c60",
@@ -1292,7 +1298,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Calm tape with VIX 14.68 after a -1% day and no scheduled macro events \u2014 directionally neutral but implied premium is thin at these levels, so short-vol trades are poorly compensated right now. Timing is acceptable for adding only high-quality index premium, not marginal structur",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-29",
+      "actual_price": 738.43,
+      "realized_move_pct": 0.0031,
+      "realized_move_signed": -0.0031,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "76369f572f8a",
@@ -1307,7 +1319,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Calm tape with VIX 14.68 after a -1% day and no scheduled macro events \u2014 directionally neutral but implied premium is thin at these levels, so short-vol trades are poorly compensated right now. Timing is acceptable for adding only high-quality index premium, not marginal structur",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-29",
+      "actual_price": 280.39,
+      "realized_move_pct": 0.025,
+      "realized_move_signed": -0.025,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "ff0e7c2ba327",
@@ -1322,7 +1340,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Calm tape with VIX 14.68 after a -1% day and no scheduled macro events \u2014 directionally neutral but implied premium is thin at these levels, so short-vol trades are poorly compensated right now. Timing is acceptable for adding only high-quality index premium, not marginal structur",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-29",
+      "actual_price": 514.41,
+      "realized_move_pct": 0.0144,
+      "realized_move_signed": -0.0144,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "87f4269e6fb4",
@@ -1337,7 +1361,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Calm tape with VIX 14.68 after a -1% day and no scheduled macro events \u2014 directionally neutral but implied premium is thin at these levels, so short-vol trades are poorly compensated right now. Timing is acceptable for adding only high-quality index premium, not marginal structur",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-09-29",
+      "actual_price": 358.34,
+      "realized_move_pct": 0.0514,
+      "realized_move_signed": -0.0514,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "67b42c89382c",
@@ -1637,6 +1667,81 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "A +8% rip day with VIX at 16 is a fast, one-way tape \u2014 momentum is strongly up and realized vol is running ahead of implied. That makes this a poor moment to sell call spreads into the move, and low IV ranks mean we're paid very little to try.",
+      "resolved": false
+    },
+    {
+      "id": "4c9745fe1e4d",
+      "index": "SPY",
+      "forecast_date": "2026-09-29",
+      "target_date": "2026-10-06",
+      "horizon_days": 7,
+      "spot_at_forecast": 766.34,
+      "iv": 0.1607,
+      "implied_move_pct": 0.0222,
+      "implied_move_abs": 17.05,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.87, normal regime, -1% tape: calm structural environment favoring premium selling, but modest directional headwind (down day) argues for tight positioning. No macro events; IV not rich, so timing is neutral-to-slightly-defensive.",
+      "resolved": false
+    },
+    {
+      "id": "00c2cc4e3a03",
+      "index": "QQQ",
+      "forecast_date": "2026-09-29",
+      "target_date": "2026-10-06",
+      "horizon_days": 7,
+      "spot_at_forecast": 738.43,
+      "iv": 0.2186,
+      "implied_move_pct": 0.0303,
+      "implied_move_abs": 22.36,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.87, normal regime, -1% tape: calm structural environment favoring premium selling, but modest directional headwind (down day) argues for tight positioning. No macro events; IV not rich, so timing is neutral-to-slightly-defensive.",
+      "resolved": false
+    },
+    {
+      "id": "936dbc0b3413",
+      "index": "IWM",
+      "forecast_date": "2026-09-29",
+      "target_date": "2026-10-06",
+      "horizon_days": 7,
+      "spot_at_forecast": 280.39,
+      "iv": 0.215,
+      "implied_move_pct": 0.0298,
+      "implied_move_abs": 8.35,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.87, normal regime, -1% tape: calm structural environment favoring premium selling, but modest directional headwind (down day) argues for tight positioning. No macro events; IV not rich, so timing is neutral-to-slightly-defensive.",
+      "resolved": false
+    },
+    {
+      "id": "bd934cb80b71",
+      "index": "DIA",
+      "forecast_date": "2026-09-29",
+      "target_date": "2026-10-06",
+      "horizon_days": 7,
+      "spot_at_forecast": 514.41,
+      "iv": 0.1573,
+      "implied_move_pct": 0.0218,
+      "implied_move_abs": 11.21,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.87, normal regime, -1% tape: calm structural environment favoring premium selling, but modest directional headwind (down day) argues for tight positioning. No macro events; IV not rich, so timing is neutral-to-slightly-defensive.",
+      "resolved": false
+    },
+    {
+      "id": "c771874ce2ae",
+      "index": "TSLA",
+      "forecast_date": "2026-09-29",
+      "target_date": "2026-10-06",
+      "horizon_days": 7,
+      "spot_at_forecast": 358.34,
+      "iv": 0.489,
+      "implied_move_pct": 0.0677,
+      "implied_move_abs": 24.27,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.87, normal regime, -1% tape: calm structural environment favoring premium selling, but modest directional headwind (down day) argues for tight positioning. No macro events; IV not rich, so timing is neutral-to-slightly-defensive.",
       "resolved": false
     }
   ]
