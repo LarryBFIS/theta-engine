@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-30T16:56:34.730192+00:00",
-  "market_view": "VIX 15.87 in neutral regime, tech leading with QQQ +0.76% and XLK +0.96% while IWM continues to lag at +0.11% \u2014 SLV remains deeply ITM at $54.41 with the 1.5x stop rule breached for multiple consecutive cycles and no close executed.",
+  "last_run": "2026-09-30T17:19:16.581982+00:00",
+  "market_view": "VIX 15.84 in neutral regime, tech leading (QQQ +0.65%, XLK +0.86%) while IWM flat and small-caps continue to lag on 5d basis \u2014 SLV remains deeply ITM with stop rule breached across multiple consecutive cycles, no action yet taken.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-30T16:56:21.867798+00:00",
-    "reasoning": "Short strike is 13% ITM at $54.41, worst-cost $0.90 is 1.64x the $0.55 credit \u2014 1.5x stop rule ($0.825) has been breached repeatedly across multiple cycles, 91 DTE means zero mean-reversion probability in time, and this position has been flagged CRITICAL with no action taken for at least two prior cycles. Max loss is $45 but mid-cost already represents a full loss on this spread."
+    "timestamp": "2026-09-30T17:19:03.250260+00:00",
+    "reasoning": "Short strike is 13.2% ITM at $54.32, worst-cost $0.95 is 1.73x the $0.55 credit \u2014 the 1.5x stop rule ($0.825) has been breached across at minimum three consecutive CRITICAL alerts with zero action taken, and at 91 DTE there is no time-based recovery thesis. This spread is effectively a full max-loss position and continued holding only risks assignment complications."
   },
   "IWM 294/299c": {
     "action": "HOLD",
-    "confidence": 0.88,
-    "timestamp": "2026-09-30T16:56:21.867798+00:00",
-    "reasoning": "IWM $279.32 sits 5.3% below the 294 short call, mid $0.645 is essentially flat to $0.64 entry \u2014 IWM's continued 5d underperformance (-0.71%) is favorable for this short call position with 29 DTE and theta accelerating."
+    "confidence": 0.9,
+    "timestamp": "2026-09-30T17:19:03.250260+00:00",
+    "reasoning": "IWM $278.99 sits 5.4% below the 294 short call, mid $0.63 is essentially flat to $0.64 entry with 29 DTE \u2014 IWM's continued 5d underperformance (-0.83%) is structurally favorable for this short call and theta is accelerating into the manage zone."
   },
   "QQQ 698/689p": {
     "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-09-30T16:56:21.867798+00:00",
-    "reasoning": "QQQ $743.57 is 6.1% above the 698 short put, mid $0.90 is ~19% profit \u2014 still short of the 50% target at $0.555, but QQQ strength and theta decay are working in favor; no trigger yet."
+    "confidence": 0.8,
+    "timestamp": "2026-09-30T17:19:03.250260+00:00",
+    "reasoning": "QQQ $742.74 is 6.0% above the 698 short put, mid $0.935 represents ~16% profit against the $1.11 credit \u2014 still well short of the 50% target ($0.555), but QQQ upside momentum and theta decay are both working; no trigger yet."
   }
 }
