@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-30T20:48:18.638324+00:00",
-  "market_view": "Neutral regime holding with VIX at 16.34, tech outperforming while defensives/financials bleed \u2014 no new catalysts but broad sector weakness outside XLK warrants vigilance on small-cap and put spreads.",
+  "last_run": "2026-09-30T20:55:21.339969+00:00",
+  "market_view": "Neutral regime unchanged, VIX ticking up +1.87% on broad sector weakness outside tech \u2014 no new catalysts but financials/defensives/small-caps continuing to lag, which is benign for existing put spreads below market.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-30T20:48:08.709255+00:00",
-    "reasoning": "Short strike is 12.8% ITM, worst-cost $0.95 is 1.73x credit \u2014 1.5x stop rule has been triggered for multiple cycles with no close executed, position is at near-max loss with 91 DTE and zero recovery signal."
+    "timestamp": "2026-09-30T20:55:07.596523+00:00",
+    "reasoning": "Short strike 12.8% ITM, worst-cost $0.95 is 1.73x credit \u2014 1.5x stop rule triggered multiple consecutive cycles, position is at near-max loss with 91 DTE and zero path to recovery. This has been flagged every cycle with no close executed."
   },
   "IWM 294/299c": {
-    "action": "WATCH",
-    "confidence": 0.85,
-    "timestamp": "2026-09-30T20:48:08.709255+00:00",
-    "reasoning": "Mid at $0.56 vs $0.64 credit is 87.5% of max profit captured and IWM is weak 5d (-1.22%) which is structurally favorable \u2014 21 DTE rule triggers in 8 days, no action required today."
+    "action": "ACTION",
+    "confidence": 0.88,
+    "timestamp": "2026-09-30T20:55:07.596523+00:00",
+    "reasoning": "Mid at $0.56 vs $0.64 credit = 87.5% of max profit captured, well past the 50% manage rule, and IWM weakness (-1.22% 5d) keeps short strike at 5.8% OTM \u2014 this is free money left on the table."
   },
   "QQQ 698/689p": {
     "action": "HOLD",
     "confidence": 0.83,
-    "timestamp": "2026-09-30T20:48:08.709255+00:00",
-    "reasoning": "QQQ at $739.77 sits 5.7% above short put with XLK outperforming today (+0.64%) \u2014 mid at $1.035 reflects only ~7% profit captured, theta needs more time to work."
+    "timestamp": "2026-09-30T20:55:07.596523+00:00",
+    "reasoning": "QQQ at $739.77 is 5.7% above short put with XLK outperforming, mid at $1.035 shows only ~7% profit captured \u2014 theta needs more time with 29 DTE remaining."
   }
 }
