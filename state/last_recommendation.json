@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-09-30T14:26:22.720921+00:00",
-  "market_view": "VIX at 15.71 continuing to fade, neutral regime with tech leading \u2014 no macro catalyst to rescue SLV which remains deeply ITM with 91 DTE and no path to recovery.",
+  "last_run": "2026-09-30T14:37:57.238733+00:00",
+  "market_view": "VIX at 15.76 (-1.75%) in neutral regime with tech leading \u2014 no macro catalyst in sight to rescue SLV. Equities grinding higher, SLV continues to hemorrhage with no recovery path.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-09-30T14:26:11.616301+00:00",
-    "reasoning": "Short strike 11.9% ITM, worst-cost $0.95 is 1.73x the $0.55 credit \u2014 stop rule at 1.5x was breached multiple cycles ago, worst-cost is now approaching max loss of $1.00, and 91 DTE means zero theta rescue. This has been flagged CRITICAL for multiple cycles with no action taken \u2014 continued inaction compounds the loss."
+    "timestamp": "2026-09-30T14:37:46Z",
+    "reasoning": "Short strike 12.5% ITM, worst-cost $0.90 is 1.64x the $0.55 credit \u2014 stop rule at 1.5x was breached multiple cycles ago, this has been flagged CRITICAL repeatedly with no action, and 91 DTE means theta will not save this trade. Every 15-minute delay crystallizes more loss approaching max."
   },
   "IWM 294/299c": {
     "action": "HOLD",
     "confidence": 0.88,
-    "timestamp": "2026-09-30T14:26:11.616301+00:00",
-    "reasoning": "IWM at $279.45 sits 5.2% below the 294 short call strike, mid at $0.67 is essentially flat to $0.64 entry \u2014 no structural threat and still 29 DTE with 8 days before the 21 DTE exit rule triggers."
+    "timestamp": "2026-09-30T14:37:46Z",
+    "reasoning": "IWM at $279.29 sits 5.3% below the 294 short call, mid at $0.665 is essentially flat to $0.64 entry \u2014 no structural threat with 29 DTE and the 21 DTE rule not triggering for another 8 days."
   },
   "QQQ 698/689p": {
     "action": "WATCH",
     "confidence": 0.82,
-    "timestamp": "2026-09-30T14:26:11.616301+00:00",
-    "reasoning": "QQQ at $743.31 is 6.1% above the 698 short put, mid at $0.915 is improving but still at 82% of original credit \u2014 profit target requires $0.555 mid. 21 DTE exit rule triggers in 8 calendar days if target not hit."
+    "timestamp": "2026-09-30T14:37:46Z",
+    "reasoning": "QQQ at $742.38 is 6.0% above the 698 short put, mid at $0.955 is 86% of original credit \u2014 profit target needs mid at $0.555 and we're not there yet, but 21 DTE exit rule triggers in 8 days."
   }
 }
