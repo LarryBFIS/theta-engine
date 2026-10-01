@@ -1487,7 +1487,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Strong +5% up day with VIX at 16.01 in a normal regime \u2014 momentum is firmly to the upside, so selling call spreads right now is fading a rip, not harvesting calm premium. Better to wait for the rally to stall or vol to re-price richer before adding short-call exposure.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-01",
+      "actual_price": 764.57,
+      "realized_move_pct": 0.0005,
+      "realized_move_signed": 0.0005,
+      "stayed_in_range": true
     },
     {
       "id": "3e23e4eb4d5c",
@@ -1502,7 +1507,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Strong +5% up day with VIX at 16.01 in a normal regime \u2014 momentum is firmly to the upside, so selling call spreads right now is fading a rip, not harvesting calm premium. Better to wait for the rally to stall or vol to re-price richer before adding short-call exposure.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-01",
+      "actual_price": 742.92,
+      "realized_move_pct": 0.0117,
+      "realized_move_signed": 0.0117,
+      "stayed_in_range": true
     },
     {
       "id": "7221ba3820c5",
@@ -1517,7 +1527,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Strong +5% up day with VIX at 16.01 in a normal regime \u2014 momentum is firmly to the upside, so selling call spreads right now is fading a rip, not harvesting calm premium. Better to wait for the rally to stall or vol to re-price richer before adding short-call exposure.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-01",
+      "actual_price": 278.14,
+      "realized_move_pct": 0.0104,
+      "realized_move_signed": -0.0104,
+      "stayed_in_range": true
     },
     {
       "id": "70858ec71003",
@@ -1532,7 +1547,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Strong +5% up day with VIX at 16.01 in a normal regime \u2014 momentum is firmly to the upside, so selling call spreads right now is fading a rip, not harvesting calm premium. Better to wait for the rally to stall or vol to re-price richer before adding short-call exposure.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-01",
+      "actual_price": 509.78,
+      "realized_move_pct": 0.0065,
+      "realized_move_signed": -0.0065,
+      "stayed_in_range": true
     },
     {
       "id": "2783d917d0f1",
@@ -1547,7 +1567,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Strong +5% up day with VIX at 16.01 in a normal regime \u2014 momentum is firmly to the upside, so selling call spreads right now is fading a rip, not harvesting calm premium. Better to wait for the rally to stall or vol to re-price richer before adding short-call exposure.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-01",
+      "actual_price": 356.24,
+      "realized_move_pct": 0.0548,
+      "realized_move_signed": -0.0548,
+      "stayed_in_range": true
     },
     {
       "id": "f7ba957849dd",
@@ -1847,6 +1872,81 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Calm, low-vol tape (VIX 15.87) with a mild -1% day in a normal regime \u2014 no event risk, but implied premium is thin, so this is a mediocre moment to be adding short-vol. The book is already a correlated US-equity short-vol bet, so marginal adds here mostly stack the same exposure.",
+      "resolved": false
+    },
+    {
+      "id": "ef901a00a973",
+      "index": "SPY",
+      "forecast_date": "2026-10-01",
+      "target_date": "2026-10-08",
+      "horizon_days": 7,
+      "spot_at_forecast": 764.57,
+      "iv": 0.161,
+      "implied_move_pct": 0.0223,
+      "implied_move_abs": 17.05,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 16.3, normal regime, flat tape\u2014a calm environment ideal for premium selling. No macro events pending; timing is neutral-to-favorable for short-vol strategies.",
+      "resolved": false
+    },
+    {
+      "id": "d7aeecec78db",
+      "index": "QQQ",
+      "forecast_date": "2026-10-01",
+      "target_date": "2026-10-08",
+      "horizon_days": 7,
+      "spot_at_forecast": 742.92,
+      "iv": 0.2215,
+      "implied_move_pct": 0.0307,
+      "implied_move_abs": 22.79,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 16.3, normal regime, flat tape\u2014a calm environment ideal for premium selling. No macro events pending; timing is neutral-to-favorable for short-vol strategies.",
+      "resolved": false
+    },
+    {
+      "id": "862173600ba2",
+      "index": "IWM",
+      "forecast_date": "2026-10-01",
+      "target_date": "2026-10-08",
+      "horizon_days": 7,
+      "spot_at_forecast": 278.14,
+      "iv": 0.2157,
+      "implied_move_pct": 0.0299,
+      "implied_move_abs": 8.31,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 16.3, normal regime, flat tape\u2014a calm environment ideal for premium selling. No macro events pending; timing is neutral-to-favorable for short-vol strategies.",
+      "resolved": false
+    },
+    {
+      "id": "0afccf31318f",
+      "index": "DIA",
+      "forecast_date": "2026-10-01",
+      "target_date": "2026-10-08",
+      "horizon_days": 7,
+      "spot_at_forecast": 509.78,
+      "iv": 0.1587,
+      "implied_move_pct": 0.022,
+      "implied_move_abs": 11.21,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 16.3, normal regime, flat tape\u2014a calm environment ideal for premium selling. No macro events pending; timing is neutral-to-favorable for short-vol strategies.",
+      "resolved": false
+    },
+    {
+      "id": "8108c9c0470c",
+      "index": "TSLA",
+      "forecast_date": "2026-10-01",
+      "target_date": "2026-10-08",
+      "horizon_days": 7,
+      "spot_at_forecast": 356.24,
+      "iv": 0.4833,
+      "implied_move_pct": 0.0669,
+      "implied_move_abs": 23.85,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 16.3, normal regime, flat tape\u2014a calm environment ideal for premium selling. No macro events pending; timing is neutral-to-favorable for short-vol strategies.",
       "resolved": false
     }
   ]
