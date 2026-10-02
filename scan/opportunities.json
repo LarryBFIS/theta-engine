@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-02T18:03:47.265919+00:00",
+  "generated_at": "2026-10-02T18:22:19.921313+00:00",
   "regime": {
-    "vix": 15.75,
-    "vix_day_change_pct": -0.039,
+    "vix": 15.62,
+    "vix_day_change_pct": -0.047,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (-4% day)"
+    "note": "normal regime (-5% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -18,6 +18,96 @@
     "longvol_catalyst_days": 14
   },
   "top": [
+    {
+      "underlying": "IWM",
+      "structure": "short_call_vertical",
+      "expiry": "2026-11-06",
+      "dte": 35,
+      "short_strike": 297.0,
+      "long_strike": 302.0,
+      "short_symbol": "IWM   261106C00297000",
+      "long_symbol": "IWM   261106C00302000",
+      "width": 5.0,
+      "credit": 0.64,
+      "mid_credit": 0.67,
+      "fees_est": 3.0,
+      "bpr": 436.0,
+      "max_loss": 436.0,
+      "pop": 0.806,
+      "short_delta": 0.212,
+      "short_spread_pct": 0.028,
+      "credit_to_bpr": 0.147,
+      "ev_per_contract": 4.18,
+      "ev_on_bpr": 0.0096,
+      "iv": 0.2088,
+      "iv_rank": 0.243,
+      "underlying_price": 281.46,
+      "liquidity": 4,
+      "earnings_date": null,
+      "tag": "paper",
+      "sized_for": "paper",
+      "contracts": 1,
+      "max_loss_total": 436.0,
+      "bpr_total": 436.0,
+      "trend": "bearish",
+      "sized_capped": true,
+      "reasoning": "short call vertical 297/302c \u00d72 \u2014 bearish lean. Edge: IV rank 24%, EV $+4/ctr (+1.0% on BPR). POP 81% \u00b7 credit $0.64 \u00b7 max loss $436 \u00b7 BPR $872 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 1.6,
+      "learn_notes": [
+        "asset_class=index_etf \u00d71.39",
+        "cluster=us_index \u00d71.50"
+      ],
+      "rank_score": 0.01536,
+      "agent_action": "downsize",
+      "agent_reason": "IWM is sound (index_etf, short_call_vertical favored), but book already has 3 us_index; 2 contracts would breach diversification. Reduce to 1 to stay under cluster cap and preserve dry powder.",
+      "agent_reviewed": true,
+      "news_risk": {
+        "level": "clear",
+        "hits": []
+      },
+      "net_liq": 7278.951,
+      "ticket": {
+        "underlying": "IWM",
+        "code": "VC",
+        "order_type": "Net Credit",
+        "limit": 0.64,
+        "contracts": 1,
+        "expiry": "2026-11-06",
+        "legs": [
+          {
+            "action": "SELL",
+            "qty": 1,
+            "expiry": "2026-11-06",
+            "strike": 297.0,
+            "type": "C"
+          },
+          {
+            "action": "BUY",
+            "qty": 1,
+            "expiry": "2026-11-06",
+            "strike": 302.0,
+            "type": "C"
+          }
+        ],
+        "credit_total": 64.0,
+        "max_loss_total": 436.0,
+        "bpr_total": 436.0,
+        "pop": 0.806,
+        "tag": "paper",
+        "manage": {
+          "profit_target_pct": 50,
+          "close_debit": 0.32,
+          "stop_debit": 1.6,
+          "exit_dte": 21
+        },
+        "fits_live_cap": true,
+        "live_cap": 727.9,
+        "suggested_width": null,
+        "fit_note": "",
+        "text": "IWM VC \u00d71 \u2014 SELL 297C / BUY 302C (2026-11-06) @ $0.64 net credit. Max loss $436. After fill: GTC buy-to-close @ $0.32 (50%)."
+      },
+      "posted_at": "2026-10-02T18:22:19.921313+00:00"
+    },
     {
       "underlying": "QQQ",
       "structure": "iron_condor",
@@ -36,39 +126,39 @@
         "call_long": "QQQ   261106C00820000"
       },
       "width": 10.0,
-      "credit": 1.31,
+      "credit": 1.3,
       "put_credit": 0.77,
-      "call_credit": 0.54,
+      "call_credit": 0.53,
       "fees_est": 3.0,
-      "bpr": 869.0,
-      "max_loss": 869.0,
+      "bpr": 870.0,
+      "max_loss": 870.0,
       "pop": 0.768,
       "put_short_delta": 0.106,
       "call_short_delta": 0.127,
-      "credit_to_bpr": 0.151,
-      "ev_per_contract": 1.79,
-      "ev_on_bpr": 0.0021,
+      "credit_to_bpr": 0.149,
+      "ev_per_contract": 1.76,
+      "ev_on_bpr": 0.002,
       "iv": 0.2165,
       "iv_rank": 0.458,
-      "underlying_price": 748.64,
+      "underlying_price": 748.62,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 869.0,
-      "bpr_total": 869.0,
+      "max_loss_total": 870.0,
+      "bpr_total": 870.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). iron condor 690/680p + 810/820c \u00d71 \u2014 neutral (book bias +2 \u2192 balance). Edge: IV rank 46%, EV $+2/ctr (+0.2% on BPR). POP 77% \u00b7 credit $1.31 \u00b7 max loss $869 \u00b7 BPR $869 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 0.552,
+      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). iron condor 690/680p + 810/820c \u00d71 \u2014 neutral (book bias +2 \u2192 balance). Edge: IV rank 46%, EV $+2/ctr (+0.2% on BPR). POP 77% \u00b7 credit $1.30 \u00b7 max loss $870 \u00b7 BPR $870 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 0.589,
       "learn_notes": [
-        "asset_class=single_name \u00d70.70",
-        "cluster=us_tech \u00d70.79"
+        "asset_class=single_name \u00d70.72",
+        "cluster=us_tech \u00d70.81"
       ],
-      "rank_score": 0.001159,
+      "rank_score": 0.001178,
       "agent_action": "guarded",
-      "agent_reason": "Single-name cluster (us_tech) has negative realized edge (31% wr < 40% baseline); QQQ already open. Avoid adding to a weak sub-book, especially on a down day when volatility expands risk of fills at worse levels.",
+      "agent_reason": "QQQ is single_name in us_tech cluster; us_tech has negative realized edge (wr 33% vs 40% prior), and book already holds 1 QQQ position at max_per_name. No second reason needed, but adding here is a marginal bet into a known weak cluster.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -76,12 +166,12 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7277.422,
+      "net_liq": 7278.951,
       "ticket": {
         "underlying": "QQQ",
         "code": "IC",
         "order_type": "Net Credit",
-        "limit": 1.31,
+        "limit": 1.3,
         "contracts": 1,
         "expiry": "2026-11-06",
         "legs": [
@@ -114,58 +204,58 @@
             "type": "C"
           }
         ],
-        "credit_total": 131.0,
-        "max_loss_total": 869.0,
-        "bpr_total": 869.0,
+        "credit_total": 130.0,
+        "max_loss_total": 870.0,
+        "bpr_total": 870.0,
         "pop": 0.768,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
-          "close_debit": 0.66,
-          "stop_debit": 3.28,
+          "close_debit": 0.65,
+          "stop_debit": 3.25,
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 727.74,
+        "live_cap": 727.9,
         "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $869 > 10% live cap ($728) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ IC \u00d71 \u2014 SELL 690P / BUY 680P / SELL 810C / BUY 820C (2026-11-06) @ $1.31 net credit. Max loss $869. After fill: GTC buy-to-close @ $0.66 (50%). \u26a0 max loss $869 > 10% live cap ($728) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $870 > 10% live cap ($728) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "QQQ IC \u00d71 \u2014 SELL 690P / BUY 680P / SELL 810C / BUY 820C (2026-11-06) @ $1.30 net credit. Max loss $870. After fill: GTC buy-to-close @ $0.65 (50%). \u26a0 max loss $870 > 10% live cap ($728) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-10-02T18:03:47.265919+00:00"
+      "posted_at": "2026-10-02T18:22:19.921313+00:00"
     }
   ],
   "long_vol": [],
   "events": [],
   "learnings": {
     "global": {
-      "closed": 81,
-      "wins": 32,
+      "closed": 82,
+      "wins": 33,
       "losses": 49,
-      "win_rate": 0.395,
-      "total_pnl": -9281.5
+      "win_rate": 0.402,
+      "total_pnl": -9251.0
     },
     "min_sample": 20,
     "actionable": [
       {
         "dim": "asset_class",
         "value": "index_etf",
-        "multiplier": 1.41,
+        "multiplier": 1.388,
         "recommendation": "favor",
         "n": 33
       },
       {
         "dim": "asset_class",
         "value": "single_name",
-        "multiplier": 0.701,
-        "recommendation": "AVOID (neg expectancy; wr 28% < prior 40%)",
-        "n": 44
+        "multiplier": 0.724,
+        "recommendation": "AVOID (neg expectancy; wr 29% < prior 40%)",
+        "n": 45
       },
       {
         "dim": "structure",
         "value": "short_put_vertical",
         "multiplier": 1.207,
         "recommendation": "favor",
-        "n": 57
+        "n": 58
       },
       {
         "dim": "cluster",
@@ -177,50 +267,52 @@
       {
         "dim": "cluster",
         "value": "us_tech",
-        "multiplier": 0.788,
-        "recommendation": "AVOID (neg expectancy; wr 31% < prior 40%)",
-        "n": 38
+        "multiplier": 0.813,
+        "recommendation": "AVOID (neg expectancy; wr 33% < prior 40%)",
+        "n": 39
       },
       {
         "dim": "size",
         "value": "2x",
-        "multiplier": 0.993,
+        "multiplier": 0.981,
         "recommendation": "AVOID (neg expectancy; wr 39% < prior 40%)",
         "n": 23
       },
       {
         "dim": "size",
         "value": "1x",
-        "multiplier": 1.365,
+        "multiplier": 1.375,
         "recommendation": "favor",
-        "n": 27
+        "n": 28
       }
     ]
   },
   "agent": {
-    "generated_at": "2026-10-02T18:03:46.987629+00:00",
+    "generated_at": "2026-10-02T18:22:19.489030+00:00",
     "model": "claude-haiku-4-5",
-    "market_view": "Normal regime, -4% down day, VIX 15.75\u2014tape is pulling back but not panicked. Good environment for short premium IF diversified; however, we're already long 4 correlated index shorts (QQQ, SPY, IWM, DIA). Adding more call spreads now crowds the same directional hedge and compounds the risk of a snapback rally into a soft close.",
-    "portfolio_note": "Book is -$20 unrealized on 4 index shorts; all short call verticals betting on staying capped. A -4% day is ideal conditions to HOLD our winners, not pyramid more of the same directional bet.",
+    "market_view": "VIX 15.62, normal regime after -5% down day; tape is cooling. Premium-selling timing is favorable\u2014vol is not cheap, and we're not into a spike event. This is a reasonable window for measured short premium.",
+    "portfolio_note": "Book is 4 open (3 us_index, 1 us_tech), -$8 unrealized. Already clustered heavy in us_index (at cap = 3); us_tech is a known weak performer (wr 33%). Adding more us_index or any us_tech tightens correlations and risks a correlated washout.",
     "vol_verdict": "implied_rich",
     "reviewed": 3,
-    "vetoed": 3,
-    "downsized": 0,
+    "vetoed": 2,
+    "downsized": 1,
     "decisions": [
       {
         "id": "IWM|short_call_vertical|297/302",
-        "action": "veto",
-        "reason": "Already 1 IWM short call short on book; max_per_name = 1 cap prevents a second. Would hit cluster cap (currently 3/3 us_index) if approved."
+        "action": "downsize",
+        "from": 2,
+        "to": 1,
+        "reason": "IWM is sound (index_etf, short_call_vertical favored), but book already has 3 us_index; 2 contracts would breach diversification. Reduce to 1 to stay under cluster cap and preserve dry powder."
       },
       {
-        "id": "DIA|short_call_vertical|532/538",
+        "id": "DIA|short_call_vertical|531/537",
         "action": "veto",
-        "reason": "Book already at max cluster size (3/3 us_index: QQQ, SPY, IWM, DIA). Adding DIA call spread would breach cap and concentrate directional short-vol bet into a tape that is down 4%\u2014risk of trapped capital on a snapback."
+        "reason": "DIA would be the 4th us_index position, exceeding max_per_cluster=3 cap; book cannot absorb correlated risk. Veto to defend against cluster drawdown."
       },
       {
         "id": "QQQ|iron_condor|690/810",
         "action": "veto",
-        "reason": "Single-name cluster (us_tech) has negative realized edge (31% wr < 40% baseline); QQQ already open. Avoid adding to a weak sub-book, especially on a down day when volatility expands risk of fills at worse levels."
+        "reason": "QQQ is single_name in us_tech cluster; us_tech has negative realized edge (wr 33% vs 40% prior), and book already holds 1 QQQ position at max_per_name. No second reason needed, but adding here is a marginal bet into a known weak cluster."
       }
     ]
   },
@@ -236,62 +328,109 @@
       "long_symbol": "IWM   261106C00302000",
       "width": 5.0,
       "credit": 0.64,
-      "mid_credit": 0.68,
+      "mid_credit": 0.67,
       "fees_est": 3.0,
       "bpr": 436.0,
       "max_loss": 436.0,
-      "pop": 0.804,
-      "short_delta": 0.214,
-      "short_spread_pct": 0.035,
+      "pop": 0.806,
+      "short_delta": 0.212,
+      "short_spread_pct": 0.028,
       "credit_to_bpr": 0.147,
-      "ev_per_contract": 3.93,
-      "ev_on_bpr": 0.009,
+      "ev_per_contract": 4.18,
+      "ev_on_bpr": 0.0096,
       "iv": 0.2088,
       "iv_rank": 0.243,
-      "underlying_price": 281.59,
+      "underlying_price": 281.46,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
-      "contracts": 2,
-      "max_loss_total": 872.0,
-      "bpr_total": 872.0,
+      "contracts": 1,
+      "max_loss_total": 436.0,
+      "bpr_total": 436.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short call vertical 297/302c \u00d72 \u2014 bearish lean. Edge: IV rank 24%, EV $+4/ctr (+0.9% on BPR). POP 80% \u00b7 credit $0.64 \u00b7 max loss $436 \u00b7 BPR $872 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short call vertical 297/302c \u00d72 \u2014 bearish lean. Edge: IV rank 24%, EV $+4/ctr (+1.0% on BPR). POP 81% \u00b7 credit $0.64 \u00b7 max loss $436 \u00b7 BPR $872 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.6,
       "learn_notes": [
-        "asset_class=index_etf \u00d71.41",
+        "asset_class=index_etf \u00d71.39",
         "cluster=us_index \u00d71.50"
       ],
-      "rank_score": 0.0144,
-      "agent_action": "veto",
-      "agent_reason": "Already 1 IWM short call short on book; max_per_name = 1 cap prevents a second. Would hit cluster cap (currently 3/3 us_index) if approved."
+      "rank_score": 0.01536,
+      "agent_action": "downsize",
+      "agent_reason": "IWM is sound (index_etf, short_call_vertical favored), but book already has 3 us_index; 2 contracts would breach diversification. Reduce to 1 to stay under cluster cap and preserve dry powder.",
+      "agent_reviewed": true,
+      "news_risk": {
+        "level": "clear",
+        "hits": []
+      },
+      "net_liq": 7278.951,
+      "ticket": {
+        "underlying": "IWM",
+        "code": "VC",
+        "order_type": "Net Credit",
+        "limit": 0.64,
+        "contracts": 1,
+        "expiry": "2026-11-06",
+        "legs": [
+          {
+            "action": "SELL",
+            "qty": 1,
+            "expiry": "2026-11-06",
+            "strike": 297.0,
+            "type": "C"
+          },
+          {
+            "action": "BUY",
+            "qty": 1,
+            "expiry": "2026-11-06",
+            "strike": 302.0,
+            "type": "C"
+          }
+        ],
+        "credit_total": 64.0,
+        "max_loss_total": 436.0,
+        "bpr_total": 436.0,
+        "pop": 0.806,
+        "tag": "paper",
+        "manage": {
+          "profit_target_pct": 50,
+          "close_debit": 0.32,
+          "stop_debit": 1.6,
+          "exit_dte": 21
+        },
+        "fits_live_cap": true,
+        "live_cap": 727.9,
+        "suggested_width": null,
+        "fit_note": "",
+        "text": "IWM VC \u00d71 \u2014 SELL 297C / BUY 302C (2026-11-06) @ $0.64 net credit. Max loss $436. After fill: GTC buy-to-close @ $0.32 (50%)."
+      },
+      "posted_at": "2026-10-02T18:22:19.921313+00:00"
     },
     {
       "underlying": "DIA",
       "structure": "short_call_vertical",
       "expiry": "2026-11-06",
       "dte": 35,
-      "short_strike": 532.0,
-      "long_strike": 538.0,
-      "short_symbol": "DIA   261106C00532000",
-      "long_symbol": "DIA   261106C00538000",
+      "short_strike": 531.0,
+      "long_strike": 537.0,
+      "short_symbol": "DIA   261106C00531000",
+      "long_symbol": "DIA   261106C00537000",
       "width": 6.0,
       "credit": 0.65,
-      "mid_credit": 0.87,
+      "mid_credit": 0.86,
       "fees_est": 3.0,
       "bpr": 535.0,
       "max_loss": 535.0,
-      "pop": 0.804,
-      "short_delta": 0.21,
-      "short_spread_pct": 0.109,
+      "pop": 0.798,
+      "short_delta": 0.216,
+      "short_spread_pct": 0.113,
       "credit_to_bpr": 0.121,
-      "ev_per_contract": 3.98,
-      "ev_on_bpr": 0.0074,
-      "iv": 0.1586,
-      "iv_rank": 0.331,
-      "underlying_price": 510.74,
+      "ev_per_contract": 3.27,
+      "ev_on_bpr": 0.0061,
+      "iv": 0.1576,
+      "iv_rank": 0.324,
+      "underlying_price": 510.4,
       "liquidity": 3,
       "earnings_date": null,
       "tag": "paper",
@@ -301,15 +440,15 @@
       "bpr_total": 535.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short call vertical 532/538c \u00d71 \u2014 bearish lean. Edge: IV rank 33%, EV $+4/ctr (+0.7% on BPR). POP 80% \u00b7 credit $0.65 \u00b7 max loss $535 \u00b7 BPR $535 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short call vertical 531/537c \u00d71 \u2014 bearish lean. Edge: IV rank 32%, EV $+3/ctr (+0.6% on BPR). POP 80% \u00b7 credit $0.65 \u00b7 max loss $535 \u00b7 BPR $535 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.6,
       "learn_notes": [
-        "asset_class=index_etf \u00d71.41",
+        "asset_class=index_etf \u00d71.39",
         "cluster=us_index \u00d71.50"
       ],
-      "rank_score": 0.01184,
+      "rank_score": 0.00976,
       "agent_action": "veto",
-      "agent_reason": "Book already at max cluster size (3/3 us_index: QQQ, SPY, IWM, DIA). Adding DIA call spread would breach cap and concentrate directional short-vol bet into a tape that is down 4%\u2014risk of trapped capital on a snapback."
+      "agent_reason": "DIA would be the 4th us_index position, exceeding max_per_cluster=3 cap; book cannot absorb correlated risk. Veto to defend against cluster drawdown."
     },
     {
       "underlying": "QQQ",
@@ -329,39 +468,39 @@
         "call_long": "QQQ   261106C00820000"
       },
       "width": 10.0,
-      "credit": 1.31,
+      "credit": 1.3,
       "put_credit": 0.77,
-      "call_credit": 0.54,
+      "call_credit": 0.53,
       "fees_est": 3.0,
-      "bpr": 869.0,
-      "max_loss": 869.0,
+      "bpr": 870.0,
+      "max_loss": 870.0,
       "pop": 0.768,
       "put_short_delta": 0.106,
       "call_short_delta": 0.127,
-      "credit_to_bpr": 0.151,
-      "ev_per_contract": 1.79,
-      "ev_on_bpr": 0.0021,
+      "credit_to_bpr": 0.149,
+      "ev_per_contract": 1.76,
+      "ev_on_bpr": 0.002,
       "iv": 0.2165,
       "iv_rank": 0.458,
-      "underlying_price": 748.64,
+      "underlying_price": 748.62,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 869.0,
-      "bpr_total": 869.0,
+      "max_loss_total": 870.0,
+      "bpr_total": 870.0,
       "trend": "bullish",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). iron condor 690/680p + 810/820c \u00d71 \u2014 neutral (book bias +2 \u2192 balance). Edge: IV rank 46%, EV $+2/ctr (+0.2% on BPR). POP 77% \u00b7 credit $1.31 \u00b7 max loss $869 \u00b7 BPR $869 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 0.552,
+      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). iron condor 690/680p + 810/820c \u00d71 \u2014 neutral (book bias +2 \u2192 balance). Edge: IV rank 46%, EV $+2/ctr (+0.2% on BPR). POP 77% \u00b7 credit $1.30 \u00b7 max loss $870 \u00b7 BPR $870 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 0.589,
       "learn_notes": [
-        "asset_class=single_name \u00d70.70",
-        "cluster=us_tech \u00d70.79"
+        "asset_class=single_name \u00d70.72",
+        "cluster=us_tech \u00d70.81"
       ],
-      "rank_score": 0.001159,
+      "rank_score": 0.001178,
       "agent_action": "guarded",
-      "agent_reason": "Single-name cluster (us_tech) has negative realized edge (31% wr < 40% baseline); QQQ already open. Avoid adding to a weak sub-book, especially on a down day when volatility expands risk of fills at worse levels.",
+      "agent_reason": "QQQ is single_name in us_tech cluster; us_tech has negative realized edge (wr 33% vs 40% prior), and book already holds 1 QQQ position at max_per_name. No second reason needed, but adding here is a marginal bet into a known weak cluster.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -369,12 +508,12 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7277.422,
+      "net_liq": 7278.951,
       "ticket": {
         "underlying": "QQQ",
         "code": "IC",
         "order_type": "Net Credit",
-        "limit": 1.31,
+        "limit": 1.3,
         "contracts": 1,
         "expiry": "2026-11-06",
         "legs": [
@@ -407,24 +546,24 @@
             "type": "C"
           }
         ],
-        "credit_total": 131.0,
-        "max_loss_total": 869.0,
-        "bpr_total": 869.0,
+        "credit_total": 130.0,
+        "max_loss_total": 870.0,
+        "bpr_total": 870.0,
         "pop": 0.768,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
-          "close_debit": 0.66,
-          "stop_debit": 3.28,
+          "close_debit": 0.65,
+          "stop_debit": 3.25,
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 727.74,
+        "live_cap": 727.9,
         "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $869 > 10% live cap ($728) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ IC \u00d71 \u2014 SELL 690P / BUY 680P / SELL 810C / BUY 820C (2026-11-06) @ $1.31 net credit. Max loss $869. After fill: GTC buy-to-close @ $0.66 (50%). \u26a0 max loss $869 > 10% live cap ($728) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $870 > 10% live cap ($728) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "QQQ IC \u00d71 \u2014 SELL 690P / BUY 680P / SELL 810C / BUY 820C (2026-11-06) @ $1.30 net credit. Max loss $870. After fill: GTC buy-to-close @ $0.65 (50%). \u26a0 max loss $870 > 10% live cap ($728) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-10-02T18:03:47.265919+00:00"
+      "posted_at": "2026-10-02T18:22:19.921313+00:00"
     }
   ],
   "skipped": {
@@ -432,7 +571,7 @@
     "XLE": "failed: pv: no/invalid leg quote",
     "XLF": "failed: pv: spread short 16%/long 122%",
     "XLV": "failed: pv: spread short 68%/long 124%",
-    "XLI": "failed: pv: spread short 38%/long 122%",
+    "XLI": "failed: pv: spread short 38%/long 119%",
     "SLV": "iv_rank 6% (floor 30%)",
     "TSLA": "iv_rank 16% (floor 30%)"
   }
