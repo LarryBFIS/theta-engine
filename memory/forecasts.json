@@ -1587,7 +1587,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-02",
+      "actual_price": 769.0,
+      "realized_move_pct": 0.0006,
+      "realized_move_signed": -0.0006,
+      "stayed_in_range": true
     },
     {
       "id": "aa39aa0a3f98",
@@ -1602,7 +1607,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-02",
+      "actual_price": 748.64,
+      "realized_move_pct": 0.0058,
+      "realized_move_signed": 0.0058,
+      "stayed_in_range": true
     },
     {
       "id": "81e9ec021a82",
@@ -1617,7 +1627,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-02",
+      "actual_price": 281.59,
+      "realized_move_pct": 0.0026,
+      "realized_move_signed": -0.0026,
+      "stayed_in_range": true
     },
     {
       "id": "5a8706ae0659",
@@ -1632,7 +1647,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-02",
+      "actual_price": 510.74,
+      "realized_move_pct": 0.0069,
+      "realized_move_signed": -0.0069,
+      "stayed_in_range": true
     },
     {
       "id": "449cab7137b4",
@@ -1647,7 +1667,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-02",
+      "actual_price": 371.77,
+      "realized_move_pct": 0.024,
+      "realized_move_signed": -0.024,
+      "stayed_in_range": true
     },
     {
       "id": "7f13130c0c97",
@@ -1947,6 +1972,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 16.3, normal regime, flat tape\u2014a calm environment ideal for premium selling. No macro events pending; timing is neutral-to-favorable for short-vol strategies.",
+      "resolved": false
+    },
+    {
+      "id": "e4f342591efa",
+      "index": "SPY",
+      "forecast_date": "2026-10-02",
+      "target_date": "2026-10-09",
+      "horizon_days": 7,
+      "spot_at_forecast": 769.0,
+      "iv": 0.1562,
+      "implied_move_pct": 0.0216,
+      "implied_move_abs": 16.63,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Normal regime, -4% down day, VIX 15.75\u2014tape is pulling back but not panicked. Good environment for short premium IF diversified; however, we're already long 4 correlated index shorts (QQQ, SPY, IWM, DIA). Adding more call spreads now crowds the same directional hedge and compound",
+      "resolved": false
+    },
+    {
+      "id": "e6840004047b",
+      "index": "QQQ",
+      "forecast_date": "2026-10-02",
+      "target_date": "2026-10-09",
+      "horizon_days": 7,
+      "spot_at_forecast": 748.64,
+      "iv": 0.2165,
+      "implied_move_pct": 0.03,
+      "implied_move_abs": 22.44,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Normal regime, -4% down day, VIX 15.75\u2014tape is pulling back but not panicked. Good environment for short premium IF diversified; however, we're already long 4 correlated index shorts (QQQ, SPY, IWM, DIA). Adding more call spreads now crowds the same directional hedge and compound",
+      "resolved": false
+    },
+    {
+      "id": "5397c2b56495",
+      "index": "IWM",
+      "forecast_date": "2026-10-02",
+      "target_date": "2026-10-09",
+      "horizon_days": 7,
+      "spot_at_forecast": 281.59,
+      "iv": 0.2088,
+      "implied_move_pct": 0.0289,
+      "implied_move_abs": 8.14,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Normal regime, -4% down day, VIX 15.75\u2014tape is pulling back but not panicked. Good environment for short premium IF diversified; however, we're already long 4 correlated index shorts (QQQ, SPY, IWM, DIA). Adding more call spreads now crowds the same directional hedge and compound",
+      "resolved": false
+    },
+    {
+      "id": "391d17394a3f",
+      "index": "DIA",
+      "forecast_date": "2026-10-02",
+      "target_date": "2026-10-09",
+      "horizon_days": 7,
+      "spot_at_forecast": 510.74,
+      "iv": 0.1586,
+      "implied_move_pct": 0.022,
+      "implied_move_abs": 11.22,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Normal regime, -4% down day, VIX 15.75\u2014tape is pulling back but not panicked. Good environment for short premium IF diversified; however, we're already long 4 correlated index shorts (QQQ, SPY, IWM, DIA). Adding more call spreads now crowds the same directional hedge and compound",
+      "resolved": false
+    },
+    {
+      "id": "66ab82a7574d",
+      "index": "TSLA",
+      "forecast_date": "2026-10-02",
+      "target_date": "2026-10-09",
+      "horizon_days": 7,
+      "spot_at_forecast": 371.77,
+      "iv": 0.4651,
+      "implied_move_pct": 0.0644,
+      "implied_move_abs": 23.95,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Normal regime, -4% down day, VIX 15.75\u2014tape is pulling back but not panicked. Good environment for short premium IF diversified; however, we're already long 4 correlated index shorts (QQQ, SPY, IWM, DIA). Adding more call spreads now crowds the same directional hedge and compound",
       "resolved": false
     }
   ]
