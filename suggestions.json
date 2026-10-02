@@ -66357,6 +66357,98 @@
       "alternative": null,
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20261002T141343_trade_031_slv_61_60",
+      "trade_id": "trade_031_slv_61_60",
+      "timestamp": "2026-10-02T14:13:44.413329-04:00",
+      "action": "URGENT_CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\u26a0\ufe0f SLV @ $54.44 is BELOW short strike $62 (ITM).",
+        "Max loss exposure increasing. Current close: $0.82 mid / $1.00 worst.",
+        "89 DTE remaining; negative delta hurts daily."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.8249999999999993,
+        "cost_to_close_worst": 0.9999999999999991,
+        "profit_if_closed_mid": -27.499999999999925,
+        "profit_if_closed_worst": -44.99999999999991,
+        "pct_max_profit_captured_mid": -0.4999999999999986,
+        "dte": 89,
+        "underlying_price": 54.44499969482422,
+        "short_strike_breached": true,
+        "has_live_quotes": true,
+        "net_liq": 7278.271,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold and hope. Risk: up to $45 max loss (currently $27 unrealized).",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20261002T141344_trade_041_qqq_698_689",
+      "trade_id": "trade_041_qqq_698_689",
+      "timestamp": "2026-10-02T14:13:44.948470-04:00",
+      "action": "PROTECT_PROFITS",
+      "urgency": "normal",
+      "reasoning": [
+        "captured 34% in 3d \u2014 front-loaded, little left to squeeze"
+      ],
+      "metrics_snapshot": {
+        "pct_captured": 0.337837837837838,
+        "dte": 27,
+        "short_strike_breached": false
+      },
+      "alternative": null,
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20261002T141345_trade_042_spy_732_721",
+      "trade_id": "trade_042_spy_732_721",
+      "timestamp": "2026-10-02T14:13:45.345638-04:00",
+      "action": "PROTECT_PROFITS",
+      "urgency": "normal",
+      "reasoning": [
+        "captured 27% in 1d \u2014 front-loaded, little left to squeeze"
+      ],
+      "metrics_snapshot": {
+        "pct_captured": 0.27,
+        "dte": 27,
+        "short_strike_breached": false
+      },
+      "alternative": null,
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20261002T141345_trade_043_dia_536_530",
+      "trade_id": "trade_043_dia_536_530",
+      "timestamp": "2026-10-02T14:13:45.763663-04:00",
+      "action": "CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\ud83d\udcc9 Unrealized loss is $-3 \u2014 >1.5\u00d7 credit received.",
+        "Mechanical loss-cutting trigger to avoid the full $674 max loss.",
+        "Close cost: $-0.77 mid / $-0.61 worst."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": -0.7699999999999999,
+        "cost_to_close_worst": -0.6100000000000001,
+        "profit_if_closed_mid": 2.9999999999999916,
+        "profit_if_closed_worst": -12.99999999999999,
+        "pct_max_profit_captured_mid": -0.040540540540540425,
+        "dte": 27,
+        "underlying_price": 510.7099914550781,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 7278.271,
+        "day_pnl": 0.0
+      },
+      "alternative": null,
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
