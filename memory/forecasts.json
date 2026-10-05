@@ -1687,7 +1687,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "A +8% rip day with VIX at 16 is a fast, one-way tape \u2014 momentum is strongly up and realized vol is running ahead of implied. That makes this a poor moment to sell call spreads into the move, and low IV ranks mean we're paid very little to try.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-05",
+      "actual_price": 774.68,
+      "realized_move_pct": 0.0075,
+      "realized_move_signed": 0.0075,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "4e32dbd413e8",
@@ -1702,7 +1708,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "A +8% rip day with VIX at 16 is a fast, one-way tape \u2014 momentum is strongly up and realized vol is running ahead of implied. That makes this a poor moment to sell call spreads into the move, and low IV ranks mean we're paid very little to try.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-05",
+      "actual_price": 756.15,
+      "realized_move_pct": 0.0211,
+      "realized_move_signed": 0.0211,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "3005b5dac967",
@@ -1717,7 +1729,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "A +8% rip day with VIX at 16 is a fast, one-way tape \u2014 momentum is strongly up and realized vol is running ahead of implied. That makes this a poor moment to sell call spreads into the move, and low IV ranks mean we're paid very little to try.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-05",
+      "actual_price": 283.05,
+      "realized_move_pct": 0.0088,
+      "realized_move_signed": 0.0088,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "8c0da69145f4",
@@ -1732,7 +1750,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "A +8% rip day with VIX at 16 is a fast, one-way tape \u2014 momentum is strongly up and realized vol is running ahead of implied. That makes this a poor moment to sell call spreads into the move, and low IV ranks mean we're paid very little to try.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-05",
+      "actual_price": 512.16,
+      "realized_move_pct": 0.0051,
+      "realized_move_signed": -0.0051,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "42ac857732f9",
@@ -1747,7 +1771,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "A +8% rip day with VIX at 16 is a fast, one-way tape \u2014 momentum is strongly up and realized vol is running ahead of implied. That makes this a poor moment to sell call spreads into the move, and low IV ranks mean we're paid very little to try.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-05",
+      "actual_price": 379.35,
+      "realized_move_pct": 0.0246,
+      "realized_move_signed": 0.0246,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "4c9745fe1e4d",
@@ -2047,6 +2077,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Normal regime, -4% down day, VIX 15.75\u2014tape is pulling back but not panicked. Good environment for short premium IF diversified; however, we're already long 4 correlated index shorts (QQQ, SPY, IWM, DIA). Adding more call spreads now crowds the same directional hedge and compound",
+      "resolved": false
+    },
+    {
+      "id": "ce0ac756dc6f",
+      "index": "SPY",
+      "forecast_date": "2026-10-05",
+      "target_date": "2026-10-12",
+      "horizon_days": 7,
+      "spot_at_forecast": 774.68,
+      "iv": 0.1542,
+      "implied_move_pct": 0.0214,
+      "implied_move_abs": 16.54,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.52, normal regime, +1% up day \u2014 tape is calm and risk-on. This is a favorable *timing* window for premium sells, but we are already long 4 correlated index positions (SPY, IWM, DIA, QQQ) with small unrealized losses; adding more short premium into the same clusters risks c",
+      "resolved": false
+    },
+    {
+      "id": "3a365005ada1",
+      "index": "QQQ",
+      "forecast_date": "2026-10-05",
+      "target_date": "2026-10-12",
+      "horizon_days": 7,
+      "spot_at_forecast": 756.15,
+      "iv": 0.2149,
+      "implied_move_pct": 0.0298,
+      "implied_move_abs": 22.5,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.52, normal regime, +1% up day \u2014 tape is calm and risk-on. This is a favorable *timing* window for premium sells, but we are already long 4 correlated index positions (SPY, IWM, DIA, QQQ) with small unrealized losses; adding more short premium into the same clusters risks c",
+      "resolved": false
+    },
+    {
+      "id": "fc9c3b63ff35",
+      "index": "IWM",
+      "forecast_date": "2026-10-05",
+      "target_date": "2026-10-12",
+      "horizon_days": 7,
+      "spot_at_forecast": 283.05,
+      "iv": 0.2104,
+      "implied_move_pct": 0.0291,
+      "implied_move_abs": 8.25,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.52, normal regime, +1% up day \u2014 tape is calm and risk-on. This is a favorable *timing* window for premium sells, but we are already long 4 correlated index positions (SPY, IWM, DIA, QQQ) with small unrealized losses; adding more short premium into the same clusters risks c",
+      "resolved": false
+    },
+    {
+      "id": "747c373058eb",
+      "index": "DIA",
+      "forecast_date": "2026-10-05",
+      "target_date": "2026-10-12",
+      "horizon_days": 7,
+      "spot_at_forecast": 512.16,
+      "iv": 0.1596,
+      "implied_move_pct": 0.0221,
+      "implied_move_abs": 11.32,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.52, normal regime, +1% up day \u2014 tape is calm and risk-on. This is a favorable *timing* window for premium sells, but we are already long 4 correlated index positions (SPY, IWM, DIA, QQQ) with small unrealized losses; adding more short premium into the same clusters risks c",
+      "resolved": false
+    },
+    {
+      "id": "efe52a4f6d07",
+      "index": "TSLA",
+      "forecast_date": "2026-10-05",
+      "target_date": "2026-10-12",
+      "horizon_days": 7,
+      "spot_at_forecast": 379.35,
+      "iv": 0.4689,
+      "implied_move_pct": 0.0649,
+      "implied_move_abs": 24.63,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.52, normal regime, +1% up day \u2014 tape is calm and risk-on. This is a favorable *timing* window for premium sells, but we are already long 4 correlated index positions (SPY, IWM, DIA, QQQ) with small unrealized losses; adding more short premium into the same clusters risks c",
       "resolved": false
     }
   ]
