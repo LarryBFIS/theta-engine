@@ -292,8 +292,21 @@ def _enrich_trade(trade: dict) -> None:
     trade["contracts"] = contracts
     trade["credit_per_contract"] = credit
     trade["width"] = width
-    trade["max_profit_total"] = round(credit * 100 * contracts, 2)
-    trade["max_loss_total"] = round((width - credit) * 100 * contracts, 2)
+    # Credit vs debit vertical. The normal premium-sell is a CREDIT spread (credit > 0):
+    # max profit = credit, max loss = width - credit. A reversed/directional DEBIT spread
+    # (credit < 0 — e.g. a bought bull-call or bear-put spread, sometimes opened by
+    # mistake) is the mirror image: you PAY the debit, so max loss = debit and max profit
+    # = width - debit. Running the credit formula on a debit gave garbage — a negative
+    # max profit and an inflated BPR (e.g. $993 reserved on a trade that can only lose ~$90).
+    if credit >= 0:
+        trade["spread_type"] = "credit"
+        trade["max_profit_total"] = round(credit * 100 * contracts, 2)
+        trade["max_loss_total"] = round((width - credit) * 100 * contracts, 2)
+    else:
+        debit = -credit
+        trade["spread_type"] = "debit"
+        trade["max_profit_total"] = round((width - debit) * 100 * contracts, 2)
+        trade["max_loss_total"] = round(debit * 100 * contracts, 2)
     trade["bpr_total"] = trade["max_loss_total"]
     if trade.get("status") == "closed":
         clegs = trade.get("close_legs") or []

@@ -78,6 +78,7 @@ def _hand_from_ledger(lt: dict, trades: list) -> dict:
         "opened_at": lt.get("opened_at"),
         "open_order_id": str(lt.get("open_order_id")) if lt.get("open_order_id") else None,
         "credit_per_contract": lt.get("credit_per_contract"),
+        "spread_type": lt.get("spread_type"),
         "max_profit_total": lt.get("max_profit_total"),
         "max_loss_total": lt.get("max_loss_total"),
         "bpr_total": lt.get("bpr_total"),
