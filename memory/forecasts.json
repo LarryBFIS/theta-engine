@@ -1792,7 +1792,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.87, normal regime, -1% tape: calm structural environment favoring premium selling, but modest directional headwind (down day) argues for tight positioning. No macro events; IV not rich, so timing is neutral-to-slightly-defensive.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-06",
+      "actual_price": 779.81,
+      "realized_move_pct": 0.0176,
+      "realized_move_signed": 0.0176,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "00c2cc4e3a03",
@@ -1807,7 +1813,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.87, normal regime, -1% tape: calm structural environment favoring premium selling, but modest directional headwind (down day) argues for tight positioning. No macro events; IV not rich, so timing is neutral-to-slightly-defensive.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-06",
+      "actual_price": 760.54,
+      "realized_move_pct": 0.0299,
+      "realized_move_signed": 0.0299,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "936dbc0b3413",
@@ -1822,7 +1834,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.87, normal regime, -1% tape: calm structural environment favoring premium selling, but modest directional headwind (down day) argues for tight positioning. No macro events; IV not rich, so timing is neutral-to-slightly-defensive.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-06",
+      "actual_price": 281.36,
+      "realized_move_pct": 0.0035,
+      "realized_move_signed": 0.0035,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "bd934cb80b71",
@@ -1837,7 +1855,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.87, normal regime, -1% tape: calm structural environment favoring premium selling, but modest directional headwind (down day) argues for tight positioning. No macro events; IV not rich, so timing is neutral-to-slightly-defensive.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-06",
+      "actual_price": 514.67,
+      "realized_move_pct": 0.0005,
+      "realized_move_signed": 0.0005,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "c771874ce2ae",
@@ -1852,7 +1876,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.87, normal regime, -1% tape: calm structural environment favoring premium selling, but modest directional headwind (down day) argues for tight positioning. No macro events; IV not rich, so timing is neutral-to-slightly-defensive.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-06",
+      "actual_price": 380.09,
+      "realized_move_pct": 0.0607,
+      "realized_move_signed": 0.0607,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "09f2de4495d2",
@@ -2152,6 +2182,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.52, normal regime, +1% up day \u2014 tape is calm and risk-on. This is a favorable *timing* window for premium sells, but we are already long 4 correlated index positions (SPY, IWM, DIA, QQQ) with small unrealized losses; adding more short premium into the same clusters risks c",
+      "resolved": false
+    },
+    {
+      "id": "130dff643e19",
+      "index": "SPY",
+      "forecast_date": "2026-10-06",
+      "target_date": "2026-10-13",
+      "horizon_days": 7,
+      "spot_at_forecast": 779.81,
+      "iv": 0.1493,
+      "implied_move_pct": 0.0207,
+      "implied_move_abs": 16.13,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Tape is down ~3% today but VIX sits at 15.06 \u2014 implied has not repriced to the selling, so premium is thin and short-vol is underpaid right now. Selling puts here is catching a falling knife; call-side sales are directionally safer but pay very little at these IV ranks.",
+      "resolved": false
+    },
+    {
+      "id": "ed52e71c617a",
+      "index": "QQQ",
+      "forecast_date": "2026-10-06",
+      "target_date": "2026-10-13",
+      "horizon_days": 7,
+      "spot_at_forecast": 760.54,
+      "iv": 0.2069,
+      "implied_move_pct": 0.0287,
+      "implied_move_abs": 21.8,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Tape is down ~3% today but VIX sits at 15.06 \u2014 implied has not repriced to the selling, so premium is thin and short-vol is underpaid right now. Selling puts here is catching a falling knife; call-side sales are directionally safer but pay very little at these IV ranks.",
+      "resolved": false
+    },
+    {
+      "id": "a56bef333d16",
+      "index": "IWM",
+      "forecast_date": "2026-10-06",
+      "target_date": "2026-10-13",
+      "horizon_days": 7,
+      "spot_at_forecast": 281.36,
+      "iv": 0.2094,
+      "implied_move_pct": 0.029,
+      "implied_move_abs": 8.16,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Tape is down ~3% today but VIX sits at 15.06 \u2014 implied has not repriced to the selling, so premium is thin and short-vol is underpaid right now. Selling puts here is catching a falling knife; call-side sales are directionally safer but pay very little at these IV ranks.",
+      "resolved": false
+    },
+    {
+      "id": "0916efea4151",
+      "index": "DIA",
+      "forecast_date": "2026-10-06",
+      "target_date": "2026-10-13",
+      "horizon_days": 7,
+      "spot_at_forecast": 514.67,
+      "iv": 0.1533,
+      "implied_move_pct": 0.0212,
+      "implied_move_abs": 10.93,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Tape is down ~3% today but VIX sits at 15.06 \u2014 implied has not repriced to the selling, so premium is thin and short-vol is underpaid right now. Selling puts here is catching a falling knife; call-side sales are directionally safer but pay very little at these IV ranks.",
+      "resolved": false
+    },
+    {
+      "id": "b2837516eba1",
+      "index": "TSLA",
+      "forecast_date": "2026-10-06",
+      "target_date": "2026-10-13",
+      "horizon_days": 7,
+      "spot_at_forecast": 380.09,
+      "iv": 0.4598,
+      "implied_move_pct": 0.0637,
+      "implied_move_abs": 24.2,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Tape is down ~3% today but VIX sits at 15.06 \u2014 implied has not repriced to the selling, so premium is thin and short-vol is underpaid right now. Selling puts here is catching a falling knife; call-side sales are directionally safer but pay very little at these IV ranks.",
       "resolved": false
     }
   ]
