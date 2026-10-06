@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-06T18:38:14.247609+00:00",
+  "generated_at": "2026-10-06T18:53:15.015485+00:00",
   "params": {
     "min_sample": 20,
     "shrink_k": 10.0,
@@ -10,26 +10,26 @@
     "total_hi": 1.6
   },
   "global": {
-    "closed": 82,
-    "wins": 33,
+    "closed": 83,
+    "wins": 34,
     "losses": 49,
-    "win_rate": 0.402,
-    "total_pnl": -9251.0
+    "win_rate": 0.41,
+    "total_pnl": -9195.5
   },
   "buckets": {
     "asset_class": {
       "index_etf": {
-        "n": 33,
-        "wins": 20,
+        "n": 34,
+        "wins": 21,
         "losses": 13,
-        "win_rate": 0.606,
-        "avg_pnl": 8.5,
-        "avg_win": 66.28,
+        "win_rate": 0.618,
+        "avg_pnl": 9.88,
+        "avg_win": 65.76,
         "avg_loss": -80.38,
-        "total_pnl": 280.5,
-        "shrunk_win_rate": 0.559,
+        "total_pnl": 336.0,
+        "shrunk_win_rate": 0.57,
         "actionable": true,
-        "multiplier": 1.388,
+        "multiplier": 1.392,
         "recommendation": "favor"
       },
       "sector_etf": {
@@ -41,7 +41,7 @@
         "avg_win": 49.5,
         "avg_loss": -189.33,
         "total_pnl": -518.5,
-        "shrunk_win_rate": 0.359,
+        "shrunk_win_rate": 0.364,
         "actionable": false,
         "multiplier": 1.0,
         "recommendation": "watch (n=4 < 20)"
@@ -55,25 +55,25 @@
         "avg_win": 48.5,
         "avg_loss": -290.76,
         "total_pnl": -9013.0,
-        "shrunk_win_rate": 0.291,
+        "shrunk_win_rate": 0.293,
         "actionable": true,
-        "multiplier": 0.724,
-        "recommendation": "AVOID (neg expectancy; wr 29% < prior 40%)"
+        "multiplier": 0.714,
+        "recommendation": "AVOID (neg expectancy; wr 29% < prior 41%)"
       }
     },
     "structure": {
       "short_put_vertical": {
-        "n": 58,
-        "wins": 29,
+        "n": 59,
+        "wins": 30,
         "losses": 29,
-        "win_rate": 0.5,
-        "avg_pnl": -48.46,
-        "avg_win": 61.19,
+        "win_rate": 0.508,
+        "avg_pnl": -46.69,
+        "avg_win": 61.0,
         "avg_loss": -158.1,
-        "total_pnl": -2810.5,
-        "shrunk_win_rate": 0.486,
+        "total_pnl": -2755.0,
+        "shrunk_win_rate": 0.494,
         "actionable": true,
-        "multiplier": 1.207,
+        "multiplier": 1.206,
         "recommendation": "favor"
       },
       "short_call_vertical": {
@@ -85,7 +85,7 @@
         "avg_win": 45.5,
         "avg_loss": -388.64,
         "total_pnl": -5304.5,
-        "shrunk_win_rate": 0.26,
+        "shrunk_win_rate": 0.263,
         "actionable": false,
         "multiplier": 1.0,
         "recommendation": "watch (n=17 < 20)"
@@ -99,7 +99,7 @@
         "avg_win": 46.0,
         "avg_loss": -197.0,
         "total_pnl": -1136.0,
-        "shrunk_win_rate": 0.296,
+        "shrunk_win_rate": 0.3,
         "actionable": false,
         "multiplier": 1.0,
         "recommendation": "watch (n=7 < 20)"
@@ -107,15 +107,15 @@
     },
     "cluster": {
       "us_index": {
-        "n": 26,
-        "wins": 19,
+        "n": 27,
+        "wins": 20,
         "losses": 7,
-        "win_rate": 0.731,
-        "avg_pnl": 37.42,
-        "avg_win": 62.97,
+        "win_rate": 0.741,
+        "avg_pnl": 38.09,
+        "avg_win": 62.6,
         "avg_loss": -31.93,
-        "total_pnl": 973.0,
-        "shrunk_win_rate": 0.64,
+        "total_pnl": 1028.5,
+        "shrunk_win_rate": 0.651,
         "actionable": true,
         "multiplier": 1.5,
         "recommendation": "favor"
@@ -129,7 +129,7 @@
         "avg_win": 49.5,
         "avg_loss": -418.0,
         "total_pnl": -368.5,
-        "shrunk_win_rate": 0.419,
+        "shrunk_win_rate": 0.425,
         "actionable": false,
         "multiplier": 1.0,
         "recommendation": "watch (n=2 < 20)"
@@ -143,10 +143,10 @@
         "avg_win": 55.62,
         "avg_loss": -212.43,
         "total_pnl": -5068.0,
-        "shrunk_win_rate": 0.327,
+        "shrunk_win_rate": 0.328,
         "actionable": true,
-        "multiplier": 0.813,
-        "recommendation": "AVOID (neg expectancy; wr 33% < prior 40%)"
+        "multiplier": 0.802,
+        "recommendation": "AVOID (neg expectancy; wr 33% < prior 41%)"
       },
       "energy": {
         "n": 7,
@@ -157,7 +157,7 @@
         "avg_win": 43.5,
         "avg_loss": -312.92,
         "total_pnl": -1834.0,
-        "shrunk_win_rate": 0.296,
+        "shrunk_win_rate": 0.3,
         "actionable": false,
         "multiplier": 1.0,
         "recommendation": "watch (n=7 < 20)"
@@ -171,7 +171,7 @@
         "avg_win": null,
         "avg_loss": -548.75,
         "total_pnl": -1097.5,
-        "shrunk_win_rate": 0.335,
+        "shrunk_win_rate": 0.341,
         "actionable": false,
         "multiplier": 1.0,
         "recommendation": "watch (n=2 < 20)"
@@ -185,7 +185,7 @@
         "avg_win": null,
         "avg_loss": -297.75,
         "total_pnl": -595.5,
-        "shrunk_win_rate": 0.335,
+        "shrunk_win_rate": 0.341,
         "actionable": false,
         "multiplier": 1.0,
         "recommendation": "watch (n=2 < 20)"
@@ -199,7 +199,7 @@
         "avg_win": null,
         "avg_loss": -392.33,
         "total_pnl": -1177.0,
-        "shrunk_win_rate": 0.31,
+        "shrunk_win_rate": 0.315,
         "actionable": false,
         "multiplier": 1.0,
         "recommendation": "watch (n=3 < 20)"
@@ -213,7 +213,7 @@
         "avg_win": null,
         "avg_loss": -83.5,
         "total_pnl": -83.5,
-        "shrunk_win_rate": 0.366,
+        "shrunk_win_rate": 0.372,
         "actionable": false,
         "multiplier": 1.0,
         "recommendation": "watch (n=1 < 20)"
@@ -229,10 +229,10 @@
         "avg_win": 91.89,
         "avg_loss": -174.57,
         "total_pnl": -1617.0,
-        "shrunk_win_rate": 0.395,
+        "shrunk_win_rate": 0.397,
         "actionable": true,
-        "multiplier": 0.981,
-        "recommendation": "AVOID (neg expectancy; wr 39% < prior 40%)"
+        "multiplier": 0.969,
+        "recommendation": "AVOID (neg expectancy; wr 40% < prior 41%)"
       },
       "4x": {
         "n": 14,
@@ -243,7 +243,7 @@
         "avg_win": 106.0,
         "avg_loss": -315.82,
         "total_pnl": -3156.0,
-        "shrunk_win_rate": 0.293,
+        "shrunk_win_rate": 0.296,
         "actionable": false,
         "multiplier": 1.0,
         "recommendation": "watch (n=14 < 20)"
@@ -257,23 +257,23 @@
         "avg_win": 55.5,
         "avg_loss": -311.42,
         "total_pnl": -3826.5,
-        "shrunk_win_rate": 0.297,
+        "shrunk_win_rate": 0.3,
         "actionable": false,
         "multiplier": 1.0,
         "recommendation": "watch (n=17 < 20)"
       },
       "1x": {
-        "n": 28,
-        "wins": 17,
+        "n": 29,
+        "wins": 18,
         "losses": 11,
-        "win_rate": 0.607,
-        "avg_pnl": -23.27,
-        "avg_win": 34.71,
+        "win_rate": 0.621,
+        "avg_pnl": -20.55,
+        "avg_win": 35.86,
         "avg_loss": -112.86,
-        "total_pnl": -651.5,
-        "shrunk_win_rate": 0.553,
+        "total_pnl": -596.0,
+        "shrunk_win_rate": 0.567,
         "actionable": true,
-        "multiplier": 1.375,
+        "multiplier": 1.383,
         "recommendation": "favor"
       }
     }
