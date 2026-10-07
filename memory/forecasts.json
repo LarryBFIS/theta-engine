@@ -1897,7 +1897,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Calm, low-vol tape (VIX 15.87) with a mild -1% day in a normal regime \u2014 no event risk, but implied premium is thin, so this is a mediocre moment to be adding short-vol. The book is already a correlated US-equity short-vol bet, so marginal adds here mostly stack the same exposure.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-07",
+      "actual_price": 777.3,
+      "realized_move_pct": 0.013,
+      "realized_move_signed": 0.013,
+      "stayed_in_range": true
     },
     {
       "id": "2f90fcda802b",
@@ -1912,7 +1917,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Calm, low-vol tape (VIX 15.87) with a mild -1% day in a normal regime \u2014 no event risk, but implied premium is thin, so this is a mediocre moment to be adding short-vol. The book is already a correlated US-equity short-vol bet, so marginal adds here mostly stack the same exposure.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-07",
+      "actual_price": 756.6,
+      "realized_move_pct": 0.0209,
+      "realized_move_signed": 0.0209,
+      "stayed_in_range": true
     },
     {
       "id": "fe7bb4c91568",
@@ -1927,7 +1937,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Calm, low-vol tape (VIX 15.87) with a mild -1% day in a normal regime \u2014 no event risk, but implied premium is thin, so this is a mediocre moment to be adding short-vol. The book is already a correlated US-equity short-vol bet, so marginal adds here mostly stack the same exposure.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-07",
+      "actual_price": 277.92,
+      "realized_move_pct": 0.0092,
+      "realized_move_signed": -0.0092,
+      "stayed_in_range": true
     },
     {
       "id": "ee41ede3490b",
@@ -1942,7 +1957,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Calm, low-vol tape (VIX 15.87) with a mild -1% day in a normal regime \u2014 no event risk, but implied premium is thin, so this is a mediocre moment to be adding short-vol. The book is already a correlated US-equity short-vol bet, so marginal adds here mostly stack the same exposure.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-07",
+      "actual_price": 511.24,
+      "realized_move_pct": 0.0068,
+      "realized_move_signed": -0.0068,
+      "stayed_in_range": true
     },
     {
       "id": "6a4baa7a4976",
@@ -1957,7 +1977,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Calm, low-vol tape (VIX 15.87) with a mild -1% day in a normal regime \u2014 no event risk, but implied premium is thin, so this is a mediocre moment to be adding short-vol. The book is already a correlated US-equity short-vol bet, so marginal adds here mostly stack the same exposure.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-07",
+      "actual_price": 377.02,
+      "realized_move_pct": 0.071,
+      "realized_move_signed": 0.071,
+      "stayed_in_range": false
     },
     {
       "id": "ef901a00a973",
@@ -2257,6 +2282,81 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Tape is down ~3% today but VIX sits at 15.06 \u2014 implied has not repriced to the selling, so premium is thin and short-vol is underpaid right now. Selling puts here is catching a falling knife; call-side sales are directionally safer but pay very little at these IV ranks.",
+      "resolved": false
+    },
+    {
+      "id": "f19f270bf03b",
+      "index": "SPY",
+      "forecast_date": "2026-10-07",
+      "target_date": "2026-10-14",
+      "horizon_days": 7,
+      "spot_at_forecast": 777.3,
+      "iv": 0.1494,
+      "implied_move_pct": 0.0207,
+      "implied_move_abs": 16.08,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.11 in normal regime with +1% day\u2014calm tape, modest vol. This is reasonable timing for short premium, but we're already holding 3 open (2 us_index, 1 us_tech); the book is slightly underwater at -$27 unrealized. Adding more positions now risks compounding exposure without f",
+      "resolved": false
+    },
+    {
+      "id": "81ce782ea5f7",
+      "index": "QQQ",
+      "forecast_date": "2026-10-07",
+      "target_date": "2026-10-14",
+      "horizon_days": 7,
+      "spot_at_forecast": 756.6,
+      "iv": 0.2069,
+      "implied_move_pct": 0.0287,
+      "implied_move_abs": 21.68,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.11 in normal regime with +1% day\u2014calm tape, modest vol. This is reasonable timing for short premium, but we're already holding 3 open (2 us_index, 1 us_tech); the book is slightly underwater at -$27 unrealized. Adding more positions now risks compounding exposure without f",
+      "resolved": false
+    },
+    {
+      "id": "177276359b56",
+      "index": "IWM",
+      "forecast_date": "2026-10-07",
+      "target_date": "2026-10-14",
+      "horizon_days": 7,
+      "spot_at_forecast": 277.92,
+      "iv": 0.216,
+      "implied_move_pct": 0.0299,
+      "implied_move_abs": 8.31,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.11 in normal regime with +1% day\u2014calm tape, modest vol. This is reasonable timing for short premium, but we're already holding 3 open (2 us_index, 1 us_tech); the book is slightly underwater at -$27 unrealized. Adding more positions now risks compounding exposure without f",
+      "resolved": false
+    },
+    {
+      "id": "0565bab36c3f",
+      "index": "DIA",
+      "forecast_date": "2026-10-07",
+      "target_date": "2026-10-14",
+      "horizon_days": 7,
+      "spot_at_forecast": 511.24,
+      "iv": 0.1555,
+      "implied_move_pct": 0.0215,
+      "implied_move_abs": 11.01,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.11 in normal regime with +1% day\u2014calm tape, modest vol. This is reasonable timing for short premium, but we're already holding 3 open (2 us_index, 1 us_tech); the book is slightly underwater at -$27 unrealized. Adding more positions now risks compounding exposure without f",
+      "resolved": false
+    },
+    {
+      "id": "c161043fc0fd",
+      "index": "TSLA",
+      "forecast_date": "2026-10-07",
+      "target_date": "2026-10-14",
+      "horizon_days": 7,
+      "spot_at_forecast": 377.02,
+      "iv": 0.4656,
+      "implied_move_pct": 0.0645,
+      "implied_move_abs": 24.31,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.11 in normal regime with +1% day\u2014calm tape, modest vol. This is reasonable timing for short premium, but we're already holding 3 open (2 us_index, 1 us_tech); the book is slightly underwater at -$27 unrealized. Adding more positions now risks compounding exposure without f",
       "resolved": false
     }
   ]
