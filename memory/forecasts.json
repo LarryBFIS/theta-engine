@@ -1997,7 +1997,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 16.3, normal regime, flat tape\u2014a calm environment ideal for premium selling. No macro events pending; timing is neutral-to-favorable for short-vol strategies.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-08",
+      "actual_price": 777.3,
+      "realized_move_pct": 0.0166,
+      "realized_move_signed": 0.0166,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "d7aeecec78db",
@@ -2012,7 +2018,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 16.3, normal regime, flat tape\u2014a calm environment ideal for premium selling. No macro events pending; timing is neutral-to-favorable for short-vol strategies.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-08",
+      "actual_price": 758.58,
+      "realized_move_pct": 0.0211,
+      "realized_move_signed": 0.0211,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "862173600ba2",
@@ -2027,7 +2039,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 16.3, normal regime, flat tape\u2014a calm environment ideal for premium selling. No macro events pending; timing is neutral-to-favorable for short-vol strategies.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-08",
+      "actual_price": 277.53,
+      "realized_move_pct": 0.0022,
+      "realized_move_signed": -0.0022,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "0afccf31318f",
@@ -2042,7 +2060,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 16.3, normal regime, flat tape\u2014a calm environment ideal for premium selling. No macro events pending; timing is neutral-to-favorable for short-vol strategies.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-08",
+      "actual_price": 511.02,
+      "realized_move_pct": 0.0024,
+      "realized_move_signed": 0.0024,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "8108c9c0470c",
@@ -2057,7 +2081,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 16.3, normal regime, flat tape\u2014a calm environment ideal for premium selling. No macro events pending; timing is neutral-to-favorable for short-vol strategies.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-08",
+      "actual_price": 378.12,
+      "realized_move_pct": 0.0614,
+      "realized_move_signed": 0.0614,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "e4f342591efa",
@@ -2357,6 +2387,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.11 in normal regime with +1% day\u2014calm tape, modest vol. This is reasonable timing for short premium, but we're already holding 3 open (2 us_index, 1 us_tech); the book is slightly underwater at -$27 unrealized. Adding more positions now risks compounding exposure without f",
+      "resolved": false
+    },
+    {
+      "id": "6e12bbd933fc",
+      "index": "SPY",
+      "forecast_date": "2026-10-08",
+      "target_date": "2026-10-15",
+      "horizon_days": 7,
+      "spot_at_forecast": 777.3,
+      "iv": 0.1492,
+      "implied_move_pct": 0.0207,
+      "implied_move_abs": 16.06,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.08, normal regime, +0% day \u2014 a calm, flat tape with no macro events ahead. This is textbook timing for low-volatility premium sells; however, we are already long 3 positions (DIA, QQQ, IWM) and adding to the same clusters risks correlated drawdown into any sudden vol spike",
+      "resolved": false
+    },
+    {
+      "id": "b2565e9dd999",
+      "index": "QQQ",
+      "forecast_date": "2026-10-08",
+      "target_date": "2026-10-15",
+      "horizon_days": 7,
+      "spot_at_forecast": 758.58,
+      "iv": 0.2063,
+      "implied_move_pct": 0.0286,
+      "implied_move_abs": 21.67,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.08, normal regime, +0% day \u2014 a calm, flat tape with no macro events ahead. This is textbook timing for low-volatility premium sells; however, we are already long 3 positions (DIA, QQQ, IWM) and adding to the same clusters risks correlated drawdown into any sudden vol spike",
+      "resolved": false
+    },
+    {
+      "id": "c5068b04c9b7",
+      "index": "IWM",
+      "forecast_date": "2026-10-08",
+      "target_date": "2026-10-15",
+      "horizon_days": 7,
+      "spot_at_forecast": 277.53,
+      "iv": 0.2155,
+      "implied_move_pct": 0.0298,
+      "implied_move_abs": 8.28,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.08, normal regime, +0% day \u2014 a calm, flat tape with no macro events ahead. This is textbook timing for low-volatility premium sells; however, we are already long 3 positions (DIA, QQQ, IWM) and adding to the same clusters risks correlated drawdown into any sudden vol spike",
+      "resolved": false
+    },
+    {
+      "id": "d6070cf388b9",
+      "index": "DIA",
+      "forecast_date": "2026-10-08",
+      "target_date": "2026-10-15",
+      "horizon_days": 7,
+      "spot_at_forecast": 511.02,
+      "iv": 0.156,
+      "implied_move_pct": 0.0216,
+      "implied_move_abs": 11.04,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.08, normal regime, +0% day \u2014 a calm, flat tape with no macro events ahead. This is textbook timing for low-volatility premium sells; however, we are already long 3 positions (DIA, QQQ, IWM) and adding to the same clusters risks correlated drawdown into any sudden vol spike",
+      "resolved": false
+    },
+    {
+      "id": "1ba864c81927",
+      "index": "TSLA",
+      "forecast_date": "2026-10-08",
+      "target_date": "2026-10-15",
+      "horizon_days": 7,
+      "spot_at_forecast": 378.12,
+      "iv": 0.4652,
+      "implied_move_pct": 0.0644,
+      "implied_move_abs": 24.36,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.08, normal regime, +0% day \u2014 a calm, flat tape with no macro events ahead. This is textbook timing for low-volatility premium sells; however, we are already long 3 positions (DIA, QQQ, IWM) and adding to the same clusters risks correlated drawdown into any sudden vol spike",
       "resolved": false
     }
   ]
