@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T23:59:11.433348+00:00",
+  "generated_at": "2026-10-09T00:17:10.147853+00:00",
   "regime": {
     "vix": 15.41,
     "vix_day_change_pct": 0.0219,
@@ -34,14 +34,14 @@
       "bpr": 793.0,
       "max_loss": 793.0,
       "pop": 0.798,
-      "short_delta": 0.183,
+      "short_delta": 0.184,
       "short_spread_pct": 0.017,
       "credit_to_bpr": 0.135,
-      "ev_per_contract": 7.35,
-      "ev_on_bpr": 0.0093,
+      "ev_per_contract": 7.18,
+      "ev_on_bpr": 0.0091,
       "iv": 0.2162,
       "iv_rank": 0.448,
-      "underlying_price": 747.9,
+      "underlying_price": 747.75,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -58,9 +58,9 @@
         "cluster=us_tech \u00d70.79",
         "structure=short_put_vertical \u00d71.19"
       ],
-      "rank_score": 0.006166,
+      "rank_score": 0.006033,
       "agent_action": "guarded",
-      "agent_reason": "QQQ tagged 'single_name' (asset_class), us_tech cluster (negative realized expectancy: 33% wr vs 42% book avg). Engine learnings + correlated short-vol stack = uncompensated risk. Veto single-name bias.",
+      "agent_reason": "Single-name cluster (us_tech) has realized negative expectancy (33% wr vs 42% baseline); QQQ is also flagged as weak in engine learnings. Avoid.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -68,7 +68,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7445.63,
+      "net_liq": 7446.815,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
@@ -104,12 +104,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 744.56,
+        "live_cap": 744.68,
         "suggested_width": 8,
         "fit_note": "\u26a0 max loss $793 > 10% live cap ($745) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ VP \u00d71 \u2014 SELL 705P / BUY 696P (2026-11-13) @ $1.07 net credit. Max loss $793. After fill: GTC buy-to-close @ $0.54 (50%). \u26a0 max loss $793 > 10% live cap ($745) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-10-08T23:59:11.433348+00:00"
+      "posted_at": "2026-10-09T00:17:10.147853+00:00"
     }
   ],
   "long_vol": [
@@ -118,13 +118,13 @@
       "structure": "long_strangle",
       "iv_rank": 0.19,
       "iv": 0.4602,
-      "price": 375.0,
+      "price": 375.05,
       "earnings_date": "2026-10-21",
-      "days_to_catalyst": 13,
-      "expected_move": 32.57,
-      "expected_move_pct": 0.0869,
+      "days_to_catalyst": 12,
+      "expected_move": 31.3,
+      "expected_move_pct": 0.0834,
       "tag": "paper",
-      "rationale": "IV rank 19% (cheap) into earnings in 13d \u2014 market may be under-pricing the move"
+      "rationale": "IV rank 19% (cheap) into earnings in 12d \u2014 market may be under-pricing the move"
     }
   ],
   "events": [],
@@ -190,10 +190,10 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-10-08T23:59:11.096139+00:00",
+    "generated_at": "2026-10-09T00:17:09.806890+00:00",
     "model": "claude-haiku-4-5",
-    "market_view": "VIX 15.41, normal regime, +2% day: calm tape with solid volatility. Short premium is well-timed; IV rank modest across board (rich enough to sell). No macro events pending\u2014green light for measured premium harvesting.",
-    "portfolio_note": "4 open positions, all index ETFs except QQQ (us_tech cluster). Unrealized +$8; currently at 3/3 us_index cap. Book is already concentrated in correlated index bets; adding more same-cluster positions compounds directional drag.",
+    "market_view": "Normal regime, +2% up day, VIX 15.41\u2014tape is calm and bid. Premium sellers are well-timed in this environment; IV is fair-to-rich across indices. However, we are already long 4 open positions (3 us_index + 1 us_tech) with $8 unrealized\u2014adding more concentrates correlated risk.",
+    "portfolio_note": "Book is skewed us_index (3 of 4 open). Adding three more index trades would push us_index to 6 total, violating diversification and turning the portfolio into one macro bet sized up. QQQ position adds us_tech (already our weak cluster per realized learnings).",
     "vol_verdict": "implied_rich",
     "reviewed": 4,
     "vetoed": 4,
@@ -202,22 +202,22 @@
       {
         "id": "IWM|short_call_vertical|294/299",
         "action": "veto",
-        "reason": "Already at max 3/3 us_index cluster cap (DIA, QQQ, IWM, SPY open). Adding IWM call would violate cluster limit; correlated short-vol stack in calm tape risks uncompensated directional bet if tape turns."
+        "reason": "Already 3 us_index open; adding a 4th pushes cluster to 4 (cap is 3). IWM is diversifying, but cap violation prevents approval."
       },
       {
         "id": "SPY|short_put_vertical|743/734",
         "action": "veto",
-        "reason": "Already at max 3/3 us_index cluster cap. SPY is core holdings; stacking another short-put in same cluster on a +2% day is over-commitment to mean reversion that hasn't proven out yet."
+        "reason": "Already holding SPY + DIA + IWM (all us_index); adding SPY again concentrates single-name and cluster risk. Do not layer; rotate instead."
       },
       {
         "id": "DIA|short_call_vertical|533/539",
         "action": "veto",
-        "reason": "Already at max 3/3 us_index cluster cap. Third short call in same cluster (after IWM open) creates directional friction; caps exist to force diversification. Veto to respect position limit."
+        "reason": "Already holding DIA 1x at cap per_name; cap violation prevents second position on same underlying."
       },
       {
         "id": "QQQ|short_put_vertical|705/696",
         "action": "veto",
-        "reason": "QQQ tagged 'single_name' (asset_class), us_tech cluster (negative realized expectancy: 33% wr vs 42% book avg). Engine learnings + correlated short-vol stack = uncompensated risk. Veto single-name bias."
+        "reason": "Single-name cluster (us_tech) has realized negative expectancy (33% wr vs 42% baseline); QQQ is also flagged as weak in engine learnings. Avoid."
       }
     ]
   },
@@ -264,7 +264,7 @@
       ],
       "rank_score": 0.01088,
       "agent_action": "veto",
-      "agent_reason": "Already at max 3/3 us_index cluster cap. SPY is core holdings; stacking another short-put in same cluster on a +2% day is over-commitment to mean reversion that hasn't proven out yet."
+      "agent_reason": "Already holding SPY + DIA + IWM (all us_index); adding SPY again concentrates single-name and cluster risk. Do not layer; rotate instead."
     },
     {
       "underlying": "IWM",
@@ -285,11 +285,11 @@
       "short_delta": 0.213,
       "short_spread_pct": 0.041,
       "credit_to_bpr": 0.144,
-      "ev_per_contract": 4.05,
-      "ev_on_bpr": 0.0093,
+      "ev_per_contract": 4.12,
+      "ev_on_bpr": 0.0094,
       "iv": 0.215,
       "iv_rank": 0.254,
-      "underlying_price": 277.99,
+      "underlying_price": 277.95,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -305,9 +305,9 @@
         "asset_class=index_etf \u00d71.40",
         "cluster=us_index \u00d71.50"
       ],
-      "rank_score": 0.01488,
+      "rank_score": 0.01504,
       "agent_action": "veto",
-      "agent_reason": "Already at max 3/3 us_index cluster cap (DIA, QQQ, IWM, SPY open). Adding IWM call would violate cluster limit; correlated short-vol stack in calm tape risks uncompensated directional bet if tape turns."
+      "agent_reason": "Already 3 us_index open; adding a 4th pushes cluster to 4 (cap is 3). IWM is diversifying, but cap violation prevents approval."
     },
     {
       "underlying": "DIA",
@@ -328,11 +328,11 @@
       "short_delta": 0.213,
       "short_spread_pct": 0.126,
       "credit_to_bpr": 0.113,
-      "ev_per_contract": 3.23,
-      "ev_on_bpr": 0.006,
+      "ev_per_contract": 3.17,
+      "ev_on_bpr": 0.0059,
       "iv": 0.1574,
       "iv_rank": 0.31,
-      "underlying_price": 511.81,
+      "underlying_price": 511.85,
       "liquidity": 3,
       "earnings_date": null,
       "tag": "paper",
@@ -348,9 +348,9 @@
         "asset_class=index_etf \u00d71.40",
         "cluster=us_index \u00d71.50"
       ],
-      "rank_score": 0.0096,
+      "rank_score": 0.00944,
       "agent_action": "veto",
-      "agent_reason": "Already at max 3/3 us_index cluster cap. Third short call in same cluster (after IWM open) creates directional friction; caps exist to force diversification. Veto to respect position limit."
+      "agent_reason": "Already holding DIA 1x at cap per_name; cap violation prevents second position on same underlying."
     },
     {
       "underlying": "QQQ",
@@ -368,14 +368,14 @@
       "bpr": 793.0,
       "max_loss": 793.0,
       "pop": 0.798,
-      "short_delta": 0.183,
+      "short_delta": 0.184,
       "short_spread_pct": 0.017,
       "credit_to_bpr": 0.135,
-      "ev_per_contract": 7.35,
-      "ev_on_bpr": 0.0093,
+      "ev_per_contract": 7.18,
+      "ev_on_bpr": 0.0091,
       "iv": 0.2162,
       "iv_rank": 0.448,
-      "underlying_price": 747.9,
+      "underlying_price": 747.75,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -392,9 +392,9 @@
         "cluster=us_tech \u00d70.79",
         "structure=short_put_vertical \u00d71.19"
       ],
-      "rank_score": 0.006166,
+      "rank_score": 0.006033,
       "agent_action": "guarded",
-      "agent_reason": "QQQ tagged 'single_name' (asset_class), us_tech cluster (negative realized expectancy: 33% wr vs 42% book avg). Engine learnings + correlated short-vol stack = uncompensated risk. Veto single-name bias.",
+      "agent_reason": "Single-name cluster (us_tech) has realized negative expectancy (33% wr vs 42% baseline); QQQ is also flagged as weak in engine learnings. Avoid.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -402,7 +402,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 7445.63,
+      "net_liq": 7446.815,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
@@ -438,12 +438,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 744.56,
+        "live_cap": 744.68,
         "suggested_width": 8,
         "fit_note": "\u26a0 max loss $793 > 10% live cap ($745) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ VP \u00d71 \u2014 SELL 705P / BUY 696P (2026-11-13) @ $1.07 net credit. Max loss $793. After fill: GTC buy-to-close @ $0.54 (50%). \u26a0 max loss $793 > 10% live cap ($745) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-10-08T23:59:11.433348+00:00"
+      "posted_at": "2026-10-09T00:17:10.147853+00:00"
     }
   ],
   "skipped": {

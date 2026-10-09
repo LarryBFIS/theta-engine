@@ -1,6 +1,6 @@
 # Opportunity scan
 
-_Generated 2026-10-08T23:59:11.433348+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (+2% day)._
+_Generated 2026-10-09T00:17:10.147853+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (+2% day)._
 
 | # | Trade | Tag | DTE | Credit | BPR | POP | Cr/BPR | EV/ctr | EV/BPR | IVR |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -10,4 +10,4 @@ _Generated 2026-10-08T23:59:11.433348+00:00 · short put verticals ranked by exp
 
 | Underlying | IVR | Earnings | In | ~1σ move | Note |
 |---|---:|---|---:|---:|---|
-| TSLA | 19% | 2026-10-21 | 13d | 8.7% | IV rank 19% (cheap) into earnings in 13d — market may be under-pricing the move |
+| TSLA | 19% | 2026-10-21 | 12d | 8.3% | IV rank 19% (cheap) into earnings in 12d — market may be under-pricing the move |
