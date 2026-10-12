@@ -2207,7 +2207,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.52, normal regime, +1% up day \u2014 tape is calm and risk-on. This is a favorable *timing* window for premium sells, but we are already long 4 correlated index positions (SPY, IWM, DIA, QQQ) with small unrealized losses; adding more short premium into the same clusters risks c",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-12",
+      "actual_price": 777.99,
+      "realized_move_pct": 0.0043,
+      "realized_move_signed": 0.0043,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "3a365005ada1",
@@ -2222,7 +2228,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.52, normal regime, +1% up day \u2014 tape is calm and risk-on. This is a favorable *timing* window for premium sells, but we are already long 4 correlated index positions (SPY, IWM, DIA, QQQ) with small unrealized losses; adding more short premium into the same clusters risks c",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-12",
+      "actual_price": 745.57,
+      "realized_move_pct": 0.014,
+      "realized_move_signed": -0.014,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "fc9c3b63ff35",
@@ -2237,7 +2249,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.52, normal regime, +1% up day \u2014 tape is calm and risk-on. This is a favorable *timing* window for premium sells, but we are already long 4 correlated index positions (SPY, IWM, DIA, QQQ) with small unrealized losses; adding more short premium into the same clusters risks c",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-12",
+      "actual_price": 277.9,
+      "realized_move_pct": 0.0182,
+      "realized_move_signed": -0.0182,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "747c373058eb",
@@ -2252,7 +2270,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.52, normal regime, +1% up day \u2014 tape is calm and risk-on. This is a favorable *timing* window for premium sells, but we are already long 4 correlated index positions (SPY, IWM, DIA, QQQ) with small unrealized losses; adding more short premium into the same clusters risks c",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-12",
+      "actual_price": 517.83,
+      "realized_move_pct": 0.0111,
+      "realized_move_signed": 0.0111,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "efe52a4f6d07",
@@ -2267,7 +2291,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.52, normal regime, +1% up day \u2014 tape is calm and risk-on. This is a favorable *timing* window for premium sells, but we are already long 4 correlated index positions (SPY, IWM, DIA, QQQ) with small unrealized losses; adding more short premium into the same clusters risks c",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-12",
+      "actual_price": 377.86,
+      "realized_move_pct": 0.0039,
+      "realized_move_signed": -0.0039,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "130dff643e19",
@@ -2567,6 +2597,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Normal regime, +2% up day, VIX 15.41\u2014tape is calm and bid. Premium sellers are well-timed in this environment; IV is fair-to-rich across indices. However, we are already long 4 open positions (3 us_index + 1 us_tech) with $8 unrealized\u2014adding more concentrates correlated risk.",
+      "resolved": false
+    },
+    {
+      "id": "70535eb6a96c",
+      "index": "SPY",
+      "forecast_date": "2026-10-12",
+      "target_date": "2026-10-19",
+      "horizon_days": 7,
+      "spot_at_forecast": 777.99,
+      "iv": 0.1502,
+      "implied_move_pct": 0.0208,
+      "implied_move_abs": 16.18,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.21 in normal regime, +2% rally today\u2014calm tape with no macro events. Premium-selling conditions are benign; however, we are already long us_tech (QQQ 1, IWM 1, SPY 1) with concentrated directional bias.",
+      "resolved": false
+    },
+    {
+      "id": "8996381d6f09",
+      "index": "QQQ",
+      "forecast_date": "2026-10-12",
+      "target_date": "2026-10-19",
+      "horizon_days": 7,
+      "spot_at_forecast": 745.57,
+      "iv": 0.2061,
+      "implied_move_pct": 0.0285,
+      "implied_move_abs": 21.28,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.21 in normal regime, +2% rally today\u2014calm tape with no macro events. Premium-selling conditions are benign; however, we are already long us_tech (QQQ 1, IWM 1, SPY 1) with concentrated directional bias.",
+      "resolved": false
+    },
+    {
+      "id": "0e8b710724a9",
+      "index": "IWM",
+      "forecast_date": "2026-10-12",
+      "target_date": "2026-10-19",
+      "horizon_days": 7,
+      "spot_at_forecast": 277.9,
+      "iv": 0.2072,
+      "implied_move_pct": 0.0287,
+      "implied_move_abs": 7.98,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.21 in normal regime, +2% rally today\u2014calm tape with no macro events. Premium-selling conditions are benign; however, we are already long us_tech (QQQ 1, IWM 1, SPY 1) with concentrated directional bias.",
+      "resolved": false
+    },
+    {
+      "id": "fdd829696398",
+      "index": "DIA",
+      "forecast_date": "2026-10-12",
+      "target_date": "2026-10-19",
+      "horizon_days": 7,
+      "spot_at_forecast": 517.83,
+      "iv": 0.1549,
+      "implied_move_pct": 0.0215,
+      "implied_move_abs": 11.11,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.21 in normal regime, +2% rally today\u2014calm tape with no macro events. Premium-selling conditions are benign; however, we are already long us_tech (QQQ 1, IWM 1, SPY 1) with concentrated directional bias.",
+      "resolved": false
+    },
+    {
+      "id": "84ef675da348",
+      "index": "TSLA",
+      "forecast_date": "2026-10-12",
+      "target_date": "2026-10-19",
+      "horizon_days": 7,
+      "spot_at_forecast": 377.86,
+      "iv": 0.4545,
+      "implied_move_pct": 0.0629,
+      "implied_move_abs": 23.78,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 15.21 in normal regime, +2% rally today\u2014calm tape with no macro events. Premium-selling conditions are benign; however, we are already long us_tech (QQQ 1, IWM 1, SPY 1) with concentrated directional bias.",
       "resolved": false
     }
   ]
