@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-10-13T23:27:24.852857+00:00",
-  "market_view": "Market regime neutral, VIX 15.27 flat, SPY essentially unchanged but QQQ -1.36% on the week with tech -2.0% \u2014 directional headwind on QQQ short put persists. SLV and QQQ stop rules remain triggered and unexecuted; these are outstanding required closes, not new alerts.",
+  "last_run": "2026-10-13T23:42:35.197520+00:00",
+  "market_view": "Market regime neutral, VIX 15.27 flat, SPY unchanged but QQQ -1.36% weekly with XLK -2.0% \u2014 directional headwind on short put positions persists. SLV and QQQ stop rules remain triggered and unexecuted across multiple cycles; immediate action required.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-10-13T23:27:11.551750+00:00",
-    "reasoning": "Short strike breached, worst-cost $1.00 is 1.82x the $0.55 credit \u2014 stop rule at 1.5x ($0.825) has been triggered for multiple cycles with 78 DTE remaining and SLV 14.97% below the short strike. This position has no path to recovery at current levels and continued inaction compounds the loss."
+    "timestamp": "2026-10-13T23:42:21.892415+00:00",
+    "reasoning": "Short strike breached, worst-cost $1.00 is 1.82x the $0.55 credit \u2014 stop rule at 1.5x ($0.825) has been triggered across multiple consecutive cycles with SLV 14.97% below the short strike and 78 DTE remaining. This position has zero recovery path and each cycle of inaction deepens the realized loss."
   },
   "QQQ 722/713p": {
     "action": "CRITICAL",
-    "confidence": 0.95,
-    "timestamp": "2026-10-13T23:27:11.551750+00:00",
-    "reasoning": "Mid-cost $1.64 is 1.49x the $1.10 credit, worst-cost $1.77 is 1.61x \u2014 stop rule at 1.5x is breached on worst-cost and at the doorstep on mid, with 23 DTE now in gamma acceleration and QQQ tech sector continuing weekly weakness at -1.36%."
+    "confidence": 0.97,
+    "timestamp": "2026-10-13T23:42:21.892415+00:00",
+    "reasoning": "Mid-cost $1.64 is 1.49x the $1.10 credit and worst-cost $1.77 is 1.61x \u2014 stop rule at 1.5x is definitively breached on worst-cost, mid is at the threshold, with 23 DTE entering gamma acceleration and XLK continuing weekly weakness at -2.0%."
   },
   "DIA 534/541c": {
     "action": "HOLD",
-    "confidence": 0.87,
-    "timestamp": "2026-10-13T23:27:11.551750+00:00",
-    "reasoning": "DIA at $516.21 is 3.3% below the short 534 call strike, mid-cost $0.82 is below the $0.98 credit entry \u2014 position is profitable with theta working favorably and Dow financials/energy outperforming tech. No action required."
+    "confidence": 0.88,
+    "timestamp": "2026-10-13T23:42:21.892415+00:00",
+    "reasoning": "DIA at $516.21 is 3.3% below the short 534 call strike, mid-cost $0.82 is below the $0.98 credit \u2014 position is profitable with theta working and Dow financials/energy sectors outperforming tech. No stop or profit target triggered."
   }
 }
