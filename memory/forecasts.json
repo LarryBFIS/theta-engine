@@ -2312,7 +2312,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Tape is down ~3% today but VIX sits at 15.06 \u2014 implied has not repriced to the selling, so premium is thin and short-vol is underpaid right now. Selling puts here is catching a falling knife; call-side sales are directionally safer but pay very little at these IV ranks.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-13",
+      "actual_price": 778.47,
+      "realized_move_pct": 0.0017,
+      "realized_move_signed": -0.0017,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "ed52e71c617a",
@@ -2327,7 +2333,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Tape is down ~3% today but VIX sits at 15.06 \u2014 implied has not repriced to the selling, so premium is thin and short-vol is underpaid right now. Selling puts here is catching a falling knife; call-side sales are directionally safer but pay very little at these IV ranks.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-13",
+      "actual_price": 743.62,
+      "realized_move_pct": 0.0222,
+      "realized_move_signed": -0.0222,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "a56bef333d16",
@@ -2342,7 +2354,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Tape is down ~3% today but VIX sits at 15.06 \u2014 implied has not repriced to the selling, so premium is thin and short-vol is underpaid right now. Selling puts here is catching a falling knife; call-side sales are directionally safer but pay very little at these IV ranks.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-13",
+      "actual_price": 277.09,
+      "realized_move_pct": 0.0152,
+      "realized_move_signed": -0.0152,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "0916efea4151",
@@ -2357,7 +2375,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Tape is down ~3% today but VIX sits at 15.06 \u2014 implied has not repriced to the selling, so premium is thin and short-vol is underpaid right now. Selling puts here is catching a falling knife; call-side sales are directionally safer but pay very little at these IV ranks.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-13",
+      "actual_price": 516.72,
+      "realized_move_pct": 0.004,
+      "realized_move_signed": 0.004,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "b2837516eba1",
@@ -2372,7 +2396,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Tape is down ~3% today but VIX sits at 15.06 \u2014 implied has not repriced to the selling, so premium is thin and short-vol is underpaid right now. Selling puts here is catching a falling knife; call-side sales are directionally safer but pay very little at these IV ranks.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-13",
+      "actual_price": 374.96,
+      "realized_move_pct": 0.0135,
+      "realized_move_signed": -0.0135,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "f19f270bf03b",
@@ -2672,6 +2702,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.21 in normal regime, +2% rally today\u2014calm tape with no macro events. Premium-selling conditions are benign; however, we are already long us_tech (QQQ 1, IWM 1, SPY 1) with concentrated directional bias.",
+      "resolved": false
+    },
+    {
+      "id": "00ac19214bfc",
+      "index": "SPY",
+      "forecast_date": "2026-10-13",
+      "target_date": "2026-10-20",
+      "horizon_days": 7,
+      "spot_at_forecast": 778.47,
+      "iv": 0.1521,
+      "implied_move_pct": 0.0211,
+      "implied_move_abs": 16.4,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "fair",
+      "market_view": "VIX 15.43, normal regime, +1% day \u2014 tape is calm and bidding; this is benign timing for premium sells. No macro events today; vol is fair to slightly rich on the index side.",
+      "resolved": false
+    },
+    {
+      "id": "3109c1fc5eb0",
+      "index": "QQQ",
+      "forecast_date": "2026-10-13",
+      "target_date": "2026-10-20",
+      "horizon_days": 7,
+      "spot_at_forecast": 743.62,
+      "iv": 0.2098,
+      "implied_move_pct": 0.0291,
+      "implied_move_abs": 21.6,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "fair",
+      "market_view": "VIX 15.43, normal regime, +1% day \u2014 tape is calm and bidding; this is benign timing for premium sells. No macro events today; vol is fair to slightly rich on the index side.",
+      "resolved": false
+    },
+    {
+      "id": "f4730d098851",
+      "index": "IWM",
+      "forecast_date": "2026-10-13",
+      "target_date": "2026-10-20",
+      "horizon_days": 7,
+      "spot_at_forecast": 277.09,
+      "iv": 0.2123,
+      "implied_move_pct": 0.0294,
+      "implied_move_abs": 8.15,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "fair",
+      "market_view": "VIX 15.43, normal regime, +1% day \u2014 tape is calm and bidding; this is benign timing for premium sells. No macro events today; vol is fair to slightly rich on the index side.",
+      "resolved": false
+    },
+    {
+      "id": "cc0b129dff21",
+      "index": "DIA",
+      "forecast_date": "2026-10-13",
+      "target_date": "2026-10-20",
+      "horizon_days": 7,
+      "spot_at_forecast": 516.72,
+      "iv": 0.1553,
+      "implied_move_pct": 0.0215,
+      "implied_move_abs": 11.11,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "fair",
+      "market_view": "VIX 15.43, normal regime, +1% day \u2014 tape is calm and bidding; this is benign timing for premium sells. No macro events today; vol is fair to slightly rich on the index side.",
+      "resolved": false
+    },
+    {
+      "id": "18a04b29b655",
+      "index": "TSLA",
+      "forecast_date": "2026-10-13",
+      "target_date": "2026-10-20",
+      "horizon_days": 7,
+      "spot_at_forecast": 374.96,
+      "iv": 0.4574,
+      "implied_move_pct": 0.0633,
+      "implied_move_abs": 23.75,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "fair",
+      "market_view": "VIX 15.43, normal regime, +1% day \u2014 tape is calm and bidding; this is benign timing for premium sells. No macro events today; vol is fair to slightly rich on the index side.",
       "resolved": false
     }
   ]
