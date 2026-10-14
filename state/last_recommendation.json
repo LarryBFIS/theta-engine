@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-10-14T17:57:40.436429+00:00",
-  "market_view": "Broad selloff deepening \u2014 QQQ -2.11%, XLK -3.05%, VIX +11.33% to 17.0 \u2014 tech-led risk-off is accelerating with QQQ now at $727.87, closing in further on the 722 short put. SLV and QQQ stop rules remain critically triggered and unexecuted across multiple cycles; inaction is active capital destruction.",
+  "last_run": "2026-10-14T20:59:47.737740+00:00",
+  "market_view": "Tech-led risk-off continues with QQQ -1.97% and VIX +10.48% to 16.87 \u2014 defensive rotation into XLV +2.53% and XLP +2.22% is holding DIA down while QQQ sits $6.95 above the 722 short put with gamma risk elevated at 22 DTE.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-10-14T17:57:22Z",
-    "reasoning": "Short strike breached, SLV $50.16 is 18.4% below short strike, worst-cost $1.10 is 2.0x credit \u2014 stop at 1.5x ($0.825) has been violated for multiple cycles with zero recovery path, this position is at max theoretical loss territory."
+    "timestamp": "2026-10-14T20:59:30Z",
+    "reasoning": "Short strike breached with SLV at $50.22 \u2014 18.4% below the 61.5 strike \u2014 worst-cost $1.10 is 2.0x the $0.55 credit, stop at 1.5x ($0.825) has been violated for multiple consecutive cycles with zero recovery path and 77 DTE means no time-decay rescue."
   },
   "QQQ 722/713p": {
     "action": "CRITICAL",
-    "confidence": 1.0,
-    "timestamp": "2026-10-14T17:57:22Z",
-    "reasoning": "QQQ $727.87 is now only $5.87 (0.81%) above the 722 short put strike with gamma accelerating at 22 DTE, mid-cost $2.75 is 2.5x the $1.10 credit \u2014 XLK -3.05% today with no reversal signal means breach risk is high and rising."
+    "confidence": 0.95,
+    "timestamp": "2026-10-14T20:59:30Z",
+    "reasoning": "QQQ at $728.95 is only $6.95 (0.95%) above the 722 short put with 22 DTE and gamma accelerating \u2014 mid-cost $2.745 is 2.5x the $1.10 credit received, stop rule at 1.5x ($1.65) was blown through multiple cycles ago, and XLK -2.98% with no reversal signal makes breach imminent."
   },
   "DIA 534/541c": {
     "action": "ACTION",
-    "confidence": 0.9,
-    "timestamp": "2026-10-14T17:57:22Z",
-    "reasoning": "DIA $513.26 is 3.9% below the 534 short call, mid-cost $0.62 is 37% of credit received \u2014 not at 50% profit target yet but 21 DTE exit rule triggers tomorrow and defensive rotation (XLP +1.55%, XLV +2.19%) is keeping DIA suppressed, locking in near-50% profit now is correct."
+    "confidence": 0.92,
+    "timestamp": "2026-10-14T20:59:30Z",
+    "reasoning": "DIA at $515.63 is 3.5% below the 534 short call with 22 DTE \u2014 mid-cost $0.74 is 24% profit captured, but 21 DTE exit rule triggers tomorrow and defensive sector outperformance (XLV, XLP) is keeping DIA suppressed, locking in near-50% profit now avoids forced close at worse fills tomorrow."
   }
 }
