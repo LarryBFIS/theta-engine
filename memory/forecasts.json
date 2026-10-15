@@ -2522,7 +2522,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.08, normal regime, +0% day \u2014 a calm, flat tape with no macro events ahead. This is textbook timing for low-volatility premium sells; however, we are already long 3 positions (DIA, QQQ, IWM) and adding to the same clusters risks correlated drawdown into any sudden vol spike",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-15",
+      "actual_price": 770.48,
+      "realized_move_pct": 0.0088,
+      "realized_move_signed": -0.0088,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "b2565e9dd999",
@@ -2537,7 +2543,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.08, normal regime, +0% day \u2014 a calm, flat tape with no macro events ahead. This is textbook timing for low-volatility premium sells; however, we are already long 3 positions (DIA, QQQ, IWM) and adding to the same clusters risks correlated drawdown into any sudden vol spike",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-15",
+      "actual_price": 724.61,
+      "realized_move_pct": 0.0448,
+      "realized_move_signed": -0.0448,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "c5068b04c9b7",
@@ -2552,7 +2564,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.08, normal regime, +0% day \u2014 a calm, flat tape with no macro events ahead. This is textbook timing for low-volatility premium sells; however, we are already long 3 positions (DIA, QQQ, IWM) and adding to the same clusters risks correlated drawdown into any sudden vol spike",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-15",
+      "actual_price": 273.52,
+      "realized_move_pct": 0.0144,
+      "realized_move_signed": -0.0144,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "d6070cf388b9",
@@ -2567,7 +2585,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.08, normal regime, +0% day \u2014 a calm, flat tape with no macro events ahead. This is textbook timing for low-volatility premium sells; however, we are already long 3 positions (DIA, QQQ, IWM) and adding to the same clusters risks correlated drawdown into any sudden vol spike",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-15",
+      "actual_price": 520.4,
+      "realized_move_pct": 0.0184,
+      "realized_move_signed": 0.0184,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "1ba864c81927",
@@ -2582,7 +2606,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.08, normal regime, +0% day \u2014 a calm, flat tape with no macro events ahead. This is textbook timing for low-volatility premium sells; however, we are already long 3 positions (DIA, QQQ, IWM) and adding to the same clusters risks correlated drawdown into any sudden vol spike",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-15",
+      "actual_price": 360.04,
+      "realized_move_pct": 0.0478,
+      "realized_move_signed": -0.0478,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "47c2a72179d6",
@@ -2882,6 +2912,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Market ripped +10% into normal regime; VIX 16.74 is fair-to-rich. Momentum is strong and sustained\u2014this is NOT the tape to aggressively short call spreads into a rally. Better to let the move exhaust or wait for a pullback before adding short premium on the upside.",
+      "resolved": false
+    },
+    {
+      "id": "a1ad3a859335",
+      "index": "SPY",
+      "forecast_date": "2026-10-15",
+      "target_date": "2026-10-22",
+      "horizon_days": 7,
+      "spot_at_forecast": 770.48,
+      "iv": 0.166,
+      "implied_move_pct": 0.023,
+      "implied_move_abs": 17.72,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Calm, flat tape with VIX at 16.85 in a normal regime and no scheduled events \u2014 no timing red flag, but sub-17 VIX means index premium is not particularly rich, so only high-quality sells are worth doing. Neutral direction; no reason to press either side.",
+      "resolved": false
+    },
+    {
+      "id": "77bf08306c0c",
+      "index": "QQQ",
+      "forecast_date": "2026-10-15",
+      "target_date": "2026-10-22",
+      "horizon_days": 7,
+      "spot_at_forecast": 724.61,
+      "iv": 0.2358,
+      "implied_move_pct": 0.0326,
+      "implied_move_abs": 23.66,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Calm, flat tape with VIX at 16.85 in a normal regime and no scheduled events \u2014 no timing red flag, but sub-17 VIX means index premium is not particularly rich, so only high-quality sells are worth doing. Neutral direction; no reason to press either side.",
+      "resolved": false
+    },
+    {
+      "id": "a43595bf9d12",
+      "index": "IWM",
+      "forecast_date": "2026-10-15",
+      "target_date": "2026-10-22",
+      "horizon_days": 7,
+      "spot_at_forecast": 273.52,
+      "iv": 0.214,
+      "implied_move_pct": 0.0296,
+      "implied_move_abs": 8.11,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Calm, flat tape with VIX at 16.85 in a normal regime and no scheduled events \u2014 no timing red flag, but sub-17 VIX means index premium is not particularly rich, so only high-quality sells are worth doing. Neutral direction; no reason to press either side.",
+      "resolved": false
+    },
+    {
+      "id": "566f2598ce82",
+      "index": "DIA",
+      "forecast_date": "2026-10-15",
+      "target_date": "2026-10-22",
+      "horizon_days": 7,
+      "spot_at_forecast": 520.4,
+      "iv": 0.1569,
+      "implied_move_pct": 0.0217,
+      "implied_move_abs": 11.31,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Calm, flat tape with VIX at 16.85 in a normal regime and no scheduled events \u2014 no timing red flag, but sub-17 VIX means index premium is not particularly rich, so only high-quality sells are worth doing. Neutral direction; no reason to press either side.",
+      "resolved": false
+    },
+    {
+      "id": "a6dde638c13b",
+      "index": "TSLA",
+      "forecast_date": "2026-10-15",
+      "target_date": "2026-10-22",
+      "horizon_days": 7,
+      "spot_at_forecast": 360.04,
+      "iv": 0.492,
+      "implied_move_pct": 0.0681,
+      "implied_move_abs": 24.53,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Calm, flat tape with VIX at 16.85 in a normal regime and no scheduled events \u2014 no timing red flag, but sub-17 VIX means index premium is not particularly rich, so only high-quality sells are worth doing. Neutral direction; no reason to press either side.",
       "resolved": false
     }
   ]
