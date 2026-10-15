@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-10-15T17:38:07.294541+00:00",
-  "market_view": "Rotation persists \u2014 tech bleeding (XLK -1.13% today, -5.58% 5d) while defensives and financials catch bids; QQQ -3.57% on the week keeps short-put pressure alive. VIX 16.74 marginally off highs but 5d still +9.13%, no regime change.",
+  "last_run": "2026-10-15T17:43:49.120438+00:00",
+  "market_view": "Tech rotation pain continues with XLK -5.4% on the week keeping QQQ short-put pressure elevated; VIX 5d +9.19% confirms vol expansion regime that has been punishing short-premium positions. No macro catalyst visible to reverse these moves today.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-10-15T17:37:50Z",
-    "reasoning": "Short strike breached by 19.5% (SLV $51.47 vs 61.5 short strike), worst-cost $1.10 is 2.0x credit \u2014 stop rule at 1.5x ($0.825) was blown multiple cycles ago and this position has been flagged CRITICAL with zero recovery across consecutive sessions."
+    "timestamp": "2026-10-15T17:43:33Z",
+    "reasoning": "Short strike breached by 19.5%, worst-cost $1.10 is 2.0x credit \u2014 stop rule at 1.5x was blown long ago and position has been CRITICAL for multiple consecutive cycles with zero recovery. This has been flagged every cycle; immediate action is overdue."
   },
   "QQQ 722/713p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-10-15T17:37:50Z",
-    "reasoning": "QQQ $725.69 is $3.69 above short strike 722 at exactly 21 DTE \u2014 both the 1.5x stop rule (mid-cost $2.955 vs $1.65 stop) AND the 21 DTE hard exit rule trigger simultaneously right now."
+    "timestamp": "2026-10-15T17:43:33Z",
+    "reasoning": "21 DTE hard exit rule is active today and mid-cost $2.845 is 2.59x credit ($1.65 stop threshold) \u2014 both stop rules simultaneously breached, QQQ $726.71 is only $4.71 above short strike with continued tech weakness on the week."
   },
   "DIA 534/541c": {
     "action": "ACTION",
-    "confidence": 0.98,
-    "timestamp": "2026-10-15T17:37:50Z",
-    "reasoning": "DIA $520.61 is 2.5% below short call strike 534 with 21 DTE exit rule active today \u2014 mid-cost $1.215 vs $0.98 credit is a small loss but holding through 21 DTE is a hard rule violation."
+    "confidence": 1.0,
+    "timestamp": "2026-10-15T17:43:33Z",
+    "reasoning": "21 DTE hard exit rule fires today \u2014 DIA $520.98 is 2.5% below short call strike 534 so intrinsic risk is low, but mid-cost $1.26 vs $0.98 credit is a small loser and the rule is the rule."
   }
 }
