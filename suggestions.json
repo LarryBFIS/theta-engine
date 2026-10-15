@@ -67511,6 +67511,88 @@
       "alternative": "Hold and hope. Risk: up to $45 max loss (currently $38 unrealized).",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20261015T133744_trade_031_slv_61_60",
+      "trade_id": "trade_031_slv_61_60",
+      "timestamp": "2026-10-15T13:37:44.596125-04:00",
+      "action": "URGENT_CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\u26a0\ufe0f SLV @ $51.47 is BELOW short strike $62 (ITM).",
+        "Max loss exposure increasing. Current close: $0.90 mid / $1.10 worst.",
+        "76 DTE remaining; negative delta hurts daily."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.9000000000000004,
+        "cost_to_close_worst": 1.0999999999999996,
+        "profit_if_closed_mid": -35.00000000000003,
+        "profit_if_closed_worst": -54.99999999999996,
+        "pct_max_profit_captured_mid": -0.6363636363636369,
+        "dte": 76,
+        "underlying_price": 51.46500015258789,
+        "short_strike_breached": true,
+        "has_live_quotes": true,
+        "net_liq": 7240.53,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold and hope. Risk: up to $45 max loss (currently $35 unrealized).",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20261015T133744_trade_044_qqq_722_713",
+      "trade_id": "trade_044_qqq_722_713",
+      "timestamp": "2026-10-15T13:37:45.061965-04:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 21 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently -169% captured ($-186 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 2.955,
+        "cost_to_close_worst": 3.039999999999999,
+        "profit_if_closed_mid": -185.5,
+        "profit_if_closed_worst": -193.99999999999991,
+        "pct_max_profit_captured_mid": -1.6863636363636363,
+        "dte": 21,
+        "underlying_price": 725.6890258789062,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 7240.53,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold to expiry, but the next 21 days carry concentrated gamma risk.",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20261015T133745_trade_045_dia_534_541",
+      "trade_id": "trade_045_dia_534_541",
+      "timestamp": "2026-10-15T13:37:45.590622-04:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 21 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently -24% captured ($-47 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 1.2149999999999999,
+        "cost_to_close_worst": 1.38,
+        "profit_if_closed_mid": -46.99999999999997,
+        "profit_if_closed_worst": -79.99999999999999,
+        "pct_max_profit_captured_mid": -0.23979591836734682,
+        "dte": 21,
+        "underlying_price": 520.6121215820312,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 7240.53,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold to expiry, but the next 21 days carry concentrated gamma risk.",
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
