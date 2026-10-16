@@ -2627,7 +2627,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Normal regime, +2% up day, VIX 15.41\u2014tape is calm and bid. Premium sellers are well-timed in this environment; IV is fair-to-rich across indices. However, we are already long 4 open positions (3 us_index + 1 us_tech) with $8 unrealized\u2014adding more concentrates correlated risk.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-16",
+      "actual_price": 766.14,
+      "realized_move_pct": 0.0107,
+      "realized_move_signed": -0.0107,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "f81d19cd47f2",
@@ -2642,7 +2648,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Normal regime, +2% up day, VIX 15.41\u2014tape is calm and bid. Premium sellers are well-timed in this environment; IV is fair-to-rich across indices. However, we are already long 4 open positions (3 us_index + 1 us_tech) with $8 unrealized\u2014adding more concentrates correlated risk.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-16",
+      "actual_price": 715.44,
+      "realized_move_pct": 0.0432,
+      "realized_move_signed": -0.0432,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "9d7de2b290a9",
@@ -2657,7 +2669,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Normal regime, +2% up day, VIX 15.41\u2014tape is calm and bid. Premium sellers are well-timed in this environment; IV is fair-to-rich across indices. However, we are already long 4 open positions (3 us_index + 1 us_tech) with $8 unrealized\u2014adding more concentrates correlated risk.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-16",
+      "actual_price": 271.24,
+      "realized_move_pct": 0.0242,
+      "realized_move_signed": -0.0242,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "c1dafe1936c3",
@@ -2672,7 +2690,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Normal regime, +2% up day, VIX 15.41\u2014tape is calm and bid. Premium sellers are well-timed in this environment; IV is fair-to-rich across indices. However, we are already long 4 open positions (3 us_index + 1 us_tech) with $8 unrealized\u2014adding more concentrates correlated risk.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-16",
+      "actual_price": 519.81,
+      "realized_move_pct": 0.0156,
+      "realized_move_signed": 0.0156,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "83c911d37183",
@@ -2687,7 +2711,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Normal regime, +2% up day, VIX 15.41\u2014tape is calm and bid. Premium sellers are well-timed in this environment; IV is fair-to-rich across indices. However, we are already long 4 open positions (3 us_index + 1 us_tech) with $8 unrealized\u2014adding more concentrates correlated risk.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-16",
+      "actual_price": 354.94,
+      "realized_move_pct": 0.0536,
+      "realized_move_signed": -0.0536,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "70535eb6a96c",
@@ -2987,6 +3017,81 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Calm, flat tape with VIX at 16.85 in a normal regime and no scheduled events \u2014 no timing red flag, but sub-17 VIX means index premium is not particularly rich, so only high-quality sells are worth doing. Neutral direction; no reason to press either side.",
+      "resolved": false
+    },
+    {
+      "id": "763688b058e1",
+      "index": "SPY",
+      "forecast_date": "2026-10-16",
+      "target_date": "2026-10-23",
+      "horizon_days": 7,
+      "spot_at_forecast": 766.14,
+      "iv": 0.1814,
+      "implied_move_pct": 0.0251,
+      "implied_move_abs": 19.24,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Tape is ripping (+8% day) with VIX at 17.83 in a normal regime \u2014 that's a strong upward tape where selling call spreads is fighting momentum, and put selling is the favored side but only in uncorrelated names. Premium levels are adequate, not compelling.",
+      "resolved": false
+    },
+    {
+      "id": "acfc6d385615",
+      "index": "QQQ",
+      "forecast_date": "2026-10-16",
+      "target_date": "2026-10-23",
+      "horizon_days": 7,
+      "spot_at_forecast": 715.44,
+      "iv": 0.2506,
+      "implied_move_pct": 0.0347,
+      "implied_move_abs": 24.83,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Tape is ripping (+8% day) with VIX at 17.83 in a normal regime \u2014 that's a strong upward tape where selling call spreads is fighting momentum, and put selling is the favored side but only in uncorrelated names. Premium levels are adequate, not compelling.",
+      "resolved": false
+    },
+    {
+      "id": "9883c98aad64",
+      "index": "IWM",
+      "forecast_date": "2026-10-16",
+      "target_date": "2026-10-23",
+      "horizon_days": 7,
+      "spot_at_forecast": 271.24,
+      "iv": 0.2234,
+      "implied_move_pct": 0.0309,
+      "implied_move_abs": 8.39,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Tape is ripping (+8% day) with VIX at 17.83 in a normal regime \u2014 that's a strong upward tape where selling call spreads is fighting momentum, and put selling is the favored side but only in uncorrelated names. Premium levels are adequate, not compelling.",
+      "resolved": false
+    },
+    {
+      "id": "f6b46a7cb78d",
+      "index": "DIA",
+      "forecast_date": "2026-10-16",
+      "target_date": "2026-10-23",
+      "horizon_days": 7,
+      "spot_at_forecast": 519.81,
+      "iv": 0.158,
+      "implied_move_pct": 0.0219,
+      "implied_move_abs": 11.37,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Tape is ripping (+8% day) with VIX at 17.83 in a normal regime \u2014 that's a strong upward tape where selling call spreads is fighting momentum, and put selling is the favored side but only in uncorrelated names. Premium levels are adequate, not compelling.",
+      "resolved": false
+    },
+    {
+      "id": "4a57da569259",
+      "index": "TSLA",
+      "forecast_date": "2026-10-16",
+      "target_date": "2026-10-23",
+      "horizon_days": 7,
+      "spot_at_forecast": 354.94,
+      "iv": 0.4968,
+      "implied_move_pct": 0.0688,
+      "implied_move_abs": 24.42,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Tape is ripping (+8% day) with VIX at 17.83 in a normal regime \u2014 that's a strong upward tape where selling call spreads is fighting momentum, and put selling is the favored side but only in uncorrelated names. Premium levels are adequate, not compelling.",
       "resolved": false
     }
   ]
