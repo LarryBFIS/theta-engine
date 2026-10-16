@@ -67921,6 +67921,89 @@
       "alternative": "Hold to expiry, but the next 21 days carry concentrated gamma risk.",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20261016T131037_trade_031_slv_61_60",
+      "trade_id": "trade_031_slv_61_60",
+      "timestamp": "2026-10-16T13:10:37.690138-04:00",
+      "action": "URGENT_CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\u26a0\ufe0f SLV @ $51.62 is BELOW short strike $62 (ITM).",
+        "Max loss exposure increasing. Current close: $0.90 mid / $1.05 worst.",
+        "75 DTE remaining; negative delta hurts daily."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.9000000000000004,
+        "cost_to_close_worst": 1.0500000000000007,
+        "profit_if_closed_mid": -35.00000000000003,
+        "profit_if_closed_worst": -50.000000000000064,
+        "pct_max_profit_captured_mid": -0.6363636363636369,
+        "dte": 75,
+        "underlying_price": 51.619998931884766,
+        "short_strike_breached": true,
+        "has_live_quotes": true,
+        "net_liq": 6977.005,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold and hope. Risk: up to $45 max loss (currently $35 unrealized).",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20261016T131037_trade_044_qqq_722_713",
+      "trade_id": "trade_044_qqq_722_713",
+      "timestamp": "2026-10-16T13:10:38.008739-04:00",
+      "action": "URGENT_CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\u26a0\ufe0f QQQ @ $713.07 is BELOW short strike $722 (ITM).",
+        "Max loss exposure increasing. Current close: $4.00 mid / $4.17 worst.",
+        "20 DTE remaining; negative delta hurts daily."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 4.004999999999999,
+        "cost_to_close_worst": 4.17,
+        "profit_if_closed_mid": -290.4999999999999,
+        "profit_if_closed_worst": -307.0,
+        "pct_max_profit_captured_mid": -2.6409090909090898,
+        "dte": 20,
+        "underlying_price": 713.0698852539062,
+        "short_strike_breached": true,
+        "has_live_quotes": true,
+        "net_liq": 6977.005,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold and hope. Risk: up to $790 max loss (currently $290 unrealized).",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20261016T131038_trade_045_dia_534_541",
+      "trade_id": "trade_045_dia_534_541",
+      "timestamp": "2026-10-16T13:10:38.303271-04:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 20 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently -8% captured ($-16 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 1.06,
+        "cost_to_close_worst": 1.2199999999999998,
+        "profit_if_closed_mid": -16.000000000000014,
+        "profit_if_closed_worst": -47.99999999999996,
+        "pct_max_profit_captured_mid": -0.08163265306122457,
+        "dte": 20,
+        "underlying_price": 518.489990234375,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 6977.005,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold to expiry, but the next 21 days carry concentrated gamma risk.",
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
