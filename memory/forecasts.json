@@ -2732,7 +2732,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.21 in normal regime, +2% rally today\u2014calm tape with no macro events. Premium-selling conditions are benign; however, we are already long us_tech (QQQ 1, IWM 1, SPY 1) with concentrated directional bias.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-19",
+      "actual_price": 767.58,
+      "realized_move_pct": 0.0134,
+      "realized_move_signed": -0.0134,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "8996381d6f09",
@@ -2747,7 +2753,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.21 in normal regime, +2% rally today\u2014calm tape with no macro events. Premium-selling conditions are benign; however, we are already long us_tech (QQQ 1, IWM 1, SPY 1) with concentrated directional bias.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-19",
+      "actual_price": 719.4,
+      "realized_move_pct": 0.0351,
+      "realized_move_signed": -0.0351,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "0e8b710724a9",
@@ -2762,7 +2774,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.21 in normal regime, +2% rally today\u2014calm tape with no macro events. Premium-selling conditions are benign; however, we are already long us_tech (QQQ 1, IWM 1, SPY 1) with concentrated directional bias.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-19",
+      "actual_price": 271.23,
+      "realized_move_pct": 0.024,
+      "realized_move_signed": -0.024,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "fdd829696398",
@@ -2777,7 +2795,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.21 in normal regime, +2% rally today\u2014calm tape with no macro events. Premium-selling conditions are benign; however, we are already long us_tech (QQQ 1, IWM 1, SPY 1) with concentrated directional bias.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-19",
+      "actual_price": 519.59,
+      "realized_move_pct": 0.0034,
+      "realized_move_signed": 0.0034,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "84ef675da348",
@@ -2792,7 +2816,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 15.21 in normal regime, +2% rally today\u2014calm tape with no macro events. Premium-selling conditions are benign; however, we are already long us_tech (QQQ 1, IWM 1, SPY 1) with concentrated directional bias.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-19",
+      "actual_price": 368.29,
+      "realized_move_pct": 0.0253,
+      "realized_move_signed": -0.0253,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "00ac19214bfc",
@@ -3092,6 +3122,81 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Tape is ripping (+8% day) with VIX at 17.83 in a normal regime \u2014 that's a strong upward tape where selling call spreads is fighting momentum, and put selling is the favored side but only in uncorrelated names. Premium levels are adequate, not compelling.",
+      "resolved": false
+    },
+    {
+      "id": "a7ad5f0182fe",
+      "index": "SPY",
+      "forecast_date": "2026-10-19",
+      "target_date": "2026-10-26",
+      "horizon_days": 7,
+      "spot_at_forecast": 767.58,
+      "iv": 0.1826,
+      "implied_move_pct": 0.0253,
+      "implied_move_abs": 19.41,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "The tape just dropped ~7% on the day \u2014 that is a fast, stressed tape regardless of the 'normal' label and VIX 18.53, with realized vol likely running ahead of implied and high whipsaw/snap-back risk in both directions. This is a poor moment to add any short premium: short calls r",
+      "resolved": false
+    },
+    {
+      "id": "8e0051caaa1c",
+      "index": "QQQ",
+      "forecast_date": "2026-10-19",
+      "target_date": "2026-10-26",
+      "horizon_days": 7,
+      "spot_at_forecast": 719.4,
+      "iv": 0.2516,
+      "implied_move_pct": 0.0348,
+      "implied_move_abs": 25.06,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "The tape just dropped ~7% on the day \u2014 that is a fast, stressed tape regardless of the 'normal' label and VIX 18.53, with realized vol likely running ahead of implied and high whipsaw/snap-back risk in both directions. This is a poor moment to add any short premium: short calls r",
+      "resolved": false
+    },
+    {
+      "id": "79deab718ade",
+      "index": "IWM",
+      "forecast_date": "2026-10-19",
+      "target_date": "2026-10-26",
+      "horizon_days": 7,
+      "spot_at_forecast": 271.23,
+      "iv": 0.2321,
+      "implied_move_pct": 0.0321,
+      "implied_move_abs": 8.72,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "The tape just dropped ~7% on the day \u2014 that is a fast, stressed tape regardless of the 'normal' label and VIX 18.53, with realized vol likely running ahead of implied and high whipsaw/snap-back risk in both directions. This is a poor moment to add any short premium: short calls r",
+      "resolved": false
+    },
+    {
+      "id": "2c1582f7ecc3",
+      "index": "DIA",
+      "forecast_date": "2026-10-19",
+      "target_date": "2026-10-26",
+      "horizon_days": 7,
+      "spot_at_forecast": 519.59,
+      "iv": 0.1617,
+      "implied_move_pct": 0.0224,
+      "implied_move_abs": 11.64,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "The tape just dropped ~7% on the day \u2014 that is a fast, stressed tape regardless of the 'normal' label and VIX 18.53, with realized vol likely running ahead of implied and high whipsaw/snap-back risk in both directions. This is a poor moment to add any short premium: short calls r",
+      "resolved": false
+    },
+    {
+      "id": "d2971a459d36",
+      "index": "TSLA",
+      "forecast_date": "2026-10-19",
+      "target_date": "2026-10-26",
+      "horizon_days": 7,
+      "spot_at_forecast": 368.29,
+      "iv": 0.4904,
+      "implied_move_pct": 0.0679,
+      "implied_move_abs": 25.01,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "The tape just dropped ~7% on the day \u2014 that is a fast, stressed tape regardless of the 'normal' label and VIX 18.53, with realized vol likely running ahead of implied and high whipsaw/snap-back risk in both directions. This is a poor moment to add any short premium: short calls r",
       "resolved": false
     }
   ]

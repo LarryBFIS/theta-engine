@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-16T20:58:12.083505+00:00",
+  "generated_at": "2026-10-19T18:51:24.769845+00:00",
   "regime": {
-    "vix": 19.99,
-    "vix_day_change_pct": 0.2145,
+    "vix": 18.53,
+    "vix_day_change_pct": -0.073,
     "level": "normal",
     "stand_down": false,
-    "note": "normal regime (+21% day)"
+    "note": "normal regime (-7% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -17,8 +17,138 @@
     "longvol_max_iv_rank": 0.3,
     "longvol_catalyst_days": 14
   },
-  "top": [],
-  "long_vol": [],
+  "top": [
+    {
+      "underlying": "QQQ",
+      "structure": "iron_condor",
+      "expiry": "2026-11-20",
+      "dte": 32,
+      "put_short_strike": 655.0,
+      "put_long_strike": 645.0,
+      "call_short_strike": 783.0,
+      "call_long_strike": 792.0,
+      "short_strike": 655.0,
+      "long_strike": 783.0,
+      "symbols": {
+        "put_short": "QQQ   261120P00655000",
+        "put_long": "QQQ   261120P00645000",
+        "call_short": "QQQ   261120C00783000",
+        "call_long": "QQQ   261120C00792000"
+      },
+      "width": 10.0,
+      "credit": 1.0,
+      "put_credit": 0.68,
+      "call_credit": 0.32,
+      "fees_est": 3.0,
+      "bpr": 900.0,
+      "max_loss": 900.0,
+      "pop": 0.769,
+      "put_short_delta": 0.097,
+      "call_short_delta": 0.136,
+      "credit_to_bpr": 0.111,
+      "ev_per_contract": 0.81,
+      "ev_on_bpr": 0.0009,
+      "iv": 0.2516,
+      "iv_rank": 0.605,
+      "underlying_price": 719.4,
+      "liquidity": 4,
+      "earnings_date": null,
+      "tag": "paper",
+      "sized_for": "paper",
+      "contracts": 1,
+      "max_loss_total": 900.0,
+      "bpr_total": 900.0,
+      "trend": "mixed",
+      "sized_capped": true,
+      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). iron condor 655/645p + 783/792c \u00d71 \u2014 neutral (book bias +1 \u2192 balance). Edge: IV rank 60%, EV $+1/ctr (+0.1% on BPR). POP 77% \u00b7 credit $1.00 \u00b7 max loss $900 \u00b7 BPR $900 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 0.552,
+      "learn_notes": [
+        "asset_class=single_name \u00d70.70",
+        "cluster=us_tech \u00d70.79"
+      ],
+      "rank_score": 0.000497,
+      "agent_action": "guarded",
+      "agent_reason": "Duplicates QQQ exposure we already hold (and per-name cap is 1), us_tech/single_name sits on the avoid list, EV/BPR of 0.0009 is essentially no edge, and selling a 655-783 range into a fast -7% tape is catching a falling knife on both sides",
+      "guarded_warn": true,
+      "demoted": "guarded \u2014 surfaced with a caution, paper only",
+      "agent_reviewed": true,
+      "news_risk": {
+        "level": "clear",
+        "hits": []
+      },
+      "net_liq": 7103.395,
+      "ticket": {
+        "underlying": "QQQ",
+        "code": "IC",
+        "order_type": "Net Credit",
+        "limit": 1.0,
+        "contracts": 1,
+        "expiry": "2026-11-20",
+        "legs": [
+          {
+            "action": "SELL",
+            "qty": 1,
+            "expiry": "2026-11-20",
+            "strike": 655.0,
+            "type": "P"
+          },
+          {
+            "action": "BUY",
+            "qty": 1,
+            "expiry": "2026-11-20",
+            "strike": 645.0,
+            "type": "P"
+          },
+          {
+            "action": "SELL",
+            "qty": 1,
+            "expiry": "2026-11-20",
+            "strike": 783.0,
+            "type": "C"
+          },
+          {
+            "action": "BUY",
+            "qty": 1,
+            "expiry": "2026-11-20",
+            "strike": 792.0,
+            "type": "C"
+          }
+        ],
+        "credit_total": 100.0,
+        "max_loss_total": 900.0,
+        "bpr_total": 900.0,
+        "pop": 0.769,
+        "tag": "paper",
+        "manage": {
+          "profit_target_pct": 50,
+          "close_debit": 0.5,
+          "stop_debit": 2.5,
+          "exit_dte": 21
+        },
+        "fits_live_cap": false,
+        "live_cap": 710.34,
+        "suggested_width": 8,
+        "fit_note": "\u26a0 max loss $900 > 10% live cap ($710) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "QQQ IC \u00d71 \u2014 SELL 655P / BUY 645P / SELL 783C / BUY 792C (2026-11-20) @ $1.00 net credit. Max loss $900. After fill: GTC buy-to-close @ $0.50 (50%). \u26a0 max loss $900 > 10% live cap ($710) \u2014 narrow to ~8-wide for live, or keep on paper."
+      },
+      "posted_at": "2026-10-19T18:51:24.769845+00:00"
+    }
+  ],
+  "long_vol": [
+    {
+      "underlying": "TSLA",
+      "structure": "long_strangle",
+      "iv_rank": 0.289,
+      "iv": 0.4904,
+      "price": 368.29,
+      "earnings_date": "2026-10-21",
+      "days_to_catalyst": 2,
+      "expected_move": 13.37,
+      "expected_move_pct": 0.0363,
+      "tag": "paper",
+      "rationale": "IV rank 29% (cheap) into earnings in 2d \u2014 market may be under-pricing the move"
+    }
+  ],
   "events": [],
   "learnings": {
     "global": {
@@ -89,19 +219,24 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-10-16T20:58:12.076758+00:00",
+    "generated_at": "2026-10-19T18:51:24.401412+00:00",
     "model": "kimi-k3",
-    "market_view": "VIX ~20 is mid-range but spiking +21% today \u2014 a fast, risk-off tape with vol expanding, which is a poor moment to add short premium of any flavor. Short calls are specifically exposed here: after a VIX spike of this size, sharp mean-reversion rips are common and would run directly at the 287 short strike.",
-    "portfolio_note": "Small book (2 open, slight unrealized loss) but already carrying us_index and us_tech exposure via SPY and QQQ; adding IWM concentrates correlated index risk in a fast tape. Gross exposure should shrink, not grow, while vol is expanding.",
-    "vol_verdict": "fair",
-    "reviewed": 1,
-    "vetoed": 1,
+    "market_view": "The tape just dropped ~7% on the day \u2014 that is a fast, stressed tape regardless of the 'normal' label and VIX 18.53, with realized vol likely running ahead of implied and high whipsaw/snap-back risk in both directions. This is a poor moment to add any short premium: short calls risk a violent mean-reversion rip, and condors risk the range being blown through as the sell-off accelerates or reverses.",
+    "portfolio_note": "The book already holds SPY (us_index) and QQQ (us_tech); both candidates pile onto the same names/clusters we already own, turning two bets into four correlated ones. With the book at -77 unrealized and the tape in a fast move, the right action is to stand down and keep dry powder.",
+    "vol_verdict": "implied_cheap",
+    "reviewed": 2,
+    "vetoed": 2,
     "downsized": 0,
     "decisions": [
       {
         "id": "IWM|short_call_vertical|287/292",
         "action": "veto",
-        "reason": "Short call verticals are our worst realized structure (29% WR, negative expectancy), IV rank 0.38 isn't rich enough to compensate, and selling calls into a +21% VIX day invites a snap-back rally through the short strike \u2014 bad structure, bad"
+        "reason": "Short call verticals are on our own avoid list (29% win rate), and selling calls into a -7% tape risks a violent snap-back while adding a second correlated us_index bet for only 0.7% EV on buying power."
+      },
+      {
+        "id": "QQQ|iron_condor|655/783",
+        "action": "veto",
+        "reason": "Duplicates QQQ exposure we already hold (and per-name cap is 1), us_tech/single_name sits on the avoid list, EV/BPR of 0.0009 is essentially no edge, and selling a 655-783 range into a fast -7% tape is catching a falling knife on both sides"
       }
     ]
   },
@@ -110,56 +245,170 @@
       "underlying": "IWM",
       "structure": "short_call_vertical",
       "expiry": "2026-11-20",
-      "dte": 35,
+      "dte": 32,
       "short_strike": 287.0,
       "long_strike": 292.0,
       "short_symbol": "IWM   261120C00287000",
       "long_symbol": "IWM   261120C00292000",
       "width": 5.0,
-      "credit": 0.53,
-      "mid_credit": 0.57,
+      "credit": 0.57,
+      "mid_credit": 0.59,
       "fees_est": 3.0,
-      "bpr": 447.0,
-      "max_loss": 447.0,
-      "pop": 0.796,
-      "short_delta": 0.226,
-      "short_spread_pct": 0.047,
-      "credit_to_bpr": 0.119,
-      "ev_per_contract": 1.88,
-      "ev_on_bpr": 0.0042,
-      "iv": 0.2412,
-      "iv_rank": 0.38,
-      "underlying_price": 270.55,
+      "bpr": 443.0,
+      "max_loss": 443.0,
+      "pop": 0.804,
+      "short_delta": 0.215,
+      "short_spread_pct": 0.018,
+      "credit_to_bpr": 0.129,
+      "ev_per_contract": 3.18,
+      "ev_on_bpr": 0.0072,
+      "iv": 0.2321,
+      "iv_rank": 0.336,
+      "underlying_price": 271.23,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "live",
       "contracts": 1,
-      "max_loss_total": 447.0,
-      "bpr_total": 447.0,
+      "max_loss_total": 443.0,
+      "bpr_total": 443.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short call vertical 287/292c \u00d71 \u2014 bearish lean. Edge: IV rank 38%, EV $+2/ctr (+0.4% on BPR). POP 80% \u00b7 credit $0.53 \u00b7 max loss $447 \u00b7 BPR $447 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short call vertical 287/292c \u00d71 \u2014 bearish lean. Edge: IV rank 34%, EV $+3/ctr (+0.7% on BPR). POP 80% \u00b7 credit $0.57 \u00b7 max loss $443 \u00b7 BPR $443 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.484,
       "learn_notes": [
         "asset_class=index_etf \u00d71.38",
         "cluster=us_index \u00d71.50",
         "structure=short_call_vertical \u00d70.72"
       ],
-      "rank_score": 0.006233,
+      "rank_score": 0.010685,
       "agent_action": "veto",
-      "agent_reason": "Short call verticals are our worst realized structure (29% WR, negative expectancy), IV rank 0.38 isn't rich enough to compensate, and selling calls into a +21% VIX day invites a snap-back rally through the short strike \u2014 bad structure, bad"
+      "agent_reason": "Short call verticals are on our own avoid list (29% win rate), and selling calls into a -7% tape risks a violent snap-back while adding a second correlated us_index bet for only 0.7% EV on buying power."
+    },
+    {
+      "underlying": "QQQ",
+      "structure": "iron_condor",
+      "expiry": "2026-11-20",
+      "dte": 32,
+      "put_short_strike": 655.0,
+      "put_long_strike": 645.0,
+      "call_short_strike": 783.0,
+      "call_long_strike": 792.0,
+      "short_strike": 655.0,
+      "long_strike": 783.0,
+      "symbols": {
+        "put_short": "QQQ   261120P00655000",
+        "put_long": "QQQ   261120P00645000",
+        "call_short": "QQQ   261120C00783000",
+        "call_long": "QQQ   261120C00792000"
+      },
+      "width": 10.0,
+      "credit": 1.0,
+      "put_credit": 0.68,
+      "call_credit": 0.32,
+      "fees_est": 3.0,
+      "bpr": 900.0,
+      "max_loss": 900.0,
+      "pop": 0.769,
+      "put_short_delta": 0.097,
+      "call_short_delta": 0.136,
+      "credit_to_bpr": 0.111,
+      "ev_per_contract": 0.81,
+      "ev_on_bpr": 0.0009,
+      "iv": 0.2516,
+      "iv_rank": 0.605,
+      "underlying_price": 719.4,
+      "liquidity": 4,
+      "earnings_date": null,
+      "tag": "paper",
+      "sized_for": "paper",
+      "contracts": 1,
+      "max_loss_total": 900.0,
+      "bpr_total": 900.0,
+      "trend": "mixed",
+      "sized_capped": true,
+      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). iron condor 655/645p + 783/792c \u00d71 \u2014 neutral (book bias +1 \u2192 balance). Edge: IV rank 60%, EV $+1/ctr (+0.1% on BPR). POP 77% \u00b7 credit $1.00 \u00b7 max loss $900 \u00b7 BPR $900 \u00b7 32 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 0.552,
+      "learn_notes": [
+        "asset_class=single_name \u00d70.70",
+        "cluster=us_tech \u00d70.79"
+      ],
+      "rank_score": 0.000497,
+      "agent_action": "guarded",
+      "agent_reason": "Duplicates QQQ exposure we already hold (and per-name cap is 1), us_tech/single_name sits on the avoid list, EV/BPR of 0.0009 is essentially no edge, and selling a 655-783 range into a fast -7% tape is catching a falling knife on both sides",
+      "guarded_warn": true,
+      "demoted": "guarded \u2014 surfaced with a caution, paper only",
+      "agent_reviewed": true,
+      "news_risk": {
+        "level": "clear",
+        "hits": []
+      },
+      "net_liq": 7103.395,
+      "ticket": {
+        "underlying": "QQQ",
+        "code": "IC",
+        "order_type": "Net Credit",
+        "limit": 1.0,
+        "contracts": 1,
+        "expiry": "2026-11-20",
+        "legs": [
+          {
+            "action": "SELL",
+            "qty": 1,
+            "expiry": "2026-11-20",
+            "strike": 655.0,
+            "type": "P"
+          },
+          {
+            "action": "BUY",
+            "qty": 1,
+            "expiry": "2026-11-20",
+            "strike": 645.0,
+            "type": "P"
+          },
+          {
+            "action": "SELL",
+            "qty": 1,
+            "expiry": "2026-11-20",
+            "strike": 783.0,
+            "type": "C"
+          },
+          {
+            "action": "BUY",
+            "qty": 1,
+            "expiry": "2026-11-20",
+            "strike": 792.0,
+            "type": "C"
+          }
+        ],
+        "credit_total": 100.0,
+        "max_loss_total": 900.0,
+        "bpr_total": 900.0,
+        "pop": 0.769,
+        "tag": "paper",
+        "manage": {
+          "profit_target_pct": 50,
+          "close_debit": 0.5,
+          "stop_debit": 2.5,
+          "exit_dte": 21
+        },
+        "fits_live_cap": false,
+        "live_cap": 710.34,
+        "suggested_width": 8,
+        "fit_note": "\u26a0 max loss $900 > 10% live cap ($710) \u2014 narrow to ~8-wide for live, or keep on paper.",
+        "text": "QQQ IC \u00d71 \u2014 SELL 655P / BUY 645P / SELL 783C / BUY 792C (2026-11-20) @ $1.00 net credit. Max loss $900. After fill: GTC buy-to-close @ $0.50 (50%). \u26a0 max loss $900 > 10% live cap ($710) \u2014 narrow to ~8-wide for live, or keep on paper."
+      },
+      "posted_at": "2026-10-19T18:51:24.769845+00:00"
     }
   ],
   "skipped": {
-    "SPY": "failed: pv: credit/width 0.08 < 0.10",
-    "DIA": "failed: pv: credit/width 0.05 < 0.10",
-    "QQQ": "failed: pv: credit/width 0.10 < 0.10",
-    "XLE": "failed: pv: spread short 29%/long 110%",
-    "XLF": "failed: pv: spread short 56%/long 182%",
-    "XLV": "failed: pv: no/invalid leg quote",
-    "XLI": "failed: pv: no/invalid leg quote",
-    "SLV": "iv_rank 9% (floor 30%)",
-    "TSLA": "earnings 2026-10-21 before expiry"
+    "SPY": "failed: pv: credit/width 0.09 < 0.10",
+    "DIA": "failed: pv: credit/width 0.08 < 0.10",
+    "XLE": "failed: pv: credit/width 0.08 < 0.10",
+    "XLF": "failed: pv: credit/width 0.03 < 0.10",
+    "XLV": "failed: pv: credit/width 0.09 < 0.10",
+    "XLI": "failed: pv: spread short 10%/long 53%",
+    "SLV": "iv_rank 7% (floor 30%)",
+    "TSLA": "iv_rank 29% (floor 30%)"
   }
 }
