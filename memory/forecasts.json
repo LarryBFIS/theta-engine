@@ -2837,7 +2837,12 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "fair",
       "market_view": "VIX 15.43, normal regime, +1% day \u2014 tape is calm and bidding; this is benign timing for premium sells. No macro events today; vol is fair to slightly rich on the index side.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-20",
+      "actual_price": 769.71,
+      "realized_move_pct": 0.0113,
+      "realized_move_signed": -0.0113,
+      "stayed_in_range": true
     },
     {
       "id": "3109c1fc5eb0",
@@ -2852,7 +2857,12 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "fair",
       "market_view": "VIX 15.43, normal regime, +1% day \u2014 tape is calm and bidding; this is benign timing for premium sells. No macro events today; vol is fair to slightly rich on the index side.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-20",
+      "actual_price": 719.55,
+      "realized_move_pct": 0.0324,
+      "realized_move_signed": -0.0324,
+      "stayed_in_range": false
     },
     {
       "id": "f4730d098851",
@@ -2867,7 +2877,12 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "fair",
       "market_view": "VIX 15.43, normal regime, +1% day \u2014 tape is calm and bidding; this is benign timing for premium sells. No macro events today; vol is fair to slightly rich on the index side.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-20",
+      "actual_price": 275.81,
+      "realized_move_pct": 0.0046,
+      "realized_move_signed": -0.0046,
+      "stayed_in_range": true
     },
     {
       "id": "cc0b129dff21",
@@ -2882,7 +2897,12 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "fair",
       "market_view": "VIX 15.43, normal regime, +1% day \u2014 tape is calm and bidding; this is benign timing for premium sells. No macro events today; vol is fair to slightly rich on the index side.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-20",
+      "actual_price": 524.16,
+      "realized_move_pct": 0.0144,
+      "realized_move_signed": 0.0144,
+      "stayed_in_range": true
     },
     {
       "id": "18a04b29b655",
@@ -2897,7 +2917,12 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "fair",
       "market_view": "VIX 15.43, normal regime, +1% day \u2014 tape is calm and bidding; this is benign timing for premium sells. No macro events today; vol is fair to slightly rich on the index side.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-20",
+      "actual_price": 375.01,
+      "realized_move_pct": 0.0001,
+      "realized_move_signed": 0.0001,
+      "stayed_in_range": true
     },
     {
       "id": "283b8a4f2ef9",
@@ -3197,6 +3222,81 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "The tape just dropped ~7% on the day \u2014 that is a fast, stressed tape regardless of the 'normal' label and VIX 18.53, with realized vol likely running ahead of implied and high whipsaw/snap-back risk in both directions. This is a poor moment to add any short premium: short calls r",
+      "resolved": false
+    },
+    {
+      "id": "c23809438f8f",
+      "index": "SPY",
+      "forecast_date": "2026-10-20",
+      "target_date": "2026-10-27",
+      "horizon_days": 7,
+      "spot_at_forecast": 769.71,
+      "iv": 0.1756,
+      "implied_move_pct": 0.0243,
+      "implied_move_abs": 18.72,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "A -4% down day with VIX only 17.65 means implied vol has not repriced to the realized move \u2014 premium is thin relative to the fresh risk, and a fast tape can gap further. This is poor timing to sell puts into the slide, to sell calls against a potential snap-back, or to touch sing",
+      "resolved": false
+    },
+    {
+      "id": "fd12546f0449",
+      "index": "QQQ",
+      "forecast_date": "2026-10-20",
+      "target_date": "2026-10-27",
+      "horizon_days": 7,
+      "spot_at_forecast": 719.55,
+      "iv": 0.2497,
+      "implied_move_pct": 0.0346,
+      "implied_move_abs": 24.88,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "A -4% down day with VIX only 17.65 means implied vol has not repriced to the realized move \u2014 premium is thin relative to the fresh risk, and a fast tape can gap further. This is poor timing to sell puts into the slide, to sell calls against a potential snap-back, or to touch sing",
+      "resolved": false
+    },
+    {
+      "id": "723994a9c166",
+      "index": "IWM",
+      "forecast_date": "2026-10-20",
+      "target_date": "2026-10-27",
+      "horizon_days": 7,
+      "spot_at_forecast": 275.81,
+      "iv": 0.224,
+      "implied_move_pct": 0.031,
+      "implied_move_abs": 8.56,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "A -4% down day with VIX only 17.65 means implied vol has not repriced to the realized move \u2014 premium is thin relative to the fresh risk, and a fast tape can gap further. This is poor timing to sell puts into the slide, to sell calls against a potential snap-back, or to touch sing",
+      "resolved": false
+    },
+    {
+      "id": "031b253105f7",
+      "index": "DIA",
+      "forecast_date": "2026-10-20",
+      "target_date": "2026-10-27",
+      "horizon_days": 7,
+      "spot_at_forecast": 524.16,
+      "iv": 0.1603,
+      "implied_move_pct": 0.0222,
+      "implied_move_abs": 11.64,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "A -4% down day with VIX only 17.65 means implied vol has not repriced to the realized move \u2014 premium is thin relative to the fresh risk, and a fast tape can gap further. This is poor timing to sell puts into the slide, to sell calls against a potential snap-back, or to touch sing",
+      "resolved": false
+    },
+    {
+      "id": "8925fb3289ac",
+      "index": "TSLA",
+      "forecast_date": "2026-10-20",
+      "target_date": "2026-10-27",
+      "horizon_days": 7,
+      "spot_at_forecast": 375.01,
+      "iv": 0.4921,
+      "implied_move_pct": 0.0682,
+      "implied_move_abs": 25.56,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "A -4% down day with VIX only 17.65 means implied vol has not repriced to the realized move \u2014 premium is thin relative to the fresh risk, and a fast tape can gap further. This is poor timing to sell puts into the slide, to sell calls against a potential snap-back, or to touch sing",
       "resolved": false
     }
   ]
