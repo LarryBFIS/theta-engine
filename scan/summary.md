@@ -1,16 +1,16 @@
 # Opportunity scan
 
-_Generated 2026-10-20T17:57:18.550306+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (-5% day)._
+_Generated 2026-10-20T20:54:47.186396+00:00 · short put verticals ranked by expected return on BPR · regime: normal regime (-6% day)._
 
 | # | Trade | Tag | DTE | Credit | BPR | POP | Cr/BPR | EV/ctr | EV/BPR | IVR |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | QQQ 675/665p | PAPER | 31 | $1.16 | $884 | 80% | 13% | $+9 | 1.0% | 59% |
+| 1 | QQQ 676/665p | PAPER | 31 | $1.27 | $973 | 80% | 13% | $+10 | 1.1% | 60% |
 
 ## Macro events · scheduled-event crush setups
 
 | Event | Setup | Status | Tag | Enter | Close | Notes |
 |---|---|---|---|---|---|---|
-| earnings | TSLA iron_condor 2026-10-23 | enter | PAPER | 2026-10-20 | 2026-10-22 | Earnings IV-crush: TSLA reports 2026-10-21. Implied move ±$16.70 (4.5%); IC shorts beyond 1.1x the move (355p/395c), 5-wide, credit $2.15, max loss $285 x3. Enter today, close 2026-10-22 — harvest the post-print vol collapse. PAPER (proving the crush edge). |
+| earnings | TSLA iron_condor 2026-10-23 | enter | PAPER | 2026-10-20 | 2026-10-22 | Earnings IV-crush: TSLA reports 2026-10-21. Implied move ±$16.69 (4.5%); IC shorts beyond 1.1x the move (355p/395c), 5-wide, credit $2.10, max loss $290 x3. Enter today, close 2026-10-22 — harvest the post-print vol collapse. PAPER (proving the crush edge). |
 
 ## Long-vol watch · cheap IV into a catalyst (paper only)
 
