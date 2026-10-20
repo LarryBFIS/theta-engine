@@ -68582,6 +68582,61 @@
       "alternative": "Hold to expiry, but the next 21 days carry concentrated gamma risk.",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20261020T165435_trade_031_slv_61_60",
+      "trade_id": "trade_031_slv_61_60",
+      "timestamp": "2026-10-20T16:54:35.779629-04:00",
+      "action": "URGENT_CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\u26a0\ufe0f SLV @ $52.12 is BELOW short strike $62 (ITM).",
+        "Max loss exposure increasing. Current close: $0.90 mid / $1.15 worst.",
+        "71 DTE remaining; negative delta hurts daily."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.9000000000000004,
+        "cost_to_close_worst": 1.1500000000000004,
+        "profit_if_closed_mid": -35.00000000000003,
+        "profit_if_closed_worst": -60.00000000000003,
+        "pct_max_profit_captured_mid": -0.6363636363636369,
+        "dte": 71,
+        "underlying_price": 52.119998931884766,
+        "short_strike_breached": true,
+        "has_live_quotes": true,
+        "net_liq": 6937.73,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold and hope. Risk: up to $45 max loss (currently $35 unrealized).",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20261020T165436_trade_045_dia_534_541",
+      "trade_id": "trade_045_dia_534_541",
+      "timestamp": "2026-10-20T16:54:36.297857-04:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 16 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently -69% captured ($-136 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 1.66,
+        "cost_to_close_worst": 1.85,
+        "profit_if_closed_mid": -136.0,
+        "profit_if_closed_worst": -174.00000000000003,
+        "pct_max_profit_captured_mid": -0.6938775510204082,
+        "dte": 16,
+        "underlying_price": 524.3599853515625,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 6937.73,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold to expiry, but the next 21 days carry concentrated gamma risk.",
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
