@@ -121,6 +121,28 @@ def _dedupe_phantoms(trades: list):
     return kept, changes
 
 
+_LEDGER_FIELDS = ("structure", "short_strike", "long_strike", "expiry", "contracts",
+                  "credit_per_contract", "spread_type", "width",
+                  "max_profit_total", "max_loss_total", "bpr_total")
+
+
+def _refresh_derived(ht: dict, lt: dict) -> list:
+    """Re-sync an already-tracked trade's ledger-OWNED fields from the ledger (broker
+    truth), so a trade the ledger later re-derives — e.g. a roll it split, or a debit
+    spread it re-mathed — self-heals in trades.json instead of keeping stale numbers.
+    Management params (manage_at_pct, exit_dte, pop_at_open, gtc target) and the id are
+    hand-owned and left untouched. Returns the list of fields that changed."""
+    changed = []
+    for f in _LEDGER_FIELDS:
+        new = lt.get(f)
+        if f in ("short_strike", "long_strike"):
+            new = _num(new)
+        if new is not None and ht.get(f) != new:
+            ht[f] = new
+            changed.append(f)
+    return changed
+
+
 def merge_ledger_into_trades(hand: dict, ledger_trades: list):
     """Reconcile hand trades with the ledger. Returns (hand, changes[]).
 
@@ -151,7 +173,14 @@ def merge_ledger_into_trades(hand: dict, ledger_trades: list):
             trades.append(new)
             by_order[oid] = new
             changes.append("added " + new["id"])
-        elif lt.get("status") == "closed" and ht.get("status") != "closed":
+            continue
+        # Self-heal: re-derive the ledger-owned fields from the ledger every sync, so a
+        # trade the ledger later corrects (a roll it split, a debit spread it re-mathed)
+        # stops showing stale numbers in trades.json — the dashboard's source.
+        fixed = _refresh_derived(ht, lt)
+        if fixed:
+            changes.append("re-derived {} on {}".format(",".join(fixed), ht.get("id") or oid))
+        if lt.get("status") == "closed" and ht.get("status") != "closed":
             _apply_close(ht, lt)
             changes.append("closed " + (ht.get("id") or oid))
         elif lt.get("status") == "open" and ht.get("status") == "closed":
@@ -162,6 +191,11 @@ def merge_ledger_into_trades(hand: dict, ledger_trades: list):
             ht["closed_at"] = None
             ht["realized_pnl"] = None
             changes.append("re-opened " + (ht.get("id") or oid) + " (ledger shows open)")
+        elif lt.get("status") == "closed" and ht.get("realized_pnl") != lt.get("realized_pnl"):
+            # Both already closed, but the ledger re-derived a different realized P&L
+            # (e.g. a roll's close legs were finally attached) — refresh it.
+            _apply_close(ht, lt)
+            changes.append("re-derived realized on " + (ht.get("id") or oid))
     kept, dchanges = _dedupe_phantoms(trades)
     if dchanges:
         hand["trades"] = kept
