@@ -97,34 +97,49 @@ def is_closing(txn: dict) -> bool:
 # ────────────────────────────────────────────────────────────────────
 # Pure ledger math
 # ────────────────────────────────────────────────────────────────────
-def group_orders(transactions: list[dict]) -> dict:
-    """Group trade transactions by order-id.
+def _order_from_legs(order_id: str, legs: list[dict], opening: bool) -> dict:
+    """Build one order record from a set of legs (keeps the real broker order-id)."""
+    exec_ats = [l.get("executed-at") for l in legs if l.get("executed-at")]
+    first = legs[0] if legs else {}
+    return {
+        "order_id": order_id,
+        "legs": legs,
+        "opening": opening,
+        "underlying": first.get("underlying-symbol") or first.get("symbol"),
+        "executed_at": min(exec_ats) if exec_ats else None,
+        "net_cash": sum(net_cash(l) for l in legs),
+    }
 
-    Returns: {order_id: {"order_id", "legs": [txn,...], "opening": bool,
-                          "underlying", "executed_at", "net_cash"}}
+
+def group_orders(transactions: list[dict]) -> dict:
+    """Group trade transactions by order-id, SPLITTING a roll.
+
+    A roll is one ticket that both closes an existing spread and opens a new one, so its
+    order carries BOTH to-open and to-close legs. Left whole, those 4 legs were lumped
+    into a single bogus "trade" (wrong strikes, a garbage net credit from the closing
+    legs). So a mixed order is split into a closing order (its to-close legs → matched to
+    the old trade, closing it with correct P&L) and an opening order (its to-open legs →
+    a fresh trade for the rolled-into spread). Both keep the real broker order-id; the
+    dict is keyed <order-id>:close / <order-id>:open only to hold the two apart.
+
+    Returns: {key: {"order_id", "legs", "opening", "underlying", "executed_at", "net_cash"}}
     """
-    orders: dict = {}
+    by_id: dict = {}
     for txn in transactions:
         if not is_trade(txn):
             continue
         order_id = str(txn.get("order-id") or txn.get("id"))
-        order = orders.setdefault(
-            order_id,
-            {
-                "order_id": order_id,
-                "legs": [],
-                "opening": is_opening(txn),
-                "underlying": txn.get("underlying-symbol") or txn.get("symbol"),
-                "executed_at": txn.get("executed-at"),
-                "net_cash": 0.0,
-            },
-        )
-        order["legs"].append(txn)
-        order["net_cash"] += net_cash(txn)
-        # An order is "opening" if any leg opens; mixed orders are rare.
-        order["opening"] = order["opening"] or is_opening(txn)
-        if (txn.get("executed-at") or "") < (order["executed_at"] or "~"):
-            order["executed_at"] = txn.get("executed-at")
+        by_id.setdefault(order_id, []).append(txn)
+
+    orders: dict = {}
+    for order_id, legs in by_id.items():
+        open_legs = [l for l in legs if is_opening(l)]
+        close_legs = [l for l in legs if not is_opening(l)]
+        if open_legs and close_legs:            # a roll — split into close + open orders
+            orders[order_id + ":close"] = _order_from_legs(order_id, close_legs, False)
+            orders[order_id + ":open"] = _order_from_legs(order_id, open_legs, True)
+        else:
+            orders[order_id] = _order_from_legs(order_id, legs, bool(open_legs))
     return orders
 
 
