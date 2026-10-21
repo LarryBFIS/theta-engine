@@ -2937,7 +2937,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Market ripped +10% into normal regime; VIX 16.74 is fair-to-rich. Momentum is strong and sustained\u2014this is NOT the tape to aggressively short call spreads into a rally. Better to let the move exhaust or wait for a pullback before adding short premium on the upside.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-21",
+      "actual_price": 773.76,
+      "realized_move_pct": 0.0068,
+      "realized_move_signed": 0.0068,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "064c919e3139",
@@ -2952,7 +2958,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Market ripped +10% into normal regime; VIX 16.74 is fair-to-rich. Momentum is strong and sustained\u2014this is NOT the tape to aggressively short call spreads into a rally. Better to let the move exhaust or wait for a pullback before adding short premium on the upside.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-21",
+      "actual_price": 726.69,
+      "realized_move_pct": 0.0033,
+      "realized_move_signed": -0.0033,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "5bff79035c71",
@@ -2967,7 +2979,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Market ripped +10% into normal regime; VIX 16.74 is fair-to-rich. Momentum is strong and sustained\u2014this is NOT the tape to aggressively short call spreads into a rally. Better to let the move exhaust or wait for a pullback before adding short premium on the upside.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-21",
+      "actual_price": 277.07,
+      "realized_move_pct": 0.0222,
+      "realized_move_signed": 0.0222,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "aa1899afa73d",
@@ -2982,7 +3000,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Market ripped +10% into normal regime; VIX 16.74 is fair-to-rich. Momentum is strong and sustained\u2014this is NOT the tape to aggressively short call spreads into a rally. Better to let the move exhaust or wait for a pullback before adding short premium on the upside.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-21",
+      "actual_price": 526.66,
+      "realized_move_pct": 0.0245,
+      "realized_move_signed": 0.0245,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "cbc74cca39a8",
@@ -2997,7 +3021,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Market ripped +10% into normal regime; VIX 16.74 is fair-to-rich. Momentum is strong and sustained\u2014this is NOT the tape to aggressively short call spreads into a rally. Better to let the move exhaust or wait for a pullback before adding short premium on the upside.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-21",
+      "actual_price": 386.44,
+      "realized_move_pct": 0.0542,
+      "realized_move_signed": 0.0542,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "a1ad3a859335",
@@ -3297,6 +3327,81 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "A -4% down day with VIX only 17.65 means implied vol has not repriced to the realized move \u2014 premium is thin relative to the fresh risk, and a fast tape can gap further. This is poor timing to sell puts into the slide, to sell calls against a potential snap-back, or to touch sing",
+      "resolved": false
+    },
+    {
+      "id": "d35044a84263",
+      "index": "SPY",
+      "forecast_date": "2026-10-21",
+      "target_date": "2026-10-28",
+      "horizon_days": 7,
+      "spot_at_forecast": 773.76,
+      "iv": 0.1686,
+      "implied_move_pct": 0.0234,
+      "implied_move_abs": 18.07,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Normal regime, -3% down day, VIX 16.74\u2014tape is calm and defensive. This is reasonable timing for short premium, BUT we're already 3 open (2 us_index, 1 us_tech); adding more us_tech or correlated index exposure risks concentration into earnings season.",
+      "resolved": false
+    },
+    {
+      "id": "772858c40786",
+      "index": "QQQ",
+      "forecast_date": "2026-10-21",
+      "target_date": "2026-10-28",
+      "horizon_days": 7,
+      "spot_at_forecast": 726.69,
+      "iv": 0.2442,
+      "implied_move_pct": 0.0338,
+      "implied_move_abs": 24.58,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Normal regime, -3% down day, VIX 16.74\u2014tape is calm and defensive. This is reasonable timing for short premium, BUT we're already 3 open (2 us_index, 1 us_tech); adding more us_tech or correlated index exposure risks concentration into earnings season.",
+      "resolved": false
+    },
+    {
+      "id": "35710d0d5ccd",
+      "index": "IWM",
+      "forecast_date": "2026-10-21",
+      "target_date": "2026-10-28",
+      "horizon_days": 7,
+      "spot_at_forecast": 277.07,
+      "iv": 0.2213,
+      "implied_move_pct": 0.0306,
+      "implied_move_abs": 8.49,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Normal regime, -3% down day, VIX 16.74\u2014tape is calm and defensive. This is reasonable timing for short premium, BUT we're already 3 open (2 us_index, 1 us_tech); adding more us_tech or correlated index exposure risks concentration into earnings season.",
+      "resolved": false
+    },
+    {
+      "id": "0401c31091c2",
+      "index": "DIA",
+      "forecast_date": "2026-10-21",
+      "target_date": "2026-10-28",
+      "horizon_days": 7,
+      "spot_at_forecast": 526.66,
+      "iv": 0.1543,
+      "implied_move_pct": 0.0214,
+      "implied_move_abs": 11.25,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Normal regime, -3% down day, VIX 16.74\u2014tape is calm and defensive. This is reasonable timing for short premium, BUT we're already 3 open (2 us_index, 1 us_tech); adding more us_tech or correlated index exposure risks concentration into earnings season.",
+      "resolved": false
+    },
+    {
+      "id": "cdf9e43eb777",
+      "index": "TSLA",
+      "forecast_date": "2026-10-21",
+      "target_date": "2026-10-28",
+      "horizon_days": 7,
+      "spot_at_forecast": 386.44,
+      "iv": 0.4673,
+      "implied_move_pct": 0.0647,
+      "implied_move_abs": 25.01,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Normal regime, -3% down day, VIX 16.74\u2014tape is calm and defensive. This is reasonable timing for short premium, BUT we're already 3 open (2 us_index, 1 us_tech); adding more us_tech or correlated index exposure risks concentration into earnings season.",
       "resolved": false
     }
   ]
