@@ -3042,7 +3042,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Calm, flat tape with VIX at 16.85 in a normal regime and no scheduled events \u2014 no timing red flag, but sub-17 VIX means index premium is not particularly rich, so only high-quality sells are worth doing. Neutral direction; no reason to press either side.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-22",
+      "actual_price": 763.48,
+      "realized_move_pct": 0.0091,
+      "realized_move_signed": -0.0091,
+      "stayed_in_range": true
     },
     {
       "id": "77bf08306c0c",
@@ -3057,7 +3062,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Calm, flat tape with VIX at 16.85 in a normal regime and no scheduled events \u2014 no timing red flag, but sub-17 VIX means index premium is not particularly rich, so only high-quality sells are worth doing. Neutral direction; no reason to press either side.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-22",
+      "actual_price": 706.43,
+      "realized_move_pct": 0.0251,
+      "realized_move_signed": -0.0251,
+      "stayed_in_range": true
     },
     {
       "id": "a43595bf9d12",
@@ -3072,7 +3082,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Calm, flat tape with VIX at 16.85 in a normal regime and no scheduled events \u2014 no timing red flag, but sub-17 VIX means index premium is not particularly rich, so only high-quality sells are worth doing. Neutral direction; no reason to press either side.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-22",
+      "actual_price": 275.94,
+      "realized_move_pct": 0.0088,
+      "realized_move_signed": 0.0088,
+      "stayed_in_range": true
     },
     {
       "id": "566f2598ce82",
@@ -3087,7 +3102,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Calm, flat tape with VIX at 16.85 in a normal regime and no scheduled events \u2014 no timing red flag, but sub-17 VIX means index premium is not particularly rich, so only high-quality sells are worth doing. Neutral direction; no reason to press either side.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-22",
+      "actual_price": 527.1,
+      "realized_move_pct": 0.0129,
+      "realized_move_signed": 0.0129,
+      "stayed_in_range": true
     },
     {
       "id": "a6dde638c13b",
@@ -3102,7 +3122,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Calm, flat tape with VIX at 16.85 in a normal regime and no scheduled events \u2014 no timing red flag, but sub-17 VIX means index premium is not particularly rich, so only high-quality sells are worth doing. Neutral direction; no reason to press either side.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-22",
+      "actual_price": 378.15,
+      "realized_move_pct": 0.0503,
+      "realized_move_signed": 0.0503,
+      "stayed_in_range": true
     },
     {
       "id": "763688b058e1",
@@ -3402,6 +3427,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Normal regime, -3% down day, VIX 16.74\u2014tape is calm and defensive. This is reasonable timing for short premium, BUT we're already 3 open (2 us_index, 1 us_tech); adding more us_tech or correlated index exposure risks concentration into earnings season.",
+      "resolved": false
+    },
+    {
+      "id": "66176679aed0",
+      "index": "SPY",
+      "forecast_date": "2026-10-22",
+      "target_date": "2026-10-29",
+      "horizon_days": 7,
+      "spot_at_forecast": 763.48,
+      "iv": 0.1905,
+      "implied_move_pct": 0.0264,
+      "implied_move_abs": 20.15,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "fair",
+      "market_view": "Strong rally (+14% day) in normal regime with VIX 19\u2014tape is ripping higher, which is poor timing to add short calls into momentum. Vol is fairly priced (IV rank mid-range); no rich premium to justify fighting the directional move.",
+      "resolved": false
+    },
+    {
+      "id": "ce957750d4e0",
+      "index": "QQQ",
+      "forecast_date": "2026-10-22",
+      "target_date": "2026-10-29",
+      "horizon_days": 7,
+      "spot_at_forecast": 706.43,
+      "iv": 0.2834,
+      "implied_move_pct": 0.0392,
+      "implied_move_abs": 27.73,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "fair",
+      "market_view": "Strong rally (+14% day) in normal regime with VIX 19\u2014tape is ripping higher, which is poor timing to add short calls into momentum. Vol is fairly priced (IV rank mid-range); no rich premium to justify fighting the directional move.",
+      "resolved": false
+    },
+    {
+      "id": "b1b959b53677",
+      "index": "IWM",
+      "forecast_date": "2026-10-22",
+      "target_date": "2026-10-29",
+      "horizon_days": 7,
+      "spot_at_forecast": 275.94,
+      "iv": 0.2367,
+      "implied_move_pct": 0.0328,
+      "implied_move_abs": 9.05,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "fair",
+      "market_view": "Strong rally (+14% day) in normal regime with VIX 19\u2014tape is ripping higher, which is poor timing to add short calls into momentum. Vol is fairly priced (IV rank mid-range); no rich premium to justify fighting the directional move.",
+      "resolved": false
+    },
+    {
+      "id": "009a5ad0832b",
+      "index": "DIA",
+      "forecast_date": "2026-10-22",
+      "target_date": "2026-10-29",
+      "horizon_days": 7,
+      "spot_at_forecast": 527.1,
+      "iv": 0.1691,
+      "implied_move_pct": 0.0234,
+      "implied_move_abs": 12.34,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "fair",
+      "market_view": "Strong rally (+14% day) in normal regime with VIX 19\u2014tape is ripping higher, which is poor timing to add short calls into momentum. Vol is fairly priced (IV rank mid-range); no rich premium to justify fighting the directional move.",
+      "resolved": false
+    },
+    {
+      "id": "968db0335244",
+      "index": "TSLA",
+      "forecast_date": "2026-10-22",
+      "target_date": "2026-10-29",
+      "horizon_days": 7,
+      "spot_at_forecast": 378.15,
+      "iv": 0.4345,
+      "implied_move_pct": 0.0602,
+      "implied_move_abs": 22.75,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "fair",
+      "market_view": "Strong rally (+14% day) in normal regime with VIX 19\u2014tape is ripping higher, which is poor timing to add short calls into momentum. Vol is fairly priced (IV rank mid-range); no rich premium to justify fighting the directional move.",
       "resolved": false
     }
   ]
