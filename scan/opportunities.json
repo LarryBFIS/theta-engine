@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T20:40:15.592166+00:00",
+  "generated_at": "2026-10-23T21:20:08.135406+00:00",
   "regime": {
     "vix": 19.45,
     "vix_day_change_pct": 0.0221,
@@ -33,15 +33,15 @@
       "fees_est": 3.0,
       "bpr": 882.0,
       "max_loss": 882.0,
-      "pop": 0.79,
-      "short_delta": 0.186,
+      "pop": 0.788,
+      "short_delta": 0.187,
       "short_spread_pct": 0.013,
       "credit_to_bpr": 0.134,
-      "ev_per_contract": 6.34,
-      "ev_on_bpr": 0.0072,
+      "ev_per_contract": 6.08,
+      "ev_on_bpr": 0.0069,
       "iv": 0.2826,
       "iv_rank": 0.747,
-      "underlying_price": 705.5,
+      "underlying_price": 705.26,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -58,9 +58,9 @@
         "cluster=us_tech \u00d70.79",
         "structure=short_put_vertical \u00d71.20"
       ],
-      "rank_score": 0.00486,
+      "rank_score": 0.004658,
       "agent_action": "guarded",
-      "agent_reason": "This doubles our existing QQQ exposure (one bet sized up, not a new one), and the us_tech/single_name bucket carries negative realized expectancy despite the attractive 0.75 IVR.",
+      "agent_reason": "IVR 0.747 and put-side timing are attractive, but this doubles an already-open QQQ position (correlated 2x bet \u2014 an AVOID pattern), us_tech/single_name classification has negative expectancy, and $882 max loss is too large a single loss for",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -68,7 +68,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 6823.817,
+      "net_liq": 6819.897,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
@@ -95,7 +95,7 @@
         "credit_total": 118.0,
         "max_loss_total": 882.0,
         "bpr_total": 882.0,
-        "pop": 0.79,
+        "pop": 0.788,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -104,12 +104,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 682.38,
-        "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $882 > 10% live cap ($682) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ VP \u00d71 \u2014 SELL 655P / BUY 645P (2026-11-27) @ $1.18 net credit. Max loss $882. After fill: GTC buy-to-close @ $0.59 (50%). \u26a0 max loss $882 > 10% live cap ($682) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "live_cap": 681.99,
+        "suggested_width": 7,
+        "fit_note": "\u26a0 max loss $882 > 10% live cap ($682) \u2014 narrow to ~7-wide for live, or keep on paper.",
+        "text": "QQQ VP \u00d71 \u2014 SELL 655P / BUY 645P (2026-11-27) @ $1.18 net credit. Max loss $882. After fill: GTC buy-to-close @ $0.59 (50%). \u26a0 max loss $882 > 10% live cap ($682) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-10-23T20:40:15.592166+00:00"
+      "posted_at": "2026-10-23T21:20:08.135406+00:00"
     }
   ],
   "long_vol": [],
@@ -183,10 +183,10 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-10-23T20:40:15.333130+00:00",
+    "generated_at": "2026-10-23T21:20:07.818595+00:00",
     "model": "kimi-k3",
-    "market_view": "Normal regime with VIX 19.45 on a +2% rip day \u2014 the tape is rallying, so selling calls right now is fighting momentum, while broad-index implied vol (IWM IVR 0.37) is only middling, not rich enough to pay for that timing risk.",
-    "portfolio_note": "Both open positions are already in QQQ and IWM, so both candidates stack a second bet on an existing name rather than diversify. With realized PnL at -9341 and a 40% win rate, the book should stay small and only take favored structures.",
+    "market_view": "+2% rally day with VIX 19.45 in a normal regime \u2014 vol is mid-range, not stressed. A ripping tape argues against selling calls right now and makes put-selling timing acceptable, but only where structure and cluster expectancy support it.",
+    "portfolio_note": "Two open positions (QQQ, IWM) with a small unrealized loss; the book already holds one name per cluster, so either candidate doubles an existing name rather than diversifying. Keeping single-loss exposure small matters while the book is slightly underwater.",
     "vol_verdict": "fair",
     "reviewed": 2,
     "vetoed": 2,
@@ -195,12 +195,12 @@
       {
         "id": "IWM|short_call_vertical|293/298",
         "action": "veto",
-        "reason": "Short call verticals are a proven loser in our book (29% WR), and selling calls into a +2% rally on a name we already hold is both poorly timed and stacked, undiversified risk."
+        "reason": "Short call verticals are an AVOID structure in our book (29% wr), selling calls into a +2% rip is poor timing, it doubles our existing IWM name, and IVR 0.369 isn't rich enough to compensate."
       },
       {
         "id": "QQQ|short_put_vertical|655/645",
         "action": "veto",
-        "reason": "This doubles our existing QQQ exposure (one bet sized up, not a new one), and the us_tech/single_name bucket carries negative realized expectancy despite the attractive 0.75 IVR."
+        "reason": "IVR 0.747 and put-side timing are attractive, but this doubles an already-open QQQ position (correlated 2x bet \u2014 an AVOID pattern), us_tech/single_name classification has negative expectancy, and $882 max loss is too large a single loss for"
       }
     ]
   },
@@ -220,15 +220,15 @@
       "fees_est": 3.0,
       "bpr": 445.0,
       "max_loss": 445.0,
-      "pop": 0.801,
-      "short_delta": 0.22,
+      "pop": 0.802,
+      "short_delta": 0.219,
       "short_spread_pct": 0.058,
       "credit_to_bpr": 0.124,
-      "ev_per_contract": 2.61,
-      "ev_on_bpr": 0.0059,
+      "ev_per_contract": 2.7,
+      "ev_on_bpr": 0.0061,
       "iv": 0.2386,
       "iv_rank": 0.369,
-      "underlying_price": 276.01,
+      "underlying_price": 275.95,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -245,9 +245,9 @@
         "cluster=us_index \u00d71.50",
         "structure=short_call_vertical \u00d70.72"
       ],
-      "rank_score": 0.008708,
+      "rank_score": 0.009004,
       "agent_action": "veto",
-      "agent_reason": "Short call verticals are a proven loser in our book (29% WR), and selling calls into a +2% rally on a name we already hold is both poorly timed and stacked, undiversified risk."
+      "agent_reason": "Short call verticals are an AVOID structure in our book (29% wr), selling calls into a +2% rip is poor timing, it doubles our existing IWM name, and IVR 0.369 isn't rich enough to compensate."
     },
     {
       "underlying": "QQQ",
@@ -264,15 +264,15 @@
       "fees_est": 3.0,
       "bpr": 882.0,
       "max_loss": 882.0,
-      "pop": 0.79,
-      "short_delta": 0.186,
+      "pop": 0.788,
+      "short_delta": 0.187,
       "short_spread_pct": 0.013,
       "credit_to_bpr": 0.134,
-      "ev_per_contract": 6.34,
-      "ev_on_bpr": 0.0072,
+      "ev_per_contract": 6.08,
+      "ev_on_bpr": 0.0069,
       "iv": 0.2826,
       "iv_rank": 0.747,
-      "underlying_price": 705.5,
+      "underlying_price": 705.26,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -289,9 +289,9 @@
         "cluster=us_tech \u00d70.79",
         "structure=short_put_vertical \u00d71.20"
       ],
-      "rank_score": 0.00486,
+      "rank_score": 0.004658,
       "agent_action": "guarded",
-      "agent_reason": "This doubles our existing QQQ exposure (one bet sized up, not a new one), and the us_tech/single_name bucket carries negative realized expectancy despite the attractive 0.75 IVR.",
+      "agent_reason": "IVR 0.747 and put-side timing are attractive, but this doubles an already-open QQQ position (correlated 2x bet \u2014 an AVOID pattern), us_tech/single_name classification has negative expectancy, and $882 max loss is too large a single loss for",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -299,7 +299,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 6823.817,
+      "net_liq": 6819.897,
       "ticket": {
         "underlying": "QQQ",
         "code": "VP",
@@ -326,7 +326,7 @@
         "credit_total": 118.0,
         "max_loss_total": 882.0,
         "bpr_total": 882.0,
-        "pop": 0.79,
+        "pop": 0.788,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -335,12 +335,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 682.38,
-        "suggested_width": 8,
-        "fit_note": "\u26a0 max loss $882 > 10% live cap ($682) \u2014 narrow to ~8-wide for live, or keep on paper.",
-        "text": "QQQ VP \u00d71 \u2014 SELL 655P / BUY 645P (2026-11-27) @ $1.18 net credit. Max loss $882. After fill: GTC buy-to-close @ $0.59 (50%). \u26a0 max loss $882 > 10% live cap ($682) \u2014 narrow to ~8-wide for live, or keep on paper."
+        "live_cap": 681.99,
+        "suggested_width": 7,
+        "fit_note": "\u26a0 max loss $882 > 10% live cap ($682) \u2014 narrow to ~7-wide for live, or keep on paper.",
+        "text": "QQQ VP \u00d71 \u2014 SELL 655P / BUY 645P (2026-11-27) @ $1.18 net credit. Max loss $882. After fill: GTC buy-to-close @ $0.59 (50%). \u26a0 max loss $882 > 10% live cap ($682) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-10-23T20:40:15.592166+00:00"
+      "posted_at": "2026-10-23T21:20:08.135406+00:00"
     }
   ],
   "skipped": {
