@@ -3242,7 +3242,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "The tape just dropped ~7% on the day \u2014 that is a fast, stressed tape regardless of the 'normal' label and VIX 18.53, with realized vol likely running ahead of implied and high whipsaw/snap-back risk in both directions. This is a poor moment to add any short premium: short calls r",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-26",
+      "actual_price": 765.58,
+      "realized_move_pct": 0.0026,
+      "realized_move_signed": -0.0026,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "8e0051caaa1c",
@@ -3257,7 +3263,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "The tape just dropped ~7% on the day \u2014 that is a fast, stressed tape regardless of the 'normal' label and VIX 18.53, with realized vol likely running ahead of implied and high whipsaw/snap-back risk in both directions. This is a poor moment to add any short premium: short calls r",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-26",
+      "actual_price": 713.41,
+      "realized_move_pct": 0.0083,
+      "realized_move_signed": -0.0083,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "79deab718ade",
@@ -3272,7 +3284,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "The tape just dropped ~7% on the day \u2014 that is a fast, stressed tape regardless of the 'normal' label and VIX 18.53, with realized vol likely running ahead of implied and high whipsaw/snap-back risk in both directions. This is a poor moment to add any short premium: short calls r",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-26",
+      "actual_price": 277.39,
+      "realized_move_pct": 0.0227,
+      "realized_move_signed": 0.0227,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "2c1582f7ecc3",
@@ -3287,7 +3305,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "The tape just dropped ~7% on the day \u2014 that is a fast, stressed tape regardless of the 'normal' label and VIX 18.53, with realized vol likely running ahead of implied and high whipsaw/snap-back risk in both directions. This is a poor moment to add any short premium: short calls r",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-26",
+      "actual_price": 523.11,
+      "realized_move_pct": 0.0068,
+      "realized_move_signed": 0.0068,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "d2971a459d36",
@@ -3302,7 +3326,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "The tape just dropped ~7% on the day \u2014 that is a fast, stressed tape regardless of the 'normal' label and VIX 18.53, with realized vol likely running ahead of implied and high whipsaw/snap-back risk in both directions. This is a poor moment to add any short premium: short calls r",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-26",
+      "actual_price": 394.37,
+      "realized_move_pct": 0.0708,
+      "realized_move_signed": 0.0708,
+      "stayed_in_range": false,
+      "vol_call_correct": true
     },
     {
       "id": "c23809438f8f",
@@ -3602,6 +3632,81 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "A +6% rip with VIX still at 20.2 is a fast, short-covering tape where realized vol is spiking into elevated-but-falling implied \u2014 bad moment to sell calls into strength or chase tech after a vertical move. The broad book is one correlated long-equity short-vol bet already.",
+      "resolved": false
+    },
+    {
+      "id": "5d2f288535b3",
+      "index": "SPY",
+      "forecast_date": "2026-10-26",
+      "target_date": "2026-11-02",
+      "horizon_days": 7,
+      "spot_at_forecast": 765.58,
+      "iv": 0.1813,
+      "implied_move_pct": 0.0251,
+      "implied_move_abs": 19.22,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "fair",
+      "market_view": "VIX 18.36 in normal regime post -6% selloff; volatility is fair, not rich. The tape is settling into the dip, which is tactically OK for premium sells, but we are already long 2 correlated index/tech positions with -$58 unrealized loss.",
+      "resolved": false
+    },
+    {
+      "id": "8edbba464e56",
+      "index": "QQQ",
+      "forecast_date": "2026-10-26",
+      "target_date": "2026-11-02",
+      "horizon_days": 7,
+      "spot_at_forecast": 713.41,
+      "iv": 0.2549,
+      "implied_move_pct": 0.0353,
+      "implied_move_abs": 25.19,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "fair",
+      "market_view": "VIX 18.36 in normal regime post -6% selloff; volatility is fair, not rich. The tape is settling into the dip, which is tactically OK for premium sells, but we are already long 2 correlated index/tech positions with -$58 unrealized loss.",
+      "resolved": false
+    },
+    {
+      "id": "3bb55304f450",
+      "index": "IWM",
+      "forecast_date": "2026-10-26",
+      "target_date": "2026-11-02",
+      "horizon_days": 7,
+      "spot_at_forecast": 277.39,
+      "iv": 0.2274,
+      "implied_move_pct": 0.0315,
+      "implied_move_abs": 8.74,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "fair",
+      "market_view": "VIX 18.36 in normal regime post -6% selloff; volatility is fair, not rich. The tape is settling into the dip, which is tactically OK for premium sells, but we are already long 2 correlated index/tech positions with -$58 unrealized loss.",
+      "resolved": false
+    },
+    {
+      "id": "c162b36ea490",
+      "index": "DIA",
+      "forecast_date": "2026-10-26",
+      "target_date": "2026-11-02",
+      "horizon_days": 7,
+      "spot_at_forecast": 523.11,
+      "iv": 0.1688,
+      "implied_move_pct": 0.0234,
+      "implied_move_abs": 12.23,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "fair",
+      "market_view": "VIX 18.36 in normal regime post -6% selloff; volatility is fair, not rich. The tape is settling into the dip, which is tactically OK for premium sells, but we are already long 2 correlated index/tech positions with -$58 unrealized loss.",
+      "resolved": false
+    },
+    {
+      "id": "25aafcc9f8c5",
+      "index": "TSLA",
+      "forecast_date": "2026-10-26",
+      "target_date": "2026-11-02",
+      "horizon_days": 7,
+      "spot_at_forecast": 394.37,
+      "iv": 0.4333,
+      "implied_move_pct": 0.06,
+      "implied_move_abs": 23.67,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "fair",
+      "market_view": "VIX 18.36 in normal regime post -6% selloff; volatility is fair, not rich. The tape is settling into the dip, which is tactically OK for premium sells, but we are already long 2 correlated index/tech positions with -$58 unrealized loss.",
       "resolved": false
     }
   ]
