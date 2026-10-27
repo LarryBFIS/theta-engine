@@ -3347,7 +3347,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "A -4% down day with VIX only 17.65 means implied vol has not repriced to the realized move \u2014 premium is thin relative to the fresh risk, and a fast tape can gap further. This is poor timing to sell puts into the slide, to sell calls against a potential snap-back, or to touch sing",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-27",
+      "actual_price": 769.43,
+      "realized_move_pct": 0.0004,
+      "realized_move_signed": -0.0004,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "fd12546f0449",
@@ -3362,7 +3368,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "A -4% down day with VIX only 17.65 means implied vol has not repriced to the realized move \u2014 premium is thin relative to the fresh risk, and a fast tape can gap further. This is poor timing to sell puts into the slide, to sell calls against a potential snap-back, or to touch sing",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-27",
+      "actual_price": 720.67,
+      "realized_move_pct": 0.0016,
+      "realized_move_signed": 0.0016,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "723994a9c166",
@@ -3377,7 +3389,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "A -4% down day with VIX only 17.65 means implied vol has not repriced to the realized move \u2014 premium is thin relative to the fresh risk, and a fast tape can gap further. This is poor timing to sell puts into the slide, to sell calls against a potential snap-back, or to touch sing",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-27",
+      "actual_price": 280.0,
+      "realized_move_pct": 0.0152,
+      "realized_move_signed": 0.0152,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "031b253105f7",
@@ -3392,7 +3410,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "A -4% down day with VIX only 17.65 means implied vol has not repriced to the realized move \u2014 premium is thin relative to the fresh risk, and a fast tape can gap further. This is poor timing to sell puts into the slide, to sell calls against a potential snap-back, or to touch sing",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-27",
+      "actual_price": 523.14,
+      "realized_move_pct": 0.0019,
+      "realized_move_signed": -0.0019,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "8925fb3289ac",
@@ -3407,7 +3431,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "A -4% down day with VIX only 17.65 means implied vol has not repriced to the realized move \u2014 premium is thin relative to the fresh risk, and a fast tape can gap further. This is poor timing to sell puts into the slide, to sell calls against a potential snap-back, or to touch sing",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-27",
+      "actual_price": 406.14,
+      "realized_move_pct": 0.083,
+      "realized_move_signed": 0.083,
+      "stayed_in_range": false,
+      "vol_call_correct": true
     },
     {
       "id": "d35044a84263",
@@ -3707,6 +3737,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "fair",
       "market_view": "VIX 18.36 in normal regime post -6% selloff; volatility is fair, not rich. The tape is settling into the dip, which is tactically OK for premium sells, but we are already long 2 correlated index/tech positions with -$58 unrealized loss.",
+      "resolved": false
+    },
+    {
+      "id": "2ba1dbf8bb87",
+      "index": "SPY",
+      "forecast_date": "2026-10-27",
+      "target_date": "2026-11-03",
+      "horizon_days": 7,
+      "spot_at_forecast": 769.43,
+      "iv": 0.1746,
+      "implied_move_pct": 0.0242,
+      "implied_move_abs": 18.6,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Tape is risk-off with a -3% day and VIX only 17.75 \u2014 vol is not compensating sellers and downside momentum is live. Selling a downside put vertical into an accelerating sell-off is catching a falling knife; better entries come after stabilization or a vol pop.",
+      "resolved": false
+    },
+    {
+      "id": "d872549ce657",
+      "index": "QQQ",
+      "forecast_date": "2026-10-27",
+      "target_date": "2026-11-03",
+      "horizon_days": 7,
+      "spot_at_forecast": 720.67,
+      "iv": 0.2436,
+      "implied_move_pct": 0.0337,
+      "implied_move_abs": 24.31,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Tape is risk-off with a -3% day and VIX only 17.75 \u2014 vol is not compensating sellers and downside momentum is live. Selling a downside put vertical into an accelerating sell-off is catching a falling knife; better entries come after stabilization or a vol pop.",
+      "resolved": false
+    },
+    {
+      "id": "de0b4749afb4",
+      "index": "IWM",
+      "forecast_date": "2026-10-27",
+      "target_date": "2026-11-03",
+      "horizon_days": 7,
+      "spot_at_forecast": 280.0,
+      "iv": 0.2182,
+      "implied_move_pct": 0.0302,
+      "implied_move_abs": 8.46,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Tape is risk-off with a -3% day and VIX only 17.75 \u2014 vol is not compensating sellers and downside momentum is live. Selling a downside put vertical into an accelerating sell-off is catching a falling knife; better entries come after stabilization or a vol pop.",
+      "resolved": false
+    },
+    {
+      "id": "0c4dfc467662",
+      "index": "DIA",
+      "forecast_date": "2026-10-27",
+      "target_date": "2026-11-03",
+      "horizon_days": 7,
+      "spot_at_forecast": 523.14,
+      "iv": 0.1643,
+      "implied_move_pct": 0.0228,
+      "implied_move_abs": 11.9,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Tape is risk-off with a -3% day and VIX only 17.75 \u2014 vol is not compensating sellers and downside momentum is live. Selling a downside put vertical into an accelerating sell-off is catching a falling knife; better entries come after stabilization or a vol pop.",
+      "resolved": false
+    },
+    {
+      "id": "404a8ac485da",
+      "index": "TSLA",
+      "forecast_date": "2026-10-27",
+      "target_date": "2026-11-03",
+      "horizon_days": 7,
+      "spot_at_forecast": 406.14,
+      "iv": 0.4158,
+      "implied_move_pct": 0.0576,
+      "implied_move_abs": 23.39,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_cheap",
+      "market_view": "Tape is risk-off with a -3% day and VIX only 17.75 \u2014 vol is not compensating sellers and downside momentum is live. Selling a downside put vertical into an accelerating sell-off is catching a falling knife; better entries come after stabilization or a vol pop.",
       "resolved": false
     }
   ]
