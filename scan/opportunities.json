@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T22:38:45.839651+00:00",
+  "generated_at": "2026-10-27T22:55:51.700514+00:00",
   "regime": {
     "vix": 17.52,
     "vix_day_change_pct": -0.0473,
@@ -43,14 +43,14 @@
       "bpr": 895.0,
       "max_loss": 895.0,
       "pop": 0.773,
-      "put_short_delta": 0.1,
-      "call_short_delta": 0.128,
+      "put_short_delta": 0.101,
+      "call_short_delta": 0.127,
       "credit_to_bpr": 0.117,
-      "ev_per_contract": 1.8,
+      "ev_per_contract": 1.79,
       "ev_on_bpr": 0.002,
       "iv": 0.2464,
       "iv_rank": 0.583,
-      "underlying_price": 721.63,
+      "underlying_price": 721.49,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -68,7 +68,7 @@
       ],
       "rank_score": 0.001122,
       "agent_action": "guarded",
-      "agent_reason": "Doubles an existing QQQ position in the AVOID-flagged us_tech/single_name bucket, embeds a short_call_vertical (negative realized expectancy), and sells a range bet into a -5% day with VIX only 17.5 and near-zero EV/BPR \u2014 poorly timed, chea",
+      "agent_reason": "Doubles an already-open QQQ/us_tech bet (a cluster our book shows negative expectancy on), embeds an avoid-listed short call vertical, and is poorly timed \u2014 selling a condor with VIX 17.52 into a fresh -5% day means collecting thin, likely ",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -82,7 +82,7 @@
           }
         ]
       },
-      "net_liq": 7035.04,
+      "net_liq": 7037.27,
       "ticket": {
         "underlying": "QQQ",
         "code": "IC",
@@ -132,12 +132,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 703.5,
+        "live_cap": 703.73,
         "suggested_width": 8,
         "fit_note": "\u26a0 max loss $895 > 10% live cap ($704) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ IC \u00d71 \u2014 SELL 660P / BUY 650P / SELL 785C / BUY 795C (2026-11-27) @ $1.05 net credit. Max loss $895. After fill: GTC buy-to-close @ $0.53 (50%). \u26a0 max loss $895 > 10% live cap ($704) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-10-27T22:38:45.839651+00:00"
+      "posted_at": "2026-10-27T22:55:51.700514+00:00"
     }
   ],
   "long_vol": [],
@@ -211,10 +211,10 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-10-27T22:38:45.601597+00:00",
+    "generated_at": "2026-10-27T22:55:51.303395+00:00",
     "model": "kimi-k3",
-    "market_view": "The tape just dropped 5% in a day while VIX sits at only 17.5, so implied vol is not compensating for the realized move and downside momentum is live. This is a fast tape \u2014 a poor moment to sell a range-bound structure that needs calm to profit.",
-    "portfolio_note": "The book is already 100% correlated equity-index short-vol (QQQ + IWM), so another QQQ position is the same bet sized up, not diversification. Unrealized PnL is flat, so there is no urgency to add risk here.",
+    "market_view": "Tape just printed a -5% day yet VIX sits at 17.52, so implied vol looks behind the curve with real risk of further vol expansion. That makes NOW a poor moment to add two-sided short premium, especially in the tech tape that is driving the sell-off.",
+    "portfolio_note": "Book already holds QQQ and IWM, two correlated equity short-vol bets; another QQQ position is the same bet sized up, not diversification. Keep open risk small until the tape stabilizes.",
     "vol_verdict": "implied_cheap",
     "reviewed": 1,
     "vetoed": 1,
@@ -223,7 +223,7 @@
       {
         "id": "QQQ|iron_condor|660/785",
         "action": "veto",
-        "reason": "Doubles an existing QQQ position in the AVOID-flagged us_tech/single_name bucket, embeds a short_call_vertical (negative realized expectancy), and sells a range bet into a -5% day with VIX only 17.5 and near-zero EV/BPR \u2014 poorly timed, chea"
+        "reason": "Doubles an already-open QQQ/us_tech bet (a cluster our book shows negative expectancy on), embeds an avoid-listed short call vertical, and is poorly timed \u2014 selling a condor with VIX 17.52 into a fresh -5% day means collecting thin, likely "
       }
     ]
   },
@@ -253,14 +253,14 @@
       "bpr": 895.0,
       "max_loss": 895.0,
       "pop": 0.773,
-      "put_short_delta": 0.1,
-      "call_short_delta": 0.128,
+      "put_short_delta": 0.101,
+      "call_short_delta": 0.127,
       "credit_to_bpr": 0.117,
-      "ev_per_contract": 1.8,
+      "ev_per_contract": 1.79,
       "ev_on_bpr": 0.002,
       "iv": 0.2464,
       "iv_rank": 0.583,
-      "underlying_price": 721.63,
+      "underlying_price": 721.49,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -278,7 +278,7 @@
       ],
       "rank_score": 0.001122,
       "agent_action": "guarded",
-      "agent_reason": "Doubles an existing QQQ position in the AVOID-flagged us_tech/single_name bucket, embeds a short_call_vertical (negative realized expectancy), and sells a range bet into a -5% day with VIX only 17.5 and near-zero EV/BPR \u2014 poorly timed, chea",
+      "agent_reason": "Doubles an already-open QQQ/us_tech bet (a cluster our book shows negative expectancy on), embeds an avoid-listed short call vertical, and is poorly timed \u2014 selling a condor with VIX 17.52 into a fresh -5% day means collecting thin, likely ",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -292,7 +292,7 @@
           }
         ]
       },
-      "net_liq": 7035.04,
+      "net_liq": 7037.27,
       "ticket": {
         "underlying": "QQQ",
         "code": "IC",
@@ -342,12 +342,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 703.5,
+        "live_cap": 703.73,
         "suggested_width": 8,
         "fit_note": "\u26a0 max loss $895 > 10% live cap ($704) \u2014 narrow to ~8-wide for live, or keep on paper.",
         "text": "QQQ IC \u00d71 \u2014 SELL 660P / BUY 650P / SELL 785C / BUY 795C (2026-11-27) @ $1.05 net credit. Max loss $895. After fill: GTC buy-to-close @ $0.53 (50%). \u26a0 max loss $895 > 10% live cap ($704) \u2014 narrow to ~8-wide for live, or keep on paper."
       },
-      "posted_at": "2026-10-27T22:38:45.839651+00:00"
+      "posted_at": "2026-10-27T22:55:51.700514+00:00"
     }
   ],
   "skipped": {
