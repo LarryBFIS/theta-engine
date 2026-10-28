@@ -3452,7 +3452,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Normal regime, -3% down day, VIX 16.74\u2014tape is calm and defensive. This is reasonable timing for short premium, BUT we're already 3 open (2 us_index, 1 us_tech); adding more us_tech or correlated index exposure risks concentration into earnings season.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-28",
+      "actual_price": 771.03,
+      "realized_move_pct": 0.0035,
+      "realized_move_signed": -0.0035,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "772858c40786",
@@ -3467,7 +3473,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Normal regime, -3% down day, VIX 16.74\u2014tape is calm and defensive. This is reasonable timing for short premium, BUT we're already 3 open (2 us_index, 1 us_tech); adding more us_tech or correlated index exposure risks concentration into earnings season.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-28",
+      "actual_price": 722.7,
+      "realized_move_pct": 0.0055,
+      "realized_move_signed": -0.0055,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "35710d0d5ccd",
@@ -3482,7 +3494,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Normal regime, -3% down day, VIX 16.74\u2014tape is calm and defensive. This is reasonable timing for short premium, BUT we're already 3 open (2 us_index, 1 us_tech); adding more us_tech or correlated index exposure risks concentration into earnings season.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-28",
+      "actual_price": 279.83,
+      "realized_move_pct": 0.01,
+      "realized_move_signed": 0.01,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "0401c31091c2",
@@ -3497,7 +3515,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Normal regime, -3% down day, VIX 16.74\u2014tape is calm and defensive. This is reasonable timing for short premium, BUT we're already 3 open (2 us_index, 1 us_tech); adding more us_tech or correlated index exposure risks concentration into earnings season.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-28",
+      "actual_price": 524.08,
+      "realized_move_pct": 0.0049,
+      "realized_move_signed": -0.0049,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "cdf9e43eb777",
@@ -3512,7 +3536,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Normal regime, -3% down day, VIX 16.74\u2014tape is calm and defensive. This is reasonable timing for short premium, BUT we're already 3 open (2 us_index, 1 us_tech); adding more us_tech or correlated index exposure risks concentration into earnings season.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-28",
+      "actual_price": 403.29,
+      "realized_move_pct": 0.0436,
+      "realized_move_signed": 0.0436,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "66176679aed0",
@@ -3812,6 +3842,81 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Tape is risk-off with a -3% day and VIX only 17.75 \u2014 vol is not compensating sellers and downside momentum is live. Selling a downside put vertical into an accelerating sell-off is catching a falling knife; better entries come after stabilization or a vol pop.",
+      "resolved": false
+    },
+    {
+      "id": "129028595b14",
+      "index": "SPY",
+      "forecast_date": "2026-10-28",
+      "target_date": "2026-11-04",
+      "horizon_days": 7,
+      "spot_at_forecast": 771.03,
+      "iv": 0.1708,
+      "implied_move_pct": 0.0237,
+      "implied_move_abs": 18.23,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "VIX 17.35 in a normal regime on a -1% day: calm tape, mild downside drift, no scheduled events \u2014 acceptable conditions for selling favored index-put premium, but implied is not elevated enough to make marginal setups compelling. Timing is neutral; nothing here demands urgency.",
+      "resolved": false
+    },
+    {
+      "id": "f28764da546a",
+      "index": "QQQ",
+      "forecast_date": "2026-10-28",
+      "target_date": "2026-11-04",
+      "horizon_days": 7,
+      "spot_at_forecast": 722.7,
+      "iv": 0.2419,
+      "implied_move_pct": 0.0335,
+      "implied_move_abs": 24.21,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "VIX 17.35 in a normal regime on a -1% day: calm tape, mild downside drift, no scheduled events \u2014 acceptable conditions for selling favored index-put premium, but implied is not elevated enough to make marginal setups compelling. Timing is neutral; nothing here demands urgency.",
+      "resolved": false
+    },
+    {
+      "id": "370e933b6e30",
+      "index": "IWM",
+      "forecast_date": "2026-10-28",
+      "target_date": "2026-11-04",
+      "horizon_days": 7,
+      "spot_at_forecast": 279.83,
+      "iv": 0.2124,
+      "implied_move_pct": 0.0294,
+      "implied_move_abs": 8.23,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "VIX 17.35 in a normal regime on a -1% day: calm tape, mild downside drift, no scheduled events \u2014 acceptable conditions for selling favored index-put premium, but implied is not elevated enough to make marginal setups compelling. Timing is neutral; nothing here demands urgency.",
+      "resolved": false
+    },
+    {
+      "id": "8287140936e4",
+      "index": "DIA",
+      "forecast_date": "2026-10-28",
+      "target_date": "2026-11-04",
+      "horizon_days": 7,
+      "spot_at_forecast": 524.08,
+      "iv": 0.1598,
+      "implied_move_pct": 0.0221,
+      "implied_move_abs": 11.6,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "VIX 17.35 in a normal regime on a -1% day: calm tape, mild downside drift, no scheduled events \u2014 acceptable conditions for selling favored index-put premium, but implied is not elevated enough to make marginal setups compelling. Timing is neutral; nothing here demands urgency.",
+      "resolved": false
+    },
+    {
+      "id": "dc303332142b",
+      "index": "TSLA",
+      "forecast_date": "2026-10-28",
+      "target_date": "2026-11-04",
+      "horizon_days": 7,
+      "spot_at_forecast": 403.29,
+      "iv": 0.4164,
+      "implied_move_pct": 0.0577,
+      "implied_move_abs": 23.26,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "VIX 17.35 in a normal regime on a -1% day: calm tape, mild downside drift, no scheduled events \u2014 acceptable conditions for selling favored index-put premium, but implied is not elevated enough to make marginal setups compelling. Timing is neutral; nothing here demands urgency.",
       "resolved": false
     }
   ]
