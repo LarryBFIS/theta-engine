@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-10-29T18:55:36.261251+00:00",
-  "market_view": "Tech selloff continues with QQQ -1.72% and XLK -1.55%, both positions remain deeply breached with no recovery catalyst visible. These are not WATCH situations \u2014 both are active rule violations that compound every minute they stay open.",
+  "last_run": "2026-10-29T23:00:52.905315+00:00",
+  "market_view": "QQQ down another -1.42% today with VIX ticking up, tech sector leading losses \u2014 both breached positions are compounding losses in a still-deteriorating tape with no recovery signal.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-10-29T18:55:25Z",
-    "reasoning": "SLV at $47.04 means short strike 61.5 is 30.7% ITM \u2014 this spread is at max loss, worst-cost $1.25 vs $0.55 credit, and has been flagged CRITICAL across multiple cycles with no close executed. Every minute this stays open is a direct violation of the 1.5x credit cut rule."
+    "timestamp": "2026-10-29T23:00:40Z",
+    "reasoning": "SLV at $47.28 means short strike 61.5 is 30% ITM \u2014 spread is at max loss, current worst-cost $1.40 vs $0.55 credit, 1.5x cut rule (0.825) was breached cycles ago. This position has been flagged CRITICAL multiple consecutive cycles with no close executed \u2014 this is a rule violation compounding in real time."
   },
   "QQQ 722/713p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-10-29T18:55:25Z",
-    "reasoning": "QQQ at $713.11 is sitting right on the long strike 713p \u2014 the vertical is essentially at max loss with mid $4.035 vs $3.89 credit, and QQQ is down again today with no floor in sight. 21 DTE rule hits Nov 9 but waiting is not an option with the underlying at the long strike."
+    "timestamp": "2026-10-29T23:00:40Z",
+    "reasoning": "QQQ at $715.34 with short strike 722 breached and underlying only $2.34 above the long strike 713p \u2014 mid cost $4.67 vs $3.89 credit means already past 1.5x loss threshold ($5.84 max), and QQQ -1.42% today with no floor in sight; 31 DTE gives time for this to go full max loss."
   }
 }
