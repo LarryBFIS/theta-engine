@@ -3657,7 +3657,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "A +6% rip with VIX still at 20.2 is a fast, short-covering tape where realized vol is spiking into elevated-but-falling implied \u2014 bad moment to sell calls into strength or chase tech after a vertical move. The broad book is one correlated long-equity short-vol bet already.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-30",
+      "actual_price": 753.04,
+      "realized_move_pct": 0.0095,
+      "realized_move_signed": -0.0095,
+      "stayed_in_range": true
     },
     {
       "id": "bc44dbc320d5",
@@ -3672,7 +3677,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "A +6% rip with VIX still at 20.2 is a fast, short-covering tape where realized vol is spiking into elevated-but-falling implied \u2014 bad moment to sell calls into strength or chase tech after a vertical move. The broad book is one correlated long-equity short-vol bet already.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-30",
+      "actual_price": 686.61,
+      "realized_move_pct": 0.0263,
+      "realized_move_signed": -0.0263,
+      "stayed_in_range": true
     },
     {
       "id": "694e22df289b",
@@ -3687,7 +3697,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "A +6% rip with VIX still at 20.2 is a fast, short-covering tape where realized vol is spiking into elevated-but-falling implied \u2014 bad moment to sell calls into strength or chase tech after a vertical move. The broad book is one correlated long-equity short-vol bet already.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-30",
+      "actual_price": 277.83,
+      "realized_move_pct": 0.0087,
+      "realized_move_signed": 0.0087,
+      "stayed_in_range": true
     },
     {
       "id": "70c4e7b58d70",
@@ -3702,7 +3717,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "A +6% rip with VIX still at 20.2 is a fast, short-covering tape where realized vol is spiking into elevated-but-falling implied \u2014 bad moment to sell calls into strength or chase tech after a vertical move. The broad book is one correlated long-equity short-vol bet already.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-30",
+      "actual_price": 516.52,
+      "realized_move_pct": 0.0095,
+      "realized_move_signed": -0.0095,
+      "stayed_in_range": true
     },
     {
       "id": "17107d7e0a57",
@@ -3717,7 +3737,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "A +6% rip with VIX still at 20.2 is a fast, short-covering tape where realized vol is spiking into elevated-but-falling implied \u2014 bad moment to sell calls into strength or chase tech after a vertical move. The broad book is one correlated long-equity short-vol bet already.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-10-30",
+      "actual_price": 394.81,
+      "realized_move_pct": 0.0645,
+      "realized_move_signed": 0.0645,
+      "stayed_in_range": false
     },
     {
       "id": "5d2f288535b3",
@@ -4017,6 +4042,81 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Flat tape, VIX 16.84 in a normal regime with no scheduled events \u2014 a neutral backdrop, but mid-teens VIX means broad-index premium is not rich and selectivity matters. Nothing about the current tape argues for urgent adding; timing is acceptable but unrewarding at these implied l",
+      "resolved": false
+    },
+    {
+      "id": "3755d0ce593b",
+      "index": "SPY",
+      "forecast_date": "2026-10-30",
+      "target_date": "2026-11-06",
+      "horizon_days": 7,
+      "spot_at_forecast": 753.04,
+      "iv": 0.2092,
+      "implied_move_pct": 0.029,
+      "implied_move_abs": 21.82,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Vol stress regime (VIX +27%, regime='stress'); standing down on new LIVE risk. This is a tape for defensive moves only\u2014avoid adding directional short-premium into a sell-off, even in paper. Implied vol is rich (IV rank 59\u201381%), so premium is attractive, but TIMING is poor.",
+      "resolved": false
+    },
+    {
+      "id": "9668a8e621e4",
+      "index": "QQQ",
+      "forecast_date": "2026-10-30",
+      "target_date": "2026-11-06",
+      "horizon_days": 7,
+      "spot_at_forecast": 686.61,
+      "iv": 0.2885,
+      "implied_move_pct": 0.04,
+      "implied_move_abs": 27.44,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Vol stress regime (VIX +27%, regime='stress'); standing down on new LIVE risk. This is a tape for defensive moves only\u2014avoid adding directional short-premium into a sell-off, even in paper. Implied vol is rich (IV rank 59\u201381%), so premium is attractive, but TIMING is poor.",
+      "resolved": false
+    },
+    {
+      "id": "954647c0cca4",
+      "index": "IWM",
+      "forecast_date": "2026-10-30",
+      "target_date": "2026-11-06",
+      "horizon_days": 7,
+      "spot_at_forecast": 277.83,
+      "iv": 0.2448,
+      "implied_move_pct": 0.0339,
+      "implied_move_abs": 9.42,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Vol stress regime (VIX +27%, regime='stress'); standing down on new LIVE risk. This is a tape for defensive moves only\u2014avoid adding directional short-premium into a sell-off, even in paper. Implied vol is rich (IV rank 59\u201381%), so premium is attractive, but TIMING is poor.",
+      "resolved": false
+    },
+    {
+      "id": "c864acadd72f",
+      "index": "DIA",
+      "forecast_date": "2026-10-30",
+      "target_date": "2026-11-06",
+      "horizon_days": 7,
+      "spot_at_forecast": 516.52,
+      "iv": 0.1797,
+      "implied_move_pct": 0.0249,
+      "implied_move_abs": 12.85,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Vol stress regime (VIX +27%, regime='stress'); standing down on new LIVE risk. This is a tape for defensive moves only\u2014avoid adding directional short-premium into a sell-off, even in paper. Implied vol is rich (IV rank 59\u201381%), so premium is attractive, but TIMING is poor.",
+      "resolved": false
+    },
+    {
+      "id": "c3cef3e58c88",
+      "index": "TSLA",
+      "forecast_date": "2026-10-30",
+      "target_date": "2026-11-06",
+      "horizon_days": 7,
+      "spot_at_forecast": 394.81,
+      "iv": 0.4595,
+      "implied_move_pct": 0.0636,
+      "implied_move_abs": 25.12,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "Vol stress regime (VIX +27%, regime='stress'); standing down on new LIVE risk. This is a tape for defensive moves only\u2014avoid adding directional short-premium into a sell-off, even in paper. Implied vol is rich (IV rank 59\u201381%), so premium is attractive, but TIMING is poor.",
       "resolved": false
     }
   ]
