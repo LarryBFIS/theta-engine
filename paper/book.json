@@ -1214,21 +1214,55 @@
       "opened_credit": 0.91,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -12.0,
-      "current_debit": 1.03,
+      "unrealized_pnl": -16.0,
+      "current_debit": 1.07,
+      "close_reason": null
+    },
+    {
+      "id": "paper_0040_qqq",
+      "sig": "QQQ_610_755_2026-11-30",
+      "underlying": "QQQ",
+      "structure": "iron_condor",
+      "short_strike": 610.0,
+      "long_strike": 755.0,
+      "short_symbol": null,
+      "long_symbol": null,
+      "symbols": {
+        "put_short": "QQQ   261130P00610000",
+        "put_long": "QQQ   261130P00600000",
+        "call_short": "QQQ   261130C00755000",
+        "call_long": "QQQ   261130C00763000"
+      },
+      "expiry": "2026-11-30",
+      "credit": 1.05,
+      "bpr": 895.0,
+      "pop": 0.793,
+      "iv_rank": 0.807,
+      "tag": "paper",
+      "contracts": 1,
+      "event": null,
+      "close_date": null,
+      "day_trade": null,
+      "close_after_et": null,
+      "opened_at": "2026-10-30",
+      "opened_credit": 1.05,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -30.0,
+      "current_debit": 1.35,
       "close_reason": null
     }
   ],
-  "updated_at": "2026-10-30T18:15:00.131011+00:00",
+  "updated_at": "2026-10-30T18:26:34.798557+00:00",
   "summary": {
-    "trades": 39,
-    "open": 1,
+    "trades": 40,
+    "open": 2,
     "closed": 38,
     "wins": 22,
     "losses": 16,
     "win_rate": 0.579,
     "realized_pnl": -526.5,
-    "open_unrealized_pnl": -12.0,
-    "total_pnl": -538.5
+    "open_unrealized_pnl": -46.0,
+    "total_pnl": -572.5
   }
 }
