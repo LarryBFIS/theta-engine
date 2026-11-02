@@ -3757,7 +3757,12 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "fair",
       "market_view": "VIX 18.36 in normal regime post -6% selloff; volatility is fair, not rich. The tape is settling into the dip, which is tactically OK for premium sells, but we are already long 2 correlated index/tech positions with -$58 unrealized loss.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-02",
+      "actual_price": 753.28,
+      "realized_move_pct": 0.0161,
+      "realized_move_signed": -0.0161,
+      "stayed_in_range": true
     },
     {
       "id": "8edbba464e56",
@@ -3772,7 +3777,12 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "fair",
       "market_view": "VIX 18.36 in normal regime post -6% selloff; volatility is fair, not rich. The tape is settling into the dip, which is tactically OK for premium sells, but we are already long 2 correlated index/tech positions with -$58 unrealized loss.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-02",
+      "actual_price": 683.35,
+      "realized_move_pct": 0.0421,
+      "realized_move_signed": -0.0421,
+      "stayed_in_range": false
     },
     {
       "id": "3bb55304f450",
@@ -3787,7 +3797,12 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "fair",
       "market_view": "VIX 18.36 in normal regime post -6% selloff; volatility is fair, not rich. The tape is settling into the dip, which is tactically OK for premium sells, but we are already long 2 correlated index/tech positions with -$58 unrealized loss.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-02",
+      "actual_price": 279.13,
+      "realized_move_pct": 0.0063,
+      "realized_move_signed": 0.0063,
+      "stayed_in_range": true
     },
     {
       "id": "c162b36ea490",
@@ -3802,7 +3817,12 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "fair",
       "market_view": "VIX 18.36 in normal regime post -6% selloff; volatility is fair, not rich. The tape is settling into the dip, which is tactically OK for premium sells, but we are already long 2 correlated index/tech positions with -$58 unrealized loss.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-02",
+      "actual_price": 519.33,
+      "realized_move_pct": 0.0072,
+      "realized_move_signed": -0.0072,
+      "stayed_in_range": true
     },
     {
       "id": "25aafcc9f8c5",
@@ -3817,7 +3837,12 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "fair",
       "market_view": "VIX 18.36 in normal regime post -6% selloff; volatility is fair, not rich. The tape is settling into the dip, which is tactically OK for premium sells, but we are already long 2 correlated index/tech positions with -$58 unrealized loss.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-02",
+      "actual_price": 404.01,
+      "realized_move_pct": 0.0244,
+      "realized_move_signed": 0.0244,
+      "stayed_in_range": true
     },
     {
       "id": "2ba1dbf8bb87",
@@ -4117,6 +4142,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Vol stress regime (VIX +27%, regime='stress'); standing down on new LIVE risk. This is a tape for defensive moves only\u2014avoid adding directional short-premium into a sell-off, even in paper. Implied vol is rich (IV rank 59\u201381%), so premium is attractive, but TIMING is poor.",
+      "resolved": false
+    },
+    {
+      "id": "415a67253319",
+      "index": "SPY",
+      "forecast_date": "2026-11-02",
+      "target_date": "2026-11-09",
+      "horizon_days": 7,
+      "spot_at_forecast": 753.28,
+      "iv": 0.2069,
+      "implied_move_pct": 0.0286,
+      "implied_move_abs": 21.58,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 21.15 elevated; +9% day into rich premium is classic taper opportunity. Timing favors SHORT premium on broad index; avoid adding single-name or correlated tech given us_tech already long 1.",
+      "resolved": false
+    },
+    {
+      "id": "9eba0d92e2a4",
+      "index": "QQQ",
+      "forecast_date": "2026-11-02",
+      "target_date": "2026-11-09",
+      "horizon_days": 7,
+      "spot_at_forecast": 683.35,
+      "iv": 0.2944,
+      "implied_move_pct": 0.0408,
+      "implied_move_abs": 27.86,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 21.15 elevated; +9% day into rich premium is classic taper opportunity. Timing favors SHORT premium on broad index; avoid adding single-name or correlated tech given us_tech already long 1.",
+      "resolved": false
+    },
+    {
+      "id": "7b767fe0cfdf",
+      "index": "IWM",
+      "forecast_date": "2026-11-02",
+      "target_date": "2026-11-09",
+      "horizon_days": 7,
+      "spot_at_forecast": 279.13,
+      "iv": 0.2464,
+      "implied_move_pct": 0.0341,
+      "implied_move_abs": 9.53,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 21.15 elevated; +9% day into rich premium is classic taper opportunity. Timing favors SHORT premium on broad index; avoid adding single-name or correlated tech given us_tech already long 1.",
+      "resolved": false
+    },
+    {
+      "id": "e3749e2f5b15",
+      "index": "DIA",
+      "forecast_date": "2026-11-02",
+      "target_date": "2026-11-09",
+      "horizon_days": 7,
+      "spot_at_forecast": 519.33,
+      "iv": 0.183,
+      "implied_move_pct": 0.0253,
+      "implied_move_abs": 13.16,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 21.15 elevated; +9% day into rich premium is classic taper opportunity. Timing favors SHORT premium on broad index; avoid adding single-name or correlated tech given us_tech already long 1.",
+      "resolved": false
+    },
+    {
+      "id": "383a885ea91e",
+      "index": "TSLA",
+      "forecast_date": "2026-11-02",
+      "target_date": "2026-11-09",
+      "horizon_days": 7,
+      "spot_at_forecast": 404.01,
+      "iv": 0.4925,
+      "implied_move_pct": 0.0682,
+      "implied_move_abs": 27.56,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 21.15 elevated; +9% day into rich premium is classic taper opportunity. Timing favors SHORT premium on broad index; avoid adding single-name or correlated tech given us_tech already long 1.",
       "resolved": false
     }
   ]
