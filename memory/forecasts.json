@@ -3857,7 +3857,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Tape is risk-off with a -3% day and VIX only 17.75 \u2014 vol is not compensating sellers and downside momentum is live. Selling a downside put vertical into an accelerating sell-off is catching a falling knife; better entries come after stabilization or a vol pop.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-03",
+      "actual_price": 754.71,
+      "realized_move_pct": 0.0191,
+      "realized_move_signed": -0.0191,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "d872549ce657",
@@ -3872,7 +3878,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Tape is risk-off with a -3% day and VIX only 17.75 \u2014 vol is not compensating sellers and downside momentum is live. Selling a downside put vertical into an accelerating sell-off is catching a falling knife; better entries come after stabilization or a vol pop.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-03",
+      "actual_price": 685.16,
+      "realized_move_pct": 0.0493,
+      "realized_move_signed": -0.0493,
+      "stayed_in_range": false,
+      "vol_call_correct": true
     },
     {
       "id": "de0b4749afb4",
@@ -3887,7 +3899,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Tape is risk-off with a -3% day and VIX only 17.75 \u2014 vol is not compensating sellers and downside momentum is live. Selling a downside put vertical into an accelerating sell-off is catching a falling knife; better entries come after stabilization or a vol pop.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-03",
+      "actual_price": 280.26,
+      "realized_move_pct": 0.0009,
+      "realized_move_signed": 0.0009,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "0c4dfc467662",
@@ -3902,7 +3920,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Tape is risk-off with a -3% day and VIX only 17.75 \u2014 vol is not compensating sellers and downside momentum is live. Selling a downside put vertical into an accelerating sell-off is catching a falling knife; better entries come after stabilization or a vol pop.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-03",
+      "actual_price": 517.4,
+      "realized_move_pct": 0.011,
+      "realized_move_signed": -0.011,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "404a8ac485da",
@@ -3917,7 +3941,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_cheap",
       "market_view": "Tape is risk-off with a -3% day and VIX only 17.75 \u2014 vol is not compensating sellers and downside momentum is live. Selling a downside put vertical into an accelerating sell-off is catching a falling knife; better entries come after stabilization or a vol pop.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-03",
+      "actual_price": 398.23,
+      "realized_move_pct": 0.0195,
+      "realized_move_signed": -0.0195,
+      "stayed_in_range": true,
+      "vol_call_correct": false
     },
     {
       "id": "129028595b14",
@@ -4217,6 +4247,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 21.15 elevated; +9% day into rich premium is classic taper opportunity. Timing favors SHORT premium on broad index; avoid adding single-name or correlated tech given us_tech already long 1.",
+      "resolved": false
+    },
+    {
+      "id": "4ccdc9c58d04",
+      "index": "SPY",
+      "forecast_date": "2026-11-03",
+      "target_date": "2026-11-10",
+      "horizon_days": 7,
+      "spot_at_forecast": 754.71,
+      "iv": 0.2002,
+      "implied_move_pct": 0.0277,
+      "implied_move_abs": 20.93,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_rich",
+      "market_view": "Tape is risk-off: VIX 20.71 elevated and a fresh -2% day, which makes broad-index premium rich but the tape fast and one-directional. Selling call spreads right after a flush risks a violent mean-reversion bounce, and selling single-name premium mid-de-risking is poorly compensat",
+      "resolved": false
+    },
+    {
+      "id": "7c478baa45f6",
+      "index": "QQQ",
+      "forecast_date": "2026-11-03",
+      "target_date": "2026-11-10",
+      "horizon_days": 7,
+      "spot_at_forecast": 685.16,
+      "iv": 0.2966,
+      "implied_move_pct": 0.0411,
+      "implied_move_abs": 28.14,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_rich",
+      "market_view": "Tape is risk-off: VIX 20.71 elevated and a fresh -2% day, which makes broad-index premium rich but the tape fast and one-directional. Selling call spreads right after a flush risks a violent mean-reversion bounce, and selling single-name premium mid-de-risking is poorly compensat",
+      "resolved": false
+    },
+    {
+      "id": "fb4bda970e41",
+      "index": "IWM",
+      "forecast_date": "2026-11-03",
+      "target_date": "2026-11-10",
+      "horizon_days": 7,
+      "spot_at_forecast": 280.26,
+      "iv": 0.2424,
+      "implied_move_pct": 0.0336,
+      "implied_move_abs": 9.41,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_rich",
+      "market_view": "Tape is risk-off: VIX 20.71 elevated and a fresh -2% day, which makes broad-index premium rich but the tape fast and one-directional. Selling call spreads right after a flush risks a violent mean-reversion bounce, and selling single-name premium mid-de-risking is poorly compensat",
+      "resolved": false
+    },
+    {
+      "id": "6d8a4a69709e",
+      "index": "DIA",
+      "forecast_date": "2026-11-03",
+      "target_date": "2026-11-10",
+      "horizon_days": 7,
+      "spot_at_forecast": 517.4,
+      "iv": 0.1767,
+      "implied_move_pct": 0.0245,
+      "implied_move_abs": 12.66,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_rich",
+      "market_view": "Tape is risk-off: VIX 20.71 elevated and a fresh -2% day, which makes broad-index premium rich but the tape fast and one-directional. Selling call spreads right after a flush risks a violent mean-reversion bounce, and selling single-name premium mid-de-risking is poorly compensat",
+      "resolved": false
+    },
+    {
+      "id": "1336886fa44c",
+      "index": "TSLA",
+      "forecast_date": "2026-11-03",
+      "target_date": "2026-11-10",
+      "horizon_days": 7,
+      "spot_at_forecast": 398.23,
+      "iv": 0.494,
+      "implied_move_pct": 0.0684,
+      "implied_move_abs": 27.24,
+      "model": "kimi-k3",
+      "vol_verdict": "implied_rich",
+      "market_view": "Tape is risk-off: VIX 20.71 elevated and a fresh -2% day, which makes broad-index premium rich but the tape fast and one-directional. Selling call spreads right after a flush risks a violent mean-reversion bounce, and selling single-name premium mid-de-risking is poorly compensat",
       "resolved": false
     }
   ]
