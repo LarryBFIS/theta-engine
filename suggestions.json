@@ -71240,6 +71240,62 @@
       "alternative": "Hold and hope. Risk: up to $1022 max loss (currently $482 unrealized).",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20261103T193405_trade_031_slv_61_60",
+      "trade_id": "trade_031_slv_61_60",
+      "timestamp": "2026-11-03T19:34:05.509538-05:00",
+      "action": "URGENT_CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\u26a0\ufe0f SLV @ $44.84 is BELOW short strike $62 (ITM).",
+        "Max loss exposure increasing. Current close: $1.03 mid / $2.40 worst.",
+        "56 DTE remaining; negative delta hurts daily."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 1.0250000000000004,
+        "cost_to_close_worst": 2.4000000000000004,
+        "profit_if_closed_mid": -47.50000000000003,
+        "profit_if_closed_worst": -185.00000000000003,
+        "pct_max_profit_captured_mid": -0.8636363636363641,
+        "dte": 56,
+        "underlying_price": 44.84000015258789,
+        "short_strike_breached": true,
+        "has_live_quotes": true,
+        "net_liq": 6499.971,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold and hope. Risk: up to $45 max loss (currently $48 unrealized).",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20261103T193405_trade_046_qqq_713_722",
+      "trade_id": "trade_046_qqq_713_722",
+      "timestamp": "2026-11-03T19:34:05.906693-05:00",
+      "action": "URGENT_CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\u26a0\ufe0f QQQ @ $685.28 is BELOW short strike $722 (ITM).",
+        "Max loss exposure increasing. Current close: $6.30 mid / $10.28 worst.",
+        "25 DTE remaining; negative delta hurts daily."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 6.300000000000004,
+        "cost_to_close_worst": 10.279999999999994,
+        "profit_if_closed_mid": -482.00000000000085,
+        "profit_if_closed_worst": -1277.9999999999986,
+        "pct_max_profit_captured_mid": -0.6195372750642684,
+        "dte": 25,
+        "underlying_price": 685.280029296875,
+        "short_strike_breached": true,
+        "has_live_quotes": true,
+        "net_liq": 6499.971,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold and hope. Risk: up to $1022 max loss (currently $482 unrealized).",
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }

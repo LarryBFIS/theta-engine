@@ -3962,7 +3962,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "VIX 17.35 in a normal regime on a -1% day: calm tape, mild downside drift, no scheduled events \u2014 acceptable conditions for selling favored index-put premium, but implied is not elevated enough to make marginal setups compelling. Timing is neutral; nothing here demands urgency.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-04",
+      "actual_price": 750.69,
+      "realized_move_pct": 0.0264,
+      "realized_move_signed": -0.0264,
+      "stayed_in_range": false
     },
     {
       "id": "f28764da546a",
@@ -3977,7 +3982,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "VIX 17.35 in a normal regime on a -1% day: calm tape, mild downside drift, no scheduled events \u2014 acceptable conditions for selling favored index-put premium, but implied is not elevated enough to make marginal setups compelling. Timing is neutral; nothing here demands urgency.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-04",
+      "actual_price": 679.33,
+      "realized_move_pct": 0.06,
+      "realized_move_signed": -0.06,
+      "stayed_in_range": false
     },
     {
       "id": "370e933b6e30",
@@ -3992,7 +4002,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "VIX 17.35 in a normal regime on a -1% day: calm tape, mild downside drift, no scheduled events \u2014 acceptable conditions for selling favored index-put premium, but implied is not elevated enough to make marginal setups compelling. Timing is neutral; nothing here demands urgency.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-04",
+      "actual_price": 278.1,
+      "realized_move_pct": 0.0062,
+      "realized_move_signed": -0.0062,
+      "stayed_in_range": true
     },
     {
       "id": "8287140936e4",
@@ -4007,7 +4022,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "VIX 17.35 in a normal regime on a -1% day: calm tape, mild downside drift, no scheduled events \u2014 acceptable conditions for selling favored index-put premium, but implied is not elevated enough to make marginal setups compelling. Timing is neutral; nothing here demands urgency.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-04",
+      "actual_price": 514.82,
+      "realized_move_pct": 0.0177,
+      "realized_move_signed": -0.0177,
+      "stayed_in_range": true
     },
     {
       "id": "dc303332142b",
@@ -4022,7 +4042,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "VIX 17.35 in a normal regime on a -1% day: calm tape, mild downside drift, no scheduled events \u2014 acceptable conditions for selling favored index-put premium, but implied is not elevated enough to make marginal setups compelling. Timing is neutral; nothing here demands urgency.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-04",
+      "actual_price": 391.19,
+      "realized_move_pct": 0.03,
+      "realized_move_signed": -0.03,
+      "stayed_in_range": true
     },
     {
       "id": "b377e9fb4fc4",
@@ -4322,6 +4347,81 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_rich",
       "market_view": "Tape is risk-off: VIX 20.71 elevated and a fresh -2% day, which makes broad-index premium rich but the tape fast and one-directional. Selling call spreads right after a flush risks a violent mean-reversion bounce, and selling single-name premium mid-de-risking is poorly compensat",
+      "resolved": false
+    },
+    {
+      "id": "6aef237b491f",
+      "index": "SPY",
+      "forecast_date": "2026-11-04",
+      "target_date": "2026-11-11",
+      "horizon_days": 7,
+      "spot_at_forecast": 750.69,
+      "iv": 0.2012,
+      "implied_move_pct": 0.0279,
+      "implied_move_abs": 20.91,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Tape is under pressure (-2% day) with VIX 20.83 in an elevated regime \u2014 implied premium is richer but realized risk is live and direction is down. This favors selective short premium on broad indexes, not on high-beta single names that gap hard in fast tapes.",
+      "resolved": false
+    },
+    {
+      "id": "06d57229b0de",
+      "index": "QQQ",
+      "forecast_date": "2026-11-04",
+      "target_date": "2026-11-11",
+      "horizon_days": 7,
+      "spot_at_forecast": 679.33,
+      "iv": 0.2978,
+      "implied_move_pct": 0.0412,
+      "implied_move_abs": 28.02,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Tape is under pressure (-2% day) with VIX 20.83 in an elevated regime \u2014 implied premium is richer but realized risk is live and direction is down. This favors selective short premium on broad indexes, not on high-beta single names that gap hard in fast tapes.",
+      "resolved": false
+    },
+    {
+      "id": "3f1eae67a4d9",
+      "index": "IWM",
+      "forecast_date": "2026-11-04",
+      "target_date": "2026-11-11",
+      "horizon_days": 7,
+      "spot_at_forecast": 278.1,
+      "iv": 0.2455,
+      "implied_move_pct": 0.034,
+      "implied_move_abs": 9.45,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Tape is under pressure (-2% day) with VIX 20.83 in an elevated regime \u2014 implied premium is richer but realized risk is live and direction is down. This favors selective short premium on broad indexes, not on high-beta single names that gap hard in fast tapes.",
+      "resolved": false
+    },
+    {
+      "id": "b68becbafabb",
+      "index": "DIA",
+      "forecast_date": "2026-11-04",
+      "target_date": "2026-11-11",
+      "horizon_days": 7,
+      "spot_at_forecast": 514.82,
+      "iv": 0.1794,
+      "implied_move_pct": 0.0248,
+      "implied_move_abs": 12.79,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Tape is under pressure (-2% day) with VIX 20.83 in an elevated regime \u2014 implied premium is richer but realized risk is live and direction is down. This favors selective short premium on broad indexes, not on high-beta single names that gap hard in fast tapes.",
+      "resolved": false
+    },
+    {
+      "id": "68540a9fa9e1",
+      "index": "TSLA",
+      "forecast_date": "2026-11-04",
+      "target_date": "2026-11-11",
+      "horizon_days": 7,
+      "spot_at_forecast": 391.19,
+      "iv": 0.486,
+      "implied_move_pct": 0.0673,
+      "implied_move_abs": 26.33,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "Tape is under pressure (-2% day) with VIX 20.83 in an elevated regime \u2014 implied premium is richer but realized risk is live and direction is down. This favors selective short premium on broad indexes, not on high-beta single names that gap hard in fast tapes.",
       "resolved": false
     }
   ]
