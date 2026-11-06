@@ -1,16 +1,16 @@
 {
-  "last_run": "2026-11-05T20:36:18.919524+00:00",
-  "market_view": "Full risk-off rout continues \u2014 QQQ -5.95% today, VIX +54.91% to 25.73, tech down 7.4%. Both positions are deep ITM, stop rules blown multiple cycles ago, and no catalyst exists for recovery before expiry.",
+  "last_run": "2026-11-06T01:02:30.325920+00:00",
+  "market_view": "VIX spiked to 28.18, up 69.66% today and 52.9% over 5 days \u2014 this is an accelerating risk-off panic, not a one-day event. Market data feeds are down (NaN prices) but VIX alone confirms the rout is deepening, not stabilizing.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-11-05T20:36:06Z",
-    "reasoning": "SLV at $46.76 is 31.5% below the 61.5 short strike \u2014 mid cost $0.75 is 1.36x credit and worst-case $1.45 is 2.64x, stop rule at 1.5x is blown, 55 DTE means theta will not bail you out, and this spread is approaching max loss with no recovery path. This is the third consecutive CRITICAL flag with no action \u2014 every cycle of inaction is a cycle of additional max-loss exposure."
+    "timestamp": "2026-11-06T01:02:15Z",
+    "reasoning": "SLV is 31% below the short strike, mid cost at $0.70 is 1.27x credit and worst-case $1.55 is 2.82x \u2014 stop rule at 1.5x was breached multiple cycles ago, 54 DTE means zero theta rescue, and this is approaching max loss with no recovery path. This is now the fourth consecutive CRITICAL flag with no action taken \u2014 continued inaction is locking in max loss on a $45 BPR position."
   },
   "QQQ 722/713p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-11-05T20:36:06Z",
-    "reasoning": "QQQ at $650.78 is 10.9% below the 722 short strike \u2014 mid cost $8.64 is 2.22x the $3.89 credit, 21 DTE hard exit triggers in 3 days, stop rule was breached weeks ago, and today's -5.95% move has pushed this near max loss territory with zero recovery probability before the DTE rule forces closure anyway."
+    "timestamp": "2026-11-06T01:02:15Z",
+    "reasoning": "QQQ is 11.6% below the 722 short strike with 23 DTE \u2014 the 21 DTE hard exit rule triggers in 2 trading days, mid cost $8.715 is 2.24x the $3.89 credit (stop rule blown weeks ago), and VIX at 28.18 up 70% today means this spread is pinned near max loss with zero statistical recovery probability before forced closure. Every hour of inaction on a $1,022 BPR position in a deepening risk-off panic is unacceptable."
   }
 }
