@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-05T20:37:03.974144+00:00",
+  "generated_at": "2026-11-06T19:43:14.925963+00:00",
   "regime": {
-    "vix": 25.73,
-    "vix_day_change_pct": 0.5491,
-    "level": "stress",
-    "stand_down": true,
-    "note": "vol stress \u2014 standing down on new LIVE risk (+55% day)"
+    "vix": 24.64,
+    "vix_day_change_pct": -0.1256,
+    "level": "elevated",
+    "stand_down": false,
+    "note": "elevated vol \u2014 premium rich, proceed (-13% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -22,26 +22,26 @@
       "underlying": "QQQ",
       "structure": "short_call_vertical",
       "expiry": "2026-12-11",
-      "dte": 36,
-      "short_strike": 710.0,
-      "long_strike": 718.0,
-      "short_symbol": "QQQ   261211C00710000",
-      "long_symbol": "QQQ   261211C00718000",
+      "dte": 35,
+      "short_strike": 713.0,
+      "long_strike": 721.0,
+      "short_symbol": "QQQ   261211C00713000",
+      "long_symbol": "QQQ   261211C00721000",
       "width": 8.0,
       "credit": 1.09,
-      "mid_credit": 1.21,
+      "mid_credit": 1.12,
       "fees_est": 3.0,
       "bpr": 691.0,
       "max_loss": 691.0,
-      "pop": 0.8,
-      "short_delta": 0.232,
-      "short_spread_pct": 0.032,
+      "pop": 0.801,
+      "short_delta": 0.228,
+      "short_spread_pct": 0.011,
       "credit_to_bpr": 0.158,
-      "ev_per_contract": 7.88,
-      "ev_on_bpr": 0.0114,
-      "iv": 0.3519,
-      "iv_rank": 1.061,
-      "underlying_price": 650.93,
+      "ev_per_contract": 8.08,
+      "ev_on_bpr": 0.0117,
+      "iv": 0.3218,
+      "iv_rank": 0.811,
+      "underlying_price": 658.71,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -51,30 +51,24 @@
       "bpr_total": 691.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short call vertical 710/718c \u00d71 \u2014 bearish lean. Edge: IV rank 106%, EV $+8/ctr (+1.1% on BPR). POP 80% \u00b7 credit $1.09 \u00b7 max loss $691 \u00b7 BPR $691 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short call vertical 713/721c \u00d71 \u2014 bearish lean. Edge: IV rank 81%, EV $+8/ctr (+1.2% on BPR). POP 80% \u00b7 credit $1.09 \u00b7 max loss $691 \u00b7 BPR $691 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.4,
       "learn_notes": [
         "asset_class=single_name \u00d70.70",
         "cluster=us_tech \u00d70.78",
         "structure=short_call_vertical \u00d70.70"
       ],
-      "rank_score": 0.00456,
+      "rank_score": 0.00468,
       "agent_action": "guarded",
-      "agent_reason": "Triple-flagged by our own learnings (single_name avoid, us_tech avoid, short_call_vertical avoid) and stacks a second QQQ position on an existing one during a vol-stress regime \u2014 concentrated, negatively-expected, and badly timed.",
+      "agent_reason": "Triple avoid flags (single_name, us_tech, short_call_vertical \u2014 all negative-expectancy in our book) plus a second correlated QQQ position; high IV rank doesn't compensate for fighting today's upside tape.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
       "news_risk": {
-        "level": "veto",
-        "hits": [
-          {
-            "title": "Redwire Plunges 21% as Revenue Miss Overshadows Record Margins and Backlog; Intuitive Machines Sinks 15%, Planet Labs Tumbles 12%",
-            "severity": 3,
-            "keyword": "plunge"
-          }
-        ]
+        "level": "clear",
+        "hits": []
       },
-      "net_liq": 6030.485,
+      "net_liq": 6073.102,
       "ticket": {
         "underlying": "QQQ",
         "code": "VC",
@@ -87,21 +81,21 @@
             "action": "SELL",
             "qty": 1,
             "expiry": "2026-12-11",
-            "strike": 710.0,
+            "strike": 713.0,
             "type": "C"
           },
           {
             "action": "BUY",
             "qty": 1,
             "expiry": "2026-12-11",
-            "strike": 718.0,
+            "strike": 721.0,
             "type": "C"
           }
         ],
         "credit_total": 109.0,
         "max_loss_total": 691.0,
         "bpr_total": 691.0,
-        "pop": 0.8,
+        "pop": 0.801,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -110,12 +104,12 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 603.05,
+        "live_cap": 607.31,
         "suggested_width": 7,
-        "fit_note": "\u26a0 max loss $691 > 10% live cap ($603) \u2014 narrow to ~7-wide for live, or keep on paper.",
-        "text": "QQQ VC \u00d71 \u2014 SELL 710C / BUY 718C (2026-12-11) @ $1.09 net credit. Max loss $691. After fill: GTC buy-to-close @ $0.55 (50%). \u26a0 max loss $691 > 10% live cap ($603) \u2014 narrow to ~7-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $691 > 10% live cap ($607) \u2014 narrow to ~7-wide for live, or keep on paper.",
+        "text": "QQQ VC \u00d71 \u2014 SELL 713C / BUY 721C (2026-12-11) @ $1.09 net credit. Max loss $691. After fill: GTC buy-to-close @ $0.55 (50%). \u26a0 max loss $691 > 10% live cap ($607) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-11-05T20:37:03.974144+00:00"
+      "posted_at": "2026-11-06T19:43:14.925963+00:00"
     }
   ],
   "long_vol": [],
@@ -189,24 +183,24 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-11-05T20:37:03.678642+00:00",
+    "generated_at": "2026-11-06T19:43:14.660043+00:00",
     "model": "kimi-k3",
-    "market_view": "VIX 25.73 and +55% on the day is a fast, stressed tape \u2014 realized vol is exploding and whipsaw risk cuts both ways, making NOW a poor moment to add short premium in either direction. A violent mean-reversion rip after a sell-off day is exactly what kills short call spreads, even with IV elevated.",
-    "portfolio_note": "Book already carries one QQQ and one IWM position with negative unrealized PnL; both candidates would stack a second position on names we already hold, turning existing bets into doubled correlated exposures. In a stress regime the right move is to let the book breathe, not add.",
+    "market_view": "VIX is elevated at 24.6 but down ~13% on the day \u2014 a relief-rally tape where vol is cooling fast and upside momentum is live. That is premium-rich in absolute terms but a poor moment to sell call spreads, which get run over in exactly this kind of rip.",
+    "portfolio_note": "Book already holds one QQQ (us_tech) and one IWM (us_index) with -214 unrealized; both candidates double up on names and clusters we already own, concentrating one correlated equity-index short-vol bet rather than diversifying.",
     "vol_verdict": "fair",
     "reviewed": 2,
     "vetoed": 2,
     "downsized": 0,
     "decisions": [
       {
-        "id": "IWM|short_call_vertical|291/296",
+        "id": "IWM|short_call_vertical|292.5/297.5",
         "action": "veto",
-        "reason": "short_call_vertical is a proven loser in our book (28% WR), this doubles our existing IWM exposure against the per-name cap's intent, and selling call spreads into a VIX +55% stress tape invites a snapback-rally loss for only $58 of credit "
+        "reason": "Short call verticals are on our realized AVOID list, EV/BPR is ~0.5% (no edge), and it doubles existing IWM exposure while selling calls into a vol-crushing relief rally \u2014 poorly timed even at 1x."
       },
       {
-        "id": "QQQ|short_call_vertical|710/718",
+        "id": "QQQ|short_call_vertical|713/721",
         "action": "veto",
-        "reason": "Triple-flagged by our own learnings (single_name avoid, us_tech avoid, short_call_vertical avoid) and stacks a second QQQ position on an existing one during a vol-stress regime \u2014 concentrated, negatively-expected, and badly timed."
+        "reason": "Triple avoid flags (single_name, us_tech, short_call_vertical \u2014 all negative-expectancy in our book) plus a second correlated QQQ position; high IV rank doesn't compensate for fighting today's upside tape."
       }
     ]
   },
@@ -215,70 +209,70 @@
       "underlying": "IWM",
       "structure": "short_call_vertical",
       "expiry": "2026-12-11",
-      "dte": 36,
-      "short_strike": 291.0,
-      "long_strike": 296.0,
-      "short_symbol": "IWM   261211C00291000",
-      "long_symbol": "IWM   261211C00296000",
+      "dte": 35,
+      "short_strike": 292.5,
+      "long_strike": 297.5,
+      "short_symbol": "IWM   261211C00292500",
+      "long_symbol": "IWM   261211C00297500",
       "width": 5.0,
-      "credit": 0.58,
-      "mid_credit": 0.62,
+      "credit": 0.53,
+      "mid_credit": 0.57,
       "fees_est": 3.0,
-      "bpr": 442.0,
-      "max_loss": 442.0,
-      "pop": 0.8,
-      "short_delta": 0.226,
-      "short_spread_pct": 0.031,
-      "credit_to_bpr": 0.131,
-      "ev_per_contract": 2.81,
-      "ev_on_bpr": 0.0064,
-      "iv": 0.285,
-      "iv_rank": 0.592,
-      "underlying_price": 270.96,
+      "bpr": 447.0,
+      "max_loss": 447.0,
+      "pop": 0.799,
+      "short_delta": 0.225,
+      "short_spread_pct": 0.035,
+      "credit_to_bpr": 0.119,
+      "ev_per_contract": 2.2,
+      "ev_on_bpr": 0.0049,
+      "iv": 0.2653,
+      "iv_rank": 0.493,
+      "underlying_price": 273.96,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "live",
       "contracts": 1,
-      "max_loss_total": 442.0,
-      "bpr_total": 442.0,
+      "max_loss_total": 447.0,
+      "bpr_total": 447.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short call vertical 291/296c \u00d71 \u2014 bearish lean. Edge: IV rank 59%, EV $+3/ctr (+0.6% on BPR). POP 80% \u00b7 credit $0.58 \u00b7 max loss $442 \u00b7 BPR $442 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short call vertical 292.5/297.5c \u00d71 \u2014 bearish lean. Edge: IV rank 49%, EV $+2/ctr (+0.5% on BPR). POP 80% \u00b7 credit $0.53 \u00b7 max loss $447 \u00b7 BPR $447 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.436,
       "learn_notes": [
         "asset_class=index_etf \u00d71.37",
         "cluster=us_index \u00d71.50",
         "structure=short_call_vertical \u00d70.70"
       ],
-      "rank_score": 0.00919,
+      "rank_score": 0.007036,
       "agent_action": "veto",
-      "agent_reason": "short_call_vertical is a proven loser in our book (28% WR), this doubles our existing IWM exposure against the per-name cap's intent, and selling call spreads into a VIX +55% stress tape invites a snapback-rally loss for only $58 of credit "
+      "agent_reason": "Short call verticals are on our realized AVOID list, EV/BPR is ~0.5% (no edge), and it doubles existing IWM exposure while selling calls into a vol-crushing relief rally \u2014 poorly timed even at 1x."
     },
     {
       "underlying": "QQQ",
       "structure": "short_call_vertical",
       "expiry": "2026-12-11",
-      "dte": 36,
-      "short_strike": 710.0,
-      "long_strike": 718.0,
-      "short_symbol": "QQQ   261211C00710000",
-      "long_symbol": "QQQ   261211C00718000",
+      "dte": 35,
+      "short_strike": 713.0,
+      "long_strike": 721.0,
+      "short_symbol": "QQQ   261211C00713000",
+      "long_symbol": "QQQ   261211C00721000",
       "width": 8.0,
       "credit": 1.09,
-      "mid_credit": 1.21,
+      "mid_credit": 1.12,
       "fees_est": 3.0,
       "bpr": 691.0,
       "max_loss": 691.0,
-      "pop": 0.8,
-      "short_delta": 0.232,
-      "short_spread_pct": 0.032,
+      "pop": 0.801,
+      "short_delta": 0.228,
+      "short_spread_pct": 0.011,
       "credit_to_bpr": 0.158,
-      "ev_per_contract": 7.88,
-      "ev_on_bpr": 0.0114,
-      "iv": 0.3519,
-      "iv_rank": 1.061,
-      "underlying_price": 650.93,
+      "ev_per_contract": 8.08,
+      "ev_on_bpr": 0.0117,
+      "iv": 0.3218,
+      "iv_rank": 0.811,
+      "underlying_price": 658.71,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -288,30 +282,24 @@
       "bpr_total": 691.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short call vertical 710/718c \u00d71 \u2014 bearish lean. Edge: IV rank 106%, EV $+8/ctr (+1.1% on BPR). POP 80% \u00b7 credit $1.09 \u00b7 max loss $691 \u00b7 BPR $691 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "\u26a0\ufe0f BE CAREFUL \u2014 tech ETF with a losing record (-$567). short call vertical 713/721c \u00d71 \u2014 bearish lean. Edge: IV rank 81%, EV $+8/ctr (+1.2% on BPR). POP 80% \u00b7 credit $1.09 \u00b7 max loss $691 \u00b7 BPR $691 \u00b7 35 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 0.4,
       "learn_notes": [
         "asset_class=single_name \u00d70.70",
         "cluster=us_tech \u00d70.78",
         "structure=short_call_vertical \u00d70.70"
       ],
-      "rank_score": 0.00456,
+      "rank_score": 0.00468,
       "agent_action": "guarded",
-      "agent_reason": "Triple-flagged by our own learnings (single_name avoid, us_tech avoid, short_call_vertical avoid) and stacks a second QQQ position on an existing one during a vol-stress regime \u2014 concentrated, negatively-expected, and badly timed.",
+      "agent_reason": "Triple avoid flags (single_name, us_tech, short_call_vertical \u2014 all negative-expectancy in our book) plus a second correlated QQQ position; high IV rank doesn't compensate for fighting today's upside tape.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
       "news_risk": {
-        "level": "veto",
-        "hits": [
-          {
-            "title": "Redwire Plunges 21% as Revenue Miss Overshadows Record Margins and Backlog; Intuitive Machines Sinks 15%, Planet Labs Tumbles 12%",
-            "severity": 3,
-            "keyword": "plunge"
-          }
-        ]
+        "level": "clear",
+        "hits": []
       },
-      "net_liq": 6030.485,
+      "net_liq": 6073.102,
       "ticket": {
         "underlying": "QQQ",
         "code": "VC",
@@ -324,21 +312,21 @@
             "action": "SELL",
             "qty": 1,
             "expiry": "2026-12-11",
-            "strike": 710.0,
+            "strike": 713.0,
             "type": "C"
           },
           {
             "action": "BUY",
             "qty": 1,
             "expiry": "2026-12-11",
-            "strike": 718.0,
+            "strike": 721.0,
             "type": "C"
           }
         ],
         "credit_total": 109.0,
         "max_loss_total": 691.0,
         "bpr_total": 691.0,
-        "pop": 0.8,
+        "pop": 0.801,
         "tag": "paper",
         "manage": {
           "profit_target_pct": 50,
@@ -347,22 +335,22 @@
           "exit_dte": 21
         },
         "fits_live_cap": false,
-        "live_cap": 603.05,
+        "live_cap": 607.31,
         "suggested_width": 7,
-        "fit_note": "\u26a0 max loss $691 > 10% live cap ($603) \u2014 narrow to ~7-wide for live, or keep on paper.",
-        "text": "QQQ VC \u00d71 \u2014 SELL 710C / BUY 718C (2026-12-11) @ $1.09 net credit. Max loss $691. After fill: GTC buy-to-close @ $0.55 (50%). \u26a0 max loss $691 > 10% live cap ($603) \u2014 narrow to ~7-wide for live, or keep on paper."
+        "fit_note": "\u26a0 max loss $691 > 10% live cap ($607) \u2014 narrow to ~7-wide for live, or keep on paper.",
+        "text": "QQQ VC \u00d71 \u2014 SELL 713C / BUY 721C (2026-12-11) @ $1.09 net credit. Max loss $691. After fill: GTC buy-to-close @ $0.55 (50%). \u26a0 max loss $691 > 10% live cap ($607) \u2014 narrow to ~7-wide for live, or keep on paper."
       },
-      "posted_at": "2026-11-05T20:37:03.974144+00:00"
+      "posted_at": "2026-11-06T19:43:14.925963+00:00"
     }
   ],
   "skipped": {
     "SPY": "failed: pv: credit/width 0.09 < 0.10",
-    "DIA": "failed: pv: credit/width 0.04 < 0.10",
-    "XLE": "failed: pv: no/invalid leg quote",
-    "XLF": "failed: pv: spread short 28%/long 176%",
-    "XLV": "failed: pv: spread short 137%/long 199%",
-    "XLI": "failed: pv: spread short 87%/long 149%",
-    "SLV": "iv_rank 19% (floor 30%)",
+    "DIA": "failed: pv: credit/width 0.03 < 0.10",
+    "XLE": "failed: pv: spread short 68%/long 153%",
+    "XLF": "failed: pv: no/invalid leg quote",
+    "XLV": "failed: pv: spread short 115%/long 159%",
+    "XLI": "failed: pv: spread short 51%/long 121%",
+    "SLV": "iv_rank 18% (floor 30%)",
     "TSLA": "failed: pv: credit/width 0.07 < 0.10"
   }
 }

@@ -4162,7 +4162,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Vol stress regime (VIX +27%, regime='stress'); standing down on new LIVE risk. This is a tape for defensive moves only\u2014avoid adding directional short-premium into a sell-off, even in paper. Implied vol is rich (IV rank 59\u201381%), so premium is attractive, but TIMING is poor.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-06",
+      "actual_price": 738.0,
+      "realized_move_pct": 0.02,
+      "realized_move_signed": -0.02,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "9668a8e621e4",
@@ -4177,7 +4183,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Vol stress regime (VIX +27%, regime='stress'); standing down on new LIVE risk. This is a tape for defensive moves only\u2014avoid adding directional short-premium into a sell-off, even in paper. Implied vol is rich (IV rank 59\u201381%), so premium is attractive, but TIMING is poor.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-06",
+      "actual_price": 658.71,
+      "realized_move_pct": 0.0406,
+      "realized_move_signed": -0.0406,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "954647c0cca4",
@@ -4192,7 +4204,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Vol stress regime (VIX +27%, regime='stress'); standing down on new LIVE risk. This is a tape for defensive moves only\u2014avoid adding directional short-premium into a sell-off, even in paper. Implied vol is rich (IV rank 59\u201381%), so premium is attractive, but TIMING is poor.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-06",
+      "actual_price": 273.96,
+      "realized_move_pct": 0.0139,
+      "realized_move_signed": -0.0139,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "c864acadd72f",
@@ -4207,7 +4225,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Vol stress regime (VIX +27%, regime='stress'); standing down on new LIVE risk. This is a tape for defensive moves only\u2014avoid adding directional short-premium into a sell-off, even in paper. Implied vol is rich (IV rank 59\u201381%), so premium is attractive, but TIMING is poor.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-06",
+      "actual_price": 513.88,
+      "realized_move_pct": 0.0051,
+      "realized_move_signed": -0.0051,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "c3cef3e58c88",
@@ -4222,7 +4246,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "Vol stress regime (VIX +27%, regime='stress'); standing down on new LIVE risk. This is a tape for defensive moves only\u2014avoid adding directional short-premium into a sell-off, even in paper. Implied vol is rich (IV rank 59\u201381%), so premium is attractive, but TIMING is poor.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-06",
+      "actual_price": 360.67,
+      "realized_move_pct": 0.0865,
+      "realized_move_signed": -0.0865,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "415a67253319",
@@ -4522,6 +4552,81 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_rich",
       "market_view": "Stress tape: VIX 24.87 and +50% on the day signals an active risk-off with violent two-way swings; after spikes like this, mean-reversion rips are common and run over short call strikes. IV is rich, which normally favors premium selling, but timing right now favors patience over ",
+      "resolved": false
+    },
+    {
+      "id": "e1d8f5f52fe5",
+      "index": "SPY",
+      "forecast_date": "2026-11-06",
+      "target_date": "2026-11-13",
+      "horizon_days": 7,
+      "spot_at_forecast": 738.0,
+      "iv": 0.2373,
+      "implied_move_pct": 0.0329,
+      "implied_move_abs": 24.25,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "VIX is elevated at 24.6 but down ~13% on the day \u2014 a relief-rally tape where vol is cooling fast and upside momentum is live. That is premium-rich in absolute terms but a poor moment to sell call spreads, which get run over in exactly this kind of rip.",
+      "resolved": false
+    },
+    {
+      "id": "f8ebcce1838c",
+      "index": "QQQ",
+      "forecast_date": "2026-11-06",
+      "target_date": "2026-11-13",
+      "horizon_days": 7,
+      "spot_at_forecast": 658.71,
+      "iv": 0.3218,
+      "implied_move_pct": 0.0446,
+      "implied_move_abs": 29.36,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "VIX is elevated at 24.6 but down ~13% on the day \u2014 a relief-rally tape where vol is cooling fast and upside momentum is live. That is premium-rich in absolute terms but a poor moment to sell call spreads, which get run over in exactly this kind of rip.",
+      "resolved": false
+    },
+    {
+      "id": "9f285c8686d1",
+      "index": "IWM",
+      "forecast_date": "2026-11-06",
+      "target_date": "2026-11-13",
+      "horizon_days": 7,
+      "spot_at_forecast": 273.96,
+      "iv": 0.2653,
+      "implied_move_pct": 0.0367,
+      "implied_move_abs": 10.06,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "VIX is elevated at 24.6 but down ~13% on the day \u2014 a relief-rally tape where vol is cooling fast and upside momentum is live. That is premium-rich in absolute terms but a poor moment to sell call spreads, which get run over in exactly this kind of rip.",
+      "resolved": false
+    },
+    {
+      "id": "d38d774c99ab",
+      "index": "DIA",
+      "forecast_date": "2026-11-06",
+      "target_date": "2026-11-13",
+      "horizon_days": 7,
+      "spot_at_forecast": 513.88,
+      "iv": 0.2081,
+      "implied_move_pct": 0.0288,
+      "implied_move_abs": 14.81,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "VIX is elevated at 24.6 but down ~13% on the day \u2014 a relief-rally tape where vol is cooling fast and upside momentum is live. That is premium-rich in absolute terms but a poor moment to sell call spreads, which get run over in exactly this kind of rip.",
+      "resolved": false
+    },
+    {
+      "id": "9a063e5431da",
+      "index": "TSLA",
+      "forecast_date": "2026-11-06",
+      "target_date": "2026-11-13",
+      "horizon_days": 7,
+      "spot_at_forecast": 360.67,
+      "iv": 0.5842,
+      "implied_move_pct": 0.0809,
+      "implied_move_abs": 29.18,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "VIX is elevated at 24.6 but down ~13% on the day \u2014 a relief-rally tape where vol is cooling fast and upside momentum is live. That is premium-rich in absolute terms but a poor moment to sell call spreads, which get run over in exactly this kind of rip.",
       "resolved": false
     }
   ]
