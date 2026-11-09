@@ -2086,8 +2086,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -47.26,
-      "cost_to_close_mid": 100.0,
+      "unrealized_pnl": -42.26,
+      "cost_to_close_mid": 95.0,
       "structure": "short_put_vertical",
       "short_strike": 61.5,
       "long_strike": 60.5,
@@ -3088,8 +3088,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -794.59,
-      "cost_to_close_mid": 1568.0,
+      "unrealized_pnl": -899.59,
+      "cost_to_close_mid": 1673.0,
       "structure": "short_put_vertical",
       "short_strike": 722.0,
       "long_strike": 713.0,
@@ -3101,6 +3101,124 @@
       "max_profit_total": 778.0,
       "max_loss_total": 1022.0,
       "bpr_total": 1022.0
+    },
+    {
+      "id": "ledger_048_nvda",
+      "underlying": "NVDA",
+      "opened_at": "2026-11-09",
+      "open_order_id": "523885454",
+      "open_net_cash": -1285.12,
+      "open_legs": [
+        {
+          "symbol": "NVDA  261211C00175000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 12.84,
+          "net_cash": -1285.12,
+          "fees": 1.12,
+          "executed_at": "2026-11-09T19:17:19.456Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": 132.38,
+      "cost_to_close_mid": -1417.5
+    },
+    {
+      "id": "ledger_049_iwm",
+      "underlying": "IWM",
+      "opened_at": "2026-11-09",
+      "open_order_id": "523889904",
+      "open_net_cash": 52.75,
+      "open_legs": [
+        {
+          "symbol": "IWM   261211P00261000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 1.53,
+          "net_cash": -154.12,
+          "fees": 1.12,
+          "executed_at": "2026-11-09T19:21:59.778Z"
+        },
+        {
+          "symbol": "IWM   261211P00266000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 2.08,
+          "net_cash": 206.87,
+          "fees": 1.13,
+          "executed_at": "2026-11-09T19:21:59.778Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -2.75,
+      "cost_to_close_mid": 55.5,
+      "structure": "short_put_vertical",
+      "short_strike": 266.0,
+      "long_strike": 261.0,
+      "expiry": "2026-12-11",
+      "contracts": 1,
+      "credit_per_contract": 0.55,
+      "width": 5.0,
+      "spread_type": "credit",
+      "max_profit_total": 55.0,
+      "max_loss_total": 445.0,
+      "bpr_total": 445.0
+    },
+    {
+      "id": "ledger_050_qqq",
+      "underlying": "QQQ",
+      "opened_at": "2026-11-09",
+      "open_order_id": "523890541",
+      "open_net_cash": 112.75,
+      "open_legs": [
+        {
+          "symbol": "QQQ   261211C00732000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 2.27,
+          "net_cash": -228.12,
+          "fees": 1.12,
+          "executed_at": "2026-11-09T19:22:43.703Z"
+        },
+        {
+          "symbol": "QQQ   261211C00724000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 3.42,
+          "net_cash": 340.87,
+          "fees": 1.13,
+          "executed_at": "2026-11-09T19:22:43.703Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -9.75,
+      "cost_to_close_mid": 122.5,
+      "structure": "short_call_vertical",
+      "short_strike": 724.0,
+      "long_strike": 732.0,
+      "expiry": "2026-12-11",
+      "contracts": 1,
+      "credit_per_contract": 1.15,
+      "width": 8.0,
+      "spread_type": "credit",
+      "max_profit_total": 115.0,
+      "max_loss_total": 685.0,
+      "bpr_total": 685.0
     }
   ]
 }
