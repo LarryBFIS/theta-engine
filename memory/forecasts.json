@@ -4372,7 +4372,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_rich",
       "market_view": "Tape is risk-off: VIX 20.71 elevated and a fresh -2% day, which makes broad-index premium rich but the tape fast and one-directional. Selling call spreads right after a flush risks a violent mean-reversion bounce, and selling single-name premium mid-de-risking is poorly compensat",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-10",
+      "actual_price": 748.35,
+      "realized_move_pct": 0.0084,
+      "realized_move_signed": -0.0084,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "7c478baa45f6",
@@ -4387,7 +4393,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_rich",
       "market_view": "Tape is risk-off: VIX 20.71 elevated and a fresh -2% day, which makes broad-index premium rich but the tape fast and one-directional. Selling call spreads right after a flush risks a violent mean-reversion bounce, and selling single-name premium mid-de-risking is poorly compensat",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-10",
+      "actual_price": 671.95,
+      "realized_move_pct": 0.0193,
+      "realized_move_signed": -0.0193,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "fb4bda970e41",
@@ -4402,7 +4414,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_rich",
       "market_view": "Tape is risk-off: VIX 20.71 elevated and a fresh -2% day, which makes broad-index premium rich but the tape fast and one-directional. Selling call spreads right after a flush risks a violent mean-reversion bounce, and selling single-name premium mid-de-risking is poorly compensat",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-10",
+      "actual_price": 279.88,
+      "realized_move_pct": 0.0014,
+      "realized_move_signed": -0.0014,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "6d8a4a69709e",
@@ -4417,7 +4435,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_rich",
       "market_view": "Tape is risk-off: VIX 20.71 elevated and a fresh -2% day, which makes broad-index premium rich but the tape fast and one-directional. Selling call spreads right after a flush risks a violent mean-reversion bounce, and selling single-name premium mid-de-risking is poorly compensat",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-10",
+      "actual_price": 521.52,
+      "realized_move_pct": 0.008,
+      "realized_move_signed": 0.008,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "1336886fa44c",
@@ -4432,7 +4456,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_rich",
       "market_view": "Tape is risk-off: VIX 20.71 elevated and a fresh -2% day, which makes broad-index premium rich but the tape fast and one-directional. Selling call spreads right after a flush risks a violent mean-reversion bounce, and selling single-name premium mid-de-risking is poorly compensat",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-10",
+      "actual_price": 377.46,
+      "realized_move_pct": 0.0521,
+      "realized_move_signed": -0.0521,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "6aef237b491f",
@@ -4807,6 +4837,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 20.08, elevated regime, -22% day: market repriced down sharply; premium is rich NOW, favoring premium sellers. Tape is in relief/stabilization mode post-selloff\u2014good window for SHORT premium, but avoid chasing into residual momentum or adding correlated tech risk.",
+      "resolved": false
+    },
+    {
+      "id": "eeae683ecd6d",
+      "index": "SPY",
+      "forecast_date": "2026-11-10",
+      "target_date": "2026-11-17",
+      "horizon_days": 7,
+      "spot_at_forecast": 748.35,
+      "iv": 0.1927,
+      "implied_move_pct": 0.0267,
+      "implied_move_abs": 19.97,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 19.95, normal regime, flat day \u2014 benign backdrop for premium selling, no event risk. Timing is neutral-to-good for measured short-vol positions.",
+      "resolved": false
+    },
+    {
+      "id": "f259cccc15af",
+      "index": "QQQ",
+      "forecast_date": "2026-11-10",
+      "target_date": "2026-11-17",
+      "horizon_days": 7,
+      "spot_at_forecast": 671.95,
+      "iv": 0.283,
+      "implied_move_pct": 0.0392,
+      "implied_move_abs": 26.33,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 19.95, normal regime, flat day \u2014 benign backdrop for premium selling, no event risk. Timing is neutral-to-good for measured short-vol positions.",
+      "resolved": false
+    },
+    {
+      "id": "217cdeb2ef61",
+      "index": "IWM",
+      "forecast_date": "2026-11-10",
+      "target_date": "2026-11-17",
+      "horizon_days": 7,
+      "spot_at_forecast": 279.88,
+      "iv": 0.2277,
+      "implied_move_pct": 0.0315,
+      "implied_move_abs": 8.83,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 19.95, normal regime, flat day \u2014 benign backdrop for premium selling, no event risk. Timing is neutral-to-good for measured short-vol positions.",
+      "resolved": false
+    },
+    {
+      "id": "e9d87debdeea",
+      "index": "DIA",
+      "forecast_date": "2026-11-10",
+      "target_date": "2026-11-17",
+      "horizon_days": 7,
+      "spot_at_forecast": 521.52,
+      "iv": 0.1727,
+      "implied_move_pct": 0.0239,
+      "implied_move_abs": 12.47,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 19.95, normal regime, flat day \u2014 benign backdrop for premium selling, no event risk. Timing is neutral-to-good for measured short-vol positions.",
+      "resolved": false
+    },
+    {
+      "id": "f0c524c7151b",
+      "index": "TSLA",
+      "forecast_date": "2026-11-10",
+      "target_date": "2026-11-17",
+      "horizon_days": 7,
+      "spot_at_forecast": 377.46,
+      "iv": 0.5016,
+      "implied_move_pct": 0.0695,
+      "implied_move_abs": 26.22,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 19.95, normal regime, flat day \u2014 benign backdrop for premium selling, no event risk. Timing is neutral-to-good for measured short-vol positions.",
       "resolved": false
     }
   ]
