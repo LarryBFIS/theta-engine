@@ -1,28 +1,28 @@
 {
-  "last_run": "2026-11-11T20:00:57.325031+00:00",
-  "market_view": "QQQ ripped +2.55% today and VIX crushed -10% to 17.51, a significant risk-on reversal that directly threatens the QQQ put spread and benefits the call spread short. SLV remains structurally broken at $46.78 vs 61.5 short strike regardless of today's action.",
+  "last_run": "2026-11-11T20:08:25.941701+00:00",
+  "market_view": "QQQ +2.47% today with VIX crushed to 17.47 (-10.23%) signals strong risk-on, but this rally further damages the QQQ 722/713p which is deep ITM with only 18 DTE \u2014 both QQQ spreads and SLV remain active rule violations requiring immediate closure.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-11-11T20:00:36.545033+00:00",
-    "reasoning": "SLV at $46.78 is 31.5% below the 61.5 short strike, mid cost $0.90 is 1.64x the $0.55 credit blowing through the 1.5x stop, and this is the eighth consecutive CRITICAL flag with no close executed \u2014 this is an ongoing rule violation tying up $45 BPR with zero recovery path."
+    "timestamp": "2026-11-11T20:08:07Z",
+    "reasoning": "SLV at $46.72 is 31.6% below the 61.5 short strike, mid cost $0.90 is 1.64x the $0.55 credit \u2014 stop rule breached, zero recovery path, this position has been flagged CRITICAL repeatedly with no close executed which is an ongoing rule violation."
   },
   "QQQ 722/713p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-11-11T20:00:36.545033+00:00",
-    "reasoning": "QQQ at $692.09 is 4.3% below the 722 short strike, 18 DTE violates the hard 21 DTE exit rule, mid cost $6.84 is 1.76x the $3.89 credit \u2014 DTE rule violation is active and today's +2.55% QQQ rally has not recovered the spread enough to avoid near-max loss on $1,022 BPR."
+    "timestamp": "2026-11-11T20:08:07Z",
+    "reasoning": "QQQ at $691.43 is 4.2% below the 722 short strike, 18 DTE violates the hard 21 DTE exit rule, and mid cost $6.935 is 1.78x the $3.89 credit \u2014 today's rally did nothing to recover this spread which is trading near max loss territory on $1,022 BPR."
   },
   "IWM 266/261p": {
     "action": "ACTION",
-    "confidence": 0.85,
-    "timestamp": "2026-11-11T20:00:36.545033+00:00",
-    "reasoning": "IWM at $282.93 is 6% above the 266 short strike, mid cost $0.43 is 78% of max profit ($0.55 credit) \u2014 the 50% profit target is hit and exceeded, locking in gains before 29 DTE becomes a concern."
+    "confidence": 0.9,
+    "timestamp": "2026-11-11T20:08:07Z",
+    "reasoning": "IWM at $282.94 is 6% above short strike, mid cost $0.43 represents 78% of max profit \u2014 50% profit target has been hit and held, close this winner before theta unwind reverses."
   },
   "QQQ 724/732c": {
-    "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-11-11T20:00:36.545033+00:00",
-    "reasoning": "QQQ at $692.09 is 4.6% below the 724 short call strike and today's +2.55% rally pushed mid cost to $1.875 vs $1.15 credit \u2014 the spread is now at 1.63x stop threshold, but the short strike is not yet breached and the risk-on move may stall; monitor closely as QQQ is approaching 724."
+    "action": "CRITICAL",
+    "confidence": 0.88,
+    "timestamp": "2026-11-11T20:08:07Z",
+    "reasoning": "QQQ +2.47% today pushed it to $691.43 and is closing in on the 724 short call \u2014 mid cost $1.845 is 1.60x the $1.15 credit, breaching the 1.5x stop rule; with risk-on momentum intact this call spread faces continued pressure."
   }
 }
