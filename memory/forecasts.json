@@ -4477,7 +4477,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Tape is under pressure (-2% day) with VIX 20.83 in an elevated regime \u2014 implied premium is richer but realized risk is live and direction is down. This favors selective short premium on broad indexes, not on high-beta single names that gap hard in fast tapes.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-11",
+      "actual_price": 760.63,
+      "realized_move_pct": 0.0132,
+      "realized_move_signed": 0.0132,
+      "stayed_in_range": true
     },
     {
       "id": "06d57229b0de",
@@ -4492,7 +4497,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Tape is under pressure (-2% day) with VIX 20.83 in an elevated regime \u2014 implied premium is richer but realized risk is live and direction is down. This favors selective short premium on broad indexes, not on high-beta single names that gap hard in fast tapes.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-11",
+      "actual_price": 692.46,
+      "realized_move_pct": 0.0193,
+      "realized_move_signed": 0.0193,
+      "stayed_in_range": true
     },
     {
       "id": "3f1eae67a4d9",
@@ -4507,7 +4517,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Tape is under pressure (-2% day) with VIX 20.83 in an elevated regime \u2014 implied premium is richer but realized risk is live and direction is down. This favors selective short premium on broad indexes, not on high-beta single names that gap hard in fast tapes.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-11",
+      "actual_price": 283.04,
+      "realized_move_pct": 0.0177,
+      "realized_move_signed": 0.0177,
+      "stayed_in_range": true
     },
     {
       "id": "b68becbafabb",
@@ -4522,7 +4537,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Tape is under pressure (-2% day) with VIX 20.83 in an elevated regime \u2014 implied premium is richer but realized risk is live and direction is down. This favors selective short premium on broad indexes, not on high-beta single names that gap hard in fast tapes.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-11",
+      "actual_price": 524.29,
+      "realized_move_pct": 0.0184,
+      "realized_move_signed": 0.0184,
+      "stayed_in_range": true
     },
     {
       "id": "68540a9fa9e1",
@@ -4537,7 +4557,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Tape is under pressure (-2% day) with VIX 20.83 in an elevated regime \u2014 implied premium is richer but realized risk is live and direction is down. This favors selective short premium on broad indexes, not on high-beta single names that gap hard in fast tapes.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-11",
+      "actual_price": 391.47,
+      "realized_move_pct": 0.0007,
+      "realized_move_signed": 0.0007,
+      "stayed_in_range": true
     },
     {
       "id": "a9f39dbc6770",
@@ -4912,6 +4937,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 19.95, normal regime, flat day \u2014 benign backdrop for premium selling, no event risk. Timing is neutral-to-good for measured short-vol positions.",
+      "resolved": false
+    },
+    {
+      "id": "d70281fd1db2",
+      "index": "SPY",
+      "forecast_date": "2026-11-11",
+      "target_date": "2026-11-18",
+      "horizon_days": 7,
+      "spot_at_forecast": 760.63,
+      "iv": 0.1708,
+      "implied_move_pct": 0.0237,
+      "implied_move_abs": 17.99,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 17.49, normal regime after -10% day: tape is stabilizing, not accelerating lower. Selling premium into a rebound is reasonable timing; avoid chasing vol collapse.",
+      "resolved": false
+    },
+    {
+      "id": "853a45d5f670",
+      "index": "QQQ",
+      "forecast_date": "2026-11-11",
+      "target_date": "2026-11-18",
+      "horizon_days": 7,
+      "spot_at_forecast": 692.46,
+      "iv": 0.2619,
+      "implied_move_pct": 0.0363,
+      "implied_move_abs": 25.11,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 17.49, normal regime after -10% day: tape is stabilizing, not accelerating lower. Selling premium into a rebound is reasonable timing; avoid chasing vol collapse.",
+      "resolved": false
+    },
+    {
+      "id": "6583facffcb8",
+      "index": "IWM",
+      "forecast_date": "2026-11-11",
+      "target_date": "2026-11-18",
+      "horizon_days": 7,
+      "spot_at_forecast": 283.04,
+      "iv": 0.2092,
+      "implied_move_pct": 0.029,
+      "implied_move_abs": 8.2,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 17.49, normal regime after -10% day: tape is stabilizing, not accelerating lower. Selling premium into a rebound is reasonable timing; avoid chasing vol collapse.",
+      "resolved": false
+    },
+    {
+      "id": "b1561346a846",
+      "index": "DIA",
+      "forecast_date": "2026-11-11",
+      "target_date": "2026-11-18",
+      "horizon_days": 7,
+      "spot_at_forecast": 524.29,
+      "iv": 0.1572,
+      "implied_move_pct": 0.0218,
+      "implied_move_abs": 11.41,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 17.49, normal regime after -10% day: tape is stabilizing, not accelerating lower. Selling premium into a rebound is reasonable timing; avoid chasing vol collapse.",
+      "resolved": false
+    },
+    {
+      "id": "cadd7230cc41",
+      "index": "TSLA",
+      "forecast_date": "2026-11-11",
+      "target_date": "2026-11-18",
+      "horizon_days": 7,
+      "spot_at_forecast": 391.47,
+      "iv": 0.4678,
+      "implied_move_pct": 0.0648,
+      "implied_move_abs": 25.36,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 17.49, normal regime after -10% day: tape is stabilizing, not accelerating lower. Selling premium into a rebound is reasonable timing; avoid chasing vol collapse.",
       "resolved": false
     }
   ]
