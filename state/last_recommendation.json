@@ -1,28 +1,28 @@
 {
-  "last_run": "2026-11-10T20:25:48.563039+00:00",
-  "market_view": "Risk-off regime persists \u2014 QQQ down 2.1% over 5 days, VIX at 20.08 and rising, XLK bleeding -4.47% 5d. No catalyst for reversal visible and both critical put spreads have zero recovery path.",
+  "last_run": "2026-11-11T00:42:18.512656+00:00",
+  "market_view": "Market remains in risk-off with QQQ -2% 5d and VIX elevated at 19.46 despite a slight dip today. Tech (XLK -4.4% 5d) is the primary drag; no reversal catalyst visible.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-11-10T20:25:32.177957+00:00",
-    "reasoning": "SLV at $46.56 is 32.1% below the 61.5 short strike \u2014 mid cost $1.35 is 2.45x the $0.55 credit and this spread is at near max loss with 50 DTE of dead BPR. This is the sixth consecutive CRITICAL flag with no close executed; every hour held is capital destruction."
+    "timestamp": "2026-11-11T00:42:03.508999+00:00",
+    "reasoning": "SLV at $46.48 is 32.3% below the 61.5 short strike \u2014 mid cost $1.175 is 2.14x the $0.55 credit, 1.5x stop was breached long ago, 49 DTE of dead BPR. This is the seventh consecutive CRITICAL flag with no close executed; this is a rule violation compounding daily."
   },
   "QQQ 722/713p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-11-10T20:25:32.177957+00:00",
-    "reasoning": "19 DTE is past the hard 21 DTE exit rule, QQQ at $673.96 is 7.1% below the 722 short strike, mid cost $8.21 is 2.11x the $3.89 credit \u2014 1.5x stop was breached months ago and this position is at near-max loss on $1,022 BPR. Six consecutive CRITICAL flags with zero action is a rule violation that is compounding daily."
+    "timestamp": "2026-11-11T00:42:03.508999+00:00",
+    "reasoning": "18 DTE breaches the hard 21 DTE exit rule, QQQ at $674.76 is 7.0% below the 722 short strike, mid cost $7.70 is 1.98x the $3.89 credit \u2014 stop and DTE rules both violated simultaneously, position at near-max loss on $1,022 BPR with no recovery path."
   },
   "IWM 266/261p": {
     "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-11-10T20:25:32.177957+00:00",
-    "reasoning": "IWM at $280.21 is 5.07% above the 266 short strike with 30 DTE \u2014 mid $0.625 is a small unrealized loss on $0.55 credit but not at the 1.5x stop. Risk-off and IWM down 1.39% 5d are headwinds that warrant watching as cushion is narrowing."
+    "confidence": 0.72,
+    "timestamp": "2026-11-11T00:42:03.508999+00:00",
+    "reasoning": "IWM at $280.58 is 5.2% above the 266 short strike with 29 DTE \u2014 mid $0.605 on $0.55 credit is a slight unrealized loss but not yet at 1.5x stop ($0.825). Risk-off environment and IWM -1.26% 5d are narrowing the cushion."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
-    "confidence": 0.85,
-    "timestamp": "2026-11-10T20:25:32.177957+00:00",
-    "reasoning": "QQQ at $673.96 is 7.4% below the 724 short call strike \u2014 mid $0.975 vs $1.15 credit is 15% profit realized at 30 DTE, approaching 50% target as risk-off regime continues to pressure QQQ lower and benefits this call spread."
+    "confidence": 0.88,
+    "timestamp": "2026-11-11T00:42:03.508999+00:00",
+    "reasoning": "QQQ at $674.76 is 7.3% below the 724 short call strike \u2014 mid $1.025 vs $1.15 credit is 11% profit at 29 DTE, closing in on the 50% target as risk-off continues to benefit this call spread. With the two critical puts being closed, this simplifies the book."
   }
 }
