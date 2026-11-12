@@ -4577,7 +4577,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_rich",
       "market_view": "Stress tape: VIX 24.87 and +50% on the day signals an active risk-off with violent two-way swings; after spikes like this, mean-reversion rips are common and run over short call strikes. IV is rich, which normally favors premium selling, but timing right now favors patience over ",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-12",
+      "actual_price": 761.43,
+      "realized_move_pct": 0.0349,
+      "realized_move_signed": 0.0349,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "d4ef80315461",
@@ -4592,7 +4598,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_rich",
       "market_view": "Stress tape: VIX 24.87 and +50% on the day signals an active risk-off with violent two-way swings; after spikes like this, mean-reversion rips are common and run over short call strikes. IV is rich, which normally favors premium selling, but timing right now favors patience over ",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-12",
+      "actual_price": 691.86,
+      "realized_move_pct": 0.0618,
+      "realized_move_signed": 0.0618,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "062d06c5e670",
@@ -4607,7 +4619,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_rich",
       "market_view": "Stress tape: VIX 24.87 and +50% on the day signals an active risk-off with violent two-way swings; after spikes like this, mean-reversion rips are common and run over short call strikes. IV is rich, which normally favors premium selling, but timing right now favors patience over ",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-12",
+      "actual_price": 281.0,
+      "realized_move_pct": 0.035,
+      "realized_move_signed": 0.035,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "ea2bd78f27ec",
@@ -4622,7 +4640,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_rich",
       "market_view": "Stress tape: VIX 24.87 and +50% on the day signals an active risk-off with violent two-way swings; after spikes like this, mean-reversion rips are common and run over short call strikes. IV is rich, which normally favors premium selling, but timing right now favors patience over ",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-12",
+      "actual_price": 526.24,
+      "realized_move_pct": 0.0205,
+      "realized_move_signed": 0.0205,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "858d9cafc7b7",
@@ -4637,7 +4661,13 @@
       "model": "kimi-k3",
       "vol_verdict": "implied_rich",
       "market_view": "Stress tape: VIX 24.87 and +50% on the day signals an active risk-off with violent two-way swings; after spikes like this, mean-reversion rips are common and run over short call strikes. IV is rich, which normally favors premium selling, but timing right now favors patience over ",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-12",
+      "actual_price": 392.1,
+      "realized_move_pct": 0.1473,
+      "realized_move_signed": 0.1473,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "e1d8f5f52fe5",
@@ -5012,6 +5042,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 17.49, normal regime after -10% day: tape is stabilizing, not accelerating lower. Selling premium into a rebound is reasonable timing; avoid chasing vol collapse.",
+      "resolved": false
+    },
+    {
+      "id": "50352a3360a8",
+      "index": "SPY",
+      "forecast_date": "2026-11-12",
+      "target_date": "2026-11-19",
+      "horizon_days": 7,
+      "spot_at_forecast": 761.43,
+      "iv": 0.1717,
+      "implied_move_pct": 0.0238,
+      "implied_move_abs": 18.11,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "VIX 17.49 in a normal, flat tape \u2014 a fine environment for selling premium on favored structures, but nothing screams urgency. No events on the calendar, so timing is neutral-to-supportive; selectivity on structure and correlation is the edge here.",
+      "resolved": false
+    },
+    {
+      "id": "92f0e4e2f2b0",
+      "index": "QQQ",
+      "forecast_date": "2026-11-12",
+      "target_date": "2026-11-19",
+      "horizon_days": 7,
+      "spot_at_forecast": 691.86,
+      "iv": 0.264,
+      "implied_move_pct": 0.0366,
+      "implied_move_abs": 25.3,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "VIX 17.49 in a normal, flat tape \u2014 a fine environment for selling premium on favored structures, but nothing screams urgency. No events on the calendar, so timing is neutral-to-supportive; selectivity on structure and correlation is the edge here.",
+      "resolved": false
+    },
+    {
+      "id": "f570dbc44788",
+      "index": "IWM",
+      "forecast_date": "2026-11-12",
+      "target_date": "2026-11-19",
+      "horizon_days": 7,
+      "spot_at_forecast": 281.0,
+      "iv": 0.2047,
+      "implied_move_pct": 0.0284,
+      "implied_move_abs": 7.97,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "VIX 17.49 in a normal, flat tape \u2014 a fine environment for selling premium on favored structures, but nothing screams urgency. No events on the calendar, so timing is neutral-to-supportive; selectivity on structure and correlation is the edge here.",
+      "resolved": false
+    },
+    {
+      "id": "33586e67f27f",
+      "index": "DIA",
+      "forecast_date": "2026-11-12",
+      "target_date": "2026-11-19",
+      "horizon_days": 7,
+      "spot_at_forecast": 526.24,
+      "iv": 0.1549,
+      "implied_move_pct": 0.0214,
+      "implied_move_abs": 11.29,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "VIX 17.49 in a normal, flat tape \u2014 a fine environment for selling premium on favored structures, but nothing screams urgency. No events on the calendar, so timing is neutral-to-supportive; selectivity on structure and correlation is the edge here.",
+      "resolved": false
+    },
+    {
+      "id": "cf928fdc5671",
+      "index": "TSLA",
+      "forecast_date": "2026-11-12",
+      "target_date": "2026-11-19",
+      "horizon_days": 7,
+      "spot_at_forecast": 392.1,
+      "iv": 0.4717,
+      "implied_move_pct": 0.0653,
+      "implied_move_abs": 25.61,
+      "model": "kimi-k3",
+      "vol_verdict": "fair",
+      "market_view": "VIX 17.49 in a normal, flat tape \u2014 a fine environment for selling premium on favored structures, but nothing screams urgency. No events on the calendar, so timing is neutral-to-supportive; selectivity on structure and correlation is the edge here.",
       "resolved": false
     }
   ]
