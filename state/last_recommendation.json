@@ -1,28 +1,28 @@
 {
-  "last_run": "2026-11-12T20:45:21.370001+00:00",
-  "market_view": "Market is post-close with VIX up 6.86% on the day \u2014 vol expansion into weakness confirms risk-off tone. QQQ and IWM both closed red with QQQ/IWM put spreads deep ITM; these are after-hours prices with no recovery catalyst visible.",
+  "last_run": "2026-11-13T01:28:20.788584+00:00",
+  "market_view": "Pre-market/overnight session with NaN price feeds \u2014 market data feed is down but VIX closed at 18.7 up 6.92% yesterday confirming risk-off. No new catalysts visible but both SLV and QQQ put spread remain in severe breach with no recovery path.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-11-12T20:45:04.395181+00:00",
-    "reasoning": "SLV at $45.15 is 36% below the 61.5 short strike \u2014 position is at max loss, mid cost $1.05 is 1.91x the credit, 1.5x stop rule was blown through long ago. This has been flagged CRITICAL for multiple consecutive cycles with no execution \u2014 this is unacceptable account management and capital is permanently impaired the longer this stays open."
+    "timestamp": "2026-11-13T01:28:06.071728+00:00",
+    "reasoning": "SLV at $45.12 is 36% below the 61.5 short strike \u2014 this is at max loss, mid $1.05 is 1.91x credit, stop rule was breached long ago, and this position has been flagged CRITICAL for multiple consecutive cycles with zero execution. Every hour this stays open is dead capital burning."
   },
   "QQQ 722/713p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-11-12T20:45:04.395181+00:00",
-    "reasoning": "QQQ at $687.09 is 5.1% below the 722 short strike, mid cost $7.20 is 1.85x the $3.89 credit, and at 17 DTE the 21 DTE hard exit rule was triggered days ago \u2014 this is a rules violation compounding into near-max loss on $1,022 BPR with zero recovery path given the magnitude of the breach."
+    "timestamp": "2026-11-13T01:28:06.071728+00:00",
+    "reasoning": "QQQ at $688.17 is 4.9% below the 722 short strike, mid $6.18 is 1.59x the $3.89 credit blowing through the 1.5x stop rule, 16 DTE means the 21 DTE hard exit rule was violated days ago \u2014 this is a compounding rules violation on $1,022 BPR with no recovery path."
   },
   "IWM 266/261p": {
     "action": "WATCH",
     "confidence": 0.72,
-    "timestamp": "2026-11-12T20:45:04.395181+00:00",
-    "reasoning": "IWM at $278.65 is 4.5% above the 266 short strike, mid $0.655 vs $0.55 credit is a small loss but not at stop threshold \u2014 IWM's -1.57% day is the worst performer today, showing relative weakness that warrants monitoring at 28 DTE."
+    "timestamp": "2026-11-13T01:28:06.071728+00:00",
+    "reasoning": "IWM at $278.44 is 4.5% above the 266 short strike, mid $0.665 vs $0.55 credit is a small loss not yet at 1.5x threshold \u2014 27 DTE gives runway but relative IWM weakness warrants monitoring."
   },
   "QQQ 724/732c": {
     "action": "WATCH",
-    "confidence": 0.7,
-    "timestamp": "2026-11-12T20:45:04.395181+00:00",
-    "reasoning": "QQQ at $687.09 is 5.3% below the 724 short call, mid $1.61 is 1.40x the $1.15 credit \u2014 still just under the 1.5x stop threshold and market weakness actually helps this position directionally, so it gets a brief reprieve from CRITICAL status."
+    "confidence": 0.68,
+    "timestamp": "2026-11-13T01:28:06.071728+00:00",
+    "reasoning": "QQQ at $688.17 is 5.2% below the 724 short call, mid $1.775 is 1.54x the $1.15 credit \u2014 this just crossed the 1.5x stop threshold and market weakness directionally helps this position, but it needs to be watched closely at 27 DTE."
   }
 }
