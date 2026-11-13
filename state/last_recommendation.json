@@ -1,28 +1,28 @@
 {
-  "last_run": "2026-11-13T20:20:54.930089+00:00",
-  "market_view": "Tech selling off hard (-2.06% XLK, QQQ -1.26%) while defensives and energy bid \u2014 rotation out of growth. QQQ weakness is compounding the already-breached put spread problem; VIX at 19 is elevated but stable.",
+  "last_run": "2026-11-13T20:26:50.516333+00:00",
+  "market_view": "Tech continues selling off (XLK -2.09%, QQQ -1.27%) while defensives bid \u2014 rotation out of growth persists. VIX at 19 stable but QQQ weakness is deepening losses on the breached put spread.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-11-13T20:20:38.767626+00:00",
-    "reasoning": "SLV at $44.15 is 28% below the 61.5 short strike \u2014 this is pinned at max loss, mid $1.30 is 2.36x the $0.55 credit, stop rule was blown through long ago. This position has been flagged CRITICAL for multiple consecutive cycles with zero execution \u2014 every minute open is burning BPR on a dead trade."
+    "timestamp": "2026-11-13T20:26:36.185904+00:00",
+    "reasoning": "SLV at $44.13 is 28% below the 61.5 short strike \u2014 pinned at max loss, mid $1.30 is 2.36x credit, stop rule and 21 DTE rule both violated multiple cycles ago. This has been CRITICAL for multiple consecutive cycles with no execution."
   },
   "QQQ 722/713p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-11-13T20:20:38.767626+00:00",
-    "reasoning": "QQQ at $679.50 is now 6.3% below the 722 short strike, mid $7.925 is 2.04x the $3.89 credit \u2014 this is at near-max loss on $1,022 BPR with 16 DTE, 21 DTE hard exit rule was violated, 1.5x stop rule was violated, and QQQ is continuing to sell off today. This has been flagged CRITICAL multiple cycles with no action taken."
+    "timestamp": "2026-11-13T20:26:36.185904+00:00",
+    "reasoning": "QQQ at $679.42 is 6.3% below the 722 short strike, mid $8.10 is 2.08x the $3.89 credit on $1,022 BPR \u2014 1.5x stop rule and 21 DTE hard exit rule both violated, QQQ still selling off today."
   },
   "IWM 266/261p": {
     "action": "WATCH",
     "confidence": 0.72,
-    "timestamp": "2026-11-13T20:20:38.767626+00:00",
-    "reasoning": "IWM at $277.40 is 4.3% above the 266 short strike, mid $0.685 vs $0.55 credit is a modest loss not yet at 1.5x threshold \u2014 27 DTE gives runway but IWM flat on the week while market is mixed warrants monitoring."
+    "timestamp": "2026-11-13T20:26:36.185904+00:00",
+    "reasoning": "IWM at $277.33 is 4.1% above the 266 short strike, mid $0.695 vs $0.55 credit is below 1.5x threshold \u2014 27 DTE, no breach, no action required yet."
   },
   "QQQ 724/732c": {
-    "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-11-13T20:20:38.767626+00:00",
-    "reasoning": "QQQ at $679.50 is 6.5% below the 724 short call strike \u2014 today's tech selloff is directionally helping this position, mid $1.145 is essentially flat to credit. No action needed but monitor: if QQQ bounces hard this becomes a problem again."
+    "action": "ACTION",
+    "confidence": 0.8,
+    "timestamp": "2026-11-13T20:26:36.185904+00:00",
+    "reasoning": "QQQ at $679.42 is 6.6% below the 724 short call strike, mid $1.14 is essentially at the $1.15 credit \u2014 this is effectively at 50% profit territory and tech is still selling, making this a gift to close."
   }
 }
