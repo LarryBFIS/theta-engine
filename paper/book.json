@@ -1343,8 +1343,8 @@
       "opened_credit": 1.02,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 45.0,
-      "current_debit": 0.57,
+      "unrealized_pnl": 49.0,
+      "current_debit": 0.53,
       "close_reason": null
     },
     {
@@ -1434,21 +1434,50 @@
       "opened_credit": 0.58,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -49.0,
-      "current_debit": 1.07,
+      "unrealized_pnl": -85.0,
+      "current_debit": 1.43,
+      "close_reason": null
+    },
+    {
+      "id": "paper_0047_spy",
+      "sig": "SPY_685_675_2026-12-18",
+      "underlying": "SPY",
+      "structure": "short_put_vertical",
+      "short_strike": 685.0,
+      "long_strike": 675.0,
+      "short_symbol": "SPY   261218P00685000",
+      "long_symbol": "SPY   261218P00675000",
+      "symbols": null,
+      "expiry": "2026-12-18",
+      "credit": 1.01,
+      "bpr": 899.0,
+      "pop": 0.801,
+      "iv_rank": 0.792,
+      "tag": "paper",
+      "contracts": 1,
+      "event": null,
+      "close_date": null,
+      "day_trade": null,
+      "close_after_et": null,
+      "opened_at": "2026-11-17",
+      "opened_credit": 1.01,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -16.0,
+      "current_debit": 1.17,
       "close_reason": null
     }
   ],
-  "updated_at": "2026-11-16T22:51:43.685168+00:00",
+  "updated_at": "2026-11-17T21:22:19.313007+00:00",
   "summary": {
-    "trades": 46,
-    "open": 2,
+    "trades": 47,
+    "open": 3,
     "closed": 44,
     "wins": 27,
     "losses": 17,
     "win_rate": 0.614,
     "realized_pnl": -402.0,
-    "open_unrealized_pnl": -4.0,
-    "total_pnl": -406.0
+    "open_unrealized_pnl": -52.0,
+    "total_pnl": -454.0
   }
 }

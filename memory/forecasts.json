@@ -4992,7 +4992,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 19.95, normal regime, flat day \u2014 benign backdrop for premium selling, no event risk. Timing is neutral-to-good for measured short-vol positions.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-17",
+      "actual_price": 732.84,
+      "realized_move_pct": 0.0207,
+      "realized_move_signed": -0.0207,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "f259cccc15af",
@@ -5007,7 +5013,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 19.95, normal regime, flat day \u2014 benign backdrop for premium selling, no event risk. Timing is neutral-to-good for measured short-vol positions.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-17",
+      "actual_price": 658.21,
+      "realized_move_pct": 0.0204,
+      "realized_move_signed": -0.0204,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "217cdeb2ef61",
@@ -5022,7 +5034,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 19.95, normal regime, flat day \u2014 benign backdrop for premium selling, no event risk. Timing is neutral-to-good for measured short-vol positions.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-17",
+      "actual_price": 269.0,
+      "realized_move_pct": 0.0389,
+      "realized_move_signed": -0.0389,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "e9d87debdeea",
@@ -5037,7 +5055,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 19.95, normal regime, flat day \u2014 benign backdrop for premium selling, no event risk. Timing is neutral-to-good for measured short-vol positions.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-17",
+      "actual_price": 507.15,
+      "realized_move_pct": 0.0276,
+      "realized_move_signed": -0.0276,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "f0c524c7151b",
@@ -5052,7 +5076,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 19.95, normal regime, flat day \u2014 benign backdrop for premium selling, no event risk. Timing is neutral-to-good for measured short-vol positions.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-17",
+      "actual_price": 380.11,
+      "realized_move_pct": 0.007,
+      "realized_move_signed": 0.007,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "d70281fd1db2",
@@ -5352,6 +5382,81 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "VIX +19% to 22.91 is an accelerating sell-off in a stress regime \u2014 exactly the tape where selling puts means catching a falling knife, and even call-side premium faces violent snap-back rally risk after a spike like this. This is a stand-down tape for new short-vol, paper or othe",
+      "resolved": false
+    },
+    {
+      "id": "c9569b51618c",
+      "index": "SPY",
+      "forecast_date": "2026-11-17",
+      "target_date": "2026-11-24",
+      "horizon_days": 7,
+      "spot_at_forecast": 732.84,
+      "iv": 0.2621,
+      "implied_move_pct": 0.0363,
+      "implied_move_abs": 26.6,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 25.45, elevated regime, +11% day\u2014premium is rich and volatility is elevated; this is a good backdrop for selling premium. However, the sharp up move suggests momentum; we should favor structures that benefit from continued strength or sideways action, not those fighting the t",
+      "resolved": false
+    },
+    {
+      "id": "9b3cbb2814f8",
+      "index": "QQQ",
+      "forecast_date": "2026-11-17",
+      "target_date": "2026-11-24",
+      "horizon_days": 7,
+      "spot_at_forecast": 658.21,
+      "iv": 0.3586,
+      "implied_move_pct": 0.0497,
+      "implied_move_abs": 32.69,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 25.45, elevated regime, +11% day\u2014premium is rich and volatility is elevated; this is a good backdrop for selling premium. However, the sharp up move suggests momentum; we should favor structures that benefit from continued strength or sideways action, not those fighting the t",
+      "resolved": false
+    },
+    {
+      "id": "f690616337c2",
+      "index": "IWM",
+      "forecast_date": "2026-11-17",
+      "target_date": "2026-11-24",
+      "horizon_days": 7,
+      "spot_at_forecast": 269.0,
+      "iv": 0.2882,
+      "implied_move_pct": 0.0399,
+      "implied_move_abs": 10.74,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 25.45, elevated regime, +11% day\u2014premium is rich and volatility is elevated; this is a good backdrop for selling premium. However, the sharp up move suggests momentum; we should favor structures that benefit from continued strength or sideways action, not those fighting the t",
+      "resolved": false
+    },
+    {
+      "id": "f014ee5ead0e",
+      "index": "DIA",
+      "forecast_date": "2026-11-17",
+      "target_date": "2026-11-24",
+      "horizon_days": 7,
+      "spot_at_forecast": 507.15,
+      "iv": 0.2128,
+      "implied_move_pct": 0.0295,
+      "implied_move_abs": 14.95,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 25.45, elevated regime, +11% day\u2014premium is rich and volatility is elevated; this is a good backdrop for selling premium. However, the sharp up move suggests momentum; we should favor structures that benefit from continued strength or sideways action, not those fighting the t",
+      "resolved": false
+    },
+    {
+      "id": "798563f80c6c",
+      "index": "TSLA",
+      "forecast_date": "2026-11-17",
+      "target_date": "2026-11-24",
+      "horizon_days": 7,
+      "spot_at_forecast": 380.11,
+      "iv": 0.5658,
+      "implied_move_pct": 0.0784,
+      "implied_move_abs": 29.78,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 25.45, elevated regime, +11% day\u2014premium is rich and volatility is elevated; this is a good backdrop for selling premium. However, the sharp up move suggests momentum; we should favor structures that benefit from continued strength or sideways action, not those fighting the t",
       "resolved": false
     }
   ]
