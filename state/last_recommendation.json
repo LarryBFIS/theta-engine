@@ -1,28 +1,28 @@
 {
-  "last_run": "2026-11-16T22:50:46.216377+00:00",
-  "market_view": "Risk-off continues with no catalyst reversal \u2014 VIX at 22.91 up 18.7%, QQQ -2.67%, XLK -3.24% and both breached put positions are deteriorating further with zero recovery signal. This is a close-everything-broken session.",
+  "last_run": "2026-11-17T21:31:34.325744+00:00",
+  "market_view": "Risk-off deepens \u2014 VIX now 25.46 up 11% today and +35% on the week, broad tape down across all sectors with XLF leading losers at -1.91%. QQQ down another -0.73% today with -4.41% 5d, no recovery signal in sight.",
   "SLV 61.5/60.5p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-11-16T22:50:30Z",
-    "reasoning": "SLV at $42.39 is 45% below the 61.5 short strike \u2014 mid at $1.40 is 2.55x the original credit, stop rule has been violated for multiple cycles with no execution. This position is at effective max loss and every minute of non-action is unacceptable."
+    "timestamp": "2026-11-17T21:31:12.888255+00:00",
+    "reasoning": "SLV at $42.64 is 44% below the 61.5 short strike \u2014 this is effectively at max loss with mid $0.625 against $0.55 credit, stop rule was breached long ago and this position has not been closed despite multiple CRITICAL alerts across two sessions."
   },
   "QQQ 722/713p": {
     "action": "CRITICAL",
     "confidence": 1.0,
-    "timestamp": "2026-11-16T22:50:30Z",
-    "reasoning": "QQQ at $661.75 is 9.1% below the 722 short strike, mid $8.745 is 2.25x credit, 13 DTE already breaches the 21 DTE hard exit rule that triggered days ago \u2014 this is pinned near max loss with QQQ still in freefall."
+    "timestamp": "2026-11-17T21:31:12.888255+00:00",
+    "reasoning": "QQQ at $656.95 is 9.9% below the 722 short strike, mid $8.77 is 2.25x credit, 12 DTE is past the 21 DTE hard exit rule, and this is pinned deep ITM with no recovery catalyst \u2014 this position is at near max loss of $1,022."
   },
   "IWM 266/261p": {
-    "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-11-16T22:50:30Z",
-    "reasoning": "IWM at $272.94 is still 2.5% above the 266 short strike but mid $1.07 is 1.95x credit \u2014 stop threshold is 1.5x ($0.825), so this is already above the trigger level and in a deteriorating risk-off tape."
+    "action": "CRITICAL",
+    "confidence": 0.9,
+    "timestamp": "2026-11-17T21:31:12.888255+00:00",
+    "reasoning": "IWM at $269.05 is now only 1.1% above the 266 short strike with mid at $1.465 \u2014 that is 2.66x the original $0.55 credit, far exceeding the 1.5x stop rule at $0.825, and IWM is down -1.43% today with VIX spiking, breach is imminent."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.97,
-    "timestamp": "2026-11-16T22:50:30Z",
-    "reasoning": "Mid $0.575 against $1.15 credit is exactly 50% max profit \u2014 manage-at-50% rule has been triggered and QQQ sitting 9.4% below the 724 short call with 24 DTE makes this a clean, high-confidence close."
+    "timestamp": "2026-11-17T21:31:12.888255+00:00",
+    "reasoning": "Mid $0.515 is 55% profit on $1.15 credit, 50% profit target was hit last session and QQQ is now 10% below the 724 short call strike making this nearly worthless \u2014 clean close."
   }
 }

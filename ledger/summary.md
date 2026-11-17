@@ -1,26 +1,26 @@
 # Ledger Summary
 
-_Generated 2026-11-16T22:50:23.902900+00:00 from tastytrade transaction history._
+_Generated 2026-11-17T21:31:43.207516+00:00 from tastytrade transaction history._
 
 ## Reconciliation
 
 | Item | Amount |
 |---|---:|
 | Starting capital | $3,389.91 |
-| Net liq (now) | $4,929.10 |
+| Net liq (now) | $4,887.09 |
 | Strategy realized (closed) | $+69.72 |
-| Strategy unrealized (open) | $-1,924.47 |
-| **Strategy P&L** | **$-1,854.75** |
-| Money movement | $+3,285.47 |
-| Non-strategy activity | $+108.47 |
-| **Account P&L** | **$+1,539.19** |
+| Strategy unrealized (open) | $-1,897.97 |
+| **Strategy P&L** | **$-1,828.25** |
+| Money movement | $+3,285.51 |
+| Non-strategy activity | $+39.92 |
+| **Account P&L** | **$+1,497.18** |
 
 _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger positions closed in-window). Total fees paid: $138.53._
 
 ### Money movement detail
 
 - Money Movement / Balance Adjustment: $-0.56
-- Money Movement / Credit Interest: $+0.13
+- Money Movement / Credit Interest: $+0.17
 - Money Movement / Deposit: $+3,285.90
 - Receive Deliver / Stock Merger: $+0.00
 
@@ -59,7 +59,7 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 | ledger_029_qqq | QQQ | 2026-08-17 | 2026-08-27 | closed | $-6.51 | — |
 | ledger_030_qqq | QQQ | 2026-08-18 | 2026-08-27 | closed | $+40.49 | — |
 | ledger_031_slv | SLV | 2026-08-20 | 2026-08-20 | closed | $-14.25 | — |
-| ledger_032_slv | SLV | 2026-08-20 | — | open | — | $-87.26 |
+| ledger_032_slv | SLV | 2026-08-20 | — | open | — | $-9.76 |
 | ledger_033_spy | SPY | 2026-08-26 | 2026-09-03 | closed | $+44.50 | — |
 | ledger_034_qqq | QQQ | 2026-08-31 | 2026-09-09 | closed | $+9.50 | — |
 | ledger_035_spy | SPY | 2026-09-09 | 2026-09-17 | closed | $+17.50 | — |
@@ -74,7 +74,7 @@ _Account P&L = strategy P&L + money movement + non-strategy activity (pre-ledger
 | ledger_044_dia | DIA | 2026-10-01 | 2026-10-06 | closed | $+15.50 | — |
 | ledger_045_qqq | QQQ | 2026-10-06 | 2026-10-16 | closed | $-611.07 | — |
 | ledger_046_dia | DIA | 2026-10-06 | 2026-10-29 | closed | $+93.02 | — |
-| ledger_047_qqq | QQQ | 2026-10-16 | — | open | — | $-975.59 |
-| ledger_048_nvda | NVDA | 2026-11-09 | — | open | — | $-862.62 |
-| ledger_049_iwm | IWM | 2026-11-09 | — | open | — | $-54.25 |
-| ledger_050_qqq | QQQ | 2026-11-09 | — | open | — | $+55.25 |
+| ledger_047_qqq | QQQ | 2026-10-16 | — | open | — | $-980.59 |
+| ledger_048_nvda | NVDA | 2026-11-09 | — | open | — | $-875.12 |
+| ledger_049_iwm | IWM | 2026-11-09 | — | open | — | $-93.75 |
+| ledger_050_qqq | QQQ | 2026-11-09 | — | open | — | $+61.25 |
