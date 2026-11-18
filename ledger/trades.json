@@ -2080,14 +2080,25 @@
           "executed_at": "2026-08-20T15:07:46.332Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": -9.76,
-      "cost_to_close_mid": 62.5,
+      "close_orders": [
+        "527719880"
+      ],
+      "close_net_cash": 1784.84,
+      "close_legs": [
+        {
+          "symbol": "SLV   261231P00060500",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 17.85,
+          "net_cash": 1784.84,
+          "fees": 0.16,
+          "executed_at": "2026-11-18T19:02:13.279Z"
+        }
+      ],
+      "closed_at": "2026-11-18",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": 1837.58,
       "structure": "short_put_vertical",
       "short_strike": 61.5,
       "long_strike": 60.5,
@@ -3082,14 +3093,34 @@
           "executed_at": "2026-10-16T17:29:30.568Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": -980.59,
-      "cost_to_close_mid": 1754.0,
+      "close_orders": [
+        "527805477"
+      ],
+      "close_net_cash": -1776.71,
+      "close_legs": [
+        {
+          "symbol": "QQQ   261130P00722000",
+          "action": "Buy to Close",
+          "quantity": 2.0,
+          "price": 63.49,
+          "net_cash": -12698.24,
+          "fees": 0.24,
+          "executed_at": "2026-11-18T20:36:44.511Z"
+        },
+        {
+          "symbol": "QQQ   261130P00713000",
+          "action": "Sell to Close",
+          "quantity": 2.0,
+          "price": 54.61,
+          "net_cash": 10921.53,
+          "fees": 0.47,
+          "executed_at": "2026-11-18T20:36:44.511Z"
+        }
+      ],
+      "closed_at": "2026-11-18",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": -1003.3,
       "structure": "short_put_vertical",
       "short_strike": 722.0,
       "long_strike": 713.0,
@@ -3100,7 +3131,8 @@
       "spread_type": "credit",
       "max_profit_total": 778.0,
       "max_loss_total": 1022.0,
-      "bpr_total": 1022.0
+      "bpr_total": 1022.0,
+      "close_debit_per_contract": 8.88
     },
     {
       "id": "ledger_048_nvda",
@@ -3125,8 +3157,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -875.12,
-      "cost_to_close_mid": -410.0
+      "unrealized_pnl": -1157.62,
+      "cost_to_close_mid": -127.5
     },
     {
       "id": "ledger_049_iwm",
@@ -3160,8 +3192,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -93.75,
-      "cost_to_close_mid": 146.5,
+      "unrealized_pnl": -83.75,
+      "cost_to_close_mid": 136.5,
       "structure": "short_put_vertical",
       "short_strike": 266.0,
       "long_strike": 261.0,
@@ -3206,8 +3238,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 61.25,
-      "cost_to_close_mid": 51.5,
+      "unrealized_pnl": 63.25,
+      "cost_to_close_mid": 49.5,
       "structure": "short_call_vertical",
       "short_strike": 724.0,
       "long_strike": 732.0,
@@ -3219,6 +3251,52 @@
       "max_profit_total": 115.0,
       "max_loss_total": 685.0,
       "bpr_total": 685.0
+    },
+    {
+      "id": "ledger_051_spy",
+      "underlying": "SPY",
+      "opened_at": "2026-11-18",
+      "open_order_id": "527724004",
+      "open_net_cash": 205.49,
+      "open_legs": [
+        {
+          "symbol": "SPY   261218P00675000",
+          "action": "Buy to Open",
+          "quantity": 2.0,
+          "price": 4.46,
+          "net_cash": -894.24,
+          "fees": 2.24,
+          "executed_at": "2026-11-18T19:06:03.111Z"
+        },
+        {
+          "symbol": "SPY   261218P00685000",
+          "action": "Sell to Open",
+          "quantity": 2.0,
+          "price": 5.51,
+          "net_cash": 1099.73,
+          "fees": 2.27,
+          "executed_at": "2026-11-18T19:06:03.111Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -15.51,
+      "cost_to_close_mid": 221.0,
+      "structure": "short_put_vertical",
+      "short_strike": 685.0,
+      "long_strike": 675.0,
+      "expiry": "2026-12-18",
+      "contracts": 2,
+      "credit_per_contract": 1.05,
+      "width": 10.0,
+      "spread_type": "credit",
+      "max_profit_total": 210.0,
+      "max_loss_total": 1790.0,
+      "bpr_total": 1790.0
     }
   ]
 }

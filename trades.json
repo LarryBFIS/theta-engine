@@ -768,10 +768,13 @@
       "max_profit_total": 55.0,
       "max_loss_total": 45.0,
       "bpr_total": 45.0,
-      "status": "open",
+      "status": "closed",
       "notes": "auto-synced from ledger",
       "spread_type": "credit",
-      "width": 1.0
+      "width": 1.0,
+      "closed_at": "2026-11-18",
+      "realized_pnl": 1837.58,
+      "close_order_id": "527719880"
     },
     {
       "id": "trade_032_spy_738_728",
@@ -1110,9 +1113,13 @@
       "max_profit_total": 778.0,
       "max_loss_total": 1022.0,
       "bpr_total": 1022.0,
-      "status": "open",
+      "status": "closed",
       "notes": "auto-synced from ledger",
-      "width": 9.0
+      "width": 9.0,
+      "closed_at": "2026-11-18",
+      "realized_pnl": -1003.3,
+      "close_debit_per_contract": 8.88,
+      "close_order_id": "527805477"
     },
     {
       "id": "trade_047_iwm_266_261",
@@ -1151,6 +1158,24 @@
       "status": "open",
       "notes": "auto-synced from ledger",
       "width": 8.0
+    },
+    {
+      "id": "trade_049_spy_685_675",
+      "underlying": "SPY",
+      "structure": "short_put_vertical",
+      "short_strike": 685,
+      "long_strike": 675,
+      "expiry": "2026-12-18",
+      "contracts": 2,
+      "opened_at": "2026-11-18",
+      "open_order_id": "527724004",
+      "credit_per_contract": 1.05,
+      "spread_type": "credit",
+      "max_profit_total": 210.0,
+      "max_loss_total": 1790.0,
+      "bpr_total": 1790.0,
+      "status": "open",
+      "notes": "auto-synced from ledger"
     }
   ]
 }
