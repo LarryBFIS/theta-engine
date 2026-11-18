@@ -5097,7 +5097,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 17.49, normal regime after -10% day: tape is stabilizing, not accelerating lower. Selling premium into a rebound is reasonable timing; avoid chasing vol collapse.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-18",
+      "actual_price": 731.19,
+      "realized_move_pct": 0.0387,
+      "realized_move_signed": -0.0387,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "853a45d5f670",
@@ -5112,7 +5118,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 17.49, normal regime after -10% day: tape is stabilizing, not accelerating lower. Selling premium into a rebound is reasonable timing; avoid chasing vol collapse.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-18",
+      "actual_price": 660.26,
+      "realized_move_pct": 0.0465,
+      "realized_move_signed": -0.0465,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "6583facffcb8",
@@ -5127,7 +5139,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 17.49, normal regime after -10% day: tape is stabilizing, not accelerating lower. Selling premium into a rebound is reasonable timing; avoid chasing vol collapse.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-18",
+      "actual_price": 270.37,
+      "realized_move_pct": 0.0448,
+      "realized_move_signed": -0.0448,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "b1561346a846",
@@ -5142,7 +5160,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 17.49, normal regime after -10% day: tape is stabilizing, not accelerating lower. Selling premium into a rebound is reasonable timing; avoid chasing vol collapse.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-18",
+      "actual_price": 501.99,
+      "realized_move_pct": 0.0425,
+      "realized_move_signed": -0.0425,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "cadd7230cc41",
@@ -5157,7 +5181,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 17.49, normal regime after -10% day: tape is stabilizing, not accelerating lower. Selling premium into a rebound is reasonable timing; avoid chasing vol collapse.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-18",
+      "actual_price": 385.28,
+      "realized_move_pct": 0.0158,
+      "realized_move_signed": -0.0158,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "50352a3360a8",
@@ -5457,6 +5487,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 25.45, elevated regime, +11% day\u2014premium is rich and volatility is elevated; this is a good backdrop for selling premium. However, the sharp up move suggests momentum; we should favor structures that benefit from continued strength or sideways action, not those fighting the t",
+      "resolved": false
+    },
+    {
+      "id": "99f19e4433ad",
+      "index": "SPY",
+      "forecast_date": "2026-11-18",
+      "target_date": "2026-11-25",
+      "horizon_days": 7,
+      "spot_at_forecast": 731.19,
+      "iv": 0.2509,
+      "implied_move_pct": 0.0348,
+      "implied_move_abs": 25.41,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 24.6, elevated vol regime with premium rich conditions (IV rank >70% on SPY/QQQ); -3% day shows directional weakness. Elevated vol means NOW is tactically good for selling premium, but we must respect the selloff momentum and avoid adding correlated short calls into downside.",
+      "resolved": false
+    },
+    {
+      "id": "da680bb204fd",
+      "index": "QQQ",
+      "forecast_date": "2026-11-18",
+      "target_date": "2026-11-25",
+      "horizon_days": 7,
+      "spot_at_forecast": 660.26,
+      "iv": 0.3325,
+      "implied_move_pct": 0.046,
+      "implied_move_abs": 30.4,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 24.6, elevated vol regime with premium rich conditions (IV rank >70% on SPY/QQQ); -3% day shows directional weakness. Elevated vol means NOW is tactically good for selling premium, but we must respect the selloff momentum and avoid adding correlated short calls into downside.",
+      "resolved": false
+    },
+    {
+      "id": "be9c55a53a8f",
+      "index": "IWM",
+      "forecast_date": "2026-11-18",
+      "target_date": "2026-11-25",
+      "horizon_days": 7,
+      "spot_at_forecast": 270.37,
+      "iv": 0.2716,
+      "implied_move_pct": 0.0376,
+      "implied_move_abs": 10.17,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 24.6, elevated vol regime with premium rich conditions (IV rank >70% on SPY/QQQ); -3% day shows directional weakness. Elevated vol means NOW is tactically good for selling premium, but we must respect the selloff momentum and avoid adding correlated short calls into downside.",
+      "resolved": false
+    },
+    {
+      "id": "577408c5cbd5",
+      "index": "DIA",
+      "forecast_date": "2026-11-18",
+      "target_date": "2026-11-25",
+      "horizon_days": 7,
+      "spot_at_forecast": 501.99,
+      "iv": 0.2142,
+      "implied_move_pct": 0.0297,
+      "implied_move_abs": 14.89,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 24.6, elevated vol regime with premium rich conditions (IV rank >70% on SPY/QQQ); -3% day shows directional weakness. Elevated vol means NOW is tactically good for selling premium, but we must respect the selloff momentum and avoid adding correlated short calls into downside.",
+      "resolved": false
+    },
+    {
+      "id": "1dc935c54bf8",
+      "index": "TSLA",
+      "forecast_date": "2026-11-18",
+      "target_date": "2026-11-25",
+      "horizon_days": 7,
+      "spot_at_forecast": 385.28,
+      "iv": 0.5371,
+      "implied_move_pct": 0.0744,
+      "implied_move_abs": 28.66,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 24.6, elevated vol regime with premium rich conditions (IV rank >70% on SPY/QQQ); -3% day shows directional weakness. Elevated vol means NOW is tactically good for selling premium, but we must respect the selloff momentum and avoid adding correlated short calls into downside.",
       "resolved": false
     }
   ]
