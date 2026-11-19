@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-19T15:19:57.583443+00:00",
-  "market_view": "VIX at 22.75, still elevated +21% on the week despite today's -7.4% drop \u2014 risk-off regime persists with tech/QQQ leading (+1.07%) while IWM lags (-0.41%) and defensives bleed. Five-day losses across all indices confirm this is not a clean reversal.",
+  "last_run": "2026-11-19T15:26:04.461618+00:00",
+  "market_view": "VIX at 22.95 still elevated despite -6.56% drop today \u2014 risk-off regime intact with broad 5-day losses of 3.5-4% across indices. Tech bouncing intraday but no structural reversal confirmed.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T15:19:45Z",
-    "reasoning": "Mid at $1.425 is 2.59x the $0.55 credit \u2014 stop-loss rule (1.5x = $0.825) has been violated for multiple consecutive cycles with zero execution, 21 DTE hard exit rule is triggered today, and IWM is the only index red on the session. Every minute this stays open is a rule violation compounding the loss."
+    "timestamp": "2026-11-19T15:25:51Z",
+    "reasoning": "21 DTE hard exit rule is triggered with zero exceptions allowed \u2014 mid at $1.485 is 2.7x the $0.55 credit, stop-loss rule (1.5x = $0.825) has been breached for multiple consecutive cycles with no execution. This is an active rule violation compounding every minute."
   },
   "QQQ 724/732c": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T15:19:45Z",
-    "reasoning": "21 DTE hard exit rule triggers today with no exceptions \u2014 this has been flagged CRITICAL for multiple consecutive cycles with zero execution, which is a systematic rule violation. Mid at $0.685 is 40.4% profit on the $1.15 credit and QQQ ripping +1.07% is a directional tailwind that could reverse."
+    "timestamp": "2026-11-19T15:25:51Z",
+    "reasoning": "21 DTE hard exit rule triggers today with no exceptions \u2014 mid at $0.62 is 46% profit on the $1.15 credit, nearly at 50% target, and QQQ +0.67% intraday is a directional tailwind that can reverse fast in this risk-off regime."
   },
   "SPY 685/675p": {
-    "action": "WATCH",
-    "confidence": 0.72,
-    "timestamp": "2026-11-19T15:19:45Z",
-    "reasoning": "Mid at $1.005 is only 4.3% profit on the $1.05 credit \u2014 not near 50% target ($0.525) and 28 DTE is above the exit threshold; short strike 685 remains 6.5% OTM with SPY up 0.36% today, no immediate threat."
+    "action": "HOLD",
+    "confidence": 0.78,
+    "timestamp": "2026-11-19T15:25:51Z",
+    "reasoning": "28 DTE above exit threshold, mid at $1.07 is essentially flat on the $1.05 credit \u2014 no profit to manage and short strike 685 remains 6.3% OTM with SPY holding above 730."
   }
 }
