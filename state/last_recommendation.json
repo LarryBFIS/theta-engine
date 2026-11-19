@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-19T17:55:07.886854+00:00",
-  "market_view": "VIX now 26.26 (+39.8% 5d) with broad risk-off selling accelerating \u2014 IWM down 1.25% today alone with short strike essentially ATM. All three positions remain open despite repeated CRITICAL alerts over multiple cycles; execution is the only remaining task.",
+  "last_run": "2026-11-19T18:15:05.081394+00:00",
+  "market_view": "VIX spiking to 26.96 (+43.56% 5d) with broad risk-off selling across all sectors \u2014 IWM short strike is breached ITM and all three positions are bleeding with zero stabilization signal intraday.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T17:54:52Z",
-    "reasoning": "IWM at 266.74 with short strike at 266 \u2014 0.28% away and closing fast on a -1.25% day. Mid at $1.735 is 3.15x the $0.55 credit (stop was 1.5x), AND 21 DTE hard exit rule is active TODAY \u2014 this position has zero justification to remain open for a single additional minute."
+    "timestamp": "2026-11-19T18:14:50.888382+00:00",
+    "reasoning": "Short strike 266 is BREACHED \u2014 IWM at 265.54 is ITM, mid at $1.86 is 3.38x the $0.55 credit (stop was 1.5x), AND 21 DTE hard exit rule is active TODAY. This position is at risk of max loss ($445) if IWM continues lower."
   },
   "QQQ 724/732c": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T17:54:52Z",
-    "reasoning": "21 DTE hard exit is active today \u2014 non-negotiable rule \u2014 and mid at $0.395 is 65.7% profit on the $1.15 credit, a clean winner sitting idle. This has been flagged every cycle for over 30 minutes with no execution."
+    "timestamp": "2026-11-19T18:14:50.888382+00:00",
+    "reasoning": "21 DTE hard exit rule is active TODAY \u2014 non-negotiable \u2014 and mid at $0.34 is 70.4% profit on the $1.15 credit, a clean winner. This has been flagged across multiple cycles with no execution."
   },
   "SPY 685/675p": {
     "action": "CRITICAL",
     "confidence": 0.95,
-    "timestamp": "2026-11-19T17:54:52Z",
-    "reasoning": "Mid at $1.40 is 1.33x and worst-cost $1.46 is 1.39x the $0.55 credit \u2014 one more leg down on a -0.94% day with VIX at 26.26 triggers the 1.5x hard stop; SPY has no stabilization signal and the stop breach is imminent intraday."
+    "timestamp": "2026-11-19T18:14:50.888382+00:00",
+    "reasoning": "Mid at $1.635 is 1.56x the $1.05 credit \u2014 the 1.5x hard stop rule is BREACHED \u2014 with VIX at 26.96 and SPY down 1.48% today showing zero stabilization; worst-case is $1.70 and deteriorating."
   }
 }
