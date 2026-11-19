@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-19T13:37:08.063918+00:00",
-  "market_view": "Risk-off regime with VIX at 22.21 still elevated despite today's -9.57% drop; broad market weakness persists on 5d basis with Energy -4% and Healthcare -4.7% leading the decline. IWM and QQQ rule violations remain unexecuted \u2014 these are live playbook breaches that have now persisted across multiple cycles.",
+  "last_run": "2026-11-19T13:45:08.634622+00:00",
+  "market_view": "VIX at 22.32 remains elevated despite today's -9% drop, confirming risk-off regime persists; broad 5d weakness across all sectors with Energy -4% and Healthcare -4.7% leading. IWM and QQQ rule violations are live playbook breaches now spanning multiple consecutive cycles with zero execution.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T13:36:55Z",
-    "reasoning": "Mid at $1.21 is 2.2x the $0.55 credit \u2014 stop loss triggered at $0.825 and DTE is exactly 21, both hard rules breached simultaneously for multiple consecutive cycles. Every additional minute of inaction increases loss exposure with zero playbook justification to hold."
+    "timestamp": "2026-11-19T13:44:56Z",
+    "reasoning": "Mid at $1.195 is 2.17x the $0.55 credit \u2014 stop loss rule (1.5x = $0.825) has been breached for multiple consecutive cycles AND DTE is exactly 21, triggering the hard exit rule simultaneously. This position has two independent hard rules mandating closure and has gone unexecuted for over 7 minutes since last alert."
   },
   "QQQ 724/732c": {
-    "action": "ACTION",
+    "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T13:36:55Z",
-    "reasoning": "DTE is exactly 21 \u2014 hard exit rule requires closure today, no exceptions, and this has been flagged for multiple consecutive cycles with no execution. QQQ short strike at 724 is 9.8% OTM and not threatened, but the DTE rule is not discretionary."
+    "timestamp": "2026-11-19T13:44:56Z",
+    "reasoning": "DTE is exactly 21 \u2014 the hard 21 DTE exit rule is non-discretionary and has been flagged across multiple consecutive cycles with no execution. This is now an escalated playbook breach, not just an action item."
   },
   "SPY 685/675p": {
-    "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-11-19T13:36:55Z",
-    "reasoning": "Mid at $0.815 represents 22% profit on $1.05 credit \u2014 not yet at the 50% target ($0.525), short strike at 685 is 6.2% OTM with 28 DTE. Risk-off environment and SPY -3.15% on 5d warrants monitoring but no action rule is triggered."
+    "action": "HOLD",
+    "confidence": 0.82,
+    "timestamp": "2026-11-19T13:44:56Z",
+    "reasoning": "Mid at $0.815 is 22% profit against $1.05 credit \u2014 not yet at 50% target ($0.525), short strike at 685 is 6.2% OTM with 28 DTE. Risk-off environment warrants monitoring but no rule is triggered."
   }
 }
