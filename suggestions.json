@@ -74856,6 +74856,62 @@
       "alternative": "Hold for $38 more potential profit but risk $685 if breached before expiry.",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20261119T122439_trade_047_iwm_266_261",
+      "trade_id": "trade_047_iwm_266_261",
+      "timestamp": "2026-11-19T12:24:39.452097-05:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 21 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently -219% captured ($-120 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 1.755,
+        "cost_to_close_worst": 1.8100000000000005,
+        "profit_if_closed_mid": -120.49999999999999,
+        "profit_if_closed_worst": -126.00000000000004,
+        "pct_max_profit_captured_mid": -2.1909090909090905,
+        "dte": 21,
+        "underlying_price": 266.3800048828125,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 4161.861,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold to expiry, but the next 21 days carry concentrated gamma risk.",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20261119T122439_trade_048_qqq_724_732",
+      "trade_id": "trade_048_qqq_724_732",
+      "timestamp": "2026-11-19T12:24:40.009409-05:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u2705 Captured 62% of max profit at mid (target 50%).",
+        "Close cost: $0.44 mid / $0.49 worst-case fill.",
+        "Profit if closed: $71 (mid) to $66 (worst).",
+        "Closes free $685 BPR for the next setup."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.44000000000000006,
+        "cost_to_close_worst": 0.49,
+        "profit_if_closed_mid": 70.99999999999999,
+        "profit_if_closed_worst": 65.99999999999999,
+        "pct_max_profit_captured_mid": 0.617391304347826,
+        "dte": 21,
+        "underlying_price": 654.9650268554688,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 4161.861,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold for $44 more potential profit but risk $685 if breached before expiry.",
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
