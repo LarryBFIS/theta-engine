@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-19T17:25:01.115288+00:00",
-  "market_view": "VIX spiked to 27.94 (+48.78% 5d) with broad risk-off selling accelerating \u2014 IWM -1.41% today, SPY -4.74% 5d, no stabilization in sight. All three positions remain in violation of hard playbook rules for the fourth consecutive cycle.",
+  "last_run": "2026-11-19T17:36:58.812652+00:00",
+  "market_view": "VIX at 27.33 (+45.53% 5d) with broad risk-off selling across all sectors \u2014 market has not found a floor and downward pressure persists. IWM 21 DTE hard exit still active, QQQ 21 DTE still active, SPY approaching 1.5x stop with VIX elevated.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T17:24:45Z",
-    "reasoning": "Short strike 266 is breached with IWM at 266.38 \u2014 essentially at the strike. Mid at $1.755 is 3.19x the $0.55 credit, catastrophically past the 1.5x stop, AND 21 DTE hard exit rule is active today. Four consecutive cycles flagged with no execution \u2014 every minute risks deeper ITM and assignment."
+    "timestamp": "2026-11-19T17:36:45Z",
+    "reasoning": "IWM at 267.08 with short strike 266 breached \u2014 mid at $1.675 is 3.05x the $0.55 credit, catastrophically past 1.5x stop, AND 21 DTE hard exit is active. This has been flagged five consecutive cycles with zero execution \u2014 close immediately at market or worst-cost $1.75."
   },
   "QQQ 724/732c": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T17:24:45Z",
-    "reasoning": "21 DTE hard exit rule is active today \u2014 this is a non-negotiable playbook close. Mid at $0.44 is 61.7% profit on $1.15 credit, a clean winner that has been sitting idle for four consecutive flagged cycles."
+    "timestamp": "2026-11-19T17:36:45Z",
+    "reasoning": "21 DTE hard exit rule is active today \u2014 non-negotiable playbook close. Mid at $0.46 is 60% profit on $1.15 credit, this is a clean winner being left on the table for a fifth consecutive flagged cycle."
   },
   "SPY 685/675p": {
     "action": "CRITICAL",
-    "confidence": 0.95,
-    "timestamp": "2026-11-19T17:24:45Z",
-    "reasoning": "Mid at $1.42 is 1.35x credit ($1.05) \u2014 approaching 1.5x stop threshold with VIX at 27.94 and SPY down 4.74% in 5 days; the worst-cost of $1.48 is already 1.41x. Risk-off regime with no floor makes the 685 short put increasingly vulnerable as SPY is at 724 with continued downward pressure."
+    "confidence": 0.92,
+    "timestamp": "2026-11-19T17:36:45Z",
+    "reasoning": "Mid at $1.29 is 1.23x credit ($1.05) and worst-cost $1.36 is 1.30x \u2014 approaching 1.5x stop threshold rapidly with VIX at 27.33 and SPY down 4.57% in 5 days with no stabilization; continued risk-off selling makes the 685 short put increasingly vulnerable."
   }
 }
