@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-19T20:20:04.386045+00:00",
-  "market_view": "VIX 28.61 up 52% in 5 days, broad risk-off selloff deepening with every sector red and no stabilization \u2014 this tape is not safe for short premium deltas. All three positions remain in critical/stop territory and have been flagged multiple consecutive cycles without execution.",
+  "last_run": "2026-11-19T20:26:31.216036+00:00",
+  "market_view": "VIX 28.32 up 50%+ in 5 days, broad risk-off selloff with every sector deeply red and no stabilization \u2014 IWM short strike is ITM and two positions are past stop-loss thresholds with no action taken across multiple cycles.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T20:19:52.823654+00:00",
-    "reasoning": "Short strike 266 is ITM with IWM at 265.48, mid $1.82 is 3.31x the $0.55 credit \u2014 stop blown at 1.5x, 21 DTE hard exit triggered, assignment risk is live, and this position has been flagged CRITICAL for multiple consecutive cycles without action. Every minute of delay increases realized loss toward max."
+    "timestamp": "2026-11-19T20:26:18.945220+00:00",
+    "reasoning": "Short strike 266 is ITM with IWM at 264.97, mid $1.915 is 3.48x the $0.55 credit \u2014 stop blown at 1.5x, 21 DTE hard exit triggered, assignment risk is live. This has been CRITICAL for multiple consecutive cycles with no execution \u2014 max loss is imminent."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T20:19:52.823654+00:00",
-    "reasoning": "21 DTE hard exit rule triggered, mid $0.27 is 76.5% profit on $1.15 credit \u2014 this is a mandatory close per playbook and has been overdue for multiple cycles. QQQ is 12% below short call strike but a snap reversal in this volatile tape could erode this winner fast."
+    "timestamp": "2026-11-19T20:26:18.945220+00:00",
+    "reasoning": "21 DTE hard exit rule triggered and mid $0.27 is 76.5% profit on $1.15 credit \u2014 mandatory close per playbook, flagged multiple cycles without execution and a risk-off snap reversal could crush this winner instantly."
   },
   "SPY 685/675p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-11-19T20:19:52.823654+00:00",
-    "reasoning": "Worst-case fill $1.70 is 1.62x the $1.05 credit \u2014 stop rule triggered at 1.5x, SPY down 5.5% on the week with VIX spiking, 685 short is only 4.7% OTM and closing fast with no reversal catalyst. Flagged multiple cycles without execution."
+    "timestamp": "2026-11-19T20:26:18.945220+00:00",
+    "reasoning": "Worst-case fill $1.75 is 1.67x the $1.05 credit \u2014 stop rule triggered at 1.5x, SPY down 5.6% on the week with VIX at 28, short 685 strike is only 4.5% OTM and IWM breach confirms broad market weakness accelerating."
   }
 }
