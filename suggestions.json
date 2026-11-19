@@ -73195,6 +73195,78 @@
       "alternative": "Hold for $49 more potential profit but risk $685 if breached before expiry.",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20261119T081210_trade_047_iwm_266_261",
+      "trade_id": "trade_047_iwm_266_261",
+      "timestamp": "2026-11-19T08:12:10.490307-05:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 21 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently -109% captured ($-60 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 1.1500000000000004,
+        "cost_to_close_worst": 1.2599999999999998,
+        "profit_if_closed_mid": -60.00000000000003,
+        "profit_if_closed_worst": -70.99999999999997,
+        "pct_max_profit_captured_mid": -1.0909090909090915,
+        "dte": 21,
+        "underlying_price": 270.1199951171875,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 4411.518,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold to expiry, but the next 21 days carry concentrated gamma risk.",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20261119T081210_trade_048_qqq_724_732",
+      "trade_id": "trade_048_qqq_724_732",
+      "timestamp": "2026-11-19T08:12:10.984838-05:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 21 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently 11% captured ($12 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 1.025,
+        "cost_to_close_worst": 1.5199999999999998,
+        "profit_if_closed_mid": 12.5,
+        "profit_if_closed_worst": -36.999999999999986,
+        "pct_max_profit_captured_mid": 0.10869565217391305,
+        "dte": 21,
+        "underlying_price": 659.510009765625,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 4411.518,
+        "day_pnl": 0.0
+      },
+      "alternative": "ROLL: short strike is 9.8% OTM \u2014 candidate to roll to next monthly expiry for additional credit.",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20261119T081211_trade_049_spy_685_675",
+      "trade_id": "trade_049_spy_685_675",
+      "timestamp": "2026-11-19T08:12:11.510966-05:00",
+      "action": "PROTECT_PROFITS",
+      "urgency": "normal",
+      "reasoning": [
+        "captured 26% in 1d \u2014 front-loaded, little left to squeeze"
+      ],
+      "metrics_snapshot": {
+        "pct_captured": 0.26190476190476203,
+        "dte": 28,
+        "short_strike_breached": false
+      },
+      "alternative": null,
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
