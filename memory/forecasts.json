@@ -5202,7 +5202,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "VIX 17.49 in a normal, flat tape \u2014 a fine environment for selling premium on favored structures, but nothing screams urgency. No events on the calendar, so timing is neutral-to-supportive; selectivity on structure and correlation is the edge here.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-19",
+      "actual_price": 739.05,
+      "realized_move_pct": 0.0294,
+      "realized_move_signed": -0.0294,
+      "stayed_in_range": false
     },
     {
       "id": "92f0e4e2f2b0",
@@ -5217,7 +5222,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "VIX 17.49 in a normal, flat tape \u2014 a fine environment for selling premium on favored structures, but nothing screams urgency. No events on the calendar, so timing is neutral-to-supportive; selectivity on structure and correlation is the edge here.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-19",
+      "actual_price": 672.94,
+      "realized_move_pct": 0.0273,
+      "realized_move_signed": -0.0273,
+      "stayed_in_range": true
     },
     {
       "id": "f570dbc44788",
@@ -5232,7 +5242,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "VIX 17.49 in a normal, flat tape \u2014 a fine environment for selling premium on favored structures, but nothing screams urgency. No events on the calendar, so timing is neutral-to-supportive; selectivity on structure and correlation is the edge here.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-19",
+      "actual_price": 272.13,
+      "realized_move_pct": 0.0316,
+      "realized_move_signed": -0.0316,
+      "stayed_in_range": false
     },
     {
       "id": "33586e67f27f",
@@ -5247,7 +5262,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "VIX 17.49 in a normal, flat tape \u2014 a fine environment for selling premium on favored structures, but nothing screams urgency. No events on the calendar, so timing is neutral-to-supportive; selectivity on structure and correlation is the edge here.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-19",
+      "actual_price": 504.96,
+      "realized_move_pct": 0.0404,
+      "realized_move_signed": -0.0404,
+      "stayed_in_range": false
     },
     {
       "id": "cf928fdc5671",
@@ -5262,7 +5282,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "VIX 17.49 in a normal, flat tape \u2014 a fine environment for selling premium on favored structures, but nothing screams urgency. No events on the calendar, so timing is neutral-to-supportive; selectivity on structure and correlation is the edge here.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-19",
+      "actual_price": 391.6,
+      "realized_move_pct": 0.0013,
+      "realized_move_signed": -0.0013,
+      "stayed_in_range": true
     },
     {
       "id": "1d28168f16f2",
@@ -5562,6 +5587,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 24.6, elevated vol regime with premium rich conditions (IV rank >70% on SPY/QQQ); -3% day shows directional weakness. Elevated vol means NOW is tactically good for selling premium, but we must respect the selloff momentum and avoid adding correlated short calls into downside.",
+      "resolved": false
+    },
+    {
+      "id": "5fabf5003971",
+      "index": "SPY",
+      "forecast_date": "2026-11-19",
+      "target_date": "2026-11-26",
+      "horizon_days": 7,
+      "spot_at_forecast": 739.05,
+      "iv": 0.2471,
+      "implied_move_pct": 0.0342,
+      "implied_move_abs": 25.29,
+      "model": null,
+      "vol_verdict": null,
+      "market_view": "",
+      "resolved": false
+    },
+    {
+      "id": "0150a8a4c711",
+      "index": "QQQ",
+      "forecast_date": "2026-11-19",
+      "target_date": "2026-11-26",
+      "horizon_days": 7,
+      "spot_at_forecast": 672.94,
+      "iv": 0.3325,
+      "implied_move_pct": 0.046,
+      "implied_move_abs": 30.98,
+      "model": null,
+      "vol_verdict": null,
+      "market_view": "",
+      "resolved": false
+    },
+    {
+      "id": "adec9a7b2b56",
+      "index": "IWM",
+      "forecast_date": "2026-11-19",
+      "target_date": "2026-11-26",
+      "horizon_days": 7,
+      "spot_at_forecast": 272.13,
+      "iv": 0.2716,
+      "implied_move_pct": 0.0376,
+      "implied_move_abs": 10.23,
+      "model": null,
+      "vol_verdict": null,
+      "market_view": "",
+      "resolved": false
+    },
+    {
+      "id": "610c44bfa0b0",
+      "index": "DIA",
+      "forecast_date": "2026-11-19",
+      "target_date": "2026-11-26",
+      "horizon_days": 7,
+      "spot_at_forecast": 504.96,
+      "iv": 0.2142,
+      "implied_move_pct": 0.0297,
+      "implied_move_abs": 14.98,
+      "model": null,
+      "vol_verdict": null,
+      "market_view": "",
+      "resolved": false
+    },
+    {
+      "id": "bf7bfc392531",
+      "index": "TSLA",
+      "forecast_date": "2026-11-19",
+      "target_date": "2026-11-26",
+      "horizon_days": 7,
+      "spot_at_forecast": 391.6,
+      "iv": 0.5371,
+      "implied_move_pct": 0.0744,
+      "implied_move_abs": 29.13,
+      "model": null,
+      "vol_verdict": null,
+      "market_view": "",
       "resolved": false
     }
   ]
