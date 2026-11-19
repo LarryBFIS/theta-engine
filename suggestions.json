@@ -73537,6 +73537,60 @@
       "alternative": "ROLL: short strike is 9.8% OTM \u2014 candidate to roll to next monthly expiry for additional credit.",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20261119T085437_trade_047_iwm_266_261",
+      "trade_id": "trade_047_iwm_266_261",
+      "timestamp": "2026-11-19T08:54:37.467345-05:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 21 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently -117% captured ($-65 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 1.1950000000000003,
+        "cost_to_close_worst": 1.2999999999999998,
+        "profit_if_closed_mid": -64.50000000000003,
+        "profit_if_closed_worst": -74.99999999999997,
+        "pct_max_profit_captured_mid": -1.172727272727273,
+        "dte": 21,
+        "underlying_price": 270.1199951171875,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 4400.676,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold to expiry, but the next 21 days carry concentrated gamma risk.",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20261119T085437_trade_048_qqq_724_732",
+      "trade_id": "trade_048_qqq_724_732",
+      "timestamp": "2026-11-19T08:54:37.772984-05:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 21 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently 33% captured ($38 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.77,
+        "cost_to_close_worst": 0.8700000000000001,
+        "profit_if_closed_mid": 37.999999999999986,
+        "profit_if_closed_worst": 27.99999999999998,
+        "pct_max_profit_captured_mid": 0.3304347826086956,
+        "dte": 21,
+        "underlying_price": 659.510009765625,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 4400.676,
+        "day_pnl": 0.0
+      },
+      "alternative": "ROLL: short strike is 9.8% OTM \u2014 candidate to roll to next monthly expiry for additional credit.",
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
