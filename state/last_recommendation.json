@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-19T13:19:33.665498+00:00",
-  "market_view": "Risk-off regime with VIX at 22.26 despite today's compression \u2014 5d +18.5% vol spike context keeps conditions hostile for short premium. IWM and QQQ hard rule violations flagged last cycle remain unexecuted and are now critically overdue.",
+  "last_run": "2026-11-19T13:26:05.704752+00:00",
+  "market_view": "Risk-off regime persists with VIX at 22.11 (down today but +17.7% on 5d) and broad sector weakness led by Energy -3.3% and Healthcare -2.2%. IWM and QQQ hard rule violations from last cycle remain unexecuted \u2014 these are active playbook breaches requiring immediate action.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T13:19:17Z",
-    "reasoning": "Mid at $1.17 is 2.13x the $0.55 credit \u2014 1.5x hard stop breached multiple consecutive cycles AND DTE is exactly 21 triggering the hard exit rule simultaneously. This position is in active rule violation every second it remains open."
+    "timestamp": "2026-11-19T13:25:52Z",
+    "reasoning": "Mid at $1.15 is 2.09x the $0.55 credit \u2014 1.5x stop (triggered at $0.825) has been breached for multiple consecutive cycles, AND DTE is exactly 21 triggering the hard exit rule simultaneously. This position is in dual active rule violation with every minute of delay increasing risk."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T13:19:17Z",
-    "reasoning": "DTE is exactly 21 triggering the hard exit rule \u2014 this is the second consecutive cycle flagged with no action taken, which is a playbook breach. QQQ at 659.51 is ~9.8% below the 724 short strike so the spread is near worthless and the close is cheap."
+    "timestamp": "2026-11-19T13:25:52Z",
+    "reasoning": "DTE is exactly 21 \u2014 hard exit rule requires closure today, no exceptions, and this is the third consecutive cycle flagged with no execution. Mid at $0.835 means closing costs only $83.50 against $115 max profit, locking ~27% gain cleanly."
   },
   "SPY 685/675p": {
     "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-11-19T13:19:17Z",
-    "reasoning": "Mid at $0.77 is 27% profit on $1.05 credit \u2014 approaching but not at 50% target ($0.525); short strike at 685 is 6.2% OTM with 28 DTE and SPY -0.31% today in sustained risk-off. No action yet but monitor closely as market weakness could compress this further."
+    "confidence": 0.75,
+    "timestamp": "2026-11-19T13:25:52Z",
+    "reasoning": "Mid at $0.775 is 26% profit on $1.05 credit \u2014 not yet at the 50% target ($0.525 cost), short strike at 685 is 6.2% OTM with 28 DTE remaining. Risk-off environment and SPY -3.15% on 5d warrants monitoring but no action rule is triggered."
   }
 }
