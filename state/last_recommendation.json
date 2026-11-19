@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-19T13:26:05.704752+00:00",
-  "market_view": "Risk-off regime persists with VIX at 22.11 (down today but +17.7% on 5d) and broad sector weakness led by Energy -3.3% and Healthcare -2.2%. IWM and QQQ hard rule violations from last cycle remain unexecuted \u2014 these are active playbook breaches requiring immediate action.",
+  "last_run": "2026-11-19T13:37:08.063918+00:00",
+  "market_view": "Risk-off regime with VIX at 22.21 still elevated despite today's -9.57% drop; broad market weakness persists on 5d basis with Energy -4% and Healthcare -4.7% leading the decline. IWM and QQQ rule violations remain unexecuted \u2014 these are live playbook breaches that have now persisted across multiple cycles.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T13:25:52Z",
-    "reasoning": "Mid at $1.15 is 2.09x the $0.55 credit \u2014 1.5x stop (triggered at $0.825) has been breached for multiple consecutive cycles, AND DTE is exactly 21 triggering the hard exit rule simultaneously. This position is in dual active rule violation with every minute of delay increasing risk."
+    "timestamp": "2026-11-19T13:36:55Z",
+    "reasoning": "Mid at $1.21 is 2.2x the $0.55 credit \u2014 stop loss triggered at $0.825 and DTE is exactly 21, both hard rules breached simultaneously for multiple consecutive cycles. Every additional minute of inaction increases loss exposure with zero playbook justification to hold."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T13:25:52Z",
-    "reasoning": "DTE is exactly 21 \u2014 hard exit rule requires closure today, no exceptions, and this is the third consecutive cycle flagged with no execution. Mid at $0.835 means closing costs only $83.50 against $115 max profit, locking ~27% gain cleanly."
+    "timestamp": "2026-11-19T13:36:55Z",
+    "reasoning": "DTE is exactly 21 \u2014 hard exit rule requires closure today, no exceptions, and this has been flagged for multiple consecutive cycles with no execution. QQQ short strike at 724 is 9.8% OTM and not threatened, but the DTE rule is not discretionary."
   },
   "SPY 685/675p": {
     "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-11-19T13:25:52Z",
-    "reasoning": "Mid at $0.775 is 26% profit on $1.05 credit \u2014 not yet at the 50% target ($0.525 cost), short strike at 685 is 6.2% OTM with 28 DTE remaining. Risk-off environment and SPY -3.15% on 5d warrants monitoring but no action rule is triggered."
+    "confidence": 0.78,
+    "timestamp": "2026-11-19T13:36:55Z",
+    "reasoning": "Mid at $0.815 represents 22% profit on $1.05 credit \u2014 not yet at the 50% target ($0.525), short strike at 685 is 6.2% OTM with 28 DTE. Risk-off environment and SPY -3.15% on 5d warrants monitoring but no action rule is triggered."
   }
 }
