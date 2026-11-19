@@ -73267,6 +73267,60 @@
       "alternative": null,
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20261119T081346_trade_047_iwm_266_261",
+      "trade_id": "trade_047_iwm_266_261",
+      "timestamp": "2026-11-19T08:13:47.119328-05:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 21 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently -105% captured ($-58 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 1.13,
+        "cost_to_close_worst": 1.2399999999999998,
+        "profit_if_closed_mid": -57.999999999999986,
+        "profit_if_closed_worst": -68.99999999999997,
+        "pct_max_profit_captured_mid": -1.0545454545454542,
+        "dte": 21,
+        "underlying_price": 270.1199951171875,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 4410.456,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold to expiry, but the next 21 days carry concentrated gamma risk.",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20261119T081347_trade_048_qqq_724_732",
+      "trade_id": "trade_048_qqq_724_732",
+      "timestamp": "2026-11-19T08:13:47.547343-05:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u23f0 21 DTE \u2014 at the 21-DTE cliff. Gamma risk grows from here.",
+        "Currently 26% captured ($30 mid)."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.8499999999999999,
+        "cost_to_close_worst": 1.13,
+        "profit_if_closed_mid": 30.000000000000004,
+        "profit_if_closed_worst": 2.0000000000000018,
+        "pct_max_profit_captured_mid": 0.26086956521739135,
+        "dte": 21,
+        "underlying_price": 659.510009765625,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 4410.456,
+        "day_pnl": 0.0
+      },
+      "alternative": "ROLL: short strike is 9.8% OTM \u2014 candidate to roll to next monthly expiry for additional credit.",
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
