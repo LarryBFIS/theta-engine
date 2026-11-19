@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-19T19:16:28.295131+00:00",
-  "market_view": "VIX 27.46 up 46% in 5 days, broad market down 1.5-1.7% today with 5-day losses of 5-6% across all indices \u2014 sustained risk-off with no reversal signal. All three positions remain in emergency status; continued inaction is account destruction.",
+  "last_run": "2026-11-19T19:25:09.083781+00:00",
+  "market_view": "VIX 27.87 up 48% in 5 days, broad selloff accelerating with all indices down 1.5-1.7% today and 5-6% on the week \u2014 risk-off regime is entrenched. All three positions remain in critical status from last cycle; these are not new alerts, they are unexecuted mandatory closures.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T19:16:15+00:00",
-    "reasoning": "Short strike 266 is BREACHED (IWM 265.51), mid $1.86 is 3.38x the $0.55 credit, stop was at $0.825, AND the 21 DTE hard exit rule is triggered TODAY \u2014 this is simultaneously a blown stop, a blown strike, and a mandatory exit date. Position is at 97% of max loss."
+    "timestamp": "2026-11-19T19:24:54+00:00",
+    "reasoning": "Short strike 266 breached (IWM 265.54), mid $1.845 is 3.35x credit, stop was $0.825 \u2014 simultaneously blown stop, blown strike, and 21 DTE hard exit rule triggered. This alert fired 8 minutes ago and position is still open."
   },
   "QQQ 724/732c": {
-    "action": "CRITICAL",
+    "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T19:16:15+00:00",
-    "reasoning": "21 DTE hard exit rule triggered TODAY \u2014 non-negotiable, no exceptions per playbook \u2014 and mid $0.33 represents 71% profit on $1.15 credit, this is a clear winner that needs to be closed."
+    "timestamp": "2026-11-19T19:24:54+00:00",
+    "reasoning": "21 DTE hard exit triggered today, mid $0.335 is 71% profit on $1.15 credit \u2014 this is a winner sitting at target, mandatory close per playbook. Alert fired 8 minutes ago, still open."
   },
   "SPY 685/675p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T19:16:15+00:00",
-    "reasoning": "Mid $1.62 is 1.54x and worst $1.68 is 1.60x the $1.05 credit \u2014 hard stop at 1.5x ($1.575) is definitively breached \u2014 with SPY down 5.38% on the week, VIX still expanding, and 685 short strike only 4.77% away in an accelerating selloff."
+    "timestamp": "2026-11-19T19:24:54+00:00",
+    "reasoning": "Mid $1.845 worst $1.92 \u2014 stop at 1.5x credit ($1.575) is blown, SPY down 5.36% on the week with VIX still expanding and 685 short strike only 4.79% away in an accelerating selloff."
   }
 }
