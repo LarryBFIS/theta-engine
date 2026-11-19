@@ -1467,8 +1467,8 @@
       "opened_credit": 1.01,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -150.0,
-      "current_debit": 2.51,
+      "unrealized_pnl": 18.0,
+      "current_debit": 0.83,
       "close_reason": null
     },
     {
@@ -1501,18 +1501,47 @@
       "close_reason": "stop_1.5x",
       "closed_at": "2026-11-19",
       "fees": 2.5
+    },
+    {
+      "id": "paper_0049_qqq",
+      "sig": "QQQ_615_605_2026-12-24",
+      "underlying": "QQQ",
+      "structure": "short_put_vertical",
+      "short_strike": 615.0,
+      "long_strike": 605.0,
+      "short_symbol": "QQQ   261224P00615000",
+      "long_symbol": "QQQ   261224P00605000",
+      "symbols": null,
+      "expiry": "2026-12-24",
+      "credit": 1.05,
+      "bpr": 895.0,
+      "pop": 0.792,
+      "iv_rank": 0.797,
+      "tag": "paper",
+      "contracts": 1,
+      "event": null,
+      "close_date": null,
+      "day_trade": null,
+      "close_after_et": null,
+      "opened_at": "2026-11-19",
+      "opened_credit": 1.05,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -22.0,
+      "current_debit": 1.27,
+      "close_reason": null
     }
   ],
-  "updated_at": "2026-11-19T14:27:01.637594+00:00",
+  "updated_at": "2026-11-19T14:37:13.907141+00:00",
   "summary": {
-    "trades": 48,
-    "open": 1,
+    "trades": 49,
+    "open": 2,
     "closed": 47,
     "wins": 28,
     "losses": 19,
     "win_rate": 0.596,
     "realized_pnl": -891.5,
-    "open_unrealized_pnl": -150.0,
-    "total_pnl": -1041.5
+    "open_unrealized_pnl": -4.0,
+    "total_pnl": -895.5
   }
 }
