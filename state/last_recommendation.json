@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-19T13:54:53.186298+00:00",
-  "market_view": "VIX at 22.62 remains elevated in risk-off regime despite today's intraday drop; broad 5d weakness persists across all major indices with IWM down 4% on the week. No new catalysts this cycle but the deteriorating tape keeps downside pressure on put spreads.",
+  "last_run": "2026-11-19T14:13:13.571168+00:00",
+  "market_view": "VIX at 22.56 still elevated with 5d gains of 20% confirming sustained risk-off regime; broad 5d weakness across all indices persists with IWM down 4% being the most vulnerable. IWM and QQQ rule violations remain unexecuted across multiple cycles \u2014 this is a playbook compliance emergency.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T13:54:41Z",
-    "reasoning": "Mid at $1.195 is 2.17x the $0.55 credit \u2014 stop loss rule (1.5x = $0.825) AND 21 DTE hard exit rule are both breached simultaneously. This is the third consecutive cycle with zero execution on a dual-rule violation."
+    "timestamp": "2026-11-19T14:12:59Z",
+    "reasoning": "Mid at $1.22 is 2.22x the $0.55 credit \u2014 stop loss (1.5x = $0.825) breached by a wide margin AND 21 DTE hard exit rule simultaneously active. This is the fourth consecutive flagged cycle with no execution \u2014 every additional minute of inaction increases max loss exposure in a risk-off tape."
   },
   "QQQ 724/732c": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T13:54:41Z",
-    "reasoning": "DTE is exactly 21 \u2014 the hard 21 DTE non-discretionary exit rule is live and has been flagged across three consecutive cycles with no execution. This is an escalated playbook breach."
+    "timestamp": "2026-11-19T14:12:59Z",
+    "reasoning": "DTE is exactly 21 \u2014 the hard exit rule is non-discretionary and has been flagged four consecutive cycles with no execution; mid at $0.79 is 31% profit so the close is cheap and favorable right now."
   },
   "SPY 685/675p": {
     "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-11-19T13:54:41Z",
-    "reasoning": "Mid at $0.815 is 22% profit vs $1.05 credit \u2014 not yet at 50% target ($0.525), short strike 685 is 6.2% OTM with 28 DTE. Risk-off tape and IWM's 4% 5d decline warrant monitoring but no rule is triggered."
+    "confidence": 0.75,
+    "timestamp": "2026-11-19T14:12:59Z",
+    "reasoning": "Mid at $0.79 is 25% profit vs $1.05 credit \u2014 not at 50% target ($0.525) yet, short strike 685 is 6.2% OTM with 28 DTE. Risk-off tape with SPY down 3.15% on the week warrants monitoring but no rule is triggered."
   }
 }
