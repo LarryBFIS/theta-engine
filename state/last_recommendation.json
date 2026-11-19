@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-19T14:37:12.208312+00:00",
-  "market_view": "VIX at 22.48, down 8.5% today but still +19.7% on the week \u2014 risk-off regime intact with broad 5-day weakness across all sectors; today's tech-led bounce (QQQ +2.23%, XLK +2.95%) does not undo the fragility, and IWM lagging badly at +0.24% confirms continued small-cap pressure.",
+  "last_run": "2026-11-19T14:45:01.670105+00:00",
+  "market_view": "VIX at 22.5, down 8.4% today but still +19.8% on the week \u2014 risk-off regime intact with tech-led bounce masking broad weakness; IWM lagging severely at -0.08% today while QQQ rips +2.18%, confirming small-cap fragility.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T14:36:57Z",
-    "reasoning": "Mid at $1.265 is 2.3x the $0.55 credit \u2014 stop-loss threshold (1.5x = $0.825) has been breached for multiple consecutive cycles AND 21 DTE hard exit rule is simultaneously triggered; this has been flagged CRITICAL repeatedly with zero execution, which is unacceptable. IWM is the weakest index today (+0.24%) with 5d -2.93%, increasing directional risk."
+    "timestamp": "2026-11-19T14:44:48Z",
+    "reasoning": "Mid at $1.345 is 2.45x the $0.55 credit \u2014 stop-loss (1.5x = $0.825) has been blown through repeatedly, 21 DTE hard exit rule is simultaneously triggered, and IWM is the ONLY index down today (-0.08%) with 5d -3.24%; this position has been flagged CRITICAL for multiple consecutive cycles with zero execution and must be closed immediately."
   },
   "QQQ 724/732c": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T14:36:57Z",
-    "reasoning": "21 DTE hard exit rule triggered \u2014 this is a non-negotiable rule and has been flagged CRITICAL for multiple consecutive cycles with zero execution; today's QQQ +2.23% move pushes underlying further from the 724 short strike but that is irrelevant \u2014 the rule is the rule and delay is a discipline failure."
+    "timestamp": "2026-11-19T14:44:48Z",
+    "reasoning": "21 DTE hard exit rule triggered \u2014 this is non-negotiable and has been flagged CRITICAL for multiple consecutive cycles with zero execution; mid at $0.855 is a 25.7% profit on the $1.15 credit, close it and bank the gain."
   },
   "SPY 685/675p": {
     "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-11-19T14:36:57Z",
-    "reasoning": "Mid at $0.785 is now 25.2% profit on the $1.05 credit \u2014 not yet at 50% profit target ($0.525) and 28 DTE is above the 21 DTE exit rule; SPY +1.11% today and short strike 685 is 7.2% OTM, but 5d -2.86% and risk-off regime warrant continued monitoring as this position could deteriorate on a reversal."
+    "confidence": 0.72,
+    "timestamp": "2026-11-19T14:44:48Z",
+    "reasoning": "Mid at $0.825 is 21.4% profit on the $1.05 credit \u2014 not yet at 50% target ($0.525) and 28 DTE is above the 21 DTE rule; short strike 685 is 7.2% OTM with SPY +1.08% today, position is healthy but VIX still elevated at 22.5 and 5d weakness warrants monitoring."
   }
 }
