@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-19T19:55:11.251081+00:00",
-  "market_view": "VIX 27.5 up 46% in 5 days, broad risk-off selloff accelerating \u2014 SPY/QQQ/IWM all down 1.6-1.8% today and 4.9-5.9% on the week. All three positions remain unexecuted across five consecutive alert cycles; this is now an execution emergency.",
+  "last_run": "2026-11-19T20:12:48.930036+00:00",
+  "market_view": "VIX 27.58 up 46% in 5 days, broad capitulation-level selling across all sectors \u2014 SPY/QQQ/IWM down ~2% today, 5-6% on the week with no sign of stabilization. This is a sustained risk-off event, not a one-day flush.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T19:54:57Z",
-    "reasoning": "Short strike 266 breached (IWM 265.25), mid $1.88 is 3.42x credit \u2014 stop blown at 1.5x, strike ITM, 21 DTE hard exit triggered, now fifth consecutive cycle without execution. Assignment risk is live."
+    "timestamp": "2026-11-19T20:12:31+00:00",
+    "reasoning": "Short strike 266 is ITM (IWM 264.59), mid $1.95 is 3.55x the $0.55 credit \u2014 stop blown at 1.5x, 21 DTE hard exit triggered, assignment risk is live. This is now the sixth consecutive cycle without execution and the position is bleeding toward max loss."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T19:54:57Z",
-    "reasoning": "21 DTE hard exit triggered today, mid $0.315 is 72.6% profit on $1.15 credit \u2014 mandatory close per playbook, overdue five cycles, QQQ down 1.72% today keeps this spread profitable but each delay risks a reversal."
+    "timestamp": "2026-11-19T20:12:31+00:00",
+    "reasoning": "21 DTE hard exit triggered, mid $0.26 is 77% profit on $1.15 credit \u2014 mandatory close per playbook, overdue six cycles. QQQ down 2.16% today keeps this spread profitable but every cycle of delay in a risk-off tape risks a snap reversal toward the short call strike."
   },
   "SPY 685/675p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-11-19T19:54:57Z",
-    "reasoning": "Worst-case fill $1.70 is 1.62x credit ($1.575 stop threshold), SPY down 5.44% on the week in accelerating risk-off with VIX 27.5 \u2014 stop rule is triggered and 685 short is only 4.69% OTM with momentum still bearish."
+    "timestamp": "2026-11-19T20:12:31+00:00",
+    "reasoning": "Worst-case fill $1.79 is 1.70x the $1.05 credit, stop rule triggered at 1.5x \u2014 SPY down 5.73% on the week with VIX spiking, 685 short is only 4.4% OTM and momentum is fully bearish with no catalyst for reversal."
   }
 }
