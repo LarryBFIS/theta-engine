@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-19T16:14:11.543377+00:00",
-  "market_view": "Risk-off has modestly eased from the prior alert \u2014 VIX pulled back to 25.48 from 26.36, IWM bounced slightly to 268.04 from 267.36, but the 5-day tape is still ugly across the board (-4% broad market, VIX +35% on 5d). The IWM short strike breach risk has marginally decreased but the position is still catastrophically past the 1.5x stop rule.",
+  "last_run": "2026-11-19T16:15:29.781808+00:00",
+  "market_view": "VIX at 25.63 up 4.36% today and +36% on the 5-day confirms entrenched risk-off regime with broad selling across defensives and cyclicals alike. IWM and SPY both down on the day with no catalyst reversal in sight.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-19T16:13:54Z",
-    "reasoning": "Mid at $1.55 is 2.82x the original $0.55 credit \u2014 the 1.5x stop rule ($0.825) was breached long ago, 21 DTE hard exit is active today, and IWM at 268.04 is only 0.76% above the 266 short put with a risk-off tape. This was flagged CRITICAL last alert and nothing has changed structurally to justify holding."
+    "timestamp": "2026-11-19T16:15:15Z",
+    "reasoning": "Mid at $1.57 is 2.85x the $0.55 credit \u2014 1.5x stop ($0.825) was blown through long ago, 21 DTE hard exit is active TODAY with no exceptions, and IWM at 267.96 sits only 0.73% above the 266 short put in an accelerating risk-off tape. This has been flagged CRITICAL for multiple cycles with no close executed."
   },
   "QQQ 724/732c": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-11-19T16:13:54Z",
-    "reasoning": "21 DTE hard exit rule is active today with zero exceptions per the playbook, and mid at $0.565 represents 51% profit on the $1.15 credit \u2014 both the DTE rule AND profit target are triggered. This was ACTION last alert and has not been closed yet, now elevating to CRITICAL due to the hard rule."
+    "timestamp": "2026-11-19T16:15:15Z",
+    "reasoning": "21 DTE hard exit rule is active TODAY \u2014 no exceptions per playbook \u2014 and mid at $0.565 is 51% profit on the $1.15 credit, meaning BOTH the DTE rule and 50% profit target are simultaneously triggered. This has gone unexecuted for multiple alert cycles."
   },
   "SPY 685/675p": {
     "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-11-19T16:13:54Z",
-    "reasoning": "SPY at 728.73 keeps the 685 short put 6.0% OTM with 28 DTE \u2014 no stop breach, no profit target hit yet ($1.145 mid vs $1.05 credit entry means position is currently a small loser). VIX elevated at 25.48 in risk-off regime warrants monitoring but no action rule is triggered."
+    "confidence": 0.78,
+    "timestamp": "2026-11-19T16:15:15Z",
+    "reasoning": "SPY at 728.91 keeps the 685 short put 6.0% OTM with 28 DTE \u2014 position is a small loser ($1.17 mid vs $1.05 credit) but no stop rule or DTE rule triggered yet. VIX spiking in risk-off warrants close monitoring as continued downside could compress the 6% cushion."
   }
 }
