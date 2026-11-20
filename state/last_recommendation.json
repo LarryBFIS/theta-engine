@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-20T19:11:49.236247+00:00",
-  "market_view": "VIX 30.88 +8.6% today, +54.4% on the week \u2014 bear tape intact, QQQ -3.96% with XLK -5.41% leading down, no reversal signal. IWM is below both strikes, SPY 685 short is 2.1% away with momentum down.",
+  "last_run": "2026-11-20T19:16:44.579971+00:00",
+  "market_view": "VIX 31.56 +11% today, +57.8% on the week \u2014 full risk-off regime with QQQ -4.22% and XLK -5.74% leading the collapse. IWM is now BELOW both strikes (259.01 vs 261 long), SPY 685 short is only 1.9% away in a bear tape with no reversal signal.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T19:11:35Z",
-    "reasoning": "IWM 259.49 is below the 261 long strike \u2014 full max loss territory, mid $2.56 is 4.65x credit, 21-DTE hard exit fires TOMORROW, this alert has fired multiple cycles with no execution recorded. Every 15-minute delay adds slippage risk in a bear tape."
+    "timestamp": "2026-11-20T19:16:29Z",
+    "reasoning": "IWM 259.01 is BELOW the 261 long strike \u2014 full max loss territory, mid $2.55 is 4.6x credit, 21-DTE hard exit fires TOMORROW, and this alert has fired multiple cycles with no execution. This is a $445 max loss position bleeding further every minute in a bear tape."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T19:11:35Z",
-    "reasoning": "Mid $0.05 is 95.7% of max profit captured, short strike 16.9% OTM, 21-DTE hard exit fires TOMORROW \u2014 this is a complete winner with zero edge left to hold."
+    "timestamp": "2026-11-20T19:16:29Z",
+    "reasoning": "Mid $0.05 is 95.7% of max profit captured, short strike 17.1% OTM, 21-DTE hard exit fires TOMORROW \u2014 zero edge remaining, pure theta decay complete."
   },
   "SPY 685/675p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-11-20T19:11:35Z",
-    "reasoning": "SPY 699.51 is 2.1% above the 685 short strike, mid $2.71 is 2.58x credit \u2014 hard stop at 1.5x was $1.575 and was already blown through, bear tape accelerating, this position holds $1,790 BPR (47% of net liq) with 27 DTE and negative delta exposure in a risk-off regime."
+    "timestamp": "2026-11-20T19:16:29Z",
+    "reasoning": "SPY 698.04 is 1.9% above 685 short strike, mid $2.775 is 2.64x credit \u2014 stop-loss threshold (1.5x = $1.575) was blown through days ago, this is $1,790 BPR (47% of net liq) with negative delta exposure accelerating in a VIX 31 bear tape at 27 DTE."
   }
 }
