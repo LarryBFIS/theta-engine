@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-20T18:28:36.586499+00:00",
-  "market_view": "VIX 32.33 +13.7% today, +61.6% on the week \u2014 full risk-off capitulation, tech XLK -5.3%, broad selling with zero reversal signal. IWM is below both strikes in max loss, SPY 685 short strike is 2.1% away in a trending bear tape.",
+  "last_run": "2026-11-20T18:36:34.007165+00:00",
+  "market_view": "VIX 31.72 +11.5% today, +58.6% on the week \u2014 sustained risk-off with XLK -5% and broad indices down 6-7% on the week. No reversal signal, bear trend intact with IWM now below both strikes.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T18:28:23Z",
-    "reasoning": "IWM 259.81 is BELOW the 261 long strike \u2014 position is at max loss ($445), mid $2.56 is 4.65x the $0.55 credit, 21-DTE hard exit fires TOMORROW, and this has been flagged CRITICAL across multiple cycles with no execution. Every minute held is capital destruction with zero recovery path."
+    "timestamp": "2026-11-20T18:36:21Z",
+    "reasoning": "IWM 259.97 is BELOW the 261 long strike \u2014 position is at max loss, mid $2.535 is 4.6x the $0.55 credit, 21-DTE hard exit fires TOMORROW, and this has been flagged CRITICAL for multiple cycles with no execution. Close NOW."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T18:28:23Z",
-    "reasoning": "Mid $0.065 is 94.3% of max profit captured, short strike is 16.7% OTM, 21-DTE hard exit fires TOMORROW \u2014 this is a full winner that must be closed today per rule."
+    "timestamp": "2026-11-20T18:36:21Z",
+    "reasoning": "Mid $0.07 is 93.9% of max profit captured, short strike is 16.4% OTM with 20 DTE \u2014 21-DTE hard exit rule fires tomorrow and this is a full winner that must be closed today per rules."
   },
   "SPY 685/675p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-11-20T18:28:23Z",
-    "reasoning": "SPY 699.86 is only 2.1% above 685 short strike in a -2.24% down day with VIX expanding \u2014 mid $2.69 is 2.56x the $1.05 credit, hard stop at 1.5x ($1.575) was breached multiple cycles ago, $1,790 BPR is 47% of net liq, 27 DTE with no floor in sight. One more -2% day puts this deep ITM."
+    "timestamp": "2026-11-20T18:36:21Z",
+    "reasoning": "SPY 701.57 is only 2.4% above the 685 short strike in a sustained bear tape with VIX 31.72 \u2014 mid $2.545 is 2.42x the $1.05 credit, the 1.5x hard stop ($1.575) was breached multiple cycles ago, and $1,790 BPR is 47% of net liq with 27 DTE remaining."
   }
 }
