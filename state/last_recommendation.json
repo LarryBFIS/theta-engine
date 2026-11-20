@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-20T17:37:07.574642+00:00",
-  "market_view": "VIX 31.96 up 12% today and +60% on the week \u2014 risk-off regime is accelerating with tech down 5.2% and broad market in freefall, no stabilization signal. Both put verticals are deep in trouble with IWM through max loss and SPY deteriorating; every cycle of inaction compounds the damage.",
+  "last_run": "2026-11-20T17:45:12.318708+00:00",
+  "market_view": "VIX 32.15 up 13% today and +60% on the week, XLK -5.3% leading broad risk-off selloff with no stabilization \u2014 this is a trending tape down with no floor in sight. IWM is below both strikes at max loss and SPY is bleeding toward its short strike; every minute of inaction is unrecoverable.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T17:36:51Z",
-    "reasoning": "IWM at 259.45 is BELOW the 261 long strike \u2014 position is at max loss ($445), mid $2.60 is 4.7x the original $0.55 credit, 21-DTE rule triggered, and this CRITICAL has now fired multiple consecutive cycles with no execution. Further delay is pure cash destruction with zero recovery path."
+    "timestamp": "2026-11-20T17:44:57Z",
+    "reasoning": "IWM at 259.34 is BELOW the 261 long strike \u2014 position is at or beyond max loss, mid $2.605 is 4.7x the original $0.55 credit, 21-DTE rule triggered, 1.5x stop breached multiple cycles ago. This CRITICAL has fired repeatedly with zero execution \u2014 continuing to hold is not a strategy, it is account destruction."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T17:36:51Z",
-    "reasoning": "Mid $0.085 represents 93% of max profit captured on a call spread with QQQ at 621 \u2014 short strike is 16.6% OTM and this is a pure winner sitting idle while the account burns on the put side."
+    "timestamp": "2026-11-20T17:44:57Z",
+    "reasoning": "Mid $0.08 is 93% of max profit captured with QQQ at 621, short strike 16.6% OTM \u2014 this is a near-full winner and 21-DTE rule fires in 1 day. Close it and reclaim the $685 BPR."
   },
   "SPY 685/675p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-11-20T17:36:51Z",
-    "reasoning": "SPY at 700.70 is only 2.2% above the 685 short strike, mid $2.61 is 2.49x the $1.05 credit \u2014 the 1.5x stop rule was breached multiple cycles ago and VIX is still expanding with no floor. This $1,790 BPR is 47% of net liq with 27 DTE remaining in a trending tape."
+    "timestamp": "2026-11-20T17:44:57Z",
+    "reasoning": "SPY at 700.32 is 2.2% above the 685 short strike in a -2.2% down day with VIX still expanding \u2014 mid $2.68 is 2.55x the $1.05 credit, hard stop at 1.5x ($1.575) was blown through cycles ago. This $1,790 BPR is 47% of net liq with 27 DTE in a trending tape; a 2% more selloff puts the short strike in play."
   }
 }
