@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-20T19:55:15.109879+00:00",
-  "market_view": "VIX 33.67 +18.4% today, +68.4% on the week \u2014 full risk-off capitulation continues with QQQ -4.51% and XLK -6.17% leading. All short-put positions remain underwater with zero tape stabilization and IWM now trading BELOW the long strike.",
+  "last_run": "2026-11-20T20:12:13.594142+00:00",
+  "market_view": "VIX 34 +19.5% today, +70% on the week \u2014 full risk-off capitulation with QQQ -4.89% and XLK -6.67% leading; market is in freefall with zero stabilization signal. All short-put positions are deep underwater and IWM is now trading $8 BELOW the short strike with max loss already exceeded.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T19:55:00Z",
-    "reasoning": "IWM 258.29 is $2.71 BELOW the 261 long strike \u2014 this is at max loss territory, mid $2.665 is 4.85x credit, 21-DTE hard exit fires TOMORROW, and this position has been flagged CRITICAL multiple cycles with zero execution. Every minute of delay risks further slippage."
+    "timestamp": "2026-11-20T20:11:59Z",
+    "reasoning": "IWM 257.94 is $8.06 below the 266 short strike and $3.06 below the 261 long strike \u2014 this is at or beyond max loss, mid $2.665 is 4.85x credit, 21-DTE hard exit fires TOMORROW, and this has been flagged CRITICAL for multiple cycles with no execution. Continued inaction is destroying capital."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T19:55:00Z",
-    "reasoning": "Mid $0.06 is 94.8% max profit captured, short strike is 17.6% OTM with zero directional threat, and the 21-DTE hard exit rule fires TOMORROW \u2014 holding overnight in a VIX-33 tape for $6 of residual value is irrational risk."
+    "timestamp": "2026-11-20T20:11:59Z",
+    "reasoning": "Mid $0.06 is 94.8% max profit captured, 21-DTE hard exit rule fires TOMORROW, and holding overnight for $6 residual in a VIX-34 tape with undefined overnight risk is irrational. This has been flagged ACTION last cycle with no execution."
   },
   "SPY 685/675p": {
     "action": "CRITICAL",
-    "confidence": 0.98,
-    "timestamp": "2026-11-20T19:55:00Z",
-    "reasoning": "SPY 695.46 is only 1.5% above the 685 short strike with VIX 33 and a -2.82% day \u2014 mid $2.995 is 2.85x credit, 1.5x stop ($1.575) was blown through long ago, this is $1,790 BPR (48% of net liq) in a trending bear tape with 27 DTE remaining."
+    "confidence": 0.99,
+    "timestamp": "2026-11-20T20:11:59Z",
+    "reasoning": "SPY 693.92 is only 1.3% above the 685 short strike in a -3.07% tape with VIX 34 and no floor in sight \u2014 mid $3.12 is 2.97x credit, 1.5x stop was blown through days ago, and this is $1,790 BPR (48.8% of net liq) with 27 DTE in a trending bear market. Every tick lower risks assignment."
   }
 }
