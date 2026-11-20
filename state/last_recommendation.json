@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-20T14:55:12.232379+00:00",
-  "market_view": "VIX 28.43 remains elevated with a 42% 5-day surge confirming sustained risk-off regime; market is stabilizing intraday but no reversal signal \u2014 short premium is bleeding.",
+  "last_run": "2026-11-20T15:12:12.844234+00:00",
+  "market_view": "VIX at 27.75 with a 38.75% 5-day surge confirms entrenched risk-off; tech leading losses (-1.98% XLK) while defensives bid (XLP +2.06%, XLV +1.73%) \u2014 classic rotation signaling no near-term floor in short premium positions.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T14:54:58.984435+00:00",
-    "reasoning": "Short strike 266 is ITM with IWM at 264.26, mid cost $2.01 is 3.65x the $0.55 credit, DTE is 20 and the 21 DTE hard exit rule is triggered \u2014 this position has blown every stop rule and assignment risk is live."
+    "timestamp": "2026-11-20T15:11:59Z",
+    "reasoning": "Short strike 266 remains ITM with IWM at 264.99, mid cost $1.94 is 3.5x the $0.55 credit, DTE hit 20 triggering the 21 DTE hard exit rule \u2014 every stop rule blown, assignment risk is live. This was flagged CRITICAL last cycle with no execution recorded."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T14:54:58.984435+00:00",
-    "reasoning": "Mid $0.175 is 84.8% profit on $1.15 credit, DTE is 20 and the 21 DTE hard exit rule fires today \u2014 this is a clean near-max winner sitting idle."
+    "timestamp": "2026-11-20T15:11:59Z",
+    "reasoning": "Mid $0.16 is 86% profit on $1.15 credit and DTE is 20 hitting the 21 DTE hard exit rule \u2014 this is a near-max winner and was flagged last cycle with no execution recorded."
   },
   "SPY 685/675p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-11-20T14:54:58.984435+00:00",
-    "reasoning": "Mid $1.835 is 1.75x the $1.05 credit \u2014 the 1.5x stop rule was blown multiple cycles ago with no execution, and VIX 28+ with SPY -4.57% in 5 days means 685 short put faces continued downside pressure at 27 DTE."
+    "timestamp": "2026-11-20T15:11:59Z",
+    "reasoning": "Mid $1.78 is 1.70x the $1.05 credit \u2014 1.5x stop rule was breached multiple cycles ago with no execution, and SPY -4.57% in 5 days with VIX 27.75 means 685 short put faces continued downside pressure at 27 DTE."
   }
 }
