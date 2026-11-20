@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-20T19:10:15.501489+00:00",
-  "market_view": "VIX 31.35 +10.2% today, +56.75% on the week \u2014 bear tape accelerating, QQQ -3.91% today with XLK -5.38%. No reversal signal, IWM below long strike, SPY grinding toward 685 short.",
+  "last_run": "2026-11-20T19:11:49.236247+00:00",
+  "market_view": "VIX 30.88 +8.6% today, +54.4% on the week \u2014 bear tape intact, QQQ -3.96% with XLK -5.41% leading down, no reversal signal. IWM is below both strikes, SPY 685 short is 2.1% away with momentum down.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T19:10:02Z",
-    "reasoning": "IWM 259.51 is below the 261 long strike \u2014 max loss realized, mid $2.56 is 4.65x credit, 21-DTE hard exit fires TOMORROW, this has been CRITICAL for multiple cycles with zero execution. Every minute of delay risks further slippage in a bear tape."
+    "timestamp": "2026-11-20T19:11:35Z",
+    "reasoning": "IWM 259.49 is below the 261 long strike \u2014 full max loss territory, mid $2.56 is 4.65x credit, 21-DTE hard exit fires TOMORROW, this alert has fired multiple cycles with no execution recorded. Every 15-minute delay adds slippage risk in a bear tape."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T19:10:02Z",
-    "reasoning": "Mid $0.065 is 94.3% of max profit captured, short strike 16.8% OTM, 21-DTE hard exit fires TOMORROW \u2014 this is a full winner, free up the $685 BPR."
+    "timestamp": "2026-11-20T19:11:35Z",
+    "reasoning": "Mid $0.05 is 95.7% of max profit captured, short strike 16.9% OTM, 21-DTE hard exit fires TOMORROW \u2014 this is a complete winner with zero edge left to hold."
   },
   "SPY 685/675p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-11-20T19:10:02Z",
-    "reasoning": "SPY 699.75 is only 2.1% above 685 short strike, mid $2.695 is 2.57x credit well past 1.5x hard stop, bear tape accelerating with VIX 31 \u2014 this position is consuming $1,790 BPR (47% of net liq) and moving against you in a risk-off regime with 27 DTE left."
+    "timestamp": "2026-11-20T19:11:35Z",
+    "reasoning": "SPY 699.51 is 2.1% above the 685 short strike, mid $2.71 is 2.58x credit \u2014 hard stop at 1.5x was $1.575 and was already blown through, bear tape accelerating, this position holds $1,790 BPR (47% of net liq) with 27 DTE and negative delta exposure in a risk-off regime."
   }
 }
