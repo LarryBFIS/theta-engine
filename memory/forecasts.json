@@ -5302,7 +5302,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Firm +2% rally day with VIX at 19.08 in a normal regime \u2014 short-put premium selling is reasonably timed into strength, but selling call spreads here fights the tape. Momentum up-days are exactly when short-call verticals get run over.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-20",
+      "actual_price": 709.47,
+      "realized_move_pct": 0.0583,
+      "realized_move_signed": -0.0583,
+      "stayed_in_range": false
     },
     {
       "id": "ebc9e430ff81",
@@ -5317,7 +5322,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Firm +2% rally day with VIX at 19.08 in a normal regime \u2014 short-put premium selling is reasonably timed into strength, but selling call spreads here fights the tape. Momentum up-days are exactly when short-call verticals get run over.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-20",
+      "actual_price": 633.71,
+      "realized_move_pct": 0.0674,
+      "realized_move_signed": -0.0674,
+      "stayed_in_range": false
     },
     {
       "id": "a17db0a9ee82",
@@ -5332,7 +5342,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Firm +2% rally day with VIX at 19.08 in a normal regime \u2014 short-put premium selling is reasonably timed into strength, but selling call spreads here fights the tape. Momentum up-days are exactly when short-call verticals get run over.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-20",
+      "actual_price": 263.54,
+      "realized_move_pct": 0.0498,
+      "realized_move_signed": -0.0498,
+      "stayed_in_range": false
     },
     {
       "id": "9be2f495a47d",
@@ -5347,7 +5362,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Firm +2% rally day with VIX at 19.08 in a normal regime \u2014 short-put premium selling is reasonably timed into strength, but selling call spreads here fights the tape. Momentum up-days are exactly when short-call verticals get run over.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-20",
+      "actual_price": 488.83,
+      "realized_move_pct": 0.0651,
+      "realized_move_signed": -0.0651,
+      "stayed_in_range": false
     },
     {
       "id": "039be44e9060",
@@ -5362,7 +5382,12 @@
       "model": "kimi-k3",
       "vol_verdict": "fair",
       "market_view": "Firm +2% rally day with VIX at 19.08 in a normal regime \u2014 short-put premium selling is reasonably timed into strength, but selling call spreads here fights the tape. Momentum up-days are exactly when short-call verticals get run over.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-20",
+      "actual_price": 366.7,
+      "realized_move_pct": 0.0638,
+      "realized_move_signed": -0.0638,
+      "stayed_in_range": true
     },
     {
       "id": "8503577a8cf8",
@@ -5662,6 +5687,81 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
+      "resolved": false
+    },
+    {
+      "id": "b3505eaafc94",
+      "index": "SPY",
+      "forecast_date": "2026-11-20",
+      "target_date": "2026-11-27",
+      "horizon_days": 7,
+      "spot_at_forecast": 709.47,
+      "iv": 0.2808,
+      "implied_move_pct": 0.0389,
+      "implied_move_abs": 27.59,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 30.67 in stress regime with +8% intraday rally; tape is sharp and reversions are untrustworthy. Selling premium into a rip after vol shock is poorly timed even if IV rank is rich.",
+      "resolved": false
+    },
+    {
+      "id": "e2eadf3af2e9",
+      "index": "QQQ",
+      "forecast_date": "2026-11-20",
+      "target_date": "2026-11-27",
+      "horizon_days": 7,
+      "spot_at_forecast": 633.71,
+      "iv": 0.3613,
+      "implied_move_pct": 0.05,
+      "implied_move_abs": 31.71,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 30.67 in stress regime with +8% intraday rally; tape is sharp and reversions are untrustworthy. Selling premium into a rip after vol shock is poorly timed even if IV rank is rich.",
+      "resolved": false
+    },
+    {
+      "id": "d65e5d8baa65",
+      "index": "IWM",
+      "forecast_date": "2026-11-20",
+      "target_date": "2026-11-27",
+      "horizon_days": 7,
+      "spot_at_forecast": 263.54,
+      "iv": 0.2987,
+      "implied_move_pct": 0.0414,
+      "implied_move_abs": 10.9,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 30.67 in stress regime with +8% intraday rally; tape is sharp and reversions are untrustworthy. Selling premium into a rip after vol shock is poorly timed even if IV rank is rich.",
+      "resolved": false
+    },
+    {
+      "id": "c6d904e8aef3",
+      "index": "DIA",
+      "forecast_date": "2026-11-20",
+      "target_date": "2026-11-27",
+      "horizon_days": 7,
+      "spot_at_forecast": 488.83,
+      "iv": 0.2442,
+      "implied_move_pct": 0.0338,
+      "implied_move_abs": 16.53,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 30.67 in stress regime with +8% intraday rally; tape is sharp and reversions are untrustworthy. Selling premium into a rip after vol shock is poorly timed even if IV rank is rich.",
+      "resolved": false
+    },
+    {
+      "id": "3d906e35f969",
+      "index": "TSLA",
+      "forecast_date": "2026-11-20",
+      "target_date": "2026-11-27",
+      "horizon_days": 7,
+      "spot_at_forecast": 366.7,
+      "iv": 0.565,
+      "implied_move_pct": 0.0782,
+      "implied_move_abs": 28.69,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 30.67 in stress regime with +8% intraday rally; tape is sharp and reversions are untrustworthy. Selling premium into a rip after vol shock is poorly timed even if IV rank is rich.",
       "resolved": false
     }
   ]
