@@ -78608,6 +78608,91 @@
       "alternative": "Hold for $7 more potential profit but risk $685 if breached before expiry.",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20261120T134449_trade_047_iwm_266_261",
+      "trade_id": "trade_047_iwm_266_261",
+      "timestamp": "2026-11-20T13:44:49.283301-05:00",
+      "action": "URGENT_CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\u26a0\ufe0f IWM @ $259.63 is BELOW short strike $266 (ITM).",
+        "Max loss exposure increasing. Current close: $2.57 mid / $2.66 worst.",
+        "20 DTE remaining; negative delta hurts daily."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 2.5749999999999993,
+        "cost_to_close_worst": 2.6599999999999993,
+        "profit_if_closed_mid": -202.49999999999994,
+        "profit_if_closed_worst": -210.99999999999994,
+        "pct_max_profit_captured_mid": -3.6818181818181808,
+        "dte": 20,
+        "underlying_price": 259.6300048828125,
+        "short_strike_breached": true,
+        "has_live_quotes": true,
+        "net_liq": 3815.786,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold and hope. Risk: up to $445 max loss (currently $202 unrealized).",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20261120T134449_trade_048_qqq_724_732",
+      "trade_id": "trade_048_qqq_724_732",
+      "timestamp": "2026-11-20T13:44:49.659136-05:00",
+      "action": "CLOSE",
+      "urgency": "normal",
+      "reasoning": [
+        "\u2705 Captured 95% of max profit at mid (target 50%).",
+        "Close cost: $0.06 mid / $0.08 worst-case fill.",
+        "Profit if closed: $109 (mid) to $107 (worst).",
+        "Closes free $685 BPR for the next setup."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 0.06,
+        "cost_to_close_worst": 0.07999999999999999,
+        "profit_if_closed_mid": 108.99999999999999,
+        "profit_if_closed_worst": 106.99999999999999,
+        "pct_max_profit_captured_mid": 0.9478260869565217,
+        "dte": 20,
+        "underlying_price": 619.97998046875,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 3815.786,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold for $6 more potential profit but risk $685 if breached before expiry.",
+      "status": "pending",
+      "decided_at": null
+    },
+    {
+      "id": "sug_20261120T134449_trade_049_spy_685_675",
+      "trade_id": "trade_049_spy_685_675",
+      "timestamp": "2026-11-20T13:44:50.045198-05:00",
+      "action": "CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\ud83d\udcc9 Unrealized loss is $323 \u2014 >1.5\u00d7 credit received.",
+        "Mechanical loss-cutting trigger to avoid the full $1790 max loss.",
+        "Close cost: $2.66 mid / $2.76 worst."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 2.664999999999999,
+        "cost_to_close_worst": 2.76,
+        "profit_if_closed_mid": -322.99999999999983,
+        "profit_if_closed_worst": -341.99999999999994,
+        "pct_max_profit_captured_mid": -1.538095238095237,
+        "dte": 27,
+        "underlying_price": 700.135009765625,
+        "short_strike_breached": false,
+        "has_live_quotes": true,
+        "net_liq": 3815.786,
+        "day_pnl": 0.0
+      },
+      "alternative": null,
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }
