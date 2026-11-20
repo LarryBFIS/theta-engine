@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-20T19:45:10.105399+00:00",
-  "market_view": "VIX 34.38 +20.9% today, +71.9% on the week \u2014 this is a full capitulation event with QQQ -4.35% and XLK -6.07% leading. All three short-put positions are underwater and the tape has zero stabilization signal.",
+  "last_run": "2026-11-20T19:55:15.109879+00:00",
+  "market_view": "VIX 33.67 +18.4% today, +68.4% on the week \u2014 full risk-off capitulation continues with QQQ -4.51% and XLK -6.17% leading. All short-put positions remain underwater with zero tape stabilization and IWM now trading BELOW the long strike.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T19:44:56Z",
-    "reasoning": "IWM 258.65 is $2.35 BELOW the 261 long strike \u2014 this is past max loss, mid $2.64 is 4.8x credit, 21-DTE hard exit fires TOMORROW, and this has been flagged CRITICAL every cycle with zero execution. Close immediately."
+    "timestamp": "2026-11-20T19:55:00Z",
+    "reasoning": "IWM 258.29 is $2.71 BELOW the 261 long strike \u2014 this is at max loss territory, mid $2.665 is 4.85x credit, 21-DTE hard exit fires TOMORROW, and this position has been flagged CRITICAL multiple cycles with zero execution. Every minute of delay risks further slippage."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T19:44:56Z",
-    "reasoning": "Mid $0.06 is 94.8% max profit captured, short strike 17.4% OTM with zero threat, and 21-DTE hard exit fires TOMORROW \u2014 this is free money left on the table overnight in a volatile tape."
+    "timestamp": "2026-11-20T19:55:00Z",
+    "reasoning": "Mid $0.06 is 94.8% max profit captured, short strike is 17.6% OTM with zero directional threat, and the 21-DTE hard exit rule fires TOMORROW \u2014 holding overnight in a VIX-33 tape for $6 of residual value is irrational risk."
   },
   "SPY 685/675p": {
     "action": "CRITICAL",
     "confidence": 0.98,
-    "timestamp": "2026-11-20T19:44:56Z",
-    "reasoning": "SPY 696.39 is only 1.6% above the 685 short strike with VIX 34 and a -2.7% day \u2014 mid $2.895 is 2.76x credit, 1.5x stop ($1.575) was blown through long ago, and this is $1,790 BPR (48% of net liq) with 27 DTE in a trending bear tape."
+    "timestamp": "2026-11-20T19:55:00Z",
+    "reasoning": "SPY 695.46 is only 1.5% above the 685 short strike with VIX 33 and a -2.82% day \u2014 mid $2.995 is 2.85x credit, 1.5x stop ($1.575) was blown through long ago, this is $1,790 BPR (48% of net liq) in a trending bear tape with 27 DTE remaining."
   }
 }
