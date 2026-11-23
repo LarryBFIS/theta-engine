@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-23T13:16:00.071826+00:00",
-  "market_view": "VIX 31.32, SPY -3.64% today, QQQ -5.67% \u2014 sustained risk-off regime with 5-day losses of -8% to -9.3% across all major indices. This is not a dip; positions are at or past stop rules and must be closed immediately.",
+  "last_run": "2026-11-23T13:26:56.982908+00:00",
+  "market_view": "VIX 30.84, SPY -3.64% today, QQQ -5.67% \u2014 full risk-off regime with 5-day losses of -7% to -9.3% across all indices. IWM is trading $4.39 below the long strike, SPY is 70bps from the short strike \u2014 these positions are in emergency territory and must be closed immediately.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-23T13:15:44+00:00",
-    "reasoning": "IWM $256.61 is $4.39 below the long strike 261 \u2014 position is at full max loss, mid $2.145 is 3.9x credit, 1.5x stop rule was breached multiple cycles ago, and this has been flagged CRITICAL repeatedly unexecuted. Every tick lower is unrecoverable loss on a $445 max-loss structure."
+    "timestamp": "2026-11-23T13:26:42.576299+00:00",
+    "reasoning": "IWM $256.61 is $4.39 below the long strike 261 \u2014 position is at or near max loss ($445), mid $2.155 is 3.9x original credit, stop rule was violated multiple cycles ago and this has been CRITICAL for 4+ consecutive cycles without execution. Every additional tick lower adds zero recoverable value."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-11-23T13:15:44+00:00",
-    "reasoning": "Mid $0.08 = 93% of max profit captured, 21-DTE hard exit fires in 4 days, and $685 BPR is needed for better setups in a high-IV environment. This has been flagged ACTION for 5+ consecutive cycles unexecuted."
+    "timestamp": "2026-11-23T13:26:42.576299+00:00",
+    "reasoning": "Mid $0.08 is 93% of max profit captured, 50% profit target was hit long ago, QQQ is -5.67% today moving further away from the 724 short call \u2014 this BPR is needed for potential put side setups in this elevated-IV environment."
   },
   "SPY 685/675p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-23T13:15:44+00:00",
-    "reasoning": "SPY $689.81 is only 0.70% above the 685 short strike after a -3.64% down day in a confirmed risk-off regime \u2014 mid $2.125 is 2.0x credit (1.5x stop rule was triggered), $1,790 BPR is 45% of net liq, and any continuation move breaks the short strike with 24 DTE and high delta acceleration."
+    "timestamp": "2026-11-23T13:26:42.576299+00:00",
+    "reasoning": "SPY $689.81 is only 0.70% above the 685 short strike in a confirmed -3.64% down day risk-off regime \u2014 mid $2.195 is 2.1x original credit (1.5x stop rule hard-triggered), $1,790 BPR is 45% of net liq, and any continued selling today breaks the short strike with 24 DTE and full delta acceleration into max loss."
   }
 }
