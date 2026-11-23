@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-23T16:12:56.025203+00:00",
-  "market_view": "Massive relief rally continues with SPY +5.08% and QQQ +7.39%, VIX cratering 23% to 27.65 \u2014 but regime still tagged risk_off and 5d returns remain negative across all majors. This is an oversold bounce, not a regime change.",
+  "last_run": "2026-11-23T16:14:42.358512+00:00",
+  "market_view": "Massive relief rally today (SPY +5%, QQQ +7.3%) with VIX cratering 23% to 27.43, but regime still tagged risk_off and 5d returns negative across all majors \u2014 this is an oversold bounce, not a regime change. IWM still lagging at only +3.3%, consistent with the small-cap stress that has our short put breached.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-23T16:12:42Z",
-    "reasoning": "Short strike 266 remains breached with IWM at 265.10, mid cost $1.865 is 3.4x the $0.55 credit \u2014 stop rule triggered at $0.825 and unrealized loss is ~$131 on a $55 max profit trade. This is the sixth consecutive CRITICAL flag; full $445 max loss is on the table with 17 DTE and no hedge from today's rally."
+    "timestamp": "2026-11-23T16:14:27Z",
+    "reasoning": "Short strike 266 is still breached with IWM at 265.01, mid cost $1.845 is 3.35x the $0.55 credit \u2014 1.5x stop was triggered at $0.825 and unrealized loss is ~$129 versus $55 max profit. Despite today's 3.27% bounce IWM has not recovered above the short strike, and 17 DTE with active breach means max loss of $445 remains fully in play."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.97,
-    "timestamp": "2026-11-23T16:12:42Z",
-    "reasoning": "Mid cost $0.26 represents 77% of max profit captured, well past the 50% manage rule \u2014 QQQ is now +7.39% on the day and 10.8% below the 724 short call, so tail risk is negligible but the profit is real and sitting there."
+    "timestamp": "2026-11-23T16:14:27Z",
+    "reasoning": "Mid cost $0.245 is 78.7% of max profit captured \u2014 well past the 50% manage rule \u2014 and QQQ at 652.83 is 10.9% below the 724 short call with 17 DTE, making this a free lottery ticket that's already paid out."
   },
   "SPY 685/675p": {
     "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-11-23T16:12:42Z",
-    "reasoning": "SPY at 724.86 is 5.82% above the 685 short put and mid cost $1.39 is still above the $1.05 entry credit \u2014 position is not yet profitable but VIX crush is working fast. At 24 DTE still 3 days from the 21 DTE hard exit rule."
+    "confidence": 0.75,
+    "timestamp": "2026-11-23T16:14:27Z",
+    "reasoning": "SPY at 724.56 is 5.77% above the 685 short put and mid cost $1.415 is still above the $1.05 entry credit, so not yet profitable \u2014 but VIX crush from 35+ to 27.43 is working fast and 24 DTE means 3 days until the 21 DTE hard exit rule triggers."
   }
 }
