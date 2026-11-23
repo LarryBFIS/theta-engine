@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-23T14:45:03.136144+00:00",
-  "market_view": "SPY +4.02% and QQQ +6.16% intraday with VIX crushed 25.44% to 26.76 \u2014 massive vol collapse and risk-on rip is real but VIX still elevated at 26.76 and 5d still negative, confirming this is a snap-back not a regime change. IWM +2.88% but still sitting at 264 with the 266 short strike breached \u2014 no relief there.",
+  "last_run": "2026-11-23T14:54:52.270436+00:00",
+  "market_view": "SPY +4.23% and QQQ +6.23% intraday with VIX crushed 19% to 29.05 \u2014 massive snap-back rally with vol collapsing, but VIX still elevated at 29 and 5d still negative confirms this is a relief bounce not a regime shift. IWM only +2.66% and still below the 266 short strike at 263.43 \u2014 no relief on the critical position.",
   "IWM 266/261p": {
     "action": "CRITICAL",
-    "confidence": 0.98,
-    "timestamp": "2026-11-23T14:44:46.610835+00:00",
-    "reasoning": "IWM at 264.0 means the 266 short strike remains breached by $2.00, mid cost $2.02 is 3.67x the $0.55 credit \u2014 stop rule at 1.5x ($0.825) was violated long ago and this CRITICAL has gone unexecuted for multiple cycles. 17 DTE with no catalyst to push IWM above 266 today and VIX still 26.76 means this doesn't fix itself."
+    "confidence": 0.99,
+    "timestamp": "2026-11-23T14:54:38.981197+00:00",
+    "reasoning": "IWM at 263.43 means the 266 short put is still breached by $2.57, mid cost $2.145 is 3.9x the $0.55 credit \u2014 stop rule was at 1.5x ($0.825) and has been violated for multiple cycles. With 17 DTE and IWM needing to rally another 1% just to reach the short strike, this does not resolve on its own."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-11-23T14:44:46.610835+00:00",
-    "reasoning": "QQQ at 645.95 is 12.1% below the 724 short call, mid cost $0.1756 means 84.7% of max profit captured ($115 max, ~$97.60 profit locked in) \u2014 well past the 50% manage target and this ACTION has gone unexecuted since last cycle."
+    "timestamp": "2026-11-23T14:54:38.981197+00:00",
+    "reasoning": "QQQ at 646.38 is 12.1% below the 724 short call, mid cost $0.135 means 88.3% of max profit captured \u2014 well beyond the 50% manage target and this ACTION has been flagged for two consecutive cycles without execution."
   },
   "SPY 685/675p": {
     "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-11-23T14:44:46.610835+00:00",
-    "reasoning": "SPY at 717.57 is 4.74% above the 685 short put and the intraday rip continues to add cushion, but mid $1.74 is still 1.66x the $1.05 credit \u2014 above the 1.5x stop threshold. Position is not in immediate danger but hasn't flipped to profitable yet; watch for any reversal."
+    "confidence": 0.75,
+    "timestamp": "2026-11-23T14:54:38.981197+00:00",
+    "reasoning": "SPY at 719.02 is now 4.97% above the 685 short put and the intraday rip is adding cushion, but mid $1.66 is still 1.58x the $1.05 credit \u2014 marginally above the 1.5x stop threshold and not yet profitable. The rally needs to hold and theta needs to work to bring this in."
   }
 }
