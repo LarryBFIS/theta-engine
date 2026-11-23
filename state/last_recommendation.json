@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-20T20:55:27.397644+00:00",
-  "market_view": "VIX 37.49 +31.8% today / +87.5% on the week \u2014 this is a full capitulation-velocity selloff with QQQ -5.43% and XLK -7.2% on the day. Market is at EOD/post-close Friday with all three positions in critical states and unexecuted alerts going back 5+ cycles; weekend gap risk is fully locked in.",
+  "last_run": "2026-11-23T13:14:20.675536+00:00",
+  "market_view": "VIX 31.41 with SPY -3.64% and QQQ -5.67% today in a sustained risk-off selloff \u2014 5-day losses of -8% to -9.3% confirm this is a regime break, not a dip. All three positions were flagged CRITICAL/ACTION last Friday and appear unexecuted over the weekend.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T20:55:09Z",
-    "reasoning": "IWM $257.06 is $3.94 BELOW the long strike 261 \u2014 position is at max loss ($445), mid $2.71 is 4.9x credit, short strike breached flag is true, 21-DTE hard exit fires tomorrow, and this alert has gone unexecuted for 5+ consecutive cycles. Every minute this stays open is burning capital with zero upside."
+    "timestamp": "2026-11-23T13:14:04.810667+00:00",
+    "reasoning": "IWM $256.61 is $4.39 BELOW the long strike 261 \u2014 position is past max loss, mid $2.14 is 3.9x credit, short strike breached, 21-DTE hard exit rule fires in 4 days, and this has been flagged CRITICAL for 5+ consecutive cycles unexecuted. Every second this stays open is unrecoverable."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T20:55:09Z",
-    "reasoning": "Mid $0.075 represents 93.5% of max profit captured and 21-DTE hard exit fires tomorrow \u2014 holding $685 BPR through a VIX-37 weekend for $7.50 residual credit is indefensible, this has been flagged ACTION for 4+ consecutive cycles with zero execution."
+    "timestamp": "2026-11-23T13:14:04.810667+00:00",
+    "reasoning": "Mid $0.08 is 93% of max profit captured, 21-DTE hard exit fires in 4 days, and tying up $685 BPR through a continued risk-off selloff for $8 residual is indefensible \u2014 this has been flagged ACTION for 5+ consecutive cycles unexecuted."
   },
   "SPY 685/675p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-20T20:55:09Z",
-    "reasoning": "SPY $689.92 is only 0.71% above the 685 short strike after a -3.65% day and -8% week; mid $3.98 is 3.8x credit (1.5x stop rule was triggered two cycles ago), $1,790 BPR is 49% of net liq \u2014 a sub-1% Monday gap down puts this ITM and accelerating toward max loss of $1,790 in a VIX-37 regime."
+    "timestamp": "2026-11-23T13:14:04.810667+00:00",
+    "reasoning": "SPY $689.81 is only 0.70% above the 685 short strike after another -3.64% down day on top of last week's -8% \u2014 mid $2.125 is 2.0x credit (1.5x stop rule was triggered two cycles ago), $1,790 BPR is 45% of net liq, and any continuation move today puts this ITM with 24 DTE and accelerating delta."
   }
 }
