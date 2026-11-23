@@ -81251,6 +81251,34 @@
       "alternative": "Hold for $24 more potential profit but risk $685 if breached before expiry.",
       "status": "pending",
       "decided_at": null
+    },
+    {
+      "id": "sug_20261123T113729_trade_047_iwm_266_261",
+      "trade_id": "trade_047_iwm_266_261",
+      "timestamp": "2026-11-23T11:37:29.816302-05:00",
+      "action": "URGENT_CLOSE",
+      "urgency": "high",
+      "reasoning": [
+        "\u26a0\ufe0f IWM @ $265.11 is BELOW short strike $266 (ITM).",
+        "Max loss exposure increasing. Current close: $1.85 mid / $1.91 worst.",
+        "17 DTE remaining; negative delta hurts daily."
+      ],
+      "metrics_snapshot": {
+        "cost_to_close_mid": 1.8450000000000006,
+        "cost_to_close_worst": 1.9099999999999993,
+        "profit_if_closed_mid": -129.50000000000006,
+        "profit_if_closed_worst": -135.99999999999991,
+        "pct_max_profit_captured_mid": -2.3545454545454554,
+        "dte": 17,
+        "underlying_price": 265.1099853515625,
+        "short_strike_breached": true,
+        "has_live_quotes": true,
+        "net_liq": 4732.563,
+        "day_pnl": 0.0
+      },
+      "alternative": "Hold and hope. Risk: up to $445 max loss (currently $130 unrealized).",
+      "status": "pending",
+      "decided_at": null
     }
   ]
 }

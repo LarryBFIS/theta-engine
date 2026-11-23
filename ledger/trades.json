@@ -3151,14 +3151,25 @@
           "executed_at": "2026-11-09T19:17:19.456Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": -640.12,
-      "cost_to_close_mid": -645.0
+      "close_orders": [
+        "529443599"
+      ],
+      "close_net_cash": 579.86,
+      "close_legs": [
+        {
+          "symbol": "NVDA  261211C00175000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 5.8,
+          "net_cash": 579.86,
+          "fees": 0.14,
+          "executed_at": "2026-11-23T16:36:31.979Z"
+        }
+      ],
+      "closed_at": "2026-11-23",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": -705.26
     },
     {
       "id": "ledger_049_iwm",
@@ -3192,8 +3203,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -126.25,
-      "cost_to_close_mid": 179.0,
+      "unrealized_pnl": -133.25,
+      "cost_to_close_mid": 186.0,
       "structure": "short_put_vertical",
       "short_strike": 266.0,
       "long_strike": 261.0,
@@ -3232,14 +3243,34 @@
           "executed_at": "2026-11-09T19:22:43.703Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": 89.25,
-      "cost_to_close_mid": 23.5,
+      "close_orders": [
+        "529444404"
+      ],
+      "close_net_cash": -23.25,
+      "close_legs": [
+        {
+          "symbol": "QQQ   261211C00732000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 0.43,
+          "net_cash": 42.87,
+          "fees": 0.13,
+          "executed_at": "2026-11-23T16:37:14.153Z"
+        },
+        {
+          "symbol": "QQQ   261211C00724000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 0.66,
+          "net_cash": -66.12,
+          "fees": 0.12,
+          "executed_at": "2026-11-23T16:37:14.153Z"
+        }
+      ],
+      "closed_at": "2026-11-23",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": 89.5,
       "structure": "short_call_vertical",
       "short_strike": 724.0,
       "long_strike": 732.0,
@@ -3250,7 +3281,8 @@
       "spread_type": "credit",
       "max_profit_total": 115.0,
       "max_loss_total": 685.0,
-      "bpr_total": 685.0
+      "bpr_total": 685.0,
+      "close_debit_per_contract": 0.23
     },
     {
       "id": "ledger_051_spy",
@@ -3278,14 +3310,34 @@
           "executed_at": "2026-11-18T19:06:03.111Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": -79.51,
-      "cost_to_close_mid": 285.0,
+      "close_orders": [
+        "529444122"
+      ],
+      "close_net_cash": -300.51,
+      "close_legs": [
+        {
+          "symbol": "SPY   261218P00685000",
+          "action": "Buy to Close",
+          "quantity": 2.0,
+          "price": 7.85,
+          "net_cash": -1570.24,
+          "fees": 0.24,
+          "executed_at": "2026-11-23T16:37:00.237Z"
+        },
+        {
+          "symbol": "SPY   261218P00675000",
+          "action": "Sell to Close",
+          "quantity": 2.0,
+          "price": 6.35,
+          "net_cash": 1269.73,
+          "fees": 0.27,
+          "executed_at": "2026-11-23T16:37:00.237Z"
+        }
+      ],
+      "closed_at": "2026-11-23",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": -95.02,
       "structure": "short_put_vertical",
       "short_strike": 685.0,
       "long_strike": 675.0,
@@ -3296,7 +3348,8 @@
       "spread_type": "credit",
       "max_profit_total": 210.0,
       "max_loss_total": 1790.0,
-      "bpr_total": 1790.0
+      "bpr_total": 1790.0,
+      "close_debit_per_contract": 1.5
     }
   ]
 }
