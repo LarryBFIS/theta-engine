@@ -3197,14 +3197,34 @@
           "executed_at": "2026-11-09T19:21:59.778Z"
         }
       ],
-      "close_orders": [],
-      "close_net_cash": 0.0,
-      "close_legs": [],
-      "closed_at": null,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": -133.25,
-      "cost_to_close_mid": 186.0,
+      "close_orders": [
+        "529445885"
+      ],
+      "close_net_cash": -190.25,
+      "close_legs": [
+        {
+          "symbol": "IWM   261211P00261000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 4.61,
+          "net_cash": 460.87,
+          "fees": 0.13,
+          "executed_at": "2026-11-23T16:38:15.366Z"
+        },
+        {
+          "symbol": "IWM   261211P00266000",
+          "action": "Buy to Close",
+          "quantity": 1.0,
+          "price": 6.51,
+          "net_cash": -651.12,
+          "fees": 0.12,
+          "executed_at": "2026-11-23T16:38:15.366Z"
+        }
+      ],
+      "closed_at": "2026-11-23",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": -137.5,
       "structure": "short_put_vertical",
       "short_strike": 266.0,
       "long_strike": 261.0,
@@ -3215,7 +3235,8 @@
       "spread_type": "credit",
       "max_profit_total": 55.0,
       "max_loss_total": 445.0,
-      "bpr_total": 445.0
+      "bpr_total": 445.0,
+      "close_debit_per_contract": 1.9
     },
     {
       "id": "ledger_050_qqq",
@@ -3350,6 +3371,52 @@
       "max_loss_total": 1790.0,
       "bpr_total": 1790.0,
       "close_debit_per_contract": 1.5
+    },
+    {
+      "id": "ledger_052_spy",
+      "underlying": "SPY",
+      "opened_at": "2026-11-23",
+      "open_order_id": "529449611",
+      "open_net_cash": 135.74,
+      "open_legs": [
+        {
+          "symbol": "SPY   261224P00675000",
+          "action": "Sell to Open",
+          "quantity": 1.0,
+          "price": 8.08,
+          "net_cash": 806.86,
+          "fees": 1.14,
+          "executed_at": "2026-11-23T16:40:51.751Z"
+        },
+        {
+          "symbol": "SPY   261224P00665000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 6.7,
+          "net_cash": -671.12,
+          "fees": 1.12,
+          "executed_at": "2026-11-23T16:40:51.751Z"
+        }
+      ],
+      "close_orders": [],
+      "close_net_cash": 0.0,
+      "close_legs": [],
+      "closed_at": null,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -7.76,
+      "cost_to_close_mid": 143.5,
+      "structure": "short_put_vertical",
+      "short_strike": 675.0,
+      "long_strike": 665.0,
+      "expiry": "2026-12-24",
+      "contracts": 1,
+      "credit_per_contract": 1.38,
+      "width": 10.0,
+      "spread_type": "credit",
+      "max_profit_total": 138.0,
+      "max_loss_total": 862.0,
+      "bpr_total": 862.0
     }
   ]
 }
