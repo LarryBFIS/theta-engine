@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-23T15:37:25.732988+00:00",
-  "market_view": "Massive gap-up relief rally with SPY +5.35% and QQQ +7.83% \u2014 VIX crushed to 26.35 (-26.58%) but regime still tagged risk_off and 5d returns remain negative, confirming this is a bounce not a trend reversal. IWM continues to lag at +3.51%, unable to reclaim the 266 short strike.",
+  "last_run": "2026-11-23T15:45:08.588308+00:00",
+  "market_view": "SPY +5.09% and QQQ +7.54% gap-up relief rally has VIX crushed 26.6% to 26.33, but regime remains risk_off with negative 5d returns \u2014 this is a bounce, not a reversal. IWM still lagging at +3.26% and unable to reclaim 266, confirming small-cap weakness persists.",
   "IWM 266/261p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-23T15:37:09Z",
-    "reasoning": "Short strike 266 is STILL breached with IWM at 265.67, mid cost $1.825 is 3.32x the $0.55 credit \u2014 stop rule triggered at $0.825 and we are now on the fourth consecutive CRITICAL alert with zero execution. Max loss is $445 and we are approaching it with 17 DTE and no catalyst to push IWM back through 266."
+    "timestamp": "2026-11-23T15:44:52Z",
+    "reasoning": "Short strike 266 remains breached with IWM at 264.98, mid cost $1.86 is 3.38x the $0.55 credit \u2014 stop rule triggered at $0.825, we are now $131 into loss territory on a $55 max profit trade. Four consecutive CRITICAL alerts with no execution is unacceptable; this position must be closed immediately."
   },
   "QQQ 724/732c": {
     "action": "ACTION",
     "confidence": 0.97,
-    "timestamp": "2026-11-23T15:37:09Z",
-    "reasoning": "Mid cost $0.295 represents 74% of max profit captured, well past the 50% manage rule, and QQQ ripping +7.83% today on a risk_off regime bounce creates real melt-up tail risk with 17 DTE remaining."
+    "timestamp": "2026-11-23T15:44:52Z",
+    "reasoning": "Mid cost $0.28 represents 75.7% of max profit captured, well past the 50% manage rule, and QQQ ripping +7.54% with 17 DTE creates melt-up tail risk that makes holding past target irrational."
   },
   "SPY 685/675p": {
     "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-11-23T15:37:09Z",
-    "reasoning": "SPY at 726.71 is 6.1% above the 685 short put with 24 DTE \u2014 not actionable yet per the 21 DTE rule, but current mid $1.285 still slightly above the $1.05 entry credit so no profit yet; today's rally is grinding toward the 50% target."
+    "confidence": 0.72,
+    "timestamp": "2026-11-23T15:44:52Z",
+    "reasoning": "SPY at 724.94 is 5.84% above the 685 short put with 24 DTE \u2014 still above the 21 DTE exit rule and mid at $1.37 is above entry credit of $1.05 so no profit yet, but the rally is compressing this rapidly."
   }
 }
