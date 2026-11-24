@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-24T13:14:47.179008+00:00",
+  "generated_at": "2026-11-24T13:48:57.933433+00:00",
   "regime": {
-    "vix": 28.79,
-    "vix_day_change_pct": 0.0815,
+    "vix": 29.97,
+    "vix_day_change_pct": 0.1258,
     "level": "elevated",
     "stand_down": false,
-    "note": "elevated vol \u2014 premium rich, proceed (+8% day)"
+    "note": "elevated vol \u2014 premium rich, proceed (+13% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -22,40 +22,40 @@
   "events": [],
   "learnings": {
     "global": {
-      "closed": 106,
+      "closed": 107,
       "wins": 41,
-      "losses": 65,
-      "win_rate": 0.387,
-      "total_pnl": -12024.5
+      "losses": 66,
+      "win_rate": 0.383,
+      "total_pnl": -12302.0
     },
     "min_sample": 20,
     "actionable": [
       {
         "dim": "asset_class",
         "value": "index_etf",
-        "multiplier": 1.4,
+        "multiplier": 1.387,
         "recommendation": "favor",
-        "n": 47
+        "n": 48
       },
       {
         "dim": "asset_class",
         "value": "single_name",
-        "multiplier": 0.681,
-        "recommendation": "AVOID (neg expectancy; wr 26% < prior 39%)",
+        "multiplier": 0.686,
+        "recommendation": "AVOID (neg expectancy; wr 26% < prior 38%)",
         "n": 54
       },
       {
         "dim": "structure",
         "value": "short_put_vertical",
-        "multiplier": 1.191,
+        "multiplier": 1.187,
         "recommendation": "favor",
-        "n": 70
+        "n": 71
       },
       {
         "dim": "structure",
         "value": "short_call_vertical",
-        "multiplier": 0.739,
-        "recommendation": "AVOID (neg expectancy; wr 29% < prior 39%)",
+        "multiplier": 0.744,
+        "recommendation": "AVOID (neg expectancy; wr 29% < prior 38%)",
         "n": 28
       },
       {
@@ -63,43 +63,43 @@
         "value": "us_index",
         "multiplier": 1.5,
         "recommendation": "favor",
-        "n": 40
+        "n": 41
       },
       {
         "dim": "cluster",
         "value": "us_tech",
-        "multiplier": 0.752,
-        "recommendation": "AVOID (neg expectancy; wr 29% < prior 39%)",
+        "multiplier": 0.757,
+        "recommendation": "AVOID (neg expectancy; wr 29% < prior 38%)",
         "n": 48
       },
       {
         "dim": "size",
         "value": "2x",
-        "multiplier": 1.008,
+        "multiplier": 1.015,
         "recommendation": "neutral",
         "n": 23
       },
       {
         "dim": "size",
         "value": "1x",
-        "multiplier": 1.204,
+        "multiplier": 1.194,
         "recommendation": "favor",
-        "n": 52
+        "n": 53
       }
     ]
   },
   "agent": null,
   "all_candidates": [],
   "skipped": {
-    "SPY": "failed: pv: credit/width 0.03 < 0.10",
-    "IWM": "failed: pv: no/invalid leg quote",
+    "SPY": "failed: pv: credit/width 0.06 < 0.10",
+    "IWM": "failed: pv: spread short 24%/long 36%",
     "DIA": "failed: pv: credit/width 0.03 < 0.10",
-    "QQQ": "failed: pv: spread short 46%/long 55%",
+    "QQQ": "failed: pv: spread short 46%/long 54%",
     "XLE": "failed: pv: no/invalid leg quote",
     "XLF": "failed: pv: no/invalid leg quote",
     "XLV": "failed: pv: no/invalid leg quote",
     "XLI": "failed: pv: no/invalid leg quote",
     "SLV": "iv_rank 27% (floor 30%)",
-    "TSLA": "failed: pv: spread short 40%/long 44%"
+    "TSLA": "failed: pv: spread short 38%/long 42%"
   }
 }
