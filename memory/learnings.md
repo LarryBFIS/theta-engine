@@ -1,24 +1,24 @@
 # Engine learnings — realized edge by bucket
 
-_Generated 2026-11-24T12:49:04.404187+00:00 · from the outcomes ledger. Buckets act on the scanner only at n ≥ 20 closes (shrunk toward the global prior). Below that they're shown but inert (×1.00)._
+_Generated 2026-11-24T13:14:47.163152+00:00 · from the outcomes ledger. Buckets act on the scanner only at n ≥ 20 closes (shrunk toward the global prior). Below that they're shown but inert (×1.00)._
 
-**Global: 105 closed · win rate 39% · realized $-11734.00**
+**Global: 106 closed · win rate 39% · realized $-12024.50**
 
 ## asset_class
 
 | value | n | win rate | shrunk | avg P&L | total | ×mult | call |
 |---|---:|---:|---:|---:|---:|---:|---|
-| index_etf | 47 | 57% | 54% | $+1 | $+64 | ×1.39 | favor |
-| sector_etf | 5 | 20% | 33% | $-125 | $-626 | ×1.00 | watch (n=5 < 20) |
-| single_name | 53 | 24% | 27% | $-211 | $-11172 | ×0.69 | AVOID (neg expectancy; wr 27% < prior 39%) |
+| index_etf | 47 | 57% | 54% | $+1 | $+64 | ×1.40 | favor |
+| sector_etf | 5 | 20% | 32% | $-125 | $-626 | ×1.00 | watch (n=5 < 20) |
+| single_name | 54 | 24% | 26% | $-212 | $-11463 | ×0.68 | AVOID (neg expectancy; wr 26% < prior 39%) |
 
 ## structure
 
 | value | n | win rate | shrunk | avg P&L | total | ×mult | call |
 |---|---:|---:|---:|---:|---:|---:|---|
 | iron_condor | 8 | 12% | 27% | $-150 | $-1203 | ×1.00 | watch (n=8 < 20) |
-| short_put_vertical | 70 | 47% | 46% | $-53 | $-3742 | ×1.18 | favor |
-| short_call_vertical | 27 | 26% | 30% | $-251 | $-6790 | ×0.76 | AVOID (neg expectancy; wr 29% < prior 39%) |
+| short_put_vertical | 70 | 47% | 46% | $-53 | $-3742 | ×1.19 | favor |
+| short_call_vertical | 28 | 25% | 29% | $-253 | $-7080 | ×0.74 | AVOID (neg expectancy; wr 29% < prior 39%) |
 
 ## cluster
 
@@ -31,14 +31,14 @@ _Generated 2026-11-24T12:49:04.404187+00:00 · from the outcomes ledger. Buckets
 | financials | 2 | 0% | 32% | $-549 | $-1098 | ×1.00 | watch (n=2 < 20) |
 | industrials | 3 | 0% | 30% | $-392 | $-1177 | ×1.00 | watch (n=3 < 20) |
 | energy | 7 | 14% | 29% | $-262 | $-1834 | ×1.00 | watch (n=7 < 20) |
-| us_tech | 47 | 28% | 30% | $-154 | $-7228 | ×0.76 | AVOID (neg expectancy; wr 30% < prior 39%) |
+| us_tech | 48 | 27% | 29% | $-157 | $-7518 | ×0.75 | AVOID (neg expectancy; wr 29% < prior 39%) |
 
 ## size
 
 | value | n | win rate | shrunk | avg P&L | total | ×mult | call |
 |---|---:|---:|---:|---:|---:|---:|---|
-| 2x | 23 | 39% | 39% | $-70 | $-1617 | ×1.00 | neutral |
-| 1x | 51 | 49% | 47% | $-61 | $-3134 | ×1.21 | favor |
+| 2x | 23 | 39% | 39% | $-70 | $-1617 | ×1.01 | neutral |
 | 4x | 14 | 21% | 29% | $-225 | $-3156 | ×1.00 | watch (n=14 < 20) |
+| 1x | 52 | 48% | 47% | $-66 | $-3425 | ×1.20 | favor |
 | 3x | 17 | 24% | 29% | $-225 | $-3826 | ×1.00 | watch (n=17 < 20) |
 
