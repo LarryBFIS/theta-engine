@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-25T12:50:08.403487+00:00",
+  "generated_at": "2026-11-25T13:15:44.318111+00:00",
   "regime": {
-    "vix": 30.8,
-    "vix_day_change_pct": 0.1684,
+    "vix": 30.68,
+    "vix_day_change_pct": 0.1639,
     "level": "stress",
     "stand_down": true,
-    "note": "vol stress \u2014 standing down on new LIVE risk (+17% day)"
+    "note": "vol stress \u2014 standing down on new LIVE risk (+16% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -22,187 +22,138 @@
   "events": [],
   "learnings": {
     "global": {
-      "closed": 107,
+      "closed": 109,
       "wins": 41,
-      "losses": 66,
-      "win_rate": 0.383,
-      "total_pnl": -12302.0
+      "losses": 68,
+      "win_rate": 0.376,
+      "total_pnl": -12688.0
     },
     "min_sample": 20,
     "actionable": [
       {
         "dim": "asset_class",
         "value": "index_etf",
-        "multiplier": 1.387,
+        "multiplier": 1.386,
         "recommendation": "favor",
-        "n": 48
+        "n": 49
       },
       {
         "dim": "asset_class",
         "value": "single_name",
         "multiplier": 0.686,
         "recommendation": "AVOID (neg expectancy; wr 26% < prior 38%)",
-        "n": 54
+        "n": 55
       },
       {
         "dim": "structure",
         "value": "short_put_vertical",
-        "multiplier": 1.187,
+        "multiplier": 1.192,
         "recommendation": "favor",
-        "n": 71
+        "n": 72
       },
       {
         "dim": "structure",
         "value": "short_call_vertical",
-        "multiplier": 0.744,
-        "recommendation": "AVOID (neg expectancy; wr 29% < prior 38%)",
-        "n": 28
+        "multiplier": 0.734,
+        "recommendation": "AVOID (neg expectancy; wr 28% < prior 38%)",
+        "n": 29
       },
       {
         "dim": "cluster",
         "value": "us_index",
         "multiplier": 1.5,
         "recommendation": "favor",
-        "n": 41
+        "n": 42
       },
       {
         "dim": "cluster",
         "value": "us_tech",
-        "multiplier": 0.757,
-        "recommendation": "AVOID (neg expectancy; wr 29% < prior 38%)",
-        "n": 48
+        "multiplier": 0.755,
+        "recommendation": "AVOID (neg expectancy; wr 28% < prior 38%)",
+        "n": 49
       },
       {
         "dim": "size",
         "value": "2x",
-        "multiplier": 1.015,
+        "multiplier": 1.028,
         "recommendation": "neutral",
         "n": 23
       },
       {
         "dim": "size",
         "value": "1x",
-        "multiplier": 1.194,
+        "multiplier": 1.176,
         "recommendation": "favor",
-        "n": 53
+        "n": 55
       }
     ]
   },
   "agent": {
-    "generated_at": "2026-11-25T12:50:08.393314+00:00",
-    "model": "claude-haiku-4-5",
-    "market_view": "VIX 30.8, stress regime, +17% day: equity tape is ripping sharply higher into vol compression. This is POOR timing to add short calls on indices\u2014we'd be selling premium into momentum, not harvesting calm vol. Stand down.",
-    "portfolio_note": "Book is -$147 unrealized, 4 open positions across us_index (3) and us_tech (1). We are already exposed to index upside; adding short calls fights the current directional move and adds correlated short-vol risk into a stress day.",
-    "vol_verdict": "implied_cheap",
-    "reviewed": 3,
-    "vetoed": 3,
+    "generated_at": "2026-11-25T13:15:44.305482+00:00",
+    "model": "kimi-k3",
+    "market_view": "Stress tape: VIX 30.68 and +16% on the day is a fast, risk-off market with high whipsaw/relief-rally risk. Terrible moment to add correlated index short-vol; even paper premium sells should be small, uncorrelated, and only in rich implied.",
+    "portfolio_note": "Book already holds 2 us_index positions (SPY, DIA) down $212 unrealized \u2014 adding another index bet is one bet sized up, not diversification. Stand down on correlated risk until vol stabilizes.",
+    "vol_verdict": "implied_rich",
+    "reviewed": 2,
+    "vetoed": 2,
     "downsized": 0,
     "decisions": [
       {
-        "id": "DIA|short_call_vertical|521/527",
+        "id": "DIA|short_call_vertical|522/528",
         "action": "veto",
-        "reason": "Short-call vertical into a +17% rip is poorly timed; structure already disfavored (wr 29%); adds correlated short-vol to us_index cluster already at 3/3 cap."
-      },
-      {
-        "id": "SPY|short_call_vertical|752/760",
-        "action": "veto",
-        "reason": "Same directional/structural risk as DIA; tape is accelerating higher, not calming\u2014selling calls now is uncompensated event risk; us_index already saturated."
+        "reason": "DIA is already at its 1-per-name cap, short_call_vertical is a negative-expectancy structure in our book (28% WR), and this stacks a third correlated us_index bet into a whipsaw-prone stress tape where a violent relief rally can run over sh"
       },
       {
         "id": "SLV|short_call_vertical|41/46",
         "action": "veto",
-        "reason": "IV rank 0.328 (cheap, not rich); ev_on_bpr 0.0032 is marginal; 2 contracts oversizes a low-edge trade into stress vol; metals cluster uncorrelated but trade itself lacks sufficient edge in this regime."
+        "reason": "Short_call_vertical is on our avoid list with negative realized expectancy, IV rank 0.33 means SLV implied is not rich enough to compensate, and 2 contracts / $874 max loss is oversized for a stress regime \u2014 metals diversification doesn't r"
       }
     ]
   },
   "all_candidates": [
     {
-      "underlying": "SPY",
-      "structure": "short_call_vertical",
-      "expiry": "2026-12-31",
-      "dte": 36,
-      "short_strike": 752.0,
-      "long_strike": 760.0,
-      "short_symbol": "SPY   261231C00752000",
-      "long_symbol": "SPY   261231C00760000",
-      "width": 8.0,
-      "credit": 0.84,
-      "mid_credit": 1.2,
-      "fees_est": 3.0,
-      "bpr": 716.0,
-      "max_loss": 716.0,
-      "pop": 0.8,
-      "short_delta": 0.223,
-      "short_spread_pct": 0.13,
-      "credit_to_bpr": 0.117,
-      "ev_per_contract": 5.45,
-      "ev_on_bpr": 0.0076,
-      "iv": 0.2551,
-      "iv_rank": 0.618,
-      "underlying_price": 705.17,
-      "liquidity": 4,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 1,
-      "max_loss_total": 716.0,
-      "bpr_total": 716.0,
-      "trend": "bearish",
-      "sized_capped": true,
-      "reasoning": "short call vertical 752/760c \u00d71 \u2014 bearish lean. Edge: IV rank 62%, EV $+5/ctr (+0.8% on BPR). POP 80% \u00b7 credit $0.84 \u00b7 max loss $716 \u00b7 BPR $716 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 1.548,
-      "learn_notes": [
-        "asset_class=index_etf \u00d71.39",
-        "cluster=us_index \u00d71.50",
-        "structure=short_call_vertical \u00d70.74"
-      ],
-      "rank_score": 0.011765,
-      "agent_action": "veto",
-      "agent_reason": "Same directional/structural risk as DIA; tape is accelerating higher, not calming\u2014selling calls now is uncompensated event risk; us_index already saturated."
-    },
-    {
       "underlying": "DIA",
       "structure": "short_call_vertical",
       "expiry": "2026-12-31",
       "dte": 36,
-      "short_strike": 521.0,
-      "long_strike": 527.0,
-      "short_symbol": "DIA   261231C00521000",
-      "long_symbol": "DIA   261231C00527000",
+      "short_strike": 522.0,
+      "long_strike": 528.0,
+      "short_symbol": "DIA   261231C00522000",
+      "long_symbol": "DIA   261231C00528000",
       "width": 6.0,
-      "credit": 0.87,
-      "mid_credit": 1.21,
+      "credit": 0.79,
+      "mid_credit": 1.12,
       "fees_est": 3.0,
-      "bpr": 513.0,
-      "max_loss": 513.0,
-      "pop": 0.799,
-      "short_delta": 0.22,
-      "short_spread_pct": 0.122,
-      "credit_to_bpr": 0.17,
-      "ev_per_contract": 5.61,
-      "ev_on_bpr": 0.0109,
+      "bpr": 521.0,
+      "max_loss": 521.0,
+      "pop": 0.804,
+      "short_delta": 0.216,
+      "short_spread_pct": 0.129,
+      "credit_to_bpr": 0.152,
+      "ev_per_contract": 5.5,
+      "ev_on_bpr": 0.0106,
       "iv": 0.2165,
       "iv_rank": 0.641,
-      "underlying_price": 493.23,
+      "underlying_price": 493.65,
       "liquidity": 3,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
       "contracts": 1,
-      "max_loss_total": 513.0,
-      "bpr_total": 513.0,
+      "max_loss_total": 521.0,
+      "bpr_total": 521.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short call vertical 521/527c \u00d71 \u2014 bearish lean. Edge: IV rank 64%, EV $+6/ctr (+1.1% on BPR). POP 80% \u00b7 credit $0.87 \u00b7 max loss $513 \u00b7 BPR $513 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 1.548,
+      "reasoning": "short call vertical 522/528c \u00d71 \u2014 bearish lean. Edge: IV rank 64%, EV $+6/ctr (+1.1% on BPR). POP 80% \u00b7 credit $0.79 \u00b7 max loss $521 \u00b7 BPR $521 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 1.526,
       "learn_notes": [
         "asset_class=index_etf \u00d71.39",
         "cluster=us_index \u00d71.50",
-        "structure=short_call_vertical \u00d70.74"
+        "structure=short_call_vertical \u00d70.73"
       ],
-      "rank_score": 0.016873,
+      "rank_score": 0.016176,
       "agent_action": "veto",
-      "agent_reason": "Short-call vertical into a +17% rip is poorly timed; structure already disfavored (wr 29%); adds correlated short-vol to us_index cluster already at 3/3 cap."
+      "agent_reason": "DIA is already at its 1-per-name cap, short_call_vertical is a negative-expectancy structure in our book (28% WR), and this stacks a third correlated us_index bet into a whipsaw-prone stress tape where a violent relief rally can run over sh"
     },
     {
       "underlying": "SLV",
@@ -219,15 +170,15 @@
       "fees_est": 3.0,
       "bpr": 437.0,
       "max_loss": 437.0,
-      "pop": 0.785,
-      "short_delta": 0.272,
+      "pop": 0.791,
+      "short_delta": 0.266,
       "short_spread_pct": 0.032,
       "credit_to_bpr": 0.144,
-      "ev_per_contract": 1.42,
-      "ev_on_bpr": 0.0032,
+      "ev_per_contract": 2.14,
+      "ev_on_bpr": 0.0049,
       "iv": 0.5819,
       "iv_rank": 0.328,
-      "underlying_price": 36.09,
+      "underlying_price": 35.96,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -237,23 +188,24 @@
       "bpr_total": 874.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short call vertical 41/46c \u00d72 \u2014 bearish lean. Edge: IV rank 33%, EV $+1/ctr (+0.3% on BPR). POP 78% \u00b7 credit $0.63 \u00b7 max loss $437 \u00b7 BPR $874 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 0.744,
+      "reasoning": "short call vertical 41/46c \u00d72 \u2014 bearish lean. Edge: IV rank 33%, EV $+2/ctr (+0.5% on BPR). POP 79% \u00b7 credit $0.63 \u00b7 max loss $437 \u00b7 BPR $874 \u00b7 36 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 0.734,
       "learn_notes": [
-        "structure=short_call_vertical \u00d70.74"
+        "structure=short_call_vertical \u00d70.73"
       ],
-      "rank_score": 0.002381,
+      "rank_score": 0.003597,
       "agent_action": "veto",
-      "agent_reason": "IV rank 0.328 (cheap, not rich); ev_on_bpr 0.0032 is marginal; 2 contracts oversizes a low-edge trade into stress vol; metals cluster uncorrelated but trade itself lacks sufficient edge in this regime."
+      "agent_reason": "Short_call_vertical is on our avoid list with negative realized expectancy, IV rank 0.33 means SLV implied is not rich enough to compensate, and 2 contracts / $874 max loss is oversized for a stress regime \u2014 metals diversification doesn't r"
     }
   ],
   "skipped": {
-    "IWM": "failed: pv: credit/width 0.08 < 0.10",
-    "QQQ": "failed: pv: exec credit -0.28 <= 0",
+    "SPY": "failed: pv: credit/width 0.07 < 0.10",
+    "IWM": "failed: pv: credit/width 0.07 < 0.10",
+    "QQQ": "failed: pv: exec credit -0.30 <= 0",
     "XLE": "failed: pv: spread short 46%/long 148%",
     "XLF": "failed: pv: no/invalid leg quote",
     "XLV": "failed: pv: spread short 180%/long 115%",
     "XLI": "failed: pv: no/invalid leg quote",
-    "TSLA": "failed: pv: spread short 58%/long 63%"
+    "TSLA": "failed: pv: spread short 56%/long 64%"
   }
 }

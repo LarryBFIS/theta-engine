@@ -1,6 +1,6 @@
 # Opportunity scan
 
-_Generated 2026-11-25T12:50:08.403487+00:00 · short put verticals ranked by expected return on BPR · regime: vol stress — standing down on new LIVE risk (+17% day)._
+_Generated 2026-11-25T13:15:44.318111+00:00 · short put verticals ranked by expected return on BPR · regime: vol stress — standing down on new LIVE risk (+16% day)._
 
 | # | Trade | Tag | DTE | Credit | BPR | POP | Cr/BPR | EV/ctr | EV/BPR | IVR |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
