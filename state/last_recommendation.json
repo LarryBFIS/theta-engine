@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-25T18:14:40.216563+00:00",
-  "market_view": "VIX 29.77 (+12.94% today, +35% 5d) with SPY -1.05% and QQQ -2.11% \u2014 risk-off regime deepening, XLK -2.71%/-8.71% 5d confirms tech selloff accelerating. Both SPY put spreads remain in active loss territory with no action taken despite multiple CRITICAL alerts; this is a compounding rule violation that must be resolved before close.",
+  "last_run": "2026-11-25T18:16:08.241302+00:00",
+  "market_view": "VIX 29.86 (+13.28% today, +35.36% 5d) with SPY -0.87% and QQQ -1.86% \u2014 risk-off regime intact, XLK -2.49%/-8.51% 5d confirms tech selloff not abating. Both SPY put spreads have been in actionable loss territory for multiple cycles with no execution; closing now is mandatory rule adherence.",
   "SPY 675/665p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-25T18:14:24Z",
-    "reasoning": "Mid $1.665 vs $1.38 entry = 1.21x unrealized loss; worst-case $1.81 = 1.31x \u2014 1.5x hard stop is at $2.07 mid and VIX 30 sustained downtrend with 28 DTE gives theta no room to rescue this; this position has been CRITICAL for 8+ consecutive cycles with zero action, a clear rule violation."
+    "timestamp": "2026-11-25T18:15:55Z",
+    "reasoning": "Mid $1.69 vs $1.38 entry = 1.22x unrealized loss; worst-case $1.85 = 1.34x \u2014 1.5x hard stop triggers at $2.07 mid and VIX near 30 with sustained downtrend and 28 DTE means theta cannot rescue this. This position has been flagged CRITICAL for 9+ consecutive cycles with zero action \u2014 close immediately."
   },
   "SPY 670/660p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-25T18:14:24Z",
-    "reasoning": "Mid $1.505 vs $1.20 entry = 1.25x unrealized loss; worst-case $1.62 = 1.35x \u2014 1.5x hard stop is at $1.80 mid and the sustained downtrend with two concurrent SPY put spreads means this is a single leveraged directional bet, not a diversified book."
+    "timestamp": "2026-11-25T18:15:55Z",
+    "reasoning": "Mid $1.505 vs $1.20 entry = 1.25x unrealized loss; worst-case $1.68 = 1.40x \u2014 within $0.12 mid of the 1.5x hard stop at $1.80, and two concurrent unclosed SPY put spreads in a risk-off tape is a single leveraged directional bet in violation of diversification rules."
   },
   "QQQ 690/698c": {
     "action": "WATCH",
-    "confidence": 0.78,
-    "timestamp": "2026-11-25T18:14:24Z",
-    "reasoning": "Mid $0.885 vs $1.28 entry = 31% profit, approaching but not yet at 50% target ($0.64 mid) \u2014 QQQ -2.11% continues to accelerate decay on this call spread; short strike 690 is 10.5% OTM with no breach risk in current regime."
+    "confidence": 0.8,
+    "timestamp": "2026-11-25T18:15:55Z",
+    "reasoning": "Mid $0.93 vs $1.28 entry = 27% profit, not yet at 50% target ($0.64 mid); QQQ -1.86% continues accelerating call spread decay with short strike 690 still 10.3% OTM \u2014 no breach risk, let theta work."
   }
 }
