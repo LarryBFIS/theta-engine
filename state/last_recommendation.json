@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-25T14:15:07.639873+00:00",
-  "market_view": "VIX 31.51 (+19.54% today, +42.84% 5d) with XLK -3.26% and QQQ -1.99% confirms accelerating risk-off \u2014 no reversal signal, defensive rotation into XLV/XLP is not a SPY floor. Both SPY put spreads are in hard-stop violation territory and must be closed immediately.",
+  "last_run": "2026-11-25T14:26:32.633337+00:00",
+  "market_view": "VIX 31.53 (+19.61% today, +42.93% 5d) with XLK -3.26% and QQQ -1.99% \u2014 risk-off regime is accelerating, no reversal signal present. Both SPY put spreads remain in hard-stop violation and have been flagged CRITICAL for 6+ consecutive cycles with zero action; continued inaction compounds losses.",
   "SPY 675/665p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-25T14:14:53.881494+00:00",
-    "reasoning": "Mid $2.00 vs $1.38 entry \u2014 1.5x stop is $2.07, functionally breached with worst-case $2.67 and VIX still expanding; this position has been flagged CRITICAL for 5+ consecutive cycles with zero action taken, violating account rules every minute it remains open."
+    "timestamp": "2026-11-25T14:26:19.754970+00:00",
+    "reasoning": "Mid $2.195 vs $1.38 entry \u2014 1.5x hard stop is $2.07, breached and worsening with worst-case $2.96; this has been CRITICAL for 6+ cycles with no close, every additional minute risks full max loss of $862."
   },
   "SPY 670/660p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-25T14:14:53.881494+00:00",
-    "reasoning": "Mid $1.83 vs $1.20 entry \u2014 1.5x hard stop is $1.80, already breached with worst-case $2.43; this is the fifth consecutive CRITICAL cycle with no close, max loss is the base case if held into continued risk-off."
+    "timestamp": "2026-11-25T14:26:19.754970+00:00",
+    "reasoning": "Mid $1.485 vs $1.20 entry \u2014 1.5x hard stop is $1.80, breached with worst-case $2.55; sixth consecutive CRITICAL cycle with no action, VIX still expanding, max loss is base case if held."
   },
   "QQQ 690/698c": {
     "action": "ACTION",
     "confidence": 0.95,
-    "timestamp": "2026-11-25T14:14:53.881494+00:00",
-    "reasoning": "Mid $0.675 vs $1.28 entry = 47.3% profit, at the 50% manage threshold with QQQ -1.99% and XLK -3.26% keeping call delta crushed \u2014 this is the only winner and should be closed to lock gains before any tech reversal."
+    "timestamp": "2026-11-25T14:26:19.754970+00:00",
+    "reasoning": "Mid $0.677 vs $1.28 entry = 47.1% profit, essentially at 50% manage threshold with QQQ -1.99% keeping call delta crushed \u2014 lock the winner while the two losers are being closed."
   }
 }
