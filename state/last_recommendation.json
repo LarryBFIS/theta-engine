@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-25T16:36:13.206748+00:00",
-  "market_view": "VIX 33.75 (+28% today, +53% 5d) with SPY -2.87% and QQQ -4.46% \u2014 risk-off regime accelerating, no bottom signal. Both SPY put spreads are deep in loss territory and have been flagged CRITICAL for multiple consecutive cycles with zero remediation.",
+  "last_run": "2026-11-25T16:45:06.634608+00:00",
+  "market_view": "VIX 32.98 (+25% today, +49.5% 5d) with SPY -2.88% and QQQ -4.5% \u2014 risk-off regime is entrenched, tech leading down hard (-5.4% XLK). No catalyst for reversal in view; every minute these SPY puts stay open is compounding a loss in a trending tape.",
   "SPY 675/665p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-25T16:35:59.072441+00:00",
-    "reasoning": "Mid $2.345 vs $1.38 entry = 1.70x loss, stop threshold was 1.5x ($2.07) \u2014 this has been CRITICAL for 7+ minutes with no action taken. SPY at $698.18 is 3.3% above short strike 675 in an accelerating VIX-33 selloff; every tick lower compounds the loss toward max."
+    "timestamp": "2026-11-25T16:44:52.525047+00:00",
+    "reasoning": "Mid $2.40 vs $1.38 entry = 1.74x loss, hard stop was 1.5x ($2.07) \u2014 this is 8+ minutes past the mechanical cut rule and still open. SPY at $698 is only 3.3% above short strike 675 in a VIX-33 accelerating selloff with zero stabilization signal."
   },
   "SPY 670/660p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-25T16:35:59.072441+00:00",
-    "reasoning": "Mid $2.12 vs $1.20 entry = 1.77x loss, stop was at 1.5x ($1.80) \u2014 also flagged CRITICAL last cycle, still open. Two concurrent SPY put spreads in a trending tape is concentrated max-loss risk; combined BPR $1,742 against $4,522 net liq is 38.5% of account in one correlated directional bet going wrong."
+    "timestamp": "2026-11-25T16:44:52.525047+00:00",
+    "reasoning": "Mid $2.165 vs $1.20 entry = 1.80x loss, stop was at 1.5x ($1.80) \u2014 breached and unactioned for multiple cycles. Two correlated SPY put spreads in a trending tape represent $1,742 combined BPR (38.6% of net liq) in a single directional bet going wrong."
   },
   "QQQ 690/698c": {
     "action": "ACTION",
     "confidence": 0.98,
-    "timestamp": "2026-11-25T16:35:59.072441+00:00",
-    "reasoning": "Mid $0.58 vs $1.28 entry = 54.7% profit, 50% manage target hit and exceeded. Short strike 690 is 13.2% OTM with QQQ continuing to sell off \u2014 this is a clean winner that gets harder to hold as vol stays elevated."
+    "timestamp": "2026-11-25T16:44:52.525047+00:00",
+    "reasoning": "Mid $0.595 vs $1.28 entry = 53.5% profit, 50% manage target is hit and held \u2014 QQQ continuing to sell off makes short strike 690 safer by the minute but vol elevation means the premium can re-expand; lock the winner."
   }
 }
