@@ -5607,7 +5607,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 24.6, elevated vol regime with premium rich conditions (IV rank >70% on SPY/QQQ); -3% day shows directional weakness. Elevated vol means NOW is tactically good for selling premium, but we must respect the selloff momentum and avoid adding correlated short calls into downside.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-25",
+      "actual_price": 705.17,
+      "realized_move_pct": 0.0356,
+      "realized_move_signed": -0.0356,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "da680bb204fd",
@@ -5622,7 +5628,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 24.6, elevated vol regime with premium rich conditions (IV rank >70% on SPY/QQQ); -3% day shows directional weakness. Elevated vol means NOW is tactically good for selling premium, but we must respect the selloff momentum and avoid adding correlated short calls into downside.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-25",
+      "actual_price": 619.74,
+      "realized_move_pct": 0.0614,
+      "realized_move_signed": -0.0614,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "be9c55a53a8f",
@@ -5637,7 +5649,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 24.6, elevated vol regime with premium rich conditions (IV rank >70% on SPY/QQQ); -3% day shows directional weakness. Elevated vol means NOW is tactically good for selling premium, but we must respect the selloff momentum and avoid adding correlated short calls into downside.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-25",
+      "actual_price": 263.78,
+      "realized_move_pct": 0.0244,
+      "realized_move_signed": -0.0244,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "577408c5cbd5",
@@ -5652,7 +5670,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 24.6, elevated vol regime with premium rich conditions (IV rank >70% on SPY/QQQ); -3% day shows directional weakness. Elevated vol means NOW is tactically good for selling premium, but we must respect the selloff momentum and avoid adding correlated short calls into downside.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-25",
+      "actual_price": 493.23,
+      "realized_move_pct": 0.0175,
+      "realized_move_signed": -0.0175,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "1dc935c54bf8",
@@ -5667,7 +5691,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 24.6, elevated vol regime with premium rich conditions (IV rank >70% on SPY/QQQ); -3% day shows directional weakness. Elevated vol means NOW is tactically good for selling premium, but we must respect the selloff momentum and avoid adding correlated short calls into downside.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-25",
+      "actual_price": 374.78,
+      "realized_move_pct": 0.0273,
+      "realized_move_signed": -0.0273,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "5fabf5003971",
@@ -5967,6 +5997,81 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
+      "resolved": false
+    },
+    {
+      "id": "a071d8ab338c",
+      "index": "SPY",
+      "forecast_date": "2026-11-25",
+      "target_date": "2026-12-02",
+      "horizon_days": 7,
+      "spot_at_forecast": 705.17,
+      "iv": 0.2551,
+      "implied_move_pct": 0.0353,
+      "implied_move_abs": 24.91,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_cheap",
+      "market_view": "VIX 30.8, stress regime, +17% day: equity tape is ripping sharply higher into vol compression. This is POOR timing to add short calls on indices\u2014we'd be selling premium into momentum, not harvesting calm vol. Stand down.",
+      "resolved": false
+    },
+    {
+      "id": "4d6d98b8c55e",
+      "index": "QQQ",
+      "forecast_date": "2026-11-25",
+      "target_date": "2026-12-02",
+      "horizon_days": 7,
+      "spot_at_forecast": 619.74,
+      "iv": 0.3533,
+      "implied_move_pct": 0.0489,
+      "implied_move_abs": 30.32,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_cheap",
+      "market_view": "VIX 30.8, stress regime, +17% day: equity tape is ripping sharply higher into vol compression. This is POOR timing to add short calls on indices\u2014we'd be selling premium into momentum, not harvesting calm vol. Stand down.",
+      "resolved": false
+    },
+    {
+      "id": "cceb89afa1d4",
+      "index": "IWM",
+      "forecast_date": "2026-11-25",
+      "target_date": "2026-12-02",
+      "horizon_days": 7,
+      "spot_at_forecast": 263.78,
+      "iv": 0.2828,
+      "implied_move_pct": 0.0392,
+      "implied_move_abs": 10.33,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_cheap",
+      "market_view": "VIX 30.8, stress regime, +17% day: equity tape is ripping sharply higher into vol compression. This is POOR timing to add short calls on indices\u2014we'd be selling premium into momentum, not harvesting calm vol. Stand down.",
+      "resolved": false
+    },
+    {
+      "id": "1343cd47d5a0",
+      "index": "DIA",
+      "forecast_date": "2026-11-25",
+      "target_date": "2026-12-02",
+      "horizon_days": 7,
+      "spot_at_forecast": 493.23,
+      "iv": 0.2165,
+      "implied_move_pct": 0.03,
+      "implied_move_abs": 14.79,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_cheap",
+      "market_view": "VIX 30.8, stress regime, +17% day: equity tape is ripping sharply higher into vol compression. This is POOR timing to add short calls on indices\u2014we'd be selling premium into momentum, not harvesting calm vol. Stand down.",
+      "resolved": false
+    },
+    {
+      "id": "01675b82aa58",
+      "index": "TSLA",
+      "forecast_date": "2026-11-25",
+      "target_date": "2026-12-02",
+      "horizon_days": 7,
+      "spot_at_forecast": 374.78,
+      "iv": 0.5878,
+      "implied_move_pct": 0.0814,
+      "implied_move_abs": 30.51,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_cheap",
+      "market_view": "VIX 30.8, stress regime, +17% day: equity tape is ripping sharply higher into vol compression. This is POOR timing to add short calls on indices\u2014we'd be selling premium into momentum, not harvesting calm vol. Stand down.",
       "resolved": false
     }
   ]
