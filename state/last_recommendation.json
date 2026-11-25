@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-25T13:28:30.423645+00:00",
-  "market_view": "VIX now 30.86 (+17% today, +40% 5d) with XLK -3.26% leading a tech-driven risk-off flush \u2014 this is a sustained vol expansion event, not a one-day spike. SPY put spreads are bleeding into hard stop territory and concentration in two correlated SPY puts is a critical rules violation.",
+  "last_run": "2026-11-25T13:37:19.129499+00:00",
+  "market_view": "VIX 31 (+17.6% today, +40.5% 5d) with XLK -3.26% confirms sustained risk-off vol expansion, not a spike \u2014 SPY put spreads are at or past 1.5x stop triggers and must be closed immediately per rules.",
   "SPY 675/665p": {
     "action": "CRITICAL",
-    "confidence": 0.95,
-    "timestamp": "2026-11-25T13:28:16+00:00",
-    "reasoning": "Mid at $1.91 vs $1.38 entry \u2014 1.5x cut trigger is $2.07, we are 16 cents away with VIX still expanding and SPY down 2% on the week. This was flagged CRITICAL last cycle and has not been closed; holding is a rules violation."
+    "confidence": 0.98,
+    "timestamp": "2026-11-25T13:37:03.929725+00:00",
+    "reasoning": "Mid now $2.055 vs $1.38 entry \u2014 1.5x cut trigger is $2.07, we are 1.5 cents away and worst-case is $2.74; VIX still expanding, this is at the hard stop boundary right now. This position was flagged CRITICAL last cycle and has not been closed \u2014 every second of inaction is a rules violation."
   },
   "SPY 670/660p": {
     "action": "CRITICAL",
-    "confidence": 0.97,
-    "timestamp": "2026-11-25T13:28:16+00:00",
-    "reasoning": "Mid at $1.74 vs $1.20 entry \u2014 1.5x cut trigger is $1.80, this position is 6 cents from hard stop and was already flagged for immediate closure last cycle. This is a rules violation in progress."
+    "confidence": 0.99,
+    "timestamp": "2026-11-25T13:37:03.929725+00:00",
+    "reasoning": "Mid at $1.855 vs $1.20 entry \u2014 1.5x cut trigger was $1.80, this position has been through the hard stop for multiple cycles and has not been closed. This is an active rules violation with an expanding VIX and no floor in sight."
   },
   "QQQ 690/698c": {
     "action": "ACTION",
-    "confidence": 0.9,
-    "timestamp": "2026-11-25T13:28:16+00:00",
-    "reasoning": "Mid at $0.7685 vs $1.28 entry is 40% profit and approaching the 50% target of $0.64 \u2014 QQQ -2% today keeps pressure on the 690c but with VIX at 30+ a violent snap-back in tech could erase this gain instantly."
+    "confidence": 0.92,
+    "timestamp": "2026-11-25T13:37:03.929725+00:00",
+    "reasoning": "Mid at $0.67 vs $1.28 entry is 47.7% profit \u2014 this is at the 50% target threshold and QQQ -2% today keeps downward pressure on the calls, but a VIX-driven snap-back in tech could reverse this gain instantly."
   }
 }
