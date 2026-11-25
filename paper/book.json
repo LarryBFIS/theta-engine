@@ -1808,8 +1808,8 @@
       "opened_credit": 1.12,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -143.0,
-      "current_debit": 2.55,
+      "unrealized_pnl": -120.0,
+      "current_debit": 2.32,
       "close_reason": null
     },
     {
@@ -1835,11 +1835,13 @@
       "close_after_et": null,
       "opened_at": "2026-11-24",
       "opened_credit": 0.5,
-      "status": "open",
-      "realized_pnl": null,
-      "unrealized_pnl": -60.0,
-      "current_debit": 1.1,
-      "close_reason": null
+      "status": "closed",
+      "realized_pnl": -137.5,
+      "unrealized_pnl": null,
+      "current_debit": 1.85,
+      "close_reason": "stop_1.5x",
+      "closed_at": "2026-11-25",
+      "fees": 2.5
     },
     {
       "id": "paper_0060_iwm",
@@ -1902,18 +1904,47 @@
       "close_reason": "stop_1.5x",
       "closed_at": "2026-11-25",
       "fees": 5.0
+    },
+    {
+      "id": "paper_0062_qqq",
+      "sig": "QQQ_674_681_2026-12-31",
+      "underlying": "QQQ",
+      "structure": "short_call_vertical",
+      "short_strike": 674.0,
+      "long_strike": 681.0,
+      "short_symbol": "QQQ   261231C00674000",
+      "long_symbol": "QQQ   261231C00681000",
+      "symbols": null,
+      "expiry": "2026-12-31",
+      "credit": 1.15,
+      "bpr": 585.0,
+      "pop": 0.799,
+      "iv_rank": 0.72,
+      "tag": "paper",
+      "contracts": 1,
+      "event": null,
+      "close_date": null,
+      "day_trade": null,
+      "close_after_et": null,
+      "opened_at": "2026-11-25",
+      "opened_credit": 1.15,
+      "status": "open",
+      "realized_pnl": null,
+      "unrealized_pnl": -14.0,
+      "current_debit": 1.29,
+      "close_reason": null
     }
   ],
-  "updated_at": "2026-11-25T14:26:34.439040+00:00",
+  "updated_at": "2026-11-25T14:37:34.241948+00:00",
   "summary": {
-    "trades": 61,
+    "trades": 62,
     "open": 2,
-    "closed": 59,
+    "closed": 60,
     "wins": 28,
-    "losses": 31,
-    "win_rate": 0.475,
-    "realized_pnl": -4250.0,
-    "open_unrealized_pnl": -203.0,
-    "total_pnl": -4453.0
+    "losses": 32,
+    "win_rate": 0.467,
+    "realized_pnl": -4387.5,
+    "open_unrealized_pnl": -134.0,
+    "total_pnl": -4521.5
   }
 }
