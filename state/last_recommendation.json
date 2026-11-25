@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-25T18:36:33.345791+00:00",
-  "market_view": "VIX 28.42 (+7.81% today, +28.83% 5d) with SPY -3.14% and QQQ -6.31% over 5 days \u2014 risk-off regime is entrenched with tech leading the bleed. Both SPY put spreads remain losing positions in a sustained downtrend with 28 DTE and theta providing no meaningful rescue.",
+  "last_run": "2026-11-25T18:45:07.648910+00:00",
+  "market_view": "VIX 28.31 (+7.4% today, +28.33% 5d) with QQQ -6.02% and SPY -2.9% over 5 days \u2014 risk-off regime firmly entrenched, tech leading the bleed. Both SPY put spreads are bleeding losses in a sustained downtrend with 28 DTE and no catalyst for reversal in sight.",
   "SPY 675/665p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-25T18:36:18Z",
-    "reasoning": "Mid $1.525 vs $1.38 entry = 1.10x loss, worst-case $1.64 = 1.19x \u2014 hard stop at 1.5x is $2.07 mid and VIX near 28 with sustained downward momentum keeps path risk elevated. This position has been flagged CRITICAL for multiple consecutive cycles with zero execution, which is a rule violation."
+    "timestamp": "2026-11-25T18:44:52Z",
+    "reasoning": "Mid $1.465 vs $1.38 entry = 1.06x loss, worst-case $1.61 = 1.17x \u2014 hard stop triggers at $2.07 mid but VIX 28+ with sustained downside momentum means waiting risks a gap through stop. This position has been flagged CRITICAL multiple cycles with no execution \u2014 that is a rule violation requiring immediate close."
   },
   "SPY 670/660p": {
     "action": "CRITICAL",
     "confidence": 0.99,
-    "timestamp": "2026-11-25T18:36:18Z",
-    "reasoning": "Mid $1.375 vs $1.20 entry = 1.15x loss, worst-case $1.47 = 1.22x \u2014 two concurrent SPY put spreads in a risk-off tape is a single leveraged directional bet violating diversification rules, and VIX expansion continues to increase pin risk toward short strikes at 675 and 670."
+    "timestamp": "2026-11-25T18:44:52Z",
+    "reasoning": "Mid $1.30 vs $1.20 entry = 1.08x loss, worst-case $1.41 = 1.18x \u2014 same risk-off regime exposure as the 675/665p; running two SPY put spreads simultaneously violates diversification rules and doubles pin risk as SPY approaches short strikes."
   },
   "QQQ 690/698c": {
     "action": "WATCH",
     "confidence": 0.78,
-    "timestamp": "2026-11-25T18:36:18Z",
-    "reasoning": "Mid $1.025 vs $1.28 entry = 19.9% profit, not yet at 50% target ($0.64 mid); QQQ -1.47% today continues to help call spread decay with short strike 690 still 9.7% OTM \u2014 no breach risk, theta is working."
+    "timestamp": "2026-11-25T18:44:52Z",
+    "reasoning": "Mid $1.07 vs $1.28 entry = 16.4% profit, not yet at 50% target ($0.64 mid); QQQ -1.16% today continues to help call spread decay with short strike 690 still 9.4% OTM \u2014 no breach risk, theta is working, hold."
   }
 }
