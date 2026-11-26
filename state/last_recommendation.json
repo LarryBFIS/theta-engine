@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-26T17:54:42.089303+00:00",
-  "market_view": "Risk-off regime persists with VIX at 26.8 and tech -6.95% on the week; after-hours pre-Thanksgiving holiday, no fills executable until Friday open \u2014 no new information changes prior assessments.",
+  "last_run": "2026-11-26T18:15:33.029584+00:00",
+  "market_view": "Risk-off regime intact with VIX 26.8 and tech down nearly 7% on the week; market is closed for Thanksgiving, no fills executable until Friday open \u2014 assessments unchanged from prior cycle.",
   "SPY 675/665p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-11-26T17:54:32Z",
-    "reasoning": "Dual SPY put spread concentration violates max 3-4 uncorrelated positions rule; position is underwater at $1.42 mid vs $1.38 credit and has been flagged CRITICAL for 10 minutes \u2014 Friday open is the actionable window."
+    "timestamp": "2026-11-26T18:15:23Z",
+    "reasoning": "Dual SPY put spread concentration is a rules violation \u2014 two correlated positions in same expiry consuming $1,742 BPR against one underlying; position is underwater at $1.42 mid vs $1.38 credit. First actionable window is Friday open."
   },
   "SPY 670/660p": {
     "action": "WATCH",
     "confidence": 0.75,
-    "timestamp": "2026-11-26T17:54:32Z",
-    "reasoning": "Mid $1.26 vs $1.20 credit, short strike 6.5% OTM, loss stop at $1.80 not breached \u2014 becomes sole SPY position once 675/665p closes Friday and manages normally from there."
+    "timestamp": "2026-11-26T18:15:23Z",
+    "reasoning": "Mid $1.26 vs $1.20 credit, short strike 6.5% OTM with loss stop at $1.80 not breached \u2014 becomes the sole SPY position once 675/665p is closed Friday and manages normally from there."
   },
   "QQQ 690/698c": {
     "action": "WATCH",
     "confidence": 0.82,
-    "timestamp": "2026-11-26T17:54:32Z",
-    "reasoning": "Mid $1.13 vs $1.28 credit is ~12% profit with short call 8.8% OTM; tech weakness is working in favor of this call spread and $0.64 mid target (50%) is the next actionable trigger."
+    "timestamp": "2026-11-26T18:15:23Z",
+    "reasoning": "Mid $1.13 vs $1.28 credit is ~12% profit with short call 8.8% OTM; continued tech weakness is working in favor of this position, target is $0.64 mid for 50% profit management."
   }
 }
