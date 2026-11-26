@@ -5712,7 +5712,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-26",
+      "actual_price": 720.4,
+      "realized_move_pct": 0.0252,
+      "realized_move_signed": -0.0252,
+      "stayed_in_range": true
     },
     {
       "id": "0150a8a4c711",
@@ -5727,7 +5732,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-26",
+      "actual_price": 636.57,
+      "realized_move_pct": 0.054,
+      "realized_move_signed": -0.054,
+      "stayed_in_range": false
     },
     {
       "id": "adec9a7b2b56",
@@ -5742,7 +5752,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-26",
+      "actual_price": 270.22,
+      "realized_move_pct": 0.007,
+      "realized_move_signed": -0.007,
+      "stayed_in_range": true
     },
     {
       "id": "610c44bfa0b0",
@@ -5757,7 +5772,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-26",
+      "actual_price": 503.5,
+      "realized_move_pct": 0.0029,
+      "realized_move_signed": -0.0029,
+      "stayed_in_range": true
     },
     {
       "id": "bf7bfc392531",
@@ -5772,7 +5792,12 @@
       "model": null,
       "vol_verdict": null,
       "market_view": "",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-26",
+      "actual_price": 383.23,
+      "realized_move_pct": 0.0214,
+      "realized_move_signed": -0.0214,
+      "stayed_in_range": true
     },
     {
       "id": "b3505eaafc94",
@@ -6072,6 +6097,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_cheap",
       "market_view": "VIX 30.8, stress regime, +17% day: equity tape is ripping sharply higher into vol compression. This is POOR timing to add short calls on indices\u2014we'd be selling premium into momentum, not harvesting calm vol. Stand down.",
+      "resolved": false
+    },
+    {
+      "id": "d17e47c556f7",
+      "index": "SPY",
+      "forecast_date": "2026-11-26",
+      "target_date": "2026-12-03",
+      "horizon_days": 7,
+      "spot_at_forecast": 720.4,
+      "iv": 0.2671,
+      "implied_move_pct": 0.037,
+      "implied_move_abs": 26.65,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 26.94, elevated regime, -5% day: vol is rich and tape is choppy/down. This is a GOOD environment to sell premium into, but timing matters\u2014we're in an active selloff, so short calls into upside rallies and short puts into further weakness are both risky. Favor defensive, wide-",
+      "resolved": false
+    },
+    {
+      "id": "eac607a708d2",
+      "index": "QQQ",
+      "forecast_date": "2026-11-26",
+      "target_date": "2026-12-03",
+      "horizon_days": 7,
+      "spot_at_forecast": 636.57,
+      "iv": 0.3754,
+      "implied_move_pct": 0.052,
+      "implied_move_abs": 33.09,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 26.94, elevated regime, -5% day: vol is rich and tape is choppy/down. This is a GOOD environment to sell premium into, but timing matters\u2014we're in an active selloff, so short calls into upside rallies and short puts into further weakness are both risky. Favor defensive, wide-",
+      "resolved": false
+    },
+    {
+      "id": "6c339a3f51ae",
+      "index": "IWM",
+      "forecast_date": "2026-11-26",
+      "target_date": "2026-12-03",
+      "horizon_days": 7,
+      "spot_at_forecast": 270.22,
+      "iv": 0.2838,
+      "implied_move_pct": 0.0393,
+      "implied_move_abs": 10.62,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 26.94, elevated regime, -5% day: vol is rich and tape is choppy/down. This is a GOOD environment to sell premium into, but timing matters\u2014we're in an active selloff, so short calls into upside rallies and short puts into further weakness are both risky. Favor defensive, wide-",
+      "resolved": false
+    },
+    {
+      "id": "c5dde032ac45",
+      "index": "DIA",
+      "forecast_date": "2026-11-26",
+      "target_date": "2026-12-03",
+      "horizon_days": 7,
+      "spot_at_forecast": 503.5,
+      "iv": 0.2265,
+      "implied_move_pct": 0.0314,
+      "implied_move_abs": 15.8,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 26.94, elevated regime, -5% day: vol is rich and tape is choppy/down. This is a GOOD environment to sell premium into, but timing matters\u2014we're in an active selloff, so short calls into upside rallies and short puts into further weakness are both risky. Favor defensive, wide-",
+      "resolved": false
+    },
+    {
+      "id": "2c9f25467a4e",
+      "index": "TSLA",
+      "forecast_date": "2026-11-26",
+      "target_date": "2026-12-03",
+      "horizon_days": 7,
+      "spot_at_forecast": 383.23,
+      "iv": 0.6184,
+      "implied_move_pct": 0.0856,
+      "implied_move_abs": 32.82,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 26.94, elevated regime, -5% day: vol is rich and tape is choppy/down. This is a GOOD environment to sell premium into, but timing matters\u2014we're in an active selloff, so short calls into upside rallies and short puts into further weakness are both risky. Favor defensive, wide-",
       "resolved": false
     }
   ]
