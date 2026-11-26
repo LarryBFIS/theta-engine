@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-26T17:17:34.778999+00:00",
-  "market_view": "Risk-off regime persists with VIX at 26.8 and tech -6.95% on the week; market is in after-hours pre-Thanksgiving weekend with no actionable fills until Friday open. Two simultaneous SPY put spreads remain an unresolved concentration violation that must be addressed at Friday open.",
+  "last_run": "2026-11-26T17:25:12.653957+00:00",
+  "market_view": "Risk-off regime with VIX 26.8, tech down 6.95% on the week, and market in after-hours pre-holiday \u2014 no fills available until Friday open. Dual SPY put spread concentration violation remains unresolved and Friday open is the hard action window.",
   "SPY 675/665p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-11-26T17:17:24Z",
-    "reasoning": "Position is underwater at mid $1.42 vs $1.38 credit collected, and running dual SPY put spreads is a hard concentration rule violation \u2014 this CRITICAL has persisted two cycles with no action. Friday open is a hard close deadline regardless of P&L."
+    "timestamp": "2026-11-26T17:25:03Z",
+    "reasoning": "Position is underwater mid $1.42 vs $1.38 credit and represents a hard concentration rule violation running dual SPY put spreads \u2014 this CRITICAL has now persisted three cycles with no action taken. Friday open is a non-negotiable close deadline."
   },
   "SPY 670/660p": {
     "action": "WATCH",
     "confidence": 0.75,
-    "timestamp": "2026-11-26T17:17:24Z",
-    "reasoning": "Mid $1.26 vs $1.20 credit, loss stop at $1.80 not breached, short strike 670 is 6.5% OTM \u2014 once 675/665p is closed this becomes the sole SPY put spread and manages normally. No action required now."
+    "timestamp": "2026-11-26T17:25:03Z",
+    "reasoning": "Mid $1.26 vs $1.20 credit, loss stop at $1.80 not breached, short strike 670 is 6.5% OTM \u2014 once 675/665p is closed Friday this becomes the sole SPY put spread and manages normally."
   },
   "QQQ 690/698c": {
     "action": "WATCH",
     "confidence": 0.8,
-    "timestamp": "2026-11-26T17:17:24Z",
-    "reasoning": "Mid $1.13 vs $1.28 credit is ~12% profit; QQQ down 5.54% on the week pushes short call 690 further OTM at 8.8% distance \u2014 trending toward 50% target at $0.64 mid but not there yet, no action needed."
+    "timestamp": "2026-11-26T17:25:03Z",
+    "reasoning": "Mid $1.13 vs $1.28 credit is ~12% profit with QQQ short call 8.8% OTM and moving further away on continued tech weakness \u2014 trending toward 50% target but not there yet."
   }
 }
