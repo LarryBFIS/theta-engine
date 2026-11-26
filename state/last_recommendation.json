@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-26T13:54:59.046011+00:00",
-  "market_view": "VIX at 26.95 compressing (-4.74% today) but risk-off regime persists with QQQ -5.54% and XLK -6.95% over 5 days \u2014 tech rotation out of growth continues. Dual SPY put spread concentration remains unresolved and is the single biggest portfolio risk.",
+  "last_run": "2026-11-26T14:14:09.014693+00:00",
+  "market_view": "VIX at 27.04 declining (-4.42% today) but still elevated in a persistent risk-off regime \u2014 SPY -2.82% and QQQ -5.54% over 5 days with tech continuing to bleed. Dual SPY put spread concentration remains the dominant portfolio risk and was flagged CRITICAL last cycle with no action taken.",
   "SPY 675/665p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-11-26T13:54:44.771324+00:00",
-    "reasoning": "Position is already a loser (mid $1.42 vs $1.38 credit), dual SPY put spread concentration violates diversification rules, and with SPY -2.82% over 5 days in a risk-off regime holding two overlapping SPY put spreads is unacceptable tail risk \u2014 this was flagged CRITICAL last cycle and remains unacted on."
+    "timestamp": "2026-11-26T14:13:55.779396+00:00",
+    "reasoning": "This was CRITICAL 19 minutes ago and remains unacted on \u2014 mid $1.42 vs $1.38 credit is a loser, two overlapping SPY put spreads in a risk-off regime with SPY trending down over 5 days violates diversification rules outright. Every minute of inaction increases correlation risk with the 670/660p."
   },
   "SPY 670/660p": {
     "action": "WATCH",
     "confidence": 0.72,
-    "timestamp": "2026-11-26T13:54:44.771324+00:00",
-    "reasoning": "Mid $1.26 vs $1.20 credit is a minor loser but well below the $1.80 stop trigger \u2014 once the 675/665p is closed this becomes sole SPY exposure with a healthy 6.5% buffer to the 670 short strike."
+    "timestamp": "2026-11-26T14:13:55.779396+00:00",
+    "reasoning": "Mid $1.26 vs $1.20 credit is a small loser but well below the $1.80 stop (1.5x credit); 670 short strike is 6.5% OTM with 27 DTE \u2014 manageable as sole SPY exposure once the 675/665p is closed."
   },
   "QQQ 690/698c": {
     "action": "WATCH",
     "confidence": 0.78,
-    "timestamp": "2026-11-26T13:54:44.771324+00:00",
-    "reasoning": "Mid $1.13 vs $1.28 credit is 11.7% profit \u2014 QQQ is selling off which helps this call spread, short 690 strike is 8.8% OTM and not threatened, but not at 50% profit target ($0.64) yet so no action."
+    "timestamp": "2026-11-26T14:13:55.779396+00:00",
+    "reasoning": "Mid $1.13 vs $1.28 credit is 11.7% profit \u2014 QQQ selloff is helping this call spread, short 690 strike is 8.8% OTM with no threat, but not at 50% target ($0.64) yet so no mechanical action triggered."
   }
 }
