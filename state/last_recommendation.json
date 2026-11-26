@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-26T20:25:31.618598+00:00",
-  "market_view": "Market closed for Thanksgiving; Friday is a half-day session. Risk-off regime persists with VIX 26.8 and tech continuing to underperform (QQQ -5.54% 5d), keeping SPY put spread concentration risk elevated heading into Friday open.",
+  "last_run": "2026-11-26T20:37:02.242540+00:00",
+  "market_view": "Market closed for Thanksgiving holiday; Friday is a half-day session with thin liquidity. Risk-off regime persists with VIX 26.8 and tech notably weak (QQQ -5.54% 5d), but no incremental news this cycle to change the picture.",
   "SPY 675/665p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-11-26T20:25:22.320206+00:00",
-    "reasoning": "Two concurrent SPY put spreads on the same expiry creates $1,742 combined BPR concentration in a single underlier during a risk-off tape with VIX 26.8 \u2014 this violates the uncorrelated underlyings rule and must be resolved at Friday open."
+    "timestamp": "2026-11-26T20:36:52.095374+00:00",
+    "reasoning": "Two SPY put spreads on identical expiry = $1,742 combined BPR in one underlier, violating uncorrelated underlyings rule in a risk-off tape \u2014 this must be resolved at Friday open, same call as prior cycle."
   },
   "SPY 670/660p": {
     "action": "WATCH",
     "confidence": 0.75,
-    "timestamp": "2026-11-26T20:25:22.320206+00:00",
-    "reasoning": "Mid $1.26 vs $1.20 credit, stop at $1.80 not triggered, short strike 6.5% OTM \u2014 once 675/665p is closed Friday this becomes the sole SPY leg and concentration risk resolves."
+    "timestamp": "2026-11-26T20:36:52.095374+00:00",
+    "reasoning": "Mid $1.26 vs $1.20 credit, loss stop at $1.80 not triggered, short strike 6.5% OTM \u2014 position is manageable once 675/665p is closed and SPY concentration resolves."
   },
   "QQQ 690/698c": {
     "action": "HOLD",
     "confidence": 0.91,
-    "timestamp": "2026-11-26T20:25:22.320206+00:00",
-    "reasoning": "Mid $1.13 vs $1.28 credit (~12% profit), QQQ at $633.93 gives 8.8% buffer to $690 short strike \u2014 continued tech weakness is expanding OTM cushion and theta is accruing normally at 27 DTE."
+    "timestamp": "2026-11-26T20:36:52.095374+00:00",
+    "reasoning": "Mid $1.13 vs $1.28 credit (~12% profit), QQQ $633.93 gives 8.8% buffer to $690 short strike \u2014 continued tech weakness widens OTM cushion and theta accrues normally with 27 DTE remaining."
   }
 }
