@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-26T15:50:22.281274+00:00",
+  "generated_at": "2026-11-26T16:17:01.764079+00:00",
   "regime": {
-    "vix": 26.76,
-    "vix_day_change_pct": -0.0541,
+    "vix": 26.62,
+    "vix_day_change_pct": -0.059,
     "level": "elevated",
     "stand_down": false,
-    "note": "elevated vol \u2014 premium rich, proceed (-5% day)"
+    "note": "elevated vol \u2014 premium rich, proceed (-6% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -60,7 +60,7 @@
       ],
       "rank_score": 0.01648,
       "agent_action": "approve",
-      "agent_reason": "SPY short put vertical on rich premium, tight 9-wide spread, 79.8% PoP, clean index ETF \u2014 solid timing in elevated vol regime. Capital efficient.",
+      "agent_reason": "Index ETF, short put vertical (favored structure), 1 contract, elevated vol regime is ideal for premium harvest; dte 35 is clean; cluster cap allows.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
@@ -107,7 +107,7 @@
         "fit_note": "\u26a0 max loss $785 > 10% live cap ($469) \u2014 narrow to ~5-wide for live, or keep on paper.",
         "text": "SPY VP \u00d71 \u2014 SELL 670P / BUY 661P (2026-12-31) @ $1.15 net credit. Max loss $785. After fill: GTC buy-to-close @ $0.57 (50%). \u26a0 max loss $785 > 10% live cap ($469) \u2014 narrow to ~5-wide for live, or keep on paper."
       },
-      "posted_at": "2026-11-26T15:50:22.281274+00:00"
+      "posted_at": "2026-11-26T16:17:01.764079+00:00"
     },
     {
       "underlying": "IWM",
@@ -151,7 +151,7 @@
       ],
       "rank_score": 0.0112,
       "agent_action": "downsize",
-      "agent_reason": "IWM structure is sound (index ETF, short put, 80% PoP) but 2 contracts add correlated us_index cluster risk; we already have SPY + QQQ on; downsize to 1 to stay diversified and respect overall book stress.",
+      "agent_reason": "Solid setup (index ETF, short put vertical), but 2 contracts + SPY already adds us_index cluster risk to 3/3 cap and correlates directionally; reduce to 1 to stay within prudent diversification.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
@@ -198,7 +198,7 @@
         "fit_note": "",
         "text": "IWM VP \u00d71 \u2014 SELL 250P / BUY 245P (2026-12-31) @ $0.61 net credit. Max loss $439. After fill: GTC buy-to-close @ $0.30 (50%)."
       },
-      "posted_at": "2026-11-26T15:50:22.281274+00:00"
+      "posted_at": "2026-11-26T16:17:01.764079+00:00"
     },
     {
       "underlying": "QQQ",
@@ -242,7 +242,7 @@
       ],
       "rank_score": 0.00336,
       "agent_action": "guarded",
-      "agent_reason": "Short call vertical into QQQ (us_tech cluster, single-name equivalent, 28% neg expectancy track record) during a -5% tape and elevated vol is poorly timed directional bet; we are already short QQQ vega; veto adds correlated risk.",
+      "agent_reason": "Short call vertical on single_name (us_tech cluster) in a -6% down day: historically neg expectancy (27% wr), and NOW is poorly timed \u2014 selling upside into a rip after a drawdown invites whipsaw; already down $125 and don't need this margin",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -291,7 +291,7 @@
         "fit_note": "\u26a0 max loss $709 > 10% live cap ($469) \u2014 narrow to ~5-wide for live, or keep on paper.",
         "text": "QQQ VC \u00d71 \u2014 SELL 697C / BUY 705C (2026-12-31) @ $0.91 net credit. Max loss $709. After fill: GTC buy-to-close @ $0.46 (50%). \u26a0 max loss $709 > 10% live cap ($469) \u2014 narrow to ~5-wide for live, or keep on paper."
       },
-      "posted_at": "2026-11-26T15:50:22.281274+00:00"
+      "posted_at": "2026-11-26T16:17:01.764079+00:00"
     }
   ],
   "long_vol": [],
@@ -365,10 +365,10 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-11-26T15:50:21.835293+00:00",
+    "generated_at": "2026-11-26T16:17:01.269637+00:00",
     "model": "claude-haiku-4-5",
-    "market_view": "VIX 26.76 in elevated regime post -5% day; premium is rich and volatility should compress. Timing is FAVORABLE for selling premium \u2014 but only on index ETFs with tight structures, not correlated tech names into an already-stressed tape.",
-    "portfolio_note": "Book is -$125 unrealized across 3 open positions (SPY, QQQ, IWM). Adding two more us_index + one us_tech risks clustering into a correlated sell-off; we are already long QQQ short vega.",
+    "market_view": "VIX 26.62 in elevated regime after -6% day; premium is rich and vol is offering compensation. This is a GOOD environment to sell premium, but timing matters: we're in a drawdown, not a calm tape. Add selectively to index ETFs only; avoid adding directional short-vol into tech.",
+    "portfolio_note": "Book is down $125 on 3 open positions (SPY, QQQ, IWM). Already long vol sensitivity via us_tech (QQQ); us_index cluster at 2/3 cap. Each new short-premium position is a small marginal add, but correlation risk is rising.",
     "vol_verdict": "implied_rich",
     "reviewed": 3,
     "vetoed": 1,
@@ -377,19 +377,19 @@
       {
         "id": "SPY|short_put_vertical|670/661",
         "action": "approve",
-        "reason": "SPY short put vertical on rich premium, tight 9-wide spread, 79.8% PoP, clean index ETF \u2014 solid timing in elevated vol regime. Capital efficient."
+        "reason": "Index ETF, short put vertical (favored structure), 1 contract, elevated vol regime is ideal for premium harvest; dte 35 is clean; cluster cap allows."
       },
       {
         "id": "IWM|short_put_vertical|250/245",
         "action": "downsize",
         "from": 2,
         "to": 1,
-        "reason": "IWM structure is sound (index ETF, short put, 80% PoP) but 2 contracts add correlated us_index cluster risk; we already have SPY + QQQ on; downsize to 1 to stay diversified and respect overall book stress."
+        "reason": "Solid setup (index ETF, short put vertical), but 2 contracts + SPY already adds us_index cluster risk to 3/3 cap and correlates directionally; reduce to 1 to stay within prudent diversification."
       },
       {
         "id": "QQQ|short_call_vertical|697/705",
         "action": "veto",
-        "reason": "Short call vertical into QQQ (us_tech cluster, single-name equivalent, 28% neg expectancy track record) during a -5% tape and elevated vol is poorly timed directional bet; we are already short QQQ vega; veto adds correlated risk."
+        "reason": "Short call vertical on single_name (us_tech cluster) in a -6% down day: historically neg expectancy (27% wr), and NOW is poorly timed \u2014 selling upside into a rip after a drawdown invites whipsaw; already down $125 and don't need this margin"
       }
     ]
   },
@@ -436,7 +436,7 @@
       ],
       "rank_score": 0.01648,
       "agent_action": "approve",
-      "agent_reason": "SPY short put vertical on rich premium, tight 9-wide spread, 79.8% PoP, clean index ETF \u2014 solid timing in elevated vol regime. Capital efficient.",
+      "agent_reason": "Index ETF, short put vertical (favored structure), 1 contract, elevated vol regime is ideal for premium harvest; dte 35 is clean; cluster cap allows.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
@@ -483,7 +483,7 @@
         "fit_note": "\u26a0 max loss $785 > 10% live cap ($469) \u2014 narrow to ~5-wide for live, or keep on paper.",
         "text": "SPY VP \u00d71 \u2014 SELL 670P / BUY 661P (2026-12-31) @ $1.15 net credit. Max loss $785. After fill: GTC buy-to-close @ $0.57 (50%). \u26a0 max loss $785 > 10% live cap ($469) \u2014 narrow to ~5-wide for live, or keep on paper."
       },
-      "posted_at": "2026-11-26T15:50:22.281274+00:00"
+      "posted_at": "2026-11-26T16:17:01.764079+00:00"
     },
     {
       "underlying": "IWM",
@@ -527,7 +527,7 @@
       ],
       "rank_score": 0.0112,
       "agent_action": "downsize",
-      "agent_reason": "IWM structure is sound (index ETF, short put, 80% PoP) but 2 contracts add correlated us_index cluster risk; we already have SPY + QQQ on; downsize to 1 to stay diversified and respect overall book stress.",
+      "agent_reason": "Solid setup (index ETF, short put vertical), but 2 contracts + SPY already adds us_index cluster risk to 3/3 cap and correlates directionally; reduce to 1 to stay within prudent diversification.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
@@ -574,7 +574,7 @@
         "fit_note": "",
         "text": "IWM VP \u00d71 \u2014 SELL 250P / BUY 245P (2026-12-31) @ $0.61 net credit. Max loss $439. After fill: GTC buy-to-close @ $0.30 (50%)."
       },
-      "posted_at": "2026-11-26T15:50:22.281274+00:00"
+      "posted_at": "2026-11-26T16:17:01.764079+00:00"
     },
     {
       "underlying": "QQQ",
@@ -618,7 +618,7 @@
       ],
       "rank_score": 0.00336,
       "agent_action": "guarded",
-      "agent_reason": "Short call vertical into QQQ (us_tech cluster, single-name equivalent, 28% neg expectancy track record) during a -5% tape and elevated vol is poorly timed directional bet; we are already short QQQ vega; veto adds correlated risk.",
+      "agent_reason": "Short call vertical on single_name (us_tech cluster) in a -6% down day: historically neg expectancy (27% wr), and NOW is poorly timed \u2014 selling upside into a rip after a drawdown invites whipsaw; already down $125 and don't need this margin",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -667,7 +667,7 @@
         "fit_note": "\u26a0 max loss $709 > 10% live cap ($469) \u2014 narrow to ~5-wide for live, or keep on paper.",
         "text": "QQQ VC \u00d71 \u2014 SELL 697C / BUY 705C (2026-12-31) @ $0.91 net credit. Max loss $709. After fill: GTC buy-to-close @ $0.46 (50%). \u26a0 max loss $709 > 10% live cap ($469) \u2014 narrow to ~5-wide for live, or keep on paper."
       },
-      "posted_at": "2026-11-26T15:50:22.281274+00:00"
+      "posted_at": "2026-11-26T16:17:01.764079+00:00"
     }
   ],
   "skipped": {
