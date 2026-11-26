@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-26T13:14:28.463008+00:00",
-  "market_view": "VIX at 26.84 down 5.1% today but still elevated \u2014 regime remains risk-off with SPY down 2.82% over 5 days and tech (XLK -6.95%) the drag. Today's intraday stabilization is not a reversal; short puts remain under pressure.",
+  "last_run": "2026-11-26T13:21:16.996751+00:00",
+  "market_view": "VIX at 27.09 remains elevated despite today's -4.24% compression \u2014 risk-off regime intact with QQQ down 5.54% and XLK down 6.95% over 5 days. SPY short put spreads face continued downside pressure; no reversal signal present.",
   "SPY 675/665p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-11-26T13:14:14.829926+00:00",
-    "reasoning": "Position is a loser at mid $1.42 vs $1.38 credit with CRITICAL flagged last cycle \u2014 this close order is still unexecuted. Double SPY put spread exposure in a risk-off regime is a concentration rule violation; this must be closed immediately."
+    "timestamp": "2026-11-26T13:21:05.321928+00:00",
+    "reasoning": "CRITICAL flagged last cycle, close order appears unexecuted \u2014 mid $1.42 is already above entry credit $1.38 and this is a duplicate SPY short put exposure alongside 670/660p in a confirmed risk-off regime, violating concentration rules. Every minute this stays open adds correlated tail risk."
   },
   "SPY 670/660p": {
     "action": "WATCH",
     "confidence": 0.82,
-    "timestamp": "2026-11-26T13:14:14.829926+00:00",
-    "reasoning": "Mid $1.26 vs $1.20 credit is a 5% loser, well inside the 1.5x stop at $1.80 mid \u2014 no action trigger yet, but risk-off regime and elevated VIX keep pressure on. Hard stop is $1.80 mid."
+    "timestamp": "2026-11-26T13:21:05.321928+00:00",
+    "reasoning": "Mid $1.26 vs $1.20 credit is a 5% loser, stop trigger is $1.80 mid \u2014 not there yet, but once the 675/665p is closed this becomes the sole SPY put exposure and pressure eases slightly. Monitor; hard stop at $1.80 mid."
   },
   "QQQ 690/698c": {
-    "action": "ACTION",
-    "confidence": 0.88,
-    "timestamp": "2026-11-26T13:14:14.829926+00:00",
-    "reasoning": "Mid $1.13 vs $1.28 credit is 11.7% profit \u2014 not at 50% target ($0.64 mid) yet, but QQQ is 8.8% below the 690 short call and VIX is compressing, so theta and delta are both working. Place a GTC limit order to close at $0.64 mid and let it ride."
+    "action": "WATCH",
+    "confidence": 0.78,
+    "timestamp": "2026-11-26T13:21:05.321928+00:00",
+    "reasoning": "Mid $1.13 vs $1.28 credit is 11.7% profit \u2014 QQQ is 8.8% below the 690 short call with VIX compressing, theta and delta both working favorably. 50% profit target at $0.64 mid is not hit; GTC limit at $0.64 should already be working."
   }
 }
