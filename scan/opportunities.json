@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-27T12:49:58.827189+00:00",
+  "generated_at": "2026-11-27T13:14:47.249014+00:00",
   "regime": {
-    "vix": 25.39,
-    "vix_day_change_pct": -0.0526,
+    "vix": 25.21,
+    "vix_day_change_pct": -0.0593,
     "level": "elevated",
     "stand_down": false,
-    "note": "elevated vol \u2014 premium rich, proceed (-5% day)"
+    "note": "elevated vol \u2014 premium rich, proceed (-6% day)"
   },
   "params": {
     "min_iv_rank": 0.3,
@@ -17,136 +17,46 @@
     "longvol_max_iv_rank": 0.3,
     "longvol_catalyst_days": 14
   },
-  "top": [
-    {
-      "underlying": "SLV",
-      "structure": "short_put_vertical",
-      "expiry": "2026-12-31",
-      "dte": 34,
-      "short_strike": 33.0,
-      "long_strike": 28.0,
-      "short_symbol": "SLV   261231P00033000",
-      "long_symbol": "SLV   261231P00028000",
-      "width": 5.0,
-      "credit": 0.69,
-      "mid_credit": 0.74,
-      "fees_est": 3.0,
-      "bpr": 431.0,
-      "max_loss": 431.0,
-      "pop": 0.804,
-      "short_delta": 0.147,
-      "short_spread_pct": 0.057,
-      "credit_to_bpr": 0.16,
-      "ev_per_contract": 4.47,
-      "ev_on_bpr": 0.0104,
-      "iv": 0.6289,
-      "iv_rank": 0.389,
-      "underlying_price": 39.62,
-      "liquidity": 4,
-      "earnings_date": null,
-      "tag": "paper",
-      "sized_for": "paper",
-      "contracts": 2,
-      "max_loss_total": 862.0,
-      "bpr_total": 862.0,
-      "trend": "bearish",
-      "sized_capped": true,
-      "reasoning": "short put vertical 33/28p \u00d72 \u2014 rich premium. Edge: IV rank 39%, EV $+4/ctr (+1.0% on BPR). POP 80% \u00b7 credit $0.69 \u00b7 max loss $431 \u00b7 BPR $862 \u00b7 34 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 1.183,
-      "learn_notes": [
-        "structure=short_put_vertical \u00d71.18"
-      ],
-      "rank_score": 0.012303,
-      "agent_action": "approve",
-      "agent_reason": "sector_etf, short_put_vertical (favored structure), 34 DTE, IV rank 0.389 implies vol elevated; metals uncorrelated to open book; EV+0.0104, POP 80.4% solid; 2 contracts within caps and size; paper tag appropriate for regime validation; wel",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "clear",
-        "hits": []
-      },
-      "net_liq": 4719.495,
-      "ticket": {
-        "underlying": "SLV",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 0.69,
-        "contracts": 2,
-        "expiry": "2026-12-31",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 2,
-            "expiry": "2026-12-31",
-            "strike": 33.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 2,
-            "expiry": "2026-12-31",
-            "strike": 28.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 138.0,
-        "max_loss_total": 862.0,
-        "bpr_total": 862.0,
-        "pop": 0.804,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.34,
-          "stop_debit": 1.72,
-          "exit_dte": 21
-        },
-        "fits_live_cap": true,
-        "live_cap": 471.95,
-        "suggested_width": null,
-        "fit_note": "",
-        "text": "SLV VP \u00d72 \u2014 SELL 33P / BUY 28P (2026-12-31) @ $0.69 net credit. Max loss $862. After fill: GTC buy-to-close @ $0.34 (50%)."
-      },
-      "posted_at": "2026-11-27T12:49:58.827189+00:00"
-    }
-  ],
+  "top": [],
   "long_vol": [],
   "events": [],
   "learnings": {
     "global": {
-      "closed": 111,
+      "closed": 112,
       "wins": 41,
-      "losses": 70,
-      "win_rate": 0.369,
-      "total_pnl": -13236.5
+      "losses": 71,
+      "win_rate": 0.366,
+      "total_pnl": -13444.0
     },
     "min_sample": 20,
     "actionable": [
       {
         "dim": "asset_class",
         "value": "index_etf",
-        "multiplier": 1.385,
+        "multiplier": 1.396,
         "recommendation": "favor",
         "n": 50
       },
       {
         "dim": "asset_class",
         "value": "single_name",
-        "multiplier": 0.685,
+        "multiplier": 0.679,
         "recommendation": "AVOID (neg expectancy; wr 25% < prior 37%)",
-        "n": 56
+        "n": 57
       },
       {
         "dim": "structure",
         "value": "short_put_vertical",
-        "multiplier": 1.183,
+        "multiplier": 1.192,
         "recommendation": "favor",
         "n": 74
       },
       {
         "dim": "structure",
         "value": "short_call_vertical",
-        "multiplier": 0.742,
+        "multiplier": 0.728,
         "recommendation": "AVOID (neg expectancy; wr 27% < prior 37%)",
-        "n": 29
+        "n": 30
       },
       {
         "dim": "cluster",
@@ -158,40 +68,40 @@
       {
         "dim": "cluster",
         "value": "us_tech",
-        "multiplier": 0.753,
-        "recommendation": "AVOID (neg expectancy; wr 28% < prior 37%)",
-        "n": 50
+        "multiplier": 0.746,
+        "recommendation": "AVOID (neg expectancy; wr 27% < prior 37%)",
+        "n": 51
       },
       {
         "dim": "size",
         "value": "2x",
-        "multiplier": 1.011,
+        "multiplier": 1.017,
         "recommendation": "neutral",
         "n": 24
       },
       {
         "dim": "size",
         "value": "1x",
-        "multiplier": 1.177,
+        "multiplier": 1.169,
         "recommendation": "favor",
-        "n": 56
+        "n": 57
       }
     ]
   },
   "agent": {
-    "generated_at": "2026-11-27T12:49:58.587486+00:00",
-    "model": "claude-haiku-4-5",
-    "market_view": "VIX 25.39, elevated regime, -5% day: volatility is rich and premium-selling is well-timed. However, momentum is DOWN, so directional short puts into selling pressure require extra conviction on mean-reversion timing.",
-    "portfolio_note": "Book is small (3 open, -$125 unrealized) and diversified across us_index (2) and us_tech (1); no concentration stress. Adding SLV metals widens diversification beneficially.",
+    "generated_at": "2026-11-27T13:14:47.237304+00:00",
+    "model": "kimi-k3",
+    "market_view": "Risk-off tape: -6% day with VIX 25.2 \u2014 premium is rich, but the move is live and directional, making fresh short-delta premium sells a knife-catch rather than a harvest. Better to let the tape stabilize before adding long-delta risk, even in a diversifier like metals.",
+    "portfolio_note": "Book already carries two us_index short-vol positions (SPY, IWM) with slight unrealized loss; in a risk-off liquidation, metals correlate with equities to the downside, so this add is more of the same bet, not diversification.",
     "vol_verdict": "implied_rich",
     "reviewed": 1,
-    "vetoed": 0,
+    "vetoed": 1,
     "downsized": 0,
     "decisions": [
       {
         "id": "SLV|short_put_vertical|33/28",
-        "action": "approve",
-        "reason": "sector_etf, short_put_vertical (favored structure), 34 DTE, IV rank 0.389 implies vol elevated; metals uncorrelated to open book; EV+0.0104, POP 80.4% solid; 2 contracts within caps and size; paper tag appropriate for regime validation; wel"
+        "action": "veto",
+        "reason": "Selling downside puts into an accelerating -6% risk-off day is poor timing; edge is thin (EV/BPR 0.9%, IV rank only 0.39) and silver gaps hard in liquidations \u2014 wait for stabilization."
       }
     ]
   },
@@ -211,15 +121,15 @@
       "fees_est": 3.0,
       "bpr": 431.0,
       "max_loss": 431.0,
-      "pop": 0.804,
-      "short_delta": 0.147,
+      "pop": 0.8,
+      "short_delta": 0.15,
       "short_spread_pct": 0.057,
       "credit_to_bpr": 0.16,
-      "ev_per_contract": 4.47,
-      "ev_on_bpr": 0.0104,
+      "ev_per_contract": 3.96,
+      "ev_on_bpr": 0.0092,
       "iv": 0.6289,
       "iv_rank": 0.389,
-      "underlying_price": 39.62,
+      "underlying_price": 39.52,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -229,72 +139,25 @@
       "bpr_total": 862.0,
       "trend": "bearish",
       "sized_capped": true,
-      "reasoning": "short put vertical 33/28p \u00d72 \u2014 rich premium. Edge: IV rank 39%, EV $+4/ctr (+1.0% on BPR). POP 80% \u00b7 credit $0.69 \u00b7 max loss $431 \u00b7 BPR $862 \u00b7 34 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
-      "learn_multiplier": 1.183,
+      "reasoning": "short put vertical 33/28p \u00d72 \u2014 rich premium. Edge: IV rank 39%, EV $+4/ctr (+0.9% on BPR). POP 80% \u00b7 credit $0.69 \u00b7 max loss $431 \u00b7 BPR $862 \u00b7 34 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 1.192,
       "learn_notes": [
-        "structure=short_put_vertical \u00d71.18"
+        "structure=short_put_vertical \u00d71.19"
       ],
-      "rank_score": 0.012303,
-      "agent_action": "approve",
-      "agent_reason": "sector_etf, short_put_vertical (favored structure), 34 DTE, IV rank 0.389 implies vol elevated; metals uncorrelated to open book; EV+0.0104, POP 80.4% solid; 2 contracts within caps and size; paper tag appropriate for regime validation; wel",
-      "agent_reviewed": true,
-      "news_risk": {
-        "level": "clear",
-        "hits": []
-      },
-      "net_liq": 4719.495,
-      "ticket": {
-        "underlying": "SLV",
-        "code": "VP",
-        "order_type": "Net Credit",
-        "limit": 0.69,
-        "contracts": 2,
-        "expiry": "2026-12-31",
-        "legs": [
-          {
-            "action": "SELL",
-            "qty": 2,
-            "expiry": "2026-12-31",
-            "strike": 33.0,
-            "type": "P"
-          },
-          {
-            "action": "BUY",
-            "qty": 2,
-            "expiry": "2026-12-31",
-            "strike": 28.0,
-            "type": "P"
-          }
-        ],
-        "credit_total": 138.0,
-        "max_loss_total": 862.0,
-        "bpr_total": 862.0,
-        "pop": 0.804,
-        "tag": "paper",
-        "manage": {
-          "profit_target_pct": 50,
-          "close_debit": 0.34,
-          "stop_debit": 1.72,
-          "exit_dte": 21
-        },
-        "fits_live_cap": true,
-        "live_cap": 471.95,
-        "suggested_width": null,
-        "fit_note": "",
-        "text": "SLV VP \u00d72 \u2014 SELL 33P / BUY 28P (2026-12-31) @ $0.69 net credit. Max loss $862. After fill: GTC buy-to-close @ $0.34 (50%)."
-      },
-      "posted_at": "2026-11-27T12:49:58.827189+00:00"
+      "rank_score": 0.010966,
+      "agent_action": "veto",
+      "agent_reason": "Selling downside puts into an accelerating -6% risk-off day is poor timing; edge is thin (EV/BPR 0.9%, IV rank only 0.39) and silver gaps hard in liquidations \u2014 wait for stabilization."
     }
   ],
   "skipped": {
-    "SPY": "failed: pv: spread short 25%/long 19%",
-    "IWM": "failed: pv: credit/width 0.03 < 0.10",
+    "SPY": "failed: pv: exec credit -0.15 <= 0",
+    "IWM": "failed: pv: credit/width 0.04 < 0.10",
     "DIA": "failed: pv: credit/width 0.04 < 0.10",
-    "QQQ": "failed: pv: credit/width 0.04 < 0.10",
-    "XLE": "failed: pv: spread short 64%/long 159%",
+    "QQQ": "failed: pv: credit/width 0.03 < 0.10",
+    "XLE": "failed: pv: no/invalid leg quote",
     "XLF": "failed: pv: no/invalid leg quote",
     "XLV": "failed: pv: no/invalid leg quote",
     "XLI": "failed: pv: no/invalid leg quote",
-    "TSLA": "failed: pv: spread short 64%/long 18%"
+    "TSLA": "failed: pv: spread short 62%/long 18%"
   }
 }
