@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-27T14:27:30.745018+00:00",
-  "market_view": "VIX at 25.57 in risk-off regime but cooling (-18.51% 5d); tech continues to drag (-6.95% XLK 5d, QQQ -5.54% 5d) while defensives and financials rotate positive. Market closes early today (US Thanksgiving Friday half-session) \u2014 liquidity is effectively done, wide bid-ask spreads will punish any fills attempted now.",
+  "last_run": "2026-11-27T14:37:17.122529+00:00",
+  "market_view": "VIX at 25.93 still elevated but down 17.4% over 5 days \u2014 IV contraction is working in our favor on the put spreads. Broad market up ~1% today with risk-on breadth, but regime still tagged risk-off; half-session liquidity conditions persist.",
   "SPY 675/665p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-11-27T14:27:16.324643+00:00",
-    "reasoning": "Dual SPY exposure ($1,742 combined BPR, 36.7% of net liq) violates diversification rules; this position plus SPY 670/660p is concentrated risk heading into a 3-day weekend with no ability to manage. Mid at $1.01 is 26.8% profit \u2014 not at target, but portfolio risk management requires closing one leg before Monday open."
+    "timestamp": "2026-11-27T14:37:03.499320+00:00",
+    "reasoning": "LAST cycle flagged this as CRITICAL for closure \u2014 dual SPY exposure ($1,742 combined BPR, 36.5% of net liq) still violates diversification rules heading into a 3-day weekend. Mid at $1.065 is 22.8% profit, not at 50% target but concentration risk overrides; this was actionable 10 minutes ago and is still open."
   },
   "SPY 670/660p": {
     "action": "HOLD",
     "confidence": 0.82,
-    "timestamp": "2026-11-27T14:27:16.324643+00:00",
-    "reasoning": "SPY is 6.65% above the 670 short strike with solid buffer; mid at $1.675 represents 39.6% unrealized loss but worst-case at $2.88 is still inside the 1.5x stop of $1.80 on mid basis \u2014 hold pending closure of the 675/665p first to restore clean single-name exposure."
+    "timestamp": "2026-11-27T14:37:03.499320+00:00",
+    "reasoning": "SPY is 7.4% above the 670 short strike; mid at $1.05 is 12.5% profit, not yet at 50% target but position is healthy with ample buffer \u2014 hold as the surviving SPY leg once the 675/665p is closed."
   },
   "QQQ 690/698c": {
     "action": "WATCH",
-    "confidence": 0.85,
-    "timestamp": "2026-11-27T14:27:16.324643+00:00",
-    "reasoning": "Mid at $0.995 is now 22.3% profit (improving from last cycle's loss), QQQ remains 8.8% below the 690 short call strike \u2014 no directional threat but QQQ's -5.54% 5d weakness bears watching Monday open in case tech selloff accelerates toward the short strike."
+    "confidence": 0.8,
+    "timestamp": "2026-11-27T14:37:03.499320+00:00",
+    "reasoning": "Mid at $1.335 is now a small unrealized loss vs $1.28 credit received; QQQ rallied 1.24% today which pressures this short call spread slightly, but QQQ at $641.81 is still 7.5% below the 690 short strike \u2014 no breach risk today, but monitor Monday open if tech momentum continues."
   }
 }
