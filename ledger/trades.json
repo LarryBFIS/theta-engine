@@ -3404,8 +3404,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 37.74,
-      "cost_to_close_mid": 98.0,
+      "unrealized_pnl": 36.24,
+      "cost_to_close_mid": 99.5,
       "structure": "short_put_vertical",
       "short_strike": 675.0,
       "long_strike": 665.0,
@@ -3450,8 +3450,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": 29.24,
-      "cost_to_close_mid": 88.5,
+      "unrealized_pnl": 30.24,
+      "cost_to_close_mid": 87.5,
       "structure": "short_put_vertical",
       "short_strike": 670.0,
       "long_strike": 660.0,
@@ -3496,8 +3496,8 @@
       "closed_at": null,
       "status": "open",
       "realized_pnl": null,
-      "unrealized_pnl": -12.75,
-      "cost_to_close_mid": 138.5,
+      "unrealized_pnl": -13.75,
+      "cost_to_close_mid": 139.5,
       "structure": "short_call_vertical",
       "short_strike": 690.0,
       "long_strike": 698.0,
@@ -3509,6 +3509,43 @@
       "max_profit_total": 128.0,
       "max_loss_total": 672.0,
       "bpr_total": 672.0
+    },
+    {
+      "id": "ledger_055_nvda",
+      "underlying": "NVDA",
+      "opened_at": "2026-11-27",
+      "open_order_id": "531069117",
+      "open_net_cash": -1026.12,
+      "open_legs": [
+        {
+          "symbol": "NVDA  261218P00148000",
+          "action": "Buy to Open",
+          "quantity": 1.0,
+          "price": 10.25,
+          "net_cash": -1026.12,
+          "fees": 1.12,
+          "executed_at": "2026-11-27T16:22:06.743Z"
+        }
+      ],
+      "close_orders": [
+        "531073306"
+      ],
+      "close_net_cash": 989.85,
+      "close_legs": [
+        {
+          "symbol": "NVDA  261218P00148000",
+          "action": "Sell to Close",
+          "quantity": 1.0,
+          "price": 9.9,
+          "net_cash": 989.85,
+          "fees": 0.15,
+          "executed_at": "2026-11-27T16:26:09.417Z"
+        }
+      ],
+      "closed_at": "2026-11-27",
+      "status": "closed",
+      "unrealized_pnl": null,
+      "realized_pnl": -36.27
     }
   ]
 }
