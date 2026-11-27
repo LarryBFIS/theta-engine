@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T19:46:17.941211+00:00",
+  "generated_at": "2026-11-27T19:49:37.704546+00:00",
   "regime": {
     "vix": 23.81,
     "vix_day_change_pct": -0.1116,
@@ -37,11 +37,11 @@
       "short_delta": 0.18,
       "short_spread_pct": 0.019,
       "credit_to_bpr": 0.122,
-      "ev_per_contract": 6.85,
-      "ev_on_bpr": 0.0085,
+      "ev_per_contract": 6.86,
+      "ev_on_bpr": 0.0086,
       "iv": 0.2371,
       "iv_rank": 0.529,
-      "underlying_price": 728.9,
+      "underlying_price": 728.91,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -58,15 +58,15 @@
         "cluster=us_index \u00d71.50",
         "structure=short_put_vertical \u00d71.19"
       ],
-      "rank_score": 0.0136,
+      "rank_score": 0.01376,
       "agent_action": "approve",
-      "agent_reason": "Favor broad-index short puts in rich vol, BUT we already own IWM put vertical in same cluster (us_index \u00d7 2 open); adding 1 SPY put keeps us at 3-of-3 cluster cap without over-concentration. Approve at 1 contract (not 2).",
+      "agent_reason": "Favor the structure and asset class, but we already have SPY + IWM open in us_index cluster (2/3 cap); 1 contract keeps us at the edge without oversizing a correlated long-vol hedge into a down day.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
         "hits": []
       },
-      "net_liq": 4739.638,
+      "net_liq": 4739.588,
       "ticket": {
         "underlying": "SPY",
         "code": "VP",
@@ -107,7 +107,98 @@
         "fit_note": "\u26a0 max loss $802 > 10% live cap ($474) \u2014 narrow to ~5-wide for live, or keep on paper.",
         "text": "SPY VP \u00d71 \u2014 SELL 684P / BUY 675P (2026-12-31) @ $0.98 net credit. Max loss $802. After fill: GTC buy-to-close @ $0.49 (50%). \u26a0 max loss $802 > 10% live cap ($474) \u2014 narrow to ~5-wide for live, or keep on paper."
       },
-      "posted_at": "2026-11-27T19:46:17.941211+00:00"
+      "posted_at": "2026-11-27T19:49:37.704546+00:00"
+    },
+    {
+      "underlying": "IWM",
+      "structure": "short_put_vertical",
+      "expiry": "2026-12-31",
+      "dte": 34,
+      "short_strike": 255.0,
+      "long_strike": 250.0,
+      "short_symbol": "IWM   261231P00255000",
+      "long_symbol": "IWM   261231P00250000",
+      "width": 5.0,
+      "credit": 0.56,
+      "mid_credit": 0.63,
+      "fees_est": 3.0,
+      "bpr": 444.0,
+      "max_loss": 444.0,
+      "pop": 0.806,
+      "short_delta": 0.173,
+      "short_spread_pct": 0.028,
+      "credit_to_bpr": 0.126,
+      "ev_per_contract": 3.24,
+      "ev_on_bpr": 0.0073,
+      "iv": 0.2638,
+      "iv_rank": 0.447,
+      "underlying_price": 274.22,
+      "liquidity": 4,
+      "earnings_date": null,
+      "tag": "paper",
+      "sized_for": "paper",
+      "contracts": 1,
+      "max_loss_total": 444.0,
+      "bpr_total": 444.0,
+      "trend": "mixed",
+      "sized_capped": true,
+      "reasoning": "short put vertical 255/250p \u00d72 \u2014 rich premium. Edge: IV rank 45%, EV $+3/ctr (+0.7% on BPR). POP 81% \u00b7 credit $0.56 \u00b7 max loss $444 \u00b7 BPR $888 \u00b7 34 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "learn_multiplier": 1.6,
+      "learn_notes": [
+        "asset_class=index_etf \u00d71.39",
+        "cluster=us_index \u00d71.50",
+        "structure=short_put_vertical \u00d71.19"
+      ],
+      "rank_score": 0.01168,
+      "agent_action": "downsize",
+      "agent_reason": "Solid structure and asset class, but 2 contracts + existing IWM position + SPY would breach us_index cluster concentration (3/3) with high correlation; reduce to 1 to stay diversified.",
+      "agent_reviewed": true,
+      "news_risk": {
+        "level": "clear",
+        "hits": []
+      },
+      "net_liq": 4739.588,
+      "ticket": {
+        "underlying": "IWM",
+        "code": "VP",
+        "order_type": "Net Credit",
+        "limit": 0.56,
+        "contracts": 1,
+        "expiry": "2026-12-31",
+        "legs": [
+          {
+            "action": "SELL",
+            "qty": 1,
+            "expiry": "2026-12-31",
+            "strike": 255.0,
+            "type": "P"
+          },
+          {
+            "action": "BUY",
+            "qty": 1,
+            "expiry": "2026-12-31",
+            "strike": 250.0,
+            "type": "P"
+          }
+        ],
+        "credit_total": 56.0,
+        "max_loss_total": 444.0,
+        "bpr_total": 444.0,
+        "pop": 0.806,
+        "tag": "paper",
+        "manage": {
+          "profit_target_pct": 50,
+          "close_debit": 0.28,
+          "stop_debit": 1.4,
+          "exit_dte": 21
+        },
+        "fits_live_cap": true,
+        "live_cap": 473.96,
+        "suggested_width": null,
+        "fit_note": "",
+        "text": "IWM VP \u00d71 \u2014 SELL 255P / BUY 250P (2026-12-31) @ $0.56 net credit. Max loss $444. After fill: GTC buy-to-close @ $0.28 (50%)."
+      },
+      "posted_at": "2026-11-27T19:49:37.704546+00:00"
     },
     {
       "underlying": "QQQ",
@@ -128,11 +219,11 @@
       "short_delta": 0.229,
       "short_spread_pct": 0.053,
       "credit_to_bpr": 0.127,
-      "ev_per_contract": 6.16,
-      "ev_on_bpr": 0.0087,
+      "ev_per_contract": 6.13,
+      "ev_on_bpr": 0.0086,
       "iv": 0.3359,
       "iv_rank": 0.664,
-      "underlying_price": 649.92,
+      "underlying_price": 649.95,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -149,9 +240,9 @@
         "cluster=us_tech \u00d70.74",
         "structure=short_call_vertical \u00d70.72"
       ],
-      "rank_score": 0.00348,
+      "rank_score": 0.00344,
       "agent_action": "guarded",
-      "agent_reason": "Short-call-vertical historical win rate 27% (< 37% book avg); single-name QQQ (not ETF broad index); selling calls into a -11% down tape + elevated vol is poor timing (should sell puts into weakness, not calls into rips). Already have 1 ope",
+      "agent_reason": "Cluster learnings show us_tech 27% win rate (vs 37% book avg); single-name short calls are neg-expectancy; we already own QQQ; and selling calls into a rip-bounce on an elevated-vol day is poor timing despite rich IV.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -159,7 +250,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 4739.638,
+      "net_liq": 4739.588,
       "ticket": {
         "underlying": "QQQ",
         "code": "VC",
@@ -200,7 +291,7 @@
         "fit_note": "\u26a0 max loss $710 > 10% live cap ($474) \u2014 narrow to ~5-wide for live, or keep on paper.",
         "text": "QQQ VC \u00d71 \u2014 SELL 705C / BUY 713C (2026-12-31) @ $0.90 net credit. Max loss $710. After fill: GTC buy-to-close @ $0.45 (50%). \u26a0 max loss $710 > 10% live cap ($474) \u2014 narrow to ~5-wide for live, or keep on paper."
       },
-      "posted_at": "2026-11-27T19:46:17.941211+00:00"
+      "posted_at": "2026-11-27T19:49:37.704546+00:00"
     }
   ],
   "long_vol": [],
@@ -274,29 +365,31 @@
     ]
   },
   "agent": {
-    "generated_at": "2026-11-27T19:46:17.403746+00:00",
+    "generated_at": "2026-11-27T19:49:37.246641+00:00",
     "model": "claude-haiku-4-5",
-    "market_view": "VIX 23.81, elevated regime post -11% day: premium is rich and the tape is in defensive mode. This is an ideal window for SHORT PREMIUM, but timing matters \u2014 we're in a pullback, not a rip; adding directional short calls into tech weakness is poorly timed. Favor puts on broad index; avoid calls into a sell-off.",
-    "portfolio_note": "Book open 3 (QQQ, SPY, IWM all us_index/us_tech), unrealized -30. Already have SPY + IWM puts live; adding more us_index concentration risks correlation blow-up if tape reverses.",
+    "market_view": "VIX 23.81, elevated regime post -11% day \u2014 vol is rich and premium selling is tactically sound NOW. However, we're in a risk-off tape; adding directional short calls into tech strength or concentrating further in us_index during stress is poorly timed despite rich IV.",
+    "portfolio_note": "Book is -$30 unrealized across 3 names (QQQ, SPY, IWM), all index/tech. We already have full cluster exposure (us_tech: 1, us_index: 2). Adding 3 more positions risks high correlation bleed into further selloff.",
     "vol_verdict": "implied_rich",
     "reviewed": 3,
-    "vetoed": 2,
-    "downsized": 0,
+    "vetoed": 1,
+    "downsized": 1,
     "decisions": [
       {
         "id": "SPY|short_put_vertical|684/675",
         "action": "approve",
-        "reason": "Favor broad-index short puts in rich vol, BUT we already own IWM put vertical in same cluster (us_index \u00d7 2 open); adding 1 SPY put keeps us at 3-of-3 cluster cap without over-concentration. Approve at 1 contract (not 2)."
+        "reason": "Favor the structure and asset class, but we already have SPY + IWM open in us_index cluster (2/3 cap); 1 contract keeps us at the edge without oversizing a correlated long-vol hedge into a down day."
       },
       {
         "id": "IWM|short_put_vertical|255/250",
-        "action": "veto",
-        "reason": "2 contracts + existing IWM position + existing SPY position = 3 open in us_index cluster already at capacity; this stacks correlated puts into the same tape direction (index defense). Do not add."
+        "action": "downsize",
+        "from": 2,
+        "to": 1,
+        "reason": "Solid structure and asset class, but 2 contracts + existing IWM position + SPY would breach us_index cluster concentration (3/3) with high correlation; reduce to 1 to stay diversified."
       },
       {
         "id": "QQQ|short_call_vertical|705/713",
         "action": "veto",
-        "reason": "Short-call-vertical historical win rate 27% (< 37% book avg); single-name QQQ (not ETF broad index); selling calls into a -11% down tape + elevated vol is poor timing (should sell puts into weakness, not calls into rips). Already have 1 ope"
+        "reason": "Cluster learnings show us_tech 27% win rate (vs 37% book avg); single-name short calls are neg-expectancy; we already own QQQ; and selling calls into a rip-bounce on an elevated-vol day is poor timing despite rich IV."
       }
     ]
   },
@@ -320,11 +413,11 @@
       "short_delta": 0.18,
       "short_spread_pct": 0.019,
       "credit_to_bpr": 0.122,
-      "ev_per_contract": 6.85,
-      "ev_on_bpr": 0.0085,
+      "ev_per_contract": 6.86,
+      "ev_on_bpr": 0.0086,
       "iv": 0.2371,
       "iv_rank": 0.529,
-      "underlying_price": 728.9,
+      "underlying_price": 728.91,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -341,15 +434,15 @@
         "cluster=us_index \u00d71.50",
         "structure=short_put_vertical \u00d71.19"
       ],
-      "rank_score": 0.0136,
+      "rank_score": 0.01376,
       "agent_action": "approve",
-      "agent_reason": "Favor broad-index short puts in rich vol, BUT we already own IWM put vertical in same cluster (us_index \u00d7 2 open); adding 1 SPY put keeps us at 3-of-3 cluster cap without over-concentration. Approve at 1 contract (not 2).",
+      "agent_reason": "Favor the structure and asset class, but we already have SPY + IWM open in us_index cluster (2/3 cap); 1 contract keeps us at the edge without oversizing a correlated long-vol hedge into a down day.",
       "agent_reviewed": true,
       "news_risk": {
         "level": "clear",
         "hits": []
       },
-      "net_liq": 4739.638,
+      "net_liq": 4739.588,
       "ticket": {
         "underlying": "SPY",
         "code": "VP",
@@ -390,7 +483,7 @@
         "fit_note": "\u26a0 max loss $802 > 10% live cap ($474) \u2014 narrow to ~5-wide for live, or keep on paper.",
         "text": "SPY VP \u00d71 \u2014 SELL 684P / BUY 675P (2026-12-31) @ $0.98 net credit. Max loss $802. After fill: GTC buy-to-close @ $0.49 (50%). \u26a0 max loss $802 > 10% live cap ($474) \u2014 narrow to ~5-wide for live, or keep on paper."
       },
-      "posted_at": "2026-11-27T19:46:17.941211+00:00"
+      "posted_at": "2026-11-27T19:49:37.704546+00:00"
     },
     {
       "underlying": "IWM",
@@ -407,34 +500,81 @@
       "fees_est": 3.0,
       "bpr": 444.0,
       "max_loss": 444.0,
-      "pop": 0.804,
-      "short_delta": 0.175,
+      "pop": 0.806,
+      "short_delta": 0.173,
       "short_spread_pct": 0.028,
       "credit_to_bpr": 0.126,
-      "ev_per_contract": 3.02,
-      "ev_on_bpr": 0.0068,
+      "ev_per_contract": 3.24,
+      "ev_on_bpr": 0.0073,
       "iv": 0.2638,
       "iv_rank": 0.447,
-      "underlying_price": 274.06,
+      "underlying_price": 274.22,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
       "sized_for": "paper",
-      "contracts": 2,
-      "max_loss_total": 888.0,
-      "bpr_total": 888.0,
+      "contracts": 1,
+      "max_loss_total": 444.0,
+      "bpr_total": 444.0,
       "trend": "mixed",
       "sized_capped": true,
-      "reasoning": "short put vertical 255/250p \u00d72 \u2014 rich premium. Edge: IV rank 45%, EV $+3/ctr (+0.7% on BPR). POP 80% \u00b7 credit $0.56 \u00b7 max loss $444 \u00b7 BPR $888 \u00b7 34 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
+      "reasoning": "short put vertical 255/250p \u00d72 \u2014 rich premium. Edge: IV rank 45%, EV $+3/ctr (+0.7% on BPR). POP 81% \u00b7 credit $0.56 \u00b7 max loss $444 \u00b7 BPR $888 \u00b7 34 DTE. Manage: take 50% / cut 1.5\u00d7 / exit 21 DTE / no earnings.",
       "learn_multiplier": 1.6,
       "learn_notes": [
         "asset_class=index_etf \u00d71.39",
         "cluster=us_index \u00d71.50",
         "structure=short_put_vertical \u00d71.19"
       ],
-      "rank_score": 0.01088,
-      "agent_action": "veto",
-      "agent_reason": "2 contracts + existing IWM position + existing SPY position = 3 open in us_index cluster already at capacity; this stacks correlated puts into the same tape direction (index defense). Do not add."
+      "rank_score": 0.01168,
+      "agent_action": "downsize",
+      "agent_reason": "Solid structure and asset class, but 2 contracts + existing IWM position + SPY would breach us_index cluster concentration (3/3) with high correlation; reduce to 1 to stay diversified.",
+      "agent_reviewed": true,
+      "news_risk": {
+        "level": "clear",
+        "hits": []
+      },
+      "net_liq": 4739.588,
+      "ticket": {
+        "underlying": "IWM",
+        "code": "VP",
+        "order_type": "Net Credit",
+        "limit": 0.56,
+        "contracts": 1,
+        "expiry": "2026-12-31",
+        "legs": [
+          {
+            "action": "SELL",
+            "qty": 1,
+            "expiry": "2026-12-31",
+            "strike": 255.0,
+            "type": "P"
+          },
+          {
+            "action": "BUY",
+            "qty": 1,
+            "expiry": "2026-12-31",
+            "strike": 250.0,
+            "type": "P"
+          }
+        ],
+        "credit_total": 56.0,
+        "max_loss_total": 444.0,
+        "bpr_total": 444.0,
+        "pop": 0.806,
+        "tag": "paper",
+        "manage": {
+          "profit_target_pct": 50,
+          "close_debit": 0.28,
+          "stop_debit": 1.4,
+          "exit_dte": 21
+        },
+        "fits_live_cap": true,
+        "live_cap": 473.96,
+        "suggested_width": null,
+        "fit_note": "",
+        "text": "IWM VP \u00d71 \u2014 SELL 255P / BUY 250P (2026-12-31) @ $0.56 net credit. Max loss $444. After fill: GTC buy-to-close @ $0.28 (50%)."
+      },
+      "posted_at": "2026-11-27T19:49:37.704546+00:00"
     },
     {
       "underlying": "QQQ",
@@ -455,11 +595,11 @@
       "short_delta": 0.229,
       "short_spread_pct": 0.053,
       "credit_to_bpr": 0.127,
-      "ev_per_contract": 6.16,
-      "ev_on_bpr": 0.0087,
+      "ev_per_contract": 6.13,
+      "ev_on_bpr": 0.0086,
       "iv": 0.3359,
       "iv_rank": 0.664,
-      "underlying_price": 649.92,
+      "underlying_price": 649.95,
       "liquidity": 4,
       "earnings_date": null,
       "tag": "paper",
@@ -476,9 +616,9 @@
         "cluster=us_tech \u00d70.74",
         "structure=short_call_vertical \u00d70.72"
       ],
-      "rank_score": 0.00348,
+      "rank_score": 0.00344,
       "agent_action": "guarded",
-      "agent_reason": "Short-call-vertical historical win rate 27% (< 37% book avg); single-name QQQ (not ETF broad index); selling calls into a -11% down tape + elevated vol is poor timing (should sell puts into weakness, not calls into rips). Already have 1 ope",
+      "agent_reason": "Cluster learnings show us_tech 27% win rate (vs 37% book avg); single-name short calls are neg-expectancy; we already own QQQ; and selling calls into a rip-bounce on an elevated-vol day is poor timing despite rich IV.",
       "guarded_warn": true,
       "demoted": "guarded \u2014 surfaced with a caution, paper only",
       "agent_reviewed": true,
@@ -486,7 +626,7 @@
         "level": "clear",
         "hits": []
       },
-      "net_liq": 4739.638,
+      "net_liq": 4739.588,
       "ticket": {
         "underlying": "QQQ",
         "code": "VC",
@@ -527,7 +667,7 @@
         "fit_note": "\u26a0 max loss $710 > 10% live cap ($474) \u2014 narrow to ~5-wide for live, or keep on paper.",
         "text": "QQQ VC \u00d71 \u2014 SELL 705C / BUY 713C (2026-12-31) @ $0.90 net credit. Max loss $710. After fill: GTC buy-to-close @ $0.45 (50%). \u26a0 max loss $710 > 10% live cap ($474) \u2014 narrow to ~5-wide for live, or keep on paper."
       },
-      "posted_at": "2026-11-27T19:46:17.941211+00:00"
+      "posted_at": "2026-11-27T19:49:37.704546+00:00"
     }
   ],
   "skipped": {
