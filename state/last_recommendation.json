@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-27T15:37:28.417001+00:00",
-  "market_view": "Broad tape green into what looks like a shortened pre-holiday close \u2014 SPY +1.09%, VIX -0.3% to 26.72, still elevated. 3-day weekend gap risk remains the dominant concern with risk_off regime still tagged; nothing has changed structurally since last cycle.",
+  "last_run": "2026-11-27T15:45:07.921897+00:00",
+  "market_view": "Broad tape still green into close \u2014 SPY +1.24%, VIX at 26.42 down marginally but risk_off regime still tagged. 3-day Thanksgiving weekend gap risk is the dominant structural concern; session end is imminent.",
   "SPY 675/665p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-11-27T15:37:16Z",
-    "reasoning": "CRITICAL issued 12 minutes ago is still live \u2014 mid at $1.06 is 23% profit, not 50%, but dual SPY put verticals = $1,742 combined BPR (36.6% net liq), 3-day weekend gap risk with VIX at 26.72, and market_regime still risk_off. This needs to close before session end today."
+    "timestamp": "2026-11-27T15:44:54Z",
+    "reasoning": "CRITICAL remains live from prior cycle \u2014 dual SPY put verticals represent $1,742 combined BPR (36.5% net liq) with 26 DTE and a 3-day weekend ahead under VIX 26.42 risk_off regime. Mid at $1.00 is only 28% profit, not at 50% target, but weekend gap risk justifies closing before session end regardless."
   },
   "SPY 670/660p": {
-    "action": "WATCH",
-    "confidence": 0.75,
-    "timestamp": "2026-11-27T15:37:16Z",
-    "reasoning": "SPY at $724.50 is 8.1% above 670 short strike \u2014 no breach risk. Mid at $0.925 is 23% profit, not at 50% target. If 675/665p closes, this single-leg SPY exposure is manageable but still carries weekend gap risk."
+    "action": "ACTION",
+    "confidence": 0.85,
+    "timestamp": "2026-11-27T15:44:54Z",
+    "reasoning": "With 675/665p closing, this position remains as a standalone SPY put vertical with $880 BPR and 26 DTE into a 3-day weekend under risk_off \u2014 combined weekend gap exposure from holding both SPY legs is unacceptable for a $4,770 account. Mid at $0.89 is 26% profit, not at target, but risk management overrides."
   },
   "QQQ 690/698c": {
     "action": "WATCH",
     "confidence": 0.72,
-    "timestamp": "2026-11-27T15:37:16Z",
-    "reasoning": "QQQ at $644.26 sits 7.1% below 690 short call \u2014 no breach risk. Mid at $1.38 is above entry credit $1.28, technically a small loser but nowhere near 1.5x loss trigger at $1.92. QQQ +1.63% today; if tech continues Monday, 690 distance compresses fast."
+    "timestamp": "2026-11-27T15:44:54Z",
+    "reasoning": "QQQ at $645.28 sits 6.9% below 690 short call \u2014 no breach risk. Mid at $1.435 is a small loser vs $1.28 credit but nowhere near 1.5x loss trigger at $1.92. QQQ +1.79% today compresses distance but 690 is still comfortably OTM over a 3-day weekend on the call side."
   }
 }
