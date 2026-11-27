@@ -5812,7 +5812,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 30.67 in stress regime with +8% intraday rally; tape is sharp and reversions are untrustworthy. Selling premium into a rip after vol shock is poorly timed even if IV rank is rich.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-27",
+      "actual_price": 728.07,
+      "realized_move_pct": 0.0262,
+      "realized_move_signed": 0.0262,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "e2eadf3af2e9",
@@ -5827,7 +5833,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 30.67 in stress regime with +8% intraday rally; tape is sharp and reversions are untrustworthy. Selling premium into a rip after vol shock is poorly timed even if IV rank is rich.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-27",
+      "actual_price": 647.86,
+      "realized_move_pct": 0.0223,
+      "realized_move_signed": 0.0223,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "d65e5d8baa65",
@@ -5842,7 +5854,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 30.67 in stress regime with +8% intraday rally; tape is sharp and reversions are untrustworthy. Selling premium into a rip after vol shock is poorly timed even if IV rank is rich.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-27",
+      "actual_price": 272.63,
+      "realized_move_pct": 0.0345,
+      "realized_move_signed": 0.0345,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "c6d904e8aef3",
@@ -5857,7 +5875,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 30.67 in stress regime with +8% intraday rally; tape is sharp and reversions are untrustworthy. Selling premium into a rip after vol shock is poorly timed even if IV rank is rich.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-27",
+      "actual_price": 507.76,
+      "realized_move_pct": 0.0387,
+      "realized_move_signed": 0.0387,
+      "stayed_in_range": false,
+      "vol_call_correct": false
     },
     {
       "id": "3d906e35f969",
@@ -5872,7 +5896,13 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 30.67 in stress regime with +8% intraday rally; tape is sharp and reversions are untrustworthy. Selling premium into a rip after vol shock is poorly timed even if IV rank is rich.",
-      "resolved": false
+      "resolved": true,
+      "resolved_at": "2026-11-27",
+      "actual_price": 389.3,
+      "realized_move_pct": 0.0616,
+      "realized_move_signed": 0.0616,
+      "stayed_in_range": true,
+      "vol_call_correct": true
     },
     {
       "id": "e65ad5537f08",
@@ -6172,6 +6202,81 @@
       "model": "claude-haiku-4-5",
       "vol_verdict": "implied_rich",
       "market_view": "VIX 26.94, elevated regime, -5% day: vol is rich and tape is choppy/down. This is a GOOD environment to sell premium into, but timing matters\u2014we're in an active selloff, so short calls into upside rallies and short puts into further weakness are both risky. Favor defensive, wide-",
+      "resolved": false
+    },
+    {
+      "id": "868a6c91e477",
+      "index": "SPY",
+      "forecast_date": "2026-11-27",
+      "target_date": "2026-12-04",
+      "horizon_days": 7,
+      "spot_at_forecast": 728.07,
+      "iv": 0.2671,
+      "implied_move_pct": 0.037,
+      "implied_move_abs": 26.93,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 25.39, elevated regime, -5% day: volatility is rich and premium-selling is well-timed. However, momentum is DOWN, so directional short puts into selling pressure require extra conviction on mean-reversion timing.",
+      "resolved": false
+    },
+    {
+      "id": "d5a2898e93b7",
+      "index": "QQQ",
+      "forecast_date": "2026-11-27",
+      "target_date": "2026-12-04",
+      "horizon_days": 7,
+      "spot_at_forecast": 647.86,
+      "iv": 0.3754,
+      "implied_move_pct": 0.052,
+      "implied_move_abs": 33.68,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 25.39, elevated regime, -5% day: volatility is rich and premium-selling is well-timed. However, momentum is DOWN, so directional short puts into selling pressure require extra conviction on mean-reversion timing.",
+      "resolved": false
+    },
+    {
+      "id": "25e4a9b0a86f",
+      "index": "IWM",
+      "forecast_date": "2026-11-27",
+      "target_date": "2026-12-04",
+      "horizon_days": 7,
+      "spot_at_forecast": 272.63,
+      "iv": 0.2838,
+      "implied_move_pct": 0.0393,
+      "implied_move_abs": 10.72,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 25.39, elevated regime, -5% day: volatility is rich and premium-selling is well-timed. However, momentum is DOWN, so directional short puts into selling pressure require extra conviction on mean-reversion timing.",
+      "resolved": false
+    },
+    {
+      "id": "f997bac41df8",
+      "index": "DIA",
+      "forecast_date": "2026-11-27",
+      "target_date": "2026-12-04",
+      "horizon_days": 7,
+      "spot_at_forecast": 507.76,
+      "iv": 0.2265,
+      "implied_move_pct": 0.0314,
+      "implied_move_abs": 15.93,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 25.39, elevated regime, -5% day: volatility is rich and premium-selling is well-timed. However, momentum is DOWN, so directional short puts into selling pressure require extra conviction on mean-reversion timing.",
+      "resolved": false
+    },
+    {
+      "id": "ad27d3d31519",
+      "index": "TSLA",
+      "forecast_date": "2026-11-27",
+      "target_date": "2026-12-04",
+      "horizon_days": 7,
+      "spot_at_forecast": 389.3,
+      "iv": 0.6184,
+      "implied_move_pct": 0.0856,
+      "implied_move_abs": 33.34,
+      "model": "claude-haiku-4-5",
+      "vol_verdict": "implied_rich",
+      "market_view": "VIX 25.39, elevated regime, -5% day: volatility is rich and premium-selling is well-timed. However, momentum is DOWN, so directional short puts into selling pressure require extra conviction on mean-reversion timing.",
       "resolved": false
     }
   ]
