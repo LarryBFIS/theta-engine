@@ -1,22 +1,22 @@
 {
-  "last_run": "2026-11-27T15:45:07.921897+00:00",
-  "market_view": "Broad tape still green into close \u2014 SPY +1.24%, VIX at 26.42 down marginally but risk_off regime still tagged. 3-day Thanksgiving weekend gap risk is the dominant structural concern; session end is imminent.",
+  "last_run": "2026-11-27T15:55:01.313219+00:00",
+  "market_view": "SPY +1.15% and VIX now 25.63 (-4.37%) \u2014 tape is green but risk_off regime persists and session end is imminent with a 3-day Thanksgiving weekend ahead. Weekend gap risk on dual SPY put verticals is the only thing that matters right now.",
   "SPY 675/665p": {
     "action": "CRITICAL",
     "confidence": 0.97,
-    "timestamp": "2026-11-27T15:44:54Z",
-    "reasoning": "CRITICAL remains live from prior cycle \u2014 dual SPY put verticals represent $1,742 combined BPR (36.5% net liq) with 26 DTE and a 3-day weekend ahead under VIX 26.42 risk_off regime. Mid at $1.00 is only 28% profit, not at 50% target, but weekend gap risk justifies closing before session end regardless."
+    "timestamp": "2026-11-27T15:54:50Z",
+    "reasoning": "CRITICAL escalated from prior cycle \u2014 3-day weekend gap risk under VIX 25.63 risk_off regime with $862 BPR and 26 DTE is unacceptable exposure for a $4,770 account. Mid at $1.01 is 27% profit, not at 50% target, but weekend gap risk overrides mechanical management rules."
   },
   "SPY 670/660p": {
-    "action": "ACTION",
-    "confidence": 0.85,
-    "timestamp": "2026-11-27T15:44:54Z",
-    "reasoning": "With 675/665p closing, this position remains as a standalone SPY put vertical with $880 BPR and 26 DTE into a 3-day weekend under risk_off \u2014 combined weekend gap exposure from holding both SPY legs is unacceptable for a $4,770 account. Mid at $0.89 is 26% profit, not at target, but risk management overrides."
+    "action": "CRITICAL",
+    "confidence": 0.95,
+    "timestamp": "2026-11-27T15:54:50Z",
+    "reasoning": "Same 3-day weekend gap risk as the 675/665p \u2014 holding both SPY put verticals into a holiday weekend under risk_off is $1,742 combined BPR (36.5% net liq) in correlated directional risk. Mid at $0.895 is 25% profit, not at target, but risk management overrides."
   },
   "QQQ 690/698c": {
     "action": "WATCH",
     "confidence": 0.72,
-    "timestamp": "2026-11-27T15:44:54Z",
-    "reasoning": "QQQ at $645.28 sits 6.9% below 690 short call \u2014 no breach risk. Mid at $1.435 is a small loser vs $1.28 credit but nowhere near 1.5x loss trigger at $1.92. QQQ +1.79% today compresses distance but 690 is still comfortably OTM over a 3-day weekend on the call side."
+    "timestamp": "2026-11-27T15:54:50Z",
+    "reasoning": "QQQ at $644.40 sits 7.0% below the 690 short call \u2014 no breach risk and mid at $1.405 is a small loser vs $1.28 credit but nowhere near 1.5x loss trigger at $1.92. Call side benefits from any weekend drift lower in QQQ."
   }
 }
